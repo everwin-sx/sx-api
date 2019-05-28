@@ -21,13 +21,13 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import com.everwin.open.api.ClientApi;
-import com.everwin.open.api.model.companies.Company;
-import com.everwin.open.api.model.companies.CompanyList;
-import com.everwin.open.api.model.core.DataLink;
-import com.everwin.open.api.services.companies.CompaniesService;
-import com.everwin.open.api.util.Filter;
-import com.everwin.open.api.util.RequestParams;
+import fr.everwin.open.api.ClientApi;
+import fr.everwin.open.api.model.companies.Company;
+import fr.everwin.open.api.model.companies.CompanyList;
+import fr.everwin.open.api.model.core.DataLink;
+import fr.everwin.open.api.services.companies.CompaniesService;
+import fr.everwin.open.api.util.Filter;
+import fr.everwin.open.api.util.RequestParams;
 
 public class ClientAuthTest {
 
