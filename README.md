@@ -8,7 +8,7 @@ This Java library implements the complete functionality of the SX API.
 Jar files are available from Maven Central. To use sx-api you have to include it in your project dependencies :
 ```xml
 <dependency>
-  <groupId>com.everwin.open.api</groupId>
+  <groupId>fr.everwin.open.api</groupId>
   <artifactId>sx-api</artifactId>
   <version>0.1.0</version>
 </dependency>
