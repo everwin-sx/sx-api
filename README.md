@@ -43,7 +43,7 @@ To load a collection of objects, instanciate the appropriate service and call on
 ```java
 try {
     CompaniesService companyService = new CompaniesService(clientApi);
-    CompanyList list = companyService.getCompanies();
+    CompanyList list = companyService.query();
     Company company = list.getItems().get(0);
 } catch (Exception e) {
     e.printStackTrace(System.err);
@@ -56,7 +56,7 @@ To filter a collections of objects, you have to use a RequestParams object which
 ```java
 try {
     CompaniesService companyService = new CompaniesService(clientApi);
-    CompanyList companyList = companyService.getCompanies(new RequestParams.Builder()
+    CompanyList companyList = companyService.query(new RequestParams.Builder()
                                 .sort("code")
                                 .filter(new Filter.Builder()
                                         .like("code", "TEST")
