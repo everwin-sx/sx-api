@@ -22,7 +22,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * Represents a multi currency value. The value can be in management, account or reporting currency
- * @everwin-team
+ * @author everwin-team
  */
 @XmlRootElement(name = "multi-currency")
 @XmlAccessorType(XmlAccessType.FIELD)
