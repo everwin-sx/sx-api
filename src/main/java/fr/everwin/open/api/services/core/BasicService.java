@@ -56,8 +56,8 @@ public class BasicService<O extends BasicObject,L extends BasicList> {
 
     /**
      * Set models class
-     * @param objectClass
-     * @param listClass
+     * @param objectClass The object class
+     * @param listClass The object list class
      */
     public void setModels(Class<O> objectClass, Class<L> listClass){
         this.objectClass = objectClass;
@@ -68,8 +68,8 @@ public class BasicService<O extends BasicObject,L extends BasicList> {
      * Read the response and parse the result as responseClass instance or as an Error instance
      * @param response The Web response
      * @param responseClass The responseClass result
-     * @return
-     * @throws RequestException
+     * @return Typed object instance of BasicObject
+     * @throws RequestException If the response cannot be parsed or if the response is an error
      */
     protected Object readResponse(Response response, Class responseClass) throws RequestException {
         try {
@@ -119,9 +119,9 @@ public class BasicService<O extends BasicObject,L extends BasicList> {
 
     /**
      * Get the object identified by the href uri
-     * @param href
-     * @return
-     * @throws CoreException
+     * @param href The complete url to the object
+     * @return Typed object instance of BasicObject
+     * @throws CoreException If the request failed
      */
     public O get(String href) throws CoreException {
         Response response = clientApi.get(href, null);
@@ -130,9 +130,9 @@ public class BasicService<O extends BasicObject,L extends BasicList> {
 
     /**
      * Get the object identified by the id
-     * @param id
-     * @return
-     * @throws CoreException
+     * @param id The id of the object
+     * @return Typed object instance of BasicObject
+     * @throws CoreException If the request failed
      */
     public O get(long id) throws CoreException {
         return get(path + "/" + id);
@@ -140,8 +140,8 @@ public class BasicService<O extends BasicObject,L extends BasicList> {
 
     /**
      * Get a collection of objects. Only the first page will be returned
-     * @return
-     * @throws CoreException
+     * @return Typed object instance of BasicList
+     * @throws CoreException If the request failed
      */
     public L query() throws CoreException {
         return query(path, null);
@@ -149,11 +149,10 @@ public class BasicService<O extends BasicObject,L extends BasicList> {
 
     /**
      * Get a collection of reponseClass instance
-     * @param href          The full url
-     * @param responseClass
-     * @param params        Extra query params to sort, filter objects
-     * @return
-     * @throws CoreException
+     * @param href The full url
+     * @param params Extra query params to sort, filter objects
+     * @return Typed object instance of BasicList
+     * @throws CoreException If the request failed
      */
     public L query(String href, RequestParams params) throws CoreException {
         Response response = clientApi.get(href, params);
@@ -162,10 +161,9 @@ public class BasicService<O extends BasicObject,L extends BasicList> {
 
     /**
      * Get the reponseClass instance object identified by the full url
-     * @param href          The full url to the object resource
-     * @param responseClass
-     * @return
-     * @throws CoreException
+     * @param href The full url to the object resource
+     * @return Typed object instance of BasicList
+     * @throws CoreException If the request failed
      */
     public L query(String href) throws CoreException {
         return query(href, null);
@@ -173,10 +171,9 @@ public class BasicService<O extends BasicObject,L extends BasicList> {
 
     /**
      * Get a collection of reponseClass instance.
-     * @param responseClass
      * @param params Extra query params to sort, filter objects
-     * @return
-     * @throws CoreException
+     * @return Typed object instance of BasicList
+     * @throws CoreException If the request failed
      */
     public L query(RequestParams params) throws CoreException {
         return query(path, params);
@@ -184,8 +181,8 @@ public class BasicService<O extends BasicObject,L extends BasicList> {
 
     /**
      * Delete the object identified by the given id
-     * @param id
-     * @throws CoreException
+     * @param id The id of the object
+     * @throws CoreException If the request failed
      */
     public void delete(long id) throws CoreException {
         Response response = clientApi.delete(path + "/" + id);
@@ -194,21 +191,20 @@ public class BasicService<O extends BasicObject,L extends BasicList> {
 
     /**
      * Post the given object to the path
-     * @param object
-     * @throws CoreException
+     * @param object The instance of BasicObject to send
+     * @throws CoreException If the request failed
      */
-    public void post(String path, BasicObject object) throws CoreException {
+    public void post(String path, O object) throws CoreException {
         Response response = clientApi.post(path, object);
         readResponse(response, String.class);
     }
 
     /**
      * Create the given object and return the id
-     * @param object
-     * @return long
-     * @throws CoreException
+     * @param object The instance of BasicObject to send
+     * @throws CoreException If the request failed
      */
-    public long post(BasicObject object) throws CoreException {
+    public long post(O object) throws CoreException {
         Response response = clientApi.post(path,object);
         readResponse(response, String.class);
         // extract id from return location
@@ -218,20 +214,18 @@ public class BasicService<O extends BasicObject,L extends BasicList> {
 
     /**
      * Update the given object
-     * @param object
-     * @return long
-     * @throws CoreException
+     * @param object The instance of BasicObject to send
+     * @throws CoreException If the request failed
      */
-    public void put(BasicObject object) throws CoreException {
+    public void put(O object) throws CoreException {
         Response response = clientApi.put(path + "/" + object.getId(), object);
         readResponse(response, String.class);
     }
 
     /**
      * Create an object and return the new id
-     * @param object
-     * @return long
-     * @throws CoreException
+     * @param object The instance of BasicObject to send
+     * @throws CoreException If the request failed
      */
     public long create(O object) throws CoreException {
         return post(object);
@@ -239,8 +233,8 @@ public class BasicService<O extends BasicObject,L extends BasicList> {
 
     /**
      * Update object according to its id. The whole object will be updated and need to be complete
-     * @param object
-     * @throws CoreException
+     * @param object The instance of BasicObject to send
+     * @throws CoreException If the request failed
      */
     public void update(O object) throws CoreException {
         put(object);
@@ -248,8 +242,8 @@ public class BasicService<O extends BasicObject,L extends BasicList> {
 
     /**
      * Update the object from its id. Only present fields in the given object will be updated.
-     * @param object
-     * @throws CoreException
+     * @param object The instance of BasicObject to send
+     * @throws CoreException If the request failed
      */
     public void updatePartially(O object) throws CoreException {
         post(path + "/" + object.getId(), object);

@@ -66,8 +66,8 @@ public class ClientApi {
 
     /**
      * Create a new Client for the given uri and init the client from SSL or NoSSL.
-     * @param uri
-     * @throws CoreException
+     * @param uri The API base uri
+     * @throws CoreException If connection failed
      */
     public ClientApi(String uri) throws CoreException {
         this.uri = uri;
@@ -77,9 +77,9 @@ public class ClientApi {
     /**
      * Create a new Client for the given uri and init the client from SSL or NoSSL.<br>
      * Set the version of the api to request : v1 or v2...
-     * @param uri
-     * @param version
-     * @throws CoreException
+     * @param uri The API base uri
+     * @param version The API version
+     * @throws CoreException If connection failed
      */
     public ClientApi(String uri, String version) throws CoreException {
         this.uri = uri;
@@ -88,7 +88,7 @@ public class ClientApi {
     }
 
     /**
-     * Set authentication informations for Oauth 2
+     * Set authentication informations for OAuth
      * @param clientId The clientId
      * @param password The clientSecret
      */
@@ -99,7 +99,7 @@ public class ClientApi {
 
     /**
      * Set authentication informations for apiKey mode
-     * @param apiKey
+     * @param apiKey The API key uses to authenticate
      */
     public void setApiKey(String apiKey) throws AuthException {
         this.auth = new Authentication.Builder().withApiKey(apiKey).build();
@@ -109,7 +109,7 @@ public class ClientApi {
 
     /**
      * Create the jersey client builder for SSL or NoSSL client
-     * @return
+     * @return a ClientBuilder
      */
     private ClientBuilder createCommonClientBuilder(){
         return ClientBuilder.newBuilder()
@@ -120,7 +120,7 @@ public class ClientApi {
 
     /**
      * Init the client instance according to the protocol of the server uri
-     * @throws CoreException
+     * @throws CoreException If http client creation failed
      */
     private void initClient() throws CoreException {
         if(client == null) {
@@ -134,7 +134,7 @@ public class ClientApi {
 
     /**
      * Init the SSL client
-     * @throws CoreException
+     * @throws CoreException If http client creation failed
      */
     private void initSSLClient() throws CoreException {
         try {
@@ -150,7 +150,7 @@ public class ClientApi {
 
     /**
      * Init the no SSL client
-     * @throws CoreException
+     * @throws CoreException If http client creation failed
      */
     private void initNoSSLClient() throws CoreException {
         LOGGER.debug("Init NoSSL client");
@@ -160,6 +160,7 @@ public class ClientApi {
     /**
      * Request a token to the api for the clientId and secret<br>
      * The token is store in auth
+     * @throws AuthException If the authentication or token request failed
      */
     private void requestToken() throws AuthException{
         LOGGER.debug("Request oauth token");
@@ -182,7 +183,7 @@ public class ClientApi {
 
     /**
      * Check apiKey or token with given auth informations
-     * @throws AuthException
+     * @throws AuthException If authentication failed
      */
     public void checkAuth() throws AuthException {
         if (auth == null) {
@@ -192,6 +193,11 @@ public class ClientApi {
         }
     }
 
+    /**
+     * Get the api request path which can be uri + version + resource path
+     * @param path The resource path
+     * @return The full resource path
+     */
     private String getPath(String path){
         return path.startsWith("http") ? path : uri + "/" + version + "/" + path;
     }
@@ -202,8 +208,8 @@ public class ClientApi {
      * The POST method is used to create or update an object.
      * @param path The request path
      * @param obj Object to send
-     * @return
-     * @throws CoreException
+     * @return The response of the post request
+     * @throws CoreException If the post request failed
      */
     public Response post(String path, Object obj) throws CoreException {
         return new ClientRequest.Builder()
@@ -220,8 +226,8 @@ public class ClientApi {
      * The PUT method is used to update partially an object.
      * @param path The request path
      * @param obj  Object to send
-     * @return
-     * @throws CoreException
+     * @return The reponse of the put request
+     * @throws CoreException If the put request failed
      */
     public Response put(String path, Object obj) throws CoreException {
         return new ClientRequest.Builder()
@@ -235,8 +241,8 @@ public class ClientApi {
     /**
      * Send a request in GET to the api with the given path. The result will be a single object or a list.<br>
      * @param path The request path
-     * @return
-     * @throws CoreException
+     * @return The response of the get request
+     * @throws CoreException If the get request failed
      */
     public Response get(String path, RequestParams params) throws CoreException {
         return new ClientRequest.Builder()
@@ -252,8 +258,8 @@ public class ClientApi {
      * Send a request in DEL to the api with the given path. <br>
      * The DEL method is used to delete a single object.
      * @param path The request path
-     * @return
-     * @throws CoreException
+     * @return The reponse of the del request
+     * @throws CoreException If the del request failed
      */
     public Response delete(String path) throws CoreException {
         return new ClientRequest.Builder()

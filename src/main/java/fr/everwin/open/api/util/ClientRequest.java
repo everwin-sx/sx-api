@@ -161,7 +161,7 @@ public class ClientRequest {
      * Make a POST
      * @param entity Entity to send
      * @return Response
-     * @throws RequestException
+     * @throws RequestException If the request failed
      */
     public Response post(Entity<?> entity) throws RequestException{
         LOGGER.debug("Make a POST to /" + path);
@@ -172,7 +172,7 @@ public class ClientRequest {
      * Make a PUT
      * @param entity Entity to send
      * @return Response
-     * @throws RequestException
+     * @throws RequestException If the request failed
      */
     public Response put(Entity<?> entity) throws RequestException{
         LOGGER.debug("Make a PUT to /" + path);
@@ -182,7 +182,7 @@ public class ClientRequest {
     /**
      * Make a GET
      * @return Response
-     * @throws RequestException
+     * @throws RequestException If the request failed
      */
     public Response get() throws RequestException {
         LOGGER.debug("Make a GET to /" + path);
@@ -192,7 +192,7 @@ public class ClientRequest {
     /**
      * Make a DELETE
      * @return Response
-     * @throws RequestException
+     * @throws RequestException If the request failed
      */
     public Response delete() throws RequestException {
         LOGGER.debug("Make a DELETE to /" + path);
