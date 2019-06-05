@@ -187,7 +187,9 @@
                     </execution>
                     <execution>
                         <id>attach-javadoc</id>
-                        <goals />
+                        <goals>
+                            <goal></goal>
+                        </goals>
                     </execution>
                 </executions>
             </plugin>

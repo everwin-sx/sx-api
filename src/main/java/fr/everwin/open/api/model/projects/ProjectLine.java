@@ -218,28 +218,28 @@ public class ProjectLine extends BasicObject {
 	}
 
 	/**
-	 * @return the material
+	 * @return the equipment
 	 */
 	public DataLink getEquipment() {
 		return equipment;
 	}
 
 	/**
-	 * @param material the material to set
+	 * @param equipment the material to set
 	 */
 	public void setEquipment(DataLink equipment) {
 		this.equipment = equipment;
 	}
 
 	/**
-	 * @return the materialFamily
+	 * @return the equipmentFamily
 	 */
 	public DataLink getEquipmentFamily() {
 		return equipmentFamily;
 	}
 
 	/**
-	 * @param materialFamily the materialFamily to set
+	 * @param equipmentFamily the equipmentFamily to set
 	 */
 	public void setEquipmentFamily(DataLink equipmentFamily) {
 		this.equipmentFamily = equipmentFamily;

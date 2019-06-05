@@ -191,6 +191,7 @@ public class BasicService<O extends BasicObject,L extends BasicList> {
 
     /**
      * Post the given object to the path
+     * @param path The resource path
      * @param object The instance of BasicObject to send
      * @throws CoreException If the request failed
      */
@@ -202,6 +203,7 @@ public class BasicService<O extends BasicObject,L extends BasicList> {
     /**
      * Create the given object and return the id
      * @param object The instance of BasicObject to send
+     * @return long The id of the new object
      * @throws CoreException If the request failed
      */
     public long post(O object) throws CoreException {
@@ -225,6 +227,7 @@ public class BasicService<O extends BasicObject,L extends BasicList> {
     /**
      * Create an object and return the new id
      * @param object The instance of BasicObject to send
+     * @return long The id of the new object
      * @throws CoreException If the request failed
      */
     public long create(O object) throws CoreException {

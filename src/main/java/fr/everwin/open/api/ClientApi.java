@@ -90,7 +90,8 @@ public class ClientApi {
     /**
      * Set authentication informations for OAuth
      * @param clientId The clientId
-     * @param password The clientSecret
+     * @param secret The clientSecret
+     * @throws AuthException If authentication failed
      */
     public void setAuthInfos(String clientId, String secret) throws AuthException {
         this.auth = new Authentication.Builder().withClientInfos(clientId, secret).build();
@@ -100,6 +101,7 @@ public class ClientApi {
     /**
      * Set authentication informations for apiKey mode
      * @param apiKey The API key uses to authenticate
+     * @throws AuthException If authentication failed
      */
     public void setApiKey(String apiKey) throws AuthException {
         this.auth = new Authentication.Builder().withApiKey(apiKey).build();
@@ -241,6 +243,7 @@ public class ClientApi {
     /**
      * Send a request in GET to the api with the given path. The result will be a single object or a list.<br>
      * @param path The request path
+     * @param params Request extra params
      * @return The response of the get request
      * @throws CoreException If the get request failed
      */
