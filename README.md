@@ -1,8 +1,8 @@
 # sx-api
 ![Version](https://img.shields.io/badge/compatible-v2-green.svg) ![License](https://img.shields.io/hexpm/l/plug.svg)
 
-SX API wrapper in Java.
-This Java library implements the complete functionality of the SX API.
+SX/CXM API wrapper in Java.
+This Java library implements the complete functionality of the SX and CXM API.
 
 ## Installation
 Jar files are available from Maven Central. To use sx-api you have to include it in your project dependencies :
