@@ -10,7 +10,7 @@ Jar files are available from Maven Central. To use sx-api you have to include it
 <dependency>
   <groupId>fr.everwin.open.api</groupId>
   <artifactId>sx-api</artifactId>
-  <version>0.1.0</version>
+  <version>0.1.2</version>
 </dependency>
 ```
 
