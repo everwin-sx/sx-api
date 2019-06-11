@@ -1,5 +1,5 @@
 # SX-API
-<img src='https://www.everwin.fr/images/charte/icones_logos_sx.png' width='85px'> <img src='https://www.everwin.fr/images/charte/icones_logos_cxm.png' marginTop='10px'>
+<img src='https://www.everwin.fr/images/logo-Rest-API.png' width='200px'>
 
 ![SX](https://img.shields.io/badge/compatible-SX-orange.svg) ![CXM](https://img.shields.io/badge/compatible-CXM-a00d59.svg) ![Version](https://img.shields.io/badge/compatible-APIv2-green.svg) ![License](https://img.shields.io/hexpm/l/plug.svg)
 
