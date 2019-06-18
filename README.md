@@ -5,6 +5,7 @@
 
 SX/CXM API wrapper in Java.
 This Java library implements the complete functionality of the SX and CXM API.
+More informations about our products on https://www.everwin.fr.
 
 ## Installation
 Jar files are available from Maven Central. To use sx-api you have to include it in your project dependencies :
