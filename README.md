@@ -1,8 +1,10 @@
-# sx-api
-![Version](https://img.shields.io/badge/compatible-v2-green.svg) ![License](https://img.shields.io/hexpm/l/plug.svg)
+# SX-API
+<img src='https://www.everwin.fr/images/logo-Rest-API.png' width='200px'>
 
-SX API wrapper in Java.
-This Java library implements the complete functionality of the SX API.
+![SX](https://img.shields.io/badge/compatible-SX-orange.svg) ![CXM](https://img.shields.io/badge/compatible-CXM-a00d59.svg) ![Version](https://img.shields.io/badge/compatible-APIv2-green.svg) ![License](https://img.shields.io/hexpm/l/plug.svg)
+
+SX/CXM API wrapper in Java.
+This Java library implements the complete functionality of the SX and CXM API.
 
 ## Installation
 Jar files are available from Maven Central. To use sx-api you have to include it in your project dependencies :
@@ -10,7 +12,7 @@ Jar files are available from Maven Central. To use sx-api you have to include it
 <dependency>
   <groupId>fr.everwin.open.api</groupId>
   <artifactId>sx-api</artifactId>
-  <version>0.1.0</version>
+  <version>0.1.2</version>
 </dependency>
 ```
 
