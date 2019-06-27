@@ -182,6 +182,7 @@ public class ClientAuthTest {
             }
             Comment comment = new Comment();
             comment.setText("test");
+            comment.setMode(1);
             long commentId = companyService.createComment(company.getId(), comment);
             Assert.assertTrue(commentId > 0);
 

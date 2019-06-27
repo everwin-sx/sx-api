@@ -56,10 +56,10 @@ public class Comment extends BasicObject {
     private String text;
 
     @XmlElement
-    private Short type;
+    private int type;
 
     @XmlElement
-    private Short mode;
+    private int mode;
 
     @XmlElement
     @XmlJavaTypeAdapter(XMLDateAdapter.class)
@@ -91,19 +91,19 @@ public class Comment extends BasicObject {
         this.text = text;
     }
 
-    public Short getType() {
+    public int getType() {
         return type;
     }
 
-    public void setType(Short type) {
+    public void setType(int type) {
         this.type = type;
     }
 
-    public Short getMode() {
+    public int getMode() {
         return mode;
     }
 
-    public void setMode(Short mode) {
+    public void setMode(int mode) {
         this.mode = mode;
     }
 
