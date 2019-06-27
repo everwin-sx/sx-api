@@ -40,6 +40,8 @@ import fr.everwin.open.api.model.core.SpecificNumberValue;
 import fr.everwin.open.api.model.core.SpecificStringValue;
 import fr.everwin.open.api.util.JsonDateDeserializer;
 import fr.everwin.open.api.util.XMLDateAdapter;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 
@@ -48,6 +50,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
  * Customer accounts keep administrative information about customers and suppliers safe from any CRM module changes.
  * @author everwin-team
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 @XmlRootElement(name = "companyaccount")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class CompanyAccount extends BasicObject {

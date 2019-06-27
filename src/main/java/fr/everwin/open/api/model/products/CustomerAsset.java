@@ -31,12 +31,15 @@ import fr.everwin.open.api.model.core.BasicObject;
 import fr.everwin.open.api.model.core.DataLink;
 import fr.everwin.open.api.util.JsonDateDeserializer;
 import fr.everwin.open.api.util.XMLDateAdapter;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 /**
  * CustomerAsset class
  * @author everwin-team
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 @XmlRootElement(name = "customer-asset")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class CustomerAsset extends BasicObject {

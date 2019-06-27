@@ -38,13 +38,15 @@ import fr.everwin.open.api.model.core.SpecificNumberValue;
 import fr.everwin.open.api.model.core.SpecificStringValue;
 import fr.everwin.open.api.util.JsonDateDeserializer;
 import fr.everwin.open.api.util.XMLDateAdapter;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 /**
  * Acc accounts represents an account for a company account. <br>
  * @author everwin-team
  */
-
+@JsonIgnoreProperties(ignoreUnknown = true)
 @XmlRootElement(name = "accaccount")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class AccAccount extends BasicObject {

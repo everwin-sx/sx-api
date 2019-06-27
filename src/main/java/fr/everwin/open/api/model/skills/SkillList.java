@@ -27,6 +27,8 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import fr.everwin.open.api.model.core.BasicList;
 
 
@@ -34,6 +36,7 @@ import fr.everwin.open.api.model.core.BasicList;
  * Skills list
  * @author everwin-team
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "skilllist")
 public class SkillList extends BasicList<Skill> {

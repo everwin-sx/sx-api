@@ -33,6 +33,8 @@ import fr.everwin.open.api.model.core.BasicObject;
 import fr.everwin.open.api.model.core.DataLink;
 import fr.everwin.open.api.util.JsonDateDeserializer;
 import fr.everwin.open.api.util.XMLDateAdapter;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 
@@ -40,6 +42,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
  * Project Line class
  * @author everwin-team
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 @XmlRootElement(name = "project-line")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class ProjectLine extends BasicObject {

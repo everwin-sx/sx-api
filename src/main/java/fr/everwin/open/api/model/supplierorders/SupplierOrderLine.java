@@ -25,16 +25,19 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import fr.everwin.open.api.model.core.BasicObject;
 import fr.everwin.open.api.model.core.DataLink;
 import fr.everwin.open.api.model.core.ExpenseMultiCurrencyValue;
 import fr.everwin.open.api.model.core.MultiCurrencyValue;
 
 /**
- * @author l.boutherin
+ * Supplier order line class
+ * @author everwin-team
  */
-//@formatter:off
-	@XmlRootElement(name = "supplierOrderLine")
+@JsonIgnoreProperties(ignoreUnknown = true)
+@XmlRootElement(name = "supplierOrderLine")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class SupplierOrderLine extends BasicObject {
 

@@ -41,12 +41,15 @@ import fr.everwin.open.api.model.core.SpecificNumberValue;
 import fr.everwin.open.api.model.core.SpecificStringValue;
 import fr.everwin.open.api.util.JsonDateDeserializer;
 import fr.everwin.open.api.util.XMLDateAdapter;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 /**
  * Represent an employee's leave request
  * @author everwin-team
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 @XmlRootElement(name = "leaveRequest")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class LeaveRequest extends BasicObject {

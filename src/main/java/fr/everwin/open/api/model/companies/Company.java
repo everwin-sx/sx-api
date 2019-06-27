@@ -37,12 +37,15 @@ import fr.everwin.open.api.model.core.SpecificNumberValue;
 import fr.everwin.open.api.model.core.SpecificStringValue;
 import fr.everwin.open.api.util.JsonDateDeserializer;
 import fr.everwin.open.api.util.XMLDateAdapter;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 /**
  * Company class
  * @author everwin-team
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 @XmlRootElement(name = "company")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Company extends BasicObject {
@@ -147,6 +150,9 @@ public class Company extends BasicObject {
 
     @XmlElement
     private DataLink spanco;
+
+    @XmlElement
+    private String logo;
 
     @XmlElement
     @XmlJavaTypeAdapter(XMLDateAdapter.class)
@@ -511,6 +517,22 @@ public class Company extends BasicObject {
 
     public void setCompanyRegistrationNumber(String companyRegistrationNumber) {
         this.companyRegistrationNumber = companyRegistrationNumber;
+    }
+
+    /**
+     * Logo file in base 64
+     * @return The base 64 logo file
+     */
+    public String getLogo() {
+        return logo;
+    }
+
+    /**
+     * Set the logo file
+     * @param logo file in base 64
+     */
+    public void setLogo(String logo) {
+        this.logo = logo;
     }
 }
 

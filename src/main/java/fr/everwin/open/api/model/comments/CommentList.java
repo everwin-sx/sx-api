@@ -17,62 +17,44 @@
 /**
  * 
  */
-package fr.everwin.open.api.model.nafs;
+package fr.everwin.open.api.model.comments;
 
+import java.util.List;
+
+import javax.ws.rs.core.Link;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
-import fr.everwin.open.api.model.core.BasicObject;
-
+import fr.everwin.open.api.model.companies.Company;
+import fr.everwin.open.api.model.core.BasicList;
 
 /**
- * Naf class
+ * Comment class
  * @author everwin-team
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
-@XmlRootElement(name = "naf")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class Naf extends BasicObject {
+@XmlRootElement(name = "commentlist")
+public class CommentList extends BasicList<Comment> {
 
-	@XmlElement
-	public String code;
+	@XmlElement(name = "comment")
+	@XmlElementWrapper(name = "comments")
+	private List<Comment> items;
 
-	@XmlElement
-	public String label;
-
-	@XmlElement
-	public Short revision;
-
-	public Naf() {
+	public CommentList() {
 
 	}
 
-	public String getCode() {
-		return code;
+	public List<Comment> getItems() {
+		return items;
 	}
 
-	public void setCode(String code) {
-		this.code = code;
+	public void setItems(List<Comment> items) {
+		this.items = items;
 	}
 
-	public String getLabel() {
-		return label;
-	}
-
-	public void setLabel(String label) {
-		this.label = label;
-	}
-
-	public Short getRevision() {
-		return revision;
-	}
-
-	public void setRevision(Short revision) {
-		this.revision = revision;
-	}
 
 }

@@ -24,6 +24,8 @@ import org.apache.logging.log4j.Logger;
 import fr.everwin.open.api.ClientApi;
 import fr.everwin.open.api.exception.CoreException;
 import fr.everwin.open.api.exception.RequestException;
+import fr.everwin.open.api.model.comments.Comment;
+import fr.everwin.open.api.model.comments.CommentList;
 import fr.everwin.open.api.model.core.BasicObject;
 import fr.everwin.open.api.model.core.Error;
 import fr.everwin.open.api.model.core.BasicList;
@@ -250,6 +252,78 @@ public class BasicService<O extends BasicObject,L extends BasicList> {
      */
     public void updatePartially(O object) throws CoreException {
         post(path + "/" + object.getId(), object);
+    }
+
+    /**
+     * Get a collection of Comments
+     * @param objectId The main object linked to comments
+     * @param params Extra parameters
+     * @return CommentList
+     * @throws CoreException If the request failed
+     */
+    public CommentList queryComments(long objectId, RequestParams params) throws CoreException {
+        Response response = clientApi.get(path + "/" + objectId + "/comments", params);
+        return (CommentList) readResponse(response, CommentList.class);
+    }
+
+    /**
+     * Get the comment identified by its id
+     * @param objectId The linked object id
+     * @param id The comment id
+     * @return The comment
+     * @throws CoreException If the request failed
+     */
+    public Comment getComment(long objectId, long id) throws CoreException {
+        Response response = clientApi.get(path + "/" + objectId + "/comments/" + id, null);
+        return (Comment) readResponse(response, Comment.class);
+    }
+
+    /**
+     * Create a new comment for the object identified by the objectId
+     * @param objectId The id of the object to link to the comment
+     * @param comment The comment to create
+     * @return The id of the new comment
+     * @throws CoreException If the request failed
+     */
+    public long createComment(long objectId, Comment comment) throws CoreException {
+        Response response = clientApi.post(path + "/" + objectId + "/comments", comment);
+        readResponse(response, String.class);
+        // extract id from return location
+        String locationUri = response.getHeaderString("Location");
+        return Long.parseLong(locationUri.substring(locationUri.lastIndexOf("/") + 1, locationUri.length()));
+    }
+
+    /**
+     * Update the comment for the object identified by the objectId
+     * @param objectId The id of the object linked to the comment
+     * @param comment The comment to update
+     * @throws CoreException If the request failed
+     */
+    public void updateComment(long objectId, Comment comment) throws CoreException {
+        Response response = clientApi.put(path + "/" + objectId + "/comments/" + comment.getId(), comment);
+        readResponse(response, String.class);
+    }
+
+    /**
+     * Update only not null fields of the comment
+     * @param objectId The id of the object to link to the comment
+     * @param comment The comment to update
+     * @throws CoreException If the request failed
+     */
+    public void updatePartiallyComment(long objectId, Comment comment) throws CoreException {
+        Response response = clientApi.post(path + "/" + objectId + "/comments/" + comment.getId(), comment);
+        readResponse(response, String.class);
+    }
+
+    /**
+     * Delete the comment for the object identified by the objectId
+     * @param objectId The id of the object linked to the comment
+     * @param comment The comment to update
+     * @throws CoreException If the request failed
+     */
+    public void deleteComment(long objectId, long id) throws CoreException {
+        Response response = clientApi.delete(path + "/" + objectId + "/comments/" + id);
+        readResponse(response, String.class);
     }
 
 }

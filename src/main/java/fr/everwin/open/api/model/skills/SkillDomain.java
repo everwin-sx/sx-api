@@ -28,6 +28,8 @@ import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlElements;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import fr.everwin.open.api.model.core.BasicObject;
 import fr.everwin.open.api.model.core.DataLink;
 import fr.everwin.open.api.model.core.SpecificData;
@@ -41,6 +43,7 @@ import fr.everwin.open.api.model.core.SpecificStringValue;
  * Represents a skill domain
  * @author everwin-team
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 @XmlRootElement(name = "skillDomain")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class SkillDomain extends BasicObject {

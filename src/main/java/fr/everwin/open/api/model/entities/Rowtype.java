@@ -25,6 +25,8 @@ import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlElements;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import fr.everwin.open.api.model.core.BasicObject;
 import fr.everwin.open.api.model.core.DataLink;
 
@@ -32,6 +34,7 @@ import fr.everwin.open.api.model.core.DataLink;
  * Represents a rowtype for a given entity
  * @author everwin-team
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 @XmlRootElement(name = "rowtype")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Rowtype extends BasicObject {

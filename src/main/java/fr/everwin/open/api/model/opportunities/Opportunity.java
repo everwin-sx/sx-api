@@ -41,6 +41,8 @@ import fr.everwin.open.api.model.core.SpecificNumberValue;
 import fr.everwin.open.api.model.core.SpecificStringValue;
 import fr.everwin.open.api.util.JsonDateDeserializer;
 import fr.everwin.open.api.util.XMLDateAdapter;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 
@@ -48,6 +50,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
  * Opportunity class
  * @author everwin-team
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 @XmlRootElement(name = "opportunity")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Opportunity extends BasicObject {

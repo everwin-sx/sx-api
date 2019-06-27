@@ -22,6 +22,8 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import fr.everwin.open.api.ClientApi;
+import fr.everwin.open.api.model.comments.Comment;
+import fr.everwin.open.api.model.comments.CommentList;
 import fr.everwin.open.api.model.companies.Company;
 import fr.everwin.open.api.model.companies.CompanyList;
 import fr.everwin.open.api.model.core.DataLink;
@@ -40,7 +42,7 @@ public class ClientAuthTest {
     public void setUp(){
         try {
             clientApi = new ClientApi(uri, version);
-            clientApi.setApiKey("311528502c954bb0ce0ca304a47a2c51");
+            clientApi.setApiKey("bae02a79bf9884cff23a327a00fd86c6");
             //clientApi.setAuthInfos("36103e9e671e0806c354f5a289070bfb", "5d1d6d3c7d7950fdbfb4167b6936757f");
         } catch (Exception e) {
             e.printStackTrace(System.err);
@@ -162,6 +164,33 @@ public class ClientAuthTest {
         } catch (Exception e) {
             e.printStackTrace(System.err);
             Assert.fail("Unable to update company");
+        }
+
+    }
+
+    @Test(priority = 2)
+    public void testComments() {
+        try {
+            CompaniesService companyService = new CompaniesService(clientApi);
+            CompanyList companyList = companyService.query();
+            Company company = companyList.getItems().get(0);
+
+            CommentList comments = companyService.queryComments(company.getId(), null);
+            Assert.assertNotNull(comments);
+            for(Comment comment : comments.getItems()){
+                Assert.assertTrue(comment.getText().length() > 0);
+            }
+            Comment comment = new Comment();
+            comment.setText("test");
+            long commentId = companyService.createComment(company.getId(), comment);
+            Assert.assertTrue(commentId > 0);
+
+            companyService.deleteComment(company.getId(), commentId);
+
+
+        } catch (Exception e) {
+            e.printStackTrace(System.err);
+            Assert.fail("Unable to get company comments");
         }
 
     }
