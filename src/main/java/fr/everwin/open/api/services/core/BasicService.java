@@ -318,7 +318,7 @@ public class BasicService<O extends BasicObject,L extends BasicList> {
     /**
      * Delete the comment for the object identified by the objectId
      * @param objectId The id of the object linked to the comment
-     * @param comment The comment to update
+     * @param id The comment id to update
      * @throws CoreException If the request failed
      */
     public void deleteComment(long objectId, long id) throws CoreException {
