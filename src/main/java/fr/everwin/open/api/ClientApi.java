@@ -207,7 +207,7 @@ public class ClientApi {
     /**
      * Send a request in POST to the api with the given path.
      * The obj will be send to the api in JSON format.
-     * The POST method is used to create or update an object.
+     * The POST method is used to create or update partially an object.
      * @param path The request path
      * @param obj Object to send
      * @return The response of the post request
@@ -225,7 +225,7 @@ public class ClientApi {
     /**
      * Send a request in PUT to the api with the given path.
      * The obj will be send to the api in JSON format.
-     * The PUT method is used to update partially an object.
+     * The PUT method is used to update a full object.
      * @param path The request path
      * @param obj  Object to send
      * @return The reponse of the put request
