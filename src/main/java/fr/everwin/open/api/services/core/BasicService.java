@@ -233,7 +233,8 @@ public class BasicService<O extends BasicObject,L extends BasicList> {
      * @throws CoreException If the request failed
      */
     public long create(O object) throws CoreException {
-        return post(object);
+        object.setId(post(object));
+        return object.getId();
     }
 
     /**

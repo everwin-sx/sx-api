@@ -30,6 +30,7 @@ import javax.xml.bind.annotation.XmlElements;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 import fr.everwin.open.api.model.core.BasicObject;
 import fr.everwin.open.api.model.core.DataLink;
@@ -46,6 +47,7 @@ import fr.everwin.open.api.model.core.SpecificStringValue;
  *
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 @XmlRootElement(name = "skill")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Skill extends BasicObject {

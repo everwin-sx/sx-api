@@ -17,64 +17,42 @@
 /**
  * 
  */
-package fr.everwin.open.api.model.nafs;
+package fr.everwin.open.api.model.products;
+
+import java.util.List;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonInclude;
-
-import fr.everwin.open.api.model.core.BasicObject;
+import fr.everwin.open.api.model.core.BasicList;
 
 
 /**
- * Naf class
+ * Product categories list
  * @author everwin-team
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-@XmlRootElement(name = "naf")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class Naf extends BasicObject {
+@XmlRootElement(name = "product-categorylist")
+public class CategoryList extends BasicList<Category> {
 
-	@XmlElement
-	public String code;
+	@XmlElement(name = "product-category")
+	@XmlElementWrapper(name = "product-categories")
+	private List<Category> items;
 
-	@XmlElement
-	public String label;
-
-	@XmlElement
-	public Short revision;
-
-	public Naf() {
+	public CategoryList() {
 
 	}
 
-	public String getCode() {
-		return code;
+	public List<Category> getItems() {
+		return items;
 	}
 
-	public void setCode(String code) {
-		this.code = code;
+	public void setItems(List<Category> items) {
+		this.items = items;
 	}
 
-	public String getLabel() {
-		return label;
-	}
-
-	public void setLabel(String label) {
-		this.label = label;
-	}
-
-	public Short getRevision() {
-		return revision;
-	}
-
-	public void setRevision(Short revision) {
-		this.revision = revision;
-	}
 
 }

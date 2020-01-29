@@ -13,7 +13,7 @@ Jar files are available from Maven Central. To use sx-api you have to include it
 <dependency>
   <groupId>fr.everwin.open.api</groupId>
   <artifactId>sx-api</artifactId>
-  <version>0.1.2</version>
+  <version>0.1.4</version>
 </dependency>
 ```
 
@@ -73,6 +73,28 @@ try {
 }
 ```
 
+### Get comments collection
+To load a collection of comments linked to an object, call queryComments() method on the object service. Create / update and delete methods are available too : 
+```java
+try {
+    // Instanciate comment
+    Comment comment = new Comment();
+    comment.setMode(1);
+    comment.setText("Text");
+
+    // Find a company
+    CompaniesService companiesService = new CompaniesService(clientApi);
+    Company company = companiesService.queryCustomers(null).getItems().get(0);
+    
+    // Add the comment to the company
+    companiesService.createComment(company.getId(),comment);
+    
+    // Get comments of the company
+    CommentList commentList = companiesService.queryComments(company.getId(), null);
+} catch (Exception e) {
+    e.printStackTrace(System.err);
+}
+
 ## Reference
 
 Resource                    | Classes
@@ -82,6 +104,8 @@ Resource                    | Classes
 /companies                  |CompaniesService, Company
 /company-apes               |NafsService, Naf
 /acc-accounts               |CompanyAccAccountsService, AccAccount
+/crm-quotes                 |CRMQuotesService, CRMQuote
+/crm-quotelines             |CRMQuoteLinesService, CRMQuoteLine
 /company-accounts           |CompanyAccountsService, CompanyAccount
 /company-statuts            |CompanyStatusService, Status
 /contact-responsibilities   |ContactResponsabilitiesService, ContactResponsability
@@ -95,8 +119,11 @@ Resource                    | Classes
 /leave-requests             |LeaveRequestsService, LeaveRequest
 /opportunities              |OpportunitiesService, Opportunity
 /products                   |ProductsService, Product
+/product-categories         |CategoriesService, Category
 /projects                   |ProjectsService, Project
 /project-lines              |ProjectLinesService, ProjectLine
+/profiles                   |ProfilesService, Profile
+/sales-actions              |SalesActionsService, SalesActionsService
 /skills                     |SkillsService, Skill
 /skill-levels               |SkillLevelsService, SkillLevel
 /skill-domains              |SkillDomainsService, SkillDomain

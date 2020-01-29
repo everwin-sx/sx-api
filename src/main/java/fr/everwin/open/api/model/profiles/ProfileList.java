@@ -17,64 +17,43 @@
 /**
  * 
  */
-package fr.everwin.open.api.model.nafs;
+package fr.everwin.open.api.model.profiles;
+
+import java.util.List;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonInclude;
-
-import fr.everwin.open.api.model.core.BasicObject;
+import fr.everwin.open.api.model.core.BasicList;
+import fr.everwin.open.api.model.projects.Project;
 
 
 /**
- * Naf class
+ * Profile list
  * @author everwin-team
  */
-@JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
-@XmlRootElement(name = "naf")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class Naf extends BasicObject {
+@XmlRootElement(name = "profilelist")
+public class ProfileList extends BasicList<Profile> {
 
-	@XmlElement
-	public String code;
+	@XmlElement(name = "profile")
+	@XmlElementWrapper(name = "profiles")
+	private List<Profile> items;
 
-	@XmlElement
-	public String label;
-
-	@XmlElement
-	public Short revision;
-
-	public Naf() {
+	public ProfileList() {
 
 	}
 
-	public String getCode() {
-		return code;
+	public List<Profile> getItems() {
+		return items;
 	}
 
-	public void setCode(String code) {
-		this.code = code;
+	public void setItems(List<Profile> items) {
+		this.items = items;
 	}
 
-	public String getLabel() {
-		return label;
-	}
-
-	public void setLabel(String label) {
-		this.label = label;
-	}
-
-	public Short getRevision() {
-		return revision;
-	}
-
-	public void setRevision(Short revision) {
-		this.revision = revision;
-	}
 
 }

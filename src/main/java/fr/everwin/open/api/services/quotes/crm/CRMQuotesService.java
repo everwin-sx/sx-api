@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 Everwin (www.everwin.fr)
+ * Copyright (C) 2020 Everwin (www.everwin.fr)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,26 +14,27 @@
  * limitations under the License.
  */
 
-package fr.everwin.open.api.services.companies;
+package fr.everwin.open.api.services.quotes.crm;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import fr.everwin.open.api.ClientApi;
-import fr.everwin.open.api.model.companies.Status;
-import fr.everwin.open.api.model.companies.StatusList;
+import fr.everwin.open.api.model.products.Category;
+import fr.everwin.open.api.model.products.CategoryList;
+import fr.everwin.open.api.model.quotes.crm.CRMQuote;
+import fr.everwin.open.api.model.quotes.crm.CRMQuoteList;
 import fr.everwin.open.api.services.core.BasicService;
 
 /**
- * Service manager to query the company status API resource
+ * Service manager to query the CRM quotes API resource
  * @author everwin-team
  */
-public class CompanyStatusService extends BasicService<Status, StatusList> {
-
+public class CRMQuotesService extends BasicService<CRMQuote, CRMQuoteList> {
     protected static final Logger LOGGER = LogManager.getLogger();
 
-    public CompanyStatusService(ClientApi client){
-        super(client, "company-status");
-        setModels(Status.class, StatusList.class);
+    public CRMQuotesService(ClientApi client) {
+        super(client, "crm-quotes");
+        setModels(CRMQuote.class, CRMQuoteList.class);
     }
 }

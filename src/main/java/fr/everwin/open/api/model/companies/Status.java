@@ -25,6 +25,7 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 import fr.everwin.open.api.model.core.BasicObject;
 
@@ -34,6 +35,7 @@ import fr.everwin.open.api.model.core.BasicObject;
  * @author everwin-team
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 @XmlRootElement(name = "status")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Status extends BasicObject {

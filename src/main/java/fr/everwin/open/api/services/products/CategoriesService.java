@@ -14,26 +14,29 @@
  * limitations under the License.
  */
 
-package fr.everwin.open.api.services.companies;
+package fr.everwin.open.api.services.products;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import fr.everwin.open.api.ClientApi;
-import fr.everwin.open.api.model.companies.Status;
-import fr.everwin.open.api.model.companies.StatusList;
+import fr.everwin.open.api.model.products.Category;
+import fr.everwin.open.api.model.products.CategoryList;
+import fr.everwin.open.api.model.products.Product;
+import fr.everwin.open.api.model.products.ProductList;
 import fr.everwin.open.api.services.core.BasicService;
 
 /**
- * Service manager to query the company status API resource
+ * Service manager to query the product API resource
  * @author everwin-team
  */
-public class CompanyStatusService extends BasicService<Status, StatusList> {
+public class CategoriesService extends BasicService<Category, CategoryList> {
 
     protected static final Logger LOGGER = LogManager.getLogger();
 
-    public CompanyStatusService(ClientApi client){
-        super(client, "company-status");
-        setModels(Status.class, StatusList.class);
+    public CategoriesService(ClientApi client){
+        super(client, "product-categories");
+        setModels(Category.class, CategoryList.class);
     }
+
 }

@@ -39,6 +39,7 @@ import fr.everwin.open.api.util.JsonDateDeserializer;
 import fr.everwin.open.api.util.XMLDateAdapter;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 
@@ -47,6 +48,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
  * @author everwin-team
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 @XmlRootElement(name = "contactresponsibility")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class ContactResponsibility extends BasicObject {

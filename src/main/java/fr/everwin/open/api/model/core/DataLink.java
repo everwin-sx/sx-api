@@ -45,6 +45,11 @@ public class DataLink {
 	public DataLink() {
 
 	}
+
+	public DataLink(BasicObject object){
+		this.id = object.getId();
+	}
+
 	public DataLink(Long id, String value) {
 		this.id = id;
 		this.value = value;
