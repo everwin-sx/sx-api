@@ -77,33 +77,30 @@ public class SupplierInvoice extends BasicObject {
 	private DataLink supplierAccount;
 
 	@XmlElement
-	private String validationStep;
-	
-	@XmlElement
 	@XmlJavaTypeAdapter(XMLDateAdapter.class)
 	@JsonDeserialize(using = JsonDateDeserializer.class)
-	private Date date;	
-	
+	private Date date;
+
 	@XmlElement
 	@XmlJavaTypeAdapter(XMLDateAdapter.class)
 	@JsonDeserialize(using = JsonDateDeserializer.class)
 	private Date dueDate;
-	
+
 	@XmlElement
 	private String reference;
 
 	@XmlElement
 	private Short settlementStatus;
-	
+
 	@XmlElement
 	private String settlementComents;
-	
+
 	@XmlElement
 	private DataLink fiscalPosition;
-	
+
 	@XmlElement
 	private String currency;
-	
+
 	@XmlElement
 	private Double totalWithoutVat;
 
@@ -118,13 +115,13 @@ public class SupplierInvoice extends BasicObject {
 	
 	@XmlElementWrapper(name = "extraData")
 	@XmlElements({@XmlElement(name = "stringval", type = SpecificStringValue.class),
-		@XmlElement(name = "dateval", type = SpecificDateValue.class),
-		@XmlElement(name = "numberval", type = SpecificNumberValue.class),
-		@XmlElement(name = "link", type = SpecificLinkValue.class),
-		@XmlElement(name = "multilink", type = SpecificMultiLinkValue.class)})
+			@XmlElement(name = "dateval", type = SpecificDateValue.class),
+			@XmlElement(name = "numberval", type = SpecificNumberValue.class),
+			@XmlElement(name = "link", type = SpecificLinkValue.class),
+			@XmlElement(name = "multilink", type = SpecificMultiLinkValue.class)})
 	private List<SpecificData> extraData;
-	
-	
+
+
 	public SupplierInvoice() {
 		// TODO Auto-generated constructor stub
 	}
@@ -228,8 +225,8 @@ public class SupplierInvoice extends BasicObject {
 	public void setDueDate(Date dueDate) {
 		this.dueDate = dueDate;
 	}
-	
-	
+
+
 	public String getReference() {
 		return reference;
 	}
@@ -324,14 +321,6 @@ public class SupplierInvoice extends BasicObject {
 
 	public void setExtraData(List<SpecificData> extraData) {
 		this.extraData = extraData;
-	}
-
-	public String getValidationStep() {
-		return validationStep;
-	}
-
-	public void setValidationStep(String validationStep) {
-		this.validationStep = validationStep;
 	}
 
 	@Override

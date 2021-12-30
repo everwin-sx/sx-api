@@ -13,19 +13,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package fr.everwin.open.api.model.projects;
 
+package fr.everwin.open.api.model.projects;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
+import fr.everwin.open.api.model.projects.lines.ProjectDebitCredit;
 
 /**
  * Represent a state of a project with revenue and expenditure data
- * @author everwin-team
+ * @author d.storti
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @XmlRootElement(name = "project-state")
@@ -73,5 +72,4 @@ public class ProjectState {
 	public void setExpenditure(ProjectDebitCredit expenditure) {
 		this.expenditure = expenditure;
 	}
-
 }

@@ -154,9 +154,6 @@ public class Company extends BasicObject {
     private DataLink spanco;
 
     @XmlElement
-    private String logo;
-
-    @XmlElement
     @XmlJavaTypeAdapter(XMLDateAdapter.class)
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date updatedOnTime;
@@ -165,7 +162,6 @@ public class Company extends BasicObject {
     @XmlJavaTypeAdapter(XMLDateAdapter.class)
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date createdOnTime;
-
     private String updatedBy;
 
     @XmlElement
@@ -177,6 +173,9 @@ public class Company extends BasicObject {
     @XmlElement
     private String companyRegistrationNumber;
 
+    @XmlElement
+    private String logo;
+
     @XmlElementWrapper(name = "extraData")
     @XmlElements({@XmlElement(name = "stringval", type = SpecificStringValue.class),
             @XmlElement(name = "dateval", type = SpecificDateValue.class),
@@ -184,8 +183,11 @@ public class Company extends BasicObject {
             @XmlElement(name = "link", type = SpecificLinkValue.class),
             @XmlElement(name = "multilink", type = SpecificMultiLinkValue.class)})
     private List<SpecificData> extraData;
-
+    /**
+     *
+     */
     public Company() {
+        // TODO Auto-generated constructor stub
     }
 
     public String getCode() {
@@ -267,7 +269,6 @@ public class Company extends BasicObject {
     public void setComment(String comment) {
         this.comment = comment;
     }
-
     public DataLink getStatus() {
         return status;
     }
@@ -275,7 +276,6 @@ public class Company extends BasicObject {
     public void setStatus(DataLink status) {
         this.status = status;
     }
-
     public DataLink getGroup() {
         return group;
     }
@@ -483,7 +483,6 @@ public class Company extends BasicObject {
     public void setUpdatedBy(String updatedBy) {
         this.updatedBy = updatedBy;
     }
-
     public DataLink getSpanco() {
         return spanco;
     }
@@ -494,7 +493,12 @@ public class Company extends BasicObject {
 
     @Override
     public String toString() {
-        return "Company [id=" + id + ", code=" + code + ", name=" + name + "]";
+        return "Company [id=" + id
+                + ", code="
+                + code
+                + ", name="
+                + name
+                + "]";
     }
 
     public List<DataLink> getOffers() {
@@ -521,18 +525,10 @@ public class Company extends BasicObject {
         this.companyRegistrationNumber = companyRegistrationNumber;
     }
 
-    /**
-     * Logo file in base 64
-     * @return The base 64 logo file
-     */
     public String getLogo() {
         return logo;
     }
 
-    /**
-     * Set the logo file
-     * @param logo file in base 64
-     */
     public void setLogo(String logo) {
         this.logo = logo;
     }

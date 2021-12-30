@@ -350,5 +350,4 @@ public class ContactResponsibility extends BasicObject {
 	public String toString() {
 		return "Contact responsibility [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", company=" + company + "]";
 	}
-
 }

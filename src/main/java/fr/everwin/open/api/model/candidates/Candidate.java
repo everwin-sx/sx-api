@@ -59,7 +59,7 @@ public class Candidate extends BasicObject {
 
 	@XmlElement
 	private String firstName;
-	
+
 	@XmlElement
 	private String lastName;
 
@@ -86,7 +86,7 @@ public class Candidate extends BasicObject {
 	@XmlElementWrapper(name = "profiles")
 	@XmlElements(@XmlElement(name = "profile", type = DataLink.class))
 	private List<DataLink> activityCategories;
-	
+
 	@XmlElementWrapper(name = "profiles")
 	@XmlElements(@XmlElement(name = "profile", type = DataLink.class))
 	private List<DataLink> businesses;
@@ -96,7 +96,7 @@ public class Candidate extends BasicObject {
 
 	@XmlElement
 	private DataLink experienceDuration;
-	
+
 	@XmlElement
 	private DataLink availability;
 
@@ -108,7 +108,7 @@ public class Candidate extends BasicObject {
 
 	@XmlElement
 	private DataLink recruitmentManager;
-	
+
 	@XmlElement
 	private String cvTitle;
 
@@ -117,49 +117,47 @@ public class Candidate extends BasicObject {
 
 	@XmlElement
 	private String candidacyComment;
-	
+
 	@XmlElement
 	private String personalPhone;
 
 	@XmlElement
 	private String personalMobile;
-	
+
 	@XmlElement
 	private String personalEmail;
-	
+
 	@XmlElement
 	private String address;
 
 	@XmlElement
 	private String address2;
-	
+
 	@XmlElement
 	private String address3;
-	
+
 	@XmlElement
 	private String postalCode;
-	
+
 	@XmlElement
 	private String city;
 
 	@XmlElement
 	private DataLink country;
-	
+
 	@XmlElement
 	private String updatedBy;
-	
+
 	@XmlElement
 	@XmlJavaTypeAdapter(XMLDateAdapter.class)
 	@JsonDeserialize(using = JsonDateDeserializer.class)
 	private Date updatedOnTime;
 
-	
 	@XmlElement
 	@XmlJavaTypeAdapter(XMLDateAdapter.class)
 	@JsonDeserialize(using = JsonDateDeserializer.class)
 	private Date createdOnTime;
-		
-	
+
 	@XmlElementWrapper(name = "extraData")
 	@XmlElements({@XmlElement(name = "stringval", type = SpecificStringValue.class),
 			@XmlElement(name = "dateval", type = SpecificDateValue.class),
@@ -168,7 +166,7 @@ public class Candidate extends BasicObject {
 			@XmlElement(name = "multilink", type = SpecificMultiLinkValue.class)})
 	private List<SpecificData> extraData;
 	/**
-	 * 
+	 *
 	 */
 	public Candidate() {}
 	public String getCode() {
@@ -345,7 +343,7 @@ public class Candidate extends BasicObject {
 	public void setExtraData(List<SpecificData> extraData) {
 		this.extraData = extraData;
 	}
-	
+
 	public String getUpdatedBy() {
 		return updatedBy;
 	}
@@ -374,6 +372,4 @@ public class Candidate extends BasicObject {
 	public String toString() {
 		return "Candidate [code=" + code + ", firstName=" + firstName + ", lastName=" + lastName + "]";
 	}
-	
-
 }

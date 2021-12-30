@@ -57,36 +57,47 @@ public class Equipment extends BasicObject {
 
 	@XmlElement
 	private String code;
+
 	@XmlElement
 	private Short type;
+
 	@XmlElement
 	private DataLink entity;
+
 	@XmlElement
 	private DataLink financialEntity;
+
 	@XmlElement
 	@XmlJavaTypeAdapter(XMLDateAdapter.class)
 	@JsonDeserialize(using = JsonDateDeserializer.class)
 	private Date arrivalDate;
+
 	@XmlElement
 	@XmlJavaTypeAdapter(XMLDateAdapter.class)
 	@JsonDeserialize(using = JsonDateDeserializer.class)
 	private Date leavingDate;
+
 	@XmlElement
 	private DataLink family;
+
 	@XmlElement
 	private DataLink workMode;
+
 	@XmlElement
 	private Double salePrice;
-		
+
 	@XmlElement
 	private Double fullCostPrice;
+
 	@XmlElement
 	private Double directCostPrice;
+
 	@XmlElement
 	private Short isArchived;
 
 	@XmlElement
 	private String comment;
+
 	@XmlElement
 	private String updatedBy;
 
@@ -99,15 +110,16 @@ public class Equipment extends BasicObject {
 	@XmlJavaTypeAdapter(XMLDateAdapter.class)
 	@JsonDeserialize(using = JsonDateDeserializer.class)
 	private Date createdOnTime;
+
 	@XmlElementWrapper(name = "extraData")
 	@XmlElements({@XmlElement(name = "stringval", type = SpecificStringValue.class),
-		@XmlElement(name = "dateval", type = SpecificDateValue.class),
-		@XmlElement(name = "numberval", type = SpecificNumberValue.class),
-		@XmlElement(name = "link", type = SpecificLinkValue.class),
-		@XmlElement(name = "multilink", type = SpecificMultiLinkValue.class)})
+			@XmlElement(name = "dateval", type = SpecificDateValue.class),
+			@XmlElement(name = "numberval", type = SpecificNumberValue.class),
+			@XmlElement(name = "link", type = SpecificLinkValue.class),
+			@XmlElement(name = "multilink", type = SpecificMultiLinkValue.class)})
 	private List<SpecificData> extraData;
 	/**
-	 * 
+	 *
 	 */
 	public Equipment() {}
 

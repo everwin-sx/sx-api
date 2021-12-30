@@ -40,21 +40,51 @@ import fr.everwin.open.api.model.core.BasicList;
 @XmlRootElement(name = "commentlist")
 public class CommentList extends BasicList<Comment> {
 
+	private final static String METHOD="query";
+
 	@XmlElement(name = "comment")
 	@XmlElementWrapper(name = "comments")
 	private List<Comment> items;
 
-	public CommentList() {
+	@XmlElement(name = "selflink")
+	protected String href;
 
+	@XmlElement(name = "link")
+	@XmlElementWrapper(name = "links")
+	@XmlJavaTypeAdapter(Link.JaxbAdapter.class)
+	protected List<Link> links;
+
+	/**
+	 *
+	 */
+	public CommentList() {
+		// TODO Auto-generated constructor stub
 	}
 
+	public String getHref() {
+		return href;
+	}
+
+	public void setHref(String href) {
+		this.href = href;
+	}
+
+	@Override
+	public List<Link> getLinks() {
+		return links;
+	}
+
+	public void setLinks(List<Link> links) {
+		this.links = links;
+	}
+
+	@Override
 	public List<Comment> getItems() {
 		return items;
 	}
 
+	@Override
 	public void setItems(List<Comment> items) {
 		this.items = items;
 	}
-
-
 }

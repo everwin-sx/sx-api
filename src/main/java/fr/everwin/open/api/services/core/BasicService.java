@@ -26,9 +26,12 @@ import fr.everwin.open.api.exception.CoreException;
 import fr.everwin.open.api.exception.RequestException;
 import fr.everwin.open.api.model.comments.Comment;
 import fr.everwin.open.api.model.comments.CommentList;
+import fr.everwin.open.api.model.companies.Company;
 import fr.everwin.open.api.model.core.BasicObject;
 import fr.everwin.open.api.model.core.Error;
 import fr.everwin.open.api.model.core.BasicList;
+import fr.everwin.open.api.model.documents.Document;
+import fr.everwin.open.api.model.documents.DocumentList;
 import fr.everwin.open.api.util.RequestParams;
 
 /**
@@ -37,6 +40,7 @@ import fr.everwin.open.api.util.RequestParams;
  * @author everwin-team
  */
 public class BasicService<O extends BasicObject,L extends BasicList> {
+
     protected static final Logger LOGGER = LogManager.getLogger();
     /** The client API */
     protected ClientApi clientApi;
@@ -327,4 +331,90 @@ public class BasicService<O extends BasicObject,L extends BasicList> {
         readResponse(response, String.class);
     }
 
+    /**
+     * Get a collection of Doucments
+     * @param params Extra parameters
+     * @param objectId The linked object id
+     * @return DocumentList
+     * @throws CoreException If the request failed
+     */
+        public DocumentList queryDocument(long objectId, RequestParams params) throws CoreException {
+        Response response = clientApi.get(path + "/" + objectId + "/documents", params);
+        return (DocumentList) readResponse(response, DocumentList.class);
+    }
+
+    /**
+     * Get the document identified by its id
+     * @param objectId The linked object id
+     * @param id The document id
+     * @return The document
+     * @throws CoreException If the request failed
+     */
+    public Document getDocument(long objectId,long id) throws CoreException {
+        Response response = clientApi.get(path + "/" + objectId + "/documents/" + id, null);
+        return (Document) readResponse(response, Document.class);
+    }
+
+    /**
+     * Create a new document for the object identified by the objectId
+     * @param objectId The id of the object to link to the document
+     * @param document The document to create
+     * @return The id of the new document
+     * @throws CoreException If the request failed
+     */
+    public long createDocument(long objectId, Document document) throws CoreException {
+        Response response = clientApi.post(path + "/" + objectId + "/documents", document);
+        readResponse(response, String.class);
+        return document.getId();
+    }
+
+    /**
+     * Update the comment for the object identified by the id of the document
+     * @param objectId The id of the object linked to the comment
+     * @param document The document to update
+     * @throws CoreException If the request failed
+     */
+    public void updateDocument(long objectId, Document document) throws CoreException {
+        Response response = clientApi.put(path + "/" + objectId + "/documents/" + document.getId(), document);
+        readResponse(response, String.class);
+    }
+
+    /**
+     * Update only not null fields of the document
+     * @param objectId The id of the object linked to the comment
+     * @param document The document to update
+     * @throws CoreException If the request failed
+     */
+    public void updatePartiallyDocument(long objectId, Document document) throws CoreException {
+        Response response = clientApi.post(path + "/" + objectId + "/documents/" + document.getId(), document);
+        readResponse(response, String.class);
+    }
+
+    /**
+     * Delete the document for the object identified by the id of the document
+     * @param id The document id to update
+     * @throws CoreException If the request failed
+     */
+    public void deleteDocument(long objectId, long id) throws CoreException {
+        Response response = clientApi.delete(path + "/" + objectId + "/documents/" + id);
+        readResponse(response, String.class);
+    }
+
+    /**
+     * upload the document for the object identified by the id of the document
+     * @param id The document id to upload
+     * @throws CoreException If the request failed
+     */
+    public void uploadDocument(long id) throws CoreException {
+
+    }
+
+    /**
+     * download the document for the object identified by the id of the document
+     * @param id The document id to download
+     * @throws CoreException If the request failed
+     */
+    public void downloadDocument(long id) throws CoreException {
+
+    }
 }

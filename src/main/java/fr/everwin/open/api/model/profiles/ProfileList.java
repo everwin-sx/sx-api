@@ -21,11 +21,13 @@ package fr.everwin.open.api.model.profiles;
 
 import java.util.List;
 
+import javax.ws.rs.core.Link;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import fr.everwin.open.api.model.core.BasicList;
 import fr.everwin.open.api.model.projects.Project;
@@ -39,21 +41,44 @@ import fr.everwin.open.api.model.projects.Project;
 @XmlRootElement(name = "profilelist")
 public class ProfileList extends BasicList<Profile> {
 
+	private final static String METHOD="query";
+
 	@XmlElement(name = "profile")
 	@XmlElementWrapper(name = "profiles")
 	private List<Profile> items;
 
-	public ProfileList() {
+	@XmlElement(name = "selflink")
+	protected String href;
 
-	}
+	@XmlElement(name = "link")
+	@XmlElementWrapper(name = "links")
+	@XmlJavaTypeAdapter(Link.JaxbAdapter.class)
+	protected List<Link> links;
 
+	@Override
 	public List<Profile> getItems() {
 		return items;
 	}
 
+	@Override
 	public void setItems(List<Profile> items) {
 		this.items = items;
 	}
 
+	public String getHref() {
+		return href;
+	}
 
+	public void setHref(String href) {
+		this.href = href;
+	}
+
+	@Override
+	public List<Link> getLinks() {
+		return links;
+	}
+
+	public void setLinks(List<Link> links) {
+		this.links = links;
+	}
 }

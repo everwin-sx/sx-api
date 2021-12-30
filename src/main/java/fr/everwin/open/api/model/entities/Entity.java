@@ -58,8 +58,7 @@ public class Entity extends BasicObject {
 	@XmlElement
 	public Integer position;
 
-	@XmlElement
-    DataLink parent;
+	DataLink parent;
 
 	@XmlElement
 	protected String accountingId;
@@ -212,5 +211,4 @@ public class Entity extends BasicObject {
 	public void setReportCurrency(DataLink reportCurrency) {
 		this.reportCurrency = reportCurrency;
 	}
-
 }

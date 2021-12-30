@@ -107,9 +107,6 @@ public class Quote extends BasicObject {
     @XmlElement
     private String updatedBy;
 
-    @XmlElement
-    private String validationStep;
-
     @XmlElementWrapper(name = "extraData")
     @XmlElements({@XmlElement(name = "stringval", type = SpecificStringValue.class),
             @XmlElement(name = "dateval", type = SpecificDateValue.class),
@@ -118,12 +115,22 @@ public class Quote extends BasicObject {
             @XmlElement(name = "multilink", type = SpecificMultiLinkValue.class)})
     private List<SpecificData> extraData;
 
-    public String getCode() {
-        return code;
+    public DataLink getEntity(){
+        return entity;
+    }
+    public  void setEntity(DataLink entity) {
+        this.entity = entity;
     }
 
     public void setCode(String code) {
         this.code = code;
+    }
+    public void setNotes(String notes) {
+        this.notes = notes;
+    }
+
+    public String getCode() {
+        return code;
     }
 
     public Long getNumber() {
@@ -134,84 +141,8 @@ public class Quote extends BasicObject {
         this.number = number;
     }
 
-    public DataLink getCreatedBy() {
-        return createdBy;
-    }
-
-    public void setCreatedBy(DataLink createdBy) {
-        this.createdBy = createdBy;
-    }
-
-    public DataLink getCustomer() {
-        return customer;
-    }
-
-    public void setCustomer(DataLink customer) {
-        this.customer = customer;
-    }
-
-    public DataLink getMainContact() {
-        return mainContact;
-    }
-
-    public void setMainContact(DataLink mainContact) {
-        this.mainContact = mainContact;
-    }
-
-    public List<DataLink> getSecondaryContacts() {
-        return secondaryContacts;
-    }
-
-    public void setSecondaryContacts(List<DataLink> secondaryContacts) {
-        this.secondaryContacts = secondaryContacts;
-    }
-
-    public String getPrintHeader() {
-        return printHeader;
-    }
-
-    public void setPrintHeader(String printHeader) {
-        this.printHeader = printHeader;
-    }
-
     public String getNotes() {
         return notes;
-    }
-
-    public void setNotes(String notes) {
-        this.notes = notes;
-    }
-
-    public String getPaymentConditions() {
-        return paymentConditions;
-    }
-
-    public void setPaymentConditions(String paymentConditions) {
-        this.paymentConditions = paymentConditions;
-    }
-
-    public String getDelay() {
-        return delay;
-    }
-
-    public void setDelay(String delay) {
-        this.delay = delay;
-    }
-
-    public DataLink getEntity() {
-        return entity;
-    }
-
-    public void setEntity(DataLink entity) {
-        this.entity = entity;
-    }
-
-    public DataLink getFinancialEntity() {
-        return financialEntity;
-    }
-
-    public void setFinancialEntity(DataLink financialEntity) {
-        this.financialEntity = financialEntity;
     }
 
     public Short getStatus() {
@@ -222,46 +153,6 @@ public class Quote extends BasicObject {
         this.status = status;
     }
 
-    public Date getSendingDate() {
-        return sendingDate;
-    }
-
-    public void setSendingDate(Date sendingDate) {
-        this.sendingDate = sendingDate;
-    }
-
-    public Date getSignatureDate() {
-        return signatureDate;
-    }
-
-    public void setSignatureDate(Date signatureDate) {
-        this.signatureDate = signatureDate;
-    }
-
-    public String getRefusalReason() {
-        return refusalReason;
-    }
-
-    public void setRefusalReason(String refusalReason) {
-        this.refusalReason = refusalReason;
-    }
-
-    public String getPrintCurrency() {
-        return printCurrency;
-    }
-
-    public void setPrintCurrency(String printCurrency) {
-        this.printCurrency = printCurrency;
-    }
-
-    public Double getConversionRate() {
-        return conversionRate;
-    }
-
-    public void setConversionRate(Double conversionRate) {
-        this.conversionRate = conversionRate;
-    }
-
     public Short getType() {
         return type;
     }
@@ -270,43 +161,10 @@ public class Quote extends BasicObject {
         this.type = type;
     }
 
-    public Date getUpdatedOnTime() {
-        return updatedOnTime;
-    }
-
-    public void setUpdatedOnTime(Date updatedOnTime) {
-        this.updatedOnTime = updatedOnTime;
-    }
-
-    public Date getCreatedOnTime() {
-        return createdOnTime;
-    }
-
-    public void setCreatedOnTime(Date createdOnTime) {
-        this.createdOnTime = createdOnTime;
-    }
-
-    public String getUpdatedBy() {
-        return updatedBy;
-    }
-
-    public void setUpdatedBy(String updatedBy) {
-        this.updatedBy = updatedBy;
-    }
-
-    public String getValidationStep() {
-        return validationStep;
-    }
-
-    public void setValidationStep(String validationStep) {
-        this.validationStep = validationStep;
-    }
-
-    public List<SpecificData> getExtraData() {
-        return extraData;
-    }
-
-    public void setExtraData(List<SpecificData> extraData) {
-        this.extraData = extraData;
+    @Override
+    public String toString() {
+        return "Quote{" +
+                "code='" + code + '\'' +
+                '}';
     }
 }

@@ -22,7 +22,7 @@ package fr.everwin.open.api.model.leaverequests;
  */
 public enum HalfDayIndicator {
 
-	MORNING("1"), NOON("2"), ENDOFDAY("3");
+	MORNING("1"), NOON("2"), ENDOFDAY("3"), MORNINGMID("4"), MIDNOON("5");
 
 	private String value;
 

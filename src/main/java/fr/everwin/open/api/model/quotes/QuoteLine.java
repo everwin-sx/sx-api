@@ -27,8 +27,7 @@ import fr.everwin.open.api.model.core.SpecificStringValue;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class QuoteLine extends BasicObject {
 
-    @XmlElementWrapper(name = "rowtypes")
-    @XmlElements(@XmlElement(name = "rowtype", type = DataLink.class))
+    @XmlElement
     protected DataLink type;
 
     @XmlElement
@@ -47,6 +46,9 @@ public class QuoteLine extends BasicObject {
     protected Double vatRate;
 
     @XmlElement
+    protected Double vat2Rate;
+
+    @XmlElement
     protected Short order;
 
     @XmlElementWrapper(name = "extraData")
@@ -55,69 +57,10 @@ public class QuoteLine extends BasicObject {
             @XmlElement(name = "numberval", type = SpecificNumberValue.class),
             @XmlElement(name = "link", type = SpecificLinkValue.class),
             @XmlElement(name = "multilink", type = SpecificMultiLinkValue.class)})
-    private List<SpecificData> extraData;
+    protected List<SpecificData> extraData;
 
-    public DataLink getType() {
-        return type;
-    }
-
-    public void setType(DataLink type) {
-        this.type = type;
-    }
-
-    public QuoteResource getResource() {
-        return resource;
-    }
-
-    public void setResource(QuoteResource resource) {
-        this.resource = resource;
-    }
-
-    public String getReference() {
-        return reference;
-    }
-
-    public void setReference(String reference) {
-        this.reference = reference;
-    }
-
-    public String getComment() {
-        return comment;
-    }
-
-    public void setComment(String comment) {
-        this.comment = comment;
-    }
-
-    public DataLink getVat() {
-        return vat;
-    }
-
-    public void setVat(DataLink vat) {
-        this.vat = vat;
-    }
-
-    public Double getVatRate() {
-        return vatRate;
-    }
-
-    public void setVatRate(Double vatRate) {
-        this.vatRate = vatRate;
-    }
-
-    public Short getOrder() {
-        return order;
-    }
-
-    public void setOrder(Short order) {
-        this.order = order;
-    }
-
-    public List<SpecificData> getExtraData() {
-        return extraData;
-    }
-
-    public void setExtraData(List<SpecificData> extraData) {
-        this.extraData = extraData;
+    public QuoteLine() {
+        super();
+        resource = new QuoteResource();
     }
 }

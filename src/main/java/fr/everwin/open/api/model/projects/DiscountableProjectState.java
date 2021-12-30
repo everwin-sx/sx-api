@@ -14,19 +14,16 @@
  * limitations under the License.
  */
 
-/**
- * 
- */
 package fr.everwin.open.api.model.projects;
-
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import fr.everwin.open.api.model.projects.lines.ProjectDebitCredit;
 
 /**
- * @author everwin-team
+ * @author d.storti
  */
 @XmlRootElement(name = "project-discountablestate")
 @XmlAccessorType(XmlAccessType.FIELD)

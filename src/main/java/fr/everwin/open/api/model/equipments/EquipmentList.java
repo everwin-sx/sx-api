@@ -21,11 +21,13 @@ package fr.everwin.open.api.model.equipments;
 
 import java.util.List;
 
+import javax.ws.rs.core.Link;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import fr.everwin.open.api.model.core.BasicList;
 
@@ -38,13 +40,19 @@ import fr.everwin.open.api.model.core.BasicList;
 @XmlRootElement(name = "equipmentlist")
 public class EquipmentList extends BasicList<Equipment> {
 
+	private final static String METHOD = "query";
+
 	@XmlElement(name = "equipment")
 	@XmlElementWrapper(name = "equipments")
 	private List<Equipment> items;
 
-	public EquipmentList() {
+	@XmlElement(name = "selflink")
+	protected String href;
 
-	}
+	@XmlElement(name = "link")
+	@XmlElementWrapper(name = "links")
+	@XmlJavaTypeAdapter(Link.JaxbAdapter.class)
+	protected List<Link> links;
 
 	public List<Equipment> getItems() {
 		return items;
@@ -54,5 +62,19 @@ public class EquipmentList extends BasicList<Equipment> {
 		this.items = items;
 	}
 
+	public String getHref() {
+		return href;
+	}
 
+	public void setHref(String href) {
+		this.href = href;
+	}
+
+	public List<Link> getLinks() {
+		return links;
+	}
+
+	public void setLinks(List<Link> links) {
+		this.links = links;
+	}
 }

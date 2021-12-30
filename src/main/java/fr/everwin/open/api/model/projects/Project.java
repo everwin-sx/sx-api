@@ -59,6 +59,7 @@ public class Project extends BasicObject {
 
 	@XmlElement
 	private Short type;
+
 	@XmlElement
 	private DataLink customer;
 
@@ -173,23 +174,30 @@ public class Project extends BasicObject {
 	@XmlJavaTypeAdapter(XMLDateAdapter.class)
 	@JsonDeserialize(using = JsonDateDeserializer.class)
 	private Date createdOnTime;
+
 	@XmlElement
 	private String managementCurrency;
+
 	@XmlElement
 	private String accountCurrency;
+
 	@XmlElement
 	private String reportingCurrency;
+
 	@XmlElement
 	private Short planningMode;
 
 	@XmlElementWrapper(name = "extraData")
 	@XmlElements({@XmlElement(name = "stringval", type = SpecificStringValue.class),
-		@XmlElement(name = "dateval", type = SpecificDateValue.class),
-		@XmlElement(name = "numberval", type = SpecificNumberValue.class),
-		@XmlElement(name = "link", type = SpecificLinkValue.class),
-		@XmlElement(name = "multilink", type = SpecificMultiLinkValue.class)})
+			@XmlElement(name = "dateval", type = SpecificDateValue.class),
+			@XmlElement(name = "numberval", type = SpecificNumberValue.class),
+			@XmlElement(name = "link", type = SpecificLinkValue.class),
+			@XmlElement(name = "multilink", type = SpecificMultiLinkValue.class)})
 	private List<SpecificData> extraData;
 
+	/**
+	 *
+	 */
 	public Project() {
 
 	}

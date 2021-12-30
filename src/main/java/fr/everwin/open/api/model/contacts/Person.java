@@ -117,6 +117,9 @@ public class Person  extends BasicObject {
 
     private String updatedBy;
 
+    @XmlElement
+    private String picture;
+
     @XmlElementWrapper(name = "extraData")
     @XmlElements({@XmlElement(name = "stringval", type = SpecificStringValue.class), @XmlElement(name = "dateval", type = SpecificDateValue.class), @XmlElement(name = "numberval", type = SpecificNumberValue.class), @XmlElement(name = "link",
             type = SpecificLinkValue.class), @XmlElement(name = "multilink", type = SpecificMultiLinkValue.class)})
@@ -297,4 +300,11 @@ public class Person  extends BasicObject {
         return "Contact [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + "]";
     }
 
+    public String getPicture() {
+        return picture;
+    }
+
+    public void setPicture(String picture) {
+        this.picture = picture;
+    }
 }

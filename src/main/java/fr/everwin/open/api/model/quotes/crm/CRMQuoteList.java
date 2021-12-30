@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 Everwin (www.everwin.fr)
+ * Copyright (C) 2021 Everwin (www.everwin.fr)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,46 +14,35 @@
  * limitations under the License.
  */
 
-/**
- * 
- */
 package fr.everwin.open.api.model.quotes.crm;
-
 import java.util.List;
-
+import javax.ws.rs.core.Link;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
-
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import fr.everwin.open.api.model.core.BasicList;
-import fr.everwin.open.api.model.projects.Project;
-
 
 /**
- * CRM quotes list
- * @author everwin-team
+ * @author d.storti
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name = "crmquotelist")
+@XmlRootElement(name = "crmquotelinelist")
 public class CRMQuoteList extends BasicList<CRMQuote> {
+
+	private final static String METHOD="query";
 
 	@XmlElement(name = "crmquote")
 	@XmlElementWrapper(name = "crmquotes")
 	private List<CRMQuote> items;
 
-	public CRMQuoteList() {
+	@XmlElement(name = "selflink")
+	protected String href;
 
-	}
-
-	public List<CRMQuote> getItems() {
-		return items;
-	}
-
-	public void setItems(List<CRMQuote> items) {
-		this.items = items;
-	}
-
-
+	@XmlElement(name = "link")
+	@XmlElementWrapper(name = "links")
+	@XmlJavaTypeAdapter(Link.JaxbAdapter.class)
+	protected List<Link> links;
 }

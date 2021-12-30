@@ -57,122 +57,159 @@ public class Employee extends BasicObject {
 
 	@XmlElement
 	private String code;
-	
+
 	@XmlElement
 	private String firstName;
-	
+
 	@XmlElement
 	private String lastName;
-	
+
 	@XmlElement
 	private Short title;
-	
+
 	@XmlElement
 	private Short type;
-	
+
 	@XmlElement
 	private DataLink entity;
-	
+
 	@XmlElementWrapper(name = "secondEntities")
 	@XmlElements(@XmlElement(name = "secondEntity", type = DataLink.class))
 	private List<DataLink> secondEntities;
-	
+
 	@XmlElement
 	private DataLink financialEntity;
-	
+
 	@XmlElementWrapper(name = "secondFinancialEntities")
 	@XmlElements(@XmlElement(name = "secondFinancialEntity", type = DataLink.class))
 	private List<DataLink> secondFinancialEntities;
-	
+
 	@XmlElement
 	@XmlJavaTypeAdapter(XMLDateAdapter.class)
 	@JsonDeserialize(using = JsonDateDeserializer.class)
 	private Date arrivalDate;
+
 	@XmlElement
 	@XmlJavaTypeAdapter(XMLDateAdapter.class)
 	@JsonDeserialize(using = JsonDateDeserializer.class)
 	private Date leavingDate;
+
 	@XmlElement
 	@XmlJavaTypeAdapter(XMLDateAdapter.class)
 	@JsonDeserialize(using = JsonDateDeserializer.class)
 	private Date birthDate;
+
 	@XmlElementWrapper(name = "profiles")
 	@XmlElements(@XmlElement(name = "profile", type = DataLink.class))
 	private List<DataLink> profiles;
+
 	@XmlElement
 	private DataLink mainProfile;
+
 	@XmlElement
 	private DataLink manager;
+
 	@XmlElementWrapper(name = "supportedCommercials")
 	@XmlElements(@XmlElement(name = "supportedCommercial", type = DataLink.class))
 	private List<DataLink> supportedCommercials;
+
 	@XmlElement
 	private DataLink workMode;
+
 	@XmlElement
 	private DataLink contractType;
+
 	@XmlElement
 	private DataLink hierarchicalLevel;
+
 	@XmlElement
 	private Double annualSalary;
+
 	@XmlElement
 	private Double salePrice;
-	
+
 	@XmlElement
 	private Double fullCostPrice;
+
 	@XmlElement
 	private Double directCostPrice;
+
 	@XmlElement
 	private DataLink distanceScale;
+
 	@XmlElement
 	private Short isArchived;
+
 	@XmlElement
 	private String login;
+
 	@XmlElement
 	private String password;
+
 	@XmlElement
 	private String userRole;
+
 	@XmlElement
 	private DataLink userLanguage;
+
 	@XmlElement
 	private String function;
+
 	@XmlElementWrapper(name = "profiles")
 	@XmlElements(@XmlElement(name = "profile", type = DataLink.class))
 	private List<DataLink> languages;
-	
+
 	@XmlElement
 	private DataLink nationality;
+
 	@XmlElement
 	private String phone;
+
 	@XmlElement
 	private String personalPhone;
+
 	@XmlElement
 	private String mobile;
+
 	@XmlElement
 	private String fax;
+
 	@XmlElement
 	private String address;
+
 	@XmlElement
 	private String address2;
+
 	@XmlElement
 	private String address3;
+
 	@XmlElement
 	private String postalCode;
+
 	@XmlElement
 	private String city;
+
 	@XmlElement
 	private DataLink country;
+
 	@XmlElement
 	private String email;
+
 	@XmlElement
 	private String payrollId;
+
 	@XmlElement
 	private String account;
+
 	@XmlElement
 	private String secondaryAccount;
+
 	@XmlElement
 	private DataLink fiscalPosition;
+
 	@XmlElement
 	private String comment;
+
 	@XmlElement
 	private String updatedBy;
 
@@ -185,484 +222,503 @@ public class Employee extends BasicObject {
 	@XmlJavaTypeAdapter(XMLDateAdapter.class)
 	@JsonDeserialize(using = JsonDateDeserializer.class)
 	private Date createdOnTime;
-	
+
 	@XmlElement
 	private Short isLdapOut;
-	
+
 	@XmlElement
 	private String ldapDomain;
-	
+
 	@XmlElement
 	private String iban;
-	
+
 	@XmlElement
 	private String bic;
-	
+
+	@XmlElement
+	private String picture;
+
+	@XmlElement
+	private String loginMode;
+
 	@XmlElementWrapper(name = "extraData")
 	@XmlElements({@XmlElement(name = "stringval", type = SpecificStringValue.class),
-	@XmlElement(name = "dateval", type = SpecificDateValue.class),
-	@XmlElement(name = "numberval", type = SpecificNumberValue.class),
-	@XmlElement(name = "link", type = SpecificLinkValue.class),
-	@XmlElement(name = "multilink", type = SpecificMultiLinkValue.class)})
+			@XmlElement(name = "dateval", type = SpecificDateValue.class),
+			@XmlElement(name = "numberval", type = SpecificNumberValue.class),
+			@XmlElement(name = "link", type = SpecificLinkValue.class),
+			@XmlElement(name = "multilink", type = SpecificMultiLinkValue.class)})
 	private List<SpecificData> extraData;
 	/**
-	 * 
+	 *
 	 */
 	public Employee() {}
 
 	public String getCode() {
-	return code;
+		return code;
 	}
 
 	public void setCode(String code) {
-	this.code = code;
+		this.code = code;
 	}
 
 	public String getFirstName() {
-	return firstName;
+		return firstName;
 	}
 
 	public void setFirstName(String firstName) {
-	this.firstName = firstName;
+		this.firstName = firstName;
 	}
 
 	public String getLastName() {
-	return lastName;
+		return lastName;
 	}
 
 	public void setLastName(String lastName) {
-	this.lastName = lastName;
+		this.lastName = lastName;
 	}
 
 	public Short getTitle() {
-	return title;
+		return title;
 	}
 
 	public void setTitle(Short title) {
-	this.title = title;
+		this.title = title;
 	}
 
 	public Short getType() {
-	return type;
+		return type;
 	}
 
 	public void setType(Short type) {
-	this.type = type;
+		this.type = type;
 	}
 
 	public DataLink getEntity() {
-	return entity;
+		return entity;
 	}
 
 	public void setEntity(DataLink entity) {
-	this.entity = entity;
+		this.entity = entity;
 	}
 
 	public DataLink getFinancialEntity() {
-	return financialEntity;
+		return financialEntity;
 	}
 
 	public void setFinancialEntity(DataLink financialEntity) {
-	this.financialEntity = financialEntity;
+		this.financialEntity = financialEntity;
 	}
 
 	public Date getArrivalDate() {
-	return arrivalDate;
+		return arrivalDate;
 	}
 
 	public void setArrivalDate(Date arrivalDate) {
-	this.arrivalDate = arrivalDate;
+		this.arrivalDate = arrivalDate;
 	}
 
 	public Date getLeavingDate() {
-	return leavingDate;
+		return leavingDate;
 	}
 
 	public void setLeavingDate(Date leavingDate) {
-	this.leavingDate = leavingDate;
+		this.leavingDate = leavingDate;
 	}
 
 	public Date getBirthDate() {
-	return birthDate;
+		return birthDate;
 	}
 
 	public void setBirthDate(Date birthDate) {
-	this.birthDate = birthDate;
+		this.birthDate = birthDate;
 	}
 
 	public List<DataLink> getProfiles() {
-	return profiles;
+		return profiles;
 	}
 
 	public void setProfiles(List<DataLink> profiles) {
-	this.profiles = profiles;
+		this.profiles = profiles;
 	}
 
 	public DataLink getMainProfile() {
-	return mainProfile;
+		return mainProfile;
 	}
 
 	public void setMainProfile(DataLink mainProfile) {
-	this.mainProfile = mainProfile;
+		this.mainProfile = mainProfile;
 	}
 
 	public DataLink getManager() {
-	return manager;
+		return manager;
 	}
 
 	public void setManager(DataLink manager) {
-	this.manager = manager;
+		this.manager = manager;
 	}
 
 	public List<DataLink> getSupportedCommercials() {
-	return supportedCommercials;
+		return supportedCommercials;
 	}
 
 	public void setSupportedCommercials(List<DataLink> supportedCommercials) {
-	this.supportedCommercials = supportedCommercials;
+		this.supportedCommercials = supportedCommercials;
 	}
 
 	public DataLink getWorkMode() {
-	return workMode;
+		return workMode;
 	}
 
 	public void setWorkMode(DataLink workMode) {
-	this.workMode = workMode;
+		this.workMode = workMode;
 	}
 
 	public DataLink getContractType() {
-	return contractType;
+		return contractType;
 	}
 
 	public void setContractType(DataLink contractType) {
-	this.contractType = contractType;
+		this.contractType = contractType;
 	}
 
 	public DataLink getHierarchicalLevel() {
-	return hierarchicalLevel;
+		return hierarchicalLevel;
 	}
 
 	public void setHierarchicalLevel(DataLink hierarchicalLevel) {
-	this.hierarchicalLevel = hierarchicalLevel;
+		this.hierarchicalLevel = hierarchicalLevel;
 	}
 
 	public Double getAnnualSalary() {
-	return annualSalary;
+		return annualSalary;
 	}
 
 	public void setAnnualSalary(Double annualSalary) {
-	this.annualSalary = annualSalary;
+		this.annualSalary = annualSalary;
 	}
 
 	public Double getSalePrice() {
-	return salePrice;
+		return salePrice;
 	}
 
 	public void setSalePrice(Double salePrice) {
-	this.salePrice = salePrice;
+		this.salePrice = salePrice;
 	}
 
 	public Double getFullCostPrice() {
-	return fullCostPrice;
+		return fullCostPrice;
 	}
 
 	public void setFullCostPrice(Double fullCostPrice) {
-	this.fullCostPrice = fullCostPrice;
+		this.fullCostPrice = fullCostPrice;
 	}
 
 	public Double getDirectCostPrice() {
-	return directCostPrice;
+		return directCostPrice;
 	}
 
 	public void setDirectCostPrice(Double directCostPrice) {
-	this.directCostPrice = directCostPrice;
+		this.directCostPrice = directCostPrice;
 	}
 
 	public DataLink getDistanceScale() {
-	return distanceScale;
+		return distanceScale;
 	}
 
 	public void setDistanceScale(DataLink distanceScale) {
-	this.distanceScale = distanceScale;
+		this.distanceScale = distanceScale;
 	}
 
 	public Short getIsArchived() {
-	return isArchived;
+		return isArchived;
 	}
 
 	public void setIsArchived(Short isArchived) {
-	this.isArchived = isArchived;
+		this.isArchived = isArchived;
 	}
 
 	public String getLogin() {
-	return login;
+		return login;
 	}
 
 	public void setLogin(String login) {
-	this.login = login;
+		this.login = login;
 	}
 
 	public String getPassword() {
-	return password;
+		return password;
 	}
 
 	public void setPassword(String password) {
-	this.password = password;
+		this.password = password;
 	}
 
 	public String getUserRole() {
-	return userRole;
+		return userRole;
 	}
 
 	public void setUserRole(String userRole) {
-	this.userRole = userRole;
+		this.userRole = userRole;
 	}
 
 	public DataLink getUserLanguage() {
-	return userLanguage;
+		return userLanguage;
 	}
 
 	public void setUserLanguage(DataLink userLanguage) {
-	this.userLanguage = userLanguage;
+		this.userLanguage = userLanguage;
 	}
 
 	public String getFunction() {
-	return function;
+		return function;
 	}
 
 	public void setFunction(String function) {
-	this.function = function;
+		this.function = function;
 	}
 
 	public List<DataLink> getLanguages() {
-	return languages;
+		return languages;
 	}
 
 	public void setLanguages(List<DataLink> languages) {
-	this.languages = languages;
+		this.languages = languages;
 	}
 
 	public String getPhone() {
-	return phone;
+		return phone;
 	}
 
 	public void setPhone(String phone) {
-	this.phone = phone;
+		this.phone = phone;
 	}
 
 	public String getMobile() {
-	return mobile;
+		return mobile;
 	}
 
 	public void setMobile(String mobile) {
-	this.mobile = mobile;
+		this.mobile = mobile;
 	}
 
 	public String getFax() {
-	return fax;
+		return fax;
 	}
 
 	public void setFax(String fax) {
-	this.fax = fax;
+		this.fax = fax;
 	}
 
 	public String getAddress() {
-	return address;
+		return address;
 	}
 
 	public void setAddress(String address) {
-	this.address = address;
+		this.address = address;
 	}
 
 	public String getAddress2() {
-	return address2;
+		return address2;
 	}
 
 	public void setAddress2(String address2) {
-	this.address2 = address2;
+		this.address2 = address2;
 	}
 
 	public String getAddress3() {
-	return address3;
+		return address3;
 	}
 
 	public void setAddress3(String address3) {
-	this.address3 = address3;
+		this.address3 = address3;
 	}
 
 	public String getPostalCode() {
-	return postalCode;
+		return postalCode;
 	}
 
 	public void setPostalCode(String postalCode) {
-	this.postalCode = postalCode;
+		this.postalCode = postalCode;
 	}
 
 	public String getCity() {
-	return city;
+		return city;
 	}
 
 	public void setCity(String city) {
-	this.city = city;
+		this.city = city;
 	}
 
 	public DataLink getCountry() {
-	return country;
+		return country;
 	}
 
 	public void setCountry(DataLink country) {
-	this.country = country;
+		this.country = country;
 	}
 
 	public String getEmail() {
-	return email;
+		return email;
 	}
 
 	public void setEmail(String email) {
-	this.email = email;
+		this.email = email;
 	}
 
 	public String getPayrollId() {
-	return payrollId;
+		return payrollId;
 	}
 
 	public void setPayrollId(String payrollId) {
-	this.payrollId = payrollId;
+		this.payrollId = payrollId;
 	}
 
 	public String getAccount() {
-	return account;
+		return account;
 	}
 
 	public void setAccount(String account) {
-	this.account = account;
+		this.account = account;
 	}
 
 	public String getSecondaryAccount() {
-	return secondaryAccount;
+		return secondaryAccount;
 	}
 
 	public void setSecondaryAccount(String secondaryAccount) {
-	this.secondaryAccount = secondaryAccount;
+		this.secondaryAccount = secondaryAccount;
 	}
 
 	public DataLink getFiscalPosition() {
-	return fiscalPosition;
+		return fiscalPosition;
 	}
 
 	public void setFiscalPosition(DataLink fiscalPosition) {
-	this.fiscalPosition = fiscalPosition;
+		this.fiscalPosition = fiscalPosition;
 	}
 
 	public String getComment() {
-	return comment;
+		return comment;
 	}
 
 	public void setComment(String comment) {
-	this.comment = comment;
+		this.comment = comment;
 	}
 
 	public String getUpdatedBy() {
-	return updatedBy;
+		return updatedBy;
 	}
 
 	public void setUpdatedBy(String updatedBy) {
-	this.updatedBy = updatedBy;
+		this.updatedBy = updatedBy;
 	}
 
 	public Date getUpdatedOnTime() {
-	return updatedOnTime;
+		return updatedOnTime;
 	}
 
 	public void setUpdatedOnTime(Date updatedOnTime) {
-	this.updatedOnTime = updatedOnTime;
+		this.updatedOnTime = updatedOnTime;
 	}
 
 	public Date getCreatedOnTime() {
-	return createdOnTime;
+		return createdOnTime;
 	}
 
 	public void setCreatedOnTime(Date createdOnTime) {
-	this.createdOnTime = createdOnTime;
+		this.createdOnTime = createdOnTime;
 	}
 
 	public List<SpecificData> getExtraData() {
-	return extraData;
+		return extraData;
 	}
 
 	public void setExtraData(List<SpecificData> extraData) {
-	this.extraData = extraData;
+		this.extraData = extraData;
 	}
 
 	public DataLink getNationality() {
-	return nationality;
+		return nationality;
 	}
 
 	public void setNationality(DataLink nationality) {
-	this.nationality = nationality;
+		this.nationality = nationality;
 	}
 
 	public List<DataLink> getSecondEntities() {
-	return secondEntities;
+		return secondEntities;
 	}
 
 	public void setSecondEntities(List<DataLink> secondEntities) {
-	this.secondEntities = secondEntities;
+		this.secondEntities = secondEntities;
 	}
 
 	public List<DataLink> getSecondFinancialEntities() {
-	return secondFinancialEntities;
+		return secondFinancialEntities;
 	}
 
 	public void setSecondFinancialEntities(List<DataLink> secondFinancialEntities) {
-	this.secondFinancialEntities = secondFinancialEntities;
+		this.secondFinancialEntities = secondFinancialEntities;
 	}
 
 	public String getPersonalPhone() {
-	return personalPhone;
+		return personalPhone;
 	}
 
 	public void setPersonalPhone(String personalPhone) {
-	this.personalPhone = personalPhone;
+		this.personalPhone = personalPhone;
 	}
 
 	public Short getIsLdapOut() {
-	return isLdapOut;
+		return isLdapOut;
 	}
 
 	public void setIsLdapOut(Short isLdapOut) {
-	this.isLdapOut = isLdapOut;
+		this.isLdapOut = isLdapOut;
 	}
 
 	public String getLdapDomain() {
-	return ldapDomain;
+		return ldapDomain;
 	}
 
 	public void setLdapDomain(String ldapDomain) {
-	this.ldapDomain = ldapDomain;
+		this.ldapDomain = ldapDomain;
 	}
-	
 
 	public String getIban() {
-	return iban;
+		return iban;
 	}
 
-
 	public void setIban(String iban) {
-	this.iban = iban;
+		this.iban = iban;
 	}
 
 	public String getBic() {
-	return bic;
+		return bic;
 	}
 
 	public void setBic(String bic) {
-	this.bic = bic;
+		this.bic = bic;
 	}
 
 	@Override
 	public String toString() {
-	return "Employee [code=" + code + ", firstName=" + firstName + ", lastName=" + lastName + ", entity=" + entity + ", workMode=" + workMode + "]";
+		return "Employee [code=" + code + ", firstName=" + firstName + ", lastName=" + lastName + ", entity=" + entity + ", workMode=" + workMode + "]";
 	}
 
+	public String getPicture() {
+		return picture;
+	}
+
+	public void setPicture(String picture) {
+		this.picture = picture;
+	}
+
+	public String getLoginMode() {
+		return loginMode;
+	}
+
+	public void setLoginMode(String loginMode) {
+		this.loginMode = loginMode;
+	}
 }

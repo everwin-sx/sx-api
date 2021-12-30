@@ -54,14 +54,20 @@ import fr.everwin.open.api.util.XMLDateAdapter;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Comment extends BasicObject {
 
+    @XmlTransient
+    protected String linkProp;
+
+    @XmlTransient
+    protected long linkValue;
+
     @XmlElement
     private String text;
 
     @XmlElement
-    private int type;
+    private Short type;
 
     @XmlElement
-    private int mode;
+    private Short mode;
 
     @XmlElement
     @XmlJavaTypeAdapter(XMLDateAdapter.class)
@@ -93,19 +99,19 @@ public class Comment extends BasicObject {
         this.text = text;
     }
 
-    public int getType() {
+    public Short getType() {
         return type;
     }
 
-    public void setType(int type) {
+    public void setType(Short type) {
         this.type = type;
     }
 
-    public int getMode() {
+    public Short getMode() {
         return mode;
     }
 
-    public void setMode(int mode) {
+    public void setMode(Short mode) {
         this.mode = mode;
     }
 
@@ -131,6 +137,19 @@ public class Comment extends BasicObject {
 
     public void setAuthor(DataLink author) {
         this.author = author;
+    }
+
+    public String getLinkProp() {
+        return linkProp;
+    }
+
+    public void setLink(String prop, long value) {
+        this.linkProp = prop;
+        this.linkValue = value;
+    }
+
+    public long getLinkValue() {
+        return linkValue;
     }
 
     public List<SpecificData> getExtraData() {

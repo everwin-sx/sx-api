@@ -21,11 +21,13 @@ package fr.everwin.open.api.model.contacts;
 
 import java.util.List;
 
+import javax.ws.rs.core.Link;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import fr.everwin.open.api.model.core.BasicList;
 
@@ -38,21 +40,51 @@ import fr.everwin.open.api.model.core.BasicList;
 @XmlRootElement(name = "personlist")
 public class PersonList extends BasicList<Person> {
 
+	private final static String METHOD = "query";
+
 	@XmlElement(name = "contact")
 	@XmlElementWrapper(name = "contacts")
 	private List<Person> items;
 
-	public PersonList() {
+	@XmlElement(name = "selflink")
+	protected String href;
 
+	@XmlElement(name = "link")
+	@XmlElementWrapper(name = "links")
+	@XmlJavaTypeAdapter(Link.JaxbAdapter.class)
+	protected List<Link> links;
+
+	/**
+	 *
+	 */
+	public PersonList() {
+		// TODO Auto-generated constructor stub
 	}
 
+	public String getHref() {
+		return href;
+	}
+
+	public void setHref(String href) {
+		this.href = href;
+	}
+
+	@Override
+	public List<Link> getLinks() {
+		return links;
+	}
+
+	public void setLinks(List<Link> links) {
+		this.links = links;
+	}
+
+	@Override
 	public List<Person> getItems() {
 		return items;
 	}
 
+	@Override
 	public void setItems(List<Person> items) {
 		this.items = items;
 	}
-
-
 }

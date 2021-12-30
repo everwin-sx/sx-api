@@ -21,11 +21,14 @@ package fr.everwin.open.api.model.products;
 
 import java.util.List;
 
+import javax.ws.rs.core.Link;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import fr.everwin.open.api.model.core.BasicList;
 
@@ -38,12 +41,80 @@ import fr.everwin.open.api.model.core.BasicList;
 @XmlRootElement(name = "productlist")
 public class ProductList extends BasicList<Product> {
 
+	private final static String METHOD = "query";
+
+	@XmlTransient
+	private int limit;
+
+	@XmlTransient
+	private int offset; // Getters for these
+
+	@XmlTransient
+	private int modelLimit; // Getters for these
+
+	@XmlTransient
+	private String filter; // Getters for these
+
+	@XmlTransient
+	private String sort; // Getters for these1
+
 	@XmlElement(name = "product")
 	@XmlElementWrapper(name = "products")
 	private List<Product> items;
 
-	public ProductList() {
+	@XmlElement(name = "selflink")
+	protected String href;
 
+	@XmlElement(name = "link")
+	@XmlElementWrapper(name = "links")
+	@XmlJavaTypeAdapter(Link.JaxbAdapter.class)
+	protected List<Link> links;
+
+	/**
+	 *
+	 */
+	public ProductList() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public int getLimit() {
+		return limit;
+	}
+
+	public void setLimit(int limit) {
+		this.limit = limit;
+	}
+
+	public int getOffset() {
+		return offset;
+	}
+
+	public void setOffset(int offset) {
+		this.offset = offset;
+	}
+
+	public int getModelLimit() {
+		return modelLimit;
+	}
+
+	public void setModelLimit(int modelLimit) {
+		this.modelLimit = modelLimit;
+	}
+
+	public String getFilter() {
+		return filter;
+	}
+
+	public void setFilter(String filter) {
+		this.filter = filter;
+	}
+
+	public String getSort() {
+		return sort;
+	}
+
+	public void setSort(String sort) {
+		this.sort = sort;
 	}
 
 	public List<Product> getItems() {
@@ -54,5 +125,19 @@ public class ProductList extends BasicList<Product> {
 		this.items = items;
 	}
 
+	public String getHref() {
+		return href;
+	}
 
+	public void setHref(String href) {
+		this.href = href;
+	}
+
+	public List<Link> getLinks() {
+		return links;
+	}
+
+	public void setLinks(List<Link> links) {
+		this.links = links;
+	}
 }

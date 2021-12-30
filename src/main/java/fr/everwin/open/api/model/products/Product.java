@@ -28,6 +28,12 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import fr.everwin.open.api.model.core.BasicObject;
 import fr.everwin.open.api.model.core.DataLink;
+import fr.everwin.open.api.model.core.SpecificData;
+import fr.everwin.open.api.model.core.SpecificDateValue;
+import fr.everwin.open.api.model.core.SpecificLinkValue;
+import fr.everwin.open.api.model.core.SpecificMultiLinkValue;
+import fr.everwin.open.api.model.core.SpecificNumberValue;
+import fr.everwin.open.api.model.core.SpecificStringValue;
 import fr.everwin.open.api.util.JsonDateDeserializer;
 import fr.everwin.open.api.util.XMLDateAdapter;
 
@@ -87,6 +93,9 @@ public class Product extends BasicObject {
 	private DataLink category;
 
 	@XmlElement
+	private Short customerAssetsGeneration;
+
+	@XmlElement
 	@XmlJavaTypeAdapter(XMLDateAdapter.class)
 	@JsonDeserialize(using = JsonDateDeserializer.class)
 	private Date createdOnTime;
@@ -96,8 +105,19 @@ public class Product extends BasicObject {
 	@JsonDeserialize(using = JsonDateDeserializer.class)
 	private Date updatedOnTime;
 
+	@XmlElement
+	private String updatedBy;
+
+	@XmlElementWrapper(name = "extraData")
+	@XmlElements({@XmlElement(name = "stringval", type = SpecificStringValue.class),
+			@XmlElement(name = "dateval", type = SpecificDateValue.class),
+			@XmlElement(name = "numberval", type = SpecificNumberValue.class),
+			@XmlElement(name = "link", type = SpecificLinkValue.class),
+			@XmlElement(name = "multilink", type = SpecificMultiLinkValue.class)})
+	private List<SpecificData> extraData;
+
 	/**
-	 * 
+	 *
 	 */
 	public Product() {
 		// TODO Auto-generated constructor stub
@@ -223,9 +243,24 @@ public class Product extends BasicObject {
 		this.category = category;
 	}
 
+	public Short getCustomerAssetsGeneration()  {return customerAssetsGeneration; }
+
+	public void setCustomerAssetsGeneration(Short customerAssetsGeneration) { this.customerAssetsGeneration = customerAssetsGeneration; }
+
+	public String getUpdatedBy() { return updatedBy; }
+
+	public void setUpdatedBy(String updatedBy) { this.updatedBy = updatedBy; }
+
+	public List<SpecificData> getExtraData() {
+		return extraData;
+	}
+
+	public void setExtraData(List<SpecificData> extraData) {
+		this.extraData = extraData;
+	}
+
 	@Override
 	public String toString() {
 		return "Product [name=" + name + ", label=" + label + "]";
 	}
-
 }

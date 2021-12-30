@@ -67,31 +67,43 @@ public class LeaveRequest extends BasicObject {
 
 	@XmlElement
 	private DataLink type;
+
 	@XmlElement
 	@XmlJavaTypeAdapter(XMLDateAdapter.class)
 	@JsonDeserialize(using = JsonDateDeserializer.class)
 	private Date startDate;
+
 	@XmlElement
 	private String startHalfDayIndicator;
+
 	@XmlElement
 	@XmlJavaTypeAdapter(XMLDateAdapter.class)
 	@JsonDeserialize(using = JsonDateDeserializer.class)
 	private Date endDate;
+
 	@XmlElement
 	private String endHalfDayIndicator;
 
 	@XmlElement
 	private String validationStep;
+
 	@XmlElement
 	private Double duration;
+
 	@XmlElementWrapper(name = "extraData")
 	@XmlElements({@XmlElement(name = "stringval", type = SpecificStringValue.class),
-				  @XmlElement(name = "dateval", type = SpecificDateValue.class),
-				  @XmlElement(name = "numberval", type = SpecificNumberValue.class),
-				  @XmlElement(name = "link", type = SpecificLinkValue.class),
-				  @XmlElement(name = "multilink", type = SpecificMultiLinkValue.class)})
+			@XmlElement(name = "dateval", type = SpecificDateValue.class),
+			@XmlElement(name = "numberval", type = SpecificNumberValue.class),
+			@XmlElement(name = "link", type = SpecificLinkValue.class),
+			@XmlElement(name = "multilink", type = SpecificMultiLinkValue.class)})
 	private List<SpecificData> extraData;
 
+//	@ApiModelProperty(value = "Indicates if leaver request is cancel or refused", allowableValues = "range[0, 1]")
+//	@XmlElement
+//	private Short isCanceled;
+	/**
+	 *
+	 */
 	public LeaveRequest() {
 
 	}
@@ -174,6 +186,7 @@ public class LeaveRequest extends BasicObject {
 	public void setValidationStep(String validationStep) {
 		this.validationStep = validationStep;
 	}
+
 	public List<SpecificData> getExtraData() {
 		return extraData;
 	}
@@ -194,12 +207,11 @@ public class LeaveRequest extends BasicObject {
 
 		LeaveRequest otherLR = ((LeaveRequest) obj);
 		return Objects.equals(this.id, otherLR.getId()) &&
-			Objects.equals(employee.getId(), otherLR.getEmployee()!=null ? otherLR.getEmployee().getId() : null) &&
-			Objects.equals(type.getId(), otherLR.getType()!=null ? otherLR.getType().getId() : null) &&
-			Objects.equals(startDate, otherLR.getStartDate()) &&
-			Objects.equals(startHalfDayIndicator, otherLR.getStartHalfDayIndicator()) &&
-			Objects.equals(endDate, otherLR.getEndDate()) &&
-			Objects.equals(endHalfDayIndicator, otherLR.getEndHalfDayIndicator());
+				Objects.equals(employee.getId(), otherLR.getEmployee()!=null ? otherLR.getEmployee().getId() : null) &&
+				Objects.equals(type.getId(), otherLR.getType()!=null ? otherLR.getType().getId() : null) &&
+				Objects.equals(startDate, otherLR.getStartDate()) &&
+				Objects.equals(startHalfDayIndicator, otherLR.getStartHalfDayIndicator()) &&
+				Objects.equals(endDate, otherLR.getEndDate()) &&
+				Objects.equals(endHalfDayIndicator, otherLR.getEndHalfDayIndicator());
 	}
-
 }

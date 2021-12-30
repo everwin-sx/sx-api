@@ -21,11 +21,13 @@ package fr.everwin.open.api.model.skills;
 
 import java.util.List;
 
+import javax.ws.rs.core.Link;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -41,21 +43,44 @@ import fr.everwin.open.api.model.core.BasicList;
 @XmlRootElement(name = "skilllist")
 public class SkillList extends BasicList<Skill> {
 
+	private final static String METHOD = "query";
+
 	@XmlElement(name = "skill")
 	@XmlElementWrapper(name = "skills")
 	private List<Skill> items;
 
-	public SkillList() {
+	@XmlElement(name = "selflink")
+	protected String href;
 
-	}
+	@XmlElement(name = "link")
+	@XmlElementWrapper(name = "links")
+	@XmlJavaTypeAdapter(Link.JaxbAdapter.class)
+	protected List<Link> links;
 
+	@Override
 	public List<Skill> getItems() {
 		return items;
 	}
 
+	@Override
 	public void setItems(List<Skill> items) {
 		this.items = items;
 	}
 
+	public String getHref() {
+		return href;
+	}
 
+	public void setHref(String href) {
+		this.href = href;
+	}
+
+	@Override
+	public List<Link> getLinks() {
+		return links;
+	}
+
+	public void setLinks(List<Link> links) {
+		this.links = links;
+	}
 }

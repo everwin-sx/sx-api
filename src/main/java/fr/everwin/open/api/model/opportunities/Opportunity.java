@@ -62,13 +62,16 @@ public class Opportunity extends BasicObject {
 
 	@XmlElement
 	private String label;
+
 	@XmlElement
 	private DataLink customer;
+
 	@XmlElement
 	private DataLink contributor;
 
 	@XmlElement
 	private DataLink mainContact;
+
 	@XmlElementWrapper(name = "secondaryContacts")
 	@XmlElements(@XmlElement(name = "secondaryContact", type = DataLink.class))
 	private List<DataLink> secondaryContacts;
@@ -90,6 +93,7 @@ public class Opportunity extends BasicObject {
 
 	@XmlElement
 	private DataLink category;
+
 	@XmlElement
 	private DataLink subCategory;
 
@@ -101,14 +105,19 @@ public class Opportunity extends BasicObject {
 
 	@XmlElement
 	private DataLink site;
+
 	@XmlElement
 	private DataLink salesCycle;
+
 	@XmlElement
 	private DataLink salesStep;
+
 	@XmlElement
 	private DataLink spanco;
+
 	@XmlElement
-	private MultiCurrencyValue proposalAmount;
+	private OpportunityMultiCurrencyValue proposalAmount;
+
 	@XmlElement
 	@XmlJavaTypeAdapter(XMLDateAdapter.class)
 	@JsonDeserialize(using = JsonDateDeserializer.class)
@@ -123,12 +132,16 @@ public class Opportunity extends BasicObject {
 	@XmlJavaTypeAdapter(XMLDateAdapter.class)
 	@JsonDeserialize(using = JsonDateDeserializer.class)
 	private Date initialEndDate;
+
 	@XmlElement
 	private Short estimatedProbability;
+
 	@XmlElement
 	private Double calculatedProbability;
+
 	@XmlElement
-	private MultiCurrencyValue estimatedCustomerBudget;
+	private OpportunityMultiCurrencyValue estimatedCustomerBudget;
+
 	@XmlElement
 	@XmlJavaTypeAdapter(XMLDateAdapter.class)
 	@JsonDeserialize(using = JsonDateDeserializer.class)
@@ -149,23 +162,30 @@ public class Opportunity extends BasicObject {
 	@XmlJavaTypeAdapter(XMLDateAdapter.class)
 	@JsonDeserialize(using = JsonDateDeserializer.class)
 	private Date createdOnTime;
+
 	@XmlElement
 	private String managementCurrency;
+
 	@XmlElement
 	private String accountCurrency;
+
 	@XmlElement
 	private String reportingCurrency;
+
 	@XmlElementWrapper(name = "extraData")
 	@XmlElements({@XmlElement(name = "stringval", type = SpecificStringValue.class),
-		@XmlElement(name = "dateval", type = SpecificDateValue.class),
-		@XmlElement(name = "numberval", type = SpecificNumberValue.class),
-		@XmlElement(name = "link", type = SpecificLinkValue.class),
-		@XmlElement(name = "multilink", type = SpecificMultiLinkValue.class)})
+			@XmlElement(name = "dateval", type = SpecificDateValue.class),
+			@XmlElement(name = "numberval", type = SpecificNumberValue.class),
+			@XmlElement(name = "link", type = SpecificLinkValue.class),
+			@XmlElement(name = "multilink", type = SpecificMultiLinkValue.class)})
 	private List<SpecificData> extraData;
 
+	/**
+	 *
+	 */
 	public Opportunity() {
-		proposalAmount = new MultiCurrencyValue();
-		estimatedCustomerBudget = new MultiCurrencyValue();
+		proposalAmount = new OpportunityMultiCurrencyValue();
+		estimatedCustomerBudget = new OpportunityMultiCurrencyValue();
 	}
 
 	public String getCode() {
@@ -312,11 +332,11 @@ public class Opportunity extends BasicObject {
 		this.spanco = spanco;
 	}
 
-	public MultiCurrencyValue getProposalAmount() {
+	public OpportunityMultiCurrencyValue getProposalAmount() {
 		return proposalAmount;
 	}
 
-	public void setProposalAmount(MultiCurrencyValue proposalAmount) {
+	public void setProposalAmount(OpportunityMultiCurrencyValue proposalAmount) {
 		this.proposalAmount = proposalAmount;
 	}
 
@@ -352,11 +372,11 @@ public class Opportunity extends BasicObject {
 		this.calculatedProbability = calculatedProbability;
 	}
 
-	public MultiCurrencyValue getEstimatedCustomerBudget() {
+	public OpportunityMultiCurrencyValue getEstimatedCustomerBudget() {
 		return estimatedCustomerBudget;
 	}
 
-	public void setEstimatedCustomerBudget(MultiCurrencyValue estimatedCustomerBudget) {
+	public void setEstimatedCustomerBudget(OpportunityMultiCurrencyValue estimatedCustomerBudget) {
 		this.estimatedCustomerBudget = estimatedCustomerBudget;
 	}
 
@@ -451,5 +471,4 @@ public class Opportunity extends BasicObject {
 	public String toString() {
 		return "Opportunity [code=" + code + ", customer=" + customer + "]";
 	}
-
 }

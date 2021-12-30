@@ -73,13 +73,13 @@ public class Skill extends BasicObject {
 
 	@XmlElementWrapper(name = "extraData")
 	@XmlElements({@XmlElement(name = "stringval", type = SpecificStringValue.class),
-		@XmlElement(name = "dateval", type = SpecificDateValue.class),
-		@XmlElement(name = "numberval", type = SpecificNumberValue.class),
-		@XmlElement(name = "link", type = SpecificLinkValue.class),
-		@XmlElement(name = "multilink", type = SpecificMultiLinkValue.class)})
+			@XmlElement(name = "dateval", type = SpecificDateValue.class),
+			@XmlElement(name = "numberval", type = SpecificNumberValue.class),
+			@XmlElement(name = "link", type = SpecificLinkValue.class),
+			@XmlElement(name = "multilink", type = SpecificMultiLinkValue.class)})
 	private List<SpecificData> extraData;
 	/**
-	 * 
+	 *
 	 */
 	public Skill() {
 
@@ -129,6 +129,5 @@ public class Skill extends BasicObject {
 	@Override
 	public String toString() {
 		return "Skill [label=" + label + ", domain=" + domain + ", entities=" + entities + "]";
-	}	
-
+	}
 }

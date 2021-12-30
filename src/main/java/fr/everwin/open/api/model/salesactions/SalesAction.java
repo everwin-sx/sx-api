@@ -99,26 +99,30 @@ public class SalesAction extends BasicObject {
 	@XmlJavaTypeAdapter(XMLDateAdapter.class)
 	@JsonDeserialize(using = JsonDateDeserializer.class)
 	private Date completionDate;
-	
+
 	@XmlElement
 	private Short answer;
-	
+
 	@XmlElement
 	private DataLink salesStep;
-	
+
 	@XmlElement
 	private DataLink introducedCollaborator;
 	
 	@XmlElement
 	private Short isPrivate;
-	
+
 	@XmlElementWrapper(name = "equipments")
 	@XmlElements(@XmlElement(name = "equipment", type = DataLink.class))
 	private List<DataLink> equipments;
 
+
 	@XmlElement
 	private DataLink marketingCampaign;
-	
+
+	@XmlElement
+	private DataLink lead;
+
 	@XmlElement
 	private String updatedBy;
 
@@ -139,7 +143,13 @@ public class SalesAction extends BasicObject {
 			@XmlElement(name = "link", type = SpecificLinkValue.class),
 			@XmlElement(name = "multilink", type = SpecificMultiLinkValue.class)})
 	private List<SpecificData> extraData;
-	
+
+	/**
+	 *
+	 */
+	public SalesAction() {
+
+	}
 
 	public Short getType() {
 		return type;
@@ -301,13 +311,20 @@ public class SalesAction extends BasicObject {
 		this.equipments = equipments;
 	}
 
-
 	public DataLink getMarketingCampaign() {
 		return marketingCampaign;
 	}
 
 	public void setMarketingCampaign(DataLink marketingCampaign) {
 		this.marketingCampaign = marketingCampaign;
+	}
+
+	public DataLink getLead() {
+		return lead;
+	}
+
+	public void setLead(DataLink lead) {
+		this.lead = lead;
 	}
 
 	public String getUpdatedBy() {
@@ -349,7 +366,4 @@ public class SalesAction extends BasicObject {
 	public void setCompletionDate(Date completionDate) {
 		this.completionDate = completionDate;
 	}
-	
-	
-
 }
