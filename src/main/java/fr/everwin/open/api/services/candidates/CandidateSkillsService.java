@@ -20,11 +20,12 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import fr.everwin.open.api.ClientApi;
-import fr.everwin.open.api.model.candidates.CandidateSkill;
-import fr.everwin.open.api.model.candidates.CandidateSkillList;
+import fr.everwin.open.api.model.candidates.skills.CandidateSkill;
+import fr.everwin.open.api.model.candidates.skills.CandidateSkillList;
 import fr.everwin.open.api.services.core.BasicService;
 
 public class CandidateSkillsService extends BasicService<CandidateSkill, CandidateSkillList> {
+
     protected static final Logger LOGGER = LogManager.getLogger();
 
     public CandidateSkillsService(ClientApi client) {

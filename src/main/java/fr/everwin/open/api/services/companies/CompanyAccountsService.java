@@ -20,9 +20,11 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import fr.everwin.open.api.ClientApi;
-import fr.everwin.open.api.model.companies.CompanyAccount;
-import fr.everwin.open.api.model.companies.CompanyAccountList;
+import fr.everwin.open.api.exception.CoreException;
+import fr.everwin.open.api.model.companies.accounts.CompanyAccount;
+import fr.everwin.open.api.model.companies.accounts.CompanyAccountList;
 import fr.everwin.open.api.services.core.BasicService;
+import fr.everwin.open.api.util.RequestParams;
 
 /**
  * Service manager to query the company accounts API resource
@@ -35,5 +37,13 @@ public class CompanyAccountsService extends BasicService<CompanyAccount, Company
     public CompanyAccountsService(ClientApi client){
         super(client, "company-accounts");
         setModels(CompanyAccount.class, CompanyAccountList.class);
+    }
+
+    public CompanyAccountList queryCustomers(RequestParams params) throws CoreException {
+        return query(path + "/customers", params);
+    }
+
+    public CompanyAccountList querySuppliers(RequestParams params) throws CoreException {
+        return query(path + "/suppliers", params);
     }
 }

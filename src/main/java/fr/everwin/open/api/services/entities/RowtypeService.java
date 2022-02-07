@@ -15,18 +15,15 @@
  */
 
 package fr.everwin.open.api.services.entities;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
 import fr.everwin.open.api.ClientApi;
 import fr.everwin.open.api.exception.CoreException;
-import fr.everwin.open.api.model.candidates.Candidate;
-import fr.everwin.open.api.model.employees.EmployeeList;
-import fr.everwin.open.api.model.entities.Entity;
 import fr.everwin.open.api.model.entities.rowtypes.Rowtype;
 import fr.everwin.open.api.model.entities.rowtypes.RowtypeList;
-import fr.everwin.open.api.model.skills.SkillList;
 import fr.everwin.open.api.services.core.BasicService;
-import fr.everwin.open.api.services.skills.SkillsService;
 import fr.everwin.open.api.util.RequestParams;
 
 /**
@@ -39,10 +36,6 @@ public class RowtypeService extends BasicService<Rowtype, RowtypeList> {
     public RowtypeService(ClientApi client) {
         super(client, "rowtypes");
         setModels(Rowtype.class, RowtypeList.class);
-    }
-
-    public RowtypeList queryRowTypeFromEntity(Entity entity, RequestParams params) throws CoreException {
-        return query("entities/" + entity.getId() +"/rowtypes", params);
     }
 
     public RowtypeList queryExternal(RequestParams params) throws CoreException {

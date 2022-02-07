@@ -20,10 +20,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import fr.everwin.open.api.ClientApi;
-import fr.everwin.open.api.model.products.Category;
-import fr.everwin.open.api.model.products.CategoryList;
-import fr.everwin.open.api.model.products.Product;
-import fr.everwin.open.api.model.products.ProductList;
+import fr.everwin.open.api.model.products.categories.Category;
+import fr.everwin.open.api.model.products.categories.CategoryList;
 import fr.everwin.open.api.services.core.BasicService;
 
 /**

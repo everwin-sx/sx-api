@@ -50,4 +50,10 @@ public class SkillDomainsService extends BasicService<SkillDomain, SkillDomainLi
         SkillsService service = new SkillsService(clientApi);
         return service.query(path + "/"+skillDomain.getId()+"/skills", params);
     }
+
+    public SkillLevelList querySkillsLevelsFromSD(SkillDomain skill, RequestParams params) throws CoreException {
+        SkillLevelsService service = new SkillLevelsService(clientApi);
+        return service.query(path + "/"+skill.getId()+"/skill-levels", params);
+    }
+
 }

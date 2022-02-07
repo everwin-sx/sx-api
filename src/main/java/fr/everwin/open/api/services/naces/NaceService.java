@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 Everwin (www.everwin.fr)
+ * Copyright (C) 2021 Everwin (www.everwin.fr)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,27 +14,25 @@
  * limitations under the License.
  */
 
-package fr.everwin.open.api.services.companies;
+package fr.everwin.open.api.services.naces;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import fr.everwin.open.api.ClientApi;
-import fr.everwin.open.api.model.companies.AccAccount;
-import fr.everwin.open.api.model.companies.AccAccountList;
+import fr.everwin.open.api.model.naces.Nace;
+import fr.everwin.open.api.model.naces.NaceList;
 import fr.everwin.open.api.services.core.BasicService;
 
 /**
- * Service manager to query the company acc account API resource
- * @author everwin-team
+ * @author d.storti
  */
-public class CompanyAccAccountsService extends BasicService<AccAccount, AccAccountList> {
+public class NaceService extends BasicService<Nace, NaceList> {
 
     protected static final Logger LOGGER = LogManager.getLogger();
 
-    public CompanyAccAccountsService(ClientApi client){
-        super(client, "acc-accounts");
-        setModels(AccAccount.class, AccAccountList.class);
+    public NaceService(ClientApi client) {
+        super(client, "company-activities");
+        setModels(Nace.class, NaceList.class);
     }
-
 }

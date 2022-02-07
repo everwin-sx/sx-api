@@ -20,9 +20,16 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import fr.everwin.open.api.ClientApi;
+import fr.everwin.open.api.exception.CoreException;
+import fr.everwin.open.api.model.contacts.ContactResponsibilityList;
 import fr.everwin.open.api.model.contacts.Person;
 import fr.everwin.open.api.model.contacts.PersonList;
+import fr.everwin.open.api.model.leads.LeadList;
+import fr.everwin.open.api.model.salesactions.SalesActionList;
 import fr.everwin.open.api.services.core.BasicService;
+import fr.everwin.open.api.services.leads.LeadService;
+import fr.everwin.open.api.services.salesactions.SalesActionsService;
+import fr.everwin.open.api.util.RequestParams;
 
 /**
  * Service manager to query the persons / contacts API resource
@@ -35,5 +42,20 @@ public class PersonsService extends BasicService<Person, PersonList> {
     public PersonsService(ClientApi client){
         super(client, "contacts");
         setModels(Person.class, PersonList.class);
+    }
+
+    public ContactResponsibilityList queryResponsabilitiesFromPerson(Person person, RequestParams params) throws CoreException {
+        ContactResponsibilitiesService service = new ContactResponsibilitiesService(clientApi);
+        return service.query(path + "/" + person.getId() + "/responsibilities", params);
+    }
+
+    public SalesActionList querySAForContact(Person contact, RequestParams params) throws CoreException {
+        SalesActionsService service = new SalesActionsService(clientApi);
+        return service.query(path + "/" + contact.getId() + "/sales-actions", params);
+    }
+
+    public LeadList queryLeadsFromContact(Person contact, RequestParams params) throws CoreException {
+        LeadService service = new LeadService(clientApi);
+        return service.query("contacts/" + contact.getId() +"/leads", params);
     }
 }

@@ -16,15 +16,15 @@
 
 package fr.everwin.open.api.util;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.Invocation;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -112,7 +112,7 @@ public class ClientRequest {
         // Add auth informations
         if(auth != null) {
             if (auth.getType() == Authentication.TYPE_APIKEY) {
-                webTarget = webTarget.queryParam("apikey", auth.getApiKey());
+                webTarget = webTarget.queryParam("api_key", auth.getApiKey());
             } else {
                 webTarget = webTarget.queryParam("access_token", auth.getToken());
             }

@@ -23,12 +23,9 @@ import org.apache.logging.log4j.Logger;
 
 import fr.everwin.open.api.ClientApi;
 import fr.everwin.open.api.exception.CoreException;
-import fr.everwin.open.api.model.candidates.Candidate;
-import fr.everwin.open.api.model.comments.Comment;
 import fr.everwin.open.api.model.documents.Document;
 import fr.everwin.open.api.model.documents.DocumentList;
 import fr.everwin.open.api.model.expenses.sheets.ExpenseSheet;
-import fr.everwin.open.api.model.expenses.sheets.ExpenseSheetList;
 import fr.everwin.open.api.model.expenses.sheets.lines.ExpenseSheetLine;
 import fr.everwin.open.api.model.expenses.sheets.lines.ExpenseSheetLineList;
 import fr.everwin.open.api.model.skills.SkillList;
@@ -49,12 +46,12 @@ public class ExpenseSheetLineService extends BasicService<ExpenseSheetLine, Expe
     }
 
     public ExpenseSheetLineList queryLinesFromExpenseSheet(ExpenseSheet sheet, RequestParams params) throws CoreException {
-        return query( "/expense-sheets/" + sheet.getId() +"/lines", params);
+        return query( "expense-sheets/" + sheet.getId() +"/lines", params);
     }
 
     public SkillList queryLinebyId(ExpenseSheet sheet, ExpenseSheetLine line, RequestParams params) throws CoreException {
         SkillsService skillsService = new SkillsService(clientApi);
-        return skillsService.query( "/expense-sheets/" + sheet.getId() +"/lines/" + line.getId(), params);
+        return skillsService.query( "expense-sheets/" + sheet.getId() +"/lines/" + line.getId(), params);
     }
 
     /**
@@ -138,13 +135,17 @@ public class ExpenseSheetLineService extends BasicService<ExpenseSheetLine, Expe
      * @throws CoreException If the request failed
      */
     public long createDocument(long objectId, ExpenseSheetLine line, Document document) throws CoreException {
-        Response response = clientApi.post(path + "/" + objectId + "/lines/" + line.getId() + "/documents" + "/documents", document);
+        Response response = clientApi.post(path + "/" + objectId + "/lines/" + line.getId() + "/documents", document);
         readResponse(response, String.class);
-        return document.getId();
+        // extract id from return location
+        String locationUri = response.getHeaderString("Location");
+        Long id =  Long.parseLong(locationUri.substring(locationUri.lastIndexOf("/") + 1, locationUri.length()));
+        document.setId(id);
+        return id;
     }
 
     /**
-     * Update the comment for the object identified by the id of the document
+     * Update the document for the object identified by the id of the document
      * @param objectId The id of the object linked to the document
      * @param document The document to update
      * @param line The line where we are taking the document
@@ -163,7 +164,7 @@ public class ExpenseSheetLineService extends BasicService<ExpenseSheetLine, Expe
      * @throws CoreException If the request failed
      */
     public void updatePartiallyDocument(long objectId, ExpenseSheetLine line, Document document) throws CoreException {
-        Response response = clientApi.post(path + "/" + objectId + "/lines/" + line.getId() + "/documents" + "/documents/" + document.getId(), document);
+        Response response = clientApi.post(path + "/" + objectId + "/lines/" + line.getId() + "/documents/" + document.getId(), document);
         readResponse(response, String.class);
     }
 

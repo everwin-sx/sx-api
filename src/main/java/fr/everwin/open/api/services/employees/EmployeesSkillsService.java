@@ -20,8 +20,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import fr.everwin.open.api.ClientApi;
-import fr.everwin.open.api.model.employees.EmployeeSkill;
-import fr.everwin.open.api.model.employees.EmployeeSkillList;
+import fr.everwin.open.api.model.employees.skills.EmployeeSkill;
+import fr.everwin.open.api.model.employees.skills.EmployeeSkillList;
 import fr.everwin.open.api.services.core.BasicService;
 
 /**

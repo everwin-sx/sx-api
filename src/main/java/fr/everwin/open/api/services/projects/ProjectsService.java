@@ -16,13 +16,20 @@
 
 package fr.everwin.open.api.services.projects;
 
+import javax.ws.rs.core.Response;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import fr.everwin.open.api.ClientApi;
+import fr.everwin.open.api.exception.CoreException;
+import fr.everwin.open.api.model.products.assets.CustomerAssetList;
 import fr.everwin.open.api.model.projects.Project;
 import fr.everwin.open.api.model.projects.ProjectList;
+import fr.everwin.open.api.model.quotes.poa.POAQuote;
 import fr.everwin.open.api.services.core.BasicService;
+import fr.everwin.open.api.services.products.CustomerAssetsService;
+import fr.everwin.open.api.util.RequestParams;
 
 /**
  * Service manager to query the project API resource
@@ -37,4 +44,23 @@ public class ProjectsService extends BasicService<Project, ProjectList> {
         setModels(Project.class, ProjectList.class);
     }
 
+
+    /**
+     * Create a new poaQuote for the project
+     * @param objectId The project to link to the poaQuote
+     * @param poaQuote The poaQuote to create
+     * @return The id of the new comment
+     * @throws CoreException If the request failed
+     */
+    public long createPOAQuoteFromLineId(long objectId, POAQuote poaQuote) throws CoreException {
+        Response response = clientApi.post(path + "/" + objectId + "/create-quote", poaQuote);
+        readResponse(response, String.class);
+        String locationUri = response.getHeaderString("Location");
+        return Long.parseLong(locationUri.substring(locationUri.lastIndexOf("/") + 1, locationUri.length()));
+    }
+
+    public CustomerAssetList queryCustomersAssetsFromProject(Project project, RequestParams params) throws CoreException {
+        CustomerAssetsService service = new CustomerAssetsService(clientApi);
+        return service.query(path + "/"+project.getId()+"/customer-assets", params);
+    }
 }

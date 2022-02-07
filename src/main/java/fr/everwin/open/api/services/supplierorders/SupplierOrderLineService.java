@@ -20,8 +20,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import fr.everwin.open.api.ClientApi;
-import fr.everwin.open.api.model.supplierorders.SupplierOrderLine;
-import fr.everwin.open.api.model.supplierorders.SupplierOrderLineList;
+import fr.everwin.open.api.model.supplierorders.lines.SupplierOrderLine;
+import fr.everwin.open.api.model.supplierorders.lines.SupplierOrderLineList;
 import fr.everwin.open.api.services.core.BasicService;
 
 /**
@@ -36,6 +36,4 @@ public class SupplierOrderLineService extends BasicService<SupplierOrderLine, Su
         super(client, "supplier-order-lines");
         setModels(SupplierOrderLine.class, SupplierOrderLineList.class);
     }
-
-
 }

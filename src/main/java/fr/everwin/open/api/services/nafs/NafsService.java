@@ -36,5 +36,4 @@ public class NafsService extends BasicService<Naf, NafList> {
         super(client, "company-apes");
         setModels(Naf.class, NafList.class);
     }
-
 }

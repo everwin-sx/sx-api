@@ -20,8 +20,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import fr.everwin.open.api.ClientApi;
-import fr.everwin.open.api.model.projects.ProjectLine;
-import fr.everwin.open.api.model.projects.ProjectLineList;
+import fr.everwin.open.api.model.projects.lines.ProjectLine;
+import fr.everwin.open.api.model.projects.lines.ProjectLineList;
 import fr.everwin.open.api.services.core.BasicService;
 
 /**
@@ -36,5 +36,4 @@ public class ProjectLinesService extends BasicService<ProjectLine, ProjectLineLi
         super(client, "project-lines");
         setModels(ProjectLine.class, ProjectLineList.class);
     }
-
 }

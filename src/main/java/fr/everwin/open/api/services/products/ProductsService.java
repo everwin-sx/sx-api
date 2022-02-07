@@ -36,5 +36,4 @@ public class ProductsService extends BasicService<Product, ProductList> {
         super(client, "products");
         setModels(Product.class, ProductList.class);
     }
-
 }

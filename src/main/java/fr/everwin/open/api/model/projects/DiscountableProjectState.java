@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 Everwin (www.everwin.fr)
+ * Copyright (C) 2022 Everwin (www.everwin.fr)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.

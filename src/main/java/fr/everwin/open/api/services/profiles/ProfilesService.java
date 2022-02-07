@@ -20,8 +20,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import fr.everwin.open.api.ClientApi;
-import fr.everwin.open.api.model.products.Category;
-import fr.everwin.open.api.model.products.CategoryList;
 import fr.everwin.open.api.model.profiles.Profile;
 import fr.everwin.open.api.model.profiles.ProfileList;
 import fr.everwin.open.api.services.core.BasicService;
@@ -38,5 +36,4 @@ public class ProfilesService extends BasicService<Profile, ProfileList> {
         super(client, "profiles");
         setModels(Profile.class, ProfileList.class);
     }
-
 }

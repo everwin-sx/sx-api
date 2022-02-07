@@ -20,8 +20,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import fr.everwin.open.api.ClientApi;
-import fr.everwin.open.api.model.products.CustomerAsset;
-import fr.everwin.open.api.model.products.CustomerAssetList;
+import fr.everwin.open.api.model.products.assets.CustomerAsset;
+import fr.everwin.open.api.model.products.assets.CustomerAssetList;
 import fr.everwin.open.api.services.core.BasicService;
 
 /**
@@ -36,5 +36,4 @@ public class CustomerAssetsService extends BasicService<CustomerAsset, CustomerA
         super(client, "customer-assets");
         setModels(CustomerAsset.class, CustomerAssetList.class);
     }
-
 }

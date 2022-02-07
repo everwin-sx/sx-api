@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 Everwin (www.everwin.fr)
+ * Copyright (C) 2021 Everwin (www.everwin.fr)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,26 +14,25 @@
  * limitations under the License.
  */
 
-package fr.everwin.open.api.services.currencyrates;
+package fr.everwin.open.api.services.workunits;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import fr.everwin.open.api.ClientApi;
-import fr.everwin.open.api.model.currencies.CurrencyRate;
-import fr.everwin.open.api.model.currencies.CurrencyRateBasicList;
+import fr.everwin.open.api.model.workunits.WorkUnit;
+import fr.everwin.open.api.model.workunits.WorkUnitList;
 import fr.everwin.open.api.services.core.BasicService;
 
 /**
- * Service manager to query the currencyrate API resource
- * @author everwin-team
+ * @author d.storti
  */
-public class CurrencyRatesService extends BasicService<CurrencyRate, CurrencyRateBasicList> {
+public class WorkUnitService extends BasicService<WorkUnit, WorkUnitList> {
 
     protected static final Logger LOGGER = LogManager.getLogger();
 
-    public CurrencyRatesService(ClientApi client){
-        super(client, "currency-rates");
-        setModels(CurrencyRate.class, CurrencyRateBasicList.class);
+    public WorkUnitService(ClientApi client) {
+        super(client, "work-units");
+        setModels(WorkUnit.class, WorkUnitList.class);
     }
 }

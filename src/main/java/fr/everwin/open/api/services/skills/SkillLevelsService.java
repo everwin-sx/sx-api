@@ -20,8 +20,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import fr.everwin.open.api.ClientApi;
-import fr.everwin.open.api.model.skills.SkillLevel;
-import fr.everwin.open.api.model.skills.SkillLevelList;
+import fr.everwin.open.api.model.skills.skillslevels.SkillLevel;
+import fr.everwin.open.api.model.skills.skillslevels.SkillLevelList;
 import fr.everwin.open.api.services.core.BasicService;
 
 /**

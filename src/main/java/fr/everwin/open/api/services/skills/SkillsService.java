@@ -20,9 +20,12 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import fr.everwin.open.api.ClientApi;
+import fr.everwin.open.api.exception.CoreException;
 import fr.everwin.open.api.model.skills.Skill;
 import fr.everwin.open.api.model.skills.SkillList;
+import fr.everwin.open.api.model.skills.skillslevels.SkillLevelList;
 import fr.everwin.open.api.services.core.BasicService;
+import fr.everwin.open.api.util.RequestParams;
 
 /**
  * Service manager to query the skill API resource
@@ -37,4 +40,8 @@ public class SkillsService extends BasicService<Skill, SkillList> {
         setModels(Skill.class, SkillList.class);
     }
 
+    public SkillLevelList querySLFromSkill(Skill skill, RequestParams params) throws CoreException {
+        SkillLevelsService service = new SkillLevelsService(clientApi);
+        return service.query(path + "/"+skill.getId()+"/levels", params);
+    }
 }

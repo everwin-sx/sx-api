@@ -36,5 +36,4 @@ public class LeaveRequestsService extends BasicService<LeaveRequest, LeaveReques
         super(client, "leave-requests");
         setModels(LeaveRequest.class, LeaveRequestList.class);
     }
-
 }

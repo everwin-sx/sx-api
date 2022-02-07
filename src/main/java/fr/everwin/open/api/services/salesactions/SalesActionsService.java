@@ -20,11 +20,13 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import fr.everwin.open.api.ClientApi;
-import fr.everwin.open.api.model.projects.Project;
-import fr.everwin.open.api.model.projects.ProjectList;
+import fr.everwin.open.api.exception.CoreException;
+import fr.everwin.open.api.model.leads.LeadList;
 import fr.everwin.open.api.model.salesactions.SalesAction;
 import fr.everwin.open.api.model.salesactions.SalesActionList;
 import fr.everwin.open.api.services.core.BasicService;
+import fr.everwin.open.api.services.leads.LeadService;
+import fr.everwin.open.api.util.RequestParams;
 
 /**
  * Service manager to query the sales actions API resource
@@ -34,9 +36,13 @@ public class SalesActionsService extends BasicService<SalesAction, SalesActionLi
 
     protected static final Logger LOGGER = LogManager.getLogger();
 
-    public SalesActionsService(ClientApi client){
+    public SalesActionsService(ClientApi client) {
         super(client, "sales-actions");
         setModels(SalesAction.class, SalesActionList.class);
     }
 
+    public LeadList queryLeadsFromSalesAction(SalesAction salesactions, RequestParams params) throws CoreException {
+        LeadService service = new LeadService(clientApi);
+        return service.query("sales-actions/" + salesactions.getId() +"/leads", params);
+    }
 }

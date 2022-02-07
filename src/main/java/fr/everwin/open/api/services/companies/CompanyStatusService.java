@@ -20,9 +20,11 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import fr.everwin.open.api.ClientApi;
-import fr.everwin.open.api.model.companies.Status;
-import fr.everwin.open.api.model.companies.StatusList;
+import fr.everwin.open.api.exception.CoreException;
+import fr.everwin.open.api.model.companies.status.Status;
+import fr.everwin.open.api.model.companies.status.StatusList;
 import fr.everwin.open.api.services.core.BasicService;
+import fr.everwin.open.api.util.RequestParams;
 
 /**
  * Service manager to query the company status API resource
@@ -35,5 +37,21 @@ public class CompanyStatusService extends BasicService<Status, StatusList> {
     public CompanyStatusService(ClientApi client){
         super(client, "company-status");
         setModels(Status.class, StatusList.class);
+    }
+
+    public StatusList queryCustomers(RequestParams params) throws CoreException {
+        return query(path + "/customers", params);
+    }
+
+    public StatusList querySuppliers(RequestParams params) throws CoreException {
+        return query(path + "/suppliers", params);
+    }
+
+    public StatusList queryDefaultCustomer(RequestParams params) throws CoreException {
+        return query(path + "/default-customer", params);
+    }
+
+    public StatusList queryDefaultSupplier(RequestParams params) throws CoreException {
+        return query(path + "/default-supplier", params);
     }
 }

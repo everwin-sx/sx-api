@@ -20,9 +20,13 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import fr.everwin.open.api.ClientApi;
+import fr.everwin.open.api.exception.CoreException;
 import fr.everwin.open.api.model.candidates.Candidate;
 import fr.everwin.open.api.model.candidates.CandidateList;
+import fr.everwin.open.api.model.skills.SkillList;
 import fr.everwin.open.api.services.core.BasicService;
+import fr.everwin.open.api.services.skills.SkillsService;
+import fr.everwin.open.api.util.RequestParams;
 
 /**
  * Service manager to query the candidates API resource
@@ -37,4 +41,8 @@ public class CandidatesService extends BasicService<Candidate, CandidateList> {
         setModels(Candidate.class, CandidateList.class);
     }
 
+    public SkillList querySkillsFromCandidates(Candidate candidate, RequestParams params) throws CoreException {
+        SkillsService skillsService = new SkillsService(clientApi);
+        return skillsService.query(path + "/"+candidate.getId()+"/skills", params);
+    }
 }

@@ -18,6 +18,9 @@ package fr.everwin.open.api.services.core;
 
 import javax.ws.rs.core.Response;
 
+import java.io.File;
+import java.util.Date;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -26,10 +29,9 @@ import fr.everwin.open.api.exception.CoreException;
 import fr.everwin.open.api.exception.RequestException;
 import fr.everwin.open.api.model.comments.Comment;
 import fr.everwin.open.api.model.comments.CommentList;
-import fr.everwin.open.api.model.companies.Company;
+import fr.everwin.open.api.model.core.BasicList;
 import fr.everwin.open.api.model.core.BasicObject;
 import fr.everwin.open.api.model.core.Error;
-import fr.everwin.open.api.model.core.BasicList;
 import fr.everwin.open.api.model.documents.Document;
 import fr.everwin.open.api.model.documents.DocumentList;
 import fr.everwin.open.api.util.RequestParams;
@@ -290,12 +292,16 @@ public class BasicService<O extends BasicObject,L extends BasicList> {
      * @return The id of the new comment
      * @throws CoreException If the request failed
      */
-    public long createComment(long objectId, Comment comment) throws CoreException {
+    public Date createComment(long objectId, Comment comment) throws CoreException {
         Response response = clientApi.post(path + "/" + objectId + "/comments", comment);
         readResponse(response, String.class);
         // extract id from return location
         String locationUri = response.getHeaderString("Location");
-        return Long.parseLong(locationUri.substring(locationUri.lastIndexOf("/") + 1, locationUri.length()));
+        Long id = Long.parseLong(locationUri.substring(locationUri.lastIndexOf("/") + 1, locationUri.length()));
+        comment.setId(id);
+        //comment.setUpdatedBy((get(id)).getUpdatedBy());
+        comment.setUpdatedOnTime(getComment(objectId, id).getUpdatedOnTime());
+        return (getComment(objectId, id)).getUpdatedOnTime();
     }
 
     /**
@@ -304,9 +310,10 @@ public class BasicService<O extends BasicObject,L extends BasicList> {
      * @param comment The comment to update
      * @throws CoreException If the request failed
      */
-    public void updateComment(long objectId, Comment comment) throws CoreException {
+    public Date updateComment(long objectId, Comment comment) throws CoreException {
         Response response = clientApi.put(path + "/" + objectId + "/comments/" + comment.getId(), comment);
         readResponse(response, String.class);
+        return getComment(objectId, comment.getId()).getUpdatedOnTime();
     }
 
     /**
@@ -315,9 +322,11 @@ public class BasicService<O extends BasicObject,L extends BasicList> {
      * @param comment The comment to update
      * @throws CoreException If the request failed
      */
-    public void updatePartiallyComment(long objectId, Comment comment) throws CoreException {
+    public Date updatePartiallyComment(long objectId, Comment comment) throws CoreException {
         Response response = clientApi.post(path + "/" + objectId + "/comments/" + comment.getId(), comment);
         readResponse(response, String.class);
+        return getComment(objectId, comment.getId()).getUpdatedOnTime();
+
     }
 
     /**
@@ -362,10 +371,16 @@ public class BasicService<O extends BasicObject,L extends BasicList> {
      * @return The id of the new document
      * @throws CoreException If the request failed
      */
-    public long createDocument(long objectId, Document document) throws CoreException {
+    public Date createDocument(long objectId, Document document) throws CoreException {
         Response response = clientApi.post(path + "/" + objectId + "/documents", document);
         readResponse(response, String.class);
-        return document.getId();
+        // extract id from return location
+        String locationUri = response.getHeaderString("Location");
+        Long id = Long.parseLong(locationUri.substring(locationUri.lastIndexOf("/") + 1, locationUri.length()));
+        document.setId(id);
+        document.setUpdatedBy((getDocument(objectId, id)).getUpdatedBy());
+        document.setUpdatedOnTime(getDocument(objectId, id).getUpdatedOnTime());
+        return (getDocument(objectId, id)).getUpdatedOnTime();
     }
 
     /**
@@ -374,9 +389,10 @@ public class BasicService<O extends BasicObject,L extends BasicList> {
      * @param document The document to update
      * @throws CoreException If the request failed
      */
-    public void updateDocument(long objectId, Document document) throws CoreException {
+    public Date updateDocument(long objectId, Document document) throws CoreException {
         Response response = clientApi.put(path + "/" + objectId + "/documents/" + document.getId(), document);
         readResponse(response, String.class);
+        return getDocument(objectId, document.getId()).getUpdatedOnTime();
     }
 
     /**
@@ -385,9 +401,10 @@ public class BasicService<O extends BasicObject,L extends BasicList> {
      * @param document The document to update
      * @throws CoreException If the request failed
      */
-    public void updatePartiallyDocument(long objectId, Document document) throws CoreException {
+    public Date updatePartiallyDocument(long objectId, Document document) throws CoreException {
         Response response = clientApi.post(path + "/" + objectId + "/documents/" + document.getId(), document);
         readResponse(response, String.class);
+        return getDocument(objectId, document.getId()).getUpdatedOnTime();
     }
 
     /**
@@ -402,19 +419,21 @@ public class BasicService<O extends BasicObject,L extends BasicList> {
 
     /**
      * upload the document for the object identified by the id of the document
-     * @param id The document id to upload
+     * @param objectId The document id to upload
      * @throws CoreException If the request failed
      */
-    public void uploadDocument(long id) throws CoreException {
-
+    public void uploadDocument(long objectId, Document document, File file) throws CoreException {
+        Response response = clientApi.post(path + "/" + objectId + "/documents/" + document.getId(), file);
+        readResponse(response, String.class);
     }
 
     /**
      * download the document for the object identified by the id of the document
-     * @param id The document id to download
+     * @param objectId The document id to download
      * @throws CoreException If the request failed
      */
-    public void downloadDocument(long id) throws CoreException {
-
+    public File downloadDocument(long objectId, Document document) throws CoreException {
+        Response response = clientApi.get(path + "/" + objectId + "/documents/" + document.getId(), null);
+        return (File) readResponse(response, File.class);
     }
 }

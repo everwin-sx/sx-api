@@ -15,23 +15,19 @@
  */
 
 package fr.everwin.open.api.services.leads;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
 import fr.everwin.open.api.ClientApi;
 import fr.everwin.open.api.exception.CoreException;
-import fr.everwin.open.api.model.candidates.Candidate;
-import fr.everwin.open.api.model.companies.Company;
-import fr.everwin.open.api.model.contacts.Person;
-import fr.everwin.open.api.model.employees.Employee;
+import fr.everwin.open.api.model.contacts.events.ContactEventList;
 import fr.everwin.open.api.model.leads.Lead;
 import fr.everwin.open.api.model.leads.LeadList;
 import fr.everwin.open.api.model.leads.events.LeadEvent;
 import fr.everwin.open.api.model.leads.events.LeadEventList;
-import fr.everwin.open.api.model.opportunities.Opportunity;
-import fr.everwin.open.api.model.salesactions.SalesAction;
-import fr.everwin.open.api.model.skills.SkillList;
+import fr.everwin.open.api.services.contacts.ContactEventService;
 import fr.everwin.open.api.services.core.BasicService;
-import fr.everwin.open.api.services.skills.SkillsService;
 import fr.everwin.open.api.util.RequestParams;
 
 /**
@@ -46,33 +42,13 @@ public class LeadService extends BasicService<Lead, LeadList> {
         setModels(Lead.class, LeadList.class);
     }
 
-    public LeadList queryLeadsFromOpportunity(Opportunity opportunity, RequestParams params) throws CoreException {
-        return query("opportunities/" + opportunity.getId() +"/leads", params);
-    }
-
-    public LeadList queryLeadsFromCompany(Company company, RequestParams params) throws CoreException {
-        return query("companies/" + company.getId() +"/leads", params);
-    }
-
-    public LeadList queryLeadsFromContact(Person contact, RequestParams params) throws CoreException {
-        return query("contacts/" + contact.getId() +"/leads", params);
-    }
-
-    public LeadList queryLeadsFromEmployee(Employee employee, RequestParams params) throws CoreException {
-        return query("employee/" + employee.getId() +"/leads", params);
-    }
-
-    public LeadList queryLeadsFromSalesAction(SalesAction salesactions, RequestParams params) throws CoreException {
-        return query("sales-actions/" + salesactions.getId() +"/leads", params);
-    }
-
     public LeadEventList queryLeadEvents(Lead lead, RequestParams params) throws CoreException {
         LeadEventService service = new LeadEventService(clientApi);
-        return service.query("leads/" + lead.getId() +"/lead-events", params);
+        return service.query(path + "/" + lead.getId() +"/lead-events", params);
     }
 
-    public LeadEventList queryLeadEventById(Lead lead, LeadEvent leadEvent, RequestParams params) throws CoreException {
-        LeadEventService service = new LeadEventService(clientApi);
-        return service.query("leads/" + lead.getId() +"/lead-event/" + leadEvent.getId(), params);
+    public ContactEventList queryLeadEventById(Lead lead, LeadEvent leadEvent, RequestParams params) throws CoreException {
+        ContactEventService service = new ContactEventService(clientApi);
+        return service.query(path + "/" + lead.getId() +"/lead-event/" + leadEvent.getId(), params);
     }
 }

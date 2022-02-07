@@ -20,8 +20,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import fr.everwin.open.api.ClientApi;
-import fr.everwin.open.api.model.supplierinvoices.SupplierInvoiceLine;
-import fr.everwin.open.api.model.supplierinvoices.SupplierInvoiceLineList;
+import fr.everwin.open.api.model.supplierinvoices.lines.SupplierInvoiceLine;
+import fr.everwin.open.api.model.supplierinvoices.lines.SupplierInvoiceLineList;
 import fr.everwin.open.api.services.core.BasicService;
 
 /**

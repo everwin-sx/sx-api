@@ -20,9 +20,19 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import fr.everwin.open.api.ClientApi;
+import fr.everwin.open.api.exception.CoreException;
+import fr.everwin.open.api.model.accounts.AccountList;
+import fr.everwin.open.api.model.currencies.Currency;
+import fr.everwin.open.api.model.currencies.CurrencyList;
+import fr.everwin.open.api.model.currencies.rates.CurrencyRateList;
 import fr.everwin.open.api.model.entities.Entity;
 import fr.everwin.open.api.model.entities.EntityList;
+import fr.everwin.open.api.model.entities.rowtypes.RowtypeList;
+import fr.everwin.open.api.services.accounts.AccountService;
 import fr.everwin.open.api.services.core.BasicService;
+import fr.everwin.open.api.services.currencies.CurrencyRatesService;
+import fr.everwin.open.api.services.currencies.CurrencyService;
+import fr.everwin.open.api.util.RequestParams;
 
 /**
  * Service manager to query the entity API resource
@@ -37,4 +47,53 @@ public class EntitiesService extends BasicService<Entity, EntityList> {
         setModels(Entity.class, EntityList.class);
     }
 
+    public EntityList queryOperational(RequestParams params) throws CoreException {
+        return query(path + "/operational", params);
+    }
+
+    public EntityList queryFinancial(RequestParams params) throws CoreException {
+        return query(path + "/financial", params);
+    }
+
+    public EntityList queryAccounting(RequestParams params) throws CoreException {
+        return query(path + "/accounting", params);
+    }
+
+    public EntityList queryOperationalLast(RequestParams params) throws CoreException {
+        return query(path + "/operational-last", params);
+    }
+
+    public EntityList queryFinancialLast(RequestParams params) throws CoreException {
+        return query(path + "/financial-last", params);
+    }
+
+    public CurrencyList queryCurrencyFromEntity(Entity entity, RequestParams params) throws CoreException {
+        CurrencyService service = new CurrencyService(clientApi);
+        return service.query(path + "/" + entity.getId() + "/currencies", params);
+    }
+
+    public RowtypeList queryRowTypeFromEntity(Entity entity, RequestParams params) throws CoreException {
+        RowtypeService service = new RowtypeService(clientApi);
+        return service.query(path + "/" + entity.getId() +"/rowtypes", params);
+    }
+
+    public CurrencyRateList queryCurrencyRateFromEntity(Entity entity, RequestParams params) throws Exception{
+        CurrencyRatesService service = new CurrencyRatesService(clientApi);
+        return service.query(path + "/" + entity.getId() + "/currency-rates", params );
+    }
+
+    public CurrencyRateList queryCurrencyRateFromEntityAndCurrency(Entity entity, Currency currency, RequestParams params) throws Exception{
+        CurrencyRatesService service = new CurrencyRatesService(clientApi);
+        return service.query(path + "/" + entity.getId() + "/currencies/" + currency.getId() + "/rates", params );
+    }
+
+    public AccountList queryAccountFromEntity(Entity entity, RequestParams params) throws Exception{
+        AccountService service = new AccountService(clientApi);
+        return service.query(path + "/" + entity.getId() + "/accounts", params );
+    }
+
+    public AccountList queryAccountFromEntityForExpenseSheet(Entity entity, RequestParams params) throws Exception{
+        AccountService service = new AccountService(clientApi);
+        return service.query(path + "/" + entity.getId() + "/accounts/expense-sheet", params );
+    }
 }

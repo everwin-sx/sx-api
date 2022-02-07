@@ -20,10 +20,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import fr.everwin.open.api.ClientApi;
-import fr.everwin.open.api.model.quotes.crm.CRMQuote;
-import fr.everwin.open.api.model.quotes.crm.CRMQuoteLine;
-import fr.everwin.open.api.model.quotes.crm.CRMQuoteLineList;
-import fr.everwin.open.api.model.quotes.crm.CRMQuoteList;
+import fr.everwin.open.api.model.quotes.crm.lines.CRMQuoteLine;
+import fr.everwin.open.api.model.quotes.crm.lines.CRMQuoteLineList;
 import fr.everwin.open.api.services.core.BasicService;
 
 /**
@@ -31,6 +29,7 @@ import fr.everwin.open.api.services.core.BasicService;
  * @author everwin-team
  */
 public class CRMQuoteLinesService extends BasicService<CRMQuoteLine, CRMQuoteLineList> {
+
     protected static final Logger LOGGER = LogManager.getLogger();
 
     public CRMQuoteLinesService(ClientApi client) {

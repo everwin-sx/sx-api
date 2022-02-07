@@ -19,9 +19,6 @@
  */
 package fr.everwin.open.api.model.companies.accounts;
 
-import java.util.Date;
-import java.util.List;
-
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -29,6 +26,12 @@ import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlElements;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
+import java.util.Date;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 import fr.everwin.open.api.model.core.BasicObject;
 import fr.everwin.open.api.model.core.DataLink;
@@ -41,9 +44,6 @@ import fr.everwin.open.api.model.core.SpecificStringValue;
 import fr.everwin.open.api.util.JsonDateDeserializer;
 import fr.everwin.open.api.util.XMLDateAdapter;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-
 
 /**
  * Company accounts represents a company managed by business management module. <br>
@@ -54,6 +54,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 @XmlRootElement(name = "companyaccount")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class CompanyAccount extends BasicObject {
+
 
 	@XmlElement
 	private String code;
@@ -72,6 +73,9 @@ public class CompanyAccount extends BasicObject {
 
 	@XmlElement
 	private String billingName;
+
+	@XmlElement
+	private short isActive;
 
 	@XmlElement
 	private String billingRecipient;
@@ -169,8 +173,13 @@ public class CompanyAccount extends BasicObject {
 	@XmlElement
 	private DataLink fiscalPosition;
 
+
 	@XmlElement
-	private Short isActive;
+	private Short visibility;
+
+	@JsonDeserialize(using = JsonDateDeserializer.class)
+	@XmlElement
+	private Date visibilityDate;
 
 	@XmlElement
 	@XmlJavaTypeAdapter(XMLDateAdapter.class)
@@ -183,6 +192,7 @@ public class CompanyAccount extends BasicObject {
 	private Date createdOnTime;
 
 	private String updatedBy;
+
 
 	@XmlElement
 	private DataLink factor;
@@ -412,6 +422,14 @@ public class CompanyAccount extends BasicObject {
 		this.vatSystem = vatSystem;
 	}
 
+	public Short getIsActive() {
+		return isActive;
+	}
+
+	public void setIsActive(Short isActive) {
+		this.isActive = isActive;
+	}
+
 	public DataLink getDefaultVat() {
 		return defaultVat;
 	}
@@ -434,14 +452,6 @@ public class CompanyAccount extends BasicObject {
 
 	public void setFiscalPosition(DataLink fiscalPosition) {
 		this.fiscalPosition = fiscalPosition;
-	}
-
-	public Short getIsActive() {
-		return isActive;
-	}
-
-	public void setIsActive(Short isActive) {
-		this.isActive = isActive;
 	}
 
 	public Date getUpdatedOnTime() {
@@ -546,5 +556,25 @@ public class CompanyAccount extends BasicObject {
 
 	public void setHeadquartersCountry(DataLink headquartersCountry) {
 		this.headquartersCountry = headquartersCountry;
+	}
+
+	public void setIsActive(short isActive) {
+		this.isActive = isActive;
+	}
+
+	public Short getVisibility() {
+		return visibility;
+	}
+
+	public void setVisibility(Short visibility) {
+		this.visibility = visibility;
+	}
+
+	public Date getVisibilityDate() {
+		return visibilityDate;
+	}
+
+	public void setVisibilityDate(Date visibilityDate) {
+		this.visibilityDate = visibilityDate;
 	}
 }

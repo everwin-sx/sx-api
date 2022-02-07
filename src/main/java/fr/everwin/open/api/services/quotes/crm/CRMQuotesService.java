@@ -16,25 +16,41 @@
 
 package fr.everwin.open.api.services.quotes.crm;
 
+import javax.ws.rs.core.Response;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import fr.everwin.open.api.ClientApi;
-import fr.everwin.open.api.model.products.Category;
-import fr.everwin.open.api.model.products.CategoryList;
+import fr.everwin.open.api.exception.CoreException;
 import fr.everwin.open.api.model.quotes.crm.CRMQuote;
 import fr.everwin.open.api.model.quotes.crm.CRMQuoteList;
+import fr.everwin.open.api.model.quotes.crm.lines.CRMQuoteLineList;
 import fr.everwin.open.api.services.core.BasicService;
+import fr.everwin.open.api.util.RequestParams;
 
 /**
  * Service manager to query the CRM quotes API resource
  * @author everwin-team
  */
 public class CRMQuotesService extends BasicService<CRMQuote, CRMQuoteList> {
+
     protected static final Logger LOGGER = LogManager.getLogger();
 
     public CRMQuotesService(ClientApi client) {
         super(client, "crm-quotes");
         setModels(CRMQuote.class, CRMQuoteList.class);
+    }
+
+    /**
+     * Get a collection of supplier invoice lines
+     * @param params Extra parameters
+     * @param objectId The linked supplier invoice id
+     * @return CRMQuoteLineList
+     * @throws CoreException If the request failed
+     */
+    public CRMQuoteLineList queryLines(long objectId, RequestParams params) throws CoreException {
+        Response response = clientApi.get("supplier-receiving/" + objectId + "/lines", params);
+        return (CRMQuoteLineList) readResponse(response, CRMQuoteLineList.class);
     }
 }
