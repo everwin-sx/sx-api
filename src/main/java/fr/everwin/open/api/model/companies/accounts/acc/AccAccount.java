@@ -88,6 +88,7 @@ public class AccAccount extends BasicObject {
 			@XmlElement(name = "link", type = SpecificLinkValue.class),
 			@XmlElement(name = "multilink", type = SpecificMultiLinkValue.class)})
 	private List<SpecificData> extraData;
+
 	public AccAccount() {}
 
 	public DataLink getCompanyAccount() {

@@ -19,6 +19,9 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+
+import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import fr.everwin.open.api.model.core.DataLink;
@@ -34,8 +37,13 @@ import fr.everwin.open.api.model.quotes.Quote;
 public class POAQuote extends Quote {
 
     @XmlElement
-    private DataLink project;
+    private List<Long> projectLineIds;
 
-    @XmlElement
-    private Short type;
+    public List<Long> getProjectLineIds() {
+        return projectLineIds;
+    }
+
+    public void setProjectLineIds(List<Long> projectLineIds) {
+        this.projectLineIds = projectLineIds;
+    }
 }

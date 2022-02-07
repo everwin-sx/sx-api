@@ -13,7 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package fr.everwin.open.api.model.leads;
+
+package fr.everwin.open.api.model.expenses.sheets.lines;
 import java.util.List;
 import javax.ws.rs.core.Link;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -22,23 +23,22 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import fr.everwin.open.api.model.core.BasicList;
 import fr.everwin.open.api.model.countries.Country;
 
 /**
- * Load list
+ * expensesheetline list
  * @author d.storti
  */
-        @XmlAccessorType(XmlAccessType.FIELD)
-        @XmlRootElement(name = "loadlist")
-public class LeadList extends BasicList<Lead> {
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlRootElement(name = "expensesheetlinelist")
+public class ExpenseSheetLineList extends BasicList<ExpenseSheetLine> {
 
     private final static String METHOD = "query";
 
-    @XmlElement(name = "lead")
-    @XmlElementWrapper(name = "leads")
-    private List<Lead> items;
+    @XmlElement(name = "expensesheetline")
+    @XmlElementWrapper(name = "expensesheetlines")
+    private List<ExpenseSheetLine> items;
 
     @XmlElement(name = "selflink")
     protected String href;
@@ -48,11 +48,11 @@ public class LeadList extends BasicList<Lead> {
     @XmlJavaTypeAdapter(Link.JaxbAdapter.class)
     protected List<Link> links;
 
-    public List<Lead> getItems() {
+    public List<ExpenseSheetLine> getItems() {
         return items;
     }
 
-    public void setItems(List<Lead> items) {
+    public void setItems(List<ExpenseSheetLine> items) {
         this.items = items;
     }
 

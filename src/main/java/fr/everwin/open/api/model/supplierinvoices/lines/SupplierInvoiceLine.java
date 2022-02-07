@@ -107,16 +107,146 @@ public class SupplierInvoiceLine extends BasicObject {
 	private List<SpecificData> extraData;
 
 	public SupplierInvoiceLine() {
-		amount = new SupplierInvoiceLineMultiCurrencyValue();
-		totalWithoutVat = new SupplierInvoiceLineMultiCurrencyValue();
-		totalIncludingVat = new SupplierInvoiceLineMultiCurrencyValue();
-		totalToBeCharged = new SupplierInvoiceLineMultiCurrencyValue();
-		vatAmount = new SupplierInvoiceLineMultiCurrencyValue();
-		vatAmount2 = new SupplierInvoiceLineMultiCurrencyValue();
 	}
 
 	@Override
 	public String toString() {
 		return "Supplier invoice line [supplierInvoice=" + (supplierInvoice!=null ? supplierInvoice.getId() : null) + ", Title=" + title + "]";
+	}
+
+	public DataLink getSupplierInvoice() {
+		return supplierInvoice;
+	}
+
+	public void setSupplierInvoice(DataLink supplierInvoice) {
+		this.supplierInvoice = supplierInvoice;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public Double getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(Double quantity) {
+		this.quantity = quantity;
+	}
+
+	public SupplierInvoiceLineMultiCurrencyValue getAmount() {
+		return amount;
+	}
+
+	public void setAmount(SupplierInvoiceLineMultiCurrencyValue amount) {
+		this.amount = amount;
+	}
+
+	public SupplierInvoiceLineMultiCurrencyValue getTotalWithoutVat() {
+		return totalWithoutVat;
+	}
+
+	public void setTotalWithoutVat(SupplierInvoiceLineMultiCurrencyValue totalWithoutVat) {
+		this.totalWithoutVat = totalWithoutVat;
+	}
+
+	public DataLink getVat() {
+		return vat;
+	}
+
+	public void setVat(DataLink vat) {
+		this.vat = vat;
+	}
+
+	public SupplierInvoiceLineMultiCurrencyValue getVatAmount() {
+		return vatAmount;
+	}
+
+	public void setVatAmount(SupplierInvoiceLineMultiCurrencyValue vatAmount) {
+		this.vatAmount = vatAmount;
+	}
+
+	public SupplierInvoiceLineMultiCurrencyValue getVatAmount2() {
+		return vatAmount2;
+	}
+
+	public void setVatAmount2(SupplierInvoiceLineMultiCurrencyValue vatAmount2) {
+		this.vatAmount2 = vatAmount2;
+	}
+
+	public ExpenseMultiCurrencyValue getTotalIncludingVat() {
+		return totalIncludingVat;
+	}
+
+	public void setTotalIncludingVat(ExpenseMultiCurrencyValue totalIncludingVat) {
+		this.totalIncludingVat = totalIncludingVat;
+	}
+
+	public ExpenseMultiCurrencyValue getTotalToBeCharged() {
+		return totalToBeCharged;
+	}
+
+	public void setTotalToBeCharged(ExpenseMultiCurrencyValue totalToBeCharged) {
+		this.totalToBeCharged = totalToBeCharged;
+	}
+
+	public DataLink getProject() {
+		return project;
+	}
+
+	public void setProject(DataLink project) {
+		this.project = project;
+	}
+
+	public DataLink getType() {
+		return type;
+	}
+
+	public void setType(DataLink type) {
+		this.type = type;
+	}
+
+	public DataLink getProjectLine() {
+		return projectLine;
+	}
+
+	public void setProjectLine(DataLink projectLine) {
+		this.projectLine = projectLine;
+	}
+
+	public DataLink getAccount() {
+		return account;
+	}
+
+	public void setAccount(DataLink account) {
+		this.account = account;
+	}
+
+	public DataLink getSupplierOrderLine() {
+		return supplierOrderLine;
+	}
+
+	public void setSupplierOrderLine(DataLink supplierOrderLine) {
+		this.supplierOrderLine = supplierOrderLine;
+	}
+
+	public DataLink getSupplierDeliveryLine() {
+		return supplierDeliveryLine;
+	}
+
+	public void setSupplierDeliveryLine(DataLink supplierDeliveryLine) {
+		this.supplierDeliveryLine = supplierDeliveryLine;
+	}
+
+	public List<SpecificData> getExtraData() {
+		return extraData;
+	}
+
+	public void setExtraData(List<SpecificData> extraData) {
+		this.extraData = extraData;
 	}
 }

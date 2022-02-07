@@ -53,4 +53,34 @@ public class SupplierOrderList extends BasicList<SupplierOrder> {
 	@XmlElementWrapper(name = "links")
 	@XmlJavaTypeAdapter(Link.JaxbAdapter.class)
 	protected List<Link> links;
+
+	@Override
+	public List<SupplierOrder> getItems() {
+		return items;
+	}
+
+	@Override
+	public void setItems(List<SupplierOrder> items) {
+		this.items = items;
+	}
+
+	@Override
+	public String getHref() {
+		return href;
+	}
+
+	@Override
+	public void setHref(String href) {
+		this.href = href;
+	}
+
+	@Override
+	public List<Link> getLinks() {
+		return links;
+	}
+
+	@Override
+	public void setLinks(List<Link> links) {
+		this.links = links;
+	}
 }

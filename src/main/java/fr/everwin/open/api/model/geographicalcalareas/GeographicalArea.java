@@ -48,4 +48,44 @@ public class GeographicalArea extends BasicObject {
 
     @XmlElement
     private DataLink country;
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public String getLabel() {
+        return label;
+    }
+
+    public void setLabel(String label) {
+        this.label = label;
+    }
+
+    public Short getAdministrativeRegion() {
+        return administrativeRegion;
+    }
+
+    public void setAdministrativeRegion(Short administrativeRegion) {
+        this.administrativeRegion = administrativeRegion;
+    }
+
+    public Short getSecondaryRegion() {
+        return secondaryRegion;
+    }
+
+    public void setSecondaryRegion(Short secondaryRegion) {
+        this.secondaryRegion = secondaryRegion;
+    }
+
+    public DataLink getCountry() {
+        return country;
+    }
+
+    public void setCountry(DataLink country) {
+        this.country = country;
+    }
 }

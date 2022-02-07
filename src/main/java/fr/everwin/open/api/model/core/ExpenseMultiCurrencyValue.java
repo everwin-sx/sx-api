@@ -19,20 +19,6 @@ package fr.everwin.open.api.model.core;
 import javax.xml.bind.annotation.XmlElement;
 
 public class ExpenseMultiCurrencyValue extends MultiCurrencyValue {
-    @XmlElement
-    private Double transaction;
 
-    /**
-     * @return the transaction
-     */
-    public Double getTransaction() {
-        return transaction;
-    }
 
-    /**
-     * @param transaction the transaction to set
-     */
-    public void setTransaction(Double transaction) {
-        this.transaction = transaction;
-    }
 }

@@ -75,4 +75,75 @@ public class Guest extends BasicObject {
             @XmlElement(name = "multilink", type = SpecificMultiLinkValue.class)})
     private List<SpecificData> extraData;
 
+    public Short getType() {
+        return type;
+    }
+
+    public void setType(Short type) {
+        this.type = type;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getFunction() {
+        return function;
+    }
+
+    public void setFunction(String function) {
+        this.function = function;
+    }
+
+    public String getCompany() {
+        return company;
+    }
+
+    public void setCompany(String company) {
+        this.company = company;
+    }
+
+    public DataLink getExpenseLine() {
+        return expenseLine;
+    }
+
+    public void setExpenseLine(DataLink expenseLine) {
+        this.expenseLine = expenseLine;
+    }
+
+    public DataLink getEntity() {
+        return entity;
+    }
+
+    public void setEntity(DataLink entity) {
+        this.entity = entity;
+    }
+
+    public DataLink getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(DataLink employee) {
+        this.employee = employee;
+    }
+
+    public Double getTotal() {
+        return total;
+    }
+
+    public void setTotal(Double total) {
+        this.total = total;
+    }
+
+    public List<SpecificData> getExtraData() {
+        return extraData;
+    }
+
+    public void setExtraData(List<SpecificData> extraData) {
+        this.extraData = extraData;
+    }
 }

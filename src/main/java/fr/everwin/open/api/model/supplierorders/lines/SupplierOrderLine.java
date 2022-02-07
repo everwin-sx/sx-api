@@ -112,4 +112,100 @@ public class SupplierOrderLine extends BasicObject {
 	public String toString() {
 		return "SupplierOrderLine [supplierOrder=" + supplierOrder + ", quantity=" + quantity + ", amount=" + amount + ", totalWithoutVat=" + totalWithoutVat + ", project=" + project + ", projectLine=" + projectLine + "]";
 	}
+
+	public DataLink getSupplierOrder() {
+		return supplierOrder;
+	}
+
+	public void setSupplierOrder(DataLink supplierOrder) {
+		this.supplierOrder = supplierOrder;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getReference() {
+		return reference;
+	}
+
+	public void setReference(String reference) {
+		this.reference = reference;
+	}
+
+	public DataLink getProduct() {
+		return product;
+	}
+
+	public void setProduct(DataLink product) {
+		this.product = product;
+	}
+
+	public Double getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(Double quantity) {
+		this.quantity = quantity;
+	}
+
+	public SupplierOrderLineMultiCurrencyValue getAmount() {
+		return amount;
+	}
+
+	public void setAmount(SupplierOrderLineMultiCurrencyValue amount) {
+		this.amount = amount;
+	}
+
+	public SupplierOrderLineMultiCurrencyValue getTotalWithoutVat() {
+		return totalWithoutVat;
+	}
+
+	public void setTotalWithoutVat(SupplierOrderLineMultiCurrencyValue totalWithoutVat) {
+		this.totalWithoutVat = totalWithoutVat;
+	}
+
+	public DataLink getVat() {
+		return vat;
+	}
+
+	public void setVat(DataLink vat) {
+		this.vat = vat;
+	}
+
+	public DataLink getProject() {
+		return project;
+	}
+
+	public void setProject(DataLink project) {
+		this.project = project;
+	}
+
+	public DataLink getProjectLine() {
+		return projectLine;
+	}
+
+	public void setProjectLine(DataLink projectLine) {
+		this.projectLine = projectLine;
+	}
+
+	public Date getDeliveryDate() {
+		return deliveryDate;
+	}
+
+	public void setDeliveryDate(Date deliveryDate) {
+		this.deliveryDate = deliveryDate;
+	}
+
+	public List<SpecificData> getExtraData() {
+		return extraData;
+	}
+
+	public void setExtraData(List<SpecificData> extraData) {
+		this.extraData = extraData;
+	}
 }

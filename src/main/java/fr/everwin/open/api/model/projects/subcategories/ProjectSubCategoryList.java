@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 Everwin (www.everwin.fr)
+ * Copyright (C) 2022 Everwin (www.everwin.fr)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,8 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package fr.everwin.open.api.model.leads;
-import java.util.List;
+
+package fr.everwin.open.api.model.projects.subcategories;
 import javax.ws.rs.core.Link;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -22,23 +22,23 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
+import java.util.List;
 import fr.everwin.open.api.model.core.BasicList;
-import fr.everwin.open.api.model.countries.Country;
 
 /**
- * Load list
  * @author d.storti
  */
-        @XmlAccessorType(XmlAccessType.FIELD)
-        @XmlRootElement(name = "loadlist")
-public class LeadList extends BasicList<Lead> {
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlRootElement(name = "projectsubcategorylist")
+public class ProjectSubCategoryList extends BasicList<ProjectSubCategory> {
 
     private final static String METHOD = "query";
 
-    @XmlElement(name = "lead")
-    @XmlElementWrapper(name = "leads")
-    private List<Lead> items;
+    @XmlElement(name = "projectsubcategory")
+    @XmlElementWrapper(name = "projectsubcategory")
+    private List<ProjectSubCategory> items;
+
+
 
     @XmlElement(name = "selflink")
     protected String href;
@@ -48,26 +48,32 @@ public class LeadList extends BasicList<Lead> {
     @XmlJavaTypeAdapter(Link.JaxbAdapter.class)
     protected List<Link> links;
 
-    public List<Lead> getItems() {
+    @Override
+    public List<ProjectSubCategory> getItems() {
         return items;
     }
 
-    public void setItems(List<Lead> items) {
+    @Override
+    public void setItems(List<ProjectSubCategory> items) {
         this.items = items;
     }
 
+    @Override
     public String getHref() {
         return href;
     }
 
+    @Override
     public void setHref(String href) {
         this.href = href;
     }
 
+    @Override
     public List<Link> getLinks() {
         return links;
     }
 
+    @Override
     public void setLinks(List<Link> links) {
         this.links = links;
     }

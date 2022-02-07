@@ -21,13 +21,17 @@ package fr.everwin.open.api.model.supplierorders.lines;
 
 import java.util.List;
 
+import javax.ws.rs.core.Link;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import fr.everwin.open.api.model.core.BasicList;
+import fr.everwin.open.api.model.nafs.Naf;
+import fr.everwin.open.api.model.supplierorders.SupplierOrder;
 
 
 /**
@@ -38,21 +42,44 @@ import fr.everwin.open.api.model.core.BasicList;
 @XmlRootElement(name = "supplierorderlinelist")
 public class SupplierOrderLineList extends BasicList<SupplierOrderLine> {
 
+	private final static String METHOD = "query";
+
 	@XmlElement(name = "supplierorderline")
 	@XmlElementWrapper(name = "supplierorderlines")
 	private List<SupplierOrderLine> items;
 
-	public SupplierOrderLineList() {
+	@XmlElement(name = "selflink")
+	protected String href;
 
+	@XmlElement(name = "link")
+	@XmlElementWrapper(name = "links")
+	@XmlJavaTypeAdapter(Link.JaxbAdapter.class)
+	protected List<Link> links;
+
+	public String getHref() {
+		return href;
 	}
 
+	public void setHref(String href) {
+		this.href = href;
+	}
+
+	@Override
+	public List<Link> getLinks() {
+		return links;
+	}
+
+	public void setLinks(List<Link> links) {
+		this.links = links;
+	}
+
+	@Override
 	public List<SupplierOrderLine> getItems() {
 		return items;
 	}
 
+	@Override
 	public void setItems(List<SupplierOrderLine> items) {
 		this.items = items;
 	}
-
-
 }

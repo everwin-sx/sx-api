@@ -25,6 +25,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import fr.everwin.open.api.model.core.BasicList;
 import fr.everwin.open.api.model.equipments.families.Family;
+import fr.everwin.open.api.model.leaverequests.LeaveRequest;
 
 /**
  * Country list
@@ -53,5 +54,30 @@ public class CountryList extends BasicList<Country> {
      */
     public CountryList() {
         // TODO Auto-generated constructor stub
+    }
+
+
+    public List<Country> getItems() {
+        return items;
+    }
+
+    public void setItems(List<Country> items) {
+        this.items = items;
+    }
+
+    public String getHref() {
+        return href;
+    }
+
+    public void setHref(String href) {
+        this.href = href;
+    }
+
+    public List<Link> getLinks() {
+        return links;
+    }
+
+    public void setLinks(List<Link> links) {
+        this.links = links;
     }
 }

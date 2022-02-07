@@ -54,25 +54,28 @@ public class SupplierInvoice extends BasicObject {
 
 	@XmlElement
 	private String code;
-	
+
+	@XmlElement
+	private String validationStep;
+
 	@XmlElement
 	private DataLink supplier;
-	
+
 	@XmlElement
 	private DataLink contact;
 
 	@XmlElement
 	private DataLink entity;
-	
+
 	@XmlElement
 	private DataLink financialEntity;
-	
+
 	@XmlElement
 	private DataLink lastValidator;
-	
+
 	@XmlElement
 	private DataLink paymentTerms;
-	
+
 	@XmlElement
 	private DataLink supplierAccount;
 
@@ -106,13 +109,13 @@ public class SupplierInvoice extends BasicObject {
 
 	@XmlElement
 	private Double totalIncludingVat;
-	
+
 	@XmlElement
 	private Double totalVat;
 
 	@XmlElement
 	private Double totalToBeCharged;
-	
+
 	@XmlElementWrapper(name = "extraData")
 	@XmlElements({@XmlElement(name = "stringval", type = SpecificStringValue.class),
 			@XmlElement(name = "dateval", type = SpecificDateValue.class),
@@ -326,5 +329,13 @@ public class SupplierInvoice extends BasicObject {
 	@Override
 	public String toString() {
 		return "Supplier invoice [code=" + code + "]";
+	}
+
+	public String getValidationStep() {
+		return validationStep;
+	}
+
+	public void setValidationStep(String validationStep) {
+		this.validationStep = validationStep;
 	}
 }

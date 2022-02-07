@@ -94,4 +94,100 @@ public class SupplierReceivingNoteLine extends BasicObject {
     public String toString() {
         return "Supplier receiving note line [supplierReceivingNote=" + (supplierReceivingNote != null ? supplierReceivingNote.getId() : null) + ", Title=" + title + "]";
     }
+
+    public DataLink getSupplierReceivingNote() {
+        return supplierReceivingNote;
+    }
+
+    public void setSupplierReceivingNote(DataLink supplierReceivingNote) {
+        this.supplierReceivingNote = supplierReceivingNote;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public Double getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Double quantity) {
+        this.quantity = quantity;
+    }
+
+    public SupplierReceivingNoteLineMultiCurrencyValue getTotalWithoutVat() {
+        return totalWithoutVat;
+    }
+
+    public void setTotalWithoutVat(SupplierReceivingNoteLineMultiCurrencyValue totalWithoutVat) {
+        this.totalWithoutVat = totalWithoutVat;
+    }
+
+    public Double getPercentage() {
+        return percentage;
+    }
+
+    public void setPercentage(Double percentage) {
+        this.percentage = percentage;
+    }
+
+    public DataLink getProject() {
+        return project;
+    }
+
+    public void setProject(DataLink project) {
+        this.project = project;
+    }
+
+    public DataLink getType() {
+        return type;
+    }
+
+    public void setType(DataLink type) {
+        this.type = type;
+    }
+
+    public DataLink getProjectLine() {
+        return projectLine;
+    }
+
+    public void setProjectLine(DataLink projectLine) {
+        this.projectLine = projectLine;
+    }
+
+    public DataLink getSupplierOrderLine() {
+        return supplierOrderLine;
+    }
+
+    public void setSupplierOrderLine(DataLink supplierOrderLine) {
+        this.supplierOrderLine = supplierOrderLine;
+    }
+
+    public String getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
+    }
+
+    public Short getReceiptStatus() {
+        return receiptStatus;
+    }
+
+    public void setReceiptStatus(Short receiptStatus) {
+        this.receiptStatus = receiptStatus;
+    }
+
+    public List<SpecificData> getExtraData() {
+        return extraData;
+    }
+
+    public void setExtraData(List<SpecificData> extraData) {
+        this.extraData = extraData;
+    }
 }

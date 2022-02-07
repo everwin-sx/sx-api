@@ -51,6 +51,9 @@ public class SupplierReceivingNote extends BasicObject {
     private String code;
 
     @XmlElement
+    private String validationStep;
+
+    @XmlElement
     private DataLink supplier;
 
     @XmlElement
@@ -80,4 +83,84 @@ public class SupplierReceivingNote extends BasicObject {
             @XmlElement(name = "link", type = SpecificLinkValue.class),
             @XmlElement(name = "multilink", type = SpecificMultiLinkValue.class)})
     private List<SpecificData> extraData;
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public DataLink getSupplier() {
+        return supplier;
+    }
+
+    public void setSupplier(DataLink supplier) {
+        this.supplier = supplier;
+    }
+
+    public DataLink getEntity() {
+        return entity;
+    }
+
+    public void setEntity(DataLink entity) {
+        this.entity = entity;
+    }
+
+    public DataLink getFinancialEntity() {
+        return financialEntity;
+    }
+
+    public void setFinancialEntity(DataLink financialEntity) {
+        this.financialEntity = financialEntity;
+    }
+
+    public DataLink getIssuer() {
+        return issuer;
+    }
+
+    public void setIssuer(DataLink issuer) {
+        this.issuer = issuer;
+    }
+
+    public DataLink getSupplierAccount() {
+        return supplierAccount;
+    }
+
+    public void setSupplierAccount(DataLink supplierAccount) {
+        this.supplierAccount = supplierAccount;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public String getReference() {
+        return reference;
+    }
+
+    public void setReference(String reference) {
+        this.reference = reference;
+    }
+
+    public List<SpecificData> getExtraData() {
+        return extraData;
+    }
+
+    public void setExtraData(List<SpecificData> extraData) {
+        this.extraData = extraData;
+    }
+
+    public String getValidationStep() {
+        return validationStep;
+    }
+
+    public void setValidationStep(String validationStep) {
+        this.validationStep = validationStep;
+    }
 }

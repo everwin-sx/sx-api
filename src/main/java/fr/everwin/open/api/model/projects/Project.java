@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 package fr.everwin.open.api.model.projects;
-
 import java.util.Date;
 import java.util.List;
 
@@ -174,9 +173,6 @@ public class Project extends BasicObject {
 	@XmlJavaTypeAdapter(XMLDateAdapter.class)
 	@JsonDeserialize(using = JsonDateDeserializer.class)
 	private Date createdOnTime;
-
-	@XmlElement
-	private String managementCurrency;
 
 	@XmlElement
 	private String accountCurrency;
@@ -497,13 +493,6 @@ public class Project extends BasicObject {
 		this.subCategory = subCategory;
 	}
 
-	public String getManagementCurrency() {
-		return managementCurrency;
-	}
-
-	public void setManagementCurrency(String managementCurrency) {
-		this.managementCurrency = managementCurrency;
-	}
 
 	public String getAccountCurrency() {
 		return accountCurrency;

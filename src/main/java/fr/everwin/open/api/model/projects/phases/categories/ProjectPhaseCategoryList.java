@@ -24,6 +24,7 @@ import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import fr.everwin.open.api.model.core.BasicList;
+import fr.everwin.open.api.model.projects.phases.ProjectPhase;
 
 /**
  * @author d.storti
@@ -45,4 +46,31 @@ public class ProjectPhaseCategoryList extends BasicList<ProjectPhaseCategory> {
     @XmlElementWrapper(name = "links")
     @XmlJavaTypeAdapter(Link.JaxbAdapter.class)
     protected List<Link> links;
+
+    @Override
+    public List<ProjectPhaseCategory> getItems() {
+        return items;
+    }
+
+    @Override
+    public void setItems(List<ProjectPhaseCategory> items) {
+        this.items = items;
+    }
+
+    @Override
+    public List<Link> getLinks() {
+        return links;
+    }
+
+    public void setLinks(List<Link> links) {
+        this.links = links;
+    }
+
+    public String getHref() {
+        return href;
+    }
+
+    public void setHref(String href) {
+        this.href = href;
+    }
 }

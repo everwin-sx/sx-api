@@ -25,6 +25,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import fr.everwin.open.api.model.core.BasicList;
+import fr.everwin.open.api.model.countries.Country;
 
 /**
  * Vehicle list
@@ -47,4 +48,28 @@ public class VehicleList extends BasicList<Vehicle> {
     @XmlElementWrapper(name = "links")
     @XmlJavaTypeAdapter(Link.JaxbAdapter.class)
     protected List<Link> links;
+
+    public List<Vehicle> getItems() {
+        return items;
+    }
+
+    public void setItems(List<Vehicle> items) {
+        this.items = items;
+    }
+
+    public String getHref() {
+        return href;
+    }
+
+    public void setHref(String href) {
+        this.href = href;
+    }
+
+    public List<Link> getLinks() {
+        return links;
+    }
+
+    public void setLinks(List<Link> links) {
+        this.links = links;
+    }
 }

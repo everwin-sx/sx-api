@@ -72,4 +72,44 @@ public class SupplierSettlementLine extends BasicObject {
     public String toString() {
         return "Supplier settlement line [supplierSettlement=" + (supplierSettlement !=null ? supplierSettlement.getId() : null) + "]";
     }
+
+    public DataLink getSupplierSettlement() {
+        return supplierSettlement;
+    }
+
+    public void setSupplierSettlement(DataLink supplierSettlement) {
+        this.supplierSettlement = supplierSettlement;
+    }
+
+    public DataLink getSupplierInvoice() {
+        return supplierInvoice;
+    }
+
+    public void setSupplierInvoice(DataLink supplierInvoice) {
+        this.supplierInvoice = supplierInvoice;
+    }
+
+    public SupplierSettlementLineMultiCurrencyValue getAmount() {
+        return amount;
+    }
+
+    public void setAmount(SupplierSettlementLineMultiCurrencyValue amount) {
+        this.amount = amount;
+    }
+
+    public Short getState() {
+        return state;
+    }
+
+    public void setState(Short state) {
+        this.state = state;
+    }
+
+    public List<SpecificData> getExtraData() {
+        return extraData;
+    }
+
+    public void setExtraData(List<SpecificData> extraData) {
+        this.extraData = extraData;
+    }
 }

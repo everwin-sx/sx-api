@@ -121,4 +121,147 @@ public class ProjectPhase extends BasicObject {
             @XmlElement(name = "multilink", type = SpecificMultiLinkValue.class)})
     private List<SpecificData> extraData;
 
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public DataLink getProject() {
+        return project;
+    }
+
+    public void setProject(DataLink project) {
+        this.project = project;
+    }
+
+    public Short getOrder() {
+        return order;
+    }
+
+    public void setOrder(Short order) {
+        this.order = order;
+    }
+
+    public Date getInitialStartDate() {
+        return initialStartDate;
+    }
+
+    public void setInitialStartDate(Date initialStartDate) {
+        this.initialStartDate = initialStartDate;
+    }
+
+    public Date getInitialEndDate() {
+        return initialEndDate;
+    }
+
+    public void setInitialEndDate(Date initialEndDate) {
+        this.initialEndDate = initialEndDate;
+    }
+
+    public Date getUpdatedStartDate() {
+        return updatedStartDate;
+    }
+
+    public void setUpdatedStartDate(Date updatedStartDate) {
+        this.updatedStartDate = updatedStartDate;
+    }
+
+    public Date getUpdatedEndDate() {
+        return updatedEndDate;
+    }
+
+    public void setUpdatedEndDate(Date updatedEndDate) {
+        this.updatedEndDate = updatedEndDate;
+    }
+
+    public Date getActualStartDate() {
+        return actualStartDate;
+    }
+
+    public void setActualStartDate(Date actualStartDate) {
+        this.actualStartDate = actualStartDate;
+    }
+
+    public Date getActualEndDate() {
+        return actualEndDate;
+    }
+
+    public void setActualEndDate(Date actualEndDate) {
+        this.actualEndDate = actualEndDate;
+    }
+
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public Long getNumber() {
+        return number;
+    }
+
+    public void setNumber(Long number) {
+        this.number = number;
+    }
+
+    public Long getDistributionRate() {
+        return distributionRate;
+    }
+
+    public void setDistributionRate(Long distributionRate) {
+        this.distributionRate = distributionRate;
+    }
+
+    public DataLink getCategory() {
+        return category;
+    }
+
+    public void setCategory(DataLink category) {
+        this.category = category;
+    }
+
+    public Short getResumption() {
+        return resumption;
+    }
+
+    public void setResumption(Short resumption) {
+        this.resumption = resumption;
+    }
+
+    public DataLink getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(DataLink currency) {
+        this.currency = currency;
+    }
+
+    public Date getUpdatedOnTime() {
+        return updatedOnTime;
+    }
+
+    public void setUpdatedOnTime(Date updatedOnTime) {
+        this.updatedOnTime = updatedOnTime;
+    }
+
+    public List<SpecificData> getExtraData() {
+        return extraData;
+    }
+
+    public void setExtraData(List<SpecificData> extraData) {
+        this.extraData = extraData;
+    }
 }

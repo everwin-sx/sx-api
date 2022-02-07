@@ -123,4 +123,179 @@ public class Lead extends BasicObject {
             @XmlElement(name = "multilink", type = SpecificMultiLinkValue.class)})
     private List<SpecificData> extraData;
 
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getCompanyFree() {
+        return companyFree;
+    }
+
+    public void setCompanyFree(String companyFree) {
+        this.companyFree = companyFree;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getContactFree() {
+        return contactFree;
+    }
+
+    public void setContactFree(String contactFree) {
+        this.contactFree = contactFree;
+    }
+
+    public String getContactFunction() {
+        return contactFunction;
+    }
+
+    public void setContactFunction(String contactFunction) {
+        this.contactFunction = contactFunction;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public DataLink getEntity() {
+        return entity;
+    }
+
+    public void setEntity(DataLink entity) {
+        this.entity = entity;
+    }
+
+    public DataLink getFinancialEntity() {
+        return financialEntity;
+    }
+
+    public void setFinancialEntity(DataLink financialEntity) {
+        this.financialEntity = financialEntity;
+    }
+
+    public DataLink getAffectedTo() {
+        return affectedTo;
+    }
+
+    public void setAffectedTo(DataLink affectedTo) {
+        this.affectedTo = affectedTo;
+    }
+
+    public DataLink getState() {
+        return state;
+    }
+
+    public void setState(DataLink state) {
+        this.state = state;
+    }
+
+    public DataLink getSource() {
+        return source;
+    }
+
+    public void setSource(DataLink source) {
+        this.source = source;
+    }
+
+    public Short getScore() {
+        return score;
+    }
+
+    public void setScore(Short score) {
+        this.score = score;
+    }
+
+    public DataLink getCompany() {
+        return company;
+    }
+
+    public void setCompany(DataLink company) {
+        this.company = company;
+    }
+
+    public DataLink getContact() {
+        return contact;
+    }
+
+    public void setContact(DataLink contact) {
+        this.contact = contact;
+    }
+
+    public DataLink getOpportunity() {
+        return opportunity;
+    }
+
+    public void setOpportunity(DataLink opportunity) {
+        this.opportunity = opportunity;
+    }
+
+    public Short getIsArchived() {
+        return isArchived;
+    }
+
+    public void setIsArchived(Short isArchived) {
+        this.isArchived = isArchived;
+    }
+
+    public String getUpdatedBy() {
+        return updatedBy;
+    }
+
+    public void setUpdatedBy(String updatedBy) {
+        this.updatedBy = updatedBy;
+    }
+
+    public Date getUpdatedOnTime() {
+        return updatedOnTime;
+    }
+
+    public void setUpdatedOnTime(Date updatedOnTime) {
+        this.updatedOnTime = updatedOnTime;
+    }
+
+    public Date getCreatedOnTime() {
+        return createdOnTime;
+    }
+
+    public void setCreatedOnTime(Date createdOnTime) {
+        this.createdOnTime = createdOnTime;
+    }
+
+    public List<SpecificData> getExtraData() {
+        return extraData;
+    }
+
+    public void setExtraData(List<SpecificData> extraData) {
+        this.extraData = extraData;
+    }
 }

@@ -91,8 +91,107 @@ public class SupplierSettlement extends BasicObject {
         total = new SupplierSettlementMultiCurrencyValue();
     }
 
+    @XmlElement
+    private String validationStep;
+
+    public String getValidationStep() {
+        return validationStep;
+    }
+
+    public void setValidationStep(String validationStep) {
+        this.validationStep = validationStep;
+    }
+
     @Override
     public String toString() {
         return "Supplier Settlement [supplier=" + supplier + ", settlementDate=" + settlementDate + ", total=" + total + "]";
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public DataLink getEntity() {
+        return entity;
+    }
+
+    public void setEntity(DataLink entity) {
+        this.entity = entity;
+    }
+
+    public DataLink getSupplier() {
+        return supplier;
+    }
+
+    public void setSupplier(DataLink supplier) {
+        this.supplier = supplier;
+    }
+
+    public Date getSettlementDate() {
+        return settlementDate;
+    }
+
+    public void setSettlementDate(Date settlementDate) {
+        this.settlementDate = settlementDate;
+    }
+
+    public DataLink getFinancialEntity() {
+        return financialEntity;
+    }
+
+    public void setFinancialEntity(DataLink financialEntity) {
+        this.financialEntity = financialEntity;
+    }
+
+    public DataLink getSettlementType() {
+        return settlementType;
+    }
+
+    public void setSettlementType(DataLink settlementType) {
+        this.settlementType = settlementType;
+    }
+
+    public DataLink getBank() {
+        return bank;
+    }
+
+    public void setBank(DataLink bank) {
+        this.bank = bank;
+    }
+
+    public String getReference() {
+        return reference;
+    }
+
+    public void setReference(String reference) {
+        this.reference = reference;
+    }
+
+    public SupplierSettlementMultiCurrencyValue getTotal() {
+        return total;
+    }
+
+    public void setTotal(SupplierSettlementMultiCurrencyValue total) {
+        this.total = total;
+    }
+
+    public String getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
+    }
+
+    public List<SpecificData> getExtraData() {
+        return extraData;
+    }
+
+    public void setExtraData(List<SpecificData> extraData) {
+        this.extraData = extraData;
     }
 }

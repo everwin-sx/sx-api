@@ -31,12 +31,6 @@ public class MultiCurrencyValue {
 	@XmlElement
 	protected Double management;
 
-	@XmlElement
-	protected Double account;
-
-	@XmlElement
-	protected Double reporting;
-
 
 	public MultiCurrencyValue() {
 
@@ -55,44 +49,4 @@ public class MultiCurrencyValue {
 	public void setManagement(Double management) {
 		this.management = management;
 	}
-
-	/**
-	 * @return the account
-	 */
-	public Double getAccount() {
-		return account;
-	}
-
-	/**
-	 * @param account the account to set
-	 */
-	public void setAccount(Double account) {
-		this.account = account;
-	}
-
-	/**
-	 * @return the reporting
-	 */
-	public Double getReporting() {
-		return reporting;
-	}
-
-	/**
-	 * @param reporting the reporting to set
-	 */
-	public void setReporting(Double reporting) {
-		this.reporting = reporting;
-	}
-
-
-	@Override
-	public boolean equals(Object obj) {
-		if (obj instanceof MultiCurrencyValue) {
-			MultiCurrencyValue other = (MultiCurrencyValue) obj;
-			return (management == null && other.getManagement() == null || management.equals(other.getManagement())) && (account == null && other.getAccount() == null || account.equals(other.getAccount())) && (reporting == null && other.getReporting() == null || reporting.equals(other.getReporting()));
-		} else {
-			return false;
-		}
-	}
-
 }

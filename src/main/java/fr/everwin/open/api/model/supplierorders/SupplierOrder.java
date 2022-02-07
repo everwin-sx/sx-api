@@ -59,6 +59,9 @@ public class SupplierOrder extends BasicObject {
 	private String code;
 
 	@XmlElement
+	private String validationStep;
+
+	@XmlElement
 	private DataLink supplier;
 
 	@XmlElement
@@ -66,19 +69,18 @@ public class SupplierOrder extends BasicObject {
 
 	@XmlElement
 	private DataLink entity;
-	
+
 	@XmlElement
 	private DataLink financialEntity;
-	
+
+	@XmlElement
+	private DataLink project;
+
 	@XmlElement
 	private DataLink issuer;
-	
+
 	@XmlElement
 	private DataLink supplierAccount;
-
-	@XmlElement
-	private String validationStep;
-
 
 	@XmlElement
 	@XmlJavaTypeAdapter(XMLDateAdapter.class)
@@ -132,5 +134,173 @@ public class SupplierOrder extends BasicObject {
 	@Override
 	public String toString() {
 		return "SupplierOrder [code=" + code + ", supplier=" + supplier + ", entity=" + entity + ", issuer=" + issuer + ", extraData=" + extraData + "]";
+	}
+
+	public String getCode() {
+		return code;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
+	}
+
+	public DataLink getSupplier() {
+		return supplier;
+	}
+
+	public void setSupplier(DataLink supplier) {
+		this.supplier = supplier;
+	}
+
+	public DataLink getContact() {
+		return contact;
+	}
+
+	public void setContact(DataLink contact) {
+		this.contact = contact;
+	}
+
+	public DataLink getEntity() {
+		return entity;
+	}
+
+	public void setEntity(DataLink entity) {
+		this.entity = entity;
+	}
+
+	public DataLink getFinancialEntity() {
+		return financialEntity;
+	}
+
+	public void setFinancialEntity(DataLink financialEntity) {
+		this.financialEntity = financialEntity;
+	}
+
+	public DataLink getProject() {
+		return project;
+	}
+
+	public void setProject(DataLink project) {
+		this.project = project;
+	}
+
+	public DataLink getIssuer() {
+		return issuer;
+	}
+
+	public void setIssuer(DataLink issuer) {
+		this.issuer = issuer;
+	}
+
+	public DataLink getSupplierAccount() {
+		return supplierAccount;
+	}
+
+	public void setSupplierAccount(DataLink supplierAccount) {
+		this.supplierAccount = supplierAccount;
+	}
+
+	public Date getCreationDate() {
+		return creationDate;
+	}
+
+	public void setCreationDate(Date creationDate) {
+		this.creationDate = creationDate;
+	}
+
+	public Date getDeliveryDate() {
+		return deliveryDate;
+	}
+
+	public void setDeliveryDate(Date deliveryDate) {
+		this.deliveryDate = deliveryDate;
+	}
+
+	public String getSupplierReference() {
+		return supplierReference;
+	}
+
+	public void setSupplierReference(String supplierReference) {
+		this.supplierReference = supplierReference;
+	}
+
+	public String getEstimateReference() {
+		return estimateReference;
+	}
+
+	public void setEstimateReference(String estimateReference) {
+		this.estimateReference = estimateReference;
+	}
+
+	public String getCurrency() {
+		return currency;
+	}
+
+	public void setCurrency(String currency) {
+		this.currency = currency;
+	}
+
+	public Double getTotalWithoutVat() {
+		return totalWithoutVat;
+	}
+
+	public void setTotalWithoutVat(Double totalWithoutVat) {
+		this.totalWithoutVat = totalWithoutVat;
+	}
+
+	public String getDeliveryAddress() {
+		return deliveryAddress;
+	}
+
+	public void setDeliveryAddress(String deliveryAddress) {
+		this.deliveryAddress = deliveryAddress;
+	}
+
+	public Short getDeliveryStatus() {
+		return deliveryStatus;
+	}
+
+	public void setDeliveryStatus(Short deliveryStatus) {
+		this.deliveryStatus = deliveryStatus;
+	}
+
+	public String getComment() {
+		return comment;
+	}
+
+	public void setComment(String comment) {
+		this.comment = comment;
+	}
+
+	public Date getUpdatedOnTime() {
+		return updatedOnTime;
+	}
+
+	public void setUpdatedOnTime(Date updatedOnTime) {
+		this.updatedOnTime = updatedOnTime;
+	}
+
+	public Date getCreatedOnTime() {
+		return createdOnTime;
+	}
+
+	public void setCreatedOnTime(Date createdOnTime) {
+		this.createdOnTime = createdOnTime;
+	}
+
+	public List<SpecificData> getExtraData() {
+		return extraData;
+	}
+
+	public void setExtraData(List<SpecificData> extraData) {
+		this.extraData = extraData;
+	}
+
+	public String getValidationStep() {
+		return validationStep;
+	}
+
+	public void setValidationStep(String validationStep) {
+		this.validationStep = validationStep;
 	}
 }

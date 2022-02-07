@@ -60,4 +60,36 @@ public class Account extends BasicObject {
 	public void setEntities(List<DataLink> entities) {
 		this.entities = entities;
 	}
+
+	public String getLabel() {
+		return label;
+	}
+
+	public void setLabel(String label) {
+		this.label = label;
+	}
+
+	public String getCode() {
+		return code;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
+	}
+
+	public Short getVatSystem() {
+		return vatSystem;
+	}
+
+	public void setVatSystem(Short vatSystem) {
+		this.vatSystem = vatSystem;
+	}
+
+	public Short getType() {
+		return type;
+	}
+
+	public void setType(Short type) {
+		this.type = type;
+	}
 }

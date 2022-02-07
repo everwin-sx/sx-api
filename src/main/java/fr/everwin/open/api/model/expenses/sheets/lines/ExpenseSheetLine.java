@@ -144,14 +144,214 @@ public class ExpenseSheetLine extends BasicObject {
     private List<SpecificData> extraData;
 
     public ExpenseSheetLine() {
-        amount = new ExpenseSheetLineMultiCurrencyValue();
-        totalIncludingVat = new ExpenseSheetLineMultiCurrencyValue();
-        totalWithoutVat = new ExpenseSheetLineMultiCurrencyValue();
-        totalInvoiceAgain = new ExpenseSheetLineMultiCurrencyValue();
+        //amount = new ExpenseSheetLineMultiCurrencyValue();
+        //totalIncludingVat = new ExpenseSheetLineMultiCurrencyValue();
+        //totalWithoutVat = new ExpenseSheetLineMultiCurrencyValue();
+        //totalInvoiceAgain = new ExpenseSheetLineMultiCurrencyValue();
     }
 
     @Override
     public String toString() {
         return "Supplier invoice line [supplierInvoice=" + (expenseSheet!=null ? expenseSheet.getId() : null) + ", Title=" + title + "]";
+    }
+
+    public DataLink getExpenseSheet() {
+        return expenseSheet;
+    }
+
+    public void setExpenseSheet(DataLink expenseSheet) {
+        this.expenseSheet = expenseSheet;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public DataLink getProject() {
+        return project;
+    }
+
+    public void setProject(DataLink project) {
+        this.project = project;
+    }
+
+    public DataLink getType() {
+        return type;
+    }
+
+    public void setType(DataLink type) {
+        this.type = type;
+    }
+
+    public DataLink getProjectLine() {
+        return projectLine;
+    }
+
+    public void setProjectLine(DataLink projectLine) {
+        this.projectLine = projectLine;
+    }
+
+    public DataLink getMissionOrder() {
+        return missionOrder;
+    }
+
+    public void setMissionOrder(DataLink missionOrder) {
+        this.missionOrder = missionOrder;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
+    public String getPlace() {
+        return place;
+    }
+
+    public void setPlace(String place) {
+        this.place = place;
+    }
+
+    public String getLettering() {
+        return lettering;
+    }
+
+    public void setLettering(String lettering) {
+        this.lettering = lettering;
+    }
+
+    public Double getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Double quantity) {
+        this.quantity = quantity;
+    }
+
+    public DataLink getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(DataLink currency) {
+        this.currency = currency;
+    }
+
+    public ExpenseSheetLineMultiCurrencyValue getAmount() {
+        return amount;
+    }
+
+    public void setAmount(ExpenseSheetLineMultiCurrencyValue amount) {
+        this.amount = amount;
+    }
+
+    public ExpenseSheetLineMultiCurrencyValue getTotalIncludingVat() {
+        return totalIncludingVat;
+    }
+
+    public void setTotalIncludingVat(ExpenseSheetLineMultiCurrencyValue totalIncludingVat) {
+        this.totalIncludingVat = totalIncludingVat;
+    }
+
+    public ExpenseSheetLineMultiCurrencyValue getTotalWithoutVat() {
+        return totalWithoutVat;
+    }
+
+    public void setTotalWithoutVat(ExpenseSheetLineMultiCurrencyValue totalWithoutVat) {
+        this.totalWithoutVat = totalWithoutVat;
+    }
+
+    public ExpenseSheetLineMultiCurrencyValue getTotalInvoiceAgain() {
+        return totalInvoiceAgain;
+    }
+
+    public void setTotalInvoiceAgain(ExpenseSheetLineMultiCurrencyValue totalInvoiceAgain) {
+        this.totalInvoiceAgain = totalInvoiceAgain;
+    }
+
+    public Double getVat() {
+        return vat;
+    }
+
+    public void setVat(Double vat) {
+        this.vat = vat;
+    }
+
+    public Short getReinvoiceable() {
+        return reinvoiceable;
+    }
+
+    public void setReinvoiceable(Short reinvoiceable) {
+        this.reinvoiceable = reinvoiceable;
+    }
+
+    public String getStartingAddress() {
+        return startingAddress;
+    }
+
+    public void setStartingAddress(String startingAddress) {
+        this.startingAddress = startingAddress;
+    }
+
+    public String getArrivalAddress() {
+        return arrivalAddress;
+    }
+
+    public void setArrivalAddress(String arrivalAddress) {
+        this.arrivalAddress = arrivalAddress;
+    }
+
+    public DataLink getAccount() {
+        return account;
+    }
+
+    public void setAccount(DataLink account) {
+        this.account = account;
+    }
+
+    public DataLink getVehicle() {
+        return vehicle;
+    }
+
+    public void setVehicle(DataLink vehicle) {
+        this.vehicle = vehicle;
+    }
+
+    public Double getDistanceToDate() {
+        return distanceToDate;
+    }
+
+    public void setDistanceToDate(Double distanceToDate) {
+        this.distanceToDate = distanceToDate;
+    }
+
+    public Short getNonRefundable() {
+        return nonRefundable;
+    }
+
+    public void setNonRefundable(Short nonRefundable) {
+        this.nonRefundable = nonRefundable;
+    }
+
+    public List<SpecificData> getExtraData() {
+        return extraData;
+    }
+
+    public void setExtraData(List<SpecificData> extraData) {
+        this.extraData = extraData;
     }
 }

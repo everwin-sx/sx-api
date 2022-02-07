@@ -111,4 +111,124 @@ public class ProjectActivity extends BasicObject {
             @XmlElement(name = "link", type = SpecificLinkValue.class),
             @XmlElement(name = "multilink", type = SpecificMultiLinkValue.class)})
     private List<SpecificData> extraData;
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public String getLabel() {
+        return label;
+    }
+
+    public void setLabel(String label) {
+        this.label = label;
+    }
+
+    public DataLink getPhase() {
+        return phase;
+    }
+
+    public void setPhase(DataLink phase) {
+        this.phase = phase;
+    }
+
+    public Short getOrder() {
+        return order;
+    }
+
+    public void setOrder(Short order) {
+        this.order = order;
+    }
+
+    public Date getInitialStartDate() {
+        return initialStartDate;
+    }
+
+    public void setInitialStartDate(Date initialStartDate) {
+        this.initialStartDate = initialStartDate;
+    }
+
+    public Date getInitialEndDate() {
+        return initialEndDate;
+    }
+
+    public void setInitialEndDate(Date initialEndDate) {
+        this.initialEndDate = initialEndDate;
+    }
+
+    public Date getUpdatedStartDate() {
+        return updatedStartDate;
+    }
+
+    public void setUpdatedStartDate(Date updatedStartDate) {
+        this.updatedStartDate = updatedStartDate;
+    }
+
+    public Date getUpdatedEndDate() {
+        return updatedEndDate;
+    }
+
+    public void setUpdatedEndDate(Date updatedEndDate) {
+        this.updatedEndDate = updatedEndDate;
+    }
+
+    public Date getRealStartDate() {
+        return realStartDate;
+    }
+
+    public void setRealStartDate(Date realStartDate) {
+        this.realStartDate = realStartDate;
+    }
+
+    public Date getRealEndDate() {
+        return realEndDate;
+    }
+
+    public void setRealEndDate(Date realEndDate) {
+        this.realEndDate = realEndDate;
+    }
+
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
+    public DataLink getCategory() {
+        return category;
+    }
+
+    public void setCategory(DataLink category) {
+        this.category = category;
+    }
+
+    public DataLink getDefaultLineCurrency() {
+        return defaultLineCurrency;
+    }
+
+    public void setDefaultLineCurrency(DataLink defaultLineCurrency) {
+        this.defaultLineCurrency = defaultLineCurrency;
+    }
+
+    public Date getUpdatedOnTime() {
+        return updatedOnTime;
+    }
+
+    public void setUpdatedOnTime(Date updatedOnTime) {
+        this.updatedOnTime = updatedOnTime;
+    }
+
+    public List<SpecificData> getExtraData() {
+        return extraData;
+    }
+
+    public void setExtraData(List<SpecificData> extraData) {
+        this.extraData = extraData;
+    }
 }

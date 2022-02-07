@@ -76,7 +76,11 @@ public class Company extends BasicObject {
     private DataLink legalStatus;
 
     @XmlElement
-    private Short isActive;
+    private Short visibility;
+
+    @JsonDeserialize(using = JsonDateDeserializer.class)
+    @XmlElement
+    private Date visibilityDate;
 
     @XmlElement
     private String identifierNumber;
@@ -162,10 +166,12 @@ public class Company extends BasicObject {
     @XmlJavaTypeAdapter(XMLDateAdapter.class)
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date createdOnTime;
+
     private String updatedBy;
 
     @XmlElement
     private List<DataLink> offers;
+
 
     @XmlElement
     private Short acceptEmailing;
@@ -356,14 +362,6 @@ public class Company extends BasicObject {
         this.legalStatus = legalStatus;
     }
 
-    public Short getIsActive() {
-        return isActive;
-    }
-
-    public void setIsActive(Short isActive) {
-        this.isActive = isActive;
-    }
-
     public String getIdentifierNumber() {
         return identifierNumber;
     }
@@ -489,6 +487,22 @@ public class Company extends BasicObject {
 
     public void setSpanco(DataLink spanco) {
         this.spanco = spanco;
+    }
+
+    public Short getVisibility() {
+        return visibility;
+    }
+
+    public void setVisibility(Short visibility) {
+        this.visibility = visibility;
+    }
+
+    public Date getVisibilityDate() {
+        return visibilityDate;
+    }
+
+    public void setVisibilityDate(Date visibilityDate) {
+        this.visibilityDate = visibilityDate;
     }
 
     @Override

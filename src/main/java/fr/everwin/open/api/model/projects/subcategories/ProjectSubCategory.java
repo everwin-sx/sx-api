@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 Everwin (www.everwin.fr)
+ * Copyright (C) 2022 Everwin (www.everwin.fr)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,28 +14,25 @@
  * limitations under the License.
  */
 
-package fr.everwin.open.api.model.projects.activities.categories;
+package fr.everwin.open.api.model.projects.subcategories;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
-import javax.xml.bind.annotation.XmlElements;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import fr.everwin.open.api.model.core.BasicObject;
 import fr.everwin.open.api.model.core.DataLink;
 
 /**
- * ProjectActivityCategory class
  * @author d.storti
  */
-        @JsonIgnoreProperties(ignoreUnknown = true)
-        @JsonInclude(JsonInclude.Include.NON_NULL)
-        @XmlRootElement(name = "project-activity-category")
-        @XmlAccessorType(XmlAccessType.FIELD)
-public class ProjectActivityCategory extends BasicObject {
+@XmlRootElement(name = "project-sub-categories")
+@XmlAccessorType(XmlAccessType.FIELD)
+@JsonIgnoreProperties(ignoreUnknown = true)
+
+public class ProjectSubCategory extends BasicObject {
 
     @XmlElement
     private Short type;
@@ -43,10 +40,43 @@ public class ProjectActivityCategory extends BasicObject {
     @XmlElement
     private String label;
 
-    @XmlElementWrapper(name = "entities")
-    @XmlElements(@XmlElement(name = "entities", type = DataLink.class))
-    private List<DataLink> entities;
 
     @XmlElement
     private Short archived;
+
+    @XmlElement
+    private DataLink category;
+
+    public Short getType() {
+        return type;
+    }
+
+    public void setType(Short type) {
+        this.type = type;
+    }
+
+    public String getLabel() {
+        return label;
+    }
+
+    public void setLabel(String label) {
+        this.label = label;
+    }
+
+
+    public Short getArchived() {
+        return archived;
+    }
+
+    public void setArchived(Short archived) {
+        this.archived = archived;
+    }
+
+    public DataLink getCategory() {
+        return category;
+    }
+
+    public void setCategory(DataLink category) {
+        this.category = category;
+    }
 }
