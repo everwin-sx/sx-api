@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 Everwin (www.everwin.fr)
+ * Copyright (C) 2021 Everwin (www.everwin.fr)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,20 +20,19 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import fr.everwin.open.api.ClientApi;
-import fr.everwin.open.api.model.contacts.ContactResponsabilityList;
-import fr.everwin.open.api.model.contacts.ContactResponsibility;
+import fr.everwin.open.api.model.contacts.events.ContactEvent;
+import fr.everwin.open.api.model.contacts.events.ContactEventList;
 import fr.everwin.open.api.services.core.BasicService;
 
 /**
- * Service manager to query the contact responsabilities API resource
- * @author everwin-team
+ * @author d.storti
  */
-public class ContactResponsabilitiesService extends BasicService<ContactResponsibility, ContactResponsabilityList> {
+public class ContactEventService extends BasicService<ContactEvent, ContactEventList> {
+
     protected static final Logger LOGGER = LogManager.getLogger();
 
-    public ContactResponsabilitiesService(ClientApi client) {
-        super(client, "contact-responsibilities");
-        setModels(ContactResponsibility.class, ContactResponsabilityList.class);
+    public ContactEventService(ClientApi client) {
+        super(client, "contact-responsibility-events");
+        setModels(ContactEvent.class, ContactEventList.class);
     }
-
 }
