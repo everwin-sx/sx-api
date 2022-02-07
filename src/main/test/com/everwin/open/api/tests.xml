@@ -1,0 +1,277 @@
+<suite name="ClientApi-v2" parallel="none">
+    <test name="Candidate">
+        <classes>
+            <class name="com.everwin.open.api.test.CandidateTest"/>
+        </classes>
+    </test>
+    <test name="Accounts">
+        <classes>
+            <class name="com.everwin.open.api.test.AccountTest"/>
+        </classes>
+    </test>
+    <test name="Acc-Accounts">
+        <classes>
+            <class name="com.everwin.open.api.test.AccAccountTest"/>
+        </classes>
+    </test>
+    <test name="GeographicalAreaTest">
+        <classes>
+            <class name="com.everwin.open.api.test.GeographicalAreaTest"/>
+        </classes>
+    </test>
+    <test name="ContactResponsibilityTest">
+        <classes>
+            <class name="com.everwin.open.api.test.ContactResponsibilityTest"/>
+        </classes>
+    </test>
+    <test name="CandidateSkillTest">
+        <classes>
+            <class name="com.everwin.open.api.test.CandidateSkillTest"/>
+        </classes>
+    </test> <!--// probleme lors de la requete update, -->
+    <test name="CompanyTest">
+        <classes>
+            <class name="com.everwin.open.api.test.CompanyTest"/>
+        </classes>
+    </test>
+    <test name="CompanyStatusTest">
+        <classes>
+            <class name="com.everwin.open.api.test.CompanyStatusTest"/>
+        </classes>
+    </test>
+    <test name="CompanyAccountsTest">
+        <classes>
+            <class name="com.everwin.open.api.test.CompanyAccountsTest"/>
+        </classes>
+    </test>
+    <test name="CompanyActivityTest">
+        <classes>
+            <class name="com.everwin.open.api.test.CompanyActivityTest"/>
+        </classes>
+    </test>
+    <test name="CompanyActivityGroupTest">
+        <classes>
+            <class name="com.everwin.open.api.test.CompanyActivityGroupTest"/>
+        </classes>
+    </test>
+    <test name="ContactResponsibilityEventsTest">
+        <classes>
+            <class name="com.everwin.open.api.test.ContactResponsibilityEventsTest"/>
+        </classes>
+    </test>
+    <test name="ContactTest">
+        <classes>
+            <class name="com.everwin.open.api.test.ContactTest"/>
+        </classes>
+    </test>
+    <test name="CountryTest">
+        <classes>
+            <class name="com.everwin.open.api.test.CountryTest"/>
+        </classes>
+    </test>
+    <test name="CurrencyTest">
+        <classes>
+            <class name="com.everwin.open.api.test.CurrencyTest"/>
+        </classes>
+    </test>
+    <test name="CurrencyRatesTest">
+        <classes>
+            <class name="com.everwin.open.api.test.CurrencyRatesTest"/>
+        </classes>
+    </test>
+    <test name="CustomerAssetsTest">
+        <classes>
+            <class name="com.everwin.open.api.test.CustomerAssetsTest"/>
+        </classes>
+    </test>
+    <test name="EmployeeSkillsTest">
+        <classes>
+            <class name="com.everwin.open.api.test.EmployeeSkillsTest"/>
+        </classes>
+    </test>
+    <test name="EmployeeTest">
+        <classes>
+            <class name="com.everwin.open.api.test.EmployeeTest"/>
+        </classes>
+    </test>
+    <test name="EntitiesTest">
+        <classes>
+            <class name="com.everwin.open.api.test.EntitiesTest"/>
+        </classes>
+    </test>
+    <test name="EquipmentsTest">
+        <classes>
+            <class name="com.everwin.open.api.test.EquipmentsTest"/>
+        </classes>
+    </test>
+    <test name="FamiliesTest">
+        <classes>
+            <class name="com.everwin.open.api.test.FamiliesTest"/>
+        </classes>
+    </test>
+    <test name="GuestsTest">
+        <classes>
+            <class name="com.everwin.open.api.test.GuestsTest"/>
+        </classes>
+    </test>
+    <test name="LeadSourceTest">
+        <classes>
+            <class name="com.everwin.open.api.test.LeadSourceTest"/>
+        </classes>
+    </test>
+    <test name="LeadEventsTest">
+        <classes>
+            <class name="com.everwin.open.api.test.LeadEventsTest"/>
+        </classes>
+    </test>
+    <test name="LeadStatesTest">
+        <classes>
+            <class name="com.everwin.open.api.test.LeadStatesTest"/>
+        </classes>
+    </test>
+    <test name="LeadTest">
+        <classes>
+            <class name="com.everwin.open.api.test.LeadTest"/>
+        </classes>
+    </test>
+    <test name="OpportunitiesTest">
+        <classes>
+            <class name="com.everwin.open.api.test.OpportunitiesTest"/>
+        </classes>
+    </test>
+    <test name="LeaveRequestTypeTest">
+        <classes>
+            <class name="com.everwin.open.api.test.LeaveRequestTypeTest"/>
+        </classes>
+    </test>
+    <test name="LeaveRequestTest">
+        <classes>
+            <class name="com.everwin.open.api.test.LeaveRequestTest"/>
+        </classes>
+    </test>
+    <test name="MissionOrderTest">
+        <classes>
+            <class name="com.everwin.open.api.test.MissionOrderTest"/>
+        </classes>
+    </test>
+    <test name="ExpenseSheetTest">
+        <classes>
+            <class name="com.everwin.open.api.test.ExpenseSheetTest"/>
+        </classes>
+    </test>
+    <test name="ExpenseSheetLineTest">
+        <classes>
+            <class name="com.everwin.open.api.test.ExpenseSheetLineTest"/>
+        </classes>
+    </test>
+    <test name="ProjectCategoryTest">
+        <classes>
+            <class name="com.everwin.open.api.test.ProjectCategoryTest"/>
+        </classes>
+    </test>
+    <test name="ProjectSubCategoryTest">
+        <classes>
+            <class name="com.everwin.open.api.test.ProjectSubCategoryTest"/>
+        </classes>
+    </test>
+    <test name="ProductCategoryTest">
+        <classes>
+            <class name="com.everwin.open.api.test.ProductCategoryTest"/>
+        </classes>
+    </test>
+    <test name="ProductTest">
+        <classes>
+            <class name="com.everwin.open.api.test.ProductTest"/>
+        </classes>
+    </test>
+    <test name="ProfilesTest">
+        <classes>
+            <class name="com.everwin.open.api.test.ProfilesTest"/>
+        </classes>
+    </test>
+    <test name="ProjectActivityCategoryTest">
+        <classes>
+            <class name="com.everwin.open.api.test.ProjectActivityCategoryTest"/>
+        </classes>
+    </test>
+    <test name="ProjectActivityTest">
+        <classes>
+            <class name="com.everwin.open.api.test.ProjectActivityTest"/>
+        </classes>
+    </test>
+    <test name="VehicleTest">
+        <classes>
+            <class name="com.everwin.open.api.test.VehicleTest"/>
+        </classes>
+    </test>
+    <test name="SalesActionsTest">
+        <classes>
+            <class name="com.everwin.open.api.test.SalesActionsTest"/>
+        </classes>
+    </test>
+    <test name="ScalesTest">
+        <classes>
+            <class name="com.everwin.open.api.test.ScalesTest"/>
+        </classes>
+    </test>
+    <test name="SkillDomainsTest">
+        <classes>
+            <class name="com.everwin.open.api.test.SkillDomainsTest"/>
+        </classes>
+    </test>
+    <test name="RowTypeTest">
+        <classes>
+            <class name="com.everwin.open.api.test.RowTypeTest"/>
+        </classes>
+    </test>
+    <test name="SkillLevelsTest">
+        <classes>
+            <class name="com.everwin.open.api.test.SkillLevelsTest"/>
+        </classes>
+    </test>
+    <test name="SkillsTest">
+        <classes>
+            <class name="com.everwin.open.api.test.SkillsTest"/>
+        </classes>
+    </test>
+    <test name="CRMQuoteTest">
+        <classes>
+            <class name="com.everwin.open.api.test.CRMQuoteTest"/>
+        </classes>
+    </test>
+    <test name="SupplierOrderTest">
+        <classes>
+            <class name="com.everwin.open.api.test.SupplierOrderTest"/>
+        </classes>
+    </test>
+    <test name="SupplierReceivingNoteTest">
+        <classes>
+            <class name="com.everwin.open.api.test.SupplierReceivingNoteTest"/>
+        </classes>
+    </test>
+    <test name="SupplierInvoicesTest">
+        <classes>
+            <class name="com.everwin.open.api.test.SupplierInvoicesTest"/>
+        </classes>
+    </test>
+    <test name="ProjectTest">
+        <classes>
+            <class name="com.everwin.open.api.test.ProjectTest"/>
+        </classes>
+    </test>
+    <test name="ProjectPhaseCategoryTest">
+        <classes>
+            <class name="com.everwin.open.api.test.ProjectPhaseCategoryTest"/>
+        </classes>
+    </test>
+    <test name="ProjectPhaseTest">
+        <classes>
+            <class name="com.everwin.open.api.test.ProjectPhaseTest"/>
+        </classes>
+    </test>
+    <test name="SupplierSettlementTest">
+        <classes>
+            <class name="com.everwin.open.api.test.SupplierSettlementTest"/>
+        </classes>
+    </test>
+</suite>
