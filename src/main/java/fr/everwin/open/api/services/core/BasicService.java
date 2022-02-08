@@ -441,6 +441,7 @@ public class BasicService<O extends BasicObject,L extends BasicList> {
      * @param objectId The document id to download
      * @param document The document
      * @return File The file downloaded
+     * @throws CoreException If the request failed
      */
     public File downloadDocument(long objectId, Document document) throws CoreException {
         Response response = clientApi.get(path + "/" + objectId + DOCUMENTS + document.getId(), null);
