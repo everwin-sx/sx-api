@@ -66,7 +66,8 @@ public class ConfigHelper {
     /**
      * Round a number, using the Math.round function<br>
      * @param val The value to be rounded
-     * @param nbdec The number of decimals (must be >= 1)
+     * @param nbdec The number of decimals (must be 1 or more)
+     * @return int rounded to the integer
      */
     public static double round(double val, int nbdec) {
         try {

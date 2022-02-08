@@ -30,8 +30,6 @@ import fr.everwin.open.api.model.supplierinvoices.lines.SupplierInvoiceLineList;
 import fr.everwin.open.api.services.core.BasicService;
 import fr.everwin.open.api.util.RequestParams;
 
-;
-
 /**
  * Service manager to query the supplierinvoice API resource
  * @author everwin-team
@@ -39,6 +37,8 @@ import fr.everwin.open.api.util.RequestParams;
 public class SupplierInvoiceService extends BasicService<SupplierInvoice, SupplierInvoiceList> {
 
     protected static final Logger LOGGER = LogManager.getLogger();
+    public static final String SUPPLIER_INVOICES = "supplier-invoices/";
+    public static final String LINES = "/lines/";
 
     public SupplierInvoiceService(ClientApi client){
         super(client, "supplier-invoices");
@@ -49,15 +49,14 @@ public class SupplierInvoiceService extends BasicService<SupplierInvoice, Suppli
      * Create a new supplier invoice line for the object identified by the objectId
      * @param id The id of the supplier invoice to link
      * @param supplierInvoiceLine The supplier invoice line
-     * @return The id of the new supplier invoice line
      * @throws CoreException If the request failed
      */
     public void createLine(long id, SupplierInvoiceLine supplierInvoiceLine) throws CoreException {
-        Response response = clientApi.post("supplier-invoices/" + id + "/lines", supplierInvoiceLine);
+        Response response = clientApi.post(SUPPLIER_INVOICES + id + "/lines", supplierInvoiceLine);
         readResponse(response, String.class);
         // extract id from return location
         String locationUri = response.getHeaderString("Location");
-        Long lineId = Long.parseLong(locationUri.substring(locationUri.lastIndexOf("/") + 1, locationUri.length()));
+        Long lineId = Long.parseLong(locationUri.substring(locationUri.lastIndexOf("/") + 1));
         supplierInvoiceLine.setId(lineId);
     }
 
@@ -68,7 +67,7 @@ public class SupplierInvoiceService extends BasicService<SupplierInvoice, Suppli
      * @throws CoreException If the request failed
      */
     public void updatePartiallyLine(long objectId, SupplierInvoiceLine supplierInvoiceLine) throws CoreException {
-        Response response = clientApi.post(path + "/" + objectId + "/lines/" + supplierInvoiceLine.getId(), supplierInvoiceLine);
+        Response response = clientApi.post(path + "/" + objectId + LINES + supplierInvoiceLine.getId(), supplierInvoiceLine);
         readResponse(response, String.class);
     }
 
@@ -79,7 +78,7 @@ public class SupplierInvoiceService extends BasicService<SupplierInvoice, Suppli
      * @throws CoreException If the request failed
      */
     public void updateLine(long objectId, SupplierInvoiceLine supplierInvoiceLine) throws CoreException {
-        Response response = clientApi.put(path + "/" + objectId + "/lines/" + supplierInvoiceLine.getId(), supplierInvoiceLine);
+        Response response = clientApi.put(path + "/" + objectId + LINES + supplierInvoiceLine.getId(), supplierInvoiceLine);
         readResponse(response, String.class);
     }
 
@@ -90,7 +89,7 @@ public class SupplierInvoiceService extends BasicService<SupplierInvoice, Suppli
      * @throws CoreException If the request failed
      */
     public void deleteLine(long objectId, SupplierInvoiceLine supplierInvoiceLine) throws CoreException {
-        Response response = clientApi.delete("supplier-invoices/" + objectId + "/lines/" + supplierInvoiceLine.getId());
+        Response response = clientApi.delete(SUPPLIER_INVOICES + objectId + LINES + supplierInvoiceLine.getId());
         readResponse(response, String.class);
     }
 
@@ -102,7 +101,7 @@ public class SupplierInvoiceService extends BasicService<SupplierInvoice, Suppli
      * @throws CoreException If the request failed
      */
     public SupplierInvoiceLineList queryLines(long objectId, RequestParams params) throws CoreException {
-        Response response = clientApi.get("supplier-invoices/" + objectId + "/lines", params);
+        Response response = clientApi.get(SUPPLIER_INVOICES + objectId + "/lines", params);
         return (SupplierInvoiceLineList) readResponse(response, SupplierInvoiceLineList.class);
     }
 
@@ -114,7 +113,7 @@ public class SupplierInvoiceService extends BasicService<SupplierInvoice, Suppli
      * @throws CoreException If the request failed
      */
     public SupplierInvoiceLine getLine(long objectId, long lineId) throws CoreException {
-        Response response = clientApi.get("supplier-invoices/" + objectId + "/lines/" + lineId, null);
+        Response response = clientApi.get(SUPPLIER_INVOICES + objectId + LINES + lineId, null);
         return (SupplierInvoiceLine) readResponse(response, SupplierInvoiceLine.class);
     }
 }

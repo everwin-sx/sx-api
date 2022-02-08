@@ -36,6 +36,8 @@ import fr.everwin.open.api.util.RequestParams;
 public class SupplierSettlementService extends BasicService<SupplierSettlement, SupplierSettlementList> {
 
     protected static final Logger LOGGER = LogManager.getLogger();
+    public static final String SUPPLIER_SETTLEMENTS = "supplier-settlements/";
+    public static final String LINES = "/lines/";
 
     public SupplierSettlementService(ClientApi client) {
         super(client, "supplier-settlements");
@@ -46,49 +48,48 @@ public class SupplierSettlementService extends BasicService<SupplierSettlement, 
     /**
      * Create a new supplier invoice line for the object identified by the objectId
      * @param id The id of the supplier invoice to link
-     * @param SupplierSettlementLine The supplier invoice line
-     * @return The id of the new supplier invoice line
+     * @param line The supplier invoice line
      * @throws CoreException If the request failed
      */
-    public void createLine(long id, SupplierSettlementLine SupplierSettlementLine) throws CoreException {
-        Response response = clientApi.post("supplier-settlements/" + id + "/lines", SupplierSettlementLine);
+    public void createLine(long id, SupplierSettlementLine line) throws CoreException {
+        Response response = clientApi.post(SUPPLIER_SETTLEMENTS + id + "/lines", line);
         readResponse(response, String.class);
         // extract id from return location
         String locationUri = response.getHeaderString("Location");
-        Long lineId = Long.parseLong(locationUri.substring(locationUri.lastIndexOf("/") + 1, locationUri.length()));
-        SupplierSettlementLine.setId(lineId);
+        Long lineId = Long.parseLong(locationUri.substring(locationUri.lastIndexOf("/") + 1));
+        line.setId(lineId);
     }
 
     /**
      * Update only not null fields of the supplier invoice Line
      * @param objectId The id of the supplier invoice to link
-     * @param SupplierSettlementLine The supplier invoice line to update
+     * @param line The supplier invoice line to update
      * @throws CoreException If the request failed
      */
-    public void updatePartiallyLine(long objectId, SupplierSettlementLine SupplierSettlementLine) throws CoreException {
-        Response response = clientApi.post(path + "/" + objectId + "/lines/" + SupplierSettlementLine.getId(), SupplierSettlementLine);
+    public void updatePartiallyLine(long objectId, SupplierSettlementLine line) throws CoreException {
+        Response response = clientApi.post(path + "/" + objectId + LINES + line.getId(), line);
         readResponse(response, String.class);
     }
 
     /**
      * Update the supplier invoice Line for the supplier invoice identified by the id
      * @param objectId The id of the object to link
-     * @param SupplierSettlementLine The supplier invoice line to update
+     * @param line The supplier invoice line to update
      * @throws CoreException If the request failed
      */
-    public void updateLine(long objectId, SupplierSettlementLine SupplierSettlementLine) throws CoreException {
-        Response response = clientApi.put(path + "/" + objectId + "/lines/" + SupplierSettlementLine.getId(), SupplierSettlementLine);
+    public void updateLine(long objectId, SupplierSettlementLine line) throws CoreException {
+        Response response = clientApi.put(path + "/" + objectId + LINES + line.getId(), line);
         readResponse(response, String.class);
     }
 
     /**
      * Delete the supplier invoice Line for the supplier invoice identified by the id
      * @param objectId The id of the supplier invoice
-     * @param SupplierSettlementLine The Expense Sheet line to delet
+     * @param line The Expense Sheet line to delet
      * @throws CoreException If the request failed
      */
-    public void deleteLine(long objectId, SupplierSettlementLine SupplierSettlementLine) throws CoreException {
-        Response response = clientApi.delete("supplier-settlements/" + objectId + "/lines/" + SupplierSettlementLine.getId());
+    public void deleteLine(long objectId, SupplierSettlementLine line) throws CoreException {
+        Response response = clientApi.delete(SUPPLIER_SETTLEMENTS + objectId + LINES + line.getId());
         readResponse(response, String.class);
     }
 
@@ -112,7 +113,7 @@ public class SupplierSettlementService extends BasicService<SupplierSettlement, 
      * @throws CoreException If the request failed
      */
     public SupplierSettlementLine getLine(long objectId, long lineId) throws CoreException {
-        Response response = clientApi.get("supplier-settlements/" + objectId + "/lines/" + lineId, null);
+        Response response = clientApi.get(SUPPLIER_SETTLEMENTS + objectId + LINES + lineId, null);
         return (SupplierSettlementLine) readResponse(response, SupplierSettlementLine.class);
     }
 }
