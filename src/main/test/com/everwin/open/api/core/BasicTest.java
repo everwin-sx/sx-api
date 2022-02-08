@@ -57,7 +57,7 @@ public abstract class BasicTest<T extends BasicObject, S extends BasicService> {
     protected T objectReceived;
     protected Comment commentReceived;
     protected Document documentReceived;
-    protected final static String APIKEY = "a5a4394a53472c441fd6ed714e70f500";
+    protected final static String APIKEY = "";
     private final String filePath = "path";
 
 

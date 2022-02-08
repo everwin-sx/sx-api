@@ -162,7 +162,6 @@ public class ClientApiResourcesTest {
 
     protected ClientApi clientApi;
     protected String uri = "http://localhost:8080/sx/rest";
-    //protected String uri = "https://mars2:12443/sx/rest";
     protected String version = "v2";
 
     @BeforeTest
@@ -170,11 +169,7 @@ public class ClientApiResourcesTest {
         try {
             clientApi = new ClientApi(uri, version);
 
-            clientApi.setApiKey("bae02a79bf9884cff23a327a00fd86c6");
-            //clientApi.setApiKey("36103e9e671e0806c354f5a289070bfb");
-            //clientApi.setApiKey("5d1d6d3c7d7950fdbfb4167b6936757f");
-            //clientApi.setAuthInfos("36103e9e671e0806c354f5a289070bfb", "5d1d6d3c7d7950fdbfb4167b6936757f");
-            //ybBvdfA1KnIEB1v7Rd/+2+yzvCI2PpruDZJJeNJ7pOpZQIZhPfDIHg==
+            clientApi.setApiKey("");
         } catch (Exception e) {
             e.printStackTrace(System.err);
         }

@@ -94,18 +94,19 @@ try {
 } catch (Exception e) {
     e.printStackTrace(System.err);
 }
-
+```
 ## Reference
 
+```
 Resource                             | Classes
 --------------------                 |-------------
-/xxx/{xid}/comments                  | Comment
+/xxx/{xid}/comments                  |Comment
   -    -      -    /                 |Get a comment collection for the current object (GET)
   -    -      -    /                 |Create a comment for the current object (POST)
   -    -      -    /{cid}            |Full update of a comment (PUT)
   -    -      -    /{cid}            |Partial update of a comment (POST)
   -    -      -    /{cid}            |Delete a comment (DELETE)
-/xxx/{xid}/documents                 | Document
+/xxx/{xid}/documents                 |Document
   -    -      -     /                |Get a document collection or the current object (GET)
   -    -      -     /{id}            |Get a document for the current object (GET)
   -    -      -     /                |Create a new document (POST)
@@ -114,13 +115,13 @@ Resource                             | Classes
   -    -      -     /{id}            |Delete a document (DELETE)
   -    -      -     /{id}/upload     |Upload physical file linked to document (POST)
   -    -      -     /{id}/download   |Get physical file linked to the document (GET)
-/acc-accounts                        | AccAccountService, AccAccount
-/accounts                            | AccountService, Account
-/candidates                          | CandidatesService, Candidate
+/acc-accounts                        |AccAccountService, AccAccount
+/accounts                            |AccountService, Account
+/candidates                          |CandidatesService, Candidate
     -    /{id}/comments              |
     -    /{id}/skills                |Get the collection of skills for the candidate (GET)
-/candidate-skills                    | CandidateSkillsService, CandidateSkill
-/companies                           | CompaniesService, Company
+/candidate-skills                    |CandidateSkillsService, CandidateSkill
+/companies                           |CompaniesService, Company
     -    /{id}/documents             |
     -    /{id}/comments              |
     -    /{id}/sales-actions         |Get a collection of sales actions for company (GET)
@@ -133,111 +134,107 @@ Resource                             | Classes
     - /{id}/contact-responsibilities |Get a collection of responsibilities for company
   - /{id}/company-accounts/customers |Get a collection of company customer accounts linked to the company (GET)
   - /{id}/company-accounts/suppliers |Get a collection of company supplier accounts linked to the company (GET)
-/company-accounts                    | CompanyAccountsService, CompanyAccount
-/company-activities                  | NaceService, Nace
-/company-activity-groups             | NaceGroupService, NaceGroup
-/company-status                      | CompanyStatusService, CompanyStatus
-/contact-responsibilities            | ContactResponsabilitiesService, ContactResponsability
+/company-accounts                    |CompanyAccountsService, CompanyAccount
+/company-activities                  |NaceService, Nace
+/company-activity-groups             |NaceGroupService, NaceGroup
+/company-status                      |CompanyStatusService, CompanyStatus
+/contact-responsibilities            |ContactResponsabilitiesService, ContactResponsability
     -    /{id}/documents             |
     -    /{id}/comments              |
-/contact-events                      | ContactEventService, ContactEvent
-/contacts                            | PersonsService, Person
+/contact-events                      |ContactEventService, ContactEvent
+/contacts                            |PersonsService, Person
     -    /{id}/documents             |
     -    /{id}/comments              |
     -    /{id}/sales-action          |Get the collection of sales actions for contact (GET)
     -    /{id}/leads                 |Get the collection of leads for contact (GET)
     -    /{id}/responsibilities      |Get the collection of responsibilities for contact (GET)
-/countries                           | CountryService, Country
-/crm-quotelines                      | CRMQuoteLinesService, CRMQuoteLine
-/crm-quotes                          | CRMQuotesService, CRMQuote
-/currencies                          | CurrencyService, Currency
-/currency-rates                      | CurrencyRatesService, CurrencyRate
-/customer-assets                     | CustomerAssetsService, CustomerAsset
-/employees                           | EmployeesService, Employee
+/countries                           |CountryService, Country
+/crm-quotelines                      |CRMQuoteLinesService, CRMQuoteLine
+/crm-quotes                          |CRMQuotesService, CRMQuote
+/currencies                          |CurrencyService, Currency
+/currency-rates                      |CurrencyRatesService, CurrencyRate
+/customer-assets                     |CustomerAssetsService, CustomerAsset
+/employees                           |EmployeesService, Employee
     -    /{id}/documents             |
     -    /{id}/comments              |
     -    /{id}/vehicles              |Get a collection of vehicles for employee (GET)
     -    /{id}/leads	             |Get the collection of leads for employee (GET)
     -    /{id}/skills                |Get the collection of emplooyee skills for employee (GET)
     -    /{id}/leave-request-types   |Get a collection of leave request type for employee (GET)
-/employees/{id}/vehicle              | EmployeesService, Vehicle
-/employee-skills                     | EmployeeSkillsService,EmployeeSkill
-/entities                            | EntitiesService, Entity
+/employees/{id}/vehicle              |EmployeesService, Vehicle
+/employee-skills                     |EmployeeSkillsService,EmployeeSkill
+/entities                            |EntitiesService, Entity
     -    /{id}/currencies            |Get a collection of currencies for entity (GET)
     -    /{id}/rowtypes              |Get a collection of rowtypes for entity (GET)
     -    /{id}/currency-rates        |Get currency rate for entity (GET)
     -    /{id}/currencies/{cid}/rates|Get currency rate for entity and currency (GET)
     -    /{id}/accounts	             |Get a account collection for entity (GET)
     -    /{id}/accounts/expense-sheet|Get a account collection for expense sheet of entity (GET)
-/equipments                          | EquipmentsService, Equipment
+/equipments                          |EquipmentsService, Equipment
     -    /{id}/documents             |
-/families                            | FamilyService, Family
-/expense-sheet-lines                 | ExpenseSheetLineService, ExpenseSheetLine
-/expense-sheet                       | ExpenseSheetService, ExpenseSheet
-/geographical-areas                  | GeographicalAreaService, GeographicArea
-/guests                              | GuestService, Guest
+/families                            |FamilyService, Family
+/expense-sheet-lines                 |ExpenseSheetLineService, ExpenseSheetLine
+/expense-sheet                       |ExpenseSheetService, ExpenseSheet
+/geographical-areas                  |GeographicalAreaService, GeographicArea
+/guests                              |GuestService, Guest
 /expense-lines/{id}/guests           |Get a guests collection of the expense line idenfied by the id (GET)
-/leads-events                        | LeadEventService, LeadEvent
-/leads                               | LeadService, Lead
-    -    /{id}/lead-events	         |Get a collection of lead events for the lead
-    -    /{id}/lead-events/{eid}	 |Get a contact event for lead and lead event
-/leads-sources                       | LeadSourceService, LeadSource
-/leads-state                         | LeadStateService, LeadState
-/leave-request-type                  | LeaveRequestTypeService, LeaveRequestType
-/leave-requests                      | LeaverequestService, Leaverequest
+/leads-events                        |LeadEventService, LeadEvent
+/leads                               |LeadService, Lead
+    -    /{id}/lead-events           |Get a collection of lead events for the lead
+    -    /{id}/lead-events/{eid}     |Get a contact event for lead and lead event
+/leads-sources                       |LeadSourceService, LeadSource
+/leads-state                         |LeadStateService, LeadState
+/leave-request-type                  |LeaveRequestTypeService, LeaveRequestType
+/leave-requests                      |LeaverequestService, Leaverequest
     -    /{id}/documents             |
-/mission-orders                      | MissionOrderService, MissionOrder
+/mission-orders                      |MissionOrderService, MissionOrder
     -    /{id}/documents             |
-/opportunities                       | OpportunitiesService, Opportunity
+/opportunities                       |OpportunitiesService, Opportunity
     -    /{id}/documents             |
     -    /{id}/comments              |
     -    /{id}/sales-actions         |Get a collection of sales actions for opportunity (GET)
     -    /{id}/leads                 |Get a collection of leads for opportunity (GET)
-/poa-items                           | POAQuoteItemService, POAQuoteItem
-/poa-quotelines                      | ???
-/poa-quote-subitems                  | ???
-/poa-quote                           | POAQuoteService, POAQuote
-/product-categories                  | CategoriesService, Category
-/products                            | ProductsService, Product
-/profiles                            | ProfilesService, Profile
-/project-activities                  | ProjectActivitiesService, ProjectActivity
+/poa-items                           |POAQuoteItemService, POAQuoteItem
+/poa-quote                           |POAQuoteService, POAQuote
+/product-categories                  |CategoriesService, Category
+/products                            |ProductsService, Product
+/profiles                            |ProfilesService, Profile
+/project-activities                  |ProjectActivitiesService, ProjectActivity
     -    /{id}/line/{lid}/renew      |Renew an activity in the same activity (GET)
     -    /{id}/renew                 |Renew an activity in a new one (GET)
-/project-activities                  | ProjectActivitiesService, ProjectActivity
-/project-activity-category           | ProjectActivityCategoryService, ProjectActivityCategory
+/project-activities                  |ProjectActivitiesService, ProjectActivity
+/project-activity-category           |ProjectActivityCategoryService, ProjectActivityCategory
 /project-categories                  |ProjectCategoryService, ProjectCategory
 /project-sub-category                |ProjectSubCategoryService, ProjectSubCategory
-/project-phases                      | ProjectPhaseService, ProjectPhase
-/project-phases-category             | ProjectPhaseCategoryService, ProjectPhaseCategory
-/project-lines                       | ProjectLinesService, ProjectLine
-/projects                            | ProjectsService, Project
+/project-phases                      |ProjectPhaseService, ProjectPhase
+/project-phases-category             |ProjectPhaseCategoryService, ProjectPhaseCategory
+/project-lines                       |ProjectLinesService, ProjectLine
+/projects                            |ProjectsService, Project
     -    /{id}/documents             |
     -    /{id}/comments              |
     -    /{id}/customer-assets       |Get a collection of customer assets for the given project id (GET)
-/rowtypes                            | EntitiesRowTypesService, Rowtypes
-/sales-actions                       | SalesActionsService, SalesActionsService
+/rowtypes                            |EntitiesRowTypesService, Rowtypes
+/sales-actions                       |SalesActionsService, SalesActionsService
     -    /{id}/documents             |
     -    /{id}/comments              |
     -    /{id}/leads	             |Get the collection of leads for employee (GET)
-/scales                              | ScaleService, Scale
-/skill-domains                       | SkillDomainsService, SkillDomain
+/scales                              |ScaleService, Scale
+/skill-domains                       |SkillDomainsService, SkillDomain
     -    /{id}/skills                |Get the collection of skills from the skill domain (GET)
     -    /{id}/skill-levels          |Get the collection of skill levels from the skill domain (GET) 
-/skill-levels                        | SkillLevelsService, SkillLevel
-/skills                              | SkillsService, Skill
-/supplier-deliveries                 | ???
-/supplier-delivery-lines             | ???
-/supplier-invoice-lines              | SupplierInvoiceLineService, SupplierInvoiceLine
-/supplier-invoices                   | SupplierInvoiceService, SupplierInvoice
+/skill-levels                        |SkillLevelsService, SkillLevel
+/skills                              |SkillsService, Skill
+/supplier-invoice-lines              |SupplierInvoiceLineService, SupplierInvoiceLine
+/supplier-invoices                   |SupplierInvoiceService, SupplierInvoice
     -    /{id}/documents             |
-/supplier-order-lines                | SupplierOrderLineService, SupplierOrderLine
-/supplier-orders                     | SupplierOrderService, SupplierOrder
+/supplier-order-lines                |SupplierOrderLineService, SupplierOrderLine
+/supplier-orders                     |SupplierOrderService, SupplierOrder
     -    /{id}/documents             |
-/supplier-receiving-note-lines       | SupplierReceivingNoteLineService, SupplierReceivingNoteLine
-/supplier-receiving-notes            | SupplierReceivingNoteService, SupplierReceivingNote
-/supplier-settlement-lines           | SuppliersettlementLineService, SupplierSettlementLine
-/supplier-settlements                | SuppliersettlementService, SupplierSettlement
-/vehicles                            | VehicleService, Vehicle
-/work-units                          | WorkUnitService, WorkUnit
+/supplier-receiving-note-lines       |SupplierReceivingNoteLineService, SupplierReceivingNoteLine
+/supplier-receiving-notes            |SupplierReceivingNoteService, SupplierReceivingNote
+/supplier-settlement-lines           |SuppliersettlementLineService, SupplierSettlementLine
+/supplier-settlements                |SuppliersettlementService, SupplierSettlement
+/vehicles                            |VehicleService, Vehicle
+/work-units                          |WorkUnitService, WorkUnit
 
  

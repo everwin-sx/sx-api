@@ -33,7 +33,6 @@ public class ClientAuthTest {
 
     protected ClientApi clientApi;
 
-    //protected String uri = "https://mars2:12443/sx/rest";
     protected String uri = "http://localhost:8080/sx/rest";
     protected String version = "v2";
 
@@ -41,11 +40,7 @@ public class ClientAuthTest {
     public void setUp(){
         try {
             clientApi = new ClientApi(uri, version);
-            clientApi.setApiKey("a5a4394a53472c441fd6ed714e70f500");
-            //a5a4394a53472c441fd6ed714e70f500
-            //bae02a79bf9884cff23a327a00fd86c6
-            //clientApi.setAuthInfos("36103e9e671e0806c354f5a289070bfb", "5d1d6d3c7d7950fdbfb4167b6936757f");
-            // GBB : ybBvdfA1KnIEB1v7Rd/+2+yzvCI2PpruDZJJeNJ7pOpZQIZhPfDIHg==
+            clientApi.setApiKey("");
         } catch (Exception e) {
             e.printStackTrace(System.err);
         }
