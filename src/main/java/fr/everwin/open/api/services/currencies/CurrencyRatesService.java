@@ -43,7 +43,6 @@ public class CurrencyRatesService extends BasicService<CurrencyRate, CurrencyRat
     /**
      * Create an object and return the new id
      * @param object The instance of BasicObject to send
-     * @return long The id of the new object
      * @throws CoreException If the request failed
      */
     public void addOrUpdateRate(CurrencyRate object) throws CoreException {

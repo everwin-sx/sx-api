@@ -44,6 +44,9 @@ import fr.everwin.open.api.util.RequestParams;
 public class BasicService<O extends BasicObject,L extends BasicList> {
 
     protected static final Logger LOGGER = LogManager.getLogger();
+    public static final String LOCATION = "Location";
+    public static final String COMMENTS = "/comments/";
+    public static final String DOCUMENTS = "/documents/";
     /** The client API */
     protected ClientApi clientApi;
     /** The main path of all resources */
@@ -218,8 +221,8 @@ public class BasicService<O extends BasicObject,L extends BasicList> {
         Response response = clientApi.post(path,object);
         readResponse(response, String.class);
         // extract id from return location
-        String locationUri = response.getHeaderString("Location");
-        return Long.parseLong(locationUri.substring(locationUri.lastIndexOf("/") + 1, locationUri.length()));
+        String locationUri = response.getHeaderString(LOCATION);
+        return Long.parseLong(locationUri.substring(locationUri.lastIndexOf("/") + 1));
     }
 
     /**
@@ -277,11 +280,11 @@ public class BasicService<O extends BasicObject,L extends BasicList> {
      * Get the comment identified by its id
      * @param objectId The linked object id
      * @param id The comment id
-     * @return The comment
+     * @return Comment
      * @throws CoreException If the request failed
      */
     public Comment getComment(long objectId, long id) throws CoreException {
-        Response response = clientApi.get(path + "/" + objectId + "/comments/" + id, null);
+        Response response = clientApi.get(path + "/" + objectId + COMMENTS + id, null);
         return (Comment) readResponse(response, Comment.class);
     }
 
@@ -289,17 +292,16 @@ public class BasicService<O extends BasicObject,L extends BasicList> {
      * Create a new comment for the object identified by the objectId
      * @param objectId The id of the object to link to the comment
      * @param comment The comment to create
-     * @return The id of the new comment
+     * @return Date on time date
      * @throws CoreException If the request failed
      */
     public Date createComment(long objectId, Comment comment) throws CoreException {
         Response response = clientApi.post(path + "/" + objectId + "/comments", comment);
         readResponse(response, String.class);
         // extract id from return location
-        String locationUri = response.getHeaderString("Location");
-        Long id = Long.parseLong(locationUri.substring(locationUri.lastIndexOf("/") + 1, locationUri.length()));
+        String locationUri = response.getHeaderString(LOCATION);
+        Long id = Long.parseLong(locationUri.substring(locationUri.lastIndexOf("/") + 1));
         comment.setId(id);
-        //comment.setUpdatedBy((get(id)).getUpdatedBy());
         comment.setUpdatedOnTime(getComment(objectId, id).getUpdatedOnTime());
         return (getComment(objectId, id)).getUpdatedOnTime();
     }
@@ -309,9 +311,10 @@ public class BasicService<O extends BasicObject,L extends BasicList> {
      * @param objectId The id of the object linked to the comment
      * @param comment The comment to update
      * @throws CoreException If the request failed
+     * @return Date on time date
      */
     public Date updateComment(long objectId, Comment comment) throws CoreException {
-        Response response = clientApi.put(path + "/" + objectId + "/comments/" + comment.getId(), comment);
+        Response response = clientApi.put(path + "/" + objectId + COMMENTS + comment.getId(), comment);
         readResponse(response, String.class);
         return getComment(objectId, comment.getId()).getUpdatedOnTime();
     }
@@ -321,9 +324,10 @@ public class BasicService<O extends BasicObject,L extends BasicList> {
      * @param objectId The id of the object to link to the comment
      * @param comment The comment to update
      * @throws CoreException If the request failed
+     * @return Date on time date
      */
     public Date updatePartiallyComment(long objectId, Comment comment) throws CoreException {
-        Response response = clientApi.post(path + "/" + objectId + "/comments/" + comment.getId(), comment);
+        Response response = clientApi.post(path + "/" + objectId + COMMENTS + comment.getId(), comment);
         readResponse(response, String.class);
         return getComment(objectId, comment.getId()).getUpdatedOnTime();
 
@@ -336,7 +340,7 @@ public class BasicService<O extends BasicObject,L extends BasicList> {
      * @throws CoreException If the request failed
      */
     public void deleteComment(long objectId, long id) throws CoreException {
-        Response response = clientApi.delete(path + "/" + objectId + "/comments/" + id);
+        Response response = clientApi.delete(path + "/" + objectId + COMMENTS + id);
         readResponse(response, String.class);
     }
 
@@ -360,7 +364,7 @@ public class BasicService<O extends BasicObject,L extends BasicList> {
      * @throws CoreException If the request failed
      */
     public Document getDocument(long objectId,long id) throws CoreException {
-        Response response = clientApi.get(path + "/" + objectId + "/documents/" + id, null);
+        Response response = clientApi.get(path + "/" + objectId + DOCUMENTS + id, null);
         return (Document) readResponse(response, Document.class);
     }
 
@@ -375,8 +379,8 @@ public class BasicService<O extends BasicObject,L extends BasicList> {
         Response response = clientApi.post(path + "/" + objectId + "/documents", document);
         readResponse(response, String.class);
         // extract id from return location
-        String locationUri = response.getHeaderString("Location");
-        Long id = Long.parseLong(locationUri.substring(locationUri.lastIndexOf("/") + 1, locationUri.length()));
+        String locationUri = response.getHeaderString(LOCATION);
+        Long id = Long.parseLong(locationUri.substring(locationUri.lastIndexOf("/") + 1));
         document.setId(id);
         document.setUpdatedBy((getDocument(objectId, id)).getUpdatedBy());
         document.setUpdatedOnTime(getDocument(objectId, id).getUpdatedOnTime());
@@ -388,9 +392,10 @@ public class BasicService<O extends BasicObject,L extends BasicList> {
      * @param objectId The id of the object linked to the comment
      * @param document The document to update
      * @throws CoreException If the request failed
+     * @return Date on time date
      */
     public Date updateDocument(long objectId, Document document) throws CoreException {
-        Response response = clientApi.put(path + "/" + objectId + "/documents/" + document.getId(), document);
+        Response response = clientApi.put(path + "/" + objectId + DOCUMENTS + document.getId(), document);
         readResponse(response, String.class);
         return getDocument(objectId, document.getId()).getUpdatedOnTime();
     }
@@ -400,9 +405,10 @@ public class BasicService<O extends BasicObject,L extends BasicList> {
      * @param objectId The id of the object linked to the comment
      * @param document The document to update
      * @throws CoreException If the request failed
+     * @return Date on time date
      */
     public Date updatePartiallyDocument(long objectId, Document document) throws CoreException {
-        Response response = clientApi.post(path + "/" + objectId + "/documents/" + document.getId(), document);
+        Response response = clientApi.post(path + "/" + objectId + DOCUMENTS + document.getId(), document);
         readResponse(response, String.class);
         return getDocument(objectId, document.getId()).getUpdatedOnTime();
     }
@@ -410,30 +416,34 @@ public class BasicService<O extends BasicObject,L extends BasicList> {
     /**
      * Delete the document for the object identified by the id of the document
      * @param id The document id to update
+     * @param objectId The id of the object to delete
      * @throws CoreException If the request failed
      */
     public void deleteDocument(long objectId, long id) throws CoreException {
-        Response response = clientApi.delete(path + "/" + objectId + "/documents/" + id);
+        Response response = clientApi.delete(path + "/" + objectId + DOCUMENTS + id);
         readResponse(response, String.class);
     }
 
     /**
      * upload the document for the object identified by the id of the document
      * @param objectId The document id to upload
+     * @param document The document
+     * @param file  The file
      * @throws CoreException If the request failed
      */
     public void uploadDocument(long objectId, Document document, File file) throws CoreException {
-        Response response = clientApi.post(path + "/" + objectId + "/documents/" + document.getId(), file);
+        Response response = clientApi.post(path + "/" + objectId + DOCUMENTS + document.getId(), file);
         readResponse(response, String.class);
     }
 
     /**
      * download the document for the object identified by the id of the document
      * @param objectId The document id to download
-     * @throws CoreException If the request failed
+     * @param document The document
+     * @return File The file downloaded
      */
     public File downloadDocument(long objectId, Document document) throws CoreException {
-        Response response = clientApi.get(path + "/" + objectId + "/documents/" + document.getId(), null);
+        Response response = clientApi.get(path + "/" + objectId + DOCUMENTS + document.getId(), null);
         return (File) readResponse(response, File.class);
     }
 }
