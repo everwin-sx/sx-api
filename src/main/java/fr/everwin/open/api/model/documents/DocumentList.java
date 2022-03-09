@@ -15,55 +15,28 @@
  */
 
 package fr.everwin.open.api.model.documents;
-import java.util.List;
-import javax.ws.rs.core.Link;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementWrapper;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import fr.everwin.open.api.model.core.BasicList;
+
+import javax.xml.bind.annotation.*;
+import java.util.List;
 
 /**
  * Country list
+ *
  * @author d.storti
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "documentlist")
 public class DocumentList extends BasicList<Document> {
 
-    private final static String METHOD="query";
+    private final static String METHOD = "query";
 
     @XmlElement(name = "document")
     @XmlElementWrapper(name = "documents")
     private List<Document> items;
 
-    @XmlElement(name = "selflink")
-    protected String href;
-
-    @XmlElement(name = "link")
-    @XmlElementWrapper(name = "links")
-    @XmlJavaTypeAdapter(Link.JaxbAdapter.class)
-    protected List<Link> links;
-
-    public DocumentList() {}
-
-    public String getHref() {
-        return href;
-    }
-
-    public void setHref(String href) {
-        this.href = href;
-    }
-
-    @Override
-    public List<Link> getLinks() {
-        return links;
-    }
-
-    public void setLinks(List<Link> links) {
-        this.links = links;
+    public DocumentList() {
     }
 
     @Override

@@ -48,31 +48,6 @@ public class SupplierOrderLineList extends BasicList<SupplierOrderLine> {
 	@XmlElementWrapper(name = "supplierorderlines")
 	private List<SupplierOrderLine> items;
 
-	@XmlElement(name = "selflink")
-	protected String href;
-
-	@XmlElement(name = "link")
-	@XmlElementWrapper(name = "links")
-	@XmlJavaTypeAdapter(Link.JaxbAdapter.class)
-	protected List<Link> links;
-
-	public String getHref() {
-		return href;
-	}
-
-	public void setHref(String href) {
-		this.href = href;
-	}
-
-	@Override
-	public List<Link> getLinks() {
-		return links;
-	}
-
-	public void setLinks(List<Link> links) {
-		this.links = links;
-	}
-
 	@Override
 	public List<SupplierOrderLine> getItems() {
 		return items;

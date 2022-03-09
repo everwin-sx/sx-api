@@ -20,17 +20,10 @@
 
 package fr.everwin.open.api.model.companies.accounts;
 
-import javax.ws.rs.core.Link;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementWrapper;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import java.util.List;
-
 import fr.everwin.open.api.model.core.BasicList;
+
+import javax.xml.bind.annotation.*;
+import java.util.List;
 
 /**
  * @author d.storti
@@ -39,35 +32,23 @@ import fr.everwin.open.api.model.core.BasicList;
 @XmlRootElement(name = "supplieraccountlist")
 public class SupplierAccountList extends BasicList<CompanyAccount> {
 
-	private final static String METHOD="query";
+    private final static String METHOD = "query";
 
-	@XmlElement(name = "companyaccount")
-	@XmlElementWrapper(name = "companyaccounts")
-	private List<CompanyAccount> items;
+    @XmlElement(name = "companyaccount")
+    @XmlElementWrapper(name = "companyaccounts")
+    private List<CompanyAccount> items;
 
-	@XmlElement(name = "selflink")
-	protected String href;
+    public SupplierAccountList() {
 
-	@XmlElement(name = "link")
-	@XmlElementWrapper(name = "links")
-	@XmlJavaTypeAdapter(Link.JaxbAdapter.class)
-	protected List<Link> links;
-	public SupplierAccountList() {
+    }
 
-	}
+    @Override
+    public List<CompanyAccount> getItems() {
+        return this.items;
+    }
 
-	@Override
-	public List<CompanyAccount> getItems() {
-		return this.items;
-	}
-
-	@Override
-	public List getLinks() {
-		return links;
-	}
-
-	@Override
-	public void setItems(List items) {
-		this.items = items;
-	}
+    @Override
+    public void setItems(List items) {
+        this.items = items;
+    }
 }

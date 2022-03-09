@@ -19,15 +19,11 @@
  */
 
 package fr.everwin.open.api.model.companies;
-import javax.ws.rs.core.Link;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementWrapper;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-import java.util.List;
+
 import fr.everwin.open.api.model.core.BasicList;
+
+import javax.xml.bind.annotation.*;
+import java.util.List;
 
 
 /**
@@ -37,51 +33,27 @@ import fr.everwin.open.api.model.core.BasicList;
 @XmlRootElement(name = "supplierlist")
 public class SupplierList extends BasicList<Company> {
 
-	private final static String METHOD="query";
+    private final static String METHOD = "query";
 
-	@XmlElement(name = "company")
-	@XmlElementWrapper(name = "companies")
-	private List<Company> items;
+    @XmlElement(name = "company")
+    @XmlElementWrapper(name = "companies")
+    private List<Company> items;
 
-	@XmlElement(name = "selflink")
-	protected String href;
+    /**
+     *
+     */
+    public SupplierList() {
+        // TODO Auto-generated constructor stub
+    }
 
-	@XmlElement(name = "link")
-	@XmlElementWrapper(name = "links")
-	@XmlJavaTypeAdapter(Link.JaxbAdapter.class)
-	protected List<Link> links;
+    @Override
+    public List<Company> getItems() {
+        return items;
+    }
 
-	/**
-	 *
-	 */
-	public SupplierList() {
-		// TODO Auto-generated constructor stub
-	}
-	public String getHref() {
-		return href;
-	}
-
-	public void setHref(String href) {
-		this.href = href;
-	}
-
-	@Override
-	public List<Link> getLinks() {
-		return links;
-	}
-
-	public void setLinks(List<Link> links) {
-		this.links = links;
-	}
-
-	@Override
-	public List<Company> getItems() {
-		return items;
-	}
-
-	@Override
-	public void setItems(List<Company> items) {
-		this.items = items;
-	}
+    @Override
+    public void setItems(List<Company> items) {
+        this.items = items;
+    }
 
 }

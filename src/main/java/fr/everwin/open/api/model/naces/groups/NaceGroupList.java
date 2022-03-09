@@ -39,36 +39,11 @@ public class NaceGroupList extends BasicList<NaceGroup> {
     @XmlElementWrapper(name = "nacegroups")
     private List<NaceGroup> items;
 
-    @XmlElement(name = "selflink")
-    protected String href;
-
-    @XmlElement(name = "link")
-    @XmlElementWrapper(name = "links")
-    @XmlJavaTypeAdapter(Link.JaxbAdapter.class)
-    protected List<Link> links;
-
     /**
      *
      */
     public NaceGroupList() {
         // TODO Auto-generated constructor stub
-    }
-
-    public String getHref() {
-        return href;
-    }
-
-    public void setHref(String href) {
-        this.href = href;
-    }
-
-    @Override
-    public List<Link> getLinks() {
-        return links;
-    }
-
-    public void setLinks(List<Link> links) {
-        this.links = links;
     }
 
     @Override

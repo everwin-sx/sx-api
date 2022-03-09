@@ -15,21 +15,14 @@
  */
 
 /**
- * 
+ *
  */
 package fr.everwin.open.api.model.opportunities;
 
-import java.util.List;
-
-import javax.ws.rs.core.Link;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementWrapper;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import fr.everwin.open.api.model.core.BasicList;
+
+import javax.xml.bind.annotation.*;
+import java.util.List;
 
 
 /**
@@ -40,41 +33,19 @@ import fr.everwin.open.api.model.core.BasicList;
 @XmlRootElement(name = "opportunitylist")
 public class OpportunityList extends BasicList<Opportunity> {
 
-	private final static String METHOD = "query";
+    private final static String METHOD = "query";
 
-	@XmlElement(name = "opportunity")
-	@XmlElementWrapper(name = "opportunities")
-	private List<Opportunity> items;
+    @XmlElement(name = "opportunity")
+    @XmlElementWrapper(name = "opportunities")
+    private List<Opportunity> items;
 
-	@XmlElement(name = "selflink")
-	protected String href;
+    @Override
+    public List<Opportunity> getItems() {
+        return items;
+    }
 
-	@XmlElement(name = "link")
-	@XmlElementWrapper(name = "links")
-	@XmlJavaTypeAdapter(Link.JaxbAdapter.class)
-	protected List<Link> links;
-
-	public List<Opportunity> getItems() {
-		return items;
-	}
-
-	public void setItems(List<Opportunity> items) {
-		this.items = items;
-	}
-
-	public String getHref() {
-		return href;
-	}
-
-	public void setHref(String href) {
-		this.href = href;
-	}
-
-	public List<Link> getLinks() {
-		return links;
-	}
-
-	public void setLinks(List<Link> links) {
-		this.links = links;
-	}
+    @Override
+    public void setItems(List<Opportunity> items) {
+        this.items = items;
+    }
 }

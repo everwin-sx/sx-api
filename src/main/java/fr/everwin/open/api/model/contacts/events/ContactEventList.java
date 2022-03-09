@@ -16,70 +16,41 @@
 
 package fr.everwin.open.api.model.contacts.events;
 
-import javax.ws.rs.core.Link;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementWrapper;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-import java.util.List;
 import fr.everwin.open.api.model.core.BasicList;
+
+import javax.xml.bind.annotation.*;
+import java.util.List;
 
 /**
  * contactevent list
+ *
  * @author d.storti
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "contacteventlist")
-public class ContactEventList extends BasicList<ContactEvent>{
+public class ContactEventList extends BasicList<ContactEvent> {
 
-	private final static String METHOD = "query";
-	
-	@XmlElement(name = "contactevent")
-	@XmlElementWrapper(name = "contactevents")
-	private List<ContactEvent> items;
+    private final static String METHOD = "query";
 
-	@XmlElement(name = "selflink")
-	protected String href;
+    @XmlElement(name = "contactevent")
+    @XmlElementWrapper(name = "contactevents")
+    private List<ContactEvent> items;
 
-	@XmlElement(name = "link")
-	@XmlElementWrapper(name = "links")
-	@XmlJavaTypeAdapter(Link.JaxbAdapter.class)
-	protected List<Link> links;
+    /**
+     *
+     */
+    public ContactEventList() {
+        // TODO Auto-generated constructor stub
+    }
 
-	/**
-	 *
-	 */
-	public ContactEventList() {
-		// TODO Auto-generated constructor stub
-	}
-	
-	public String getHref() {
-		return href;
-	}
+    @Override
+    public List<ContactEvent> getItems() {
+        return items;
+    }
 
-	public void setHref(String href) {
-		this.href = href;
-	}
-
-	@Override
-	public List<Link> getLinks() {
-		return links;
-	}
-
-	public void setLinks(List<Link> links) {
-		this.links = links;
-	}
-
-	@Override
-	public List<ContactEvent> getItems() {
-		return items;
-	}
-
-	@Override
-	public void setItems(List<ContactEvent> items) {
-		this.items = items;
-	}
+    @Override
+    public void setItems(List<ContactEvent> items) {
+        this.items = items;
+    }
 
 }

@@ -16,20 +16,14 @@
 
 package fr.everwin.open.api.model.geographicalcalareas;
 
-import javax.ws.rs.core.Link;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementWrapper;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import java.util.List;
-
 import fr.everwin.open.api.model.core.BasicList;
+
+import javax.xml.bind.annotation.*;
+import java.util.List;
 
 /**
  * GeographicalArea list
+ *
  * @author d.storti
  */
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -42,14 +36,6 @@ public class GeographicalAreaList extends BasicList<GeographicalArea> {
     @XmlElementWrapper(name = "geographicalareas")
     private List<GeographicalArea> items;
 
-    @XmlElement(name = "selflink")
-    protected String href;
-
-    @XmlElement(name = "link")
-    @XmlElementWrapper(name = "links")
-    @XmlJavaTypeAdapter(Link.JaxbAdapter.class)
-    protected List<Link> links;
-
     @Override
     public List<GeographicalArea> getItems() {
         return items;
@@ -58,25 +44,5 @@ public class GeographicalAreaList extends BasicList<GeographicalArea> {
     @Override
     public void setItems(List<GeographicalArea> items) {
         this.items = items;
-    }
-
-    @Override
-    public String getHref() {
-        return href;
-    }
-
-    @Override
-    public void setHref(String href) {
-        this.href = href;
-    }
-
-    @Override
-    public List<Link> getLinks() {
-        return links;
-    }
-
-    @Override
-    public void setLinks(List<Link> links) {
-        this.links = links;
     }
 }

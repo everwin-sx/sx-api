@@ -15,15 +15,11 @@
  */
 
 package fr.everwin.open.api.model.projects.phases;
-import java.util.List;
-import javax.ws.rs.core.Link;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementWrapper;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import fr.everwin.open.api.model.core.BasicList;
+
+import javax.xml.bind.annotation.*;
+import java.util.List;
 
 /**
  * @author d.storti
@@ -38,14 +34,6 @@ public class ProjectPhaseList extends BasicList<ProjectPhase> {
     @XmlElementWrapper(name = "project-phases")
     private List<ProjectPhase> items;
 
-    @XmlElement(name = "selflink")
-    protected String href;
-
-    @XmlElement(name = "link")
-    @XmlElementWrapper(name = "links")
-    @XmlJavaTypeAdapter(Link.JaxbAdapter.class)
-    protected List<Link> links;
-
     @Override
     public List<ProjectPhase> getItems() {
         return items;
@@ -54,22 +42,5 @@ public class ProjectPhaseList extends BasicList<ProjectPhase> {
     @Override
     public void setItems(List<ProjectPhase> items) {
         this.items = items;
-    }
-
-    @Override
-    public List<Link> getLinks() {
-        return links;
-    }
-
-    public void setLinks(List<Link> links) {
-        this.links = links;
-    }
-
-    public String getHref() {
-        return href;
-    }
-
-    public void setHref(String href) {
-        this.href = href;
     }
 }

@@ -15,15 +15,11 @@
  */
 
 package fr.everwin.open.api.model.projects.subcategories;
-import javax.ws.rs.core.Link;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementWrapper;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-import java.util.List;
+
 import fr.everwin.open.api.model.core.BasicList;
+
+import javax.xml.bind.annotation.*;
+import java.util.List;
 
 /**
  * @author d.storti
@@ -38,16 +34,6 @@ public class ProjectSubCategoryList extends BasicList<ProjectSubCategory> {
     @XmlElementWrapper(name = "projectsubcategory")
     private List<ProjectSubCategory> items;
 
-
-
-    @XmlElement(name = "selflink")
-    protected String href;
-
-    @XmlElement(name = "link")
-    @XmlElementWrapper(name = "links")
-    @XmlJavaTypeAdapter(Link.JaxbAdapter.class)
-    protected List<Link> links;
-
     @Override
     public List<ProjectSubCategory> getItems() {
         return items;
@@ -56,25 +42,5 @@ public class ProjectSubCategoryList extends BasicList<ProjectSubCategory> {
     @Override
     public void setItems(List<ProjectSubCategory> items) {
         this.items = items;
-    }
-
-    @Override
-    public String getHref() {
-        return href;
-    }
-
-    @Override
-    public void setHref(String href) {
-        this.href = href;
-    }
-
-    @Override
-    public List<Link> getLinks() {
-        return links;
-    }
-
-    @Override
-    public void setLinks(List<Link> links) {
-        this.links = links;
     }
 }

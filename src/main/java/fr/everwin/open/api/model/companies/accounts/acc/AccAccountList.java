@@ -15,21 +15,14 @@
  */
 
 /**
- * 
+ *
  */
 package fr.everwin.open.api.model.companies.accounts.acc;
 
-import java.util.List;
-
-import javax.ws.rs.core.Link;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementWrapper;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import fr.everwin.open.api.model.core.BasicList;
+
+import javax.xml.bind.annotation.*;
+import java.util.List;
 
 /**
  * Acc account company list
@@ -39,37 +32,23 @@ import fr.everwin.open.api.model.core.BasicList;
 @XmlRootElement(name = "accaccountlist")
 public class AccAccountList extends BasicList<AccAccount> {
 
+    private final static String METHOD = "query";
 
-	private final static String METHOD="query";
+    @XmlElement(name = "accaccount")
+    @XmlElementWrapper(name = "accaccounts")
+    private List<AccAccount> items;
 
-	@XmlElement(name = "accaccount")
-	@XmlElementWrapper(name = "accaccounts")
-	private List<AccAccount> items;
+    public AccAccountList() {
 
-	@XmlElement(name = "selflink")
-	protected String href;
+    }
 
-	@XmlElement(name = "link")
-	@XmlElementWrapper(name = "links")
-	@XmlJavaTypeAdapter(Link.JaxbAdapter.class)
-	protected List<Link> links;
+    @Override
+    public List<AccAccount> getItems() {
+        return this.items;
+    }
 
-	public AccAccountList() {
-
-	}
-
-	@Override
-	public List<AccAccount> getItems() {
-		return this.items;
-	}
-
-	@Override
-	public List getLinks() {
-		return links;
-	}
-
-	@Override
-	public void setItems(List items) {
-		this.items = items;
-	}
+    @Override
+    public void setItems(List items) {
+        this.items = items;
+    }
 }

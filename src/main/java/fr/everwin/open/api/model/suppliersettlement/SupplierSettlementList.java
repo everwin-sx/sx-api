@@ -15,15 +15,11 @@
  */
 
 package fr.everwin.open.api.model.suppliersettlement;
-import java.util.List;
-import javax.ws.rs.core.Link;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementWrapper;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import fr.everwin.open.api.model.core.BasicList;
+
+import javax.xml.bind.annotation.*;
+import java.util.List;
 
 /**
  * @author d.storti
@@ -38,14 +34,6 @@ public class SupplierSettlementList extends BasicList<SupplierSettlement> {
     @XmlElementWrapper(name = "suppliersettlements")
     private List<SupplierSettlement> items;
 
-    @XmlElement(name = "selflink")
-    protected String href;
-
-    @XmlElement(name = "link")
-    @XmlElementWrapper(name = "links")
-    @XmlJavaTypeAdapter(Link.JaxbAdapter.class)
-    protected List<Link> links;
-
     @Override
     public List<SupplierSettlement> getItems() {
         return items;
@@ -54,10 +42,5 @@ public class SupplierSettlementList extends BasicList<SupplierSettlement> {
     @Override
     public void setItems(List<SupplierSettlement> items) {
         this.items = items;
-    }
-
-    @Override
-    public List<Link> getLinks() {
-        return links;
     }
 }
