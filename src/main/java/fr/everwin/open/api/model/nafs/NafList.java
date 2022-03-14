@@ -15,21 +15,14 @@
  */
 
 /**
- * 
+ *
  */
 package fr.everwin.open.api.model.nafs;
 
-import java.util.List;
-
-import javax.ws.rs.core.Link;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementWrapper;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import fr.everwin.open.api.model.core.BasicList;
+
+import javax.xml.bind.annotation.*;
+import java.util.List;
 
 
 /**
@@ -39,52 +32,27 @@ import fr.everwin.open.api.model.core.BasicList;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "naflist")
 public class NafList extends BasicList<Naf> {
-	private final static String METHOD="query";
+    private final static String METHOD = "query";
 
-	@XmlElement(name = "naf")
-	@XmlElementWrapper(name = "nafs")
-	private List<Naf> items;
-
-	@XmlElement(name = "selflink")
-	protected String href;
-
-	@XmlElement(name = "link")
-	@XmlElementWrapper(name = "links")
-	@XmlJavaTypeAdapter(Link.JaxbAdapter.class)
-	protected List<Link> links;
-
-	/**
-	 *
-	 */
-	public NafList() {
-
-	}
+    @XmlElement(name = "naf")
+    @XmlElementWrapper(name = "nafs")
+    private List<Naf> items;
 
 
-	public String getHref() {
-		return href;
-	}
+    /**
+     *
+     */
+    public NafList() {
 
-	public void setHref(String href) {
-		this.href = href;
-	}
+    }
 
-	@Override
-	public List<Link> getLinks() {
-		return links;
-	}
+    @Override
+    public List<Naf> getItems() {
+        return items;
+    }
 
-	public void setLinks(List<Link> links) {
-		this.links = links;
-	}
-
-	@Override
-	public List<Naf> getItems() {
-		return items;
-	}
-
-	@Override
-	public void setItems(List<Naf> items) {
-		this.items = items;
-	}
+    @Override
+    public void setItems(List<Naf> items) {
+        this.items = items;
+    }
 }

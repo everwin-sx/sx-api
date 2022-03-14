@@ -16,122 +16,97 @@
  */
 
 package fr.everwin.open.api.model.projects.lines;
-import java.util.List;
-import javax.ws.rs.core.Link;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementWrapper;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import fr.everwin.open.api.model.core.BasicList;
+
+import javax.xml.bind.annotation.*;
+import java.util.List;
 
 /**
  * ProjectLine list
+ *
  * @author d.storti
  */
-		@XmlAccessorType(XmlAccessType.FIELD)
-		@XmlRootElement(name = "projectlinelist")
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlRootElement(name = "projectlinelist")
 public class ProjectLineList extends BasicList<ProjectLine> {
 
-	private final static String METHOD = "query";
+    private final static String METHOD = "query";
 
-	@XmlTransient
-	private int limit;
+    @XmlTransient
+    private int limit;
 
-	@XmlTransient
-	private int offset; // Getters for these
+    @XmlTransient
+    private int offset; // Getters for these
 
-	@XmlTransient
-	private int modelLimit; // Getters for these
+    @XmlTransient
+    private int modelLimit; // Getters for these
 
-	@XmlTransient
-	private String filter; // Getters for these
+    @XmlTransient
+    private String filter; // Getters for these
 
-	@XmlTransient
-	private String sort; // Getters for these1
+    @XmlTransient
+    private String sort; // Getters for these1
 
-	@XmlElement(name = "project-line")
-	@XmlElementWrapper(name = "project-lines")
-	private List<ProjectLine> items;
+    @XmlElement(name = "project-line")
+    @XmlElementWrapper(name = "project-lines")
+    private List<ProjectLine> items;
 
-	@XmlElement(name = "selflink")
-	protected String href;
 
-	@XmlElement(name = "link")
-	@XmlElementWrapper(name = "links")
-	@XmlJavaTypeAdapter(Link.JaxbAdapter.class)
-	protected List<Link> links;
+    /**
+     *
+     */
+    public ProjectLineList() {
 
-	/**
-	 *
-	 */
-	public ProjectLineList() {
+    }
 
-	}
+    public int getLimit() {
+        return limit;
+    }
 
-	public int getLimit() {
-		return limit;
-	}
+    public void setLimit(int limit) {
+        this.limit = limit;
+    }
 
-	public void setLimit(int limit) {
-		this.limit = limit;
-	}
+    public int getOffset() {
+        return offset;
+    }
 
-	public int getOffset() {
-		return offset;
-	}
+    public void setOffset(int offset) {
+        this.offset = offset;
+    }
 
-	public void setOffset(int offset) {
-		this.offset = offset;
-	}
+    public int getModelLimit() {
+        return modelLimit;
+    }
 
-	public int getModelLimit() {
-		return modelLimit;
-	}
+    public void setModelLimit(int modelLimit) {
+        this.modelLimit = modelLimit;
+    }
 
-	public void setModelLimit(int modelLimit) {
-		this.modelLimit = modelLimit;
-	}
+    public String getFilter() {
+        return filter;
+    }
 
-	public String getFilter() {
-		return filter;
-	}
+    public void setFilter(String filter) {
+        this.filter = filter;
+    }
 
-	public void setFilter(String filter) {
-		this.filter = filter;
-	}
+    public String getSort() {
+        return sort;
+    }
 
-	public String getSort() {
-		return sort;
-	}
+    public void setSort(String sort) {
+        this.sort = sort;
+    }
 
-	public void setSort(String sort) {
-		this.sort = sort;
-	}
+    @Override
+    public List<ProjectLine> getItems() {
+        return items;
+    }
 
-	public List<ProjectLine> getItems() {
-		return items;
-	}
-
-	public void setItems(List<ProjectLine> items) {
-		this.items = items;
-	}
-
-	public String getHref() {
-		return href;
-	}
-
-	public void setHref(String href) {
-		this.href = href;
-	}
-
-	public List<Link> getLinks() {
-		return links;
-	}
-
-	public void setLinks(List<Link> links) {
-		this.links = links;
-	}
+    @Override
+    public void setItems(List<ProjectLine> items) {
+        this.items = items;
+    }
 }

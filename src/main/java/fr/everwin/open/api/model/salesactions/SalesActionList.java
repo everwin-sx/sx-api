@@ -15,22 +15,14 @@
  */
 
 /**
- * 
+ *
  */
 package fr.everwin.open.api.model.salesactions;
 
-import java.util.List;
-
-import javax.ws.rs.core.Link;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementWrapper;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import fr.everwin.open.api.model.core.BasicList;
-import fr.everwin.open.api.model.projects.Project;
+
+import javax.xml.bind.annotation.*;
+import java.util.List;
 
 
 /**
@@ -41,41 +33,19 @@ import fr.everwin.open.api.model.projects.Project;
 @XmlRootElement(name = "salesactionlist")
 public class SalesActionList extends BasicList<SalesAction> {
 
-	private final static String METHOD = "query";
+    private final static String METHOD = "query";
 
-	@XmlElement(name = "salesaction")
-	@XmlElementWrapper(name = "salesactions")
-	private List<SalesAction> items;
+    @XmlElement(name = "salesaction")
+    @XmlElementWrapper(name = "salesactions")
+    private List<SalesAction> items;
 
-	@XmlElement(name = "selflink")
-	protected String href;
+    @Override
+    public List<SalesAction> getItems() {
+        return items;
+    }
 
-	@XmlElement(name = "link")
-	@XmlElementWrapper(name = "links")
-	@XmlJavaTypeAdapter(Link.JaxbAdapter.class)
-	protected List<Link> links;
-
-	public List<SalesAction> getItems() {
-		return items;
-	}
-
-	public void setItems(List<SalesAction> items) {
-		this.items = items;
-	}
-
-	public String getHref() {
-		return href;
-	}
-
-	public void setHref(String href) {
-		this.href = href;
-	}
-
-	public List<Link> getLinks() {
-		return links;
-	}
-
-	public void setLinks(List<Link> links) {
-		this.links = links;
-	}
+    @Override
+    public void setItems(List<SalesAction> items) {
+        this.items = items;
+    }
 }

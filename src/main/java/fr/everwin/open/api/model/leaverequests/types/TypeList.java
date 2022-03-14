@@ -46,31 +46,6 @@ public class TypeList extends BasicList<Type> {
 	@XmlElementWrapper(name = "types")
 	private List<Type> items;
 
-	@XmlElement(name = "selflink")
-	protected String href;
-
-	@XmlElement(name = "link")
-	@XmlElementWrapper(name = "links")
-	@XmlJavaTypeAdapter(Link.JaxbAdapter.class)
-	protected List<Link> links;
-
-	public String getHref() {
-		return href;
-	}
-
-	public void setHref(String href) {
-		this.href = href;
-	}
-
-	@Override
-	public List<Link> getLinks() {
-		return links;
-	}
-
-	public void setLinks(List<Link> links) {
-		this.links = links;
-	}
-
 	@Override
 	public List<Type> getItems() {
 		return items;

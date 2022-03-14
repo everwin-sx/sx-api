@@ -15,22 +15,14 @@
  */
 
 /**
- * 
+ *
  */
 package fr.everwin.open.api.model.products.categories;
 
-import java.util.List;
-
-import javax.ws.rs.core.Link;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementWrapper;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import fr.everwin.open.api.model.core.BasicList;
+
+import javax.xml.bind.annotation.*;
+import java.util.List;
 
 
 /**
@@ -41,96 +33,74 @@ import fr.everwin.open.api.model.core.BasicList;
 @XmlRootElement(name = "product-categorylist")
 public class CategoryList extends BasicList<Category> {
 
-	private final static String METHOD = "query";
+    private final static String METHOD = "query";
 
-	@XmlTransient
-	private int limit;
+    @XmlTransient
+    private int limit;
 
-	@XmlTransient
-	private int offset;
+    @XmlTransient
+    private int offset;
 
-	@XmlTransient
-	private int modelLimit;
+    @XmlTransient
+    private int modelLimit;
 
-	@XmlTransient
-	private String filter;
+    @XmlTransient
+    private String filter;
 
-	@XmlTransient
-	private String sort;
+    @XmlTransient
+    private String sort;
 
-	@XmlElement(name = "product-category")
-	@XmlElementWrapper(name = "product-categories")
-	private List<Category> items;
+    @XmlElement(name = "product-category")
+    @XmlElementWrapper(name = "product-categories")
+    private List<Category> items;
 
-	@XmlElement(name = "selflink")
-	protected String href;
+    public int getLimit() {
+        return limit;
+    }
 
-	@XmlElement(name = "link")
-	@XmlElementWrapper(name = "links")
-	@XmlJavaTypeAdapter(Link.JaxbAdapter.class)
-	protected List<Link> links;
+    public void setLimit(int limit) {
+        this.limit = limit;
+    }
 
-	public int getLimit() {
-		return limit;
-	}
+    public int getOffset() {
+        return offset;
+    }
 
-	public void setLimit(int limit) {
-		this.limit = limit;
-	}
+    public void setOffset(int offset) {
+        this.offset = offset;
+    }
 
-	public int getOffset() {
-		return offset;
-	}
+    public int getModelLimit() {
+        return modelLimit;
+    }
 
-	public void setOffset(int offset) {
-		this.offset = offset;
-	}
+    public void setModelLimit(int modelLimit) {
+        this.modelLimit = modelLimit;
+    }
 
-	public int getModelLimit() {
-		return modelLimit;
-	}
+    public String getFilter() {
+        return filter;
+    }
 
-	public void setModelLimit(int modelLimit) {
-		this.modelLimit = modelLimit;
-	}
+    public void setFilter(String filter) {
+        this.filter = filter;
+    }
 
-	public String getFilter() {
-		return filter;
-	}
+    public String getSort() {
+        return sort;
+    }
 
-	public void setFilter(String filter) {
-		this.filter = filter;
-	}
+    public void setSort(String sort) {
+        this.sort = sort;
+    }
 
-	public String getSort() {
-		return sort;
-	}
+    @Override
+    public List<Category> getItems() {
+        return items;
+    }
 
-	public void setSort(String sort) {
-		this.sort = sort;
-	}
-
-	public List<Category> getItems() {
-		return items;
-	}
-
-	public void setItems(List<Category> items) {
-		this.items = items;
-	}
-
-	public String getHref() {
-		return href;
-	}
-
-	public void setHref(String href) {
-		this.href = href;
-	}
-
-	public List<Link> getLinks() {
-		return links;
-	}
-
-	public void setLinks(List<Link> links) {
-		this.links = links;
-	}
+    @Override
+    public void setItems(List<Category> items) {
+        this.items = items;
+    }
 }

@@ -50,8 +50,8 @@ public class ClientApi {
 
     protected static final Logger LOGGER = LogManager.getLogger();
 
-    public static String API_VERSION_1 = "v1";
-    public static String API_VERSION_2 = "v2";
+    public static final String API_VERSION_1 = "v1";
+    public static final String API_VERSION_2 = "v2";
 
     /** Auth manager to handle api key or oauth authentication */
     private Authentication auth;

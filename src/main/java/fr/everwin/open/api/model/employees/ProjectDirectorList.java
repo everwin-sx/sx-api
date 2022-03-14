@@ -15,59 +15,34 @@
  */
 
 package fr.everwin.open.api.model.employees;
-import java.util.List;
-import javax.ws.rs.core.Link;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementWrapper;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import fr.everwin.open.api.model.core.BasicList;
+
+import javax.xml.bind.annotation.*;
+import java.util.List;
 
 /**
  * projectdirector list
+ *
  * @author d.storti
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "projectdirectorlist")
 public class ProjectDirectorList extends BasicList<Employee> {
 
-	private final static String METHOD = "queryProjectDirector";
+    private final static String METHOD = "queryProjectDirector";
 
-	@XmlElement(name = "employee")
-	@XmlElementWrapper(name = "employees")
-	private List<Employee> items;
+    @XmlElement(name = "employee")
+    @XmlElementWrapper(name = "employees")
+    private List<Employee> items;
 
-	@XmlElement(name = "selflink")
-	protected String href;
+    @Override
+    public List<Employee> getItems() {
+        return items;
+    }
 
-	@XmlElement(name = "link")
-	@XmlElementWrapper(name = "links")
-	@XmlJavaTypeAdapter(Link.JaxbAdapter.class)
-	protected List<Link> links;
-
-	public List<Employee> getItems() {
-		return items;
-	}
-
-	public void setItems(List<Employee> items) {
-		this.items = items;
-	}
-
-	public String getHref() {
-		return href;
-	}
-
-	public void setHref(String href) {
-		this.href = href;
-	}
-
-	public List<Link> getLinks() {
-		return links;
-	}
-
-	public void setLinks(List<Link> links) {
-		this.links = links;
-	}
+    @Override
+    public void setItems(List<Employee> items) {
+        this.items = items;
+    }
 }

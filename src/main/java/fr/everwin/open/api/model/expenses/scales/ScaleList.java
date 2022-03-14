@@ -15,19 +15,15 @@
  */
 
 package fr.everwin.open.api.model.expenses.scales;
-import java.util.List;
-import javax.ws.rs.core.Link;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementWrapper;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import fr.everwin.open.api.model.core.BasicList;
-import fr.everwin.open.api.model.countries.Country;
+
+import javax.xml.bind.annotation.*;
+import java.util.List;
 
 /**
  * Scale list
+ *
  * @author d.storti
  */
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -40,35 +36,13 @@ public class ScaleList extends BasicList<Scale> {
     @XmlElementWrapper(name = "scales")
     private List<Scale> items;
 
-    @XmlElement(name = "selflink")
-    protected String href;
-
-    @XmlElement(name = "link")
-    @XmlElementWrapper(name = "links")
-    @XmlJavaTypeAdapter(Link.JaxbAdapter.class)
-    protected List<Link> links;
-
+    @Override
     public List<Scale> getItems() {
         return items;
     }
 
+    @Override
     public void setItems(List<Scale> items) {
         this.items = items;
-    }
-
-    public String getHref() {
-        return href;
-    }
-
-    public void setHref(String href) {
-        this.href = href;
-    }
-
-    public List<Link> getLinks() {
-        return links;
-    }
-
-    public void setLinks(List<Link> links) {
-        this.links = links;
     }
 }

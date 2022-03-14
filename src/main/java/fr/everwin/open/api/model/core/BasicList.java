@@ -16,22 +16,21 @@
 
 package fr.everwin.open.api.model.core;
 
-import java.util.List;
-import java.util.Optional;
-
 import javax.ws.rs.core.Link;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import java.util.Optional;
 
 /**
  * Basic list class
+ *
  * @author everwin-team
  */
-public class BasicList<T> {
+public abstract class BasicList<T extends BasicObject> implements BasicListInterface<T> {
+
     @XmlElement(name = "selflink")
     protected String href;
-
 
     @XmlElement(name = "link")
     @XmlElementWrapper(name = "links")
@@ -54,8 +53,8 @@ public class BasicList<T> {
         this.links = links;
     }
 
-    public String getNext(){
-        if(links != null){
+    public String getNext() {
+        if (links != null) {
             Optional<Link> result = links.stream().filter(link -> link.getRel().equals("next")).findFirst();
             return result.isPresent() ? result.get().getUri().toString() : null;
         }
@@ -70,12 +69,4 @@ public class BasicList<T> {
         return null;
     }
 
-    public List<T> getItems(){
-        return null;
-    }
-
-
-    public void setItems(List<T> items){
-
-    }
 }

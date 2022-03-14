@@ -15,21 +15,14 @@
  */
 
 /**
- * 
+ *
  */
 package fr.everwin.open.api.model.supplierinvoices.lines;
 
-import java.util.List;
-
-import javax.ws.rs.core.Link;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementWrapper;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import fr.everwin.open.api.model.core.BasicList;
+
+import javax.xml.bind.annotation.*;
+import java.util.List;
 
 
 /**
@@ -40,44 +33,19 @@ import fr.everwin.open.api.model.core.BasicList;
 @XmlRootElement(name = "supplierinvoicelinelist")
 public class SupplierInvoiceLineList extends BasicList<SupplierInvoiceLine> {
 
-	private final static String METHOD = "query";
+    private final static String METHOD = "query";
 
-	@XmlElement(name = "supplierinvoiceline")
-	@XmlElementWrapper(name = "supplierinvoicelines")
-	private List<SupplierInvoiceLine> items;
+    @XmlElement(name = "supplierinvoiceline")
+    @XmlElementWrapper(name = "supplierinvoicelines")
+    private List<SupplierInvoiceLine> items;
 
-	@XmlElement(name = "selflink")
-	protected String href;
+    @Override
+    public List<SupplierInvoiceLine> getItems() {
+        return items;
+    }
 
-	@XmlElement(name = "link")
-	@XmlElementWrapper(name = "links")
-	@XmlJavaTypeAdapter(Link.JaxbAdapter.class)
-	protected List<Link> links;
-
-	@Override
-	public List<SupplierInvoiceLine> getItems() {
-		return items;
-	}
-
-	@Override
-	public void setItems(List<SupplierInvoiceLine> items) {
-		this.items = items;
-	}
-
-	public String getHref() {
-		return href;
-	}
-
-	public void setHref(String href) {
-		this.href = href;
-	}
-
-	@Override
-	public List<Link> getLinks() {
-		return links;
-	}
-
-	public void setLinks(List<Link> links) {
-		this.links = links;
-	}
+    @Override
+    public void setItems(List<SupplierInvoiceLine> items) {
+        this.items = items;
+    }
 }
