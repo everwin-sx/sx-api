@@ -16,8 +16,8 @@
 
 package fr.everwin.open.api.services.suppliersettlements;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import fr.everwin.open.api.ClientApi;
 import fr.everwin.open.api.model.suppliersettlement.lines.SupplierSettlementLine;
@@ -29,7 +29,7 @@ import fr.everwin.open.api.services.core.BasicService;
  */
 public class SupplierSettlementLineService extends BasicService<SupplierSettlementLine, SupplierSettlementLineList> {
 
-    protected static final Logger LOGGER = LogManager.getLogger();
+    protected static final Logger LOGGER = LoggerFactory.getLogger(SupplierSettlementLineService.class);
 
     public SupplierSettlementLineService(ClientApi client) {
         super(client, "supplier-settlement-lines");

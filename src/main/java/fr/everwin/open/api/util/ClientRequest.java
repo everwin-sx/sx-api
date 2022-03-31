@@ -26,8 +26,8 @@ import javax.ws.rs.core.Response;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import fr.everwin.open.api.core.auth.Authentication;
 import fr.everwin.open.api.exception.RequestException;
@@ -39,7 +39,7 @@ import fr.everwin.open.api.exception.RequestException;
  */
 public class ClientRequest {
 
-    protected static final Logger LOGGER = LogManager.getLogger();
+    protected static final Logger LOGGER = LoggerFactory.getLogger(ClientRequest.class);
 
     private String path;
     private Authentication auth;

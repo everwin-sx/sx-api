@@ -29,8 +29,6 @@ import javax.ws.rs.core.Form;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.glassfish.jersey.jackson.internal.jackson.jaxrs.json.JacksonJsonProvider;
 import org.glassfish.jersey.logging.LoggingFeature;
 
@@ -41,6 +39,8 @@ import fr.everwin.open.api.exception.CoreException;
 import fr.everwin.open.api.util.ClientRequest;
 import fr.everwin.open.api.util.RequestParams;
 import fr.everwin.open.api.util.SSLTrustManager;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * SX REST API Client
@@ -48,7 +48,7 @@ import fr.everwin.open.api.util.SSLTrustManager;
  */
 public class ClientApi {
 
-    protected static final Logger LOGGER = LogManager.getLogger();
+    protected static final Logger LOGGER = LoggerFactory.getLogger(ClientApi.class);
 
     public static final String API_VERSION_1 = "v1";
     public static final String API_VERSION_2 = "v2";
@@ -145,7 +145,7 @@ public class ClientApi {
             sslContext.init(null, new TrustManager[]{new SSLTrustManager()}, new java.security.SecureRandom());
             client = createCommonClientBuilder().sslContext(sslContext).hostnameVerifier((h1, h2) -> true).build();
         } catch (Exception e) {
-            LOGGER.error(e);
+            LOGGER.error("Error when init SSL client", e);
             throw new CoreException("Unable to create client : " + e.getMessage());
         }
     }

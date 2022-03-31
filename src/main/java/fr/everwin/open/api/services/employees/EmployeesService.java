@@ -16,8 +16,8 @@
 
 package fr.everwin.open.api.services.employees;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import fr.everwin.open.api.ClientApi;
 import fr.everwin.open.api.exception.CoreException;
@@ -39,7 +39,7 @@ import fr.everwin.open.api.util.RequestParams;
 */
 public class EmployeesService extends BasicService<Employee, EmployeeList> {
 
-    protected static final Logger LOGGER = LogManager.getLogger();
+    protected static final Logger LOGGER = LoggerFactory.getLogger(EmployeesService.class);
 
     public EmployeesService(ClientApi client){
         super(client, "employees");

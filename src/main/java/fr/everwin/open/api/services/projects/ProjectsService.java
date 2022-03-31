@@ -18,8 +18,8 @@ package fr.everwin.open.api.services.projects;
 
 import javax.ws.rs.core.Response;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import fr.everwin.open.api.ClientApi;
 import fr.everwin.open.api.exception.CoreException;
@@ -37,7 +37,7 @@ import fr.everwin.open.api.util.RequestParams;
  */
 public class ProjectsService extends BasicService<Project, ProjectList> {
 
-    protected static final Logger LOGGER = LogManager.getLogger();
+    protected static final Logger LOGGER = LoggerFactory.getLogger(ProjectsService.class);
 
     public ProjectsService(ClientApi client){
         super(client, "projects");

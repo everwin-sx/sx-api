@@ -18,8 +18,8 @@ package fr.everwin.open.api.services.quotes.poa;
 
 import javax.ws.rs.core.Response;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import fr.everwin.open.api.ClientApi;
 import fr.everwin.open.api.exception.CoreException;
@@ -32,7 +32,7 @@ import fr.everwin.open.api.services.core.BasicService;
  */
 public class POAQuoteItemService extends BasicService<POAQuoteItem, POAQuoteItemList> {
 
-    protected static final Logger LOGGER = LogManager.getLogger();
+    protected static final Logger LOGGER = LoggerFactory.getLogger(POAQuoteItemService.class);
 
     public POAQuoteItemService(ClientApi client) {
         super(client, "poa-quote-items");

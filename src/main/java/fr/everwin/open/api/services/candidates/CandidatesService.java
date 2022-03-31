@@ -16,8 +16,8 @@
 
 package fr.everwin.open.api.services.candidates;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import fr.everwin.open.api.ClientApi;
 import fr.everwin.open.api.exception.CoreException;
@@ -34,7 +34,7 @@ import fr.everwin.open.api.util.RequestParams;
  */
 public class CandidatesService extends BasicService<Candidate, CandidateList> {
 
-    protected static final Logger LOGGER = LogManager.getLogger();
+    protected static final Logger LOGGER = LoggerFactory.getLogger(CandidatesService.class);
 
     public CandidatesService(ClientApi client){
         super(client, "candidates");

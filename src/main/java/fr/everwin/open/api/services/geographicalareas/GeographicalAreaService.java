@@ -16,8 +16,8 @@
 
 package fr.everwin.open.api.services.geographicalareas;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import fr.everwin.open.api.ClientApi;
 import fr.everwin.open.api.model.geographicalcalareas.GeographicalArea;
@@ -29,7 +29,7 @@ import fr.everwin.open.api.services.core.BasicService;
  */
 public class GeographicalAreaService extends BasicService<GeographicalArea, GeographicalAreaList> {
 
-    protected static final Logger LOGGER = LogManager.getLogger();
+    protected static final Logger LOGGER = LoggerFactory.getLogger(GeographicalAreaService.class);
 
     public GeographicalAreaService(ClientApi client) {
         super(client, "geographical-areas");

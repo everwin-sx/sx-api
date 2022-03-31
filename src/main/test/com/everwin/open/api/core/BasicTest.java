@@ -51,7 +51,7 @@ import fr.everwin.open.api.services.core.BasicService;
  */
 public abstract class BasicTest<T extends BasicObject, S extends BasicService> {
 
-    protected static final org.apache.logging.log4j.Logger LOG4J = org.apache.logging.log4j.LogManager.getLogger();
+    protected static final org.apache.logging.log4j.Logger LOG4J = org.apache.logging.log4j.LoggerFactory.getLogger();
     protected ClientApi clientApi;
     protected S service;
     protected T objectReceived;

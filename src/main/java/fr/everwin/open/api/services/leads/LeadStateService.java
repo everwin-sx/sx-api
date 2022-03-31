@@ -16,8 +16,8 @@
 
 package fr.everwin.open.api.services.leads;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import fr.everwin.open.api.ClientApi;
 import fr.everwin.open.api.model.leads.state.LeadState;
@@ -29,7 +29,7 @@ import fr.everwin.open.api.services.core.BasicService;
  */
 public class LeadStateService extends BasicService<LeadState, LeadStateList> {
 
-    protected static final Logger LOGGER = LogManager.getLogger();
+    protected static final Logger LOGGER = LoggerFactory.getLogger(LeadStateService.class);
 
     public LeadStateService(ClientApi client) {
         super(client, "lead-states");

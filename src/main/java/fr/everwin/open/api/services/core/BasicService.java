@@ -21,8 +21,8 @@ import javax.ws.rs.core.Response;
 import java.io.File;
 import java.util.Date;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import fr.everwin.open.api.ClientApi;
 import fr.everwin.open.api.exception.CoreException;
@@ -43,7 +43,7 @@ import fr.everwin.open.api.util.RequestParams;
  */
 public class BasicService<O extends BasicObject,L extends BasicList> {
 
-    protected static final Logger LOGGER = LogManager.getLogger();
+    protected static final Logger LOGGER = LoggerFactory.getLogger(BasicService.class);
     public static final String LOCATION = "Location";
     public static final String COMMENTS = "/comments/";
     public static final String DOCUMENTS = "/documents/";

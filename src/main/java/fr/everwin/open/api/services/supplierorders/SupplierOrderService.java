@@ -18,8 +18,8 @@ package fr.everwin.open.api.services.supplierorders;
 
 import javax.ws.rs.core.Response;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import fr.everwin.open.api.ClientApi;
 import fr.everwin.open.api.exception.CoreException;
@@ -36,7 +36,7 @@ import fr.everwin.open.api.util.RequestParams;
  */
 public class SupplierOrderService extends BasicService<SupplierOrder, SupplierOrderList> {
 
-    protected static final Logger LOGGER = LogManager.getLogger();
+    protected static final Logger LOGGER = LoggerFactory.getLogger(SupplierOrderService.class);
     public static final String SUPPLIER_RECEIVING = "supplier-receiving/";
     public static final String LINES = "/lines/";
 

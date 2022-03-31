@@ -16,8 +16,8 @@
 
 package fr.everwin.open.api.services.projects;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import fr.everwin.open.api.ClientApi;
 import fr.everwin.open.api.model.projects.lines.ProjectLine;
@@ -30,7 +30,7 @@ import fr.everwin.open.api.services.core.BasicService;
  */
 public class ProjectLinesService extends BasicService<ProjectLine, ProjectLineList> {
 
-    protected static final Logger LOGGER = LogManager.getLogger();
+    protected static final Logger LOGGER = LoggerFactory.getLogger(ProjectLinesService.class);
 
     public ProjectLinesService(ClientApi client){
         super(client, "project-lines");

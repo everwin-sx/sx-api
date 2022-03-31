@@ -16,6 +16,9 @@
 
 package fr.everwin.open.api.core.config;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Calendar;
@@ -26,7 +29,7 @@ import java.util.Date;
  */
 public class ConfigHelper {
 
-    private static final org.apache.logging.log4j.Logger LOG4J = org.apache.logging.log4j.LogManager.getLogger();
+    private static final Logger LOGGER = LoggerFactory.getLogger(ConfigHelper.class);
 
     public static final String URI_WS = "http://localhost:8080/sx/rest"; //"https://mars2:12443/sx/rest"
     public static final String VERSION = "v2";
@@ -75,7 +78,7 @@ public class ConfigHelper {
             bd = bd.setScale(nbdec, RoundingMode.HALF_UP);
             return bd.doubleValue();
         } catch (NumberFormatException e) {
-            LOG4J.error(e.getMessage(), e);
+            LOGGER.error(e.getMessage(), e);
             val = 0;
         }
         return val;

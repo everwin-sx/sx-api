@@ -16,8 +16,8 @@
 
 package fr.everwin.open.api.services.entities;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import fr.everwin.open.api.ClientApi;
 import fr.everwin.open.api.model.entities.rowtypes.Rowtype;
@@ -29,7 +29,7 @@ import fr.everwin.open.api.services.core.BasicService;
  */
 public class EntitiesRowTypesService extends BasicService<Rowtype, RowtypeList> {
 
-    protected static final Logger LOGGER = LogManager.getLogger();
+    protected static final Logger LOGGER = LoggerFactory.getLogger(EntitiesRowTypesService.class);
 
     public EntitiesRowTypesService(ClientApi client) {
         super(client, "rowtypes");

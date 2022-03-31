@@ -16,8 +16,8 @@
 
 package fr.everwin.open.api.services.companies;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import fr.everwin.open.api.ClientApi;
 import fr.everwin.open.api.model.companies.accounts.acc.AccAccount;
@@ -30,7 +30,7 @@ import fr.everwin.open.api.services.core.BasicService;
  */
 public class AccAccountService extends BasicService<AccAccount, AccAccountList> {
 
-    protected static final Logger LOGGER = LogManager.getLogger();
+    protected static final Logger LOGGER = LoggerFactory.getLogger(AccAccountService.class);
 
     public AccAccountService(ClientApi client){
         super(client, "acc-accounts");
