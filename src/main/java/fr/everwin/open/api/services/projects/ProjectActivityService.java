@@ -47,9 +47,10 @@ public class ProjectActivityService extends BasicService<ProjectActivity, Projec
      * @throws CoreException If the request failed
      */
     public long renewFrom(long objectId, ProjectActivity activity) throws CoreException {
-        Response response = clientApi.post(path + "/" + objectId + "/line/" + activity.getId(), activity);
-        readResponse(response, String.class);
-        return activity.getId();
+        try (Response response = clientApi.post(path + "/" + objectId + "/line/" + activity.getId(), activity)) {
+            readResponse(response, String.class);
+            return activity.getId();
+        }
     }
 
     /**
@@ -59,8 +60,9 @@ public class ProjectActivityService extends BasicService<ProjectActivity, Projec
      * @throws CoreException If the request failed
      */
     public long renew(ProjectActivity activity) throws CoreException {
-        Response response = clientApi.post(path + "/" + activity.getId(), activity);
-        readResponse(response, String.class);
-        return activity.getId();
+        try (Response response = clientApi.post(path + "/" + activity.getId(), activity)) {
+            readResponse(response, String.class);
+            return activity.getId();
+        }
     }
 }

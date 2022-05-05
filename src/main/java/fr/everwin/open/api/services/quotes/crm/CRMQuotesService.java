@@ -50,7 +50,8 @@ public class CRMQuotesService extends BasicService<CRMQuote, CRMQuoteList> {
      * @throws CoreException If the request failed
      */
     public CRMQuoteLineList queryLines(long objectId, RequestParams params) throws CoreException {
-        Response response = clientApi.get("supplier-receiving/" + objectId + "/lines", params);
-        return (CRMQuoteLineList) readResponse(response, CRMQuoteLineList.class);
+        try (Response response = clientApi.get("supplier-receiving/" + objectId + "/lines", params)) {
+            return (CRMQuoteLineList) readResponse(response, CRMQuoteLineList.class);
+        }
     }
 }

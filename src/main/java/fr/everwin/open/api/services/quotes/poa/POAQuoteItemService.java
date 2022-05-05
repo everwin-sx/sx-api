@@ -54,7 +54,8 @@ public class POAQuoteItemService extends BasicService<POAQuoteItem, POAQuoteItem
      * @throws CoreException If the request failed
      */
     public void updatePOAQuote(long objectId, POAQuoteItem poaQuoteItem ) throws CoreException {
-        Response response = clientApi.post("/poa-quote-item/" + objectId + "/sub-items", poaQuoteItem);
-        readResponse(response, String.class);
+        try (Response response = clientApi.post("/poa-quote-item/" + objectId + "/sub-items", poaQuoteItem)) {
+            readResponse(response, String.class);
+        }
     }
 }

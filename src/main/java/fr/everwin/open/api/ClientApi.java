@@ -174,12 +174,13 @@ public class ClientApi {
         form.param("client_id", auth.getClientId());
         form.param("client_secret", auth.getClientSecret());
 
-        Response response = invocation.post(Entity.form(form));
-        if(response.getStatus() == Response.Status.OK.getStatusCode()) {
-            Token token = response.readEntity(Token.class);
-            auth.setToken(token.getAccessToken());
-        }else{
-             throw new AuthException("Authentication error : " + response.getStatus() + " / " + response.getStatusInfo());
+        try (Response response = invocation.post(Entity.form(form))) {
+            if (response.getStatus() == Response.Status.OK.getStatusCode()) {
+                Token token = response.readEntity(Token.class);
+                auth.setToken(token.getAccessToken());
+            } else {
+                throw new AuthException("Authentication error : " + response.getStatus() + " / " + response.getStatusInfo());
+            }
         }
     }
 

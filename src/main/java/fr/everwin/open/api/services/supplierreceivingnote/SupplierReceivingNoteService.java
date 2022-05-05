@@ -51,12 +51,13 @@ public class SupplierReceivingNoteService extends BasicService<SupplierReceiving
      * @throws CoreException If the request failed
      */
     public void createLine(long id, SupplierReceivingNoteLine obj) throws CoreException {
-        Response response = clientApi.post(SUPPLIER_RECEIVING_NOTES + id + "/lines", obj);
-        readResponse(response, String.class);
-        // extract id from return location
-        String locationUri = response.getHeaderString("Location");
-        Long lineId = Long.parseLong(locationUri.substring(locationUri.lastIndexOf("/") + 1));
-        obj.setId(lineId);
+        try (Response response = clientApi.post(SUPPLIER_RECEIVING_NOTES + id + "/lines", obj)) {
+            readResponse(response, String.class);
+            // extract id from return location
+            String locationUri = response.getHeaderString("Location");
+            Long lineId = Long.parseLong(locationUri.substring(locationUri.lastIndexOf("/") + 1));
+            obj.setId(lineId);
+        }
     }
 
     /**
@@ -66,8 +67,9 @@ public class SupplierReceivingNoteService extends BasicService<SupplierReceiving
      * @throws CoreException If the request failed
      */
     public void updatePartiallyLine(long objectId, SupplierReceivingNoteLine obj) throws CoreException {
-        Response response = clientApi.post(path + "/" + objectId + LINES + obj.getId(), obj);
-        readResponse(response, String.class);
+        try (Response response = clientApi.post(path + "/" + objectId + LINES + obj.getId(), obj)) {
+            readResponse(response, String.class);
+        }
     }
 
     /**
@@ -77,8 +79,9 @@ public class SupplierReceivingNoteService extends BasicService<SupplierReceiving
      * @throws CoreException If the request failed
      */
     public void updateLine(long objectId, SupplierReceivingNoteLine obj) throws CoreException {
-        Response response = clientApi.put(path + "/" + objectId + LINES + obj.getId(), obj);
-        readResponse(response, String.class);
+        try (Response response = clientApi.put(path + "/" + objectId + LINES + obj.getId(), obj)) {
+            readResponse(response, String.class);
+        }
     }
 
     /**
@@ -88,8 +91,9 @@ public class SupplierReceivingNoteService extends BasicService<SupplierReceiving
      * @throws CoreException If the request failed
      */
     public void deleteLine(long objectId, SupplierReceivingNoteLine obj) throws CoreException {
-        Response response = clientApi.delete(SUPPLIER_RECEIVING_NOTES + objectId + LINES + obj.getId());
-        readResponse(response, String.class);
+        try (Response response = clientApi.delete(SUPPLIER_RECEIVING_NOTES + objectId + LINES + obj.getId())) {
+            readResponse(response, String.class);
+        }
     }
 
     /**
@@ -100,8 +104,9 @@ public class SupplierReceivingNoteService extends BasicService<SupplierReceiving
      * @throws CoreException If the request failed
      */
     public SupplierReceivingNoteLineList queryLines(long objectId, RequestParams params) throws CoreException {
-        Response response = clientApi.get(SUPPLIER_RECEIVING_NOTES + objectId + "/lines", params);
-        return (SupplierReceivingNoteLineList) readResponse(response, SupplierReceivingNoteLineList.class);
+        try (Response response = clientApi.get(SUPPLIER_RECEIVING_NOTES + objectId + "/lines", params)) {
+            return (SupplierReceivingNoteLineList) readResponse(response, SupplierReceivingNoteLineList.class);
+        }
     }
 
     /**
@@ -112,7 +117,8 @@ public class SupplierReceivingNoteService extends BasicService<SupplierReceiving
      * @throws CoreException If the request failed
      */
     public SupplierReceivingNoteLine getLine(long objectId, long lineId) throws CoreException {
-        Response response = clientApi.get(SUPPLIER_RECEIVING_NOTES + objectId + LINES + lineId, null);
-        return (SupplierReceivingNoteLine) readResponse(response, SupplierReceivingNoteLine.class);
+        try (Response response = clientApi.get(SUPPLIER_RECEIVING_NOTES + objectId + LINES + lineId, null)) {
+            return (SupplierReceivingNoteLine) readResponse(response, SupplierReceivingNoteLine.class);
+        }
     }
 }

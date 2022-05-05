@@ -53,10 +53,11 @@ public class ProjectsService extends BasicService<Project, ProjectList> {
      * @throws CoreException If the request failed
      */
     public long createPOAQuoteFromLineId(long objectId, POAQuote poaQuote) throws CoreException {
-        Response response = clientApi.post(path + "/" + objectId + "/create-quote", poaQuote);
-        readResponse(response, String.class);
-        String locationUri = response.getHeaderString("Location");
-        return Long.parseLong(locationUri.substring(locationUri.lastIndexOf("/") + 1, locationUri.length()));
+        try (Response response = clientApi.post(path + "/" + objectId + "/create-quote", poaQuote)) {
+            readResponse(response, String.class);
+            String locationUri = response.getHeaderString("Location");
+            return Long.parseLong(locationUri.substring(locationUri.lastIndexOf("/") + 1, locationUri.length()));
+        }
     }
 
     public CustomerAssetList queryCustomersAssetsFromProject(Project project, RequestParams params) throws CoreException {

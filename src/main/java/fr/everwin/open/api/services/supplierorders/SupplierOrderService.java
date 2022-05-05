@@ -52,12 +52,13 @@ public class SupplierOrderService extends BasicService<SupplierOrder, SupplierOr
      * @throws CoreException If the request failed
      */
     public void createLine(long id, SupplierOrderLine obj) throws CoreException {
-        Response response = clientApi.post(SUPPLIER_RECEIVING + id + "/lines", obj);
-        readResponse(response, String.class);
-        // extract id from return location
-        String locationUri = response.getHeaderString("Location");
-        Long lineId = Long.parseLong(locationUri.substring(locationUri.lastIndexOf("/") + 1));
-        obj.setId(lineId);
+        try (Response response = clientApi.post(SUPPLIER_RECEIVING + id + "/lines", obj)) {
+            readResponse(response, String.class);
+            // extract id from return location
+            String locationUri = response.getHeaderString("Location");
+            Long lineId = Long.parseLong(locationUri.substring(locationUri.lastIndexOf("/") + 1));
+            obj.setId(lineId);
+        }
     }
 
     /**
@@ -67,8 +68,9 @@ public class SupplierOrderService extends BasicService<SupplierOrder, SupplierOr
      * @throws CoreException If the request failed
      */
     public void updatePartiallyLine(long objectId, SupplierOrderLine obj) throws CoreException {
-        Response response = clientApi.post(path + "/" + objectId + LINES + obj.getId(), obj);
-        readResponse(response, String.class);
+        try (Response response = clientApi.post(path + "/" + objectId + LINES + obj.getId(), obj)) {
+            readResponse(response, String.class);
+        }
     }
 
     /**
@@ -78,8 +80,9 @@ public class SupplierOrderService extends BasicService<SupplierOrder, SupplierOr
      * @throws CoreException If the request failed
      */
     public void updateLine(long objectId, SupplierOrderLine obj) throws CoreException {
-        Response response = clientApi.put(path + "/" + objectId + LINES + obj.getId(), obj);
-        readResponse(response, String.class);
+        try (Response response = clientApi.put(path + "/" + objectId + LINES + obj.getId(), obj)) {
+            readResponse(response, String.class);
+        }
     }
 
     /**
@@ -89,8 +92,9 @@ public class SupplierOrderService extends BasicService<SupplierOrder, SupplierOr
      * @throws CoreException If the request failed
      */
     public void deleteLine(long objectId, SupplierOrderLine obj) throws CoreException {
-        Response response = clientApi.delete(SUPPLIER_RECEIVING + objectId + LINES + obj.getId());
-        readResponse(response, String.class);
+        try (Response response = clientApi.delete(SUPPLIER_RECEIVING + objectId + LINES + obj.getId())) {
+            readResponse(response, String.class);
+        }
     }
 
     /**
@@ -101,8 +105,9 @@ public class SupplierOrderService extends BasicService<SupplierOrder, SupplierOr
      * @throws CoreException If the request failed
      */
     public SupplierOrderLineList queryLines(long objectId, RequestParams params) throws CoreException {
-        Response response = clientApi.get(SUPPLIER_RECEIVING + objectId + "/lines", params);
-        return (SupplierOrderLineList) readResponse(response, SupplierOrderLineList.class);
+        try (Response response = clientApi.get(SUPPLIER_RECEIVING + objectId + "/lines", params)) {
+            return (SupplierOrderLineList) readResponse(response, SupplierOrderLineList.class);
+        }
     }
 
     /**
@@ -113,7 +118,8 @@ public class SupplierOrderService extends BasicService<SupplierOrder, SupplierOr
      * @throws CoreException If the request failed
      */
     public SupplierOrderLine getLine(long objectId, long lineId) throws CoreException {
-        Response response = clientApi.get(SUPPLIER_RECEIVING + objectId + LINES + lineId, null);
-        return (SupplierOrderLine) readResponse(response, SupplierOrderLine.class);
+        try (Response response = clientApi.get(SUPPLIER_RECEIVING + objectId + LINES + lineId, null)) {
+            return (SupplierOrderLine) readResponse(response, SupplierOrderLine.class);
+        }
     }
 }

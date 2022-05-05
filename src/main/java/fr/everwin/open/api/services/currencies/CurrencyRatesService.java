@@ -46,12 +46,13 @@ public class CurrencyRatesService extends BasicService<CurrencyRate, CurrencyRat
      * @throws CoreException If the request failed
      */
     public void addOrUpdateRate(CurrencyRate object) throws CoreException {
-        Response response = clientApi.post(path,object);
-        readResponse(response, String.class);
-        /*String locationUri = response.getHeaderString("Location");
-        Long id = Long.parseLong(locationUri.substring(locationUri.lastIndexOf("/") + 1, locationUri.length()));
-        object.setId(id);
-        object.setUpdatedOnTime(get(id).getUpdatedOnTime());
-        return get(id).getUpdatedOnTime();*/
+        try (Response response = clientApi.post(path,object)) {
+            readResponse(response, String.class);
+            /*String locationUri = response.getHeaderString("Location");
+            Long id = Long.parseLong(locationUri.substring(locationUri.lastIndexOf("/") + 1, locationUri.length()));
+            object.setId(id);
+            object.setUpdatedOnTime(get(id).getUpdatedOnTime());
+            return get(id).getUpdatedOnTime();*/
+        }
     }
 }
