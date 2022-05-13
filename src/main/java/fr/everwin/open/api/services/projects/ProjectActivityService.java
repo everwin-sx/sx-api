@@ -18,8 +18,8 @@ package fr.everwin.open.api.services.projects;
 
 import javax.ws.rs.core.Response;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import fr.everwin.open.api.ClientApi;
 import fr.everwin.open.api.exception.CoreException;
@@ -32,7 +32,7 @@ import fr.everwin.open.api.services.core.BasicService;
  */
 public class ProjectActivityService extends BasicService<ProjectActivity, ProjectActivityList> {
 
-    protected static final Logger LOGGER = LogManager.getLogger();
+    protected static final Logger LOGGER = LoggerFactory.getLogger(ProjectActivityService.class);
 
     public ProjectActivityService(ClientApi client) {
         super(client, "project-activities");
@@ -47,9 +47,10 @@ public class ProjectActivityService extends BasicService<ProjectActivity, Projec
      * @throws CoreException If the request failed
      */
     public long renewFrom(long objectId, ProjectActivity activity) throws CoreException {
-        Response response = clientApi.post(path + "/" + objectId + "/line/" + activity.getId(), activity);
-        readResponse(response, String.class);
-        return activity.getId();
+        try (Response response = clientApi.post(path + "/" + objectId + "/line/" + activity.getId(), activity)) {
+            readResponse(response, String.class);
+            return activity.getId();
+        }
     }
 
     /**
@@ -59,8 +60,9 @@ public class ProjectActivityService extends BasicService<ProjectActivity, Projec
      * @throws CoreException If the request failed
      */
     public long renew(ProjectActivity activity) throws CoreException {
-        Response response = clientApi.post(path + "/" + activity.getId(), activity);
-        readResponse(response, String.class);
-        return activity.getId();
+        try (Response response = clientApi.post(path + "/" + activity.getId(), activity)) {
+            readResponse(response, String.class);
+            return activity.getId();
+        }
     }
 }

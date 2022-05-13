@@ -15,8 +15,8 @@
  */
 
 package fr.everwin.open.api.services.equipments;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import fr.everwin.open.api.ClientApi;
 import fr.everwin.open.api.model.equipments.families.Family;
 import fr.everwin.open.api.model.equipments.families.FamilyList;
@@ -27,7 +27,7 @@ import fr.everwin.open.api.services.core.BasicService;
  */
 public class FamilyService extends BasicService<Family, FamilyList> {
 
-    protected static final Logger LOGGER = LogManager.getLogger();
+    protected static final Logger LOGGER = LoggerFactory.getLogger(FamilyService.class);
 
     public FamilyService(ClientApi client) {
         super(client, "families");

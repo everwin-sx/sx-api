@@ -18,8 +18,8 @@ package fr.everwin.open.api.services.quotes.crm;
 
 import javax.ws.rs.core.Response;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import fr.everwin.open.api.ClientApi;
 import fr.everwin.open.api.exception.CoreException;
@@ -35,7 +35,7 @@ import fr.everwin.open.api.util.RequestParams;
  */
 public class CRMQuotesService extends BasicService<CRMQuote, CRMQuoteList> {
 
-    protected static final Logger LOGGER = LogManager.getLogger();
+    protected static final Logger LOGGER = LoggerFactory.getLogger(CRMQuotesService.class);
 
     public CRMQuotesService(ClientApi client) {
         super(client, "crm-quotes");
@@ -50,7 +50,8 @@ public class CRMQuotesService extends BasicService<CRMQuote, CRMQuoteList> {
      * @throws CoreException If the request failed
      */
     public CRMQuoteLineList queryLines(long objectId, RequestParams params) throws CoreException {
-        Response response = clientApi.get("supplier-receiving/" + objectId + "/lines", params);
-        return (CRMQuoteLineList) readResponse(response, CRMQuoteLineList.class);
+        try (Response response = clientApi.get("supplier-receiving/" + objectId + "/lines", params)) {
+            return (CRMQuoteLineList) readResponse(response, CRMQuoteLineList.class);
+        }
     }
 }

@@ -16,8 +16,8 @@
 
 package fr.everwin.open.api.services.skills;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import fr.everwin.open.api.ClientApi;
 import fr.everwin.open.api.model.skills.skillslevels.SkillLevel;
@@ -30,7 +30,7 @@ import fr.everwin.open.api.services.core.BasicService;
  */
 public class SkillLevelsService extends BasicService<SkillLevel, SkillLevelList> {
 
-    protected static final Logger LOGGER = LogManager.getLogger();
+    protected static final Logger LOGGER = LoggerFactory.getLogger(SkillLevelsService.class);
 
     public SkillLevelsService(ClientApi client){
         super(client, "skill-levels");

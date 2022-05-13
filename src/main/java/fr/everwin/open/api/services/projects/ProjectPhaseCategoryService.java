@@ -16,8 +16,8 @@
 
 package fr.everwin.open.api.services.projects;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import fr.everwin.open.api.ClientApi;
 import fr.everwin.open.api.model.projects.phases.categories.ProjectPhaseCategory;
@@ -29,7 +29,7 @@ import fr.everwin.open.api.services.core.BasicService;
  */
 public class ProjectPhaseCategoryService extends BasicService<ProjectPhaseCategory, ProjectPhaseCategoryList> {
 
-    protected static final Logger LOGGER = LogManager.getLogger();
+    protected static final Logger LOGGER = LoggerFactory.getLogger(ProjectPhaseCategoryService.class);
 
     public ProjectPhaseCategoryService(ClientApi client) {
         super(client, "project-phases-category");

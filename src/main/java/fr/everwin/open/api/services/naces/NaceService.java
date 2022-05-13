@@ -16,8 +16,8 @@
 
 package fr.everwin.open.api.services.naces;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import fr.everwin.open.api.ClientApi;
 import fr.everwin.open.api.model.naces.Nace;
@@ -29,7 +29,7 @@ import fr.everwin.open.api.services.core.BasicService;
  */
 public class NaceService extends BasicService<Nace, NaceList> {
 
-    protected static final Logger LOGGER = LogManager.getLogger();
+    protected static final Logger LOGGER = LoggerFactory.getLogger(NaceService.class);
 
     public NaceService(ClientApi client) {
         super(client, "company-activities");

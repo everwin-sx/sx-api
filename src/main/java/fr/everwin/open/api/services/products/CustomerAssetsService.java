@@ -16,8 +16,8 @@
 
 package fr.everwin.open.api.services.products;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import fr.everwin.open.api.ClientApi;
 import fr.everwin.open.api.model.products.assets.CustomerAsset;
@@ -30,7 +30,7 @@ import fr.everwin.open.api.services.core.BasicService;
  */
 public class CustomerAssetsService extends BasicService<CustomerAsset, CustomerAssetList> {
 
-    protected static final Logger LOGGER = LogManager.getLogger();
+    protected static final Logger LOGGER = LoggerFactory.getLogger(CustomerAssetsService.class);
 
     public CustomerAssetsService(ClientApi client){
         super(client, "customer-assets");

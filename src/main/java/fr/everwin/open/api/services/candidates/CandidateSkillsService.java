@@ -16,8 +16,8 @@
 
 package fr.everwin.open.api.services.candidates;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import fr.everwin.open.api.ClientApi;
 import fr.everwin.open.api.model.candidates.skills.CandidateSkill;
@@ -26,7 +26,7 @@ import fr.everwin.open.api.services.core.BasicService;
 
 public class CandidateSkillsService extends BasicService<CandidateSkill, CandidateSkillList> {
 
-    protected static final Logger LOGGER = LogManager.getLogger();
+    protected static final Logger LOGGER = LoggerFactory.getLogger(CandidateSkillsService.class);
 
     public CandidateSkillsService(ClientApi client) {
         super(client, "candidate-skills");

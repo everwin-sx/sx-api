@@ -16,8 +16,8 @@
 
 package fr.everwin.open.api.services.skills;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import fr.everwin.open.api.ClientApi;
 import fr.everwin.open.api.exception.CoreException;
@@ -33,7 +33,7 @@ import fr.everwin.open.api.util.RequestParams;
  */
 public class SkillsService extends BasicService<Skill, SkillList> {
 
-    protected static final Logger LOGGER = LogManager.getLogger();
+    protected static final Logger LOGGER = LoggerFactory.getLogger(SkillsService.class);
 
     public SkillsService(ClientApi client){
         super(client, "skills");

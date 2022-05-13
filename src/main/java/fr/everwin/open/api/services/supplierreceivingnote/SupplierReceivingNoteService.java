@@ -18,8 +18,8 @@ package fr.everwin.open.api.services.supplierreceivingnote;
 
 import javax.ws.rs.core.Response;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import fr.everwin.open.api.ClientApi;
 import fr.everwin.open.api.exception.CoreException;
@@ -35,7 +35,7 @@ import fr.everwin.open.api.util.RequestParams;
  */
 public class SupplierReceivingNoteService extends BasicService<SupplierReceivingNote, SupplierReceivingNoteList> {
 
-    protected static final Logger LOGGER = LogManager.getLogger();
+    protected static final Logger LOGGER = LoggerFactory.getLogger(SupplierReceivingNoteService.class);
     public static final String SUPPLIER_RECEIVING_NOTES = "supplier-receiving-notes/";
     public static final String LINES = "/lines/";
 
@@ -51,12 +51,13 @@ public class SupplierReceivingNoteService extends BasicService<SupplierReceiving
      * @throws CoreException If the request failed
      */
     public void createLine(long id, SupplierReceivingNoteLine obj) throws CoreException {
-        Response response = clientApi.post(SUPPLIER_RECEIVING_NOTES + id + "/lines", obj);
-        readResponse(response, String.class);
-        // extract id from return location
-        String locationUri = response.getHeaderString("Location");
-        Long lineId = Long.parseLong(locationUri.substring(locationUri.lastIndexOf("/") + 1));
-        obj.setId(lineId);
+        try (Response response = clientApi.post(SUPPLIER_RECEIVING_NOTES + id + "/lines", obj)) {
+            readResponse(response, String.class);
+            // extract id from return location
+            String locationUri = response.getHeaderString("Location");
+            Long lineId = Long.parseLong(locationUri.substring(locationUri.lastIndexOf("/") + 1));
+            obj.setId(lineId);
+        }
     }
 
     /**
@@ -66,8 +67,9 @@ public class SupplierReceivingNoteService extends BasicService<SupplierReceiving
      * @throws CoreException If the request failed
      */
     public void updatePartiallyLine(long objectId, SupplierReceivingNoteLine obj) throws CoreException {
-        Response response = clientApi.post(path + "/" + objectId + LINES + obj.getId(), obj);
-        readResponse(response, String.class);
+        try (Response response = clientApi.post(path + "/" + objectId + LINES + obj.getId(), obj)) {
+            readResponse(response, String.class);
+        }
     }
 
     /**
@@ -77,8 +79,9 @@ public class SupplierReceivingNoteService extends BasicService<SupplierReceiving
      * @throws CoreException If the request failed
      */
     public void updateLine(long objectId, SupplierReceivingNoteLine obj) throws CoreException {
-        Response response = clientApi.put(path + "/" + objectId + LINES + obj.getId(), obj);
-        readResponse(response, String.class);
+        try (Response response = clientApi.put(path + "/" + objectId + LINES + obj.getId(), obj)) {
+            readResponse(response, String.class);
+        }
     }
 
     /**
@@ -88,8 +91,9 @@ public class SupplierReceivingNoteService extends BasicService<SupplierReceiving
      * @throws CoreException If the request failed
      */
     public void deleteLine(long objectId, SupplierReceivingNoteLine obj) throws CoreException {
-        Response response = clientApi.delete(SUPPLIER_RECEIVING_NOTES + objectId + LINES + obj.getId());
-        readResponse(response, String.class);
+        try (Response response = clientApi.delete(SUPPLIER_RECEIVING_NOTES + objectId + LINES + obj.getId())) {
+            readResponse(response, String.class);
+        }
     }
 
     /**
@@ -100,8 +104,9 @@ public class SupplierReceivingNoteService extends BasicService<SupplierReceiving
      * @throws CoreException If the request failed
      */
     public SupplierReceivingNoteLineList queryLines(long objectId, RequestParams params) throws CoreException {
-        Response response = clientApi.get(SUPPLIER_RECEIVING_NOTES + objectId + "/lines", params);
-        return (SupplierReceivingNoteLineList) readResponse(response, SupplierReceivingNoteLineList.class);
+        try (Response response = clientApi.get(SUPPLIER_RECEIVING_NOTES + objectId + "/lines", params)) {
+            return (SupplierReceivingNoteLineList) readResponse(response, SupplierReceivingNoteLineList.class);
+        }
     }
 
     /**
@@ -112,7 +117,8 @@ public class SupplierReceivingNoteService extends BasicService<SupplierReceiving
      * @throws CoreException If the request failed
      */
     public SupplierReceivingNoteLine getLine(long objectId, long lineId) throws CoreException {
-        Response response = clientApi.get(SUPPLIER_RECEIVING_NOTES + objectId + LINES + lineId, null);
-        return (SupplierReceivingNoteLine) readResponse(response, SupplierReceivingNoteLine.class);
+        try (Response response = clientApi.get(SUPPLIER_RECEIVING_NOTES + objectId + LINES + lineId, null)) {
+            return (SupplierReceivingNoteLine) readResponse(response, SupplierReceivingNoteLine.class);
+        }
     }
 }

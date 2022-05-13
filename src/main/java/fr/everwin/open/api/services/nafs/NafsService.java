@@ -16,8 +16,8 @@
 
 package fr.everwin.open.api.services.nafs;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import fr.everwin.open.api.ClientApi;
 import fr.everwin.open.api.model.nafs.Naf;
@@ -30,7 +30,7 @@ import fr.everwin.open.api.services.core.BasicService;
  */
 public class NafsService extends BasicService<Naf, NafList> {
 
-    protected static final Logger LOGGER = LogManager.getLogger();
+    protected static final Logger LOGGER = LoggerFactory.getLogger(NafsService.class);
 
     public NafsService(ClientApi client){
         super(client, "company-apes");

@@ -18,8 +18,8 @@ package fr.everwin.open.api.services.expenses;
 
 import javax.ws.rs.core.Response;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import fr.everwin.open.api.ClientApi;
 import fr.everwin.open.api.exception.CoreException;
@@ -38,7 +38,7 @@ import fr.everwin.open.api.util.RequestParams;
  */
 public class ExpenseSheetLineService extends BasicService<ExpenseSheetLine, ExpenseSheetLineList> {
 
-    protected static final Logger LOGGER = LogManager.getLogger();
+    protected static final Logger LOGGER = LoggerFactory.getLogger(ExpenseSheetLineService.class);
 
     public ExpenseSheetLineService(ClientApi client) {
         super(client, "expense-sheet-lines");
@@ -62,9 +62,10 @@ public class ExpenseSheetLineService extends BasicService<ExpenseSheetLine, Expe
      * @throws CoreException If the request failed
      */
     public long createLine(long id, ExpenseSheetLine expenseSheetLine) throws CoreException {
-        Response response = clientApi.post(path + "/expense-sheets/" + id + "/lines", expenseSheetLine);
-        readResponse(response, String.class);
-        return expenseSheetLine.getId();
+        try (Response response = clientApi.post(path + "/expense-sheets/" + id + "/lines", expenseSheetLine)) {
+            readResponse(response, String.class);
+            return expenseSheetLine.getId();
+        }
     }
 
     /**
@@ -74,8 +75,9 @@ public class ExpenseSheetLineService extends BasicService<ExpenseSheetLine, Expe
      * @throws CoreException If the request failed
      */
     public void updatePartiallyLine(long id, ExpenseSheetLine expenseSheetLine) throws CoreException {
-        Response response = clientApi.post(path + "/expense-sheets/" + id + "/lines/" + expenseSheetLine.getId(), expenseSheetLine);
-        readResponse(response, String.class);
+        try (Response response = clientApi.post(path + "/expense-sheets/" + id + "/lines/" + expenseSheetLine.getId(), expenseSheetLine)) {
+            readResponse(response, String.class);
+        }
     }
 
     /**
@@ -85,8 +87,9 @@ public class ExpenseSheetLineService extends BasicService<ExpenseSheetLine, Expe
      * @throws CoreException If the request failed
      */
     public void updateLine(long id, ExpenseSheetLine expenseSheetLine) throws CoreException {
-        Response response = clientApi.put(path + "/expense-sheets/" + id + "/lines/" + expenseSheetLine.getId(), expenseSheetLine);
-        readResponse(response, String.class);
+        try (Response response = clientApi.put(path + "/expense-sheets/" + id + "/lines/" + expenseSheetLine.getId(), expenseSheetLine)) {
+            readResponse(response, String.class);
+        }
     }
 
     /**
@@ -96,8 +99,9 @@ public class ExpenseSheetLineService extends BasicService<ExpenseSheetLine, Expe
      * @throws CoreException If the request failed
      */
     public void deleteLine(long id, ExpenseSheetLine expenseSheetLine) throws CoreException {
-        Response response = clientApi.delete(path + "/expense-sheets/" + id + "/lines/" + expenseSheetLine.getId());
-        readResponse(response, String.class);
+        try (Response response = clientApi.delete(path + "/expense-sheets/" + id + "/lines/" + expenseSheetLine.getId())) {
+            readResponse(response, String.class);
+        }
     }
 
     /**
@@ -109,8 +113,9 @@ public class ExpenseSheetLineService extends BasicService<ExpenseSheetLine, Expe
      * @throws CoreException If the request failed
      */
     public DocumentList queryDocument(long objectId, ExpenseSheetLine line, RequestParams params) throws CoreException {
-        Response response = clientApi.get(path + "/" + objectId + "/lines/" + line.getId() + "/documents", params);
-        return (DocumentList) readResponse(response, DocumentList.class);
+        try (Response response = clientApi.get(path + "/" + objectId + "/lines/" + line.getId() + "/documents", params)) {
+            return (DocumentList) readResponse(response, DocumentList.class);
+        }
     }
 
     /**
@@ -122,8 +127,9 @@ public class ExpenseSheetLineService extends BasicService<ExpenseSheetLine, Expe
      * @throws CoreException If the request failed
      */
     public Document getDocument(long objectId, ExpenseSheetLine line, long id) throws CoreException {
-        Response response = clientApi.get(path + "/" + objectId + "/lines/" + line.getId() + "/documents" + "/documents/" + id, null);
-        return (Document) readResponse(response, Document.class);
+        try (Response response = clientApi.get(path + "/" + objectId + "/lines/" + line.getId() + "/documents" + "/documents/" + id, null)) {
+            return (Document) readResponse(response, Document.class);
+        }
     }
 
     /**
@@ -135,13 +141,14 @@ public class ExpenseSheetLineService extends BasicService<ExpenseSheetLine, Expe
      * @throws CoreException If the request failed
      */
     public long createDocument(long objectId, ExpenseSheetLine line, Document document) throws CoreException {
-        Response response = clientApi.post(path + "/" + objectId + "/lines/" + line.getId() + "/documents", document);
-        readResponse(response, String.class);
-        // extract id from return location
-        String locationUri = response.getHeaderString("Location");
-        Long id =  Long.parseLong(locationUri.substring(locationUri.lastIndexOf("/") + 1, locationUri.length()));
-        document.setId(id);
-        return id;
+        try (Response response = clientApi.post(path + "/" + objectId + "/lines/" + line.getId() + "/documents", document)) {
+            readResponse(response, String.class);
+            // extract id from return location
+            String locationUri = response.getHeaderString("Location");
+            Long id = Long.parseLong(locationUri.substring(locationUri.lastIndexOf("/") + 1, locationUri.length()));
+            document.setId(id);
+            return id;
+        }
     }
 
     /**
@@ -152,8 +159,9 @@ public class ExpenseSheetLineService extends BasicService<ExpenseSheetLine, Expe
      * @throws CoreException If the request failed
      */
     public void updateDocument(long objectId, ExpenseSheetLine line, Document document) throws CoreException {
-        Response response = clientApi.put(path + "/" + objectId + "/lines/" + line.getId() + "/documents" + "/documents/" + document.getId(), document);
-        readResponse(response, String.class);
+        try (Response response = clientApi.put(path + "/" + objectId + "/lines/" + line.getId() + "/documents" + "/documents/" + document.getId(), document)) {
+            readResponse(response, String.class);
+        }
     }
 
     /**
@@ -164,8 +172,9 @@ public class ExpenseSheetLineService extends BasicService<ExpenseSheetLine, Expe
      * @throws CoreException If the request failed
      */
     public void updatePartiallyDocument(long objectId, ExpenseSheetLine line, Document document) throws CoreException {
-        Response response = clientApi.post(path + "/" + objectId + "/lines/" + line.getId() + "/documents/" + document.getId(), document);
-        readResponse(response, String.class);
+        try (Response response = clientApi.post(path + "/" + objectId + "/lines/" + line.getId() + "/documents/" + document.getId(), document)) {
+            readResponse(response, String.class);
+        }
     }
 
     /**
@@ -176,8 +185,9 @@ public class ExpenseSheetLineService extends BasicService<ExpenseSheetLine, Expe
      * @throws CoreException If the request failed
      */
     public void deleteDocument(long objectId, ExpenseSheetLine line, long id) throws CoreException {
-        Response response = clientApi.delete(path + "/" + objectId + "/lines/" + line.getId() + "/documents" + "/documents/" + id);
-        readResponse(response, String.class);
+        try (Response response = clientApi.delete(path + "/" + objectId + "/lines/" + line.getId() + "/documents" + "/documents/" + id)) {
+            readResponse(response, String.class);
+        }
     }
 
     /**

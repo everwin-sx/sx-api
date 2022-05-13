@@ -18,8 +18,8 @@ package fr.everwin.open.api.services.suppliersettlements;
 
 import javax.ws.rs.core.Response;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import fr.everwin.open.api.ClientApi;
 import fr.everwin.open.api.exception.CoreException;
@@ -35,7 +35,7 @@ import fr.everwin.open.api.util.RequestParams;
  */
 public class SupplierSettlementService extends BasicService<SupplierSettlement, SupplierSettlementList> {
 
-    protected static final Logger LOGGER = LogManager.getLogger();
+    protected static final Logger LOGGER = LoggerFactory.getLogger(SupplierSettlementService.class);
     public static final String SUPPLIER_SETTLEMENTS = "supplier-settlements/";
     public static final String LINES = "/lines/";
 
@@ -52,12 +52,13 @@ public class SupplierSettlementService extends BasicService<SupplierSettlement, 
      * @throws CoreException If the request failed
      */
     public void createLine(long id, SupplierSettlementLine line) throws CoreException {
-        Response response = clientApi.post(SUPPLIER_SETTLEMENTS + id + "/lines", line);
-        readResponse(response, String.class);
-        // extract id from return location
-        String locationUri = response.getHeaderString("Location");
-        Long lineId = Long.parseLong(locationUri.substring(locationUri.lastIndexOf("/") + 1));
-        line.setId(lineId);
+        try (Response response = clientApi.post(SUPPLIER_SETTLEMENTS + id + "/lines", line)) {
+            readResponse(response, String.class);
+            // extract id from return location
+            String locationUri = response.getHeaderString("Location");
+            Long lineId = Long.parseLong(locationUri.substring(locationUri.lastIndexOf("/") + 1));
+            line.setId(lineId);
+        }
     }
 
     /**
@@ -67,8 +68,9 @@ public class SupplierSettlementService extends BasicService<SupplierSettlement, 
      * @throws CoreException If the request failed
      */
     public void updatePartiallyLine(long objectId, SupplierSettlementLine line) throws CoreException {
-        Response response = clientApi.post(path + "/" + objectId + LINES + line.getId(), line);
-        readResponse(response, String.class);
+        try (Response response = clientApi.post(path + "/" + objectId + LINES + line.getId(), line)) {
+            readResponse(response, String.class);
+        }
     }
 
     /**
@@ -78,8 +80,9 @@ public class SupplierSettlementService extends BasicService<SupplierSettlement, 
      * @throws CoreException If the request failed
      */
     public void updateLine(long objectId, SupplierSettlementLine line) throws CoreException {
-        Response response = clientApi.put(path + "/" + objectId + LINES + line.getId(), line);
-        readResponse(response, String.class);
+        try (Response response = clientApi.put(path + "/" + objectId + LINES + line.getId(), line)) {
+            readResponse(response, String.class);
+        }
     }
 
     /**
@@ -89,8 +92,9 @@ public class SupplierSettlementService extends BasicService<SupplierSettlement, 
      * @throws CoreException If the request failed
      */
     public void deleteLine(long objectId, SupplierSettlementLine line) throws CoreException {
-        Response response = clientApi.delete(SUPPLIER_SETTLEMENTS + objectId + LINES + line.getId());
-        readResponse(response, String.class);
+        try (Response response = clientApi.delete(SUPPLIER_SETTLEMENTS + objectId + LINES + line.getId())) {
+            readResponse(response, String.class);
+        }
     }
 
     /**
@@ -101,8 +105,9 @@ public class SupplierSettlementService extends BasicService<SupplierSettlement, 
      * @throws CoreException If the request failed
      */
     public SupplierSettlementLineList queryLines(long objectId, RequestParams params) throws CoreException {
-        Response response = clientApi.get("supplier-settlement/" + objectId + "/lines", params);
-        return (SupplierSettlementLineList) readResponse(response, SupplierSettlementLineList.class);
+        try (Response response = clientApi.get("supplier-settlement/" + objectId + "/lines", params)) {
+            return (SupplierSettlementLineList) readResponse(response, SupplierSettlementLineList.class);
+        }
     }
 
     /**
@@ -113,7 +118,8 @@ public class SupplierSettlementService extends BasicService<SupplierSettlement, 
      * @throws CoreException If the request failed
      */
     public SupplierSettlementLine getLine(long objectId, long lineId) throws CoreException {
-        Response response = clientApi.get(SUPPLIER_SETTLEMENTS + objectId + LINES + lineId, null);
-        return (SupplierSettlementLine) readResponse(response, SupplierSettlementLine.class);
+        try (Response response = clientApi.get(SUPPLIER_SETTLEMENTS + objectId + LINES + lineId, null)) {
+            return (SupplierSettlementLine) readResponse(response, SupplierSettlementLine.class);
+        }
     }
 }

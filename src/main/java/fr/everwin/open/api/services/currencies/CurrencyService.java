@@ -16,8 +16,8 @@
 
 package fr.everwin.open.api.services.currencies;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import fr.everwin.open.api.ClientApi;
 import fr.everwin.open.api.exception.CoreException;
@@ -34,7 +34,7 @@ import fr.everwin.open.api.util.RequestParams;
  */
 public class CurrencyService extends BasicService<Currency, CurrencyList> {
 
-    protected static final Logger LOGGER = LogManager.getLogger();
+    protected static final Logger LOGGER = LoggerFactory.getLogger(CurrencyService.class);
 
     public CurrencyService(ClientApi client) {
         super(client, "currencies");

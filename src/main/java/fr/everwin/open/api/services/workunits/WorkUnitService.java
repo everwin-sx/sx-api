@@ -16,8 +16,8 @@
 
 package fr.everwin.open.api.services.workunits;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import fr.everwin.open.api.ClientApi;
 import fr.everwin.open.api.model.workunits.WorkUnit;
@@ -29,7 +29,7 @@ import fr.everwin.open.api.services.core.BasicService;
  */
 public class WorkUnitService extends BasicService<WorkUnit, WorkUnitList> {
 
-    protected static final Logger LOGGER = LogManager.getLogger();
+    protected static final Logger LOGGER = LoggerFactory.getLogger(WorkUnitService.class);
 
     public WorkUnitService(ClientApi client) {
         super(client, "work-units");
