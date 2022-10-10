@@ -111,4 +111,148 @@ public class WorkUnit extends BasicObject {
             @XmlElement(name = "link", type = SpecificLinkValue.class),
             @XmlElement(name = "multilink", type = SpecificMultiLinkValue.class)})
     private List<SpecificData> extraData;
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public Date getUserDate() {
+        return userDate;
+    }
+
+    public void setUserDate(Date userDate) {
+        this.userDate = userDate;
+    }
+
+    public DataLink getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(DataLink employee) {
+        this.employee = employee;
+    }
+
+    public DataLink getProject() {
+        return project;
+    }
+
+    public void setProject(DataLink project) {
+        this.project = project;
+    }
+
+    public DataLink getProjectLine() {
+        return projectLine;
+    }
+
+    public void setProjectLine(DataLink projectLine) {
+        this.projectLine = projectLine;
+    }
+
+    public Double getConsumedQuantity() {
+        return consumedQuantity;
+    }
+
+    public void setConsumedQuantity(Double consumedQuantity) {
+        this.consumedQuantity = consumedQuantity;
+    }
+
+    public Double getReInvoiceableQuantity() {
+        return reInvoiceableQuantity;
+    }
+
+    public void setReInvoiceableQuantity(Double reInvoiceableQuantity) {
+        this.reInvoiceableQuantity = reInvoiceableQuantity;
+    }
+
+    public Double getReInvoiceableAmount() {
+        return reInvoiceableAmount;
+    }
+
+    public void setReInvoiceableAmount(Double reInvoiceableAmount) {
+        this.reInvoiceableAmount = reInvoiceableAmount;
+    }
+
+    public Double getReInvoiceableTotal() {
+        return reInvoiceableTotal;
+    }
+
+    public void setReInvoiceableTotal(Double reInvoiceableTotal) {
+        this.reInvoiceableTotal = reInvoiceableTotal;
+    }
+
+    public String getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
+    }
+
+    public Short getDoNotEvaluate() {
+        return doNotEvaluate;
+    }
+
+    public void setDoNotEvaluate(Short doNotEvaluate) {
+        this.doNotEvaluate = doNotEvaluate;
+    }
+
+    public String getCustomerComment() {
+        return customerComment;
+    }
+
+    public void setCustomerComment(String customerComment) {
+        this.customerComment = customerComment;
+    }
+
+    public String getInternalComment() {
+        return internalComment;
+    }
+
+    public void setInternalComment(String internalComment) {
+        this.internalComment = internalComment;
+    }
+
+    public String getUpdatedBy() {
+        return updatedBy;
+    }
+
+    public void setUpdatedBy(String updatedBy) {
+        this.updatedBy = updatedBy;
+    }
+
+    public Date getUpdatedOnTime() {
+        return updatedOnTime;
+    }
+
+    public void setUpdatedOnTime(Date updatedOnTime) {
+        this.updatedOnTime = updatedOnTime;
+    }
+
+    public Date getCreatedOnTime() {
+        return createdOnTime;
+    }
+
+    public void setCreatedOnTime(Date createdOnTime) {
+        this.createdOnTime = createdOnTime;
+    }
+
+    public List<SpecificData> getExtraData() {
+        return extraData;
+    }
+
+    public void setExtraData(List<SpecificData> extraData) {
+        this.extraData = extraData;
+    }
 }

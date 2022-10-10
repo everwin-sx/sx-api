@@ -49,4 +49,36 @@ public class ProjectActivityCategory extends BasicObject {
 
     @XmlElement
     private Short archived;
+
+    public Short getType() {
+        return type;
+    }
+
+    public void setType(Short type) {
+        this.type = type;
+    }
+
+    public String getLabel() {
+        return label;
+    }
+
+    public void setLabel(String label) {
+        this.label = label;
+    }
+
+    public List<DataLink> getEntities() {
+        return entities;
+    }
+
+    public void setEntities(List<DataLink> entities) {
+        this.entities = entities;
+    }
+
+    public Short getArchived() {
+        return archived;
+    }
+
+    public void setArchived(Short archived) {
+        this.archived = archived;
+    }
 }

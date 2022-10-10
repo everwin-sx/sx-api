@@ -49,4 +49,36 @@ public class LeadSource extends BasicObject {
 
     @XmlElement
     private Short isArchived;
+
+    public String getLabel() {
+        return label;
+    }
+
+    public void setLabel(String label) {
+        this.label = label;
+    }
+
+    public List<DataLink> getEntities() {
+        return entities;
+    }
+
+    public void setEntities(List<DataLink> entities) {
+        this.entities = entities;
+    }
+
+    public Short getOrder() {
+        return order;
+    }
+
+    public void setOrder(Short order) {
+        this.order = order;
+    }
+
+    public Short getIsArchived() {
+        return isArchived;
+    }
+
+    public void setIsArchived(Short isArchived) {
+        this.isArchived = isArchived;
+    }
 }

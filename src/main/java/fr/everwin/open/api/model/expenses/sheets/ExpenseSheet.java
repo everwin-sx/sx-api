@@ -111,6 +111,134 @@ public class ExpenseSheet extends BasicObject {
             @XmlElement(name = "multilink", type = SpecificMultiLinkValue.class)})
     private List<SpecificData> extraData;
 
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public DataLink getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(DataLink employee) {
+        this.employee = employee;
+    }
+
+    public Date getCreationDate() {
+        return creationDate;
+    }
+
+    public void setCreationDate(Date creationDate) {
+        this.creationDate = creationDate;
+    }
+
+    public Double getAdvance() {
+        return advance;
+    }
+
+    public void setAdvance(Double advance) {
+        this.advance = advance;
+    }
+
+    public Double getTotalToPay() {
+        return totalToPay;
+    }
+
+    public void setTotalToPay(Double totalToPay) {
+        this.totalToPay = totalToPay;
+    }
+
+    public DataLink getEntity() {
+        return entity;
+    }
+
+    public void setEntity(DataLink entity) {
+        this.entity = entity;
+    }
+
+    public DataLink getFinancialEntity() {
+        return financialEntity;
+    }
+
+    public void setFinancialEntity(DataLink financialEntity) {
+        this.financialEntity = financialEntity;
+    }
+
+    public Date getSettlementDate() {
+        return settlementDate;
+    }
+
+    public void setSettlementDate(Date settlementDate) {
+        this.settlementDate = settlementDate;
+    }
+
+    public Integer getNbDaysLunch() {
+        return nbDaysLunch;
+    }
+
+    public void setNbDaysLunch(Integer nbDaysLunch) {
+        this.nbDaysLunch = nbDaysLunch;
+    }
+
+    public Integer getDistanceTravelled() {
+        return distanceTravelled;
+    }
+
+    public void setDistanceTravelled(Integer distanceTravelled) {
+        this.distanceTravelled = distanceTravelled;
+    }
+
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
+    public Date getCreatedOnTime() {
+        return createdOnTime;
+    }
+
+    public void setCreatedOnTime(Date createdOnTime) {
+        this.createdOnTime = createdOnTime;
+    }
+
+    public Date getCreatedOnPeriod() {
+        return createdOnPeriod;
+    }
+
+    public void setCreatedOnPeriod(Date createdOnPeriod) {
+        this.createdOnPeriod = createdOnPeriod;
+    }
+
+    public Date getUpdatedOnTime() {
+        return updatedOnTime;
+    }
+
+    public void setUpdatedOnTime(Date updatedOnTime) {
+        this.updatedOnTime = updatedOnTime;
+    }
+
+    public String getUpdatedBy() {
+        return updatedBy;
+    }
+
+    public void setUpdatedBy(String updatedBy) {
+        this.updatedBy = updatedBy;
+    }
+
+    public List<SpecificData> getExtraData() {
+        return extraData;
+    }
+
+    public void setExtraData(List<SpecificData> extraData) {
+        this.extraData = extraData;
+    }
+
     @Override
     public String toString() {
         return "ExpenseSheet [code=" + code + ", employee=" + employee + "]";

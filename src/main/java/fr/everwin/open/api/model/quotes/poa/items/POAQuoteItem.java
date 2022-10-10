@@ -74,4 +74,75 @@ public class POAQuoteItem extends BasicObject {
             @XmlElement(name = "multilink", type = SpecificMultiLinkValue.class)})
     private List<SpecificData> extraData;
 
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
+    public DataLink getQuote() {
+        return quote;
+    }
+
+    public void setQuote(DataLink quote) {
+        this.quote = quote;
+    }
+
+    public Short getOrder() {
+        return order;
+    }
+
+    public void setOrder(Short order) {
+        this.order = order;
+    }
+
+    public Short getPrintingMode() {
+        return printingMode;
+    }
+
+    public void setPrintingMode(Short printingMode) {
+        this.printingMode = printingMode;
+    }
+
+    public DataLink getProjectPhase() {
+        return projectPhase;
+    }
+
+    public void setProjectPhase(DataLink projectPhase) {
+        this.projectPhase = projectPhase;
+    }
+
+    public Long getNumber() {
+        return number;
+    }
+
+    public void setNumber(Long number) {
+        this.number = number;
+    }
+
+    public List<SpecificData> getExtraData() {
+        return extraData;
+    }
+
+    public void setExtraData(List<SpecificData> extraData) {
+        this.extraData = extraData;
+    }
 }

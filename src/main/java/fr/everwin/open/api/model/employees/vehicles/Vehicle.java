@@ -57,4 +57,68 @@ public class Vehicle extends BasicObject {
 
     @XmlElement
     private Short isArchived;
+
+    public Short getType() {
+        return type;
+    }
+
+    public void setType(Short type) {
+        this.type = type;
+    }
+
+    public String getLabel() {
+        return label;
+    }
+
+    public void setLabel(String label) {
+        this.label = label;
+    }
+
+    public String getRegistration() {
+        return registration;
+    }
+
+    public void setRegistration(String registration) {
+        this.registration = registration;
+    }
+
+    public Short getFiscalPower() {
+        return fiscalPower;
+    }
+
+    public void setFiscalPower(Short fiscalPower) {
+        this.fiscalPower = fiscalPower;
+    }
+
+    public Short getFuel() {
+        return fuel;
+    }
+
+    public void setFuel(Short fuel) {
+        this.fuel = fuel;
+    }
+
+    public DataLink getScale() {
+        return scale;
+    }
+
+    public void setScale(DataLink scale) {
+        this.scale = scale;
+    }
+
+    public DataLink getOwner() {
+        return owner;
+    }
+
+    public void setOwner(DataLink owner) {
+        this.owner = owner;
+    }
+
+    public Short getIsArchived() {
+        return isArchived;
+    }
+
+    public void setIsArchived(Short isArchived) {
+        this.isArchived = isArchived;
+    }
 }

@@ -72,4 +72,68 @@ public class Currency extends BasicObject {
 
     @XmlElement
     private Short method;
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public String getLabel() {
+        return label;
+    }
+
+    public void setLabel(String label) {
+        this.label = label;
+    }
+
+    public Double getRate() {
+        return rate;
+    }
+
+    public void setRate(Double rate) {
+        this.rate = rate;
+    }
+
+    public DataLink getEntity() {
+        return entity;
+    }
+
+    public void setEntity(DataLink entity) {
+        this.entity = entity;
+    }
+
+    public Short getIsArchived() {
+        return isArchived;
+    }
+
+    public void setIsArchived(Short isArchived) {
+        this.isArchived = isArchived;
+    }
+
+    public Short getIsDefault() {
+        return isDefault;
+    }
+
+    public void setIsDefault(Short isDefault) {
+        this.isDefault = isDefault;
+    }
+
+    public String getFormat() {
+        return format;
+    }
+
+    public void setFormat(String format) {
+        this.format = format;
+    }
+
+    public Short getMethod() {
+        return method;
+    }
+
+    public void setMethod(Short method) {
+        this.method = method;
+    }
 }
