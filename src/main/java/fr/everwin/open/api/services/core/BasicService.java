@@ -16,14 +16,7 @@
 
 package fr.everwin.open.api.services.core;
 
-import javax.ws.rs.core.Response;
-
-import java.io.File;
-import java.util.Date;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
+import com.fasterxml.jackson.databind.ObjectMapper;
 import fr.everwin.open.api.ClientApi;
 import fr.everwin.open.api.exception.CoreException;
 import fr.everwin.open.api.exception.RequestException;
@@ -35,21 +28,32 @@ import fr.everwin.open.api.model.core.Error;
 import fr.everwin.open.api.model.documents.Document;
 import fr.everwin.open.api.model.documents.DocumentList;
 import fr.everwin.open.api.util.RequestParams;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import javax.ws.rs.core.Response;
+import java.io.File;
+import java.util.Date;
 
 /**
  * A basic service manager to handle all methods.<br>
  * Each service extends this class.
+ *
  * @author everwin-team
  */
-public class BasicService<O extends BasicObject,L extends BasicList> {
+public class BasicService<O extends BasicObject, L extends BasicList> {
 
     protected static final Logger LOGGER = LoggerFactory.getLogger(BasicService.class);
     public static final String LOCATION = "Location";
     public static final String COMMENTS = "/comments/";
     public static final String DOCUMENTS = "/documents/";
-    /** The client API */
+    /**
+     * The client API
+     */
     protected ClientApi clientApi;
-    /** The main path of all resources */
+    /**
+     * The main path of all resources
+     */
     protected String path;
 
     private Class<O> objectClass;
@@ -57,8 +61,9 @@ public class BasicService<O extends BasicObject,L extends BasicList> {
 
     /**
      * Constructor
+     *
      * @param clientApi The client API
-     * @param path The main path of all resources
+     * @param path      The main path of all resources
      */
     public BasicService(ClientApi clientApi, String path) {
         this.clientApi = clientApi;
@@ -67,41 +72,43 @@ public class BasicService<O extends BasicObject,L extends BasicList> {
 
     /**
      * Set models class
+     *
      * @param objectClass The object class
-     * @param listClass The object list class
+     * @param listClass   The object list class
      */
-    public void setModels(Class<O> objectClass, Class<L> listClass){
+    public void setModels(Class<O> objectClass, Class<L> listClass) {
         this.objectClass = objectClass;
         this.listClass = listClass;
     }
 
     /**
      * Read the response and parse the result as responseClass instance or as an Error instance
-     * @param response The Web response
+     *
+     * @param response      The Web response
      * @param responseClass The responseClass result
      * @return Typed object instance of BasicObject
      * @throws RequestException If the response cannot be parsed or if the response is an error
      */
     protected Object readResponse(Response response, Class responseClass) throws RequestException {
         try {
-            if(response.getStatus() == Response.Status.FOUND.getStatusCode()
+            if (response.getStatus() == Response.Status.FOUND.getStatusCode()
                     || response.getStatus() == Response.Status.NO_CONTENT.getStatusCode()
                     || response.getStatus() == Response.Status.OK.getStatusCode()
                     || response.getStatus() == Response.Status.CREATED.getStatusCode()) {
                 return response.readEntity(responseClass);
-            }else{
-                throw createExceptionFromResponse(response);
+            } else {
+                throw createExceptionFromResponse(response.readEntity(String.class), response.getStatus(), response.getStatusInfo().getStatusCode());
             }
         } catch (RequestException e) {
             throw e;
-        } catch(Exception e) {
+        } catch (Exception e) {
             e.printStackTrace(System.err);
             LOGGER.error("Unparsable error : " + e.getMessage(), e);
-            throw createExceptionFromResponse(response);
+            throw createExceptionFromResponse(response.readEntity(String.class), response.getStatus(), response.getStatusInfo().getStatusCode());
         }
     }
 
-    private RequestException createExceptionFromError(Error error){
+    private RequestException createExceptionFromError(Error error) {
         RequestException exception = new RequestException(error.getMessage());
         exception.setCode(error.getCode());
         exception.setStatus(error.getStatus());
@@ -109,27 +116,29 @@ public class BasicService<O extends BasicObject,L extends BasicList> {
         return exception;
     }
 
-    private RequestException createExceptionFromResponse(Response response) {
-        try{
-            return createExceptionFromError(response.readEntity(Error.class));
-        }catch(Exception e) {
-            RequestException exception = new RequestException(response.getStatus() + " / " + response.getStatusInfo().getReasonPhrase());
-            exception.setCode(response.getStatusInfo().getStatusCode());
-            exception.setStatus(response.getStatus());
+    private RequestException createExceptionFromResponse(String msg, int status, int statusCode) {
+        try {
+            ObjectMapper mapper = new ObjectMapper();
+            return createExceptionFromError(mapper.readValue(msg, Error.class));
+        } catch (Exception e) {
+            RequestException exception = new RequestException(msg);
+            exception.setCode(statusCode);
+            exception.setStatus(status);
             return exception;
         }
     }
 
-    protected Class<O> getObjectClass(){
+    protected Class<O> getObjectClass() {
         return objectClass;
     }
 
-    protected Class<L> getListClass(){
+    protected Class<L> getListClass() {
         return listClass;
     }
 
     /**
      * Get the object identified by the href uri
+     *
      * @param href The complete url to the object
      * @return Typed object instance of BasicObject
      * @throws CoreException If the request failed
@@ -142,6 +151,7 @@ public class BasicService<O extends BasicObject,L extends BasicList> {
 
     /**
      * Get the object identified by the id
+     *
      * @param id The id of the object
      * @return Typed object instance of BasicObject
      * @throws CoreException If the request failed
@@ -152,6 +162,7 @@ public class BasicService<O extends BasicObject,L extends BasicList> {
 
     /**
      * Get a collection of objects. Only the first page will be returned
+     *
      * @return Typed object instance of BasicList
      * @throws CoreException If the request failed
      */
@@ -161,7 +172,8 @@ public class BasicService<O extends BasicObject,L extends BasicList> {
 
     /**
      * Get a collection of reponseClass instance
-     * @param href The full url
+     *
+     * @param href   The full url
      * @param params Extra query params to sort, filter objects
      * @return Typed object instance of BasicList
      * @throws CoreException If the request failed
@@ -174,6 +186,7 @@ public class BasicService<O extends BasicObject,L extends BasicList> {
 
     /**
      * Get the reponseClass instance object identified by the full url
+     *
      * @param href The full url to the object resource
      * @return Typed object instance of BasicList
      * @throws CoreException If the request failed
@@ -184,6 +197,7 @@ public class BasicService<O extends BasicObject,L extends BasicList> {
 
     /**
      * Get a collection of reponseClass instance.
+     *
      * @param params Extra query params to sort, filter objects
      * @return Typed object instance of BasicList
      * @throws CoreException If the request failed
@@ -194,6 +208,7 @@ public class BasicService<O extends BasicObject,L extends BasicList> {
 
     /**
      * Delete the object identified by the given id
+     *
      * @param id The id of the object
      * @throws CoreException If the request failed
      */
@@ -205,7 +220,8 @@ public class BasicService<O extends BasicObject,L extends BasicList> {
 
     /**
      * Post the given object to the path
-     * @param path The resource path
+     *
+     * @param path   The resource path
      * @param object The instance of BasicObject to send
      * @throws CoreException If the request failed
      */
@@ -217,6 +233,7 @@ public class BasicService<O extends BasicObject,L extends BasicList> {
 
     /**
      * Create the given object and return the id
+     *
      * @param object The instance of BasicObject to send
      * @return long The id of the new object
      * @throws CoreException If the request failed
@@ -232,6 +249,7 @@ public class BasicService<O extends BasicObject,L extends BasicList> {
 
     /**
      * Update the given object
+     *
      * @param object The instance of BasicObject to send
      * @throws CoreException If the request failed
      */
@@ -243,6 +261,7 @@ public class BasicService<O extends BasicObject,L extends BasicList> {
 
     /**
      * Create an object and return the new id
+     *
      * @param object The instance of BasicObject to send
      * @return long The id of the new object
      * @throws CoreException If the request failed
@@ -254,6 +273,7 @@ public class BasicService<O extends BasicObject,L extends BasicList> {
 
     /**
      * Update object according to its id. The whole object will be updated and need to be complete
+     *
      * @param object The instance of BasicObject to send
      * @throws CoreException If the request failed
      */
@@ -263,6 +283,7 @@ public class BasicService<O extends BasicObject,L extends BasicList> {
 
     /**
      * Update the object from its id. Only present fields in the given object will be updated.
+     *
      * @param object The instance of BasicObject to send
      * @throws CoreException If the request failed
      */
@@ -272,8 +293,9 @@ public class BasicService<O extends BasicObject,L extends BasicList> {
 
     /**
      * Get a collection of Comments
+     *
      * @param objectId The main object linked to comments
-     * @param params Extra parameters
+     * @param params   Extra parameters
      * @return CommentList
      * @throws CoreException If the request failed
      */
@@ -285,8 +307,9 @@ public class BasicService<O extends BasicObject,L extends BasicList> {
 
     /**
      * Get the comment identified by its id
+     *
      * @param objectId The linked object id
-     * @param id The comment id
+     * @param id       The comment id
      * @return Comment
      * @throws CoreException If the request failed
      */
@@ -298,8 +321,9 @@ public class BasicService<O extends BasicObject,L extends BasicList> {
 
     /**
      * Create a new comment for the object identified by the objectId
+     *
      * @param objectId The id of the object to link to the comment
-     * @param comment The comment to create
+     * @param comment  The comment to create
      * @return Date on time date
      * @throws CoreException If the request failed
      */
@@ -317,10 +341,11 @@ public class BasicService<O extends BasicObject,L extends BasicList> {
 
     /**
      * Update the comment for the object identified by the objectId
+     *
      * @param objectId The id of the object linked to the comment
-     * @param comment The comment to update
-     * @throws CoreException If the request failed
+     * @param comment  The comment to update
      * @return Date on time date
+     * @throws CoreException If the request failed
      */
     public Date updateComment(long objectId, Comment comment) throws CoreException {
         try (Response response = clientApi.put(path + "/" + objectId + COMMENTS + comment.getId(), comment)) {
@@ -331,10 +356,11 @@ public class BasicService<O extends BasicObject,L extends BasicList> {
 
     /**
      * Update only not null fields of the comment
+     *
      * @param objectId The id of the object to link to the comment
-     * @param comment The comment to update
-     * @throws CoreException If the request failed
+     * @param comment  The comment to update
      * @return Date on time date
+     * @throws CoreException If the request failed
      */
     public Date updatePartiallyComment(long objectId, Comment comment) throws CoreException {
         try (Response response = clientApi.post(path + "/" + objectId + COMMENTS + comment.getId(), comment)) {
@@ -345,8 +371,9 @@ public class BasicService<O extends BasicObject,L extends BasicList> {
 
     /**
      * Delete the comment for the object identified by the objectId
+     *
      * @param objectId The id of the object linked to the comment
-     * @param id The comment id to update
+     * @param id       The comment id to update
      * @throws CoreException If the request failed
      */
     public void deleteComment(long objectId, long id) throws CoreException {
@@ -357,7 +384,8 @@ public class BasicService<O extends BasicObject,L extends BasicList> {
 
     /**
      * Get a collection of Doucments
-     * @param params Extra parameters
+     *
+     * @param params   Extra parameters
      * @param objectId The linked object id
      * @return DocumentList
      * @throws CoreException If the request failed
@@ -370,12 +398,13 @@ public class BasicService<O extends BasicObject,L extends BasicList> {
 
     /**
      * Get the document identified by its id
+     *
      * @param objectId The linked object id
-     * @param id The document id
+     * @param id       The document id
      * @return The document
      * @throws CoreException If the request failed
      */
-    public Document getDocument(long objectId,long id) throws CoreException {
+    public Document getDocument(long objectId, long id) throws CoreException {
         try (Response response = clientApi.get(path + "/" + objectId + DOCUMENTS + id, null)) {
             return (Document) readResponse(response, Document.class);
         }
@@ -383,6 +412,7 @@ public class BasicService<O extends BasicObject,L extends BasicList> {
 
     /**
      * Create a new document for the object identified by the objectId
+     *
      * @param objectId The id of the object to link to the document
      * @param document The document to create
      * @return The id of the new document
@@ -403,10 +433,11 @@ public class BasicService<O extends BasicObject,L extends BasicList> {
 
     /**
      * Update the comment for the object identified by the id of the document
+     *
      * @param objectId The id of the object linked to the comment
      * @param document The document to update
-     * @throws CoreException If the request failed
      * @return Date on time date
+     * @throws CoreException If the request failed
      */
     public Date updateDocument(long objectId, Document document) throws CoreException {
         try (Response response = clientApi.put(path + "/" + objectId + DOCUMENTS + document.getId(), document)) {
@@ -417,10 +448,11 @@ public class BasicService<O extends BasicObject,L extends BasicList> {
 
     /**
      * Update only not null fields of the document
+     *
      * @param objectId The id of the object linked to the comment
      * @param document The document to update
-     * @throws CoreException If the request failed
      * @return Date on time date
+     * @throws CoreException If the request failed
      */
     public Date updatePartiallyDocument(long objectId, Document document) throws CoreException {
         try (Response response = clientApi.post(path + "/" + objectId + DOCUMENTS + document.getId(), document)) {
@@ -431,7 +463,8 @@ public class BasicService<O extends BasicObject,L extends BasicList> {
 
     /**
      * Delete the document for the object identified by the id of the document
-     * @param id The document id to update
+     *
+     * @param id       The document id to update
      * @param objectId The id of the object to delete
      * @throws CoreException If the request failed
      */
@@ -443,9 +476,10 @@ public class BasicService<O extends BasicObject,L extends BasicList> {
 
     /**
      * upload the document for the object identified by the id of the document
+     *
      * @param objectId The document id to upload
      * @param document The document
-     * @param file  The file
+     * @param file     The file
      * @throws CoreException If the request failed
      */
     public void uploadDocument(long objectId, Document document, File file) throws CoreException {
@@ -456,6 +490,7 @@ public class BasicService<O extends BasicObject,L extends BasicList> {
 
     /**
      * download the document for the object identified by the id of the document
+     *
      * @param objectId The document id to download
      * @param document The document
      * @return File The file downloaded
