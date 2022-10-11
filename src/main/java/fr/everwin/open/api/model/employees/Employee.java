@@ -15,35 +15,21 @@
  */
 
 /**
- * 
+ *
  */
 package fr.everwin.open.api.model.employees;
-
-import java.util.Date;
-import java.util.List;
-
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementWrapper;
-import javax.xml.bind.annotation.XmlElements;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import fr.everwin.open.api.model.core.BasicObject;
-import fr.everwin.open.api.model.core.DataLink;
-import fr.everwin.open.api.model.core.SpecificData;
-import fr.everwin.open.api.model.core.SpecificDateValue;
-import fr.everwin.open.api.model.core.SpecificLinkValue;
-import fr.everwin.open.api.model.core.SpecificMultiLinkValue;
-import fr.everwin.open.api.model.core.SpecificNumberValue;
-import fr.everwin.open.api.model.core.SpecificStringValue;
-import fr.everwin.open.api.util.JsonDateDeserializer;
-import fr.everwin.open.api.util.XMLDateAdapter;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import fr.everwin.open.api.model.core.*;
+import fr.everwin.open.api.util.JsonDateDeserializer;
+import fr.everwin.open.api.util.XMLDateAdapter;
+
+import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import java.util.Date;
+import java.util.List;
 
 /**
  * Represents an employee
@@ -76,13 +62,6 @@ public class Employee extends BasicObject {
 	@XmlElementWrapper(name = "secondEntities")
 	@XmlElements(@XmlElement(name = "secondEntity", type = DataLink.class))
 	private List<DataLink> secondEntities;
-
-	@XmlElement
-	private DataLink financialEntity;
-
-	@XmlElementWrapper(name = "secondFinancialEntities")
-	@XmlElements(@XmlElement(name = "secondFinancialEntity", type = DataLink.class))
-	private List<DataLink> secondFinancialEntities;
 
 	@XmlElement
 	@XmlJavaTypeAdapter(XMLDateAdapter.class)
@@ -299,14 +278,6 @@ public class Employee extends BasicObject {
 
 	public void setEntity(DataLink entity) {
 		this.entity = entity;
-	}
-
-	public DataLink getFinancialEntity() {
-		return financialEntity;
-	}
-
-	public void setFinancialEntity(DataLink financialEntity) {
-		this.financialEntity = financialEntity;
 	}
 
 	public Date getArrivalDate() {
@@ -651,14 +622,6 @@ public class Employee extends BasicObject {
 
 	public void setSecondEntities(List<DataLink> secondEntities) {
 		this.secondEntities = secondEntities;
-	}
-
-	public List<DataLink> getSecondFinancialEntities() {
-		return secondFinancialEntities;
-	}
-
-	public void setSecondFinancialEntities(List<DataLink> secondFinancialEntities) {
-		this.secondFinancialEntities = secondFinancialEntities;
 	}
 
 	public String getPersonalPhone() {
