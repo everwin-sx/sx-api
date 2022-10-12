@@ -49,4 +49,36 @@ public class Scale extends BasicObject {
 
     @XmlElement
     private Short isArchived;
+
+    public String getLabel() {
+        return label;
+    }
+
+    public void setLabel(String label) {
+        this.label = label;
+    }
+
+    public Double getAmount() {
+        return amount;
+    }
+
+    public void setAmount(Double amount) {
+        this.amount = amount;
+    }
+
+    public List<DataLink> getEntities() {
+        return entities;
+    }
+
+    public void setEntities(List<DataLink> entities) {
+        this.entities = entities;
+    }
+
+    public Short getIsArchived() {
+        return isArchived;
+    }
+
+    public void setIsArchived(Short isArchived) {
+        this.isArchived = isArchived;
+    }
 }

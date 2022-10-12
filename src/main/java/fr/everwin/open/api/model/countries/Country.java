@@ -15,16 +15,19 @@
  */
 
 package fr.everwin.open.api.model.countries;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import fr.everwin.open.api.model.core.BasicObject;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
 /**
  * Country class
+ *
  * @author d.storti
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -44,4 +47,36 @@ public class Country extends BasicObject {
 
     @XmlElement
     private String iso;
+
+    public String getLabel() {
+        return label;
+    }
+
+    public void setLabel(String label) {
+        this.label = label;
+    }
+
+    public String getNationality() {
+        return nationality;
+    }
+
+    public void setNationality(String nationality) {
+        this.nationality = nationality;
+    }
+
+    public Short getIsDefault() {
+        return isDefault;
+    }
+
+    public void setIsDefault(Short isDefault) {
+        this.isDefault = isDefault;
+    }
+
+    public String getIso() {
+        return iso;
+    }
+
+    public void setIso(String iso) {
+        this.iso = iso;
+    }
 }

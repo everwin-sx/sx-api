@@ -26,7 +26,7 @@ package fr.everwin.open.api.model.core;
 public enum SpecificType {
 	STRING("string"), NUMBER("number"), DATE("date"), LINK("link"), MULTILINK("multilink");
 
-	private String name;
+	private final String name;
 
 	SpecificType(String name) {
 		this.name = name;

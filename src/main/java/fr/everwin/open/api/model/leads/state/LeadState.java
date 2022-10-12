@@ -59,5 +59,59 @@ public class LeadState extends BasicObject {
     @XmlElement
     private Short defaultStatus;
 
+    public String getLabel() {
+        return label;
+    }
 
+    public void setLabel(String label) {
+        this.label = label;
+    }
+
+    public Short getStep() {
+        return step;
+    }
+
+    public void setStep(Short step) {
+        this.step = step;
+    }
+
+    public List<DataLink> getEntities() {
+        return entities;
+    }
+
+    public void setEntities(List<DataLink> entities) {
+        this.entities = entities;
+    }
+
+    public Short getOrder() {
+        return order;
+    }
+
+    public void setOrder(Short order) {
+        this.order = order;
+    }
+
+    public Short getIsArchived() {
+        return isArchived;
+    }
+
+    public void setIsArchived(Short isArchived) {
+        this.isArchived = isArchived;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public Short getDefaultStatus() {
+        return defaultStatus;
+    }
+
+    public void setDefaultStatus(Short defaultStatus) {
+        this.defaultStatus = defaultStatus;
+    }
 }

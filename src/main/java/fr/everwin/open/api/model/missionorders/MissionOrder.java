@@ -140,4 +140,204 @@ public class MissionOrder extends BasicObject {
             @XmlElement(name = "link", type = SpecificLinkValue.class),
             @XmlElement(name = "multilink", type = SpecificMultiLinkValue.class)})
     private List<SpecificData> extraData;
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public Long getNumber() {
+        return number;
+    }
+
+    public void setNumber(Long number) {
+        this.number = number;
+    }
+
+    public DataLink getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(DataLink employee) {
+        this.employee = employee;
+    }
+
+    public DataLink getProject() {
+        return project;
+    }
+
+    public void setProject(DataLink project) {
+        this.project = project;
+    }
+
+    public DataLink getProjectLine() {
+        return projectLine;
+    }
+
+    public void setProjectLine(DataLink projectLine) {
+        this.projectLine = projectLine;
+    }
+
+    public Short getStatus() {
+        return status;
+    }
+
+    public void setStatus(Short status) {
+        this.status = status;
+    }
+
+    public String getDeparturePlace() {
+        return departurePlace;
+    }
+
+    public void setDeparturePlace(String departurePlace) {
+        this.departurePlace = departurePlace;
+    }
+
+    public String getArrivalPlace() {
+        return arrivalPlace;
+    }
+
+    public void setArrivalPlace(String arrivalPlace) {
+        this.arrivalPlace = arrivalPlace;
+    }
+
+    public Date getDepartureDate() {
+        return departureDate;
+    }
+
+    public void setDepartureDate(Date departureDate) {
+        this.departureDate = departureDate;
+    }
+
+    public Date getArrivalDate() {
+        return arrivalDate;
+    }
+
+    public void setArrivalDate(Date arrivalDate) {
+        this.arrivalDate = arrivalDate;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Short getCompensationMode() {
+        return compensationMode;
+    }
+
+    public void setCompensationMode(Short compensationMode) {
+        this.compensationMode = compensationMode;
+    }
+
+    public String getEmployeeAddress() {
+        return employeeAddress;
+    }
+
+    public void setEmployeeAddress(String employeeAddress) {
+        this.employeeAddress = employeeAddress;
+    }
+
+    public Double getEstimatedFlatRateExpenses() {
+        return estimatedFlatRateExpenses;
+    }
+
+    public void setEstimatedFlatRateExpenses(Double estimatedFlatRateExpenses) {
+        this.estimatedFlatRateExpenses = estimatedFlatRateExpenses;
+    }
+
+    public Double getEstimatedExpensesToJustify() {
+        return estimatedExpensesToJustify;
+    }
+
+    public void setEstimatedExpensesToJustify(Double estimatedExpensesToJustify) {
+        this.estimatedExpensesToJustify = estimatedExpensesToJustify;
+    }
+
+    public Date getAdvanceGrantDate() {
+        return advanceGrantDate;
+    }
+
+    public void setAdvanceGrantDate(Date advanceGrantDate) {
+        this.advanceGrantDate = advanceGrantDate;
+    }
+
+    public Double getAdvanceAmount() {
+        return advanceAmount;
+    }
+
+    public void setAdvanceAmount(Double advanceAmount) {
+        this.advanceAmount = advanceAmount;
+    }
+
+    public Date getSettlementDate() {
+        return settlementDate;
+    }
+
+    public void setSettlementDate(Date settlementDate) {
+        this.settlementDate = settlementDate;
+    }
+
+    public String getSettlementDetails() {
+        return settlementDetails;
+    }
+
+    public void setSettlementDetails(String settlementDetails) {
+        this.settlementDetails = settlementDetails;
+    }
+
+    public Short getSettled() {
+        return settled;
+    }
+
+    public void setSettled(Short settled) {
+        this.settled = settled;
+    }
+
+    public Date getBalanceDate() {
+        return balanceDate;
+    }
+
+    public void setBalanceDate(Date balanceDate) {
+        this.balanceDate = balanceDate;
+    }
+
+    public Date getCreatedOnTime() {
+        return createdOnTime;
+    }
+
+    public void setCreatedOnTime(Date createdOnTime) {
+        this.createdOnTime = createdOnTime;
+    }
+
+    public Date getUpdatedOnTime() {
+        return updatedOnTime;
+    }
+
+    public void setUpdatedOnTime(Date updatedOnTime) {
+        this.updatedOnTime = updatedOnTime;
+    }
+
+    public Short getOtherPossibleExpenses() {
+        return otherPossibleExpenses;
+    }
+
+    public void setOtherPossibleExpenses(Short otherPossibleExpenses) {
+        this.otherPossibleExpenses = otherPossibleExpenses;
+    }
+
+    public List<SpecificData> getExtraData() {
+        return extraData;
+    }
+
+    public void setExtraData(List<SpecificData> extraData) {
+        this.extraData = extraData;
+    }
 }

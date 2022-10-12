@@ -48,4 +48,44 @@ public class Family extends BasicObject {
 
     @XmlElement
     private Short isArchived;
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public DataLink getEntity() {
+        return entity;
+    }
+
+    public void setEntity(DataLink entity) {
+        this.entity = entity;
+    }
+
+    public DataLink getFinancialEntity() {
+        return financialEntity;
+    }
+
+    public void setFinancialEntity(DataLink financialEntity) {
+        this.financialEntity = financialEntity;
+    }
+
+    public DataLink getWorkMode() {
+        return workMode;
+    }
+
+    public void setWorkMode(DataLink workMode) {
+        this.workMode = workMode;
+    }
+
+    public Short getIsArchived() {
+        return isArchived;
+    }
+
+    public void setIsArchived(Short isArchived) {
+        this.isArchived = isArchived;
+    }
 }
