@@ -16,22 +16,22 @@
 
 package fr.everwin.open.api.model.projects.phases;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import fr.everwin.open.api.model.core.BasicList;
 
-import javax.xml.bind.annotation.*;
 import java.util.List;
 
 /**
  * @author d.storti
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name = "projectphaselist")
+
+
 public class ProjectPhaseList extends BasicList<ProjectPhase> {
 
     private final static String METHOD = "query";
 
-    @XmlElement(name = "project-phase")
-    @XmlElementWrapper(name = "project-phases")
+    //    @JsonProperty("project-phase")
+    @JsonProperty("project-phases")
     private List<ProjectPhase> items;
 
     @Override

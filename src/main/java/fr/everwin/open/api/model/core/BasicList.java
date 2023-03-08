@@ -16,10 +16,9 @@
 
 package fr.everwin.open.api.model.core;
 
-import javax.ws.rs.core.Link;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementWrapper;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.ws.rs.core.Link;
+
 import java.util.Optional;
 
 /**
@@ -29,12 +28,10 @@ import java.util.Optional;
  */
 public abstract class BasicList<T extends BasicObject> implements BasicListInterface<T> {
 
-    @XmlElement(name = "selflink")
+    @JsonProperty("selflink")
     protected String href;
 
-    @XmlElement(name = "link")
-    @XmlElementWrapper(name = "links")
-    @XmlJavaTypeAdapter(Link.JaxbAdapter.class)
+    @JsonProperty("link")
     protected java.util.List<Link> links;
 
     public String getHref() {

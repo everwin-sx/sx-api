@@ -16,22 +16,22 @@
 
 package fr.everwin.open.api.model.supplierreceivingnotes.lines;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import fr.everwin.open.api.model.core.BasicList;
 
-import javax.xml.bind.annotation.*;
 import java.util.List;
 
 /**
  * @author d.storti
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name = "supplierreceivingnotelinelist")
+
+
 public class SupplierReceivingNoteLineList extends BasicList<SupplierReceivingNoteLine> {
 
     private final static String METHOD = "query";
 
-    @XmlElement(name = "supplierreceivingnoteline")
-    @XmlElementWrapper(name = "supplierreceivingnotelines")
+    //    @JsonProperty("supplierreceivingnoteline")
+    @JsonProperty("supplierreceivingnotelines")
     private List<SupplierReceivingNoteLine> items;
 
     @Override

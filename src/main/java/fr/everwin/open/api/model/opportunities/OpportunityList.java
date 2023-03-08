@@ -19,24 +19,25 @@
  */
 package fr.everwin.open.api.model.opportunities;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import fr.everwin.open.api.model.core.BasicList;
 
-import javax.xml.bind.annotation.*;
 import java.util.List;
 
 
 /**
  * Opportunities list
+ *
  * @author everwin-team
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name = "opportunitylist")
+
+
 public class OpportunityList extends BasicList<Opportunity> {
 
     private final static String METHOD = "query";
 
-    @XmlElement(name = "opportunity")
-    @XmlElementWrapper(name = "opportunities")
+    //    @JsonProperty("opportunity")
+    @JsonProperty("opportunities")
     private List<Opportunity> items;
 
     @Override

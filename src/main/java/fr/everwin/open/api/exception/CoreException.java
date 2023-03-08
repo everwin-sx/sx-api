@@ -18,6 +18,7 @@ package fr.everwin.open.api.exception;
 
 /**
  * Core exception
+ *
  * @author everwin-team
  */
 public class CoreException extends Exception {

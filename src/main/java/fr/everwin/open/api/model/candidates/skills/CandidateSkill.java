@@ -15,126 +15,120 @@
  */
 
 /**
- * 
+ *
  */
 package fr.everwin.open.api.model.candidates.skills;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import fr.everwin.open.api.model.core.BasicObject;
+import fr.everwin.open.api.model.core.DataLink;
+import fr.everwin.open.api.model.core.SpecificData;
+import fr.everwin.open.api.util.JsonDateDeserializer;
 
 import java.util.Date;
 import java.util.List;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementWrapper;
-import javax.xml.bind.annotation.XmlElements;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import fr.everwin.open.api.model.core.BasicObject;
-import fr.everwin.open.api.model.core.DataLink;
-import fr.everwin.open.api.model.core.SpecificData;
-import fr.everwin.open.api.model.core.SpecificDateValue;
-import fr.everwin.open.api.model.core.SpecificLinkValue;
-import fr.everwin.open.api.model.core.SpecificMultiLinkValue;
-import fr.everwin.open.api.model.core.SpecificNumberValue;
-import fr.everwin.open.api.model.core.SpecificStringValue;
-import fr.everwin.open.api.util.JsonDateDeserializer;
-import fr.everwin.open.api.util.XMLDateAdapter;
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-
 /**
  * Candidate skill class
+ *
  * @author everwin-team
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-@XmlRootElement(name = "candidateSkill")
-@XmlAccessorType(XmlAccessType.FIELD)
+
+
 public class CandidateSkill extends BasicObject {
 
-	@XmlElement
-	private DataLink candidate;
 
-	@XmlElement
-	private DataLink skill;
-
-	@XmlElement
-	private DataLink level;
-
-	@XmlElement
-	private String comment;
-
-	@XmlElement
-	@XmlJavaTypeAdapter(XMLDateAdapter.class)
-	@JsonDeserialize(using = JsonDateDeserializer.class)
-	private Date startDate;
-
-	@XmlElement
-	@XmlJavaTypeAdapter(XMLDateAdapter.class)
-	@JsonDeserialize(using = JsonDateDeserializer.class)
-	private Date endDate;
+    private DataLink candidate;
 
 
-	@XmlElementWrapper(name = "extraData")
-	@XmlElements({@XmlElement(name = "stringval", type = SpecificStringValue.class),
-			@XmlElement(name = "dateval", type = SpecificDateValue.class),
-			@XmlElement(name = "numberval", type = SpecificNumberValue.class),
-			@XmlElement(name = "link", type = SpecificLinkValue.class),
-			@XmlElement(name = "multilink", type = SpecificMultiLinkValue.class)})
-	private List<SpecificData> extraData;
-	/**
-	 *
-	 */
-	public CandidateSkill() {
+    private DataLink skill;
 
-	}
-	public DataLink getCandidate() {
-		return candidate;
-	}
-	public void setCandidate(DataLink candidate) {
-		this.candidate = candidate;
-	}
-	public DataLink getSkill() {
-		return skill;
-	}
-	public void setSkill(DataLink skill) {
-		this.skill = skill;
-	}
-	public DataLink getLevel() {
-		return level;
-	}
-	public void setLevel(DataLink level) {
-		this.level = level;
-	}
-	public String getComment() {
-		return comment;
-	}
-	public void setComment(String comment) {
-		this.comment = comment;
-	}
-	public Date getStartDate() {
-		return startDate;
-	}
-	public void setStartDate(Date startDate) {
-		this.startDate = startDate;
-	}
-	public Date getEndDate() {
-		return endDate;
-	}
-	public void setEndDate(Date endDate) {
-		this.endDate = endDate;
-	}
-	public List<SpecificData> getExtraData() {
-		return extraData;
-	}
-	public void setExtraData(List<SpecificData> extraData) {
-		this.extraData = extraData;
-	}
-	@Override
-	public String toString() {
-		return "CandidateSkill [candidate=" + candidate + ", skill=" + skill + ", level=" + level + ", id=" + id + "]";
-	}
-	
+
+    private DataLink level;
+
+
+    private String comment;
+
+
+    @JsonDeserialize(using = JsonDateDeserializer.class)
+    private Date startDate;
+
+
+    @JsonDeserialize(using = JsonDateDeserializer.class)
+    private Date endDate;
+
+
+    private List<SpecificData> extraData;
+
+    /**
+     *
+     */
+    public CandidateSkill() {
+
+    }
+
+    public DataLink getCandidate() {
+        return candidate;
+    }
+
+    public void setCandidate(DataLink candidate) {
+        this.candidate = candidate;
+    }
+
+    public DataLink getSkill() {
+        return skill;
+    }
+
+    public void setSkill(DataLink skill) {
+        this.skill = skill;
+    }
+
+    public DataLink getLevel() {
+        return level;
+    }
+
+    public void setLevel(DataLink level) {
+        this.level = level;
+    }
+
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
+    public Date getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
+    }
+
+    public Date getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(Date endDate) {
+        this.endDate = endDate;
+    }
+
+    public List<SpecificData> getExtraData() {
+        return extraData;
+    }
+
+    public void setExtraData(List<SpecificData> extraData) {
+        this.extraData = extraData;
+    }
+
+    @Override
+    public String toString() {
+        return "CandidateSkill [candidate=" + candidate + ", skill=" + skill + ", level=" + level + ", id=" + id + "]";
+    }
+
 
 }

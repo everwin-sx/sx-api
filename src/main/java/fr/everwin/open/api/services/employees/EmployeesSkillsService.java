@@ -16,23 +16,23 @@
 
 package fr.everwin.open.api.services.employees;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import fr.everwin.open.api.ClientApi;
 import fr.everwin.open.api.model.employees.skills.EmployeeSkill;
 import fr.everwin.open.api.model.employees.skills.EmployeeSkillList;
 import fr.everwin.open.api.services.core.BasicService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Service manager to query the employee API resource
+ *
  * @author everwin-team
  */
 public class EmployeesSkillsService extends BasicService<EmployeeSkill, EmployeeSkillList> {
 
     protected static final Logger LOGGER = LoggerFactory.getLogger(EmployeesSkillsService.class);
 
-    public EmployeesSkillsService(ClientApi client){
+    public EmployeesSkillsService(ClientApi client) {
         super(client, "employee-skills");
         setModels(EmployeeSkill.class, EmployeeSkillList.class);
     }

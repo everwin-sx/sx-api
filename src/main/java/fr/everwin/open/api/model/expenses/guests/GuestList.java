@@ -16,9 +16,9 @@
 
 package fr.everwin.open.api.model.expenses.guests;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import fr.everwin.open.api.model.core.BasicList;
 
-import javax.xml.bind.annotation.*;
 import java.util.List;
 
 /**
@@ -26,14 +26,14 @@ import java.util.List;
  *
  * @author d.storti
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name = "guestlist")
+
+
 public class GuestList extends BasicList<Guest> {
 
     private final static String METHOD = "query";
 
-    @XmlElement(name = "guest")
-    @XmlElementWrapper(name = "guests")
+    //    @JsonProperty("guest")
+    @JsonProperty("guests")
     private List<Guest> items;
 
     /**

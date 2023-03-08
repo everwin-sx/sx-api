@@ -15,57 +15,54 @@
  */
 
 /**
- * 
+ *
  */
 package fr.everwin.open.api.model.core;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * Specialized SpecificData for number
+ *
  * @author everwin-team
  */
-@XmlRootElement(name = "numberval")
-@XmlAccessorType(XmlAccessType.FIELD)
+
+
 public class SpecificNumberValue extends SpecificData {
 
-	@XmlElement
-	private Double value;
 
-	/**
-	 * 
-	 */
-	public SpecificNumberValue() {
-		super();
-		this.type = SpecificType.NUMBER;
-	}
+    private Double value;
 
-	public SpecificNumberValue(String name) {
-		super(name);
-		this.type = SpecificType.NUMBER;
-	}
+    /**
+     *
+     */
+    public SpecificNumberValue() {
+        super();
+        this.type = SpecificType.NUMBER;
+    }
 
-	public Double getValue() {
-		return value;
-	}
+    public SpecificNumberValue(String name) {
+        super(name);
+        this.type = SpecificType.NUMBER;
+    }
 
-	public void setValue(Double value) {
-		this.value = value;
-	}
+    public Double getValue() {
+        return value;
+    }
 
-	@Override
-	public boolean equals(Object obj) {
-		if (obj == null)
-			return false;
-		if (obj instanceof SpecificNumberValue) {
-			Double val = ((SpecificNumberValue) obj).getValue();
-			return (this.value == null && val == null) || this.value.equals(val);
-		} else {
-			return false;
-		}
-	}
+    public void setValue(Double value) {
+        this.value = value;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null)
+            return false;
+        if (obj instanceof SpecificNumberValue) {
+            Double val = ((SpecificNumberValue) obj).getValue();
+            return (this.value == null && val == null) || this.value.equals(val);
+        } else {
+            return false;
+        }
+    }
 
 }

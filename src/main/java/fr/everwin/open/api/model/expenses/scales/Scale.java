@@ -15,39 +15,42 @@
  */
 
 package fr.everwin.open.api.model.expenses.scales;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementWrapper;
-import javax.xml.bind.annotation.XmlElements;
-import javax.xml.bind.annotation.XmlRootElement;
-import java.util.List;
+// import javax.xml.bind.annotation.XmlAccessType;
+// import javax.xml.bind.annotation.XmlAccessorType;
+// import javax.xml.bind.annotation.XmlElement;
+// import javax.xml.bind.annotation.XmlElementWrapper;
+// import javax.xml.bind.annotation.XmlElements;
+// import javax.xml.bind.annotation.XmlRootElement;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import fr.everwin.open.api.model.core.BasicObject;
 import fr.everwin.open.api.model.core.DataLink;
 
+import java.util.List;
+
 /**
  * scale class
+ *
  * @author d.storti
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@XmlRootElement(name = "scale")
-@XmlAccessorType(XmlAccessType.FIELD)
+
+
 public class Scale extends BasicObject {
 
-    @XmlElement
+
     private String label;
 
-    @XmlElement
+
     private Double amount;
 
-    @XmlElementWrapper(name = "entities")
-    @XmlElements(@XmlElement(name = "entities", type = DataLink.class))
+    @JsonProperty("entities")
     private List<DataLink> entities;
 
-    @XmlElement
+
     private Short isArchived;
 
     public String getLabel() {

@@ -15,27 +15,25 @@
  */
 
 package fr.everwin.open.api.model.projects.lines;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
+
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
  * @author d.storti
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-@XmlRootElement(name = "project-revenu")
-@XmlAccessorType(XmlAccessType.FIELD)
+
+
 public class Revenue {
 
-    @XmlElement
+
     private Double quantity;
 
-    @XmlElement
+
     private Double amount;
 
-    @XmlElement
+
     private Double total;
 
     public Double getQuantity() {

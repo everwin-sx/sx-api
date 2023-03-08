@@ -16,9 +16,6 @@
 
 package fr.everwin.open.api.services.expenses;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import fr.everwin.open.api.ClientApi;
 import fr.everwin.open.api.exception.CoreException;
 import fr.everwin.open.api.model.expenses.guests.Guest;
@@ -26,6 +23,8 @@ import fr.everwin.open.api.model.expenses.guests.GuestList;
 import fr.everwin.open.api.model.expenses.sheets.lines.ExpenseSheetLine;
 import fr.everwin.open.api.services.core.BasicService;
 import fr.everwin.open.api.util.RequestParams;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author d.storti
@@ -40,6 +39,6 @@ public class GuestService extends BasicService<Guest, GuestList> {
     }
 
     public GuestList queryGuestFromLine(ExpenseSheetLine line, RequestParams params) throws CoreException {
-        return query("/expense-line/" + line.getId() +"/guests", params);
+        return query("/expense-line/" + line.getId() + "/guests", params);
     }
 }

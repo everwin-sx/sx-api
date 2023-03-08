@@ -19,24 +19,25 @@
  */
 package fr.everwin.open.api.model.leaverequests;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import fr.everwin.open.api.model.core.BasicList;
 
-import javax.xml.bind.annotation.*;
 import java.util.List;
 
 
 /**
  * Leaverequests list
+ *
  * @author everwin-team
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name = "leaverequestlist")
+
+
 public class LeaveRequestList extends BasicList<LeaveRequest> {
 
     private final static String METHOD = "query";
 
-    @XmlElement(name = "leaverequest")
-    @XmlElementWrapper(name = "leaverequests")
+    //    @JsonProperty("leaverequest")
+    @JsonProperty("leaverequests")
     private List<LeaveRequest> items;
 
     @Override

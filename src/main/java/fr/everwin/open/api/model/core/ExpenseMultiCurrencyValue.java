@@ -16,7 +16,7 @@
 
 package fr.everwin.open.api.model.core;
 
-import javax.xml.bind.annotation.XmlElement;
+// import javax.xml.bind.annotation.XmlElement;
 
 public class ExpenseMultiCurrencyValue extends MultiCurrencyValue {
 

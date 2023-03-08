@@ -15,77 +15,70 @@
  */
 
 /**
- * 
+ *
  */
 package fr.everwin.open.api.model.core;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
+
+// import javax.xml.bind.annotation.XmlTransient;
 
 /**
  * Generic class for links
+ *
  * @author everwin-team
  */
-@XmlRootElement(name="datalink")
-@XmlAccessorType(XmlAccessType.FIELD)
 public class DataLink {
 
-	@XmlElement
-	protected Long id;
+    protected Long id;
 
-	@XmlElement
-	protected String value;
+    protected String value;
 
-	@XmlElement
-	protected String href;
+    protected String href;
 
-	public DataLink() {
+    public DataLink() {
 
-	}
+    }
 
-	public DataLink(BasicObject object){
-		this.id = object.getId();
-	}
+    public DataLink(BasicObject object) {
+        this.id = object.getId();
+    }
 
-	public DataLink(Long id, String value) {
-		this.id = id;
-		this.value = value;
-	}
+    public DataLink(Long id, String value) {
+        this.id = id;
+        this.value = value;
+    }
 
-	public Long getId() {
-		if (id == null) {
-			return Long.valueOf(-1);
-		}
-		return id;
-	}
+    public Long getId() {
+        if (id == null) {
+            return Long.valueOf(-1);
+        }
+        return id;
+    }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public String getValue() {
-		return value;
-	}
+    public String getValue() {
+        return value;
+    }
 
-	public void setValue(String value) {
-		this.value = value;
-	}
+    public void setValue(String value) {
+        this.value = value;
+    }
 
-	public String getHref() {
-		return href;
-	}
+    public String getHref() {
+        return href;
+    }
 
-	public void setHref(String href) {
-		this.href = href;
-	}
+    public void setHref(String href) {
+        this.href = href;
+    }
 
 
-	@Override
-	public String toString() {
-		return "DataLink [id=" + id + ", value=" + value + ", href=" + href + "]";
-	}
+    @Override
+    public String toString() {
+        return "DataLink [id=" + id + ", value=" + value + ", href=" + href + "]";
+    }
 
 }

@@ -19,24 +19,25 @@
  */
 package fr.everwin.open.api.model.equipments;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import fr.everwin.open.api.model.core.BasicList;
 
-import javax.xml.bind.annotation.*;
 import java.util.List;
 
 
 /**
  * Equipments list
+ *
  * @author everwin-team
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name = "equipmentlist")
+
+
 public class EquipmentList extends BasicList<Equipment> {
 
     private final static String METHOD = "query";
 
-    @XmlElement(name = "equipment")
-    @XmlElementWrapper(name = "equipments")
+    //    @JsonProperty("equipment")
+    @JsonProperty("equipments")
     private List<Equipment> items;
 
     @Override

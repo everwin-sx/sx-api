@@ -15,66 +15,62 @@
  */
 
 /**
- * 
+ *
  */
 package fr.everwin.open.api.model.nafs;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
-
 import fr.everwin.open.api.model.core.BasicObject;
 
 
 /**
  * Naf class
+ *
  * @author everwin-team
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@XmlRootElement(name = "naf")
-@XmlAccessorType(XmlAccessType.FIELD)
+
+
 public class Naf extends BasicObject {
 
-	@XmlElement
-	public String code;
 
-	@XmlElement
-	public String label;
+    public String code;
 
-	@XmlElement
-	public Short revision;
 
-	public Naf() {
+    public String label;
 
-	}
 
-	public String getCode() {
-		return code;
-	}
+    public Short revision;
 
-	public void setCode(String code) {
-		this.code = code;
-	}
+    public Naf() {
 
-	public String getLabel() {
-		return label;
-	}
+    }
 
-	public void setLabel(String label) {
-		this.label = label;
-	}
+    public String getCode() {
+        return code;
+    }
 
-	public Short getRevision() {
-		return revision;
-	}
+    public void setCode(String code) {
+        this.code = code;
+    }
 
-	public void setRevision(Short revision) {
-		this.revision = revision;
-	}
+    public String getLabel() {
+        return label;
+    }
+
+    public void setLabel(String label) {
+        this.label = label;
+    }
+
+    public Short getRevision() {
+        return revision;
+    }
+
+    public void setRevision(Short revision) {
+        this.revision = revision;
+    }
 
 }

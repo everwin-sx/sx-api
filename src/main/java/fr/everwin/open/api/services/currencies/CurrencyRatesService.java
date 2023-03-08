@@ -16,37 +16,37 @@
 
 package fr.everwin.open.api.services.currencies;
 
-import javax.ws.rs.core.Response;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import fr.everwin.open.api.ClientApi;
 import fr.everwin.open.api.exception.CoreException;
 import fr.everwin.open.api.model.currencies.rates.CurrencyRate;
 import fr.everwin.open.api.model.currencies.rates.CurrencyRateList;
 import fr.everwin.open.api.services.core.BasicService;
+import jakarta.ws.rs.core.Response;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Service manager to query the currencyrate API resource
+ *
  * @author everwin-team
  */
 public class CurrencyRatesService extends BasicService<CurrencyRate, CurrencyRateList> {
 
     protected static final Logger LOGGER = LoggerFactory.getLogger(CurrencyRatesService.class);
 
-    public CurrencyRatesService(ClientApi client){
+    public CurrencyRatesService(ClientApi client) {
         super(client, "currency-rates");
         setModels(CurrencyRate.class, CurrencyRateList.class);
     }
 
     /**
      * Create an object and return the new id
+     *
      * @param object The instance of BasicObject to send
      * @throws CoreException If the request failed
      */
     public void addOrUpdateRate(CurrencyRate object) throws CoreException {
-        try (Response response = clientApi.post(path,object)) {
+        try (Response response = clientApi.post(path, object)) {
             readResponse(response, String.class);
             /*String locationUri = response.getHeaderString("Location");
             Long id = Long.parseLong(locationUri.substring(locationUri.lastIndexOf("/") + 1, locationUri.length()));

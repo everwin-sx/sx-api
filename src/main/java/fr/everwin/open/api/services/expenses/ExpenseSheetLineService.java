@@ -16,11 +16,6 @@
 
 package fr.everwin.open.api.services.expenses;
 
-import javax.ws.rs.core.Response;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import fr.everwin.open.api.ClientApi;
 import fr.everwin.open.api.exception.CoreException;
 import fr.everwin.open.api.model.documents.Document;
@@ -32,6 +27,9 @@ import fr.everwin.open.api.model.skills.SkillList;
 import fr.everwin.open.api.services.core.BasicService;
 import fr.everwin.open.api.services.skills.SkillsService;
 import fr.everwin.open.api.util.RequestParams;
+import jakarta.ws.rs.core.Response;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author d.storti
@@ -46,17 +44,18 @@ public class ExpenseSheetLineService extends BasicService<ExpenseSheetLine, Expe
     }
 
     public ExpenseSheetLineList queryLinesFromExpenseSheet(ExpenseSheet sheet, RequestParams params) throws CoreException {
-        return query( "expense-sheets/" + sheet.getId() +"/lines", params);
+        return query("expense-sheets/" + sheet.getId() + "/lines", params);
     }
 
     public SkillList queryLinebyId(ExpenseSheet sheet, ExpenseSheetLine line, RequestParams params) throws CoreException {
         SkillsService skillsService = new SkillsService(clientApi);
-        return skillsService.query( "expense-sheets/" + sheet.getId() +"/lines/" + line.getId(), params);
+        return skillsService.query("expense-sheets/" + sheet.getId() + "/lines/" + line.getId(), params);
     }
 
     /**
      * Create a new expense sheet line for the object identified by the objectId
-     * @param id The id of the object to link
+     *
+     * @param id               The id of the object to link
      * @param expenseSheetLine The expense sheet line
      * @return The id of the new expense sheet line
      * @throws CoreException If the request failed
@@ -70,7 +69,8 @@ public class ExpenseSheetLineService extends BasicService<ExpenseSheetLine, Expe
 
     /**
      * Update only not null fields of the Expense Sheet Line
-     * @param id The id of the object to link
+     *
+     * @param id               The id of the object to link
      * @param expenseSheetLine The Expense Sheet line to update
      * @throws CoreException If the request failed
      */
@@ -82,7 +82,8 @@ public class ExpenseSheetLineService extends BasicService<ExpenseSheetLine, Expe
 
     /**
      * Update the Expense Sheet Line for the object identified by the id
-     * @param id The id of the object to link
+     *
+     * @param id               The id of the object to link
      * @param expenseSheetLine The Expense Sheet line to update
      * @throws CoreException If the request failed
      */
@@ -94,7 +95,8 @@ public class ExpenseSheetLineService extends BasicService<ExpenseSheetLine, Expe
 
     /**
      * Delete the Expense Sheet Line for the object identified by the id
-     * @param id The id of the object to link
+     *
+     * @param id               The id of the object to link
      * @param expenseSheetLine The Expense Sheet line to delet
      * @throws CoreException If the request failed
      */
@@ -106,9 +108,10 @@ public class ExpenseSheetLineService extends BasicService<ExpenseSheetLine, Expe
 
     /**
      * Get a collection of Doucments
-     * @param params Extra parameters
+     *
+     * @param params   Extra parameters
      * @param objectId The linked object id
-     * @param line The line where we are taking the document
+     * @param line     The line where we are taking the document
      * @return DocumentList
      * @throws CoreException If the request failed
      */
@@ -120,9 +123,10 @@ public class ExpenseSheetLineService extends BasicService<ExpenseSheetLine, Expe
 
     /**
      * Get the document identified by its id
+     *
      * @param objectId The linked object id
-     * @param id The document id
-     * @param line The line where we are taking the document
+     * @param id       The document id
+     * @param line     The line where we are taking the document
      * @return The document
      * @throws CoreException If the request failed
      */
@@ -134,9 +138,10 @@ public class ExpenseSheetLineService extends BasicService<ExpenseSheetLine, Expe
 
     /**
      * Create a new document for the object identified by the objectId
+     *
      * @param objectId The id of the object to link to the document
      * @param document The document to create
-     * @param line The line where we are taking the document
+     * @param line     The line where we are taking the document
      * @return The id of the new document
      * @throws CoreException If the request failed
      */
@@ -145,7 +150,7 @@ public class ExpenseSheetLineService extends BasicService<ExpenseSheetLine, Expe
             readResponse(response, String.class);
             // extract id from return location
             String locationUri = response.getHeaderString("Location");
-            Long id = Long.parseLong(locationUri.substring(locationUri.lastIndexOf("/") + 1, locationUri.length()));
+            Long id = Long.parseLong(locationUri.substring(locationUri.lastIndexOf("/") + 1));
             document.setId(id);
             return id;
         }
@@ -153,9 +158,10 @@ public class ExpenseSheetLineService extends BasicService<ExpenseSheetLine, Expe
 
     /**
      * Update the document for the object identified by the id of the document
+     *
      * @param objectId The id of the object linked to the document
      * @param document The document to update
-     * @param line The line where we are taking the document
+     * @param line     The line where we are taking the document
      * @throws CoreException If the request failed
      */
     public void updateDocument(long objectId, ExpenseSheetLine line, Document document) throws CoreException {
@@ -166,9 +172,10 @@ public class ExpenseSheetLineService extends BasicService<ExpenseSheetLine, Expe
 
     /**
      * Update only not null fields of the document
+     *
      * @param objectId The id of the object linked to the document
      * @param document The document to update
-     * @param line The line where we are taking the document
+     * @param line     The line where we are taking the document
      * @throws CoreException If the request failed
      */
     public void updatePartiallyDocument(long objectId, ExpenseSheetLine line, Document document) throws CoreException {
@@ -179,9 +186,10 @@ public class ExpenseSheetLineService extends BasicService<ExpenseSheetLine, Expe
 
     /**
      * Delete the document for the object identified by the id of the document
+     *
      * @param objectId The id of the object linked to the document
-     * @param id The document id to update
-     * @param line The line where we are taking the document
+     * @param id       The document id to update
+     * @param line     The line where we are taking the document
      * @throws CoreException If the request failed
      */
     public void deleteDocument(long objectId, ExpenseSheetLine line, long id) throws CoreException {
@@ -192,9 +200,10 @@ public class ExpenseSheetLineService extends BasicService<ExpenseSheetLine, Expe
 
     /**
      * upload the document for the object identified by the id of the document
+     *
      * @param objectId The id of the object linked to the document
-     * @param id The document id to upload
-     * @param line The line where we are taking the document
+     * @param id       The document id to upload
+     * @param line     The line where we are taking the document
      * @throws CoreException If the request failed
      */
     public void uploadDocument(long objectId, ExpenseSheetLine line, long id) throws CoreException {
@@ -203,9 +212,10 @@ public class ExpenseSheetLineService extends BasicService<ExpenseSheetLine, Expe
 
     /**
      * download the document for the object identified by the id of the document
+     *
      * @param objectId The id of the object linked to the document
-     * @param id The document id to download
-     * @param line The line where we are taking the document
+     * @param id       The document id to download
+     * @param line     The line where we are taking the document
      * @throws CoreException If the request failed
      */
     public void downloadDocument(long objectId, ExpenseSheetLine line, long id) throws CoreException {

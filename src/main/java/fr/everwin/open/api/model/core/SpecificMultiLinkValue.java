@@ -18,52 +18,49 @@ package fr.everwin.open.api.model.core;
 
 import java.util.List;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementWrapper;
-import javax.xml.bind.annotation.XmlElements;
-import javax.xml.bind.annotation.XmlRootElement;
+// import javax.xml.bind.annotation.XmlAccessType;
+// import javax.xml.bind.annotation.XmlAccessorType;
+// import javax.xml.bind.annotation.XmlElement;
+// import javax.xml.bind.annotation.XmlElementWrapper;
+// import javax.xml.bind.annotation.XmlElements;
+// import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * Specialized SpecificData for multi link
+ *
  * @author everwin-team
  */
-@XmlRootElement
-@XmlAccessorType(XmlAccessType.FIELD)
 public class SpecificMultiLinkValue extends SpecificData {
 
-	@XmlElementWrapper(name = "datalinks")
-	@XmlElements(@XmlElement(name = "datalink", type = DataLink.class))
-	private List<DataLink> datalinks;
+    private List<DataLink> datalinks;
 
-	public SpecificMultiLinkValue() {
-		super();
-		this.type = SpecificType.MULTILINK;
-	}
+    public SpecificMultiLinkValue() {
+        super();
+        this.type = SpecificType.MULTILINK;
+    }
 
-	public SpecificMultiLinkValue(String name) {
-		super(name);
-		this.type = SpecificType.MULTILINK;
-	}
+    public SpecificMultiLinkValue(String name) {
+        super(name);
+        this.type = SpecificType.MULTILINK;
+    }
 
-	public List<DataLink> getDatalinks() {
-		return datalinks;
-	}
+    public List<DataLink> getDatalinks() {
+        return datalinks;
+    }
 
-	public void setDatalinks(List<DataLink> datalinks) {
-		this.datalinks = datalinks;
-	}
+    public void setDatalinks(List<DataLink> datalinks) {
+        this.datalinks = datalinks;
+    }
 
-	@Override
-	public boolean equals(Object obj) {
-		if (obj == null)
-			return false;
-		if (obj instanceof SpecificMultiLinkValue) {
-			List<DataLink> datalinks = ((SpecificMultiLinkValue) obj).getDatalinks();
-			return (this.datalinks == null && datalinks == null) || this.datalinks.equals(datalinks);
-		} else {
-			return false;
-		}
-	}
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null)
+            return false;
+        if (obj instanceof SpecificMultiLinkValue) {
+            List<DataLink> datalinks = ((SpecificMultiLinkValue) obj).getDatalinks();
+            return (this.datalinks == null && datalinks == null) || this.datalinks.equals(datalinks);
+        } else {
+            return false;
+        }
+    }
 }

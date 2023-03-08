@@ -16,9 +16,9 @@
 
 package fr.everwin.open.api.model.expenses.scales;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import fr.everwin.open.api.model.core.BasicList;
 
-import javax.xml.bind.annotation.*;
 import java.util.List;
 
 /**
@@ -26,14 +26,14 @@ import java.util.List;
  *
  * @author d.storti
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name = "scalelist")
+
+
 public class ScaleList extends BasicList<Scale> {
 
     private final static String METHOD = "query";
 
-    @XmlElement(name = "scale")
-    @XmlElementWrapper(name = "scales")
+    //    @JsonProperty("scale")
+    @JsonProperty("scales")
     private List<Scale> items;
 
     @Override

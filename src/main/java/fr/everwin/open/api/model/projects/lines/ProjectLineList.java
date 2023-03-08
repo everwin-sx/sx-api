@@ -17,9 +17,9 @@
 
 package fr.everwin.open.api.model.projects.lines;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import fr.everwin.open.api.model.core.BasicList;
 
-import javax.xml.bind.annotation.*;
 import java.util.List;
 
 /**
@@ -27,29 +27,24 @@ import java.util.List;
  *
  * @author d.storti
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name = "projectlinelist")
+
+
 public class ProjectLineList extends BasicList<ProjectLine> {
 
     private final static String METHOD = "query";
 
-    @XmlTransient
     private int limit;
 
-    @XmlTransient
     private int offset; // Getters for these
 
-    @XmlTransient
     private int modelLimit; // Getters for these
 
-    @XmlTransient
     private String filter; // Getters for these
 
-    @XmlTransient
     private String sort; // Getters for these1
 
-    @XmlElement(name = "project-line")
-    @XmlElementWrapper(name = "project-lines")
+    //    @JsonProperty("project-line")
+    @JsonProperty("project-lines")
     private List<ProjectLine> items;
 
 

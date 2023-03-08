@@ -15,225 +15,201 @@
  */
 
 package fr.everwin.open.api.model.test;
-import java.util.Date;
-import java.util.List;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementWrapper;
-import javax.xml.bind.annotation.XmlElements;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import fr.everwin.open.api.model.core.BasicObject;
-import fr.everwin.open.api.model.core.DataLink;
-import fr.everwin.open.api.model.core.SpecificData;
-import fr.everwin.open.api.model.core.SpecificDateValue;
-import fr.everwin.open.api.model.core.SpecificLinkValue;
-import fr.everwin.open.api.model.core.SpecificMultiLinkValue;
-import fr.everwin.open.api.model.core.SpecificNumberValue;
-import fr.everwin.open.api.model.core.SpecificStringValue;
-import fr.everwin.open.api.util.JsonDateDeserializer;
-import fr.everwin.open.api.util.XMLDateAdapter;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import fr.everwin.open.api.model.core.DataLink;
+import fr.everwin.open.api.model.core.SpecificData;
+import fr.everwin.open.api.util.JsonDateDeserializer;
+
+import java.util.Date;
+import java.util.List;
 
 /**
  * @author d.storti
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@XmlRootElement(name = "account")
-@XmlAccessorType(XmlAccessType.FIELD)
+
+
 public class WSTest {
 
-	private Long id;
+    private Long id;
 
-	private String idWst;
+    private String idWst;
 
-	@XmlJavaTypeAdapter(XMLDateAdapter.class)
-	@JsonDeserialize(using = JsonDateDeserializer.class)
-	private Date dateWst;
+    @JsonDeserialize(using = JsonDateDeserializer.class)
+    private Date dateWst;
 
-	@XmlJavaTypeAdapter(XMLDateAdapter.class)
-	@JsonDeserialize(using = JsonDateDeserializer.class)
-	private Date date2Wst;
+    @JsonDeserialize(using = JsonDateDeserializer.class)
+    private Date date2Wst;
 
-	private Short decodeIntWst;
-	private String decodeStrWst;
-	private String notNullWst;
-	private String stringWst;
-	private Short shortWst;
-	private Integer intWst;
-	private Long longWst;
-	private Double doubleWst;
-	private String labelWst;
-	@XmlElement(name="wstWss")
-	private DataLink wstWss;
-	@XmlElementWrapper(name = "wstWscs")
-	@XmlElements(@XmlElement(name = "wstWsc", type = DataLink.class))
-	private List<DataLink> wstWscs;
-	@XmlElement
-	private DataLink wst2Wss;
-	@XmlElement
-	private String id2Wst;
+    private Short decodeIntWst;
+    private String decodeStrWst;
+    private String notNullWst;
+    private String stringWst;
+    private Short shortWst;
+    private Integer intWst;
+    private Long longWst;
+    private Double doubleWst;
+    private String labelWst;
+    private DataLink wstWss;
+    private List<DataLink> wstWscs;
 
-	@XmlElementWrapper(name = "extraData")
-	@XmlElements({@XmlElement(name = "stringval", type = SpecificStringValue.class),
-				  @XmlElement(name = "dateval", type = SpecificDateValue.class),
-				  @XmlElement(name = "numberval", type = SpecificNumberValue.class),
-				  @XmlElement(name = "link", type = SpecificLinkValue.class),
-				  @XmlElement(name = "multilink", type = SpecificMultiLinkValue.class)})
-	private List<SpecificData> extraData;
+    private DataLink wst2Wss;
 
-	public WSTest() {
+    private String id2Wst;
 
-	}
+    private List<SpecificData> extraData;
 
-	public Long getId() {
-		return id;
-	}
+    public WSTest() {
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    }
 
-	public String getIdWst() {
-		return idWst;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public void setIdWst(String idWst) {
-		this.idWst = idWst;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public Date getDateWst() {
-		return dateWst;
-	}
+    public String getIdWst() {
+        return idWst;
+    }
 
-	public void setDateWst(Date dateWst) {
-		this.dateWst = dateWst;
-	}
+    public void setIdWst(String idWst) {
+        this.idWst = idWst;
+    }
 
-	public Short getDecodeIntWst() {
-		return decodeIntWst;
-	}
+    public Date getDateWst() {
+        return dateWst;
+    }
 
-	public void setDecodeIntWst(Short decodeIntWst) {
-		this.decodeIntWst = decodeIntWst;
-	}
+    public void setDateWst(Date dateWst) {
+        this.dateWst = dateWst;
+    }
 
-	public String getDecodeStrWst() {
-		return decodeStrWst;
-	}
+    public Short getDecodeIntWst() {
+        return decodeIntWst;
+    }
 
-	public void setDecodeStrWst(String decodeStringWst) {
-		this.decodeStrWst = decodeStringWst;
-	}
-	public String getNotNullWst() {
-		return notNullWst;
-	}
+    public void setDecodeIntWst(Short decodeIntWst) {
+        this.decodeIntWst = decodeIntWst;
+    }
 
-	public void setNotNullWst(String notNullWst) {
-		this.notNullWst = notNullWst;
-	}
+    public String getDecodeStrWst() {
+        return decodeStrWst;
+    }
 
-	public List<SpecificData> getExtraData() {
-		return extraData;
-	}
+    public void setDecodeStrWst(String decodeStringWst) {
+        this.decodeStrWst = decodeStringWst;
+    }
 
-	public void setExtraData(List<SpecificData> extraData) {
-		this.extraData = extraData;
-	}
+    public String getNotNullWst() {
+        return notNullWst;
+    }
 
-	public Short getShortWst() {
-		return shortWst;
-	}
+    public void setNotNullWst(String notNullWst) {
+        this.notNullWst = notNullWst;
+    }
 
-	public void setShortWst(Short shortWst) {
-		this.shortWst = shortWst;
-	}
+    public List<SpecificData> getExtraData() {
+        return extraData;
+    }
 
-	public Integer getIntWst() {
-		return intWst;
-	}
+    public void setExtraData(List<SpecificData> extraData) {
+        this.extraData = extraData;
+    }
 
-	public void setIntWst(Integer intWst) {
-		this.intWst = intWst;
-	}
+    public Short getShortWst() {
+        return shortWst;
+    }
 
-	public Long getLongWst() {
-		return longWst;
-	}
+    public void setShortWst(Short shortWst) {
+        this.shortWst = shortWst;
+    }
 
-	public void setLongWst(Long longWst) {
-		this.longWst = longWst;
-	}
+    public Integer getIntWst() {
+        return intWst;
+    }
 
-	public String getLabelWst() {
-		return labelWst;
-	}
+    public void setIntWst(Integer intWst) {
+        this.intWst = intWst;
+    }
 
-	public void setLabelWst(String labelWst) {
-		this.labelWst = labelWst;
-	}
+    public Long getLongWst() {
+        return longWst;
+    }
 
-	public DataLink getWstWss() {
-		return wstWss;
-	}
+    public void setLongWst(Long longWst) {
+        this.longWst = longWst;
+    }
 
-	public void setWstWss(DataLink wstWss) {
-		this.wstWss = wstWss;
-	}
+    public String getLabelWst() {
+        return labelWst;
+    }
 
-	public List<DataLink> getWstWscs() {
-		return wstWscs;
-	}
+    public void setLabelWst(String labelWst) {
+        this.labelWst = labelWst;
+    }
 
-	public void setWstWscs(List<DataLink> wstWscs) {
-		this.wstWscs = wstWscs;
-	}
+    public DataLink getWstWss() {
+        return wstWss;
+    }
 
-	public Double getDoubleWst() {
-		return doubleWst;
-	}
+    public void setWstWss(DataLink wstWss) {
+        this.wstWss = wstWss;
+    }
 
-	public void setDoubleWst(Double doubleWst) {
-		this.doubleWst = doubleWst;
-	}
+    public List<DataLink> getWstWscs() {
+        return wstWscs;
+    }
 
-	public Date getDate2Wst() {
-		return date2Wst;
-	}
+    public void setWstWscs(List<DataLink> wstWscs) {
+        this.wstWscs = wstWscs;
+    }
 
-	public void setDate2Wst(Date date2Wst) {
-		this.date2Wst = date2Wst;
-	}
+    public Double getDoubleWst() {
+        return doubleWst;
+    }
 
-	public String getStringWst() {
-		return stringWst;
-	}
+    public void setDoubleWst(Double doubleWst) {
+        this.doubleWst = doubleWst;
+    }
 
-	public void setStringWst(String stringWst) {
-		this.stringWst = stringWst;
-	}
+    public Date getDate2Wst() {
+        return date2Wst;
+    }
 
-	public DataLink getWst2Wss() {
-		return wst2Wss;
-	}
+    public void setDate2Wst(Date date2Wst) {
+        this.date2Wst = date2Wst;
+    }
 
-	public void setWst2Wss(DataLink wst2Wss) {
-		this.wst2Wss = wst2Wss;
-	}
+    public String getStringWst() {
+        return stringWst;
+    }
 
-	public String getId2Wst() {
-		return id2Wst;
-	}
+    public void setStringWst(String stringWst) {
+        this.stringWst = stringWst;
+    }
 
-	public void setId2Wst(String id2Wst) {
-		this.id2Wst = id2Wst;
-	}
+    public DataLink getWst2Wss() {
+        return wst2Wss;
+    }
+
+    public void setWst2Wss(DataLink wst2Wss) {
+        this.wst2Wss = wst2Wss;
+    }
+
+    public String getId2Wst() {
+        return id2Wst;
+    }
+
+    public void setId2Wst(String id2Wst) {
+        this.id2Wst = id2Wst;
+    }
 
 
 }

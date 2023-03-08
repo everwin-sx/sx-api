@@ -21,25 +21,27 @@ import java.util.Map;
 
 /**
  * A wrapper class for query parameters
+ *
  * @author everwin-team
  */
 public class RequestParams {
     private Map<String, String> params;
 
-    public void setParams(Map<String, String> params) {
-        this.params = params;
-    }
-
     public Map<String, String> getParams() {
         return this.params;
+    }
+
+    public void setParams(Map<String, String> params) {
+        this.params = params;
     }
 
     /**
      * The RequestParams Builder
      */
-    public static class Builder{
+    public static class Builder {
         private Map<String, String> params;
-        public Builder(){
+
+        public Builder() {
             this.params = new HashMap<String, String>();
         }
 
@@ -52,7 +54,7 @@ public class RequestParams {
             return this;
         }
 
-        public Builder limit(int value){
+        public Builder limit(int value) {
             return param("limit", value + "");
         }
 
@@ -72,7 +74,7 @@ public class RequestParams {
             return param("sort", value);
         }
 
-        public RequestParams build(){
+        public RequestParams build() {
             RequestParams requestParams = new RequestParams();
             requestParams.setParams(params);
             return requestParams;

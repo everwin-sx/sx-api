@@ -19,24 +19,25 @@
  */
 package fr.everwin.open.api.model.entities;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import fr.everwin.open.api.model.core.BasicList;
 
-import javax.xml.bind.annotation.*;
 import java.util.List;
 
 
 /**
  * Entities list
+ *
  * @author everwin-team
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name = "entitylist")
+
+
 public class EntityList extends BasicList<Entity> {
 
     private final static String METHOD = "query";
 
-    @XmlElement(name = "entity")
-    @XmlElementWrapper(name = "entities")
+    //    @JsonProperty("entity")
+    @JsonProperty("entities")
     private List<Entity> items;
 
     /**

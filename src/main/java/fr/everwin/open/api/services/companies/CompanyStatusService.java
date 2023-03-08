@@ -16,25 +16,25 @@
 
 package fr.everwin.open.api.services.companies;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import fr.everwin.open.api.ClientApi;
 import fr.everwin.open.api.exception.CoreException;
 import fr.everwin.open.api.model.companies.status.Status;
 import fr.everwin.open.api.model.companies.status.StatusList;
 import fr.everwin.open.api.services.core.BasicService;
 import fr.everwin.open.api.util.RequestParams;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Service manager to query the company status API resource
+ *
  * @author everwin-team
  */
 public class CompanyStatusService extends BasicService<Status, StatusList> {
 
     protected static final Logger LOGGER = LoggerFactory.getLogger(CompanyStatusService.class);
 
-    public CompanyStatusService(ClientApi client){
+    public CompanyStatusService(ClientApi client) {
         super(client, "company-status");
         setModels(Status.class, StatusList.class);
     }

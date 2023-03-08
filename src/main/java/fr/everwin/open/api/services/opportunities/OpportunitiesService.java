@@ -16,9 +16,6 @@
 
 package fr.everwin.open.api.services.opportunities;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import fr.everwin.open.api.ClientApi;
 import fr.everwin.open.api.exception.CoreException;
 import fr.everwin.open.api.model.leads.LeadList;
@@ -29,16 +26,19 @@ import fr.everwin.open.api.services.core.BasicService;
 import fr.everwin.open.api.services.leads.LeadService;
 import fr.everwin.open.api.services.salesactions.SalesActionsService;
 import fr.everwin.open.api.util.RequestParams;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Service manager to query the opportunity API resource
+ *
  * @author everwin-team
  */
 public class OpportunitiesService extends BasicService<Opportunity, OpportunityList> {
 
     protected static final Logger LOGGER = LoggerFactory.getLogger(OpportunitiesService.class);
 
-    public OpportunitiesService(ClientApi client){
+    public OpportunitiesService(ClientApi client) {
         super(client, "opportunities");
         setModels(Opportunity.class, OpportunityList.class);
     }
@@ -50,6 +50,6 @@ public class OpportunitiesService extends BasicService<Opportunity, OpportunityL
 
     public LeadList queryLeadsFromOpportunity(Opportunity opportunity, RequestParams params) throws CoreException {
         LeadService service = new LeadService(clientApi);
-        return service.query(path + "/" + opportunity.getId() +"/leads", params);
+        return service.query(path + "/" + opportunity.getId() + "/leads", params);
     }
 }

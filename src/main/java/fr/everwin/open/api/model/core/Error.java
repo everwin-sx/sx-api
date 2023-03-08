@@ -18,6 +18,7 @@ package fr.everwin.open.api.model.core;
 
 /**
  * Error class used to parse a response error message
+ *
  * @author everwin-team
  */
 public class Error {

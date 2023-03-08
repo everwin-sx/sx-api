@@ -16,22 +16,22 @@
 
 package fr.everwin.open.api.model.quotes.crm;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import fr.everwin.open.api.model.core.BasicList;
 
-import javax.xml.bind.annotation.*;
 import java.util.List;
 
 /**
  * @author d.storti
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name = "crmquotelinelist")
+
+
 public class CRMQuoteList extends BasicList<CRMQuote> {
 
     private final static String METHOD = "query";
 
-    @XmlElement(name = "crmquote")
-    @XmlElementWrapper(name = "crmquotes")
+    //    @JsonProperty("crmquote")
+    @JsonProperty("crmquotes")
     private List<CRMQuote> items;
 
     @Override

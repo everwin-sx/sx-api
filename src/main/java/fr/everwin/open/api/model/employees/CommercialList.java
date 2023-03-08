@@ -16,9 +16,9 @@
 
 package fr.everwin.open.api.model.employees;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import fr.everwin.open.api.model.core.BasicList;
 
-import javax.xml.bind.annotation.*;
 import java.util.List;
 
 /**
@@ -26,14 +26,14 @@ import java.util.List;
  *
  * @author d.storti
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name = "commerciallist")
+
+
 public class CommercialList extends BasicList<Employee> {
 
     private final static String METHOD = "queryCommercial";
 
-    @XmlElement(name = "employee")
-    @XmlElementWrapper(name = "employees")
+    //    @JsonProperty("employee")
+    @JsonProperty("employees")
     private List<Employee> items;
 
     @Override

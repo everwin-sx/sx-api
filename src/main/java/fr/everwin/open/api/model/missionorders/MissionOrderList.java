@@ -16,22 +16,22 @@
 
 package fr.everwin.open.api.model.missionorders;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import fr.everwin.open.api.model.core.BasicList;
 
-import javax.xml.bind.annotation.*;
 import java.util.List;
 
 /**
  * @author d.storti
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name = "leadeventlist")
+
+
 public class MissionOrderList extends BasicList<MissionOrder> {
 
     private final static String METHOD = "query";
 
-    @XmlElement(name = "missionorder")
-    @XmlElementWrapper(name = "missionorders")
+    //    @JsonProperty("missionorder")
+    @JsonProperty("missionorders")
     private List<MissionOrder> items;
 
     public MissionOrderList() {

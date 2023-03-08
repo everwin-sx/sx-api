@@ -15,252 +15,235 @@
  */
 package fr.everwin.open.api.model.products;
 
-import java.util.Date;
-import java.util.List;
-
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementWrapper;
-import javax.xml.bind.annotation.XmlElements;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import fr.everwin.open.api.model.core.BasicObject;
-import fr.everwin.open.api.model.core.DataLink;
-import fr.everwin.open.api.model.core.SpecificData;
-import fr.everwin.open.api.model.core.SpecificDateValue;
-import fr.everwin.open.api.model.core.SpecificLinkValue;
-import fr.everwin.open.api.model.core.SpecificMultiLinkValue;
-import fr.everwin.open.api.model.core.SpecificNumberValue;
-import fr.everwin.open.api.model.core.SpecificStringValue;
-import fr.everwin.open.api.util.JsonDateDeserializer;
-import fr.everwin.open.api.util.XMLDateAdapter;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import fr.everwin.open.api.model.core.BasicObject;
+import fr.everwin.open.api.model.core.DataLink;
+import fr.everwin.open.api.model.core.SpecificData;
+import fr.everwin.open.api.util.JsonDateDeserializer;
+
+import java.util.Date;
+import java.util.List;
 
 
 /**
  * Product class
+ *
  * @author everwin-team
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@XmlRootElement(name = "product")
-@XmlAccessorType(XmlAccessType.FIELD)
+
+
 public class Product extends BasicObject {
 
-	@XmlElement(required = true, nillable = false)
-	private String name;
+    private String name;
 
-	@XmlElement
-	private String label;
 
-	@XmlElementWrapper(name = "rowTypes")
-	@XmlElements(@XmlElement(name = "rowtype", type = DataLink.class))
-	private List<DataLink> rowTypes;
+    private String label;
 
-	@XmlElement
-	private String customerRef;
+    private List<DataLink> rowTypes;
 
-	@XmlElement
-	private DataLink supplier;
 
-	@XmlElement
-	private String supplierRef;
+    private String customerRef;
 
-	@XmlElement
-	private Double salePrice;
 
-	@XmlElement
-	private Double purchasePrice;
+    private DataLink supplier;
 
-	@XmlElement
-	private Double purchaseListPrice;
 
-	@XmlElement
-	private Double purchaseDiscountRate;
+    private String supplierRef;
 
-	@XmlElement
-	private DataLink currency;
 
-	@XmlElement
-	private Short isArchived;
+    private Double salePrice;
 
-	@XmlElement
-	private DataLink category;
 
-	@XmlElement
-	private Short customerAssetsGeneration;
+    private Double purchasePrice;
 
-	@XmlElement
-	@XmlJavaTypeAdapter(XMLDateAdapter.class)
-	@JsonDeserialize(using = JsonDateDeserializer.class)
-	private Date createdOnTime;
 
-	@XmlElement
-	@XmlJavaTypeAdapter(XMLDateAdapter.class)
-	@JsonDeserialize(using = JsonDateDeserializer.class)
-	private Date updatedOnTime;
+    private Double purchaseListPrice;
 
-	@XmlElement
-	private String updatedBy;
 
-	@XmlElementWrapper(name = "extraData")
-	@XmlElements({@XmlElement(name = "stringval", type = SpecificStringValue.class),
-			@XmlElement(name = "dateval", type = SpecificDateValue.class),
-			@XmlElement(name = "numberval", type = SpecificNumberValue.class),
-			@XmlElement(name = "link", type = SpecificLinkValue.class),
-			@XmlElement(name = "multilink", type = SpecificMultiLinkValue.class)})
-	private List<SpecificData> extraData;
+    private Double purchaseDiscountRate;
 
-	/**
-	 *
-	 */
-	public Product() {
-		// TODO Auto-generated constructor stub
-	}
 
-	public String getName() {
-		return name;
-	}
+    private DataLink currency;
 
-	public void setName(String name) {
-		this.name = name;
-	}
 
-	public String getLabel() {
-		return label;
-	}
+    private Short isArchived;
 
-	public void setLabel(String label) {
-		this.label = label;
-	}
 
-	public List<DataLink> getRowTypes() {
-		return rowTypes;
-	}
+    private DataLink category;
 
-	public void setRowTypes(List<DataLink> rowTypes) {
-		this.rowTypes = rowTypes;
-	}
 
-	public String getCustomerRef() {
-		return customerRef;
-	}
+    private Short customerAssetsGeneration;
 
-	public void setCustomerRef(String customerRef) {
-		this.customerRef = customerRef;
-	}
 
-	public DataLink getSupplier() {
-		return supplier;
-	}
+    @JsonDeserialize(using = JsonDateDeserializer.class)
+    private Date createdOnTime;
 
-	public void setSupplier(DataLink supplier) {
-		this.supplier = supplier;
-	}
 
-	public String getSupplierRef() {
-		return supplierRef;
-	}
+    @JsonDeserialize(using = JsonDateDeserializer.class)
+    private Date updatedOnTime;
 
-	public void setSupplierRef(String supplierRef) {
-		this.supplierRef = supplierRef;
-	}
 
-	public Double getSalePrice() {
-		return salePrice;
-	}
+    private String updatedBy;
 
-	public void setSalePrice(Double salePrice) {
-		this.salePrice = salePrice;
-	}
+    private List<SpecificData> extraData;
 
-	public Double getPurchasePrice() {
-		return purchasePrice;
-	}
+    /**
+     *
+     */
+    public Product() {
+        // TODO Auto-generated constructor stub
+    }
 
-	public void setPurchasePrice(Double purchasePrice) {
-		this.purchasePrice = purchasePrice;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public Double getPurchaseListPrice() {
-		return purchaseListPrice;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public void setPurchaseListPrice(Double purchaseListPrice) {
-		this.purchaseListPrice = purchaseListPrice;
-	}
+    public String getLabel() {
+        return label;
+    }
 
-	public Double getPurchaseDiscountRate() {
-		return purchaseDiscountRate;
-	}
+    public void setLabel(String label) {
+        this.label = label;
+    }
 
-	public void setPurchaseDiscountRate(Double purchaseDiscountRate) {
-		this.purchaseDiscountRate = purchaseDiscountRate;
-	}
+    public List<DataLink> getRowTypes() {
+        return rowTypes;
+    }
 
-	public DataLink getCurrency() {
-		return currency;
-	}
+    public void setRowTypes(List<DataLink> rowTypes) {
+        this.rowTypes = rowTypes;
+    }
 
-	public void setCurrency(DataLink currency) {
-		this.currency = currency;
-	}
+    public String getCustomerRef() {
+        return customerRef;
+    }
 
-	public Short getIsArchived() {
-		return isArchived;
-	}
+    public void setCustomerRef(String customerRef) {
+        this.customerRef = customerRef;
+    }
 
-	public void setIsArchived(Short isArchived) {
-		this.isArchived = isArchived;
-	}
+    public DataLink getSupplier() {
+        return supplier;
+    }
 
-	public Date getCreatedOnTime() {
-		return createdOnTime;
-	}
+    public void setSupplier(DataLink supplier) {
+        this.supplier = supplier;
+    }
 
-	public void setCreatedOnTime(Date createdOnTime) {
-		this.createdOnTime = createdOnTime;
-	}
+    public String getSupplierRef() {
+        return supplierRef;
+    }
 
-	public Date getUpdatedOnTime() {
-		return updatedOnTime;
-	}
+    public void setSupplierRef(String supplierRef) {
+        this.supplierRef = supplierRef;
+    }
 
-	public void setUpdatedOnTime(Date updatedOnTime) {
-		this.updatedOnTime = updatedOnTime;
-	}
+    public Double getSalePrice() {
+        return salePrice;
+    }
 
-	public DataLink getCategory() {
-		return category;
-	}
+    public void setSalePrice(Double salePrice) {
+        this.salePrice = salePrice;
+    }
 
-	public void setCategory(DataLink category) {
-		this.category = category;
-	}
+    public Double getPurchasePrice() {
+        return purchasePrice;
+    }
 
-	public Short getCustomerAssetsGeneration()  {return customerAssetsGeneration; }
+    public void setPurchasePrice(Double purchasePrice) {
+        this.purchasePrice = purchasePrice;
+    }
 
-	public void setCustomerAssetsGeneration(Short customerAssetsGeneration) { this.customerAssetsGeneration = customerAssetsGeneration; }
+    public Double getPurchaseListPrice() {
+        return purchaseListPrice;
+    }
 
-	public String getUpdatedBy() { return updatedBy; }
+    public void setPurchaseListPrice(Double purchaseListPrice) {
+        this.purchaseListPrice = purchaseListPrice;
+    }
 
-	public void setUpdatedBy(String updatedBy) { this.updatedBy = updatedBy; }
+    public Double getPurchaseDiscountRate() {
+        return purchaseDiscountRate;
+    }
 
-	public List<SpecificData> getExtraData() {
-		return extraData;
-	}
+    public void setPurchaseDiscountRate(Double purchaseDiscountRate) {
+        this.purchaseDiscountRate = purchaseDiscountRate;
+    }
 
-	public void setExtraData(List<SpecificData> extraData) {
-		this.extraData = extraData;
-	}
+    public DataLink getCurrency() {
+        return currency;
+    }
 
-	@Override
-	public String toString() {
-		return "Product [name=" + name + ", label=" + label + "]";
-	}
+    public void setCurrency(DataLink currency) {
+        this.currency = currency;
+    }
+
+    public Short getIsArchived() {
+        return isArchived;
+    }
+
+    public void setIsArchived(Short isArchived) {
+        this.isArchived = isArchived;
+    }
+
+    public Date getCreatedOnTime() {
+        return createdOnTime;
+    }
+
+    public void setCreatedOnTime(Date createdOnTime) {
+        this.createdOnTime = createdOnTime;
+    }
+
+    public Date getUpdatedOnTime() {
+        return updatedOnTime;
+    }
+
+    public void setUpdatedOnTime(Date updatedOnTime) {
+        this.updatedOnTime = updatedOnTime;
+    }
+
+    public DataLink getCategory() {
+        return category;
+    }
+
+    public void setCategory(DataLink category) {
+        this.category = category;
+    }
+
+    public Short getCustomerAssetsGeneration() {
+        return customerAssetsGeneration;
+    }
+
+    public void setCustomerAssetsGeneration(Short customerAssetsGeneration) {
+        this.customerAssetsGeneration = customerAssetsGeneration;
+    }
+
+    public String getUpdatedBy() {
+        return updatedBy;
+    }
+
+    public void setUpdatedBy(String updatedBy) {
+        this.updatedBy = updatedBy;
+    }
+
+    public List<SpecificData> getExtraData() {
+        return extraData;
+    }
+
+    public void setExtraData(List<SpecificData> extraData) {
+        this.extraData = extraData;
+    }
+
+    @Override
+    public String toString() {
+        return "Product [name=" + name + ", label=" + label + "]";
+    }
 }

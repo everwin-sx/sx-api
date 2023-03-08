@@ -16,237 +16,218 @@
 
 package fr.everwin.open.api.model.supplierinvoices.lines;
 
-import java.util.List;
-
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementWrapper;
-import javax.xml.bind.annotation.XmlElements;
-import javax.xml.bind.annotation.XmlRootElement;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
-
 import fr.everwin.open.api.model.core.BasicObject;
 import fr.everwin.open.api.model.core.DataLink;
 import fr.everwin.open.api.model.core.ExpenseMultiCurrencyValue;
-import fr.everwin.open.api.model.core.MultiCurrencyValue;
 import fr.everwin.open.api.model.core.SpecificData;
-import fr.everwin.open.api.model.core.SpecificDateValue;
-import fr.everwin.open.api.model.core.SpecificLinkValue;
-import fr.everwin.open.api.model.core.SpecificMultiLinkValue;
-import fr.everwin.open.api.model.core.SpecificNumberValue;
-import fr.everwin.open.api.model.core.SpecificStringValue;
+
+import java.util.List;
 
 /**
  * Represents a supplier invoice line
+ *
  * @author everwin-team
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@XmlRootElement(name = "supplierinvoiceline")
-@XmlAccessorType(XmlAccessType.FIELD)
+
+
 public class SupplierInvoiceLine extends BasicObject {
 
-	@XmlElement
-	private DataLink supplierInvoice;
 
-	@XmlElement
-	private String title;
+    private DataLink supplierInvoice;
 
-	@XmlElement
-	private Double quantity;
 
-	@XmlElement
-	private SupplierInvoiceLineMultiCurrencyValue amount;
+    private String title;
 
-	@XmlElement
-	private SupplierInvoiceLineMultiCurrencyValue totalWithoutVat;
 
-	@XmlElement
-	private DataLink vat;
+    private Double quantity;
 
-	@XmlElement
-	private SupplierInvoiceLineMultiCurrencyValue vatAmount;
 
-	@XmlElement
-	private SupplierInvoiceLineMultiCurrencyValue vatAmount2;
+    private SupplierInvoiceLineMultiCurrencyValue amount;
 
-	@XmlElement
-	private ExpenseMultiCurrencyValue totalIncludingVat;
 
-	@XmlElement
-	private ExpenseMultiCurrencyValue totalToBeCharged;
+    private SupplierInvoiceLineMultiCurrencyValue totalWithoutVat;
 
-	@XmlElement
-	private DataLink project;
 
-	@XmlElement
-	private DataLink type;
+    private DataLink vat;
 
-	@XmlElement
-	private DataLink projectLine;
 
-	@XmlElement
-	private DataLink account;
+    private SupplierInvoiceLineMultiCurrencyValue vatAmount;
 
-	@XmlElement
-	private DataLink supplierOrderLine;
 
-	@XmlElement
-	private DataLink supplierDeliveryLine;
+    private SupplierInvoiceLineMultiCurrencyValue vatAmount2;
 
-	@XmlElementWrapper(name = "extraData")
-	@XmlElements({
-			@XmlElement(name = "stringval", type = SpecificStringValue.class),
-			@XmlElement(name = "dateval", type = SpecificDateValue.class),
-			@XmlElement(name = "numberval", type = SpecificNumberValue.class),
-			@XmlElement(name = "link", type = SpecificLinkValue.class),
-			@XmlElement(name = "multilink", type = SpecificMultiLinkValue.class)})
-	private List<SpecificData> extraData;
 
-	public SupplierInvoiceLine() {
-	}
+    private ExpenseMultiCurrencyValue totalIncludingVat;
 
-	@Override
-	public String toString() {
-		return "Supplier invoice line [supplierInvoice=" + (supplierInvoice!=null ? supplierInvoice.getId() : null) + ", Title=" + title + "]";
-	}
 
-	public DataLink getSupplierInvoice() {
-		return supplierInvoice;
-	}
+    private ExpenseMultiCurrencyValue totalToBeCharged;
 
-	public void setSupplierInvoice(DataLink supplierInvoice) {
-		this.supplierInvoice = supplierInvoice;
-	}
 
-	public String getTitle() {
-		return title;
-	}
+    private DataLink project;
 
-	public void setTitle(String title) {
-		this.title = title;
-	}
 
-	public Double getQuantity() {
-		return quantity;
-	}
+    private DataLink type;
 
-	public void setQuantity(Double quantity) {
-		this.quantity = quantity;
-	}
 
-	public SupplierInvoiceLineMultiCurrencyValue getAmount() {
-		return amount;
-	}
+    private DataLink projectLine;
 
-	public void setAmount(SupplierInvoiceLineMultiCurrencyValue amount) {
-		this.amount = amount;
-	}
 
-	public SupplierInvoiceLineMultiCurrencyValue getTotalWithoutVat() {
-		return totalWithoutVat;
-	}
+    private DataLink account;
 
-	public void setTotalWithoutVat(SupplierInvoiceLineMultiCurrencyValue totalWithoutVat) {
-		this.totalWithoutVat = totalWithoutVat;
-	}
 
-	public DataLink getVat() {
-		return vat;
-	}
+    private DataLink supplierOrderLine;
 
-	public void setVat(DataLink vat) {
-		this.vat = vat;
-	}
 
-	public SupplierInvoiceLineMultiCurrencyValue getVatAmount() {
-		return vatAmount;
-	}
+    private DataLink supplierDeliveryLine;
 
-	public void setVatAmount(SupplierInvoiceLineMultiCurrencyValue vatAmount) {
-		this.vatAmount = vatAmount;
-	}
 
-	public SupplierInvoiceLineMultiCurrencyValue getVatAmount2() {
-		return vatAmount2;
-	}
+    private List<SpecificData> extraData;
 
-	public void setVatAmount2(SupplierInvoiceLineMultiCurrencyValue vatAmount2) {
-		this.vatAmount2 = vatAmount2;
-	}
+    public SupplierInvoiceLine() {
+    }
 
-	public ExpenseMultiCurrencyValue getTotalIncludingVat() {
-		return totalIncludingVat;
-	}
+    @Override
+    public String toString() {
+        return "Supplier invoice line [supplierInvoice=" + (supplierInvoice != null ? supplierInvoice.getId() : null) + ", Title=" + title + "]";
+    }
 
-	public void setTotalIncludingVat(ExpenseMultiCurrencyValue totalIncludingVat) {
-		this.totalIncludingVat = totalIncludingVat;
-	}
+    public DataLink getSupplierInvoice() {
+        return supplierInvoice;
+    }
 
-	public ExpenseMultiCurrencyValue getTotalToBeCharged() {
-		return totalToBeCharged;
-	}
+    public void setSupplierInvoice(DataLink supplierInvoice) {
+        this.supplierInvoice = supplierInvoice;
+    }
 
-	public void setTotalToBeCharged(ExpenseMultiCurrencyValue totalToBeCharged) {
-		this.totalToBeCharged = totalToBeCharged;
-	}
+    public String getTitle() {
+        return title;
+    }
 
-	public DataLink getProject() {
-		return project;
-	}
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
-	public void setProject(DataLink project) {
-		this.project = project;
-	}
+    public Double getQuantity() {
+        return quantity;
+    }
 
-	public DataLink getType() {
-		return type;
-	}
+    public void setQuantity(Double quantity) {
+        this.quantity = quantity;
+    }
 
-	public void setType(DataLink type) {
-		this.type = type;
-	}
+    public SupplierInvoiceLineMultiCurrencyValue getAmount() {
+        return amount;
+    }
 
-	public DataLink getProjectLine() {
-		return projectLine;
-	}
+    public void setAmount(SupplierInvoiceLineMultiCurrencyValue amount) {
+        this.amount = amount;
+    }
 
-	public void setProjectLine(DataLink projectLine) {
-		this.projectLine = projectLine;
-	}
+    public SupplierInvoiceLineMultiCurrencyValue getTotalWithoutVat() {
+        return totalWithoutVat;
+    }
 
-	public DataLink getAccount() {
-		return account;
-	}
+    public void setTotalWithoutVat(SupplierInvoiceLineMultiCurrencyValue totalWithoutVat) {
+        this.totalWithoutVat = totalWithoutVat;
+    }
 
-	public void setAccount(DataLink account) {
-		this.account = account;
-	}
+    public DataLink getVat() {
+        return vat;
+    }
 
-	public DataLink getSupplierOrderLine() {
-		return supplierOrderLine;
-	}
+    public void setVat(DataLink vat) {
+        this.vat = vat;
+    }
 
-	public void setSupplierOrderLine(DataLink supplierOrderLine) {
-		this.supplierOrderLine = supplierOrderLine;
-	}
+    public SupplierInvoiceLineMultiCurrencyValue getVatAmount() {
+        return vatAmount;
+    }
 
-	public DataLink getSupplierDeliveryLine() {
-		return supplierDeliveryLine;
-	}
+    public void setVatAmount(SupplierInvoiceLineMultiCurrencyValue vatAmount) {
+        this.vatAmount = vatAmount;
+    }
 
-	public void setSupplierDeliveryLine(DataLink supplierDeliveryLine) {
-		this.supplierDeliveryLine = supplierDeliveryLine;
-	}
+    public SupplierInvoiceLineMultiCurrencyValue getVatAmount2() {
+        return vatAmount2;
+    }
 
-	public List<SpecificData> getExtraData() {
-		return extraData;
-	}
+    public void setVatAmount2(SupplierInvoiceLineMultiCurrencyValue vatAmount2) {
+        this.vatAmount2 = vatAmount2;
+    }
 
-	public void setExtraData(List<SpecificData> extraData) {
-		this.extraData = extraData;
-	}
+    public ExpenseMultiCurrencyValue getTotalIncludingVat() {
+        return totalIncludingVat;
+    }
+
+    public void setTotalIncludingVat(ExpenseMultiCurrencyValue totalIncludingVat) {
+        this.totalIncludingVat = totalIncludingVat;
+    }
+
+    public ExpenseMultiCurrencyValue getTotalToBeCharged() {
+        return totalToBeCharged;
+    }
+
+    public void setTotalToBeCharged(ExpenseMultiCurrencyValue totalToBeCharged) {
+        this.totalToBeCharged = totalToBeCharged;
+    }
+
+    public DataLink getProject() {
+        return project;
+    }
+
+    public void setProject(DataLink project) {
+        this.project = project;
+    }
+
+    public DataLink getType() {
+        return type;
+    }
+
+    public void setType(DataLink type) {
+        this.type = type;
+    }
+
+    public DataLink getProjectLine() {
+        return projectLine;
+    }
+
+    public void setProjectLine(DataLink projectLine) {
+        this.projectLine = projectLine;
+    }
+
+    public DataLink getAccount() {
+        return account;
+    }
+
+    public void setAccount(DataLink account) {
+        this.account = account;
+    }
+
+    public DataLink getSupplierOrderLine() {
+        return supplierOrderLine;
+    }
+
+    public void setSupplierOrderLine(DataLink supplierOrderLine) {
+        this.supplierOrderLine = supplierOrderLine;
+    }
+
+    public DataLink getSupplierDeliveryLine() {
+        return supplierDeliveryLine;
+    }
+
+    public void setSupplierDeliveryLine(DataLink supplierDeliveryLine) {
+        this.supplierDeliveryLine = supplierDeliveryLine;
+    }
+
+    public List<SpecificData> getExtraData() {
+        return extraData;
+    }
+
+    public void setExtraData(List<SpecificData> extraData) {
+        this.extraData = extraData;
+    }
 }

@@ -16,13 +16,13 @@
 
 package fr.everwin.open.api.util;
 
+import javax.net.ssl.X509TrustManager;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 
-import javax.net.ssl.X509TrustManager;
-
 /**
  * SSLTrustManager to disable SSL host check
+ *
  * @author everwin-team
  */
 public class SSLTrustManager implements X509TrustManager {

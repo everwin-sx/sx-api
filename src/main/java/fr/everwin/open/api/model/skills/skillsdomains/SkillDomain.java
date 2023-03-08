@@ -15,163 +15,144 @@
  */
 
 /**
- * 
+ *
  */
 package fr.everwin.open.api.model.skills.skillsdomains;
 
-import java.util.List;
-
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementWrapper;
-import javax.xml.bind.annotation.XmlElements;
-import javax.xml.bind.annotation.XmlRootElement;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 import fr.everwin.open.api.model.core.BasicObject;
 import fr.everwin.open.api.model.core.DataLink;
 import fr.everwin.open.api.model.core.SpecificData;
-import fr.everwin.open.api.model.core.SpecificDateValue;
-import fr.everwin.open.api.model.core.SpecificLinkValue;
-import fr.everwin.open.api.model.core.SpecificMultiLinkValue;
-import fr.everwin.open.api.model.core.SpecificNumberValue;
-import fr.everwin.open.api.model.core.SpecificStringValue;
+
+import java.util.List;
 
 /**
  * Represents a skill domain
+ *
  * @author everwin-team
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-@XmlRootElement(name = "skillDomain")
-@XmlAccessorType(XmlAccessType.FIELD)
+
+
 public class SkillDomain extends BasicObject {
 
-	@XmlElement
-	private String label;
 
-	@XmlElement
-	private String description;
+    private String label;
 
-	@XmlElement
-	private Short isUnique;
 
-	@XmlElement
-	private Short hasDynamicSkills;
+    private String description;
 
-	@XmlElement
-	private Short hasDate;
 
-	@XmlElementWrapper(name = "entities")
-	@XmlElements(@XmlElement(name = "entities", type = DataLink.class))
-	private List<DataLink> entities;
+    private Short isUnique;
 
-	@XmlElement
-	private Short order;
 
-	@XmlElement
-	private Short cvparserType;
+    private Short hasDynamicSkills;
 
-	@XmlElement
-	private Short hasComment;
-	
-	@XmlElementWrapper(name = "extraData")
-	@XmlElements({@XmlElement(name = "stringval", type = SpecificStringValue.class),
-			@XmlElement(name = "dateval", type = SpecificDateValue.class),
-			@XmlElement(name = "numberval", type = SpecificNumberValue.class),
-			@XmlElement(name = "link", type = SpecificLinkValue.class),
-			@XmlElement(name = "multilink", type = SpecificMultiLinkValue.class)})
-	private List<SpecificData> extraData;
-	/**
-	 *
-	 */
-	public SkillDomain() {
 
-	}
+    private Short hasDate;
 
-	public String getLabel() {
-		return label;
-	}
+    private List<DataLink> entities;
 
-	public void setLabel(String label) {
-		this.label = label;
-	}
 
-	public String getDescription() {
-		return description;
-	}
+    private Short order;
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
 
-	public Short getIsUnique() {
-		return isUnique;
-	}
+    private Short cvparserType;
 
-	public void setIsUnique(Short isUnique) {
-		this.isUnique = isUnique;
-	}
 
-	public Short getHasDynamicSkills() {
-		return hasDynamicSkills;
-	}
+    private Short hasComment;
 
-	public void setHasDynamicSkills(Short hasDynamicSkills) {
-		this.hasDynamicSkills = hasDynamicSkills;
-	}
+    private List<SpecificData> extraData;
 
-	public Short getHasDate() {
-		return hasDate;
-	}
+    /**
+     *
+     */
+    public SkillDomain() {
 
-	public void setHasDate(Short hasDate) {
-		this.hasDate = hasDate;
-	}
+    }
 
-	public List<DataLink> getEntities() {
-		return entities;
-	}
+    public String getLabel() {
+        return label;
+    }
 
-	public void setEntities(List<DataLink> entities) {
-		this.entities = entities;
-	}
+    public void setLabel(String label) {
+        this.label = label;
+    }
 
-	public Short getOrder() {
-		return order;
-	}
+    public String getDescription() {
+        return description;
+    }
 
-	public void setOrder(Short order) {
-		this.order = order;
-	}
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
-	public Short getCvparserType() {
-		return cvparserType;
-	}
+    public Short getIsUnique() {
+        return isUnique;
+    }
 
-	public void setCvparserType(Short cvparserType) {
-		this.cvparserType = cvparserType;
-	}
+    public void setIsUnique(Short isUnique) {
+        this.isUnique = isUnique;
+    }
 
-	public Short getHasComment() {
-		return hasComment;
-	}
+    public Short getHasDynamicSkills() {
+        return hasDynamicSkills;
+    }
 
-	public void setHasComment(Short hasComment) {
-		this.hasComment = hasComment;
-	}
+    public void setHasDynamicSkills(Short hasDynamicSkills) {
+        this.hasDynamicSkills = hasDynamicSkills;
+    }
 
-	public List<SpecificData> getExtraData() {
-		return extraData;
-	}
+    public Short getHasDate() {
+        return hasDate;
+    }
 
-	public void setExtraData(List<SpecificData> extraData) {
-		this.extraData = extraData;
-	}
+    public void setHasDate(Short hasDate) {
+        this.hasDate = hasDate;
+    }
 
-	@Override
-	public String toString() {
-		return "SkillDomain [label=" + label + ", entities=" + entities + "]";
-	}
+    public List<DataLink> getEntities() {
+        return entities;
+    }
+
+    public void setEntities(List<DataLink> entities) {
+        this.entities = entities;
+    }
+
+    public Short getOrder() {
+        return order;
+    }
+
+    public void setOrder(Short order) {
+        this.order = order;
+    }
+
+    public Short getCvparserType() {
+        return cvparserType;
+    }
+
+    public void setCvparserType(Short cvparserType) {
+        this.cvparserType = cvparserType;
+    }
+
+    public Short getHasComment() {
+        return hasComment;
+    }
+
+    public void setHasComment(Short hasComment) {
+        this.hasComment = hasComment;
+    }
+
+    public List<SpecificData> getExtraData() {
+        return extraData;
+    }
+
+    public void setExtraData(List<SpecificData> extraData) {
+        this.extraData = extraData;
+    }
+
+    @Override
+    public String toString() {
+        return "SkillDomain [label=" + label + ", entities=" + entities + "]";
+    }
 }

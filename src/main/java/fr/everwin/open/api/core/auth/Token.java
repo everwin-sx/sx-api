@@ -20,6 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * Oauth token model
+ *
  * @author everwin-team
  */
 public class Token {
@@ -28,12 +29,12 @@ public class Token {
     @JsonProperty("expires_in")
     private long expires;
 
-    public void setAccessToken(String accessToken) {
-        this.accessToken = accessToken;
-    }
-
     public String getAccessToken() {
         return this.accessToken;
+    }
+
+    public void setAccessToken(String accessToken) {
+        this.accessToken = accessToken;
     }
 
     public long getExpires() {

@@ -16,199 +16,166 @@
 
 package fr.everwin.open.api.model.entities;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
-
 import fr.everwin.open.api.model.core.BasicObject;
 import fr.everwin.open.api.model.core.DataLink;
 
 /**
  * Represents an organization level in SX
+ *
  * @author everwin-team
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@XmlRootElement(name = "entity")
-@XmlAccessorType(XmlAccessType.FIELD)
+
+
 public class Entity extends BasicObject {
 
-	@XmlElement
-	private String code;
 
-	@XmlElement(required = true, nillable = false)
-	protected String name;
+    public Short isArchived;
+    public Short isAccounting;
+    public Integer type;
+    public Integer position;
+    public Short isAnalytical;
+    public String vatNumber;
+    protected String name;
+    protected String businessName;
+    protected String accountingId;
+    protected String phone;
+    protected String fax;
+    protected DataLink accountCurrency;
+    protected DataLink manageCurrency;
+    protected DataLink reportCurrency;
+    DataLink parent;
+    private String code;
 
-	@XmlElement
-	protected String businessName;
+    public String getCode() {
+        return code;
+    }
 
-	@XmlElement
-	public Short isArchived;
+    public void setCode(String code) {
+        this.code = code;
+    }
 
-	@XmlElement
-	public Short isAccounting;
+    public String getName() {
+        return name;
+    }
 
-	@XmlElement
-	public Integer type;
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	@XmlElement
-	public Integer position;
+    public String getBusinessName() {
+        return businessName;
+    }
 
-	DataLink parent;
+    public void setBusinessName(String businessName) {
+        this.businessName = businessName;
+    }
 
-	@XmlElement
-	protected String accountingId;
+    public Short getIsArchived() {
+        return isArchived;
+    }
 
-	@XmlElement
-	public Short isAnalytical;
+    public void setIsArchived(Short isArchived) {
+        this.isArchived = isArchived;
+    }
 
-	@XmlElement
-	protected String phone;
+    public Short getIsAccounting() {
+        return isAccounting;
+    }
 
-	@XmlElement
-	protected String fax;
+    public void setIsAccounting(Short isAccounting) {
+        this.isAccounting = isAccounting;
+    }
 
-	@XmlElement
-	public String vatNumber;
+    public Integer getType() {
+        return type;
+    }
 
-	@XmlElement
-	protected DataLink accountCurrency;
+    public void setType(Integer type) {
+        this.type = type;
+    }
 
-	@XmlElement
-	protected DataLink manageCurrency;
+    public Integer getPosition() {
+        return position;
+    }
 
-	@XmlElement
-	protected DataLink reportCurrency;
+    public void setPosition(Integer position) {
+        this.position = position;
+    }
 
-	public String getCode() {
-		return code;
-	}
+    public DataLink getParent() {
+        return parent;
+    }
 
-	public void setCode(String code) {
-		this.code = code;
-	}
+    public void setParent(DataLink parent) {
+        this.parent = parent;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public String getAccountingId() {
+        return accountingId;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public void setAccountingId(String accountingId) {
+        this.accountingId = accountingId;
+    }
 
-	public String getBusinessName() {
-		return businessName;
-	}
+    public Short getIsAnalytical() {
+        return isAnalytical;
+    }
 
-	public void setBusinessName(String businessName) {
-		this.businessName = businessName;
-	}
+    public void setIsAnalytical(Short isAnalytical) {
+        this.isAnalytical = isAnalytical;
+    }
 
-	public Short getIsArchived() {
-		return isArchived;
-	}
+    public String getPhone() {
+        return phone;
+    }
 
-	public void setIsArchived(Short isArchived) {
-		this.isArchived = isArchived;
-	}
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
 
-	public Short getIsAccounting() {
-		return isAccounting;
-	}
+    public String getFax() {
+        return fax;
+    }
 
-	public void setIsAccounting(Short isAccounting) {
-		this.isAccounting = isAccounting;
-	}
+    public void setFax(String fax) {
+        this.fax = fax;
+    }
 
-	public Integer getType() {
-		return type;
-	}
+    public String getVatNumber() {
+        return vatNumber;
+    }
 
-	public void setType(Integer type) {
-		this.type = type;
-	}
+    public void setVatNumber(String vatNumber) {
+        this.vatNumber = vatNumber;
+    }
 
-	public Integer getPosition() {
-		return position;
-	}
+    public DataLink getAccountCurrency() {
+        return accountCurrency;
+    }
 
-	public void setPosition(Integer position) {
-		this.position = position;
-	}
+    public void setAccountCurrency(DataLink accountCurrency) {
+        this.accountCurrency = accountCurrency;
+    }
 
-	public DataLink getParent() {
-		return parent;
-	}
+    public DataLink getManageCurrency() {
+        return manageCurrency;
+    }
 
-	public void setParent(DataLink parent) {
-		this.parent = parent;
-	}
+    public void setManageCurrency(DataLink manageCurrency) {
+        this.manageCurrency = manageCurrency;
+    }
 
-	public String getAccountingId() {
-		return accountingId;
-	}
+    public DataLink getReportCurrency() {
+        return reportCurrency;
+    }
 
-	public void setAccountingId(String accountingId) {
-		this.accountingId = accountingId;
-	}
-
-	public Short getIsAnalytical() {
-		return isAnalytical;
-	}
-
-	public void setIsAnalytical(Short isAnalytical) {
-		this.isAnalytical = isAnalytical;
-	}
-
-	public String getPhone() {
-		return phone;
-	}
-
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
-
-	public String getFax() {
-		return fax;
-	}
-
-	public void setFax(String fax) {
-		this.fax = fax;
-	}
-
-	public String getVatNumber() {
-		return vatNumber;
-	}
-
-	public void setVatNumber(String vatNumber) {
-		this.vatNumber = vatNumber;
-	}
-
-	public DataLink getAccountCurrency() {
-		return accountCurrency;
-	}
-
-	public void setAccountCurrency(DataLink accountCurrency) {
-		this.accountCurrency = accountCurrency;
-	}
-
-	public DataLink getManageCurrency() {
-		return manageCurrency;
-	}
-
-	public void setManageCurrency(DataLink manageCurrency) {
-		this.manageCurrency = manageCurrency;
-	}
-
-	public DataLink getReportCurrency() {
-		return reportCurrency;
-	}
-
-	public void setReportCurrency(DataLink reportCurrency) {
-		this.reportCurrency = reportCurrency;
-	}
+    public void setReportCurrency(DataLink reportCurrency) {
+        this.reportCurrency = reportCurrency;
+    }
 }

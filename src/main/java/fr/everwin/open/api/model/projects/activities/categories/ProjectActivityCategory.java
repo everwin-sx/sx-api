@@ -15,39 +15,40 @@
  */
 
 package fr.everwin.open.api.model.projects.activities.categories;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementWrapper;
-import javax.xml.bind.annotation.XmlElements;
-import javax.xml.bind.annotation.XmlRootElement;
-import java.util.List;
+// import javax.xml.bind.annotation.XmlAccessType;
+// import javax.xml.bind.annotation.XmlAccessorType;
+// import javax.xml.bind.annotation.XmlElement;
+// import javax.xml.bind.annotation.XmlElementWrapper;
+// import javax.xml.bind.annotation.XmlElements;
+// import javax.xml.bind.annotation.XmlRootElement;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import fr.everwin.open.api.model.core.BasicObject;
 import fr.everwin.open.api.model.core.DataLink;
 
+import java.util.List;
+
 /**
  * ProjectActivityCategory class
+ *
  * @author d.storti
  */
-        @JsonIgnoreProperties(ignoreUnknown = true)
-        @JsonInclude(JsonInclude.Include.NON_NULL)
-        @XmlRootElement(name = "project-activity-category")
-        @XmlAccessorType(XmlAccessType.FIELD)
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+
+
 public class ProjectActivityCategory extends BasicObject {
 
-    @XmlElement
+
     private Short type;
 
-    @XmlElement
+
     private String label;
 
-    @XmlElementWrapper(name = "entities")
-    @XmlElements(@XmlElement(name = "entities", type = DataLink.class))
     private List<DataLink> entities;
 
-    @XmlElement
+
     private Short archived;
 
     public Short getType() {

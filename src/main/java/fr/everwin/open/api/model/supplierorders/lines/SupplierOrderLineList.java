@@ -15,46 +15,38 @@
  */
 
 /**
- * 
+ *
  */
 package fr.everwin.open.api.model.supplierorders.lines;
 
-import java.util.List;
-
-import javax.ws.rs.core.Link;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementWrapper;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
+import com.fasterxml.jackson.annotation.JsonProperty;
 import fr.everwin.open.api.model.core.BasicList;
-import fr.everwin.open.api.model.nafs.Naf;
-import fr.everwin.open.api.model.supplierorders.SupplierOrder;
+
+import java.util.List;
 
 
 /**
  * Supplier order lines list
+ *
  * @author everwin-team
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name = "supplierorderlinelist")
+
+
 public class SupplierOrderLineList extends BasicList<SupplierOrderLine> {
 
-	private final static String METHOD = "query";
+    private final static String METHOD = "query";
 
-	@XmlElement(name = "supplierorderline")
-	@XmlElementWrapper(name = "supplierorderlines")
-	private List<SupplierOrderLine> items;
+    //    @JsonProperty("supplierorderline")
+    @JsonProperty("supplierorderlines")
+    private List<SupplierOrderLine> items;
 
-	@Override
-	public List<SupplierOrderLine> getItems() {
-		return items;
-	}
+    @Override
+    public List<SupplierOrderLine> getItems() {
+        return items;
+    }
 
-	@Override
-	public void setItems(List<SupplierOrderLine> items) {
-		this.items = items;
-	}
+    @Override
+    public void setItems(List<SupplierOrderLine> items) {
+        this.items = items;
+    }
 }

@@ -19,39 +19,40 @@
  */
 package fr.everwin.open.api.model.products.categories;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import fr.everwin.open.api.model.core.BasicList;
 
-import javax.xml.bind.annotation.*;
 import java.util.List;
 
 
 /**
  * Product categories list
+ *
  * @author everwin-team
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name = "product-categorylist")
+
+
 public class CategoryList extends BasicList<Category> {
 
     private final static String METHOD = "query";
 
-    @XmlTransient
+
     private int limit;
 
-    @XmlTransient
+
     private int offset;
 
-    @XmlTransient
+
     private int modelLimit;
 
-    @XmlTransient
+
     private String filter;
 
-    @XmlTransient
+
     private String sort;
 
-    @XmlElement(name = "product-category")
-    @XmlElementWrapper(name = "product-categories")
+    //    @JsonProperty("product-category")
+    @JsonProperty("product-categories")
     private List<Category> items;
 
     public int getLimit() {

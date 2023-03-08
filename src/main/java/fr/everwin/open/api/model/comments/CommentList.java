@@ -19,23 +19,24 @@
  */
 package fr.everwin.open.api.model.comments;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import fr.everwin.open.api.model.core.BasicList;
 
-import javax.xml.bind.annotation.*;
 import java.util.List;
 
 /**
  * Comment class
+ *
  * @author everwin-team
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name = "commentlist")
+
+
 public class CommentList extends BasicList<Comment> {
 
     private final static String METHOD = "query";
 
-    @XmlElement(name = "comment")
-    @XmlElementWrapper(name = "comments")
+    //    @JsonProperty("comment")
+    @JsonProperty("comments")
     private List<Comment> items;
 
     /**

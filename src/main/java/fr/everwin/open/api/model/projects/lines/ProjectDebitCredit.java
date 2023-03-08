@@ -15,79 +15,75 @@
  */
 
 package fr.everwin.open.api.model.projects.lines;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import fr.everwin.open.api.model.projects.lines.ProjectLineMultiCurrencyValue;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
  * @author d.storti
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-@XmlRootElement(name = "debit-credit")
-@XmlAccessorType(XmlAccessType.FIELD)
+
+
 public class ProjectDebitCredit {
 
-	@XmlElement
-	private Double quantity;
 
-	@XmlElement
-	private ProjectLineMultiCurrencyValue amount;
+    private Double quantity;
 
-	@XmlElement
-	private ProjectLineMultiCurrencyValue total;
 
-	/**
-	 *
-	 */
-	public ProjectDebitCredit() {
-		amount = new ProjectLineMultiCurrencyValue();
-		total = new ProjectLineMultiCurrencyValue();
-	}
+    private ProjectLineMultiCurrencyValue amount;
 
-	/**
-	 * @return the quantity
-	 */
-	public Double getQuantity() {
-		return quantity;
-	}
 
-	/**
-	 * @param quantity the quantity to set
-	 */
-	public void setQuantity(Double quantity) {
-		this.quantity = quantity;
-	}
+    private ProjectLineMultiCurrencyValue total;
 
-	/**
-	 * @return the amount
-	 */
-	public ProjectLineMultiCurrencyValue getAmount() {
-		return amount;
-	}
+    /**
+     *
+     */
+    public ProjectDebitCredit() {
+        amount = new ProjectLineMultiCurrencyValue();
+        total = new ProjectLineMultiCurrencyValue();
+    }
 
-	/**
-	 * @param amount the amount to set
-	 */
-	public void setAmount(ProjectLineMultiCurrencyValue amount) {
-		this.amount = amount;
-	}
+    /**
+     * @return the quantity
+     */
+    public Double getQuantity() {
+        return quantity;
+    }
 
-	/**
-	 * @return the total
-	 */
-	public ProjectLineMultiCurrencyValue getTotal() {
-		return total;
-	}
+    /**
+     * @param quantity the quantity to set
+     */
+    public void setQuantity(Double quantity) {
+        this.quantity = quantity;
+    }
 
-	/**
-	 * @param total the total to set
-	 */
-	public void setTotal(ProjectLineMultiCurrencyValue total) {
-		this.total = total;
-	}
+    /**
+     * @return the amount
+     */
+    public ProjectLineMultiCurrencyValue getAmount() {
+        return amount;
+    }
+
+    /**
+     * @param amount the amount to set
+     */
+    public void setAmount(ProjectLineMultiCurrencyValue amount) {
+        this.amount = amount;
+    }
+
+    /**
+     * @return the total
+     */
+    public ProjectLineMultiCurrencyValue getTotal() {
+        return total;
+    }
+
+    /**
+     * @param total the total to set
+     */
+    public void setTotal(ProjectLineMultiCurrencyValue total) {
+        this.total = total;
+    }
 
 }

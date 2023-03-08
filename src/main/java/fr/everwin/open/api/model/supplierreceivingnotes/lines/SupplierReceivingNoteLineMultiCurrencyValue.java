@@ -16,6 +16,7 @@
 
 
 package fr.everwin.open.api.model.supplierreceivingnotes.lines;
+
 import fr.everwin.open.api.model.core.ExpenseMultiCurrencyValue;
 
 /**

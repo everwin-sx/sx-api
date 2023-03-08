@@ -16,9 +16,6 @@
 
 package fr.everwin.open.api.services.companies;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import fr.everwin.open.api.ClientApi;
 import fr.everwin.open.api.exception.CoreException;
 import fr.everwin.open.api.model.companies.Company;
@@ -38,16 +35,19 @@ import fr.everwin.open.api.services.products.CustomerAssetsService;
 import fr.everwin.open.api.services.projects.ProjectsService;
 import fr.everwin.open.api.services.salesactions.SalesActionsService;
 import fr.everwin.open.api.util.RequestParams;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Service manager to query the companies API resource
+ *
  * @author everwin-team
  */
 public class CompaniesService extends BasicService<Company, CompanyList> {
 
     protected static final Logger LOGGER = LoggerFactory.getLogger(CompaniesService.class);
 
-    public CompaniesService(ClientApi client){
+    public CompaniesService(ClientApi client) {
         super(client, "companies");
         setModels(Company.class, CompanyList.class);
     }
@@ -82,7 +82,7 @@ public class CompaniesService extends BasicService<Company, CompanyList> {
 
     public ContactResponsibilityList queryResponsabilitiesFromCompany(Company company, RequestParams params) throws CoreException {
         ContactResponsibilitiesService service = new ContactResponsibilitiesService(clientApi);
-        return service.query( path + "/" + company.getId() + "/contact-responsibilities", params);
+        return service.query(path + "/" + company.getId() + "/contact-responsibilities", params);
     }
 
     public SalesActionList querySAForCompany(Company company, RequestParams params) throws CoreException {
@@ -92,21 +92,21 @@ public class CompaniesService extends BasicService<Company, CompanyList> {
 
     public ProjectList queryProjectsFromCompany(Company company, RequestParams params) throws CoreException {
         ProjectsService service = new ProjectsService(clientApi);
-        return service.query(path + "/" + company.getId() +"/projects", params);
+        return service.query(path + "/" + company.getId() + "/projects", params);
     }
 
     public LeadList queryLeadsFromCompany(Company company, RequestParams params) throws CoreException {
         LeadService service = new LeadService(clientApi);
-        return service.query(path + "/" + company.getId() +"/leads", params);
+        return service.query(path + "/" + company.getId() + "/leads", params);
     }
 
     public OpportunityList queryOpportunitiesFromCompany(Company company, RequestParams params) throws CoreException {
         OpportunitiesService service = new OpportunitiesService(clientApi);
-        return service.query(path + "/" + company.getId() +"/opportunities", params);
+        return service.query(path + "/" + company.getId() + "/opportunities", params);
     }
 
     public ContactResponsibilityList queryContactsFromCompany(Company company, RequestParams params) throws CoreException {
         ContactResponsibilitiesService service = new ContactResponsibilitiesService(clientApi);
-        return service.query(path + "/" + company.getId() +"/contacts", params);
+        return service.query(path + "/" + company.getId() + "/contacts", params);
     }
 }

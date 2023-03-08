@@ -16,7 +16,7 @@
 
 package com.everwin.open.api.core;
 
-import javax.ws.rs.core.Response;
+import jakarta.ws.rs.core.Response;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -28,6 +28,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.testng.Assert;
 import org.testng.SkipException;
 import org.testng.annotations.AfterClass;
@@ -51,7 +53,7 @@ import fr.everwin.open.api.services.core.BasicService;
  */
 public abstract class BasicTest<T extends BasicObject, S extends BasicService> {
 
-    protected static final org.apache.logging.log4j.Logger LOG4J = org.apache.logging.log4j.LoggerFactory.getLogger();
+    protected static final Logger LOGGER = LoggerFactory.getLogger(BasicTest.class);
     protected ClientApi clientApi;
     protected S service;
     protected T objectReceived;
@@ -223,7 +225,7 @@ public abstract class BasicTest<T extends BasicObject, S extends BasicService> {
         try {
             time = df.parse(timeValue);
         } catch (ParseException e) {
-            LOG4J.error(e.getMessage(), e);
+            LOGGER.error(e.getMessage(), e);
         }
         return time;
     }
@@ -234,7 +236,7 @@ public abstract class BasicTest<T extends BasicObject, S extends BasicService> {
         try {
             dateStart = df.parse(dateValue);
         } catch (ParseException e) {
-            LOG4J.error(e.getMessage(), e);
+            LOGGER.error(e.getMessage(), e);
         }
         return dateStart;
     }

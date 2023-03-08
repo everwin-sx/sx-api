@@ -28,10 +28,10 @@ import fr.everwin.open.api.model.core.Error;
 import fr.everwin.open.api.model.documents.Document;
 import fr.everwin.open.api.model.documents.DocumentList;
 import fr.everwin.open.api.util.RequestParams;
+import jakarta.ws.rs.core.Response;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.ws.rs.core.Response;
 import java.io.File;
 import java.util.Date;
 
@@ -43,10 +43,10 @@ import java.util.Date;
  */
 public class BasicService<O extends BasicObject, L extends BasicList> {
 
-    protected static final Logger LOGGER = LoggerFactory.getLogger(BasicService.class);
     public static final String LOCATION = "Location";
     public static final String COMMENTS = "/comments/";
     public static final String DOCUMENTS = "/documents/";
+    protected static final Logger LOGGER = LoggerFactory.getLogger(BasicService.class);
     /**
      * The client API
      */

@@ -19,24 +19,25 @@
  */
 package fr.everwin.open.api.model.skills.skillsdomains;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import fr.everwin.open.api.model.core.BasicList;
 
-import javax.xml.bind.annotation.*;
 import java.util.List;
 
 
 /**
  * Skill domains list
+ *
  * @author everwin-team
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name = "skilldomainlist")
+
+
 public class SkillDomainList extends BasicList<SkillDomain> {
 
     private final static String METHOD = "query";
 
-    @XmlElement(name = "skilldomain")
-    @XmlElementWrapper(name = "skilldomains")
+    //    @JsonProperty("skilldomain")
+    @JsonProperty("skilldomains")
     private List<SkillDomain> items;
 
 

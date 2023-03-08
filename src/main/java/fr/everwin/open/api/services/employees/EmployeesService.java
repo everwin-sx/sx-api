@@ -1,23 +1,20 @@
 /*
-* Copyright (C) 2021 Everwin (www.everwin.fr)
-*
-* Licensed under the Apache License, Version 2.0 (the "License");
-* you may not use this file except in compliance with the License.
-* You may obtain a copy of the License at
-*
-*       http://www.apache.org/licenses/LICENSE-2.0
-*
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS,
-* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-* See the License for the specific language governing permissions and
-* limitations under the License.
-*/
+ * Copyright (C) 2021 Everwin (www.everwin.fr)
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *       http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 package fr.everwin.open.api.services.employees;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import fr.everwin.open.api.ClientApi;
 import fr.everwin.open.api.exception.CoreException;
@@ -32,16 +29,19 @@ import fr.everwin.open.api.services.leads.LeadService;
 import fr.everwin.open.api.services.leaverequests.TypeService;
 import fr.everwin.open.api.services.vehicles.VehiclesService;
 import fr.everwin.open.api.util.RequestParams;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
-* Service manager to query the employee API resource
-* @author d.storti
-*/
+ * Service manager to query the employee API resource
+ *
+ * @author d.storti
+ */
 public class EmployeesService extends BasicService<Employee, EmployeeList> {
 
     protected static final Logger LOGGER = LoggerFactory.getLogger(EmployeesService.class);
 
-    public EmployeesService(ClientApi client){
+    public EmployeesService(ClientApi client) {
         super(client, "employees");
         setModels(Employee.class, EmployeeList.class);
     }
@@ -64,17 +64,17 @@ public class EmployeesService extends BasicService<Employee, EmployeeList> {
 
     public VehicleList queryVehicle(Employee employee, RequestParams params) throws CoreException {
         VehiclesService vehiclesService = new VehiclesService(clientApi);
-        return vehiclesService.query(path + "/"+employee.getId()+"/vehicles", params);
+        return vehiclesService.query(path + "/" + employee.getId() + "/vehicles", params);
     }
 
     public TypeList queryLRType(Employee employee, RequestParams params) throws CoreException {
         TypeService TypeService = new TypeService(clientApi);
-        return TypeService.query(path + "/"+employee.getId()+"/leave-request-types", params);
+        return TypeService.query(path + "/" + employee.getId() + "/leave-request-types", params);
     }
 
     public LeadList queryLeadsFromEmployee(Employee employee, RequestParams params) throws CoreException {
         LeadService service = new LeadService(clientApi);
-        return service.query(path + "/" + employee.getId() +"/leads", params);
+        return service.query(path + "/" + employee.getId() + "/leads", params);
     }
 
     public EmployeeSkillList querySkillsFromEmployee(Employee employee, RequestParams params) throws CoreException {

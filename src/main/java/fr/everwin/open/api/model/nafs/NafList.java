@@ -19,23 +19,24 @@
  */
 package fr.everwin.open.api.model.nafs;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import fr.everwin.open.api.model.core.BasicList;
 
-import javax.xml.bind.annotation.*;
 import java.util.List;
 
 
 /**
  * Nafs list
+ *
  * @author everwin-team
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name = "naflist")
+
+
 public class NafList extends BasicList<Naf> {
     private final static String METHOD = "query";
 
-    @XmlElement(name = "naf")
-    @XmlElementWrapper(name = "nafs")
+    //    @JsonProperty("naf")
+    @JsonProperty("nafs")
     private List<Naf> items;
 
 

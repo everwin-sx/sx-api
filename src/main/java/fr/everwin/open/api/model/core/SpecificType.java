@@ -15,30 +15,31 @@
  */
 
 /**
- * 
+ *
  */
 package fr.everwin.open.api.model.core;
 
 /**
  * SpecificType enumeration
+ *
  * @author everwin-team
  */
 public enum SpecificType {
-	STRING("string"), NUMBER("number"), DATE("date"), LINK("link"), MULTILINK("multilink");
+    STRING("string"), NUMBER("number"), DATE("date"), LINK("link"), MULTILINK("multilink");
 
-	private final String name;
+    private final String name;
 
-	SpecificType(String name) {
-		this.name = name;
-	}
+    SpecificType(String name) {
+        this.name = name;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public String getName() {
+        return name;
+    }
 
-	@Override
-	public String toString() {
-		return name;
-	}
+    @Override
+    public String toString() {
+        return name;
+    }
 
 }

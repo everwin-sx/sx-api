@@ -19,24 +19,25 @@
  */
 package fr.everwin.open.api.model.companies.status;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import fr.everwin.open.api.model.core.BasicList;
 
-import javax.xml.bind.annotation.*;
 import java.util.List;
 
 
 /**
  * Status list
+ *
  * @author everwin-team
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name = "statuslist")
+
+
 public class StatusList extends BasicList<Status> {
 
     private final static String METHOD = "query";
 
-    @XmlElement(name = "status")
-    @XmlElementWrapper(name = "status-list")
+    //    @JsonProperty("status")
+    @JsonProperty("status-list")
     private List<Status> items;
 
     @Override

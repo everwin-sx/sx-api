@@ -20,10 +20,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import fr.everwin.open.api.model.core.BasicObject;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * Country class
@@ -32,20 +28,20 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@XmlRootElement(name = "country")
-@XmlAccessorType(XmlAccessType.FIELD)
+
+
 public class Country extends BasicObject {
 
-    @XmlElement
+
     private String label;
 
-    @XmlElement
+
     private String nationality;
 
-    @XmlElement
+
     private Short isDefault;
 
-    @XmlElement
+
     private String iso;
 
     public String getLabel() {

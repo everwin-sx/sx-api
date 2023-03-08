@@ -15,10 +15,8 @@
  */
 
 package fr.everwin.open.api.model.employees.vehicles;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
+
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import fr.everwin.open.api.model.core.BasicObject;
@@ -26,36 +24,37 @@ import fr.everwin.open.api.model.core.DataLink;
 
 /**
  * Vehicle
+ *
  * @author d.storti
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@XmlRootElement(name = "vehicle")
-@XmlAccessorType(XmlAccessType.FIELD)
+
+
 public class Vehicle extends BasicObject {
 
-    @XmlElement
+
     private Short type;
 
-    @XmlElement
+
     private String label;
 
-    @XmlElement
+
     private String registration;
 
-    @XmlElement
+
     private Short fiscalPower;
 
-    @XmlElement
+
     private Short fuel;
 
-    @XmlElement
+
     private DataLink scale;
 
-    @XmlElement
+
     private DataLink owner;
 
-    @XmlElement
+
     private Short isArchived;
 
     public Short getType() {

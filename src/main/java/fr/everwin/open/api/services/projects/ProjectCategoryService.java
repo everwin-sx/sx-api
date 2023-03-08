@@ -16,9 +16,6 @@
 
 package fr.everwin.open.api.services.projects;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import fr.everwin.open.api.ClientApi;
 import fr.everwin.open.api.exception.CoreException;
 import fr.everwin.open.api.model.projects.categories.ProjectCategory;
@@ -26,6 +23,8 @@ import fr.everwin.open.api.model.projects.categories.ProjectCategoryList;
 import fr.everwin.open.api.model.projects.subcategories.ProjectSubCategoryList;
 import fr.everwin.open.api.services.core.BasicService;
 import fr.everwin.open.api.util.RequestParams;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author d.storti

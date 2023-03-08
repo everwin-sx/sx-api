@@ -16,23 +16,23 @@
 
 package fr.everwin.open.api.services.supplierinvoices;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import fr.everwin.open.api.ClientApi;
 import fr.everwin.open.api.model.supplierinvoices.lines.SupplierInvoiceLine;
 import fr.everwin.open.api.model.supplierinvoices.lines.SupplierInvoiceLineList;
 import fr.everwin.open.api.services.core.BasicService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Service manager to query the line API resource
+ *
  * @author everwin-team
  */
 public class SupplierInvoiceLineService extends BasicService<SupplierInvoiceLine, SupplierInvoiceLineList> {
 
     protected static final Logger LOGGER = LoggerFactory.getLogger(SupplierInvoiceLineService.class);
 
-    public SupplierInvoiceLineService(ClientApi client){
+    public SupplierInvoiceLineService(ClientApi client) {
         super(client, "supplier-invoice-lines");
         setModels(SupplierInvoiceLine.class, SupplierInvoiceLineList.class);
     }

@@ -16,11 +16,6 @@
 
 package fr.everwin.open.api.services.supplierinvoices;
 
-import javax.ws.rs.core.Response;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import fr.everwin.open.api.ClientApi;
 import fr.everwin.open.api.exception.CoreException;
 import fr.everwin.open.api.model.supplierinvoices.SupplierInvoice;
@@ -29,25 +24,30 @@ import fr.everwin.open.api.model.supplierinvoices.lines.SupplierInvoiceLine;
 import fr.everwin.open.api.model.supplierinvoices.lines.SupplierInvoiceLineList;
 import fr.everwin.open.api.services.core.BasicService;
 import fr.everwin.open.api.util.RequestParams;
+import jakarta.ws.rs.core.Response;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Service manager to query the supplierinvoice API resource
+ *
  * @author everwin-team
  */
 public class SupplierInvoiceService extends BasicService<SupplierInvoice, SupplierInvoiceList> {
 
-    protected static final Logger LOGGER = LoggerFactory.getLogger(SupplierInvoiceService.class);
     public static final String SUPPLIER_INVOICES = "supplier-invoices/";
     public static final String LINES = "/lines/";
+    protected static final Logger LOGGER = LoggerFactory.getLogger(SupplierInvoiceService.class);
 
-    public SupplierInvoiceService(ClientApi client){
+    public SupplierInvoiceService(ClientApi client) {
         super(client, "supplier-invoices");
         setModels(SupplierInvoice.class, SupplierInvoiceList.class);
     }
 
     /**
      * Create a new supplier invoice line for the object identified by the objectId
-     * @param id The id of the supplier invoice to link
+     *
+     * @param id                  The id of the supplier invoice to link
      * @param supplierInvoiceLine The supplier invoice line
      * @throws CoreException If the request failed
      */
@@ -63,7 +63,8 @@ public class SupplierInvoiceService extends BasicService<SupplierInvoice, Suppli
 
     /**
      * Update only not null fields of the supplier invoice Line
-     * @param objectId The id of the supplier invoice to link
+     *
+     * @param objectId            The id of the supplier invoice to link
      * @param supplierInvoiceLine The supplier invoice line to update
      * @throws CoreException If the request failed
      */
@@ -75,7 +76,8 @@ public class SupplierInvoiceService extends BasicService<SupplierInvoice, Suppli
 
     /**
      * Update the supplier invoice Line for the supplier invoice identified by the id
-     * @param objectId The id of the object to link
+     *
+     * @param objectId            The id of the object to link
      * @param supplierInvoiceLine The supplier invoice line to update
      * @throws CoreException If the request failed
      */
@@ -87,7 +89,8 @@ public class SupplierInvoiceService extends BasicService<SupplierInvoice, Suppli
 
     /**
      * Delete the supplier invoice Line for the supplier invoice identified by the id
-     * @param objectId The id of the supplier invoice
+     *
+     * @param objectId            The id of the supplier invoice
      * @param supplierInvoiceLine The Expense Sheet line to delet
      * @throws CoreException If the request failed
      */
@@ -99,7 +102,8 @@ public class SupplierInvoiceService extends BasicService<SupplierInvoice, Suppli
 
     /**
      * Get a collection of supplier invoice lines
-     * @param params Extra parameters
+     *
+     * @param params   Extra parameters
      * @param objectId The linked supplier invoice id
      * @return SupplierInvoiceLineList
      * @throws CoreException If the request failed
@@ -112,8 +116,9 @@ public class SupplierInvoiceService extends BasicService<SupplierInvoice, Suppli
 
     /**
      * Get the supplier invoice line identified by id
+     *
      * @param objectId The linked supplier invoices id
-     * @param lineId The line where we are taking the supplier invoices line
+     * @param lineId   The line where we are taking the supplier invoices line
      * @return The supplier invoices line
      * @throws CoreException If the request failed
      */

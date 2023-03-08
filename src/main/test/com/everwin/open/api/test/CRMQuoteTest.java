@@ -25,6 +25,7 @@ import org.testng.annotations.BeforeClass;
 
 import com.everwin.open.api.core.BasicTest;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import fr.everwin.open.api.model.core.BasicList;
 import fr.everwin.open.api.model.core.DataLink;
 import fr.everwin.open.api.model.quotes.crm.CRMQuote;

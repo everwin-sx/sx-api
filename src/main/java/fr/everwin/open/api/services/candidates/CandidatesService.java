@@ -16,9 +16,6 @@
 
 package fr.everwin.open.api.services.candidates;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import fr.everwin.open.api.ClientApi;
 import fr.everwin.open.api.exception.CoreException;
 import fr.everwin.open.api.model.candidates.Candidate;
@@ -27,22 +24,25 @@ import fr.everwin.open.api.model.skills.SkillList;
 import fr.everwin.open.api.services.core.BasicService;
 import fr.everwin.open.api.services.skills.SkillsService;
 import fr.everwin.open.api.util.RequestParams;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Service manager to query the candidates API resource
+ *
  * @author everwin-team
  */
 public class CandidatesService extends BasicService<Candidate, CandidateList> {
 
     protected static final Logger LOGGER = LoggerFactory.getLogger(CandidatesService.class);
 
-    public CandidatesService(ClientApi client){
+    public CandidatesService(ClientApi client) {
         super(client, "candidates");
         setModels(Candidate.class, CandidateList.class);
     }
 
     public SkillList querySkillsFromCandidates(Candidate candidate, RequestParams params) throws CoreException {
         SkillsService skillsService = new SkillsService(clientApi);
-        return skillsService.query(path + "/"+candidate.getId()+"/skills", params);
+        return skillsService.query(path + "/" + candidate.getId() + "/skills", params);
     }
 }

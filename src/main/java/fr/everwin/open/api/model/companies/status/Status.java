@@ -15,117 +15,113 @@
  */
 
 /**
- * 
+ *
  */
 package fr.everwin.open.api.model.companies.status;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
-
 import fr.everwin.open.api.model.core.BasicObject;
 
 
 /**
  * Status class
+ *
  * @author everwin-team
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@XmlRootElement(name = "status")
-@XmlAccessorType(XmlAccessType.FIELD)
+
+
 public class Status extends BasicObject {
 
-	@XmlElement
-	private String name;
 
-	@XmlElement
-	private String label;
+    private String name;
 
-	@XmlElement
-	private Short access;
 
-	@XmlElement
-	private int defaultStatus;
+    private String label;
 
-	@XmlElement
-	private String color;
 
-	@XmlElement
-	private Short archived;
+    private Short access;
 
-	@XmlElement
-	private Short corporamaStatus;
 
-	/**
-	 *
-	 */
-	public Status() {
-		// TODO Auto-generated constructor stub
-	}
+    private int defaultStatus;
 
-	public String getName() {
-		return name;
-	}
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    private String color;
 
-	public String getLabel() {
-		return label;
-	}
 
-	public void setLabel(String label) {
-		this.label = label;
-	}
+    private Short archived;
 
-	public int getAccess() {
-		return access;
-	}
 
-	public void setAccess(Short access) {
-		this.access = access;
-	}
+    private Short corporamaStatus;
 
-	public int getDefaultStatus() {
-		return defaultStatus;
-	}
+    /**
+     *
+     */
+    public Status() {
+        // TODO Auto-generated constructor stub
+    }
 
-	public void setDefaultStatus(Short defaultStatus) {
-		this.defaultStatus = defaultStatus;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public String getColor() {
-		return color;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public void setColor(String color) {
-		this.color = color;
-	}
+    public String getLabel() {
+        return label;
+    }
 
-	public Short getArchived() {
-		return archived;
-	}
+    public void setLabel(String label) {
+        this.label = label;
+    }
 
-	public void setArchived(Short archived) {
-		this.archived = archived;
-	}
+    public int getAccess() {
+        return access;
+    }
 
-	public Short getCorporamaStatus() {
-		return corporamaStatus;
-	}
+    public void setAccess(Short access) {
+        this.access = access;
+    }
 
-	public void setCorporamaStatus(Short corporamaStatus) {
-		this.corporamaStatus = corporamaStatus;
-	}
+    public int getDefaultStatus() {
+        return defaultStatus;
+    }
 
-	@Override
-	public String toString() {
-		return "Status [id=" + id + ", name=" + name + ", label=" + label + ", access=" + access + ", defaultStatus=" + defaultStatus + ", color=" + color + ", archived=" + archived + ", corporamaStatus=" + corporamaStatus + "]";
-	}
+    public void setDefaultStatus(Short defaultStatus) {
+        this.defaultStatus = defaultStatus;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public Short getArchived() {
+        return archived;
+    }
+
+    public void setArchived(Short archived) {
+        this.archived = archived;
+    }
+
+    public Short getCorporamaStatus() {
+        return corporamaStatus;
+    }
+
+    public void setCorporamaStatus(Short corporamaStatus) {
+        this.corporamaStatus = corporamaStatus;
+    }
+
+    @Override
+    public String toString() {
+        return "Status [id=" + id + ", name=" + name + ", label=" + label + ", access=" + access + ", defaultStatus=" + defaultStatus + ", color=" + color + ", archived=" + archived + ", corporamaStatus=" + corporamaStatus + "]";
+    }
 }

@@ -16,43 +16,42 @@
 
 /**
  * SpecificData class to manage extra data field
+ *
  * @author everwin-team
  */
 package fr.everwin.open.api.model.core;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlTransient;
+// import javax.xml.bind.annotation.XmlAccessType;
+// import javax.xml.bind.annotation.XmlAccessorType;
+// import javax.xml.bind.annotation.XmlElement;
+// import javax.xml.bind.annotation.XmlTransient;
 
-@XmlAccessorType(XmlAccessType.FIELD)
+
 public abstract class SpecificData {
 
-	@XmlElement
-	private String name;
+    protected SpecificType type;
+    private String name;
 
-	@XmlTransient
-	protected SpecificType type;
+    public SpecificData() {
+    }
 
-	public SpecificData() {}
+    public SpecificData(String name) {
+        this.name = name;
+    }
 
-	public SpecificData(String name) {
-		this.name = name;
-	}
+    public SpecificType getType() {
+        return type;
+    }
 
-	public SpecificType getType() {
-		return type;
-	}
+    public void setType(SpecificType type) {
+        this.type = type;
+    }
 
-	public void setType(SpecificType type) {
-		this.type = type;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 }

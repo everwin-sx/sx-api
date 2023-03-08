@@ -15,79 +15,70 @@
  */
 
 package fr.everwin.open.api.model.tools;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 /**
  * Candidate class
+ *
  * @author d.storti
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@XmlRootElement(name = "parameter")
-@XmlAccessorType(XmlAccessType.FIELD)
 public class Parameter {
 
-	@XmlElement(nillable = false)
-	private String name;
+    private String name;
+    private String stringValue;
+    private Double floatValue;
 
-	@XmlElement(required = true)
-	private String stringValue;
+    /**
+     *
+     */
+    public Parameter() {
 
-	@XmlElement(required = true)
-	private Double floatValue;
+    }
 
-	/**
-	 * 
-	 */
-	public Parameter() {
+    /**
+     * @return the name
+     */
+    public String getName() {
+        return name;
+    }
 
-	}
+    /**
+     * @param name the name to set
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	/**
-	 * @return the name
-	 */
-	public String getName() {
-		return name;
-	}
+    /**
+     * @return the stringValue
+     */
+    public String getStringValue() {
+        return stringValue;
+    }
 
-	/**
-	 * @param name the name to set
-	 */
-	public void setName(String name) {
-		this.name = name;
-	}
+    /**
+     * @param stringValue the stringValue to set
+     */
+    public void setStringValue(String stringValue) {
+        this.stringValue = stringValue;
+    }
 
-	/**
-	 * @return the stringValue
-	 */
-	public String getStringValue() {
-		return stringValue;
-	}
+    /**
+     * @return the floatValue
+     */
+    public Double getFloatValue() {
+        return floatValue;
+    }
 
-	/**
-	 * @param stringValue the stringValue to set
-	 */
-	public void setStringValue(String stringValue) {
-		this.stringValue = stringValue;
-	}
-
-	/**
-	 * @return the floatValue
-	 */
-	public Double getFloatValue() {
-		return floatValue;
-	}
-
-	/**
-	 * @param floatValue the floatValue to set
-	 */
-	public void setFloatValue(Double floatValue) {
-		this.floatValue = floatValue;
-	}
+    /**
+     * @param floatValue the floatValue to set
+     */
+    public void setFloatValue(Double floatValue) {
+        this.floatValue = floatValue;
+    }
 
 }

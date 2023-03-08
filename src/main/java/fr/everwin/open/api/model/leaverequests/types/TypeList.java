@@ -15,44 +15,38 @@
  */
 
 /**
- * 
+ *
  */
 package fr.everwin.open.api.model.leaverequests.types;
 
-import java.util.List;
-
-import javax.ws.rs.core.Link;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementWrapper;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
+import com.fasterxml.jackson.annotation.JsonProperty;
 import fr.everwin.open.api.model.core.BasicList;
+
+import java.util.List;
 
 
 /**
  * Types list
+ *
  * @author everwin-team
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name = "typelist")
+
+
 public class TypeList extends BasicList<Type> {
 
-	private final static String METHOD="query";
+    private final static String METHOD = "query";
 
-	@XmlElement(name = "type")
-	@XmlElementWrapper(name = "types")
-	private List<Type> items;
+    //    @JsonProperty("type")
+    @JsonProperty("types")
+    private List<Type> items;
 
-	@Override
-	public List<Type> getItems() {
-		return items;
-	}
+    @Override
+    public List<Type> getItems() {
+        return items;
+    }
 
-	@Override
-	public void setItems(List<Type> items) {
-		this.items = items;
-	}
+    @Override
+    public void setItems(List<Type> items) {
+        this.items = items;
+    }
 }

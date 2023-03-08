@@ -16,11 +16,6 @@
 
 package fr.everwin.open.api.services.projects;
 
-import javax.ws.rs.core.Response;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import fr.everwin.open.api.ClientApi;
 import fr.everwin.open.api.exception.CoreException;
 import fr.everwin.open.api.model.products.assets.CustomerAssetList;
@@ -30,16 +25,20 @@ import fr.everwin.open.api.model.quotes.poa.POAQuote;
 import fr.everwin.open.api.services.core.BasicService;
 import fr.everwin.open.api.services.products.CustomerAssetsService;
 import fr.everwin.open.api.util.RequestParams;
+import jakarta.ws.rs.core.Response;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Service manager to query the project API resource
+ *
  * @author everwin-team
  */
 public class ProjectsService extends BasicService<Project, ProjectList> {
 
     protected static final Logger LOGGER = LoggerFactory.getLogger(ProjectsService.class);
 
-    public ProjectsService(ClientApi client){
+    public ProjectsService(ClientApi client) {
         super(client, "projects");
         setModels(Project.class, ProjectList.class);
     }
@@ -47,6 +46,7 @@ public class ProjectsService extends BasicService<Project, ProjectList> {
 
     /**
      * Create a new poaQuote for the project
+     *
      * @param objectId The project to link to the poaQuote
      * @param poaQuote The poaQuote to create
      * @return The id of the new comment
@@ -56,12 +56,12 @@ public class ProjectsService extends BasicService<Project, ProjectList> {
         try (Response response = clientApi.post(path + "/" + objectId + "/create-quote", poaQuote)) {
             readResponse(response, String.class);
             String locationUri = response.getHeaderString("Location");
-            return Long.parseLong(locationUri.substring(locationUri.lastIndexOf("/") + 1, locationUri.length()));
+            return Long.parseLong(locationUri.substring(locationUri.lastIndexOf("/") + 1));
         }
     }
 
     public CustomerAssetList queryCustomersAssetsFromProject(Project project, RequestParams params) throws CoreException {
         CustomerAssetsService service = new CustomerAssetsService(clientApi);
-        return service.query(path + "/"+project.getId()+"/customer-assets", params);
+        return service.query(path + "/" + project.getId() + "/customer-assets", params);
     }
 }

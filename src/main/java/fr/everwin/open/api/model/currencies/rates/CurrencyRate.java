@@ -15,219 +15,215 @@
  */
 
 /**
- * 
+ *
  */
 package fr.everwin.open.api.model.currencies.rates;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import fr.everwin.open.api.model.core.BasicObject;
+import fr.everwin.open.api.model.core.DataLink;
+import fr.everwin.open.api.model.core.SpecificData;
+import fr.everwin.open.api.util.JsonDateDeserializer;
 
 import java.util.Date;
 import java.util.List;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementWrapper;
-import javax.xml.bind.annotation.XmlElements;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import fr.everwin.open.api.model.core.BasicObject;
-import fr.everwin.open.api.model.core.DataLink;
-import fr.everwin.open.api.model.core.SpecificData;
-import fr.everwin.open.api.model.core.SpecificDateValue;
-import fr.everwin.open.api.model.core.SpecificLinkValue;
-import fr.everwin.open.api.model.core.SpecificMultiLinkValue;
-import fr.everwin.open.api.model.core.SpecificNumberValue;
-import fr.everwin.open.api.model.core.SpecificStringValue;
-import fr.everwin.open.api.util.JsonDateDeserializer;
-import fr.everwin.open.api.util.XMLDateAdapter;
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-
 /**
  * Currency rate class
+ *
  * @author everwin-team
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-@XmlRootElement(name = "currencyRate")
-@XmlAccessorType(XmlAccessType.FIELD)
+
+
 public class CurrencyRate extends BasicObject {
 
-	@XmlElement
-	private DataLink entity;
 
-	@XmlElement
-	private String baseCurrency;
+    private DataLink entity;
 
-	@XmlElement
-	private String counterCurrency;
 
-	@XmlElement
-	private Double rate;
+    private String baseCurrency;
 
-	@XmlElement
-	@XmlJavaTypeAdapter(XMLDateAdapter.class)
-	@JsonDeserialize(using = JsonDateDeserializer.class)
-	private Date startDate;
 
-	@XmlElement
-	@XmlJavaTypeAdapter(XMLDateAdapter.class)
-	@JsonDeserialize(using = JsonDateDeserializer.class)
-	private Date endDate;
+    private String counterCurrency;
 
-	@XmlElement
-	@XmlJavaTypeAdapter(XMLDateAdapter.class)
-	@JsonDeserialize(using = JsonDateDeserializer.class)
-	private Date updatedOnTime;
 
-	@XmlElement
-	@XmlJavaTypeAdapter(XMLDateAdapter.class)
-	@JsonDeserialize(using = JsonDateDeserializer.class)
-	private Date createdOnTime;
+    private Double rate;
 
-	@XmlElement
-	private Short updateMainRate;
 
-	@XmlElementWrapper(name = "extraData")
-	@XmlElements({@XmlElement(name = "stringval", type = SpecificStringValue.class),
-			@XmlElement(name = "dateval", type = SpecificDateValue.class),
-			@XmlElement(name = "numberval", type = SpecificNumberValue.class),
-			@XmlElement(name = "link", type = SpecificLinkValue.class),
-			@XmlElement(name = "multilink", type = SpecificMultiLinkValue.class)})
-	private List<SpecificData> extraData;
-	/**
-	 *
-	 */
-	public CurrencyRate() {
+    @JsonDeserialize(using = JsonDateDeserializer.class)
+    private Date startDate;
 
-	}
-	/**
-	 * @return the entity
-	 */
-	public DataLink getEntity() {
-		return entity;
-	}
-	/**
-	 * @param entity the entity to set
-	 */
-	public void setEntity(DataLink entity) {
-		this.entity = entity;
-	}
-	/**
-	 * @return the baseCurrency
-	 */
-	public String getBaseCurrency() {
-		return baseCurrency;
-	}
-	/**
-	 * @param baseCurrency the baseCurrency to set
-	 */
-	public void setBaseCurrency(String baseCurrency) {
-		this.baseCurrency = baseCurrency;
-	}
-	/**
-	 * @return the counterCurrency
-	 */
-	public String getCounterCurrency() {
-		return counterCurrency;
-	}
-	/**
-	 * @param counterCurrency the counterCurrency to set
-	 */
-	public void setCounterCurrency(String counterCurrency) {
-		this.counterCurrency = counterCurrency;
-	}
-	/**
-	 * @return the rate
-	 */
-	public Double getRate() {
-		return rate;
-	}
-	/**
-	 * @param rate the rate to set
-	 */
-	public void setRate(Double rate) {
-		this.rate = rate;
-	}
-	/**
-	 * @return the startDate
-	 */
-	public Date getStartDate() {
-		return startDate;
-	}
-	/**
-	 * @param startDate the startDate to set
-	 */
-	public void setStartDate(Date startDate) {
-		this.startDate = startDate;
-	}
-	/**
-	 * @return the endDate
-	 */
-	public Date getEndDate() {
-		return endDate;
-	}
-	/**
-	 * @param endDate the endDate to set
-	 */
-	public void setEndDate(Date endDate) {
-		this.endDate = endDate;
-	}
-	/**
-	 * @return the updatedOnTime
-	 */
-	public Date getUpdatedOnTime() {
-		return updatedOnTime;
-	}
-	/**
-	 * @param updatedOnTime the updatedOnTime to set
-	 */
-	public void setUpdatedOnTime(Date updatedOnTime) {
-		this.updatedOnTime = updatedOnTime;
-	}
-	/**
-	 * @return the createdOnTime
-	 */
-	public Date getCreatedOnTime() {
-		return createdOnTime;
-	}
-	/**
-	 * @param createdOnTime the createdOnTime to set
-	 */
-	public void setCreatedOnTime(Date createdOnTime) {
-		this.createdOnTime = createdOnTime;
-	}
 
-	/**
-	 * @return the updateMainRate
-	 */
-	public Short getUpdateMainRate() {
-		return updateMainRate;
-	}
-	/**
-	 * @param updateMainRate the updateMainRate to set
-	 */
-	public void setUpdateMainRate(Short updateMainRate) {
-		this.updateMainRate = updateMainRate;
-	}
-	/**
-	 * @return the extraData
-	 */
-	public List<SpecificData> getExtraData() {
-		return extraData;
-	}
+    @JsonDeserialize(using = JsonDateDeserializer.class)
+    private Date endDate;
 
-	/**
-	 * @param extraData the extraData to set
-	 */
-	public void setExtraData(List<SpecificData> extraData) {
-		this.extraData = extraData;
-	}
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
-	@Override
-	public String toString() {
-		return "CurrencyRate [entity=" + entity + ", baseCurrency=" + baseCurrency + ", counterCurrency=" + counterCurrency + ", rate=" + rate + ", startDate=" + startDate + ", endDate=" + endDate + ", updatedOnTime=" + updatedOnTime + ", createdOnTime=" + createdOnTime + "]";
-	}
+
+    @JsonDeserialize(using = JsonDateDeserializer.class)
+    private Date updatedOnTime;
+
+
+    @JsonDeserialize(using = JsonDateDeserializer.class)
+    private Date createdOnTime;
+
+
+    private Short updateMainRate;
+
+    private List<SpecificData> extraData;
+
+    /**
+     *
+     */
+    public CurrencyRate() {
+
+    }
+
+    /**
+     * @return the entity
+     */
+    public DataLink getEntity() {
+        return entity;
+    }
+
+    /**
+     * @param entity the entity to set
+     */
+    public void setEntity(DataLink entity) {
+        this.entity = entity;
+    }
+
+    /**
+     * @return the baseCurrency
+     */
+    public String getBaseCurrency() {
+        return baseCurrency;
+    }
+
+    /**
+     * @param baseCurrency the baseCurrency to set
+     */
+    public void setBaseCurrency(String baseCurrency) {
+        this.baseCurrency = baseCurrency;
+    }
+
+    /**
+     * @return the counterCurrency
+     */
+    public String getCounterCurrency() {
+        return counterCurrency;
+    }
+
+    /**
+     * @param counterCurrency the counterCurrency to set
+     */
+    public void setCounterCurrency(String counterCurrency) {
+        this.counterCurrency = counterCurrency;
+    }
+
+    /**
+     * @return the rate
+     */
+    public Double getRate() {
+        return rate;
+    }
+
+    /**
+     * @param rate the rate to set
+     */
+    public void setRate(Double rate) {
+        this.rate = rate;
+    }
+
+    /**
+     * @return the startDate
+     */
+    public Date getStartDate() {
+        return startDate;
+    }
+
+    /**
+     * @param startDate the startDate to set
+     */
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
+    }
+
+    /**
+     * @return the endDate
+     */
+    public Date getEndDate() {
+        return endDate;
+    }
+
+    /**
+     * @param endDate the endDate to set
+     */
+    public void setEndDate(Date endDate) {
+        this.endDate = endDate;
+    }
+
+    /**
+     * @return the updatedOnTime
+     */
+    public Date getUpdatedOnTime() {
+        return updatedOnTime;
+    }
+
+    /**
+     * @param updatedOnTime the updatedOnTime to set
+     */
+    public void setUpdatedOnTime(Date updatedOnTime) {
+        this.updatedOnTime = updatedOnTime;
+    }
+
+    /**
+     * @return the createdOnTime
+     */
+    public Date getCreatedOnTime() {
+        return createdOnTime;
+    }
+
+    /**
+     * @param createdOnTime the createdOnTime to set
+     */
+    public void setCreatedOnTime(Date createdOnTime) {
+        this.createdOnTime = createdOnTime;
+    }
+
+    /**
+     * @return the updateMainRate
+     */
+    public Short getUpdateMainRate() {
+        return updateMainRate;
+    }
+
+    /**
+     * @param updateMainRate the updateMainRate to set
+     */
+    public void setUpdateMainRate(Short updateMainRate) {
+        this.updateMainRate = updateMainRate;
+    }
+
+    /**
+     * @return the extraData
+     */
+    public List<SpecificData> getExtraData() {
+        return extraData;
+    }
+
+    /**
+     * @param extraData the extraData to set
+     */
+    public void setExtraData(List<SpecificData> extraData) {
+        this.extraData = extraData;
+    }
+
+    /* (non-Javadoc)
+     * @see java.lang.Object#toString()
+     */
+    @Override
+    public String toString() {
+        return "CurrencyRate [entity=" + entity + ", baseCurrency=" + baseCurrency + ", counterCurrency=" + counterCurrency + ", rate=" + rate + ", startDate=" + startDate + ", endDate=" + endDate + ", updatedOnTime=" + updatedOnTime + ", createdOnTime=" + createdOnTime + "]";
+    }
 }

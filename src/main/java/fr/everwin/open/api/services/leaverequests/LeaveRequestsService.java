@@ -16,23 +16,23 @@
 
 package fr.everwin.open.api.services.leaverequests;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import fr.everwin.open.api.ClientApi;
 import fr.everwin.open.api.model.leaverequests.LeaveRequest;
 import fr.everwin.open.api.model.leaverequests.LeaveRequestList;
 import fr.everwin.open.api.services.core.BasicService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Service manager to query the leaverequest API resource
+ *
  * @author everwin-team
  */
 public class LeaveRequestsService extends BasicService<LeaveRequest, LeaveRequestList> {
 
     protected static final Logger LOGGER = LoggerFactory.getLogger(LeaveRequestsService.class);
 
-    public LeaveRequestsService(ClientApi client){
+    public LeaveRequestsService(ClientApi client) {
         super(client, "leave-requests");
         setModels(LeaveRequest.class, LeaveRequestList.class);
     }

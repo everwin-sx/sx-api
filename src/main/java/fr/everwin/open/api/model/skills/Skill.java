@@ -15,119 +15,114 @@
  */
 
 /**
- * 
+ *
  */
 package fr.everwin.open.api.model.skills;
 
 
-import java.util.List;
-
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementWrapper;
-import javax.xml.bind.annotation.XmlElements;
-import javax.xml.bind.annotation.XmlRootElement;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
-
 import fr.everwin.open.api.model.core.BasicObject;
 import fr.everwin.open.api.model.core.DataLink;
 import fr.everwin.open.api.model.core.SpecificData;
-import fr.everwin.open.api.model.core.SpecificDateValue;
-import fr.everwin.open.api.model.core.SpecificLinkValue;
-import fr.everwin.open.api.model.core.SpecificMultiLinkValue;
-import fr.everwin.open.api.model.core.SpecificNumberValue;
-import fr.everwin.open.api.model.core.SpecificStringValue;
+
+import java.util.List;
 
 /**
  * Represents a skill
- * @author everwin-team
  *
+ * @author everwin-team
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@XmlRootElement(name = "skill")
-@XmlAccessorType(XmlAccessType.FIELD)
+
+
 public class Skill extends BasicObject {
 
-	@XmlElement
-	private String label;
-	
-	@XmlElement
-	private DataLink domain;
 
-	@XmlElement
-	private String description;
+    private String label;
 
-	@XmlElementWrapper(name = "entities")
-	@XmlElements(@XmlElement(name = "entities", type = DataLink.class))
-	private List<DataLink> entities;
 
-	@XmlElement
-	private Short order;
-	
-	@XmlElement
-	private DataLink defaultLevel;
+    private DataLink domain;
 
-	@XmlElementWrapper(name = "extraData")
-	@XmlElements({@XmlElement(name = "stringval", type = SpecificStringValue.class),
-			@XmlElement(name = "dateval", type = SpecificDateValue.class),
-			@XmlElement(name = "numberval", type = SpecificNumberValue.class),
-			@XmlElement(name = "link", type = SpecificLinkValue.class),
-			@XmlElement(name = "multilink", type = SpecificMultiLinkValue.class)})
-	private List<SpecificData> extraData;
-	/**
-	 *
-	 */
-	public Skill() {
 
-	}
-	public String getLabel() {
-		return label;
-	}
-	public void setLabel(String label) {
-		this.label = label;
-	}
-	public DataLink getDomain() {
-		return domain;
-	}
-	public void setDomain(DataLink domain) {
-		this.domain = domain;
-	}
-	public String getDescription() {
-		return description;
-	}
-	public void setDescription(String description) {
-		this.description = description;
-	}
-	public List<DataLink> getEntities() {
-		return entities;
-	}
-	public void setEntities(List<DataLink> entities) {
-		this.entities = entities;
-	}
-	public Short getOrder() {
-		return order;
-	}
-	public void setOrder(Short order) {
-		this.order = order;
-	}
-	public DataLink getDefaultLevel() {
-		return defaultLevel;
-	}
-	public void setDefaultLevel(DataLink defaultLevel) {
-		this.defaultLevel = defaultLevel;
-	}
-	public List<SpecificData> getExtraData() {
-		return extraData;
-	}
-	public void setExtraData(List<SpecificData> extraData) {
-		this.extraData = extraData;
-	}
-	@Override
-	public String toString() {
-		return "Skill [label=" + label + ", domain=" + domain + ", entities=" + entities + "]";
-	}
+    private String description;
+
+    private List<DataLink> entities;
+
+
+    private Short order;
+
+
+    private DataLink defaultLevel;
+
+    private List<SpecificData> extraData;
+
+    /**
+     *
+     */
+    public Skill() {
+
+    }
+
+    public String getLabel() {
+        return label;
+    }
+
+    public void setLabel(String label) {
+        this.label = label;
+    }
+
+    public DataLink getDomain() {
+        return domain;
+    }
+
+    public void setDomain(DataLink domain) {
+        this.domain = domain;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public List<DataLink> getEntities() {
+        return entities;
+    }
+
+    public void setEntities(List<DataLink> entities) {
+        this.entities = entities;
+    }
+
+    public Short getOrder() {
+        return order;
+    }
+
+    public void setOrder(Short order) {
+        this.order = order;
+    }
+
+    public DataLink getDefaultLevel() {
+        return defaultLevel;
+    }
+
+    public void setDefaultLevel(DataLink defaultLevel) {
+        this.defaultLevel = defaultLevel;
+    }
+
+    public List<SpecificData> getExtraData() {
+        return extraData;
+    }
+
+    public void setExtraData(List<SpecificData> extraData) {
+        this.extraData = extraData;
+    }
+
+    @Override
+    public String toString() {
+        return "Skill [label=" + label + ", domain=" + domain + ", entities=" + entities + "]";
+    }
 }

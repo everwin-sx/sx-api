@@ -29,13 +29,11 @@ import java.util.Date;
  */
 public class ConfigHelper {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(ConfigHelper.class);
-
     public static final String URI_WS = "http://localhost:8080/sx/rest"; //"https://mars2:12443/sx/rest"
     public static final String VERSION = "v2";
     public static final String DATETIMEFORMAT = "yyyy-MM-dd'T'HH:mm:ss";
     public static final String TIMEFORMAT = "HH:mm";
-
+    private static final Logger LOGGER = LoggerFactory.getLogger(ConfigHelper.class);
     protected static ConfigHelper instance;
 
     private ConfigHelper() {
@@ -68,7 +66,8 @@ public class ConfigHelper {
 
     /**
      * Round a number, using the Math.round function<br>
-     * @param val The value to be rounded
+     *
+     * @param val   The value to be rounded
      * @param nbdec The number of decimals (must be 1 or more)
      * @return int rounded to the integer
      */

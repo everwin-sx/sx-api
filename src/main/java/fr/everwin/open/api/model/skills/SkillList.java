@@ -20,25 +20,26 @@
 package fr.everwin.open.api.model.skills;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import fr.everwin.open.api.model.core.BasicList;
 
-import javax.xml.bind.annotation.*;
 import java.util.List;
 
 
 /**
  * Skills list
+ *
  * @author everwin-team
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name = "skilllist")
+
+
 public class SkillList extends BasicList<Skill> {
 
     private final static String METHOD = "query";
 
-    @XmlElement(name = "skill")
-    @XmlElementWrapper(name = "skills")
+    //    @JsonProperty("skill")
+    @JsonProperty("skills")
     private List<Skill> items;
 
     @Override

@@ -15,7 +15,8 @@
  */
 
 package fr.everwin.open.api.model.suppliersettlement.lines;
-import javax.xml.bind.annotation.XmlElement;
+// import javax.xml.bind.annotation.XmlElement;
+
 import fr.everwin.open.api.model.core.MultiCurrencyValue;
 
 /**
@@ -23,6 +24,6 @@ import fr.everwin.open.api.model.core.MultiCurrencyValue;
  */
 public class SupplierSettlementLineMultiCurrencyValue extends MultiCurrencyValue {
 
-    @XmlElement
+
     private Double transaction;
 }

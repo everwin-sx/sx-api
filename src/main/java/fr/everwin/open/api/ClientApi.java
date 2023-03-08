@@ -16,22 +16,7 @@
 
 package fr.everwin.open.api;
 
-import java.util.logging.Level;
-
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.TrustManager;
-import javax.ws.rs.client.Client;
-import javax.ws.rs.client.ClientBuilder;
-import javax.ws.rs.client.Entity;
-import javax.ws.rs.client.Invocation;
-import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.Form;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
-
-import org.glassfish.jersey.jackson.internal.jackson.jaxrs.json.JacksonJsonProvider;
-import org.glassfish.jersey.logging.LoggingFeature;
-
+import com.fasterxml.jackson.jakarta.rs.json.JacksonJsonProvider;
 import fr.everwin.open.api.core.auth.Authentication;
 import fr.everwin.open.api.core.auth.Token;
 import fr.everwin.open.api.exception.AuthException;
@@ -39,33 +24,52 @@ import fr.everwin.open.api.exception.CoreException;
 import fr.everwin.open.api.util.ClientRequest;
 import fr.everwin.open.api.util.RequestParams;
 import fr.everwin.open.api.util.SSLTrustManager;
+import jakarta.ws.rs.client.*;
+import jakarta.ws.rs.core.Form;
+import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.Response;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.TrustManager;
+import java.util.Properties;
+
 /**
  * SX REST API Client
+ *
  * @author everwin-team
  */
 public class ClientApi {
 
-    protected static final Logger LOGGER = LoggerFactory.getLogger(ClientApi.class);
-
     public static final String API_VERSION_1 = "v1";
     public static final String API_VERSION_2 = "v2";
+    protected static final Logger LOGGER = LoggerFactory.getLogger(ClientApi.class);
 
-    /** Auth manager to handle api key or oauth authentication */
+    static {
+        final Properties props = System.getProperties();
+        props.setProperty("jdk.internal.httpclient.disableHostnameVerification", Boolean.TRUE.toString());
+    }
+
     private Authentication auth;
 
-    /** The http client */
+    /**
+     * The http client
+     */
     private Client client;
-    /** The uri of the server */
+    /**
+     * The uri of the server
+     */
     private String uri = "http://localhost:8080/sx/rest";
 
-    /** The version of the api */
+    /**
+     * The version of the api
+     */
     private String version = API_VERSION_2;
 
     /**
      * Create a new Client for the given uri and init the client from SSL or NoSSL.
+     *
      * @param uri The API base uri
      * @throws CoreException If connection failed
      */
@@ -77,7 +81,8 @@ public class ClientApi {
     /**
      * Create a new Client for the given uri and init the client from SSL or NoSSL.<br>
      * Set the version of the api to request : v1 or v2...
-     * @param uri The API base uri
+     *
+     * @param uri     The API base uri
      * @param version The API version
      * @throws CoreException If connection failed
      */
@@ -89,8 +94,9 @@ public class ClientApi {
 
     /**
      * Set authentication informations for OAuth
+     *
      * @param clientId The clientId
-     * @param secret The clientSecret
+     * @param secret   The clientSecret
      * @throws AuthException If authentication failed
      */
     public void setAuthInfos(String clientId, String secret) throws AuthException {
@@ -100,6 +106,7 @@ public class ClientApi {
 
     /**
      * Set authentication informations for apiKey mode
+     *
      * @param apiKey The API key uses to authenticate
      * @throws AuthException If authentication failed
      */
@@ -111,21 +118,21 @@ public class ClientApi {
 
     /**
      * Create the jersey client builder for SSL or NoSSL client
+     *
      * @return a ClientBuilder
      */
-    private ClientBuilder createCommonClientBuilder(){
+    private ClientBuilder createCommonClientBuilder() {
         return ClientBuilder.newBuilder()
-                .register(new LoggingFeature(java.util.logging.Logger.getLogger(LoggingFeature.DEFAULT_LOGGER_NAME),
-                    Level.FINE, LoggingFeature.Verbosity.PAYLOAD_ANY, 10000))
-                .register(new JacksonJsonProvider());
+                .register(JacksonJsonProvider.class);
     }
 
     /**
      * Init the client instance according to the protocol of the server uri
+     *
      * @throws CoreException If http client creation failed
      */
     private void initClient() throws CoreException {
-        if(client == null) {
+        if (client == null) {
             if (uri.startsWith("https")) {
                 initSSLClient();
             } else {
@@ -136,6 +143,7 @@ public class ClientApi {
 
     /**
      * Init the SSL client
+     *
      * @throws CoreException If http client creation failed
      */
     private void initSSLClient() throws CoreException {
@@ -152,6 +160,7 @@ public class ClientApi {
 
     /**
      * Init the no SSL client
+     *
      * @throws CoreException If http client creation failed
      */
     private void initNoSSLClient() throws CoreException {
@@ -162,9 +171,10 @@ public class ClientApi {
     /**
      * Request a token to the api for the clientId and secret<br>
      * The token is store in auth
+     *
      * @throws AuthException If the authentication or token request failed
      */
-    private void requestToken() throws AuthException{
+    private void requestToken() throws AuthException {
         LOGGER.debug("Request oauth token");
         WebTarget webTarget = client.target(uri).path("authz/token");
         Invocation.Builder invocation = webTarget.request();
@@ -186,6 +196,7 @@ public class ClientApi {
 
     /**
      * Check apiKey or token with given auth informations
+     *
      * @throws AuthException If authentication failed
      */
     public void checkAuth() throws AuthException {
@@ -198,10 +209,11 @@ public class ClientApi {
 
     /**
      * Get the api request path which can be uri + version + resource path
+     *
      * @param path The resource path
      * @return The full resource path
      */
-    private String getPath(String path){
+    private String getPath(String path) {
         return path.startsWith("http") ? path : uri + "/" + version + "/" + path;
     }
 
@@ -209,24 +221,26 @@ public class ClientApi {
      * Send a request in POST to the api with the given path.
      * The obj will be send to the api in JSON format.
      * The POST method is used to create or update partially an object.
+     *
      * @param path The request path
-     * @param obj Object to send
+     * @param obj  Object to send
      * @return The response of the post request
      * @throws CoreException If the post request failed
      */
     public Response post(String path, Object obj) throws CoreException {
         return new ClientRequest.Builder()
-                                .client(client)
-                                .auth(auth)
-                                .path(getPath(path))
-                                .build()
-                                .post(Entity.entity(obj, MediaType.APPLICATION_JSON));
+                .client(client)
+                .auth(auth)
+                .path(getPath(path))
+                .build()
+                .post(Entity.entity(obj, MediaType.APPLICATION_JSON));
     }
 
     /**
      * Send a request in PUT to the api with the given path.
      * The obj will be send to the api in JSON format.
      * The PUT method is used to update a full object.
+     *
      * @param path The request path
      * @param obj  Object to send
      * @return The reponse of the put request
@@ -243,7 +257,8 @@ public class ClientApi {
 
     /**
      * Send a request in GET to the api with the given path. The result will be a single object or a list.<br>
-     * @param path The request path
+     *
+     * @param path   The request path
      * @param params Request extra params
      * @return The response of the get request
      * @throws CoreException If the get request failed
@@ -261,6 +276,7 @@ public class ClientApi {
     /**
      * Send a request in DEL to the api with the given path. <br>
      * The DEL method is used to delete a single object.
+     *
      * @param path The request path
      * @return The reponse of the del request
      * @throws CoreException If the del request failed

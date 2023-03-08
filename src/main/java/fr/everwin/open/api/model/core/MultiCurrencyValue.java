@@ -15,38 +15,34 @@
  */
 package fr.everwin.open.api.model.core;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * Represents a multi currency value. The value can be in management, account or reporting currency
+ *
  * @author everwin-team
  */
-@XmlRootElement(name = "multi-currency")
-@XmlAccessorType(XmlAccessType.FIELD)
+
+
 public class MultiCurrencyValue {
 
-	@XmlElement
-	protected Double management;
+    protected Double management;
 
 
-	public MultiCurrencyValue() {
+    public MultiCurrencyValue() {
 
-	}
+    }
 
-	/**
-	 * @return the management
-	 */
-	public Double getManagement() {
-		return management;
-	}
+    /**
+     * @return the management
+     */
+    public Double getManagement() {
+        return management;
+    }
 
-	/**
-	 * @param management the management to set
-	 */
-	public void setManagement(Double management) {
-		this.management = management;
-	}
+    /**
+     * @param management the management to set
+     */
+    public void setManagement(Double management) {
+        this.management = management;
+    }
 }

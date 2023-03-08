@@ -15,68 +15,47 @@
  */
 
 package fr.everwin.open.api.model.quotes.crm.lines;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import fr.everwin.open.api.model.core.DataLink;
-import fr.everwin.open.api.model.quotes.QuoteLine;
-import fr.everwin.open.api.model.quotes.QuoteLineDebitCredit;
+
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import fr.everwin.open.api.model.core.DataLink;
+import fr.everwin.open.api.model.quotes.QuoteLine;
+import fr.everwin.open.api.model.quotes.QuoteLineDebitCredit;
 
 /**
  * @author d.storti
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@XmlRootElement(name = "crmQuoteLine")
-@XmlAccessorType(XmlAccessType.FIELD)
+
+
 public class CRMQuoteLine extends QuoteLine {
 
-    private DataLink quote;
-
-    @XmlElement
     protected DataLink parent;
-
-    @XmlElement
-    private DataLink opportunity;
-
-    @XmlElement
-    private DataLink product;
-
-    @XmlElement
-    private Short level;
-
-    @XmlElement
-    private boolean leaf;
-
-    @XmlElement
-    private DataLink unit;
-
-    @XmlElement
     protected Double discount;
-
-    @XmlElement
     protected Double discountPercent;
-
-    @XmlElement
+    private DataLink quote;
+    private DataLink opportunity;
+    private DataLink product;
+    private Short level;
+    private boolean leaf;
+    private DataLink unit;
     private Double revenueQuantity;
 
-    @XmlElement
+
     private QuoteLineDebitCredit revenue;
 
-    @XmlElement
+
     private QuoteLineDebitCredit revenueNet;
 
-    @XmlElement
+
     private QuoteLineDebitCredit revenueDiscount;
 
-    @XmlElement
+
     private Double expenditureQuantity;
 
-    @XmlElement
+
     private QuoteLineDebitCredit expenditure;
 
     public CRMQuoteLine() {
@@ -96,7 +75,7 @@ public class CRMQuoteLine extends QuoteLine {
     }
 
     public Short isLeaf() {
-        return leaf ? (short)1 : (short)0;
+        return leaf ? (short) 1 : (short) 0;
     }
 
     @Override

@@ -16,116 +16,98 @@
 
 package fr.everwin.open.api.model.contacts;
 
-import java.util.Date;
-import java.util.List;
-
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementWrapper;
-import javax.xml.bind.annotation.XmlElements;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import fr.everwin.open.api.model.core.BasicObject;
-import fr.everwin.open.api.model.core.DataLink;
-import fr.everwin.open.api.model.core.SpecificData;
-import fr.everwin.open.api.model.core.SpecificDateValue;
-import fr.everwin.open.api.model.core.SpecificLinkValue;
-import fr.everwin.open.api.model.core.SpecificMultiLinkValue;
-import fr.everwin.open.api.model.core.SpecificNumberValue;
-import fr.everwin.open.api.model.core.SpecificStringValue;
-import fr.everwin.open.api.util.JsonDateDeserializer;
-import fr.everwin.open.api.util.XMLDateAdapter;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import fr.everwin.open.api.model.core.BasicObject;
+import fr.everwin.open.api.model.core.DataLink;
+import fr.everwin.open.api.model.core.SpecificData;
+import fr.everwin.open.api.util.JsonDateDeserializer;
+
+import java.util.Date;
+import java.util.List;
 
 /**
  * Person class
+ *
  * @author everwin-team
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@XmlRootElement(name = "person")
-@XmlAccessorType(XmlAccessType.FIELD)
-public class Person  extends BasicObject {
 
-    @XmlElement
+
+public class Person extends BasicObject {
+
+
     private String code;
 
-    @XmlElement
+
     private Short civility;
 
-    @XmlElement
+
     private String firstName;
 
-    @XmlElement
+
     private String lastName;
 
-    @XmlElement
+
     private String birthName;
 
-    @XmlElement
-    @XmlJavaTypeAdapter(XMLDateAdapter.class)
+
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date birthDate;
 
-    @XmlElement
+
     private String birthCity;
 
-    @XmlElement
+
     private String phone;
 
-    @XmlElement
+
     private String mobile;
 
-    @XmlElement
+
     private String email;
 
-    @XmlElement
+
     private String address;
 
-    @XmlElement
+
     private String address2;
 
-    @XmlElement
+
     private String address3;
 
-    @XmlElement
+
     private String postalCode;
 
-    @XmlElement
+
     private String city;
 
-    @XmlElement
+
     private DataLink country;
 
-    @XmlElement
+
     private DataLink mainResponsibility;
 
-    @XmlElement
-    @XmlJavaTypeAdapter(XMLDateAdapter.class)
+
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date updatedOnTime;
 
-    @XmlElement
-    @XmlJavaTypeAdapter(XMLDateAdapter.class)
+
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date createdOnTime;
 
     private String updatedBy;
 
-    @XmlElement
+
     private String picture;
 
-    @XmlElementWrapper(name = "extraData")
-    @XmlElements({@XmlElement(name = "stringval", type = SpecificStringValue.class), @XmlElement(name = "dateval", type = SpecificDateValue.class), @XmlElement(name = "numberval", type = SpecificNumberValue.class), @XmlElement(name = "link",
-            type = SpecificLinkValue.class), @XmlElement(name = "multilink", type = SpecificMultiLinkValue.class)})
+
     private List<SpecificData> extraData;
 
-    public Person() {}
+    public Person() {
+    }
 
     public DataLink getMainResponsibility() {
         return mainResponsibility;

@@ -16,9 +16,6 @@
 
 package fr.everwin.open.api.services.currencies;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import fr.everwin.open.api.ClientApi;
 import fr.everwin.open.api.exception.CoreException;
 import fr.everwin.open.api.model.currencies.Currency;
@@ -28,6 +25,8 @@ import fr.everwin.open.api.model.entities.EntityList;
 import fr.everwin.open.api.services.core.BasicService;
 import fr.everwin.open.api.services.entities.EntitiesService;
 import fr.everwin.open.api.util.RequestParams;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author d.storti

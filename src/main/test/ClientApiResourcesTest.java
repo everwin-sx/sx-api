@@ -44,6 +44,7 @@ import fr.everwin.open.api.model.contacts.Person;
 import fr.everwin.open.api.model.contacts.PersonList;
 import fr.everwin.open.api.model.contacts.events.ContactEvent;
 import fr.everwin.open.api.model.contacts.events.ContactEventList;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import fr.everwin.open.api.model.core.BasicList;
 import fr.everwin.open.api.model.core.BasicObject;
 import fr.everwin.open.api.model.currencies.Currency;

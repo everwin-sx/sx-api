@@ -16,23 +16,23 @@
 
 package fr.everwin.open.api.services.profiles;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import fr.everwin.open.api.ClientApi;
 import fr.everwin.open.api.model.profiles.Profile;
 import fr.everwin.open.api.model.profiles.ProfileList;
 import fr.everwin.open.api.services.core.BasicService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Service manager to query the profiles API resource
+ *
  * @author everwin-team
  */
 public class ProfilesService extends BasicService<Profile, ProfileList> {
 
     protected static final Logger LOGGER = LoggerFactory.getLogger(ProfilesService.class);
 
-    public ProfilesService(ClientApi client){
+    public ProfilesService(ClientApi client) {
         super(client, "profiles");
         setModels(Profile.class, ProfileList.class);
     }

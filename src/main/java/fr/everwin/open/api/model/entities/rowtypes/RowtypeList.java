@@ -19,24 +19,25 @@
  */
 package fr.everwin.open.api.model.entities.rowtypes;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import fr.everwin.open.api.model.core.BasicList;
 
-import javax.xml.bind.annotation.*;
 import java.util.List;
 
 
 /**
  * Rowtypes list
+ *
  * @author everwin-team
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name = "rowtypelist")
+
+
 public class RowtypeList extends BasicList<Rowtype> {
 
     private final static String METHOD = "query";
 
-    @XmlElement(name = "rowtype")
-    @XmlElementWrapper(name = "rowtypes")
+    //    @JsonProperty("rowtype")
+    @JsonProperty("rowtypes")
     private List<Rowtype> items;
 
     /**

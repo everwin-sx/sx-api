@@ -15,24 +15,21 @@
  */
 
 package fr.everwin.open.api.model.projects.lines;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
+
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
  * @author d.storti
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-@XmlRootElement(name = "project-discount")
-@XmlAccessorType(XmlAccessType.FIELD)
+
+
 public class Discount {
 
-    @XmlElement(required = true, nillable = false)
     private Short type;
 
-    @XmlElement
+
     private Double value;
 
     public Short getType() {

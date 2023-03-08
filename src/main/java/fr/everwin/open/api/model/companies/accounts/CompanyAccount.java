@@ -15,566 +15,551 @@
  */
 
 /**
- * 
+ *
  */
 package fr.everwin.open.api.model.companies.accounts;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementWrapper;
-import javax.xml.bind.annotation.XmlElements;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import java.util.Date;
-import java.util.List;
+// import javax.xml.bind.annotation.XmlAccessType;
+// import javax.xml.bind.annotation.XmlAccessorType;
+// import javax.xml.bind.annotation.XmlElement;
+// import javax.xml.bind.annotation.XmlElementWrapper;
+// import javax.xml.bind.annotation.XmlElements;
+// import javax.xml.bind.annotation.XmlRootElement;
+// import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-
 import fr.everwin.open.api.model.core.BasicObject;
 import fr.everwin.open.api.model.core.DataLink;
 import fr.everwin.open.api.model.core.SpecificData;
-import fr.everwin.open.api.model.core.SpecificDateValue;
-import fr.everwin.open.api.model.core.SpecificLinkValue;
-import fr.everwin.open.api.model.core.SpecificMultiLinkValue;
-import fr.everwin.open.api.model.core.SpecificNumberValue;
-import fr.everwin.open.api.model.core.SpecificStringValue;
 import fr.everwin.open.api.util.JsonDateDeserializer;
-import fr.everwin.open.api.util.XMLDateAdapter;
+
+import java.util.Date;
+import java.util.List;
 
 
 /**
  * Company accounts represents a company managed by business management module. <br>
  * Customer accounts keep administrative information about customers and suppliers safe from any CRM module changes.
+ *
  * @author everwin-team
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-@XmlRootElement(name = "companyaccount")
-@XmlAccessorType(XmlAccessType.FIELD)
+
+
 public class CompanyAccount extends BasicObject {
 
 
-	@XmlElement
-	private String code;
+    private String code;
 
-	@XmlElement
-	private DataLink company;
 
-	@XmlElement
-	private List<DataLink> entities;
+    private DataLink company;
 
-	@XmlElement
-	private String identifierNumber;
 
-	@XmlElement
-	private String vatNumber;
+    private List<DataLink> entities;
 
-	@XmlElement
-	private String billingName;
 
-	@XmlElement
-	private short isActive;
+    private String identifierNumber;
 
-	@XmlElement
-	private String billingRecipient;
 
-	@XmlElement
-	private String billingAddress;
+    private String vatNumber;
 
-	@XmlElement
-	private String billingAddress2;
 
-	@XmlElement
-	private String billingAddress3;
+    private String billingName;
 
-	@XmlElement
-	private String billingPostalCode;
 
-	@XmlElement
-	private String billingCity;
+    private short isActive;
 
-	@XmlElement
-	private DataLink billingCountry;
 
-	@XmlElement
-	private String billingPhone;
+    private String billingRecipient;
 
-	@XmlElement
-	private String billingFax;
 
-	@XmlElement
-	private String shippingName;
+    private String billingAddress;
 
-	@XmlElement
-	private String shippingRecipient;
 
-	@XmlElement
-	private String shippingAddress;
+    private String billingAddress2;
 
-	@XmlElement
-	private String shippingAddress2;
 
-	@XmlElement
-	private String shippingAddress3;
+    private String billingAddress3;
 
-	@XmlElement
-	private String shippingPostalCode;
 
-	@XmlElement
-	private String shippingCity;
+    private String billingPostalCode;
 
-	@XmlElement
-	private String headquartersName;
 
-	@XmlElement
-	private String headquartersRecipient;
+    private String billingCity;
 
-	@XmlElement
-	private String headquartersAddress;
 
-	@XmlElement
-	private String headquartersAddress2;
+    private DataLink billingCountry;
 
-	@XmlElement
-	private String headquartersAddress3;
 
-	@XmlElement
-	private String headquartersPostalCode;
+    private String billingPhone;
 
-	@XmlElement
-	private String headquartersCity;
 
-	@XmlElement
-	private DataLink headquartersCountry;
+    private String billingFax;
 
-	@XmlElement
-	private DataLink shippingCountry;
 
-	@XmlElement
-	private String shippingPhone;
+    private String shippingName;
 
-	@XmlElement
-	private String shippingFax;
 
-	@XmlElement
-	private DataLink paymentTerms;
+    private String shippingRecipient;
 
-	@XmlElement
-	private Short vatSystem;
 
-	@XmlElement
-	private DataLink defaultVat;
+    private String shippingAddress;
 
-	@XmlElement
-	private DataLink defaultBank;
 
-	@XmlElement
-	private DataLink fiscalPosition;
+    private String shippingAddress2;
 
 
-	@XmlElement
-	private Short visibility;
+    private String shippingAddress3;
 
-	@JsonDeserialize(using = JsonDateDeserializer.class)
-	@XmlElement
-	private Date visibilityDate;
 
-	@XmlElement
-	@XmlJavaTypeAdapter(XMLDateAdapter.class)
-	@JsonDeserialize(using = JsonDateDeserializer.class)
-	private Date updatedOnTime;
+    private String shippingPostalCode;
 
-	@XmlElement
-	@XmlJavaTypeAdapter(XMLDateAdapter.class)
-	@JsonDeserialize(using = JsonDateDeserializer.class)
-	private Date createdOnTime;
 
-	private String updatedBy;
+    private String shippingCity;
 
 
-	@XmlElement
-	private DataLink factor;
+    private String headquartersName;
 
-	@XmlElementWrapper(name = "extraData")
-	@XmlElements({@XmlElement(name = "stringval", type = SpecificStringValue.class),
-			@XmlElement(name = "dateval", type = SpecificDateValue.class),
-			@XmlElement(name = "numberval", type = SpecificNumberValue.class),
-			@XmlElement(name = "link", type = SpecificLinkValue.class),
-			@XmlElement(name = "multilink", type = SpecificMultiLinkValue.class)})
-	private List<SpecificData> extraData;
-	public CompanyAccount() {}
 
-	public String getCode() {
-		return code;
-	}
+    private String headquartersRecipient;
 
-	public void setCode(String code) {
-		this.code = code;
-	}
 
-	public DataLink getCompany() {
-		return company;
-	}
+    private String headquartersAddress;
 
-	public void setCompany(DataLink company) {
-		this.company = company;
-	}
 
-	public List<DataLink> getEntities() {
-		return entities;
-	}
+    private String headquartersAddress2;
 
-	public void setEntities(List<DataLink> entities) {
-		this.entities = entities;
-	}
 
-	public String getIdentifierNumber() {
-		return identifierNumber;
-	}
+    private String headquartersAddress3;
 
-	public void setIdentifierNumber(String identifierNumber) {
-		this.identifierNumber = identifierNumber;
-	}
 
-	public String getVatNumber() {
-		return vatNumber;
-	}
+    private String headquartersPostalCode;
 
-	public void setVatNumber(String vatNumber) {
-		this.vatNumber = vatNumber;
-	}
 
-	public String getBillingName() {
-		return billingName;
-	}
+    private String headquartersCity;
 
-	public void setBillingName(String billingName) {
-		this.billingName = billingName;
-	}
 
-	public String getBillingRecipient() {
-		return billingRecipient;
-	}
+    private DataLink headquartersCountry;
 
-	public void setBillingRecipient(String billingRecipient) {
-		this.billingRecipient = billingRecipient;
-	}
 
-	public String getBillingAddress() {
-		return billingAddress;
-	}
+    private DataLink shippingCountry;
 
-	public void setBillingAddress(String billingAddress) {
-		this.billingAddress = billingAddress;
-	}
 
-	public String getBillingAddress2() {
-		return billingAddress2;
-	}
+    private String shippingPhone;
 
-	public void setBillingAddress2(String billingAddress2) {
-		this.billingAddress2 = billingAddress2;
-	}
 
-	public String getBillingAddress3() {
-		return billingAddress3;
-	}
+    private String shippingFax;
 
-	public void setBillingAddress3(String billingAddress3) {
-		this.billingAddress3 = billingAddress3;
-	}
 
-	public String getBillingPostalCode() {
-		return billingPostalCode;
-	}
+    private DataLink paymentTerms;
 
-	public void setBillingPostalCode(String billingPostalCode) {
-		this.billingPostalCode = billingPostalCode;
-	}
 
-	public String getBillingCity() {
-		return billingCity;
-	}
+    private Short vatSystem;
 
-	public void setBillingCity(String billingCity) {
-		this.billingCity = billingCity;
-	}
 
-	public DataLink getBillingCountry() {
-		return billingCountry;
-	}
+    private DataLink defaultVat;
 
-	public void setBillingCountry(DataLink billingCountry) {
-		this.billingCountry = billingCountry;
-	}
 
-	public String getBillingPhone() {
-		return billingPhone;
-	}
+    private DataLink defaultBank;
 
-	public void setBillingPhone(String billingPhone) {
-		this.billingPhone = billingPhone;
-	}
 
-	public String getBillingFax() {
-		return billingFax;
-	}
+    private DataLink fiscalPosition;
 
-	public void setBillingFax(String billingFax) {
-		this.billingFax = billingFax;
-	}
 
-	public String getShippingName() {
-		return shippingName;
-	}
+    private Short visibility;
 
-	public void setShippingName(String shippingName) {
-		this.shippingName = shippingName;
-	}
+    @JsonDeserialize(using = JsonDateDeserializer.class)
 
-	public String getShippingRecipient() {
-		return shippingRecipient;
-	}
+    private Date visibilityDate;
 
-	public void setShippingRecipient(String shippingRecipient) {
-		this.shippingRecipient = shippingRecipient;
-	}
 
-	public String getShippingAddress() {
-		return shippingAddress;
-	}
+    @JsonDeserialize(using = JsonDateDeserializer.class)
+    private Date updatedOnTime;
 
-	public void setShippingAddress(String shippingAddress) {
-		this.shippingAddress = shippingAddress;
-	}
 
-	public String getShippingAddress2() {
-		return shippingAddress2;
-	}
+    @JsonDeserialize(using = JsonDateDeserializer.class)
+    private Date createdOnTime;
 
-	public void setShippingAddress2(String shippingAddress2) {
-		this.shippingAddress2 = shippingAddress2;
-	}
+    private String updatedBy;
 
-	public String getShippingAddress3() {
-		return shippingAddress3;
-	}
 
-	public void setShippingAddress3(String shippingAddress3) {
-		this.shippingAddress3 = shippingAddress3;
-	}
+    private DataLink factor;
 
-	public String getShippingPostalCode() {
-		return shippingPostalCode;
-	}
+    private List<SpecificData> extraData;
 
-	public void setShippingPostalCode(String shippingPostalCode) {
-		this.shippingPostalCode = shippingPostalCode;
-	}
+    public CompanyAccount() {
+    }
 
-	public String getShippingCity() {
-		return shippingCity;
-	}
+    public String getCode() {
+        return code;
+    }
 
-	public void setShippingCity(String shippingCity) {
-		this.shippingCity = shippingCity;
-	}
+    public void setCode(String code) {
+        this.code = code;
+    }
 
-	public DataLink getShippingCountry() {
-		return shippingCountry;
-	}
+    public DataLink getCompany() {
+        return company;
+    }
 
-	public void setShippingCountry(DataLink shippingCountry) {
-		this.shippingCountry = shippingCountry;
-	}
+    public void setCompany(DataLink company) {
+        this.company = company;
+    }
 
-	public String getShippingPhone() {
-		return shippingPhone;
-	}
+    public List<DataLink> getEntities() {
+        return entities;
+    }
 
-	public void setShippingPhone(String shippingPhone) {
-		this.shippingPhone = shippingPhone;
-	}
+    public void setEntities(List<DataLink> entities) {
+        this.entities = entities;
+    }
 
-	public String getShippingFax() {
-		return shippingFax;
-	}
+    public String getIdentifierNumber() {
+        return identifierNumber;
+    }
 
-	public void setShippingFax(String shippingFax) {
-		this.shippingFax = shippingFax;
-	}
+    public void setIdentifierNumber(String identifierNumber) {
+        this.identifierNumber = identifierNumber;
+    }
 
-	public DataLink getPaymentTerms() {
-		return paymentTerms;
-	}
+    public String getVatNumber() {
+        return vatNumber;
+    }
 
-	public void setPaymentTerms(DataLink paymentTerms) {
-		this.paymentTerms = paymentTerms;
-	}
+    public void setVatNumber(String vatNumber) {
+        this.vatNumber = vatNumber;
+    }
 
-	public Short getVatSystem() {
-		return vatSystem;
-	}
+    public String getBillingName() {
+        return billingName;
+    }
 
-	public void setVatSystem(Short vatSystem) {
-		this.vatSystem = vatSystem;
-	}
+    public void setBillingName(String billingName) {
+        this.billingName = billingName;
+    }
 
-	public Short getIsActive() {
-		return isActive;
-	}
+    public String getBillingRecipient() {
+        return billingRecipient;
+    }
 
-	public void setIsActive(Short isActive) {
-		this.isActive = isActive;
-	}
+    public void setBillingRecipient(String billingRecipient) {
+        this.billingRecipient = billingRecipient;
+    }
 
-	public DataLink getDefaultVat() {
-		return defaultVat;
-	}
+    public String getBillingAddress() {
+        return billingAddress;
+    }
 
-	public void setDefaultVat(DataLink defaultVat) {
-		this.defaultVat = defaultVat;
-	}
+    public void setBillingAddress(String billingAddress) {
+        this.billingAddress = billingAddress;
+    }
 
-	public DataLink getDefaultBank() {
-		return defaultBank;
-	}
+    public String getBillingAddress2() {
+        return billingAddress2;
+    }
 
-	public void setDefaultBank(DataLink defaultBank) {
-		this.defaultBank = defaultBank;
-	}
+    public void setBillingAddress2(String billingAddress2) {
+        this.billingAddress2 = billingAddress2;
+    }
 
-	public DataLink getFiscalPosition() {
-		return fiscalPosition;
-	}
+    public String getBillingAddress3() {
+        return billingAddress3;
+    }
 
-	public void setFiscalPosition(DataLink fiscalPosition) {
-		this.fiscalPosition = fiscalPosition;
-	}
+    public void setBillingAddress3(String billingAddress3) {
+        this.billingAddress3 = billingAddress3;
+    }
 
-	public Date getUpdatedOnTime() {
-		return updatedOnTime;
-	}
+    public String getBillingPostalCode() {
+        return billingPostalCode;
+    }
 
-	public void setUpdatedOnTime(Date updatedOnTime) {
-		this.updatedOnTime = updatedOnTime;
-	}
+    public void setBillingPostalCode(String billingPostalCode) {
+        this.billingPostalCode = billingPostalCode;
+    }
 
-	public Date getCreatedOnTime() {
-		return createdOnTime;
-	}
+    public String getBillingCity() {
+        return billingCity;
+    }
 
-	public void setCreatedOnTime(Date createdOnTime) {
-		this.createdOnTime = createdOnTime;
-	}
+    public void setBillingCity(String billingCity) {
+        this.billingCity = billingCity;
+    }
 
-	public String getUpdatedBy() {
-		return updatedBy;
-	}
+    public DataLink getBillingCountry() {
+        return billingCountry;
+    }
 
-	public void setUpdatedBy(String updatedBy) {
-		this.updatedBy = updatedBy;
-	}
+    public void setBillingCountry(DataLink billingCountry) {
+        this.billingCountry = billingCountry;
+    }
 
-	public List<SpecificData> getExtraData() {
-		return extraData;
-	}
+    public String getBillingPhone() {
+        return billingPhone;
+    }
 
-	public void setExtraData(List<SpecificData> extraData) {
-		this.extraData = extraData;
-	}
+    public void setBillingPhone(String billingPhone) {
+        this.billingPhone = billingPhone;
+    }
 
-	public DataLink getFactor() {
-		return factor;
-	}
+    public String getBillingFax() {
+        return billingFax;
+    }
 
-	public void setFactor(DataLink factor) {
-		this.factor = factor;
-	}
+    public void setBillingFax(String billingFax) {
+        this.billingFax = billingFax;
+    }
 
-	public String getHeadquartersName() {
-		return headquartersName;
-	}
+    public String getShippingName() {
+        return shippingName;
+    }
 
-	public void setHeadquartersName(String headquartersName) {
-		this.headquartersName = headquartersName;
-	}
+    public void setShippingName(String shippingName) {
+        this.shippingName = shippingName;
+    }
 
-	public String getHeadquartersRecipient() {
-		return headquartersRecipient;
-	}
+    public String getShippingRecipient() {
+        return shippingRecipient;
+    }
 
-	public void setHeadquartersRecipient(String headquartersRecipient) {
-		this.headquartersRecipient = headquartersRecipient;
-	}
+    public void setShippingRecipient(String shippingRecipient) {
+        this.shippingRecipient = shippingRecipient;
+    }
 
-	public String getHeadquartersAddress() {
-		return headquartersAddress;
-	}
+    public String getShippingAddress() {
+        return shippingAddress;
+    }
 
-	public void setHeadquartersAddress(String headquartersAddress) {
-		this.headquartersAddress = headquartersAddress;
-	}
+    public void setShippingAddress(String shippingAddress) {
+        this.shippingAddress = shippingAddress;
+    }
 
-	public String getHeadquartersAddress2() {
-		return headquartersAddress2;
-	}
+    public String getShippingAddress2() {
+        return shippingAddress2;
+    }
 
-	public void setHeadquartersAddress2(String headquartersAddress2) {
-		this.headquartersAddress2 = headquartersAddress2;
-	}
+    public void setShippingAddress2(String shippingAddress2) {
+        this.shippingAddress2 = shippingAddress2;
+    }
 
-	public String getHeadquartersAddress3() {
-		return headquartersAddress3;
-	}
+    public String getShippingAddress3() {
+        return shippingAddress3;
+    }
 
-	public void setHeadquartersAddress3(String headquartersAddress3) {
-		this.headquartersAddress3 = headquartersAddress3;
-	}
+    public void setShippingAddress3(String shippingAddress3) {
+        this.shippingAddress3 = shippingAddress3;
+    }
 
-	public String getHeadquartersPostalCode() {
-		return headquartersPostalCode;
-	}
+    public String getShippingPostalCode() {
+        return shippingPostalCode;
+    }
 
-	public void setHeadquartersPostalCode(String headquartersPostalCode) {
-		this.headquartersPostalCode = headquartersPostalCode;
-	}
+    public void setShippingPostalCode(String shippingPostalCode) {
+        this.shippingPostalCode = shippingPostalCode;
+    }
 
-	public String getHeadquartersCity() {
-		return headquartersCity;
-	}
+    public String getShippingCity() {
+        return shippingCity;
+    }
 
-	public void setHeadquartersCity(String headquartersCity) {
-		this.headquartersCity = headquartersCity;
-	}
+    public void setShippingCity(String shippingCity) {
+        this.shippingCity = shippingCity;
+    }
 
-	public DataLink getHeadquartersCountry() {
-		return headquartersCountry;
-	}
+    public DataLink getShippingCountry() {
+        return shippingCountry;
+    }
 
-	public void setHeadquartersCountry(DataLink headquartersCountry) {
-		this.headquartersCountry = headquartersCountry;
-	}
+    public void setShippingCountry(DataLink shippingCountry) {
+        this.shippingCountry = shippingCountry;
+    }
 
-	public void setIsActive(short isActive) {
-		this.isActive = isActive;
-	}
+    public String getShippingPhone() {
+        return shippingPhone;
+    }
 
-	public Short getVisibility() {
-		return visibility;
-	}
+    public void setShippingPhone(String shippingPhone) {
+        this.shippingPhone = shippingPhone;
+    }
 
-	public void setVisibility(Short visibility) {
-		this.visibility = visibility;
-	}
+    public String getShippingFax() {
+        return shippingFax;
+    }
 
-	public Date getVisibilityDate() {
-		return visibilityDate;
-	}
+    public void setShippingFax(String shippingFax) {
+        this.shippingFax = shippingFax;
+    }
 
-	public void setVisibilityDate(Date visibilityDate) {
-		this.visibilityDate = visibilityDate;
-	}
+    public DataLink getPaymentTerms() {
+        return paymentTerms;
+    }
+
+    public void setPaymentTerms(DataLink paymentTerms) {
+        this.paymentTerms = paymentTerms;
+    }
+
+    public Short getVatSystem() {
+        return vatSystem;
+    }
+
+    public void setVatSystem(Short vatSystem) {
+        this.vatSystem = vatSystem;
+    }
+
+    public Short getIsActive() {
+        return isActive;
+    }
+
+    public void setIsActive(Short isActive) {
+        this.isActive = isActive;
+    }
+
+    public void setIsActive(short isActive) {
+        this.isActive = isActive;
+    }
+
+    public DataLink getDefaultVat() {
+        return defaultVat;
+    }
+
+    public void setDefaultVat(DataLink defaultVat) {
+        this.defaultVat = defaultVat;
+    }
+
+    public DataLink getDefaultBank() {
+        return defaultBank;
+    }
+
+    public void setDefaultBank(DataLink defaultBank) {
+        this.defaultBank = defaultBank;
+    }
+
+    public DataLink getFiscalPosition() {
+        return fiscalPosition;
+    }
+
+    public void setFiscalPosition(DataLink fiscalPosition) {
+        this.fiscalPosition = fiscalPosition;
+    }
+
+    public Date getUpdatedOnTime() {
+        return updatedOnTime;
+    }
+
+    public void setUpdatedOnTime(Date updatedOnTime) {
+        this.updatedOnTime = updatedOnTime;
+    }
+
+    public Date getCreatedOnTime() {
+        return createdOnTime;
+    }
+
+    public void setCreatedOnTime(Date createdOnTime) {
+        this.createdOnTime = createdOnTime;
+    }
+
+    public String getUpdatedBy() {
+        return updatedBy;
+    }
+
+    public void setUpdatedBy(String updatedBy) {
+        this.updatedBy = updatedBy;
+    }
+
+    public List<SpecificData> getExtraData() {
+        return extraData;
+    }
+
+    public void setExtraData(List<SpecificData> extraData) {
+        this.extraData = extraData;
+    }
+
+    public DataLink getFactor() {
+        return factor;
+    }
+
+    public void setFactor(DataLink factor) {
+        this.factor = factor;
+    }
+
+    public String getHeadquartersName() {
+        return headquartersName;
+    }
+
+    public void setHeadquartersName(String headquartersName) {
+        this.headquartersName = headquartersName;
+    }
+
+    public String getHeadquartersRecipient() {
+        return headquartersRecipient;
+    }
+
+    public void setHeadquartersRecipient(String headquartersRecipient) {
+        this.headquartersRecipient = headquartersRecipient;
+    }
+
+    public String getHeadquartersAddress() {
+        return headquartersAddress;
+    }
+
+    public void setHeadquartersAddress(String headquartersAddress) {
+        this.headquartersAddress = headquartersAddress;
+    }
+
+    public String getHeadquartersAddress2() {
+        return headquartersAddress2;
+    }
+
+    public void setHeadquartersAddress2(String headquartersAddress2) {
+        this.headquartersAddress2 = headquartersAddress2;
+    }
+
+    public String getHeadquartersAddress3() {
+        return headquartersAddress3;
+    }
+
+    public void setHeadquartersAddress3(String headquartersAddress3) {
+        this.headquartersAddress3 = headquartersAddress3;
+    }
+
+    public String getHeadquartersPostalCode() {
+        return headquartersPostalCode;
+    }
+
+    public void setHeadquartersPostalCode(String headquartersPostalCode) {
+        this.headquartersPostalCode = headquartersPostalCode;
+    }
+
+    public String getHeadquartersCity() {
+        return headquartersCity;
+    }
+
+    public void setHeadquartersCity(String headquartersCity) {
+        this.headquartersCity = headquartersCity;
+    }
+
+    public DataLink getHeadquartersCountry() {
+        return headquartersCountry;
+    }
+
+    public void setHeadquartersCountry(DataLink headquartersCountry) {
+        this.headquartersCountry = headquartersCountry;
+    }
+
+    public Short getVisibility() {
+        return visibility;
+    }
+
+    public void setVisibility(Short visibility) {
+        this.visibility = visibility;
+    }
+
+    public Date getVisibilityDate() {
+        return visibilityDate;
+    }
+
+    public void setVisibilityDate(Date visibilityDate) {
+        this.visibilityDate = visibilityDate;
+    }
 }

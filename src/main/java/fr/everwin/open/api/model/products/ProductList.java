@@ -19,39 +19,40 @@
  */
 package fr.everwin.open.api.model.products;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import fr.everwin.open.api.model.core.BasicList;
 
-import javax.xml.bind.annotation.*;
 import java.util.List;
 
 
 /**
  * Products list
+ *
  * @author everwin-team
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name = "productlist")
+
+
 public class ProductList extends BasicList<Product> {
 
     private final static String METHOD = "query";
 
-    @XmlTransient
+
     private int limit;
 
-    @XmlTransient
+
     private int offset; // Getters for these
 
-    @XmlTransient
+
     private int modelLimit; // Getters for these
 
-    @XmlTransient
+
     private String filter; // Getters for these
 
-    @XmlTransient
+
     private String sort; // Getters for these1
 
-    @XmlElement(name = "product")
-    @XmlElementWrapper(name = "products")
+    //    @JsonProperty("product")
+    @JsonProperty("products")
     private List<Product> items;
 
     /**

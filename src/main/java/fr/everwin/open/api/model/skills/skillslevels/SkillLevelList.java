@@ -19,24 +19,25 @@
  */
 package fr.everwin.open.api.model.skills.skillslevels;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import fr.everwin.open.api.model.core.BasicList;
 
-import javax.xml.bind.annotation.*;
 import java.util.List;
 
 
 /**
  * Skill levels list
+ *
  * @author everwin-team
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name = "skilllevellist")
+
+
 public class SkillLevelList extends BasicList<SkillLevel> {
 
     private final static String METHOD = "query";
 
-    @XmlElement(name = "skilllevel")
-    @XmlElementWrapper(name = "skilllevels")
+    //    @JsonProperty("skilllevel")
+    @JsonProperty("skilllevels")
     private List<SkillLevel> items;
 
     @Override

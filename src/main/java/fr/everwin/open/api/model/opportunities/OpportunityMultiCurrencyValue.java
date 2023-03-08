@@ -15,6 +15,7 @@
  */
 
 package fr.everwin.open.api.model.opportunities;
+
 import fr.everwin.open.api.model.core.MultiCurrencyValue;
 
 /**

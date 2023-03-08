@@ -18,6 +18,7 @@ package fr.everwin.open.api.exception;
 
 /**
  * Basic authentication exception
+ *
  * @author everwin-team
  */
 public class AuthException extends CoreException {

@@ -19,24 +19,25 @@
  */
 package fr.everwin.open.api.model.profiles;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import fr.everwin.open.api.model.core.BasicList;
 
-import javax.xml.bind.annotation.*;
 import java.util.List;
 
 
 /**
  * Profile list
+ *
  * @author everwin-team
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name = "profilelist")
+
+
 public class ProfileList extends BasicList<Profile> {
 
     private final static String METHOD = "query";
 
-    @XmlElement(name = "profile")
-    @XmlElementWrapper(name = "profiles")
+    //    @JsonProperty("profile")
+    @JsonProperty("profiles")
     private List<Profile> items;
 
     @Override
