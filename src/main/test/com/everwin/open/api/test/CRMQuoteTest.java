@@ -49,8 +49,6 @@ public class CRMQuoteTest extends BasicTest<CRMQuote, CRMQuotesService> {
     public final long ESTACOC = 162628;   // secondary contact
     public final long ESTENT = 105231;    // entity
     private CRMQuoteLine objectLineReceived;
-
-
     @Override
 	@BeforeClass
 	public void setUp() {

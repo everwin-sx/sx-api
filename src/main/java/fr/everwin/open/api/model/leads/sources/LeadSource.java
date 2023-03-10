@@ -15,12 +15,7 @@
  */
 
 package fr.everwin.open.api.model.leads.sources;
-// import javax.xml.bind.annotation.XmlAccessType;
-// import javax.xml.bind.annotation.XmlAccessorType;
-// import javax.xml.bind.annotation.XmlElement;
-// import javax.xml.bind.annotation.XmlElementWrapper;
-// import javax.xml.bind.annotation.XmlElements;
-// import javax.xml.bind.annotation.XmlRootElement;
+
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -36,19 +31,11 @@ import java.util.List;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-
-
 public class LeadSource extends BasicObject {
 
-
     private String label;
-
     private List<DataLink> entities;
-
-
     private Short order;
-
-
     private Short isArchived;
 
     public String getLabel() {

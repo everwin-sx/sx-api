@@ -24,14 +24,9 @@ import java.util.List;
 /**
  * @author d.storti
  */
-
-
 public class SupplierSettlementList extends BasicList<SupplierSettlement> {
 
-    private final static String METHOD = "query";
-
-    //    @JsonProperty("suppliersettlement")
-    @JsonProperty("suppliersettlements")
+    @JsonProperty("suppliersettlement")
     private List<SupplierSettlement> items;
 
     @Override

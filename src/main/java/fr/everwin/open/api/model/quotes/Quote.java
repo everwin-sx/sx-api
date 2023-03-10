@@ -21,78 +21,33 @@ import java.util.List;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Quote extends BasicObject {
 
-
     private String code;
-
-
     private Long number;
-
-
     private DataLink createdBy;
-
-
     private DataLink customer;
-
-
     private DataLink mainContact;
-
     private List<DataLink> secondaryContacts;
-
-
     private String printHeader;
-
-
     private String notes;
-
-
     private String paymentConditions;
-
-
     private String delay;
-
-
     private DataLink entity;
-
-
     private DataLink financialEntity;
-
-
     private Short status;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date sendingDate;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date signatureDate;
-
-
     private String refusalReason;
-
-
     private String printCurrency;
-
-
     private Double conversionRate;
-
-
     private Short type;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date updatedOnTime;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date createdOnTime;
-
-
     private String updatedBy;
-
     private List<SpecificData> extraData;
-
-
     private String validationStep;
 
     public String getValidationStep() {

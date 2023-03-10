@@ -15,13 +15,7 @@
  */
 
 package fr.everwin.open.api.model.projects.lines;
-// import javax.xml.bind.annotation.XmlAccessType;
-// import javax.xml.bind.annotation.XmlAccessorType;
-// import javax.xml.bind.annotation.XmlElement;
-// import javax.xml.bind.annotation.XmlElementWrapper;
-// import javax.xml.bind.annotation.XmlElements;
-// import javax.xml.bind.annotation.XmlRootElement;
-// import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -37,65 +31,30 @@ import java.util.List;
  * @author d.storti
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-
-
 public class WritableProjectLine extends BasicObject {
 
-
     private DataLink activity;
-
-
     private DataLink type;
-
-
     private DataLink resource;
-
-
     private String comment;
-
-
     private Short invoicingMode;
-
-
     private DataLink product;
-
-
     private String unit;
-
-
     private String currency;
-
-
     private Short order;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date initialStartDate;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date initialEndDate;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date updatedStartDate;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date updatedEndDate;
-
-
     private Revenue estimatedRevenue;
-
     private Discount estimatedDiscount;
-
     private Expenditure estimatedExpenditure;
-
     private Revenue forecastRevenue;
-
     private Expenditure forecastExpenditure;
-
-
     private List<SpecificData> extraData;
 
     public WritableProjectLine() {

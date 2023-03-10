@@ -20,13 +20,8 @@ import java.util.List;
 public class Category extends BasicObject {
 
     private String label;
-
     private List<DataLink> rowTypes;
-
-
     private Short isArchived;
-
-
     private List<SpecificData> extraData;
 
     public String getLabel() {

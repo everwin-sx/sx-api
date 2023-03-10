@@ -27,26 +27,16 @@ import java.util.List;
  *
  * @author d.storti
  */
-
-
 public class ProjectLineList extends BasicList<ProjectLine> {
 
-    private final static String METHOD = "query";
-
     private int limit;
+    private int offset;
+    private int modelLimit;
+    private String filter;
+    private String sort;
 
-    private int offset; // Getters for these
-
-    private int modelLimit; // Getters for these
-
-    private String filter; // Getters for these
-
-    private String sort; // Getters for these1
-
-    //    @JsonProperty("project-line")
-    @JsonProperty("project-lines")
+    @JsonProperty("project-line")
     private List<ProjectLine> items;
-
 
     /**
      *

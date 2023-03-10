@@ -29,14 +29,10 @@ import java.util.List;
  *
  * @author everwin-team
  */
-
-
 public class CommentList extends BasicList<Comment> {
 
-    private final static String METHOD = "query";
 
-    //    @JsonProperty("comment")
-    @JsonProperty("comments")
+    @JsonProperty("comment")
     private List<Comment> items;
 
     /**

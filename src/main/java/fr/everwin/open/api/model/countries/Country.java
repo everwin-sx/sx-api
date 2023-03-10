@@ -28,20 +28,12 @@ import fr.everwin.open.api.model.core.BasicObject;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-
-
 public class Country extends BasicObject {
 
 
     private String label;
-
-
     private String nationality;
-
-
     private Short isDefault;
-
-
     private String iso;
 
     public String getLabel() {

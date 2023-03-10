@@ -16,14 +16,6 @@
 
 package fr.everwin.open.api.model.documents;
 
-// import javax.xml.bind.annotation.XmlAccessType;
-// import javax.xml.bind.annotation.XmlAccessorType;
-// import javax.xml.bind.annotation.XmlElement;
-// import javax.xml.bind.annotation.XmlElementWrapper;
-// import javax.xml.bind.annotation.XmlElements;
-// import javax.xml.bind.annotation.XmlRootElement;
-// import javax.xml.bind.annotation.XmlTransient;
-// import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -43,61 +35,27 @@ import java.util.List;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-
-
 public class Document extends BasicObject {
 
 
     private String title;
-
-
     private DataLink type;
-
-
     private Short nature;
-
-
     private Short viewingLevel;
-
-
     private Short modificationLevel;
-
-
     private DataLink keywords;
-
-
     private String comment;
-
-
     private Double size;
-
-
     private DataLink author;
-
-
     private DataLink thesaurus;
-
-
     private String link;
-
-
     private String chorusType;
-
-
     private Short isSentToChorus;
-
-
     private String euserLockDoc;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date createdOnTime;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date updatedOnTime;
-
-
     private String updatedBy;
 
     private String linkedClass;

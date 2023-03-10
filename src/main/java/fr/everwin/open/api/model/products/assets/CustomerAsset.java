@@ -38,43 +38,21 @@ import java.util.Date;
 public class CustomerAsset extends BasicObject {
 
     private DataLink company;
-
-
     private DataLink product;
-
-
     private String comment;
-
-
     private DataLink project;
-
-
     private DataLink projectRow;
-
-
     private Double quantity;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date validationDate;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date orderDate;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date deliveryDate;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date installationDate;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date maintenanceDate;
-
-
     private Short isActive;
 
     /**

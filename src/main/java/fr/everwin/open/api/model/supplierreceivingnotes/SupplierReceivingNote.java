@@ -32,38 +32,18 @@ import java.util.List;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-
-
 public class SupplierReceivingNote extends BasicObject {
 
-
     private String code;
-
-
     private String validationStep;
-
-
     private DataLink supplier;
-
-
     private DataLink entity;
-
-
     private DataLink financialEntity;
-
-
     private DataLink issuer;
-
-
     private DataLink supplierAccount;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date date;
-
-
     private String reference;
-
     private List<SpecificData> extraData;
 
     public String getCode() {

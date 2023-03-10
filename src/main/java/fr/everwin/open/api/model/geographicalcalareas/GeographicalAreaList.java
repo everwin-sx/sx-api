@@ -26,14 +26,9 @@ import java.util.List;
  *
  * @author d.storti
  */
-
-
 public class GeographicalAreaList extends BasicList<GeographicalArea> {
 
-    private final static String METHOD = "query";
-
-    //    @JsonProperty("geographicalarea")
-    @JsonProperty("geographicalareas")
+    @JsonProperty("geographicalarea")
     private List<GeographicalArea> items;
 
     @Override

@@ -30,14 +30,9 @@ import java.util.List;
  *
  * @author everwin-team
  */
-
-
 public class EntityList extends BasicList<Entity> {
 
-    private final static String METHOD = "query";
-
-    //    @JsonProperty("entity")
-    @JsonProperty("entities")
+    @JsonProperty("entity")
     private List<Entity> items;
 
     /**

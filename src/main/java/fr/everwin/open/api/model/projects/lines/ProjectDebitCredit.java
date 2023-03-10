@@ -23,17 +23,10 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * @author d.storti
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-
-
 public class ProjectDebitCredit {
 
-
     private Double quantity;
-
-
     private ProjectLineMultiCurrencyValue amount;
-
-
     private ProjectLineMultiCurrencyValue total;
 
     /**

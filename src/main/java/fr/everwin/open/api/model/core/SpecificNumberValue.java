@@ -19,14 +19,11 @@
  */
 package fr.everwin.open.api.model.core;
 
-
 /**
  * Specialized SpecificData for number
  *
  * @author everwin-team
  */
-
-
 public class SpecificNumberValue extends SpecificData {
 
 

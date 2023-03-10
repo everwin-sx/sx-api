@@ -26,14 +26,9 @@ import java.util.List;
  *
  * @author d.storti
  */
-
-
 public class DocumentList extends BasicList<Document> {
 
-    private final static String METHOD = "query";
-
-    //    @JsonProperty("document")
-    @JsonProperty("documents")
+    @JsonProperty("document")
     private List<Document> items;
 
     public DocumentList() {

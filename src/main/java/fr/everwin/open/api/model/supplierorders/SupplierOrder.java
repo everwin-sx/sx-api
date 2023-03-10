@@ -37,74 +37,32 @@ import java.util.List;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-
-
 public class SupplierOrder extends BasicObject {
 
-
     private String code;
-
-
     private String validationStep;
-
-
     private DataLink supplier;
-
-
     private DataLink contact;
-
-
     private DataLink entity;
-
-
     private DataLink financialEntity;
-
-
     private DataLink project;
-
-
     private DataLink issuer;
-
-
     private DataLink supplierAccount;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date creationDate;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date deliveryDate;
-
-
     private String supplierReference;
-
-
     private String estimateReference;
-
-
     private String currency;
-
-
     private Double totalWithoutVat;
-
-
     private String deliveryAddress;
-
-
     private Short deliveryStatus;
-
-
     private String comment;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date updatedOnTime;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date createdOnTime;
-
     private List<SpecificData> extraData;
 
     @Override

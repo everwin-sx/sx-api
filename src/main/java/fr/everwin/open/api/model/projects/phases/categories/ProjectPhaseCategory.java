@@ -30,19 +30,11 @@ import java.util.List;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-
-
 public class ProjectPhaseCategory extends BasicObject {
 
-
     private Short type;
-
-
     private String label;
-
     private List<DataLink> entities;
-
-
     private Short archived;
 
     public Short getType() {

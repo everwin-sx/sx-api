@@ -35,31 +35,16 @@ import java.util.List;
  * @author everwin-team
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-
-
 public class CandidateSkill extends BasicObject {
 
-
     private DataLink candidate;
-
-
     private DataLink skill;
-
-
     private DataLink level;
-
-
     private String comment;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date startDate;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date endDate;
-
-
     private List<SpecificData> extraData;
 
     /**
@@ -129,6 +114,5 @@ public class CandidateSkill extends BasicObject {
     public String toString() {
         return "CandidateSkill [candidate=" + candidate + ", skill=" + skill + ", level=" + level + ", id=" + id + "]";
     }
-
 
 }

@@ -15,12 +15,7 @@
  */
 
 package fr.everwin.open.api.model.expenses.guests;
-// import javax.xml.bind.annotation.XmlAccessType;
-// import javax.xml.bind.annotation.XmlAccessorType;
-// import javax.xml.bind.annotation.XmlElement;
-// import javax.xml.bind.annotation.XmlElementWrapper;
-// import javax.xml.bind.annotation.XmlElements;
-// import javax.xml.bind.annotation.XmlRootElement;
+
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -37,32 +32,16 @@ import java.util.List;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-
-
 public class Guest extends BasicObject {
 
 
     private Short type;
-
-
     private String name;
-
-
     private String function;
-
-
     private String company;
-
-
     private DataLink expenseLine;
-
-
     private DataLink entity;
-
-
     private DataLink employee;
-
-
     private Double total;
 
     private List<SpecificData> extraData;

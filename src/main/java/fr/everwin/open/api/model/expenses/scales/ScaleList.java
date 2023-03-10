@@ -26,14 +26,9 @@ import java.util.List;
  *
  * @author d.storti
  */
-
-
 public class ScaleList extends BasicList<Scale> {
 
-    private final static String METHOD = "query";
-
-    //    @JsonProperty("scale")
-    @JsonProperty("scales")
+    @JsonProperty("scale")
     private List<Scale> items;
 
     @Override

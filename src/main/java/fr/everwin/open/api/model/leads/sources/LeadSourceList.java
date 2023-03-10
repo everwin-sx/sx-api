@@ -26,14 +26,9 @@ import java.util.List;
  *
  * @author d.storti
  */
-
-
 public class LeadSourceList extends BasicList<LeadSource> {
 
-    private final static String METHOD = "query";
-
-    //    @JsonProperty("leadsource")
-    @JsonProperty("leadsources")
+    @JsonProperty("leadsource")
     private List<LeadSource> items;
 
     @Override

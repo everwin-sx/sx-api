@@ -32,14 +32,13 @@ public class ConfigHelper {
     public static final String URI_WS = "http://localhost:8080/sx/rest"; //"https://mars2:12443/sx/rest"
     public static final String VERSION = "v2";
     public static final String DATETIMEFORMAT = "yyyy-MM-dd'T'HH:mm:ss";
+    public static final String TIMEZONE = "CET";
     public static final String TIMEFORMAT = "HH:mm";
     private static final Logger LOGGER = LoggerFactory.getLogger(ConfigHelper.class);
-    protected static ConfigHelper instance;
 
     private ConfigHelper() {
         // empty
     }
-
 
     public static Calendar newCalendar(Date date) {
         Calendar c = Calendar.getInstance();
@@ -52,7 +51,6 @@ public class ConfigHelper {
     }
 
     public static Calendar getFirstPeriodDate(Calendar period) {
-
         Calendar newPeriod = Calendar.getInstance();
         newPeriod.setTime(period.getTime());
         newPeriod.set(Calendar.MONTH, 0);

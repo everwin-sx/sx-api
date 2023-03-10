@@ -32,34 +32,16 @@ import java.util.List;
  * @author everwin-team
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-
-
 public class SkillDomain extends BasicObject {
 
-
     private String label;
-
-
     private String description;
-
-
     private Short isUnique;
-
-
     private Short hasDynamicSkills;
-
-
     private Short hasDate;
-
     private List<DataLink> entities;
-
-
     private Short order;
-
-
     private Short cvparserType;
-
-
     private Short hasComment;
 
     private List<SpecificData> extraData;

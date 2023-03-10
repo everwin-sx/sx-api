@@ -17,19 +17,10 @@ import fr.everwin.open.api.model.core.DataLink;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Profile extends BasicObject {
 
-
     private String code;
-
-
     private DataLink entity;
-
-
     private DataLink financialEntity;
-
-
     private DataLink workMode;
-
-
     private Short isArchived;
 
     public String getCode() {

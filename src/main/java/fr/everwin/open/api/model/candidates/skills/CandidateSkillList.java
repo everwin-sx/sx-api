@@ -24,20 +24,14 @@ import fr.everwin.open.api.model.core.BasicList;
 
 import java.util.List;
 
-
 /**
  * candidate skills list
  *
  * @author everwin-team
  */
-
-
 public class CandidateSkillList extends BasicList<CandidateSkill> {
 
-    private final static String METHOD = "query";
-
-    //    @JsonProperty("candidateskill")
-    @JsonProperty("candidateskills")
+    @JsonProperty("candidateskill")
     private List<CandidateSkill> items;
 
     @Override

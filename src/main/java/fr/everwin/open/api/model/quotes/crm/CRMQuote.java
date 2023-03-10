@@ -9,20 +9,11 @@ import fr.everwin.open.api.model.quotes.Quote;
  *
  * @author everwin-team
  */
-
-
 public class CRMQuote extends Quote {
 
-
     private DataLink opportunity;
-
-
     private DataLink originQuote;
-
-
     private Long duplicationNumber;
-
-
     private Short repartitionStatus;
 
     public DataLink getOpportunity() {

@@ -24,14 +24,9 @@ import java.util.List;
 /**
  * @author d.storti
  */
-
-
 public class SupplierReceivingNoteLineList extends BasicList<SupplierReceivingNoteLine> {
 
-    private final static String METHOD = "query";
-
-    //    @JsonProperty("supplierreceivingnoteline")
-    @JsonProperty("supplierreceivingnotelines")
+    @JsonProperty("supplierreceivingnoteline")
     private List<SupplierReceivingNoteLine> items;
 
     @Override

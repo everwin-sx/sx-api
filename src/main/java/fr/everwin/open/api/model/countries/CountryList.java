@@ -26,14 +26,9 @@ import java.util.List;
  *
  * @author d.storti
  */
-
-
 public class CountryList extends BasicList<Country> {
 
-    private final static String METHOD = "query";
-
-    //    @JsonProperty("country")
-    @JsonProperty("countries")
+    @JsonProperty("country")
     private List<Country> items;
 
     /**

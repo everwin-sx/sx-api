@@ -26,14 +26,9 @@ import java.util.List;
  *
  * @author d.storti
  */
-
-
 public class ContactEventList extends BasicList<ContactEvent> {
 
-    private final static String METHOD = "query";
-
-    //    @JsonProperty("contactevent")
-    @JsonProperty("contactevents")
+    @JsonProperty("contactevent")
     private List<ContactEvent> items;
 
     /**

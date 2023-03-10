@@ -30,14 +30,9 @@ import java.util.List;
  *
  * @author everwin-team
  */
-
-
 public class PersonList extends BasicList<Person> {
 
-    private final static String METHOD = "query";
-
-    //    @JsonProperty("contact")
-    @JsonProperty("contacts")
+    @JsonProperty("contact")
     private List<Person> items;
 
     /**

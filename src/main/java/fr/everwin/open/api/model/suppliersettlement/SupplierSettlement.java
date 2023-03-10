@@ -32,44 +32,21 @@ import java.util.List;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-
-
 public class SupplierSettlement extends BasicObject {
 
-
     private String code;
-
-
     private DataLink entity;
-
-
     private DataLink supplier;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date settlementDate;
-
-
     private DataLink financialEntity;
-
-
     private DataLink settlementType;
-
-
     private DataLink bank;
-
-
     private String reference;
-
-
     private SupplierSettlementMultiCurrencyValue total;
-
-
     private String currency;
-
     private List<SpecificData> extraData;
     private String validationStep;
-
 
     public SupplierSettlement() {
         total = new SupplierSettlementMultiCurrencyValue();

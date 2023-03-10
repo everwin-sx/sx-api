@@ -32,63 +32,27 @@ import java.util.List;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-
-
 public class WorkUnit extends BasicObject {
 
-
     private String code;
-
-
     private Date date;
-
-
     private Date userDate;
-
-
     private DataLink employee;
-
-
     private DataLink project;
-
-
     private DataLink projectLine;
-
-
     private Double consumedQuantity;
-
-
     private Double reInvoiceableQuantity;
-
-
     private Double reInvoiceableAmount;
-
-
     private Double reInvoiceableTotal;
-
-
     private String currency;
-
-
     private Short doNotEvaluate;
-
-
     private String customerComment;
-
-
     private String internalComment;
-
-
     private String updatedBy;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date updatedOnTime;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date createdOnTime;
-
     private List<SpecificData> extraData;
 
     public String getCode() {

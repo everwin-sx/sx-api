@@ -34,81 +34,33 @@ import java.util.List;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-
-
 public class ExpenseSheetLine extends BasicObject {
 
 
     private DataLink expenseSheet;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date date;
-
-
     private DataLink project;
-
-
     private DataLink type;
-
-
     private DataLink projectLine;
-
-
     private DataLink missionOrder;
-
-
     private String title;
-
-
     private String comment;
-
-
     private String place;
-
-
     private String lettering;
-
-
     private Double quantity;
-
-
     private DataLink currency;
-
-
     private ExpenseSheetLineMultiCurrencyValue amount;
-
-
     private ExpenseSheetLineMultiCurrencyValue totalIncludingVat;
-
-
     private ExpenseSheetLineMultiCurrencyValue totalWithoutVat;
-
-
     private ExpenseSheetLineMultiCurrencyValue totalInvoiceAgain;
-
-
     private Double vat;
-
-
     private Short reinvoiceable;
-
-
     private String startingAddress;
-
-
     private String arrivalAddress;
-
-
     private DataLink account;
-
-
     private DataLink vehicle;
-
-
     private Double distanceToDate;
-
-
     private Short nonRefundable;
 
     private List<SpecificData> extraData;

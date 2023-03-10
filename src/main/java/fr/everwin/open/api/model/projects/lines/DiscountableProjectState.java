@@ -22,8 +22,6 @@ import fr.everwin.open.api.model.projects.ProjectState;
 /**
  * @author d.storti
  */
-
-
 public class DiscountableProjectState extends ProjectState {
 
 

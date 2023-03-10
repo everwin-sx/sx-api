@@ -30,15 +30,10 @@ import java.util.List;
  *
  * @author everwin-team
  */
-
-
 public class NafList extends BasicList<Naf> {
-    private final static String METHOD = "query";
 
-    //    @JsonProperty("naf")
-    @JsonProperty("nafs")
+    @JsonProperty("naf")
     private List<Naf> items;
-
 
     /**
      *

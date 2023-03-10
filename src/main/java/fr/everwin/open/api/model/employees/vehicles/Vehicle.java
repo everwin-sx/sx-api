@@ -29,32 +29,16 @@ import fr.everwin.open.api.model.core.DataLink;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-
-
 public class Vehicle extends BasicObject {
 
 
     private Short type;
-
-
     private String label;
-
-
     private String registration;
-
-
     private Short fiscalPower;
-
-
     private Short fuel;
-
-
     private DataLink scale;
-
-
     private DataLink owner;
-
-
     private Short isArchived;
 
     public Short getType() {

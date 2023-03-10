@@ -34,35 +34,18 @@ import java.util.List;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-
-
 public class AccAccount extends BasicObject {
 
-
     private DataLink companyAccount;
-
-
     private List<DataLink> entities;
-
-
     private String generalAccount;
-
-
     private String subsidiaryAccount;
-
-
     private String book;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date updatedOnTime;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date createdOnTime;
-
     private String updatedBy;
-
     private List<SpecificData> extraData;
 
     public AccAccount() {

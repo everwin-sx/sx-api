@@ -29,23 +29,13 @@ import fr.everwin.open.api.model.core.DataLink;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-
-
 public class Family extends BasicObject {
 
 
     private String code;
-
-
     private DataLink entity;
-
-
     private DataLink financialEntity;
-
-
     private DataLink workMode;
-
-
     private Short isArchived;
 
     public String getCode() {

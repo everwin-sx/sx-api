@@ -15,13 +15,7 @@
  */
 
 package fr.everwin.open.api.model.leads;
-// import javax.xml.bind.annotation.XmlAccessType;
-// import javax.xml.bind.annotation.XmlAccessorType;
-// import javax.xml.bind.annotation.XmlElement;
-// import javax.xml.bind.annotation.XmlElementWrapper;
-// import javax.xml.bind.annotation.XmlElements;
-// import javax.xml.bind.annotation.XmlRootElement;
-// import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -41,72 +35,29 @@ import java.util.List;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-
-
 public class Lead extends BasicObject {
 
-
     private String code;
-
-
     private String description;
-
-
     private String companyFree;
-
-
     private String address;
-
-
     private String contactFree;
-
-
     private String contactFunction;
-
-
     private String phone;
-
-
     private String email;
-
-
     private DataLink entity;
-
-
     private DataLink financialEntity;
-
-
     private DataLink affectedTo;
-
-
     private DataLink state;
-
-
     private DataLink source;
-
-
     private Short score;
-
-
     private DataLink company;
-
-
     private DataLink contact;
-
-
     private DataLink opportunity;
-
-
     private Short isArchived;
-
-
     private String updatedBy;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date updatedOnTime;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date createdOnTime;
 

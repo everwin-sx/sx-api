@@ -26,14 +26,9 @@ import java.util.List;
  *
  * @author d.storti
  */
-
-
 public class ProjectActivityList extends BasicList<ProjectActivity> {
 
-    private final static String METHOD = "query";
-
-    //    @JsonProperty("project-activity")
-    @JsonProperty("project-activities")
+    @JsonProperty("project-activity")
     private List<ProjectActivity> items;
 
     @Override

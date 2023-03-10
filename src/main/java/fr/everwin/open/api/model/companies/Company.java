@@ -34,137 +34,53 @@ import java.util.List;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-
-
 public class Company extends BasicObject {
 
-
     private String code;
-
     private String name;
-
-
     private DataLink group;
-
-
     private DataLink providedby;
-
-
     private DataLink entity;
-
-
     private DataLink accountManager;
-
-
     private DataLink status;
-
-
     private DataLink legalStatus;
-
-
     private Short visibility;
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
-
     private Date visibilityDate;
-
-
     private String identifierNumber;
-
-
     private String phone;
-
-
     private String fax;
-
-
     private String address;
-
-
     private String address2;
-
-
     private String address3;
-
-
     private String postalCode;
-
-
     private String city;
-
-
     private DataLink region;
-
-
     private DataLink country;
-
-
     private String email;
-
-
     private String website;
-
-
     private DataLink defaultAccount;
-
-
     private DataLink ape;
-
-
     private DataLink category;
-
-
     private DataLink segment;
-
-
     private String openSegment;
-
-
     private DataLink turnoverSize;
-
-
     private Double turnover;
-
-
     private DataLink numberOfEmployeesSize;
-
-
     private Long numberOfEmployees;
-
-
     private Integer numberOfSites;
-
-
     private String comment;
-
-
     private Short isProvider;
-
-
     private DataLink spanco;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date updatedOnTime;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date createdOnTime;
-
     private String updatedBy;
-
-
     private List<DataLink> offers;
-
-
     private Short acceptEmailing;
-
-
     private String companyRegistrationNumber;
-
-
     private String logo;
-
     private List<SpecificData> extraData;
 
     /**

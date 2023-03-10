@@ -8,20 +8,11 @@ import fr.everwin.open.api.model.core.DataLink;
  *
  * @author everwin-team
  */
-
-
 public class QuoteResource {
 
-
     protected DataLink employee;
-
-
     protected DataLink equipment;
-
-
     protected DataLink profil;
-
-
     protected DataLink equipmentFamily;
 
     @Override

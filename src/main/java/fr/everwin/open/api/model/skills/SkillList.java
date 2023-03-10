@@ -32,14 +32,9 @@ import java.util.List;
  * @author everwin-team
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-
-
 public class SkillList extends BasicList<Skill> {
 
-    private final static String METHOD = "query";
-
-    //    @JsonProperty("skill")
-    @JsonProperty("skills")
+    @JsonProperty("skill")
     private List<Skill> items;
 
     @Override

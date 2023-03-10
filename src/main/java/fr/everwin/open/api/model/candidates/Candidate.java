@@ -36,107 +36,43 @@ import java.util.List;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-
-
 public class Candidate extends BasicObject {
 
-
     private String code;
-
-
     private String firstName;
-
-
     private String lastName;
-
-
     private Short title;
-
-
     private String familySituation;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date birthDate;
-
-
     private DataLink nationality;
-
-
     private DataLink status;
-
-
     private DataLink connectionType;
-
     private List<DataLink> activityCategories;
-
     private List<DataLink> businesses;
-
-
     private DataLink candidacyOrigin;
-
-
     private DataLink experienceDuration;
-
-
     private DataLink availability;
-
-
     private DataLink degreeLevel;
-
-
     private DataLink manager;
-
-
     private DataLink recruitmentManager;
-
-
     private String cvTitle;
-
-
     private Short isArchived;
-
-
     private String candidacyComment;
-
-
     private String personalPhone;
-
-
     private String personalMobile;
-
-
     private String personalEmail;
-
-
     private String address;
-
-
     private String address2;
-
-
     private String address3;
-
-
     private String postalCode;
-
-
     private String city;
-
-
     private DataLink country;
-
-
     private String updatedBy;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date updatedOnTime;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date createdOnTime;
-
     private List<SpecificData> extraData;
 
     /**

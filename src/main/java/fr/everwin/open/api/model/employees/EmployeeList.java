@@ -30,14 +30,9 @@ import java.util.List;
  *
  * @author everwin-team
  */
-
-
 public class EmployeeList extends BasicList<Employee> {
 
-    private final static String METHOD = "query";
-
-    //    @JsonProperty("employee")
-    @JsonProperty("employees")
+    @JsonProperty("employee")
     private List<Employee> items;
 
     @Override

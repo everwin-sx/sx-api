@@ -34,22 +34,12 @@ import java.util.List;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-
-
 public class SkillLevel extends BasicObject {
 
-
     private String label;
-
-
     private DataLink domain;
-
-
     private Short order;
-
-
     private String cvParserLevel;
-
     private List<SpecificData> extraData;
 
     /**

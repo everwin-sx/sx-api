@@ -16,9 +16,9 @@
 
 package fr.everwin.open.api;
 
-import com.fasterxml.jackson.jakarta.rs.json.JacksonJsonProvider;
 import fr.everwin.open.api.core.auth.Authentication;
 import fr.everwin.open.api.core.auth.Token;
+import fr.everwin.open.api.core.config.ConfigHelper;
 import fr.everwin.open.api.exception.AuthException;
 import fr.everwin.open.api.exception.CoreException;
 import fr.everwin.open.api.util.ClientRequest;
@@ -28,6 +28,7 @@ import jakarta.ws.rs.client.*;
 import jakarta.ws.rs.core.Form;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
+import org.glassfish.jersey.jackson.JacksonFeature;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -42,8 +43,6 @@ import java.util.Properties;
  */
 public class ClientApi {
 
-    public static final String API_VERSION_1 = "v1";
-    public static final String API_VERSION_2 = "v2";
     protected static final Logger LOGGER = LoggerFactory.getLogger(ClientApi.class);
 
     static {
@@ -60,12 +59,12 @@ public class ClientApi {
     /**
      * The uri of the server
      */
-    private String uri = "http://localhost:8080/sx/rest";
+    private final String uri;
 
     /**
      * The version of the api
      */
-    private String version = API_VERSION_2;
+    private String version = ConfigHelper.VERSION;
 
     /**
      * Create a new Client for the given uri and init the client from SSL or NoSSL.
@@ -123,7 +122,7 @@ public class ClientApi {
      */
     private ClientBuilder createCommonClientBuilder() {
         return ClientBuilder.newBuilder()
-                .register(JacksonJsonProvider.class);
+                .register(JacksonFeature.class);
     }
 
     /**

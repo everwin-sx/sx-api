@@ -15,11 +15,7 @@
  */
 
 package fr.everwin.open.api.model.projects.subcategories;
-// import javax.xml.bind.annotation.XmlAccessType;
-// import javax.xml.bind.annotation.XmlAccessorType;
-// import javax.xml.bind.annotation.XmlElement;
-// import javax.xml.bind.annotation.XmlElementWrapper;
-// import javax.xml.bind.annotation.XmlRootElement;
+
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import fr.everwin.open.api.model.core.BasicObject;
@@ -31,19 +27,11 @@ import fr.everwin.open.api.model.core.DataLink;
 
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-
 public class ProjectSubCategory extends BasicObject {
 
-
     private Short type;
-
-
     private String label;
-
-
     private Short archived;
-
-
     private DataLink category;
 
     public Short getType() {

@@ -16,6 +16,8 @@
 
 package fr.everwin.open.api.core.auth;
 
+import java.util.Objects;
+
 /**
  * Authentication object to manage OAuth2 or apiKey access
  *
@@ -23,8 +25,8 @@ package fr.everwin.open.api.core.auth;
  */
 public class Authentication {
 
-    public static int TYPE_OAUTH = 0;
-    public static int TYPE_APIKEY = 1;
+    public static final int TYPE_OAUTH = 0;
+    public static final int TYPE_APIKEY = 1;
 
     private int type;
     private String clientId;
@@ -85,11 +87,7 @@ public class Authentication {
             authentication.setApiKey(apiKey);
             authentication.setClientId(clientId);
             authentication.setClientSecret(clientSecret);
-            if (apiKey != null) {
-                authentication.setType(TYPE_APIKEY);
-            } else {
-                authentication.setType(TYPE_OAUTH);
-            }
+            authentication.setType(Objects.nonNull(apiKey) ? TYPE_APIKEY : TYPE_OAUTH);
             return authentication;
         }
 

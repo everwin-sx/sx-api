@@ -24,14 +24,9 @@ import java.util.List;
 /**
  * @author d.storti
  */
-
-
 public class WorkUnitList extends BasicList<WorkUnit> {
 
-    private final static String METHOD = "query";
-
-    //    @JsonProperty("workunit")
-    @JsonProperty("wokunits")
+    @JsonProperty("workunit")
     private List<WorkUnit> items;
 
     @Override

@@ -25,14 +25,9 @@ import java.util.List;
  *
  * @author d.storti
  */
-
-
 public class LeadList extends BasicList<Lead> {
 
-    private final static String METHOD = "query";
-
-    //    @JsonProperty("lead")
-    @JsonProperty("leads")
+    @JsonProperty("lead")
     private List<Lead> items;
 
     @Override

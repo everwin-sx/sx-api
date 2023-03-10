@@ -34,69 +34,32 @@ import java.util.List;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-
-
 public class ProjectPhase extends BasicObject {
 
-
     private String code;
-
-
     private DataLink project;
-
-
     private Short order;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date initialStartDate;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date initialEndDate;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date updatedStartDate;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date updatedEndDate;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date actualStartDate;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date actualEndDate;
-
-
     private String comment;
-
-
     private String title;
-
-
     private Long number;
-
-
     private Long distributionRate;
-
-
     private DataLink category;
-
-
     private Short resumption;
-
-
     private DataLink currency;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date updatedOnTime;
-
-
     private List<SpecificData> extraData;
 
     public String getCode() {

@@ -29,21 +29,12 @@ import fr.everwin.open.api.model.core.DataLink;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-
-
 public class Nace extends BasicObject {
 
-
     public String code;
-
     public String label;
-
     public Short revision;
-
-
     private DataLink naceGroup;
-
-
     private Short isArchived;
 
     /**

@@ -18,31 +18,14 @@ import java.util.List;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class QuoteLine extends BasicObject {
 
-
     protected DataLink type;
-
-
     protected QuoteResource resource;
-
-
     protected String reference;
-
-
     protected String comment;
-
-
     protected DataLink vat;
-
-
     protected Double vatRate;
-
-
     protected Double vat2Rate;
-
-
     protected Short order;
-
-
     protected List<SpecificData> extraData;
 
     public QuoteLine() {

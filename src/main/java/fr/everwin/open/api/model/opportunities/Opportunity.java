@@ -38,115 +38,47 @@ import java.util.List;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-
-
 public class Opportunity extends BasicObject {
 
-
     private String code;
-
-
     private String label;
-
-
     private DataLink customer;
-
-
     private DataLink contributor;
-
-
     private DataLink mainContact;
-
     private List<DataLink> secondaryContacts;
-
-
     private DataLink entity;
-
-
     private DataLink financialEntity;
-
-
     private DataLink projectDirector;
-
-
     private DataLink projectManager;
-
-
     private DataLink opportunityManager;
-
-
     private DataLink category;
-
-
     private DataLink subCategory;
-
-
     private Short commercialStatus;
-
-
     private Short invoicingMode;
-
-
     private DataLink site;
-
-
     private DataLink salesCycle;
-
-
     private DataLink salesStep;
-
-
     private DataLink spanco;
-
-
     private OpportunityMultiCurrencyValue proposalAmount;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date signatureDate;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date initialStartDate;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date initialEndDate;
-
-
     private Short estimatedProbability;
-
-
     private Double calculatedProbability;
-
-
     private OpportunityMultiCurrencyValue estimatedCustomerBudget;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date responseDeadline;
-
-
     private Short durationUnit;
-
-
     private String updatedBy;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date updatedOnTime;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date createdOnTime;
-
-
     private String managementCurrency;
-
-
     private String accountCurrency;
-
-
     private String reportingCurrency;
 
     private List<SpecificData> extraData;

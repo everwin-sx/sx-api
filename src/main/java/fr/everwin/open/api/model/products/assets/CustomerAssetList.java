@@ -30,31 +30,15 @@ import java.util.List;
  *
  * @author everwin-team
  */
-
-
 public class CustomerAssetList extends BasicList<CustomerAsset> {
 
-    private final static String METHOD = "query";
-
-
     private int limit;
-
-
     private int offset;
-
-
     private int modelLimit;
-
-
     private String filter;
-
-
     private String sort;
-
-    //    @JsonProperty("customer-asset")
-    @JsonProperty("customer-assets")
+    @JsonProperty("customer-asset")
     private List<CustomerAsset> items;
-
 
     public int getLimit() {
         return limit;

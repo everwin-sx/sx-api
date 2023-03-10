@@ -31,41 +31,20 @@ import java.util.List;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-
-
 public class Rowtype extends BasicObject {
 
-
     private String code;
-
-
     private Short type;
-
-
     private Short mode;
-
     private List<DataLink> entities;
-
     private DataLink parent;
-
-
     private Short group;
-
-
     private Short isWorkUnit;
-
-
     private Double flateRateAmount;
-
     private DataLink subscriptionRowtype;
-
     @JsonProperty("rowtypes")
     private List<DataLink> subscriptionTimeRowtypes;
-
-
     private Short isInvoiceable;
-
-
     private Short isExcludedFromProductionCalculation;
 
     public String getCode() {

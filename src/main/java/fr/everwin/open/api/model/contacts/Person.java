@@ -34,76 +34,33 @@ import java.util.List;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-
-
 public class Person extends BasicObject {
 
-
     private String code;
-
-
     private Short civility;
-
-
     private String firstName;
-
-
     private String lastName;
-
-
     private String birthName;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date birthDate;
-
-
     private String birthCity;
-
-
     private String phone;
-
-
     private String mobile;
-
-
     private String email;
-
-
     private String address;
-
-
     private String address2;
-
-
     private String address3;
-
-
     private String postalCode;
-
-
     private String city;
-
-
     private DataLink country;
-
-
     private DataLink mainResponsibility;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date updatedOnTime;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date createdOnTime;
 
     private String updatedBy;
-
-
     private String picture;
-
-
     private List<SpecificData> extraData;
 
     public Person() {

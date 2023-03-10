@@ -30,14 +30,9 @@ import java.util.List;
  *
  * @author everwin-team
  */
-
-
 public class TypeList extends BasicList<Type> {
 
-    private final static String METHOD = "query";
-
-    //    @JsonProperty("type")
-    @JsonProperty("types")
+    @JsonProperty("type")
     private List<Type> items;
 
     @Override

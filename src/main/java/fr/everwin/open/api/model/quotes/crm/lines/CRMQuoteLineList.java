@@ -24,14 +24,9 @@ import java.util.List;
 /**
  * @author d.storti
  */
-
-
 public class CRMQuoteLineList extends BasicList<CRMQuoteLine> {
 
-    private final static String METHOD = "query";
-
-    //    @JsonProperty("crmquoteline")
-    @JsonProperty("crmquotelines")
+    @JsonProperty("crmquoteline")
     private List<CRMQuoteLine> items;
 
     @Override

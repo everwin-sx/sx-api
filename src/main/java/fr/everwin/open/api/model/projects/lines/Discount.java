@@ -28,8 +28,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class Discount {
 
     private Short type;
-
-
     private Double value;
 
     public Short getType() {

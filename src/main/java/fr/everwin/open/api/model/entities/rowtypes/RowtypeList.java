@@ -30,14 +30,9 @@ import java.util.List;
  *
  * @author everwin-team
  */
-
-
 public class RowtypeList extends BasicList<Rowtype> {
 
-    private final static String METHOD = "query";
-
-    //    @JsonProperty("rowtype")
-    @JsonProperty("rowtypes")
+    @JsonProperty("rowtype")
     private List<Rowtype> items;
 
     /**

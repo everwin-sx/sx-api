@@ -26,14 +26,9 @@ import java.util.List;
  *
  * @author d.storti
  */
-
-
 public class ExpenseSheetLineList extends BasicList<ExpenseSheetLine> {
 
-    private final static String METHOD = "query";
-
-    //    @JsonProperty("expensesheetline")
-    @JsonProperty("expensesheetlines")
+    @JsonProperty("expensesheetline")
     private List<ExpenseSheetLine> items;
 
     @Override

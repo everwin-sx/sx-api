@@ -32,59 +32,24 @@ import java.util.List;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-
-
 public class SupplierInvoiceLine extends BasicObject {
 
-
     private DataLink supplierInvoice;
-
-
     private String title;
-
-
     private Double quantity;
-
-
     private SupplierInvoiceLineMultiCurrencyValue amount;
-
-
     private SupplierInvoiceLineMultiCurrencyValue totalWithoutVat;
-
-
     private DataLink vat;
-
-
     private SupplierInvoiceLineMultiCurrencyValue vatAmount;
-
-
     private SupplierInvoiceLineMultiCurrencyValue vatAmount2;
-
-
     private ExpenseMultiCurrencyValue totalIncludingVat;
-
-
     private ExpenseMultiCurrencyValue totalToBeCharged;
-
-
     private DataLink project;
-
-
     private DataLink type;
-
-
     private DataLink projectLine;
-
-
     private DataLink account;
-
-
     private DataLink supplierOrderLine;
-
-
     private DataLink supplierDeliveryLine;
-
-
     private List<SpecificData> extraData;
 
     public SupplierInvoiceLine() {

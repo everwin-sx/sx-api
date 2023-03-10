@@ -32,17 +32,10 @@ import fr.everwin.open.api.model.core.BasicObject;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-
-
 public class Naf extends BasicObject {
 
-
     public String code;
-
-
     public String label;
-
-
     public Short revision;
 
     public Naf() {

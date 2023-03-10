@@ -26,14 +26,9 @@ import java.util.List;
  *
  * @author everwin-team
  */
-
-
 public class ContactResponsibilityList extends BasicList<ContactResponsibility> {
 
-    private final static String METHOD = "query";
-
-    //    @JsonProperty("contactresponsibility")
-    @JsonProperty("contactresponsibilities")
+    @JsonProperty("contactresponsibility")
     private List<ContactResponsibility> items;
 
     /**

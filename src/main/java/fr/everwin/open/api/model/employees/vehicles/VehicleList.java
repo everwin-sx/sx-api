@@ -26,14 +26,9 @@ import java.util.List;
  *
  * @author d.storti
  */
-
-
 public class VehicleList extends BasicList<Vehicle> {
 
-    private final static String METHOD = "query";
-
-    //    @JsonProperty("vehicle")
-    @JsonProperty("vehicles")
+    @JsonProperty("vehicle")
     private List<Vehicle> items;
 
     @Override

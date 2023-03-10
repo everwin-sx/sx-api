@@ -15,13 +15,7 @@
  */
 
 package fr.everwin.open.api.model.missionorders;
-// import javax.xml.bind.annotation.XmlAccessType;
-// import javax.xml.bind.annotation.XmlAccessorType;
-// import javax.xml.bind.annotation.XmlElement;
-// import javax.xml.bind.annotation.XmlElementWrapper;
-// import javax.xml.bind.annotation.XmlElements;
-// import javax.xml.bind.annotation.XmlRootElement;
-// import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -39,90 +33,39 @@ import java.util.List;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-
-
 public class MissionOrder extends BasicObject {
 
-
     private String code;
-
-
     private Long number;
-
-
     private DataLink employee;
-
-
     private DataLink project;
-
-
     private DataLink projectLine;
-
-
     private Short status;
-
-
     private String departurePlace;
-
-
     private String arrivalPlace;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date departureDate;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date arrivalDate;
-
-
     private String description;
-
-
     private Short compensationMode;
-
-
     private String employeeAddress;
-
-
     private Double estimatedFlatRateExpenses;
-
-
     private Double estimatedExpensesToJustify;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date advanceGrantDate;
-
-
     private Double advanceAmount;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date settlementDate;
-
-
     private String settlementDetails;
-
-
     private Short settled;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date balanceDate;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date createdOnTime;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date updatedOnTime;
-
-
     private Short otherPossibleExpenses;
-
-
     private List<SpecificData> extraData;
 
     public String getCode() {

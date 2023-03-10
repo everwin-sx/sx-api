@@ -22,10 +22,7 @@ import fr.everwin.open.api.model.projects.lines.ProjectDebitCredit;
 /**
  * @author d.storti
  */
-
-
 public class DiscountableProjectState extends ProjectState {
-
 
     private ProjectDebitCredit discount;
 

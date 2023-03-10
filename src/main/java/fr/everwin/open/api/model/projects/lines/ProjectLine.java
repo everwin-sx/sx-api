@@ -32,91 +32,39 @@ import java.util.Date;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-
-
 public class ProjectLine extends BasicObject {
 
     private DataLink project;
-
-
     private DataLink activity;
-
-
     private DataLink type;
-
-
     private DataLink employee;
-
-
     private DataLink employeeProfile;
-
-
     private DataLink equipment;
-
-
     private DataLink equipmentFamily;
-
-
     private Short status;
-
-
     private String comment;
-
-
     private Short invoicingMode;
-
-
     private DataLink product;
-
-
     private String unit;
-
-
     private String currency;
-
-
     private Short order;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date initialStartDate;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date initialEndDate;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date updatedStartDate;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date updatedEndDate;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date realStartDate;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date realEndDate;
-
-
     private DiscountableProjectState estimated;
-
-
     private ProjectState initial;
-
-
     private ProjectState updated;
-
-
     private ProjectState committed;
-
-
     private ProjectState realized;
-
-
     private ProjectState produced;
 
     /**

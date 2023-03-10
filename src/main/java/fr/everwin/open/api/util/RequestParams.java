@@ -42,13 +42,13 @@ public class RequestParams {
         private Map<String, String> params;
 
         public Builder() {
-            this.params = new HashMap<String, String>();
+            this.params = new HashMap<>();
         }
 
 
         public Builder param(String param, String value) {
             if (params == null) {
-                params = new HashMap<String, String>();
+                params = new HashMap<>();
             }
             params.put(param, value);
             return this;

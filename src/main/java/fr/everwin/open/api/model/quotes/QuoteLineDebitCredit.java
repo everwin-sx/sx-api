@@ -9,16 +9,10 @@ package fr.everwin.open.api.model.quotes;
  *
  * @author everwin-team
  */
-
-
 public class QuoteLineDebitCredit {
 
-
     private QuoteLineMultiCurrencyValue amount;
-
-
     private QuoteLineMultiCurrencyValue total;
-
 
     public QuoteLineDebitCredit() {
         amount = new QuoteLineMultiCurrencyValue();

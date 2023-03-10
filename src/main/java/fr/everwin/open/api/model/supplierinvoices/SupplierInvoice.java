@@ -34,74 +34,32 @@ import java.util.List;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-
-
 public class SupplierInvoice extends BasicObject {
 
-
     private String code;
-
-
     private String validationStep;
-
-
     private DataLink supplier;
-
-
     private DataLink contact;
-
-
     private DataLink entity;
-
-
     private DataLink financialEntity;
-
-
     private DataLink lastValidator;
-
-
     private DataLink paymentTerms;
-
-
     private DataLink supplierAccount;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date date;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date dueDate;
-
-
     private String reference;
-
-
     private Short settlementStatus;
-
-
     private String settlementComents;
-
-
     private DataLink fiscalPosition;
-
-
     private String currency;
-
-
     private Double totalWithoutVat;
-
-
     private Double totalIncludingVat;
-
-
     private Double totalVat;
-
-
     private Double totalToBeCharged;
 
     private List<SpecificData> extraData;
-
 
     public SupplierInvoice() {
         // TODO Auto-generated constructor stub

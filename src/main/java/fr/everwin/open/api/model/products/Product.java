@@ -34,61 +34,27 @@ import java.util.List;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-
-
 public class Product extends BasicObject {
 
     private String name;
-
-
     private String label;
-
     private List<DataLink> rowTypes;
-
-
     private String customerRef;
-
-
     private DataLink supplier;
-
-
     private String supplierRef;
-
-
     private Double salePrice;
-
-
     private Double purchasePrice;
-
-
     private Double purchaseListPrice;
-
-
     private Double purchaseDiscountRate;
-
-
     private DataLink currency;
-
-
     private Short isArchived;
-
-
     private DataLink category;
-
-
     private Short customerAssetsGeneration;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date createdOnTime;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date updatedOnTime;
-
-
     private String updatedBy;
-
     private List<SpecificData> extraData;
 
     /**

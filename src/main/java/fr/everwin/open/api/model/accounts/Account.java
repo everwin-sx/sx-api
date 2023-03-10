@@ -30,22 +30,12 @@ import java.util.List;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-
-
 public class Account extends BasicObject {
 
-
     private String label;
-
-
     private String code;
-
-
     private Short vatSystem;
-
-
     private Short type;
-
     private List<DataLink> entities;
 
     public List<DataLink> getEntities() {
@@ -87,4 +77,5 @@ public class Account extends BasicObject {
     public void setType(Short type) {
         this.type = type;
     }
+
 }

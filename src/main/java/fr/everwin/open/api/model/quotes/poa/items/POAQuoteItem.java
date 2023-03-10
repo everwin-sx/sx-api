@@ -29,35 +29,16 @@ import java.util.List;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-
-
 public class POAQuoteItem extends BasicObject {
 
-
     private String code;
-
-
     private String title;
-
-
     private String comment;
-
-
     private DataLink quote;
-
-
     private Short order;
-
-
     private Short printingMode;
-
-
     private DataLink projectPhase;
-
-
     private Long number;
-
-
     private List<SpecificData> extraData;
 
     public String getCode() {

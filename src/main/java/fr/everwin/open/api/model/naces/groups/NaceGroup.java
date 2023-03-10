@@ -28,17 +28,11 @@ import fr.everwin.open.api.model.core.BasicObject;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-
-
 public class NaceGroup extends BasicObject {
 
-
     public String code;
-
     public String label;
-
     private Short isArchived;
-
 
     public String getCode() {
         return code;

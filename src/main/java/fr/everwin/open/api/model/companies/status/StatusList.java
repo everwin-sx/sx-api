@@ -30,14 +30,9 @@ import java.util.List;
  *
  * @author everwin-team
  */
-
-
 public class StatusList extends BasicList<Status> {
 
-    private final static String METHOD = "query";
-
-    //    @JsonProperty("status")
-    @JsonProperty("status-list")
+    @JsonProperty("status")
     private List<Status> items;
 
     @Override

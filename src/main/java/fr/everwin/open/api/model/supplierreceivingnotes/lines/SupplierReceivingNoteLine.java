@@ -29,41 +29,18 @@ import java.util.List;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-
-
 public class SupplierReceivingNoteLine extends BasicObject {
 
-
     private DataLink supplierReceivingNote;
-
-
     private String title;
-
-
     private Double quantity;
-
-
     private SupplierReceivingNoteLineMultiCurrencyValue totalWithoutVat;
-
-
     private Double percentage;
-
-
     private DataLink project;
-
-
     private DataLink type;
-
-
     private DataLink projectLine;
-
-
     private DataLink supplierOrderLine;
-
-
     private String currency;
-
-
     private Short receiptStatus;
 
     private List<SpecificData> extraData;

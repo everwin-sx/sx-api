@@ -22,68 +22,40 @@ import java.util.List;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-
-
 public class SalesAction extends BasicObject {
 
     private Short type;
-
     private String description;
-
     private DataLink mainPlayer;
-
     private List<DataLink> secondaryPlayers;
-
     private DataLink company;
-
     private DataLink mainContact;
-
     private List<DataLink> secondaryContacts;
-
     private DataLink opportunity;
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date startDate;
-
     private String place;
-
     @JsonDeserialize(using = JsonTimeDeserializer.class)
     private Date duration;
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date endDate;
-
     private Short priority;
-
     private DataLink marketingOperation;
-
     private Short status;
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date completionDate;
-
     private Short answer;
-
     private DataLink salesStep;
-
     private DataLink introducedCollaborator;
-
     private Short isPrivate;
-
     private List<DataLink> equipments;
-
     private DataLink marketingCampaign;
-
     private DataLink lead;
-
     private String updatedBy;
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date updatedOnTime;
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date createdOnTime;
-
     private List<SpecificData> extraData;
 
     /**

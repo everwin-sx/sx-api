@@ -24,14 +24,9 @@ import java.util.List;
 /**
  * @author d.storti
  */
-
-
 public class MissionOrderList extends BasicList<MissionOrder> {
 
-    private final static String METHOD = "query";
-
-    //    @JsonProperty("missionorder")
-    @JsonProperty("missionorders")
+    @JsonProperty("missionorder")
     private List<MissionOrder> items;
 
     public MissionOrderList() {

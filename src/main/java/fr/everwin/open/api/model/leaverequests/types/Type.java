@@ -29,17 +29,10 @@ import fr.everwin.open.api.model.core.DataLink;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-
-
 public class Type extends BasicObject {
 
-
     private String label;
-
-
     private DataLink entity;
-
-
     private String payrollId;
 
     /**

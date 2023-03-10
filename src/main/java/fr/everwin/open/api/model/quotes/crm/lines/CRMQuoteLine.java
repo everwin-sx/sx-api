@@ -28,8 +28,6 @@ import fr.everwin.open.api.model.quotes.QuoteLineDebitCredit;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-
-
 public class CRMQuoteLine extends QuoteLine {
 
     protected DataLink parent;
@@ -42,20 +40,10 @@ public class CRMQuoteLine extends QuoteLine {
     private boolean leaf;
     private DataLink unit;
     private Double revenueQuantity;
-
-
     private QuoteLineDebitCredit revenue;
-
-
     private QuoteLineDebitCredit revenueNet;
-
-
     private QuoteLineDebitCredit revenueDiscount;
-
-
     private Double expenditureQuantity;
-
-
     private QuoteLineDebitCredit expenditure;
 
     public CRMQuoteLine() {

@@ -23,17 +23,10 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * @author d.storti
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-
-
 public class Revenue {
 
-
     private Double quantity;
-
-
     private Double amount;
-
-
     private Double total;
 
     public Double getQuantity() {

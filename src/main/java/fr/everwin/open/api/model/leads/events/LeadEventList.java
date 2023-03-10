@@ -26,14 +26,9 @@ import java.util.List;
  *
  * @author d.storti
  */
-
-
 public class LeadEventList extends BasicList<LeadEvent> {
 
-    private final static String METHOD = "query";
-
-    //    @JsonProperty("leadevent")
-    @JsonProperty("leadevents")
+    @JsonProperty("leadevent")
     private List<LeadEvent> items;
 
     @Override

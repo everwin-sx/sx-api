@@ -30,29 +30,14 @@ import java.util.List;
  *
  * @author everwin-team
  */
-
-
 public class ProductList extends BasicList<Product> {
 
-    private final static String METHOD = "query";
-
-
     private int limit;
-
-
-    private int offset; // Getters for these
-
-
-    private int modelLimit; // Getters for these
-
-
-    private String filter; // Getters for these
-
-
-    private String sort; // Getters for these1
-
-    //    @JsonProperty("product")
-    @JsonProperty("products")
+    private int offset;
+    private int modelLimit;
+    private String filter;
+    private String sort;
+    @JsonProperty("product")
     private List<Product> items;
 
     /**

@@ -30,14 +30,9 @@ import java.util.List;
  *
  * @author everwin-team
  */
-
-
 public class ProjectList extends BasicList<Project> {
 
-    private final static String METHOD = "query";
-
-    //    @JsonProperty("project")
-    @JsonProperty("projects")
+    @JsonProperty("project")
     private List<Project> items;
 
     @Override

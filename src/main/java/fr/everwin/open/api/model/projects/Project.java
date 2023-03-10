@@ -33,133 +33,55 @@ import java.util.List;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-
-
 public class Project extends BasicObject {
 
-
     private String code;
-
-
     private String label;
-
-
     private Short type;
-
-
     private DataLink customer;
-
-
     private DataLink mainContact;
-
-
     private DataLink entity;
-
-
     private DataLink financialEntity;
-
-
     private DataLink projectDirector;
-
-
     private DataLink projectManager;
-
-
     private DataLink opportunityManager;
-
-
     private DataLink category;
-
     private DataLink subCategory;
-
-
     private Short productionStatus;
-
-
     private Short invoicingMode;
-
-
     private Short expenseManagementMode;
-
-
     private DataLink paymentTerms;
-
-
     private Short adjustableSales;
-
-
     private DataLink site;
-
-
     private DataLink operation;
-
-
     private DataLink mainProject;
-
-
     private DataLink bank;
-
-
     private String analyticalCode;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date initialStartDate;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date initialEndDate;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date updatedStartDate;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date updatedEndDate;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date realStartDate;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date realEndDate;
-
-
     private Short durationUnit;
-
     private List<DataLink> secondaryContacts;
-
-
     private DataLink providedBy;
-
-
     private String description;
-
-
     private String comment;
-
-
     private String updatedBy;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date updatedOnTime;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date createdOnTime;
-
-
     private String accountCurrency;
-
-
     private String reportingCurrency;
-
-
     private Short planningMode;
-
     private List<SpecificData> extraData;
 
     /**

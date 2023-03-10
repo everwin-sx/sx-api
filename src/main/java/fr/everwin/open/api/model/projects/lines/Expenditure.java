@@ -27,13 +27,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 public class Expenditure {
 
-
     private Double quantity;
-
-
     private Double amount;
-
-
     private Double total;
 
     public Double getQuantity() {

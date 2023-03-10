@@ -35,87 +35,36 @@ import java.util.List;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-
-
 public class ContactResponsibility extends BasicObject {
 
-
     private DataLink company;
-
-
     private DataLink person;
-
-
     private Short civility;
-
-
     private String firstName;
-
-
     private String lastName;
-
-
     private String function;
-
-
     private DataLink functionType;
-
-
     private DataLink assignedTo;
-
-
     private String phone;
-
-
     private String mobile;
-
-
     private String fax;
-
-
     private String email;
-
-
     private Short acceptsEmail;
-
-
     private Short leftCompany;
-
-
     private String service;
-
-
     private String address;
-
-
     private String address2;
-
-
     private String address3;
-
-
     private String postalCode;
-
-
     private String city;
-
-
     private DataLink country;
-
-
     private String comment;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date updatedOnTime;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date createdOnTime;
 
     private String updatedBy;
-
-
     private List<SpecificData> extraData;
 
     public ContactResponsibility() {

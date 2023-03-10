@@ -26,14 +26,9 @@ import java.util.List;
  *
  * @author d.storti
  */
-
-
 public class ProjectManagerList extends BasicList<Employee> {
 
-    private final static String METHOD = "queryProjectManager";
-
-    //    @JsonProperty("employee")
-    @JsonProperty("employees")
+    @JsonProperty("employee")
     private List<Employee> items;
 
     @Override

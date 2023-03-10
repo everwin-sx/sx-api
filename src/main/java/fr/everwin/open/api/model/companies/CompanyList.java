@@ -30,14 +30,9 @@ import java.util.List;
  *
  * @author everwin-team
  */
-
-
 public class CompanyList extends BasicList<Company> {
 
-    private static final String METHOD = "query";
-
-    //    @JsonProperty("company")
-    @JsonProperty("companies")
+    @JsonProperty("company")
     protected List<Company> items;
 
     /**

@@ -30,14 +30,9 @@ import java.util.List;
  *
  * @author everwin-team
  */
-
-
 public class CurrencyRateList extends BasicList<CurrencyRate> {
 
-    private final static String METHOD = "query";
-
-    //    @JsonProperty("currencyrate")
-    @JsonProperty("currencyrates")
+    @JsonProperty("currencyrate")
     private List<CurrencyRate> items;
 
     @Override

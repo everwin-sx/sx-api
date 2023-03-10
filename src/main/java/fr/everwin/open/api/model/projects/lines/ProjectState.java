@@ -23,14 +23,9 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * @author d.storti
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-
-
 public class ProjectState {
 
-
     protected ProjectDebitCredit revenue;
-
-
     protected ProjectDebitCredit expenditure;
 
     /**

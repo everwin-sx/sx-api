@@ -29,14 +29,9 @@ import java.util.List;
  *
  * @author everwin-team
  */
-
-
 public class AccAccountList extends BasicList<AccAccount> {
 
-    private final static String METHOD = "query";
-
-    //    @JsonProperty("accaccount")
-    @JsonProperty("accaccounts")
+    @JsonProperty("accaccount")
     private List<AccAccount> items;
 
     public AccAccountList() {

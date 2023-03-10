@@ -29,8 +29,6 @@ import fr.everwin.open.api.model.core.DataLink;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-
-
 public class Entity extends BasicObject {
 
 

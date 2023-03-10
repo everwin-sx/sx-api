@@ -29,14 +29,9 @@ import java.util.List;
 /**
  * @author d.storti
  */
-
-
 public class SupplierList extends BasicList<Company> {
 
-    private final static String METHOD = "query";
-
-    //    @JsonProperty("company")
-    @JsonProperty("companies")
+    @JsonProperty("company")
     private List<Company> items;
 
     /**

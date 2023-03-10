@@ -26,14 +26,9 @@ import java.util.List;
  *
  * @author d.storti
  */
-
-
 public class NaceGroupList extends BasicList<NaceGroup> {
 
-    private final static String METHOD = "query";
-
-    //    @JsonProperty("nacegroup")
-    @JsonProperty("nacegroups")
+    @JsonProperty("nacegroup")
     private List<NaceGroup> items;
 
     /**

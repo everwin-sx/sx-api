@@ -35,39 +35,21 @@ import java.util.List;
  * @author everwin-team
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-
-
 public class CurrencyRate extends BasicObject {
 
 
     private DataLink entity;
-
-
     private String baseCurrency;
-
-
     private String counterCurrency;
-
-
     private Double rate;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date startDate;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date endDate;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date updatedOnTime;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date createdOnTime;
-
-
     private Short updateMainRate;
 
     private List<SpecificData> extraData;

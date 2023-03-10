@@ -26,14 +26,9 @@ import java.util.List;
  *
  * @author d.storti
  */
-
-
 public class CurrencyList extends BasicList<Currency> {
 
-    private final static String METHOD = "query";
-
-    //    @JsonProperty("currency")
-    @JsonProperty("currencies")
+    @JsonProperty("currency")
     private List<Currency> items;
 
     public CurrencyList() {

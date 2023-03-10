@@ -38,40 +38,19 @@ import java.util.Objects;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-
-
 public class LeaveRequest extends BasicObject {
 
-
     private String code;
-
-
     private DataLink employee;
-
-
     private DataLink entity;
-
-
     private DataLink type;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date startDate;
-
-
     private String startHalfDayIndicator;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date endDate;
-
-
     private String endHalfDayIndicator;
-
-
     private String validationStep;
-
-
     private Double duration;
 
     private List<SpecificData> extraData;

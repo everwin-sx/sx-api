@@ -37,59 +37,27 @@ import java.util.List;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-
-
 public class Equipment extends BasicObject {
 
 
     private String code;
-
-
     private Short type;
-
-
     private DataLink entity;
-
-
     private DataLink financialEntity;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date arrivalDate;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date leavingDate;
-
-
     private DataLink family;
-
-
     private DataLink workMode;
-
-
     private Double salePrice;
-
-
     private Double fullCostPrice;
-
-
     private Double directCostPrice;
-
-
     private Short isArchived;
-
-
     private String comment;
-
-
     private String updatedBy;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date updatedOnTime;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date createdOnTime;
 

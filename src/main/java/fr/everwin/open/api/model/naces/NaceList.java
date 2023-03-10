@@ -24,14 +24,9 @@ import java.util.List;
 /**
  * @author d.storti
  */
-
-
 public class NaceList extends BasicList<Nace> {
 
-    private final static String METHOD = "query";
-
-    //    @JsonProperty("nace")
-    @JsonProperty("naces")
+    @JsonProperty("nace")
     private List<Nace> items;
 
     /**

@@ -22,8 +22,6 @@ import fr.everwin.open.api.model.core.MultiCurrencyValue;
 /**
  * @author d.storti
  */
-
-
 public class ProjectLineMultiCurrencyValue extends MultiCurrencyValue {
 
 

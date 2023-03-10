@@ -15,13 +15,7 @@
  */
 
 package fr.everwin.open.api.model.leads.events;
-// import javax.xml.bind.annotation.XmlAccessType;
-// import javax.xml.bind.annotation.XmlAccessorType;
-// import javax.xml.bind.annotation.XmlElement;
-// import javax.xml.bind.annotation.XmlElementWrapper;
-// import javax.xml.bind.annotation.XmlElements;
-// import javax.xml.bind.annotation.XmlRootElement;
-// import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -41,21 +35,13 @@ import java.util.List;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-
-
 public class LeadEvent extends BasicObject {
 
 
     private DataLink lead;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date date;
-
-
     private String type;
-
-
     private String event;
 
     private List<SpecificData> extraData;

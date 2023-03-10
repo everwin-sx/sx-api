@@ -30,16 +30,10 @@ import java.util.List;
  *
  * @author d.storti
  */
-
-
 public class CustomerAccountList extends BasicList<CompanyAccount> {
 
-    private final static String METHOD = "query";
-
-    //    @JsonProperty("companyaccount")
-    @JsonProperty("companyaccounts")
+    @JsonProperty("companyaccount")
     private List<CompanyAccount> items;
-
 
     public CustomerAccountList() {
         // TODO Auto-generated constructor stub

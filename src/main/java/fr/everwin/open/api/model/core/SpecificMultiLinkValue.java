@@ -17,13 +17,7 @@
 package fr.everwin.open.api.model.core;
 
 import java.util.List;
-
-// import javax.xml.bind.annotation.XmlAccessType;
-// import javax.xml.bind.annotation.XmlAccessorType;
-// import javax.xml.bind.annotation.XmlElement;
-// import javax.xml.bind.annotation.XmlElementWrapper;
-// import javax.xml.bind.annotation.XmlElements;
-// import javax.xml.bind.annotation.XmlRootElement;
+import java.util.Objects;
 
 /**
  * Specialized SpecificData for multi link
@@ -57,8 +51,8 @@ public class SpecificMultiLinkValue extends SpecificData {
         if (obj == null)
             return false;
         if (obj instanceof SpecificMultiLinkValue) {
-            List<DataLink> datalinks = ((SpecificMultiLinkValue) obj).getDatalinks();
-            return (this.datalinks == null && datalinks == null) || this.datalinks.equals(datalinks);
+            List<DataLink> links = ((SpecificMultiLinkValue) obj).getDatalinks();
+            return (Objects.isNull(this.datalinks) && Objects.isNull(links)) || (Objects.nonNull(this.datalinks) && this.datalinks.equals(links));
         } else {
             return false;
         }

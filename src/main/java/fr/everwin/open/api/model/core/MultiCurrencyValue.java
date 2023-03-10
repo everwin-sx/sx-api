@@ -21,8 +21,6 @@ package fr.everwin.open.api.model.core;
  *
  * @author everwin-team
  */
-
-
 public class MultiCurrencyValue {
 
     protected Double management;

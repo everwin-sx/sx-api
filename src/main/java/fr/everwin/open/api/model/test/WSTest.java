@@ -31,20 +31,14 @@ import java.util.List;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-
-
 public class WSTest {
 
     private Long id;
-
     private String idWst;
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date dateWst;
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date date2Wst;
-
     private Short decodeIntWst;
     private String decodeStrWst;
     private String notNullWst;
@@ -56,11 +50,8 @@ public class WSTest {
     private String labelWst;
     private DataLink wstWss;
     private List<DataLink> wstWscs;
-
     private DataLink wst2Wss;
-
     private String id2Wst;
-
     private List<SpecificData> extraData;
 
     public WSTest() {

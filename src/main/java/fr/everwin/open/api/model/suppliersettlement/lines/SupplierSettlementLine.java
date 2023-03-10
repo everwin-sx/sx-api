@@ -29,22 +29,12 @@ import java.util.List;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-
-
 public class SupplierSettlementLine extends BasicObject {
 
-
     private DataLink supplierSettlement;
-
-
     private DataLink supplierInvoice;
-
-
     private SupplierSettlementLineMultiCurrencyValue amount;
-
-
     private Short state;
-
     private List<SpecificData> extraData;
 
     public SupplierSettlementLine() {

@@ -26,14 +26,9 @@ import fr.everwin.open.api.model.projects.lines.ProjectDebitCredit;
  * @author d.storti
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-
-
 public class ProjectState {
 
-
     protected ProjectDebitCredit revenue;
-
-
     protected ProjectDebitCredit expenditure;
 
     /**

@@ -19,11 +19,9 @@
  */
 package fr.everwin.open.api.model.companies.status;
 
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import fr.everwin.open.api.model.core.BasicObject;
-
 
 /**
  * Status class
@@ -32,29 +30,14 @@ import fr.everwin.open.api.model.core.BasicObject;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-
-
 public class Status extends BasicObject {
 
-
     private String name;
-
-
     private String label;
-
-
     private Short access;
-
-
     private int defaultStatus;
-
-
     private String color;
-
-
     private Short archived;
-
-
     private Short corporamaStatus;
 
     /**

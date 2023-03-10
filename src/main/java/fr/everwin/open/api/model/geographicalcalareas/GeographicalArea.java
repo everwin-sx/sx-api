@@ -29,23 +29,12 @@ import fr.everwin.open.api.model.core.DataLink;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-
-
 public class GeographicalArea extends BasicObject {
 
-
     public String code;
-
-
     public String label;
-
-
     private Short administrativeRegion;
-
-
     private Short secondaryRegion;
-
-
     private DataLink country;
 
     public String getCode() {

@@ -61,8 +61,6 @@ public abstract class BasicTest<T extends BasicObject, S extends BasicService> {
     protected Document documentReceived;
     protected final static String APIKEY = "";
     private final String filePath = "path";
-
-
     // bae02a79bf9884cff23a327a00fd86c6 : GBB
     public String ws_rights; // R : read // W : write // C : comment // D : Document // S : other specific services
     protected boolean isEmptyDB;

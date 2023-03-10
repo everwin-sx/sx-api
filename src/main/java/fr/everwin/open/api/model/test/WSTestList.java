@@ -24,23 +24,18 @@ import java.util.List;
 /**
  * @author d.storti
  */
-
-
 public class WSTestList {
 
-    private final static String METHOD = "query";
     @JsonProperty("selflink")
     protected String href;
-    //		@JsonProperty("link")
-    @JsonProperty("links")
+    @JsonProperty("link")
     protected List<Link> links;
     private int limit;
-    private int offset; // Getters for these
-    private int modelLimit; // Getters for these
-    private String filter; // Getters for these
-    private String sort; // Getters for these1
-    //		@JsonProperty("company")
-    @JsonProperty("companies")
+    private int offset;
+    private int modelLimit;
+    private String filter;
+    private String sort;
+    @JsonProperty("company")
     private List<WSTest> items;
 
     /**

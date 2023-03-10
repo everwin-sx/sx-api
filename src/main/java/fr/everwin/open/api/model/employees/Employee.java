@@ -21,7 +21,6 @@ package fr.everwin.open.api.model.employees;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import fr.everwin.open.api.model.core.BasicObject;
 import fr.everwin.open.api.model.core.DataLink;
@@ -38,175 +37,68 @@ import java.util.List;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-
-
 public class Employee extends BasicObject {
 
-
     private String code;
-
-
     private String firstName;
-
-
     private String lastName;
-
-
     private Short title;
-
-
     private Short type;
-
-
     private DataLink entity;
-
     private List<DataLink> secondEntities;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date arrivalDate;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date leavingDate;
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date birthDate;
-
     private List<DataLink> profiles;
-
-
     private DataLink mainProfile;
-
-
     private DataLink manager;
-
     private List<DataLink> supportedCommercials;
-
     private DataLink workMode;
-
-
     private DataLink contractType;
-
-
     private DataLink hierarchicalLevel;
-
-
     private Double annualSalary;
-
-
     private Double salePrice;
-
-
     private Double fullCostPrice;
-
-
     private Double directCostPrice;
-
-
     private DataLink distanceScale;
-
-
     private Short isArchived;
-
-
     private String login;
-
-
     private String password;
-
-
     private String userRole;
-
-
     private DataLink userLanguage;
-
-
     private String function;
-
-    @JsonProperty("profiles")
     private List<DataLink> languages;
-
-
     private DataLink nationality;
-
-
     private String phone;
-
-
     private String personalPhone;
-
-
     private String mobile;
-
-
     private String fax;
-
-
     private String address;
-
-
     private String address2;
-
-
     private String address3;
-
-
     private String postalCode;
-
-
     private String city;
-
-
     private DataLink country;
-
-
     private String email;
-
-
     private String payrollId;
-
-
     private String account;
-
-
     private String secondaryAccount;
-
-
     private DataLink fiscalPosition;
-
-
     private String comment;
-
-
     private String updatedBy;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date updatedOnTime;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date createdOnTime;
-
-
     private Short isLdapOut;
-
-
     private String ldapDomain;
-
-
     private String iban;
-
-
     private String bic;
-
-
     private String picture;
-
-
     private String loginMode;
-
     private List<SpecificData> extraData;
 
     /**

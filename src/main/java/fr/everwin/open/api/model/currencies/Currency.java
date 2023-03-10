@@ -16,13 +16,6 @@
 
 package fr.everwin.open.api.model.currencies;
 
-// import javax.xml.bind.annotation.XmlAccessType;
-// import javax.xml.bind.annotation.XmlAccessorType;
-// import javax.xml.bind.annotation.XmlElement;
-// import javax.xml.bind.annotation.XmlElementWrapper;
-// import javax.xml.bind.annotation.XmlElements;
-// import javax.xml.bind.annotation.XmlRootElement;
-// import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -36,32 +29,16 @@ import fr.everwin.open.api.model.core.DataLink;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-
-
 public class Currency extends BasicObject {
 
 
     private String code;
-
-
     private String label;
-
-
     private Double rate;
-
-
     private DataLink entity;
-
-
     private Short isArchived;
-
-
     private Short isDefault;
-
-
     private String format;
-
-
     private Short method;
 
     public String getCode() {

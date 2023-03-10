@@ -24,14 +24,9 @@ import java.util.List;
 /**
  * @author d.storti
  */
-
-
 public class ProjectPhaseList extends BasicList<ProjectPhase> {
 
-    private final static String METHOD = "query";
-
-    //    @JsonProperty("project-phase")
-    @JsonProperty("project-phases")
+    @JsonProperty("project-phase")
     private List<ProjectPhase> items;
 
     @Override

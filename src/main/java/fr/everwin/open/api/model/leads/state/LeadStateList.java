@@ -26,14 +26,9 @@ import java.util.List;
  *
  * @author d.storti
  */
-
-
 public class LeadStateList extends BasicList<LeadState> {
 
-    private final static String METHOD = "query";
-
-    //    @JsonProperty("leadstate")
-    @JsonProperty("leadstates")
+    @JsonProperty("leadstate")
     private List<LeadState> items;
 
     @Override

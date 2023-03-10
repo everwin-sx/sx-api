@@ -39,27 +39,15 @@ import java.util.List;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-
-
 public class EmployeeSkill extends BasicObject {
 
 
     private DataLink employee;
-
-
     private DataLink skill;
-
-
     private DataLink level;
-
-
     private String comment;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date startDate;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date endDate;
 

@@ -24,14 +24,9 @@ import java.util.List;
 /**
  * @author d.storti
  */
-
-
 public class POAQuoteItemList extends BasicList<POAQuoteItem> {
 
-    private final static String METHOD = "query";
-
-    //    @JsonProperty("poaQuote-item")
-    @JsonProperty("poaQuote-items")
+    @JsonProperty("poaQuote-item")
     private List<POAQuoteItem> items;
 
     @Override

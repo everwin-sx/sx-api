@@ -30,14 +30,9 @@ import java.util.List;
  *
  * @author everwin-team
  */
-
-
 public class SalesActionList extends BasicList<SalesAction> {
 
-    private final static String METHOD = "query";
-
-    //    @JsonProperty("salesaction")
-    @JsonProperty("salesactions")
+    @JsonProperty("salesaction")
     private List<SalesAction> items;
 
     @Override

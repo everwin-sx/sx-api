@@ -30,16 +30,10 @@ import java.util.List;
  *
  * @author everwin-team
  */
-
-
 public class SkillDomainList extends BasicList<SkillDomain> {
 
-    private final static String METHOD = "query";
-
-    //    @JsonProperty("skilldomain")
-    @JsonProperty("skilldomains")
+    @JsonProperty("skilldomain")
     private List<SkillDomain> items;
-
 
     @Override
     public List<SkillDomain> getItems() {

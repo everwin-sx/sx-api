@@ -15,13 +15,7 @@
  */
 
 package fr.everwin.open.api.model.expenses.sheets;
-// import javax.xml.bind.annotation.XmlAccessType;
-// import javax.xml.bind.annotation.XmlAccessorType;
-// import javax.xml.bind.annotation.XmlElement;
-// import javax.xml.bind.annotation.XmlElementWrapper;
-// import javax.xml.bind.annotation.XmlElements;
-// import javax.xml.bind.annotation.XmlRootElement;
-// import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -41,58 +35,28 @@ import java.util.List;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-
-
 public class ExpenseSheet extends BasicObject {
 
 
     private String code;
-
-
     private DataLink employee;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date creationDate;
-
-
     private Double advance;
-
-
     private Double totalToPay;
-
-
     private DataLink entity;
-
-
     private DataLink financialEntity;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date settlementDate;
-
-
     private Integer nbDaysLunch;
-
-
     private Integer distanceTravelled;
-
-
     private String comment;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date createdOnTime;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date createdOnPeriod;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date updatedOnTime;
-
-
     private String updatedBy;
 
     private List<SpecificData> extraData;

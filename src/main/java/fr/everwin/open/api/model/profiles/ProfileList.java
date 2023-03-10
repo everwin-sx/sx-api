@@ -30,14 +30,9 @@ import java.util.List;
  *
  * @author everwin-team
  */
-
-
 public class ProfileList extends BasicList<Profile> {
 
-    private final static String METHOD = "query";
-
-    //    @JsonProperty("profile")
-    @JsonProperty("profiles")
+    @JsonProperty("profile")
     private List<Profile> items;
 
     @Override

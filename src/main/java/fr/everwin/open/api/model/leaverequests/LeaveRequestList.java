@@ -30,14 +30,9 @@ import java.util.List;
  *
  * @author everwin-team
  */
-
-
 public class LeaveRequestList extends BasicList<LeaveRequest> {
 
-    private final static String METHOD = "query";
-
-    //    @JsonProperty("leaverequest")
-    @JsonProperty("leaverequests")
+    @JsonProperty("leaverequest")
     private List<LeaveRequest> items;
 
     @Override

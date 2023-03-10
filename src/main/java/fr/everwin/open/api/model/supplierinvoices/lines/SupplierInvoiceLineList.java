@@ -30,14 +30,9 @@ import java.util.List;
  *
  * @author everwin-team
  */
-
-
 public class SupplierInvoiceLineList extends BasicList<SupplierInvoiceLine> {
 
-    private final static String METHOD = "query";
-
-    //    @JsonProperty("supplierinvoiceline")
-    @JsonProperty("supplierinvoicelines")
+    @JsonProperty("supplierinvoiceline")
     private List<SupplierInvoiceLine> items;
 
     @Override

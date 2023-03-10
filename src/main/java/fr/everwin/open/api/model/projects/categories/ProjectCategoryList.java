@@ -8,9 +8,6 @@ import java.util.List;
 
 public class ProjectCategoryList extends BasicList<ProjectCategory> {
 
-    private final static String METHOD = "query";
-
-    //    @JsonProperty("projectcategory")
     @JsonProperty("projectcategory")
     private List<ProjectCategory> items;
 

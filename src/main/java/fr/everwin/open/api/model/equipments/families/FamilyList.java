@@ -26,14 +26,9 @@ import java.util.List;
  *
  * @author d.storti
  */
-
-
 public class FamilyList extends BasicList<Family> {
 
-    private final static String METHOD = "query";
-
-    //    @JsonProperty("profile")
-    @JsonProperty("profiles")
+    @JsonProperty("profile")
     private List<Family> items;
 
     @Override

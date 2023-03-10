@@ -26,14 +26,9 @@ import java.util.List;
  *
  * @author d.storti
  */
-
-
 public class GuestList extends BasicList<Guest> {
 
-    private final static String METHOD = "query";
-
-    //    @JsonProperty("guest")
-    @JsonProperty("guests")
+    @JsonProperty("guest")
     private List<Guest> items;
 
     /**

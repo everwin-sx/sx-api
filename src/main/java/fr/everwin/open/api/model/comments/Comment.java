@@ -35,36 +35,19 @@ import java.util.List;
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-
-
 public class Comment extends BasicObject {
 
     protected String linkProp;
-
     protected long linkValue;
-
-
     private String text;
-
-
     private Short type;
-
-
     private Short mode;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date updatedOnTime;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date createdOnTime;
-
-
     private DataLink author;
-
     private List<SpecificData> extraData;
-
 
     public String getText() {
         return text;

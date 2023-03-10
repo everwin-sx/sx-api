@@ -19,14 +19,6 @@
  */
 package fr.everwin.open.api.model.companies.accounts;
 
-// import javax.xml.bind.annotation.XmlAccessType;
-// import javax.xml.bind.annotation.XmlAccessorType;
-// import javax.xml.bind.annotation.XmlElement;
-// import javax.xml.bind.annotation.XmlElementWrapper;
-// import javax.xml.bind.annotation.XmlElements;
-// import javax.xml.bind.annotation.XmlRootElement;
-// import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import fr.everwin.open.api.model.core.BasicObject;
@@ -45,147 +37,56 @@ import java.util.List;
  * @author everwin-team
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-
-
 public class CompanyAccount extends BasicObject {
 
-
     private String code;
-
-
     private DataLink company;
-
-
     private List<DataLink> entities;
-
-
     private String identifierNumber;
-
-
     private String vatNumber;
-
-
     private String billingName;
-
-
     private short isActive;
-
-
     private String billingRecipient;
-
-
     private String billingAddress;
-
-
     private String billingAddress2;
-
-
     private String billingAddress3;
-
-
     private String billingPostalCode;
-
-
     private String billingCity;
-
-
     private DataLink billingCountry;
-
-
     private String billingPhone;
-
-
     private String billingFax;
-
-
     private String shippingName;
-
-
     private String shippingRecipient;
-
-
     private String shippingAddress;
-
-
     private String shippingAddress2;
-
-
     private String shippingAddress3;
-
-
     private String shippingPostalCode;
-
-
     private String shippingCity;
-
-
     private String headquartersName;
-
-
     private String headquartersRecipient;
-
-
     private String headquartersAddress;
-
-
     private String headquartersAddress2;
-
-
     private String headquartersAddress3;
-
-
     private String headquartersPostalCode;
-
-
     private String headquartersCity;
-
-
     private DataLink headquartersCountry;
-
-
     private DataLink shippingCountry;
-
-
     private String shippingPhone;
-
-
     private String shippingFax;
-
-
     private DataLink paymentTerms;
-
-
     private Short vatSystem;
-
-
     private DataLink defaultVat;
-
-
     private DataLink defaultBank;
-
-
     private DataLink fiscalPosition;
-
-
     private Short visibility;
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
-
     private Date visibilityDate;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date updatedOnTime;
-
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date createdOnTime;
-
     private String updatedBy;
-
-
     private DataLink factor;
-
     private List<SpecificData> extraData;
 
     public CompanyAccount() {
