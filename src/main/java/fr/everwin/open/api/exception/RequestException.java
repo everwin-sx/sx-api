@@ -54,6 +54,7 @@ public class RequestException extends CoreException {
         this.code = code;
     }
 
+    @Override
     public String toString() {
         String s = this.getClass().getName();
         String message = "Message : " + super.getMessage() + "\n" +
