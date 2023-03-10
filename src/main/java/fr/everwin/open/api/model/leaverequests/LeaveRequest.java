@@ -63,7 +63,7 @@ public class LeaveRequest extends BasicObject {
      *
      */
     public LeaveRequest() {
-
+        // Constructor empty
     }
 
     public String getCode() {

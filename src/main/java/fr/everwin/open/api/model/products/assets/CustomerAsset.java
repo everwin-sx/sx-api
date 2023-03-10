@@ -59,7 +59,7 @@ public class CustomerAsset extends BasicObject {
      *
      */
     public CustomerAsset() {
-
+        // Constructor empty
     }
 
     /**

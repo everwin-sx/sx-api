@@ -42,7 +42,7 @@ public class ProjectLineList extends BasicList<ProjectLine> {
      *
      */
     public ProjectLineList() {
-
+        // Constructor empty
     }
 
     public int getLimit() {

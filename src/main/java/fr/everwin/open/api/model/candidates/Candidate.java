@@ -79,6 +79,7 @@ public class Candidate extends BasicObject {
      *
      */
     public Candidate() {
+        // Constructor empty
     }
 
     public String getCode() {

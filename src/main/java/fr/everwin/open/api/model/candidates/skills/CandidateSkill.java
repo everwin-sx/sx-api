@@ -51,7 +51,7 @@ public class CandidateSkill extends BasicObject {
      *
      */
     public CandidateSkill() {
-
+        // Constructor empty
     }
 
     public DataLink getCandidate() {

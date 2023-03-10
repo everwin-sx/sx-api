@@ -50,7 +50,7 @@ public class SkillDomain extends BasicObject {
      *
      */
     public SkillDomain() {
-
+        // Constructor empty
     }
 
     public String getLabel() {

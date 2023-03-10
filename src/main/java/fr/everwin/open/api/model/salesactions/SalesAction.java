@@ -62,7 +62,7 @@ public class SalesAction extends BasicObject {
      *
      */
     public SalesAction() {
-
+        // Constructor empty
     }
 
     public Short getType() {

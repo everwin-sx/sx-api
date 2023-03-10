@@ -53,6 +53,7 @@ public class SupplierInvoiceLine extends BasicObject {
     private List<SpecificData> extraData;
 
     public SupplierInvoiceLine() {
+        // Constructor empty
     }
 
     @Override

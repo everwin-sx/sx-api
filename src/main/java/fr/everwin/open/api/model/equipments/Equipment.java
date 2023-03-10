@@ -67,6 +67,7 @@ public class Equipment extends BasicObject {
      *
      */
     public Equipment() {
+        // Constructor empty
     }
 
     public String getCode() {

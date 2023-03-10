@@ -90,6 +90,7 @@ public class CompanyAccount extends BasicObject {
     private List<SpecificData> extraData;
 
     public CompanyAccount() {
+        // Constructor empty
     }
 
     public String getCode() {

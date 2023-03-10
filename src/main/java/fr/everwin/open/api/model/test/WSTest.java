@@ -55,7 +55,7 @@ public class WSTest {
     private List<SpecificData> extraData;
 
     public WSTest() {
-
+        // Constructor empty
     }
 
     public Long getId() {

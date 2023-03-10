@@ -105,6 +105,7 @@ public class Employee extends BasicObject {
      *
      */
     public Employee() {
+        // Constructor empty
     }
 
     public String getCode() {

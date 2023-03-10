@@ -39,7 +39,7 @@ public class Naf extends BasicObject {
     public Short revision;
 
     public Naf() {
-
+        // Constructor empty
     }
 
     public String getCode() {

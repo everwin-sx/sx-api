@@ -71,8 +71,9 @@ public abstract class BasicList<T extends BasicObject> implements BasicListInter
         private Map<String, String> params;
         private URI href;
 
-        public EverLink() {
-        }
+    public EverLink() {
+        // Constructor empty
+    }
 
         public void setParams(Map<String, String> params) {
             this.params = params;

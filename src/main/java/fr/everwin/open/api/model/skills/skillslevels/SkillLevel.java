@@ -46,7 +46,7 @@ public class SkillLevel extends BasicObject {
      *
      */
     public SkillLevel() {
-
+        // Constructor empty
     }
 
     public String getLabel() {

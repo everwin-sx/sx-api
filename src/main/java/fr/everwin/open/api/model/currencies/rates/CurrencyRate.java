@@ -58,7 +58,7 @@ public class CurrencyRate extends BasicObject {
      *
      */
     public CurrencyRate() {
-
+        // Constructor empty
     }
 
     /**

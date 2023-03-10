@@ -49,7 +49,7 @@ public class Skill extends BasicObject {
      *
      */
     public Skill() {
-
+        // Constructor empty
     }
 
     public String getLabel() {

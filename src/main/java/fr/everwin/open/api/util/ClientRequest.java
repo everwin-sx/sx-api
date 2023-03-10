@@ -115,8 +115,6 @@ public class ClientRequest {
             } else {
                 webTarget = webTarget.queryParam("access_token", auth.getToken());
             }
-        } else {
-            System.err.println("");
         }
     }
 
@@ -152,7 +150,6 @@ public class ClientRequest {
             return buildRequest();
 
         } catch (Exception e) {
-            e.printStackTrace(System.err);
             throw new RequestException("Unable to request " + path + " : " + e.getMessage());
         }
     }
@@ -250,7 +247,7 @@ public class ClientRequest {
 
         public Builder param(String param, String value) {
             if (this.params == null) {
-                this.params = new HashMap<String, String>();
+                this.params = new HashMap<>();
             }
             this.params.put(param, value);
             return this;

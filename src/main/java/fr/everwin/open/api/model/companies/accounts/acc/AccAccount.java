@@ -49,6 +49,7 @@ public class AccAccount extends BasicObject {
     private List<SpecificData> extraData;
 
     public AccAccount() {
+        // Constructor empty
     }
 
     public DataLink getCompanyAccount() {

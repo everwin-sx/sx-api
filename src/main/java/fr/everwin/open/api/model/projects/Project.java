@@ -88,7 +88,7 @@ public class Project extends BasicObject {
      *
      */
     public Project() {
-
+        // Constructor empty
     }
 
     public String getCode() {

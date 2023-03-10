@@ -31,7 +31,7 @@ public class ProjectLineMultiCurrencyValue extends MultiCurrencyValue {
      *
      */
     public ProjectLineMultiCurrencyValue() {
-
+        // Constructor empty
     }
 
     /**

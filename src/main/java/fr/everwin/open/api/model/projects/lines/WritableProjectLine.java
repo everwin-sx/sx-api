@@ -58,7 +58,7 @@ public class WritableProjectLine extends BasicObject {
     private List<SpecificData> extraData;
 
     public WritableProjectLine() {
-
+        // Constructor empty
     }
 
     public DataLink getActivity() {

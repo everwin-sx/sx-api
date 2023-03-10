@@ -34,7 +34,7 @@ public class SupplierAccountList extends BasicList<CompanyAccount> {
     private List<CompanyAccount> items;
 
     public SupplierAccountList() {
-
+        // Constructor empty
     }
 
     @Override

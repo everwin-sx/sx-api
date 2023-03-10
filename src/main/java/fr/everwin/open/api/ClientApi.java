@@ -160,9 +160,8 @@ public class ClientApi {
     /**
      * Init the no SSL client
      *
-     * @throws CoreException If http client creation failed
      */
-    private void initNoSSLClient() throws CoreException {
+    private void initNoSSLClient() {
         LOGGER.debug("Init NoSSL client");
         client = createCommonClientBuilder().build();
     }

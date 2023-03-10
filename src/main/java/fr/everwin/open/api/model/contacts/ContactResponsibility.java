@@ -68,6 +68,7 @@ public class ContactResponsibility extends BasicObject {
     private List<SpecificData> extraData;
 
     public ContactResponsibility() {
+        // Constructor empty
     }
 
     public DataLink getCompany() {

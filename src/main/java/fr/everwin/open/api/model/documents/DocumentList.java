@@ -32,6 +32,7 @@ public class DocumentList extends BasicList<Document> {
     private List<Document> items;
 
     public DocumentList() {
+        // Constructor empty
     }
 
     @Override

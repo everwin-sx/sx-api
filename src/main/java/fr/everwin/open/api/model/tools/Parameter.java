@@ -36,7 +36,7 @@ public class Parameter {
      *
      */
     public Parameter() {
-
+        // Constructor empty
     }
 
     /**

@@ -30,6 +30,7 @@ public class MissionOrderList extends BasicList<MissionOrder> {
     private List<MissionOrder> items;
 
     public MissionOrderList() {
+        // Constructor empty
     }
 
     @Override

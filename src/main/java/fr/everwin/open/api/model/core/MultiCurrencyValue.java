@@ -27,7 +27,7 @@ public class MultiCurrencyValue {
 
 
     public MultiCurrencyValue() {
-
+        // Constructor empty
     }
 
     /**

@@ -45,6 +45,7 @@ public class ContactEvent extends BasicObject {
     private List<SpecificData> extraData;
 
     public ContactEvent() {
+        // Constructor empty
     }
 
     public DataLink getContactResponsibility() {

@@ -36,7 +36,7 @@ public class DataLink {
     protected String href;
 
     public DataLink() {
-
+        // Constructor empty
     }
 
     public DataLink(BasicObject object) {

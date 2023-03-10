@@ -102,7 +102,6 @@ public class BasicService<O extends BasicObject, L extends BasicList> {
         } catch (RequestException e) {
             throw e;
         } catch (Exception e) {
-            e.printStackTrace(System.err);
             LOGGER.error("Unparsable error : " + e.getMessage(), e);
             throw createExceptionFromResponse(e.getMessage(), response.getStatus(), response.getStatusInfo().getStatusCode());
         }

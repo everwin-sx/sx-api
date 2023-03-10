@@ -64,6 +64,7 @@ public class Person extends BasicObject {
     private List<SpecificData> extraData;
 
     public Person() {
+        // Constructor empty
     }
 
     public DataLink getMainResponsibility() {

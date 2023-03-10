@@ -39,6 +39,7 @@ public abstract class SpecificData {
     private String name;
 
     public SpecificData() {
+        // Constructor empty
     }
 
     public SpecificData(String name) {

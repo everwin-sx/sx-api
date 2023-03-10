@@ -35,7 +35,7 @@ public class AccAccountList extends BasicList<AccAccount> {
     private List<AccAccount> items;
 
     public AccAccountList() {
-
+        // Constructor empty
     }
 
     @Override

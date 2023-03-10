@@ -39,7 +39,7 @@ public class NafList extends BasicList<Naf> {
      *
      */
     public NafList() {
-
+        // Constructor empty
     }
 
     @Override
