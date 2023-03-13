@@ -20,9 +20,11 @@
 package fr.everwin.open.api.model.skills.skillsdomains;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import fr.everwin.open.api.model.core.BasicObject;
 import fr.everwin.open.api.model.core.DataLink;
 import fr.everwin.open.api.model.core.SpecificData;
+import fr.everwin.open.api.util.ListDatalinkDeserializer;
 
 import java.util.List;
 
@@ -39,6 +41,7 @@ public class SkillDomain extends BasicObject {
     private Short isUnique;
     private Short hasDynamicSkills;
     private Short hasDate;
+    @JsonDeserialize(contentUsing = ListDatalinkDeserializer.class)
     private List<DataLink> entities;
     private Short order;
     private Short cvparserType;

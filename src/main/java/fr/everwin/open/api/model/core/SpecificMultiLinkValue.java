@@ -16,6 +16,9 @@
 
 package fr.everwin.open.api.model.core;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import fr.everwin.open.api.util.ListDatalinkDeserializer;
+
 import java.util.List;
 import java.util.Objects;
 
@@ -26,6 +29,7 @@ import java.util.Objects;
  */
 public class SpecificMultiLinkValue extends SpecificData {
 
+    @JsonDeserialize(contentUsing = ListDatalinkDeserializer.class)
     private List<DataLink> datalinks;
 
     public SpecificMultiLinkValue() {

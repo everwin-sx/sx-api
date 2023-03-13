@@ -22,6 +22,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import fr.everwin.open.api.model.core.DataLink;
 import fr.everwin.open.api.model.core.SpecificData;
 import fr.everwin.open.api.util.JsonDateDeserializer;
+import fr.everwin.open.api.util.ListDatalinkDeserializer;
 
 import java.util.Date;
 import java.util.List;
@@ -49,6 +50,7 @@ public class WSTest {
     private Double doubleWst;
     private String labelWst;
     private DataLink wstWss;
+    @JsonDeserialize(contentUsing = ListDatalinkDeserializer.class)
     private List<DataLink> wstWscs;
     private DataLink wst2Wss;
     private String id2Wst;

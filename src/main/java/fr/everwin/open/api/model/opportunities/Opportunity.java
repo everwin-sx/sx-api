@@ -26,6 +26,7 @@ import fr.everwin.open.api.model.core.BasicObject;
 import fr.everwin.open.api.model.core.DataLink;
 import fr.everwin.open.api.model.core.SpecificData;
 import fr.everwin.open.api.util.JsonDateDeserializer;
+import fr.everwin.open.api.util.ListDatalinkDeserializer;
 
 import java.util.Date;
 import java.util.List;
@@ -45,6 +46,7 @@ public class Opportunity extends BasicObject {
     private DataLink customer;
     private DataLink contributor;
     private DataLink mainContact;
+    @JsonDeserialize(contentUsing = ListDatalinkDeserializer.class)
     private List<DataLink> secondaryContacts;
     private DataLink entity;
     private DataLink financialEntity;

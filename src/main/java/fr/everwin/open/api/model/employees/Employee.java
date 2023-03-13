@@ -26,6 +26,7 @@ import fr.everwin.open.api.model.core.BasicObject;
 import fr.everwin.open.api.model.core.DataLink;
 import fr.everwin.open.api.model.core.SpecificData;
 import fr.everwin.open.api.util.JsonDateDeserializer;
+import fr.everwin.open.api.util.ListDatalinkDeserializer;
 
 import java.util.Date;
 import java.util.List;
@@ -45,6 +46,7 @@ public class Employee extends BasicObject {
     private Short title;
     private Short type;
     private DataLink entity;
+    @JsonDeserialize(contentUsing = ListDatalinkDeserializer.class)
     private List<DataLink> secondEntities;
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date arrivalDate;
@@ -52,9 +54,11 @@ public class Employee extends BasicObject {
     private Date leavingDate;
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date birthDate;
+    @JsonDeserialize(contentUsing = ListDatalinkDeserializer.class)
     private List<DataLink> profiles;
     private DataLink mainProfile;
     private DataLink manager;
+    @JsonDeserialize(contentUsing = ListDatalinkDeserializer.class)
     private List<DataLink> supportedCommercials;
     private DataLink workMode;
     private DataLink contractType;
@@ -70,6 +74,7 @@ public class Employee extends BasicObject {
     private String userRole;
     private DataLink userLanguage;
     private String function;
+    @JsonDeserialize(contentUsing = ListDatalinkDeserializer.class)
     private List<DataLink> languages;
     private DataLink nationality;
     private String phone;

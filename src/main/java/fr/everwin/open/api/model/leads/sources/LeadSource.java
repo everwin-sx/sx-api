@@ -19,8 +19,10 @@ package fr.everwin.open.api.model.leads.sources;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import fr.everwin.open.api.model.core.BasicObject;
 import fr.everwin.open.api.model.core.DataLink;
+import fr.everwin.open.api.util.ListDatalinkDeserializer;
 
 import java.util.List;
 
@@ -34,6 +36,7 @@ import java.util.List;
 public class LeadSource extends BasicObject {
 
     private String label;
+    @JsonDeserialize(contentUsing = ListDatalinkDeserializer.class)
     private List<DataLink> entities;
     private Short order;
     private Short isArchived;

@@ -18,8 +18,10 @@ package fr.everwin.open.api.model.projects.phases.categories;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import fr.everwin.open.api.model.core.BasicObject;
 import fr.everwin.open.api.model.core.DataLink;
+import fr.everwin.open.api.util.ListDatalinkDeserializer;
 
 import java.util.List;
 
@@ -34,6 +36,7 @@ public class ProjectPhaseCategory extends BasicObject {
 
     private Short type;
     private String label;
+    @JsonDeserialize(contentUsing = ListDatalinkDeserializer.class)
     private List<DataLink> entities;
     private Short archived;
 
