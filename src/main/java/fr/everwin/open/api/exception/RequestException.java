@@ -18,12 +18,14 @@ package fr.everwin.open.api.exception;
 
 /**
  * Request exception to manage response informations like status code, message and developer message
+ *
  * @author everwin-team
  */
 public class RequestException extends CoreException {
     private String developperMessage;
     private int status;
     private int code;
+
     public RequestException(String msg) {
         super(msg);
     }
@@ -52,12 +54,13 @@ public class RequestException extends CoreException {
         this.code = code;
     }
 
+    @Override
     public String toString() {
         String s = this.getClass().getName();
         String message = "Message : " + super.getMessage() + "\n" +
-                            "Error code : " + getCode() + "\n" +
-                            "Status : " + getStatus() + "\n" +
-                            "Developer message : " + getDevelopperMessage();
+                "Error code : " + getCode() + "\n" +
+                "Status : " + getStatus() + "\n" +
+                "Developer message : " + getDevelopperMessage();
         return s + ": " + message;
     }
 }

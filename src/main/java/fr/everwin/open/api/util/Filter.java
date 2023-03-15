@@ -25,6 +25,7 @@ import java.util.stream.Collectors;
  * Represents a filter condition in RSQL to send as a query parameter.
  * RSQL is a super-set of the Feed Item Query Language (FIQL) – a clean and simple filter syntax for feeds; so it fits quite naturally into a REST API.
  * https://tools.ietf.org/html/draft-nottingham-atompub-fiql-00
+ *
  * @author everwin-team
  */
 public class Filter {
@@ -38,14 +39,14 @@ public class Filter {
         this.conds = conds;
     }
 
-    public String generate(){
+    public String generate() {
         return conds.stream().collect(Collectors.joining(" "));
     }
 
-    public static class Builder{
+    public static class Builder {
         protected List<String> conds = new ArrayList<String>();
 
-        public Builder like(String field, String value){
+        public Builder like(String field, String value) {
             conds.add(field + "=lk=" + value);
             return this;
         }
@@ -110,12 +111,12 @@ public class Filter {
             return this;
         }
 
-        public Builder filter(Filter filter){
+        public Builder filter(Filter filter) {
             conds.add(filter.generate());
             return this;
         }
 
-        public Filter build(){
+        public Filter build() {
             Filter filter = new Filter();
             filter.setConds(conds);
             return filter;

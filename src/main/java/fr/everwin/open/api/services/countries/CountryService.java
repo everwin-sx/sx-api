@@ -16,13 +16,12 @@
 
 package fr.everwin.open.api.services.countries;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import fr.everwin.open.api.ClientApi;
 import fr.everwin.open.api.model.countries.Country;
 import fr.everwin.open.api.model.countries.CountryList;
 import fr.everwin.open.api.services.core.BasicService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author d.storti

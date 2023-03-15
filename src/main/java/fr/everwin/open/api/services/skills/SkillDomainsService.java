@@ -16,9 +16,6 @@
 
 package fr.everwin.open.api.services.skills;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import fr.everwin.open.api.ClientApi;
 import fr.everwin.open.api.exception.CoreException;
 import fr.everwin.open.api.model.skills.SkillList;
@@ -27,33 +24,36 @@ import fr.everwin.open.api.model.skills.skillsdomains.SkillDomainList;
 import fr.everwin.open.api.model.skills.skillslevels.SkillLevelList;
 import fr.everwin.open.api.services.core.BasicService;
 import fr.everwin.open.api.util.RequestParams;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Service manager to query the skilldomain API resource
+ *
  * @author everwin-team
  */
 public class SkillDomainsService extends BasicService<SkillDomain, SkillDomainList> {
 
     protected static final Logger LOGGER = LoggerFactory.getLogger(SkillDomainsService.class);
 
-    public SkillDomainsService(ClientApi client){
+    public SkillDomainsService(ClientApi client) {
         super(client, "skill-domains");
         setModels(SkillDomain.class, SkillDomainList.class);
     }
 
     public SkillLevelList querySLFromSD(SkillDomain skillDomain, RequestParams params) throws CoreException {
         SkillLevelsService service = new SkillLevelsService(clientApi);
-        return service.query(path + "/"+skillDomain.getId()+"/skill-levels", params);
+        return service.query(path + "/" + skillDomain.getId() + "/skill-levels", params);
     }
 
     public SkillList querySkillsFromSD(SkillDomain skillDomain, RequestParams params) throws CoreException {
         SkillsService service = new SkillsService(clientApi);
-        return service.query(path + "/"+skillDomain.getId()+"/skills", params);
+        return service.query(path + "/" + skillDomain.getId() + "/skills", params);
     }
 
     public SkillLevelList querySkillsLevelsFromSD(SkillDomain skill, RequestParams params) throws CoreException {
         SkillLevelsService service = new SkillLevelsService(clientApi);
-        return service.query(path + "/"+skill.getId()+"/skill-levels", params);
+        return service.query(path + "/" + skill.getId() + "/skill-levels", params);
     }
 
 }

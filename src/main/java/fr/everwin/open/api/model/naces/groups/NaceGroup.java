@@ -15,31 +15,24 @@
  */
 
 package fr.everwin.open.api.model.naces.groups;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
+
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import fr.everwin.open.api.model.core.BasicObject;
 
 /**
  * LeadEvent class
+ *
  * @author d.storti
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@XmlRootElement(name = "leadevent")
-@XmlAccessorType(XmlAccessType.FIELD)
 public class NaceGroup extends BasicObject {
 
-    @XmlElement
     public String code;
-    @XmlElement
     public String label;
-    @XmlElement
     private Short isArchived;
-
 
     public String getCode() {
         return code;

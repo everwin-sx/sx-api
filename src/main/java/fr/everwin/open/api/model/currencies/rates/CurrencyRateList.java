@@ -19,24 +19,20 @@
  */
 package fr.everwin.open.api.model.currencies.rates;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import fr.everwin.open.api.model.core.BasicList;
 
-import javax.xml.bind.annotation.*;
 import java.util.List;
 
 
 /**
  * Currency rates list
+ *
  * @author everwin-team
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name = "currencyratelist")
 public class CurrencyRateList extends BasicList<CurrencyRate> {
 
-    private final static String METHOD = "query";
-
-    @XmlElement(name = "currencyrate")
-    @XmlElementWrapper(name = "currencyrates")
+    @JsonProperty("currencyrate")
     private List<CurrencyRate> items;
 
     @Override

@@ -16,50 +16,44 @@
 
 package fr.everwin.open.api.model.core;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * Specialized SpecificData for link
+ *
  * @author everwin-team
  */
-@XmlRootElement
-@XmlAccessorType(XmlAccessType.FIELD)
 public class SpecificLinkValue extends SpecificData {
 
-	@XmlElement(name = "datalink")
-	private DataLink datalink;
+    private DataLink datalink;
 
-	public SpecificLinkValue() {
-		super();
-		this.type = SpecificType.LINK;
-	}
+    public SpecificLinkValue() {
+        super();
+        this.type = SpecificType.LINK;
+    }
 
-	public SpecificLinkValue(String name) {
-		super(name);
-		this.type = SpecificType.LINK;
-	}
+    public SpecificLinkValue(String name) {
+        super(name);
+        this.type = SpecificType.LINK;
+    }
 
-	public DataLink getDatalink() {
-		return datalink;
-	}
+    public DataLink getDatalink() {
+        return datalink;
+    }
 
-	public void setDatalink(DataLink datalink) {
-		this.datalink = datalink;
-	}
+    public void setDatalink(DataLink datalink) {
+        this.datalink = datalink;
+    }
 
-	@Override
-	public boolean equals(Object obj) {
-		if (obj == null)
-			return false;
-		if (obj instanceof SpecificLinkValue) {
-			DataLink datalink = ((SpecificLinkValue) obj).getDatalink();
-			return (this.datalink == null && datalink == null) || this.datalink.equals(datalink);
-		} else {
-			return false;
-		}
-	}
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null)
+            return false;
+        if (obj instanceof SpecificLinkValue) {
+            DataLink datalink = ((SpecificLinkValue) obj).getDatalink();
+            return (this.datalink == null && datalink == null) || this.datalink.equals(datalink);
+        } else {
+            return false;
+        }
+    }
 
 }

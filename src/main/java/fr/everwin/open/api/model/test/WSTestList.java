@@ -15,121 +15,98 @@
  */
 
 package fr.everwin.open.api.model.test;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.ws.rs.core.Link;
+
 import java.util.List;
-import javax.ws.rs.core.Link;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementWrapper;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 /**
  * @author d.storti
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name = "wstestlist")
 public class WSTestList {
 
-		private final static String METHOD="query"; 
-		
-		@XmlTransient
-		private int limit;
-		
-		@XmlTransient
-		private int offset; // Getters for these
+    @JsonProperty("selflink")
+    protected String href;
+    @JsonProperty("link")
+    protected List<Link> links;
+    private int limit;
+    private int offset;
+    private int modelLimit;
+    private String filter;
+    private String sort;
+    @JsonProperty("company")
+    private List<WSTest> items;
 
-		@XmlTransient
-		private int modelLimit; // Getters for these
+    /**
+     *
+     */
+    public WSTestList() {
+        // TODO Auto-generated constructor stub
+    }
 
-		@XmlTransient
-		private String filter; // Getters for these
+    public int getLimit() {
+        return limit;
+    }
 
-		@XmlTransient
-		private String sort; // Getters for these1
+    public void setLimit(int limit) {
+        this.limit = limit;
+    }
 
-		@XmlElement(name = "company")
-		@XmlElementWrapper(name = "companies")
-		private List<WSTest> items;
+    public int getOffset() {
+        return offset;
+    }
 
-		@XmlElement(name = "selflink")
-		protected String href;
+    public void setOffset(int offset) {
+        this.offset = offset;
+    }
 
-		@XmlElement(name = "link")
-		@XmlElementWrapper(name = "links")
-		@XmlJavaTypeAdapter(Link.JaxbAdapter.class)
-		protected List<Link> links;
+    public int getModelLimit() {
+        return modelLimit;
+    }
 
-		/**
-		 *
-		 */
-		public WSTestList() {
-			// TODO Auto-generated constructor stub
-		}
+    public void setModelLimit(int modelLimit) {
+        this.modelLimit = modelLimit;
+    }
 
-		public int getLimit() {
-			return limit;
-		}
+    public String getHref() {
+        return href;
+    }
 
-		public void setLimit(int limit) {
-			this.limit = limit;
-		}
+    public void setHref(String href) {
+        this.href = href;
+    }
 
-		public int getOffset() {
-			return offset;
-		}
+    public List<Link> getLinks() {
+        return links;
+    }
 
-		public void setOffset(int offset) {
-			this.offset = offset;
-		}
+    public void setLinks(List<Link> links) {
+        this.links = links;
+    }
 
-		public int getModelLimit() {
-			return modelLimit;
-		}
+    public List<WSTest> getItems() {
+        return items;
+    }
 
-		public void setModelLimit(int modelLimit) {
-			this.modelLimit = modelLimit;
-		}
+    public void setItems(List<WSTest> items) {
+        this.items = items;
+    }
 
-		public String getHref() {
-			return href;
-		}
+    public String getFilter() {
+        return filter;
+    }
 
-		public void setHref(String href) {
-			this.href = href;
-		}
+    public void setFilter(String filter) {
+        this.filter = filter;
+    }
 
-		public List<Link> getLinks() {
-			return links;
-		}
+    public String getSort() {
+        return sort;
+    }
 
-		public void setLinks(List<Link> links) {
-			this.links = links;
-		}
+    public void setSort(String sort) {
+        this.sort = sort;
+    }
 
-		public List<WSTest> getItems() {
-			return items;
-		}
-
-		public void setItems(List<WSTest> items) {
-			this.items = items;
-		}
-
-		public String getFilter() {
-			return filter;
-		}
-
-		public void setFilter(String filter) {
-			this.filter = filter;
-		}
-
-		public String getSort() {
-			return sort;
-		}
-
-		public void setSort(String sort) {
-			this.sort = sort;
-		}
-
-	}
+}

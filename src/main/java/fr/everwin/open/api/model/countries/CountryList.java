@@ -16,9 +16,9 @@
 
 package fr.everwin.open.api.model.countries;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import fr.everwin.open.api.model.core.BasicList;
 
-import javax.xml.bind.annotation.*;
 import java.util.List;
 
 /**
@@ -26,14 +26,9 @@ import java.util.List;
  *
  * @author d.storti
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name = "countrylist")
 public class CountryList extends BasicList<Country> {
 
-    private final static String METHOD = "query";
-
-    @XmlElement(name = "country")
-    @XmlElementWrapper(name = "countries")
+    @JsonProperty("country")
     private List<Country> items;
 
     /**

@@ -16,25 +16,24 @@
 
 package fr.everwin.open.api.util;
 
-import javax.ws.rs.client.Client;
-import javax.ws.rs.client.Entity;
-import javax.ws.rs.client.Invocation;
-import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
+import fr.everwin.open.api.core.auth.Authentication;
+import fr.everwin.open.api.exception.RequestException;
+import jakarta.ws.rs.client.Client;
+import jakarta.ws.rs.client.Entity;
+import jakarta.ws.rs.client.Invocation;
+import jakarta.ws.rs.client.WebTarget;
+import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.Response;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import fr.everwin.open.api.core.auth.Authentication;
-import fr.everwin.open.api.exception.RequestException;
-
 /**
  * Client request wrapper<br>
  * This wrapper can handle all REST requests.
+ *
  * @author everwin-team
  */
 public class ClientRequest {
@@ -50,7 +49,7 @@ public class ClientRequest {
 
     private Map<String, String> params;
 
-    public ClientRequest(Client client, String path){
+    public ClientRequest(Client client, String path) {
         this.client = client;
         this.path = path;
     }
@@ -106,41 +105,40 @@ public class ClientRequest {
     /**
      * Create the inner WebTarget
      */
-    private void createTarget(){
+    private void createTarget() {
         webTarget = client.target(path);
 
         // Add auth informations
-        if(auth != null) {
+        if (auth != null) {
             if (auth.getType() == Authentication.TYPE_APIKEY) {
                 webTarget = webTarget.queryParam("api_key", auth.getApiKey());
             } else {
                 webTarget = webTarget.queryParam("access_token", auth.getToken());
             }
-        }else{
-            System.err.println("");
         }
     }
 
     /**
      * Update WebTarget with parameters
      */
-    private void addParams(){
-        if(params != null) {
-            params.keySet().stream().forEach(key -> webTarget = webTarget.queryParam(key, params.get(key)));
+    private void addParams() {
+        if (params != null) {
+            params.keySet().forEach(key -> webTarget = webTarget.queryParam(key, params.get(key)));
         }
     }
 
     /**
      * Build and return the invocation request.
+     *
      * @return
      */
-    private Invocation.Builder buildRequest(){
+    private Invocation.Builder buildRequest() {
         return webTarget.request().header("Content-type", contentType).accept(accept);
     }
 
     /**
      * Build the request for the given path in JSON format. the request contains authorization informations
-     * @param path The request path
+     *
      * @return
      * @throws RequestException
      */
@@ -152,57 +150,60 @@ public class ClientRequest {
             return buildRequest();
 
         } catch (Exception e) {
-            e.printStackTrace(System.err);
             throw new RequestException("Unable to request " + path + " : " + e.getMessage());
         }
     }
 
     /**
      * Make a POST
+     *
      * @param entity Entity to send
      * @return Response
      * @throws RequestException If the request failed
      */
-    public Response post(Entity<?> entity) throws RequestException{
-        LOGGER.debug("Make a POST to /" + path);
+    public Response post(Entity<?> entity) throws RequestException {
+        LOGGER.debug("Make a POST to /{}", path);
         return create().post(entity);
     }
 
     /**
      * Make a PUT
+     *
      * @param entity Entity to send
      * @return Response
      * @throws RequestException If the request failed
      */
-    public Response put(Entity<?> entity) throws RequestException{
-        LOGGER.debug("Make a PUT to /" + path);
+    public Response put(Entity<?> entity) throws RequestException {
+        LOGGER.debug("Make a PUT to /{}", path);
         return create().put(entity);
     }
 
     /**
      * Make a GET
+     *
      * @return Response
      * @throws RequestException If the request failed
      */
     public Response get() throws RequestException {
-        LOGGER.debug("Make a GET to /" + path);
+        LOGGER.debug("Make a GET to /{}", path);
         return create().get();
     }
 
     /**
      * Make a DELETE
+     *
      * @return Response
      * @throws RequestException If the request failed
      */
     public Response delete() throws RequestException {
-        LOGGER.debug("Make a DELETE to /" + path);
+        LOGGER.debug("Make a DELETE to /{}", path);
         return create().delete();
     }
 
     /**
      * ClientRequest Builder
      */
-    public static class Builder{
+    public static class Builder {
         private String path;
         private Authentication auth;
         private Client client;
@@ -210,7 +211,7 @@ public class ClientRequest {
         private MediaType accept = MediaType.APPLICATION_JSON_TYPE;
         private Map<String, String> params;
 
-        public ClientRequest build(){
+        public ClientRequest build() {
             ClientRequest request = new ClientRequest(client, path);
             request.setAuth(auth);
             request.setContentType(contentType);
@@ -219,22 +220,22 @@ public class ClientRequest {
             return request;
         }
 
-        public Builder client(Client client){
+        public Builder client(Client client) {
             this.client = client;
             return this;
         }
 
-        public Builder path(String path){
+        public Builder path(String path) {
             this.path = path;
             return this;
         }
 
-        public Builder auth(Authentication auth){
+        public Builder auth(Authentication auth) {
             this.auth = auth;
             return this;
         }
 
-        public Builder contentType(String contentType){
+        public Builder contentType(String contentType) {
             this.contentType = contentType;
             return this;
         }
@@ -244,9 +245,9 @@ public class ClientRequest {
             return this;
         }
 
-        public Builder param(String param, String value){
-            if(this.params == null){
-                this.params = new HashMap<String, String>();
+        public Builder param(String param, String value) {
+            if (this.params == null) {
+                this.params = new HashMap<>();
             }
             this.params.put(param, value);
             return this;

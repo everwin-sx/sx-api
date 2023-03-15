@@ -16,23 +16,23 @@
 
 package fr.everwin.open.api.services.nafs;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import fr.everwin.open.api.ClientApi;
 import fr.everwin.open.api.model.nafs.Naf;
 import fr.everwin.open.api.model.nafs.NafList;
 import fr.everwin.open.api.services.core.BasicService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Service manager to query the naf API resource
+ *
  * @author everwin-team
  */
 public class NafsService extends BasicService<Naf, NafList> {
 
     protected static final Logger LOGGER = LoggerFactory.getLogger(NafsService.class);
 
-    public NafsService(ClientApi client){
+    public NafsService(ClientApi client) {
         super(client, "company-apes");
         setModels(Naf.class, NafList.class);
     }

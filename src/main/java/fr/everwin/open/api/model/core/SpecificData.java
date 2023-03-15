@@ -16,43 +16,71 @@
 
 /**
  * SpecificData class to manage extra data field
+ *
  * @author everwin-team
  */
 package fr.everwin.open.api.model.core;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlTransient;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
-@XmlAccessorType(XmlAccessType.FIELD)
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.WRAPPER_OBJECT)
+@JsonSubTypes({
+        @JsonSubTypes.Type(name = "dateval", value = SpecificDateValue.class),
+        @JsonSubTypes.Type(name = "numberval", value = SpecificNumberValue.class),
+        @JsonSubTypes.Type(name = "stringval", value = SpecificStringValue.class),
+        @JsonSubTypes.Type(name = "link", value = SpecificLinkValue.class),
+        @JsonSubTypes.Type(name = "multilink", value = SpecificMultiLinkValue.class)})
 public abstract class SpecificData {
 
-	@XmlElement
-	private String name;
+    protected SpecificType type;
+    private String name;
 
-	@XmlTransient
-	protected SpecificType type;
+    public SpecificData() {
+        // Constructor empty
+    }
 
-	public SpecificData() {}
+    public SpecificData(String name) {
+        this.name = name;
+    }
 
-	public SpecificData(String name) {
-		this.name = name;
-	}
+    public SpecificType getType() {
+        return type;
+    }
 
-	public SpecificType getType() {
-		return type;
-	}
+    public void setType(SpecificType type) {
+        this.type = type;
+    }
 
-	public void setType(SpecificType type) {
-		this.type = type;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public enum SpecificType {
+
+        STRING("string"), NUMBER("number"), DATE("date"), LINK("link"), MULTILINK("multilink");
+
+        public final String name;
+
+        SpecificType(String name) {
+            this.name = name;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        @Override
+        public String toString() {
+            return name;
+        }
+
+    }
+
 }

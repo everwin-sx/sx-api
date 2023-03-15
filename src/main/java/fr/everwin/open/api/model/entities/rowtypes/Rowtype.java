@@ -16,164 +16,132 @@
 
 package fr.everwin.open.api.model.entities.rowtypes;
 
-import java.util.List;
-
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementWrapper;
-import javax.xml.bind.annotation.XmlElements;
-import javax.xml.bind.annotation.XmlRootElement;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
-
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import fr.everwin.open.api.model.core.BasicObject;
 import fr.everwin.open.api.model.core.DataLink;
+import fr.everwin.open.api.util.ListDatalinkDeserializer;
+
+import java.util.List;
 
 /**
  * Represents a rowtype for a given entity
+ *
  * @author everwin-team
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@XmlRootElement(name = "rowtype")
-@XmlAccessorType(XmlAccessType.FIELD)
 public class Rowtype extends BasicObject {
 
-	@XmlElement
-	private String code;
+    private String code;
+    private Short type;
+    private Short mode;
+    @JsonDeserialize(contentUsing = ListDatalinkDeserializer.class)
+    private List<DataLink> entities;
+    private DataLink parent;
+    private Short group;
+    private Short isWorkUnit;
+    private Double flateRateAmount;
+    private DataLink subscriptionRowtype;
+    @JsonDeserialize(contentUsing = ListDatalinkDeserializer.class)
+    private List<DataLink> subscriptionTimeRowtypes;
+    private Short isInvoiceable;
+    private Short isExcludedFromProductionCalculation;
 
-	@XmlElement
-	private Short type;
+    public String getCode() {
+        return code;
+    }
 
-	@XmlElement
-	private Short mode;
+    public void setCode(String code) {
+        this.code = code;
+    }
 
-	@XmlElementWrapper(name = "entities")
-	@XmlElements(@XmlElement(name = "entity", type = DataLink.class))
-	private List<DataLink> entities;
+    public Short getType() {
+        return type;
+    }
 
-	@XmlElementWrapper(name = "rowtypes")
-	@XmlElements(@XmlElement(name = "rowtype", type = DataLink.class))
-	private DataLink parent;
+    public void setType(Short type) {
+        this.type = type;
+    }
 
-	@XmlElement
-	private Short group;
+    public Short getMode() {
+        return mode;
+    }
 
-	@XmlElement
-	private Short isWorkUnit;
+    public void setMode(Short mode) {
+        this.mode = mode;
+    }
 
-	@XmlElement
-	private Double flateRateAmount;
+    public List<DataLink> getEntities() {
+        return entities;
+    }
 
-	@XmlElementWrapper(name = "rowtypes")
-	@XmlElements(@XmlElement(name = "rowtype", type = DataLink.class))
-	private DataLink subscriptionRowtype;
+    public void setEntities(List<DataLink> entities) {
+        this.entities = entities;
+    }
 
-	@XmlElementWrapper(name = "rowtypes")
-	@XmlElements(@XmlElement(name = "rowtype", type = DataLink.class))
-	private List<DataLink> subscriptionTimeRowtypes;
+    public DataLink getParent() {
+        return parent;
+    }
 
-	@XmlElement
-	private Short isInvoiceable;
+    public void setParent(DataLink parent) {
+        this.parent = parent;
+    }
 
-	@XmlElement
-	private Short isExcludedFromProductionCalculation;
+    public Short getGroup() {
+        return group;
+    }
 
-	public String getCode() {
-		return code;
-	}
+    public void setGroup(Short group) {
+        this.group = group;
+    }
 
-	public void setCode(String code) {
-		this.code = code;
-	}
+    public Short getIsWorkUnit() {
+        return isWorkUnit;
+    }
 
-	public Short getType() {
-		return type;
-	}
+    public void setIsWorkUnit(Short isWorkUnit) {
+        this.isWorkUnit = isWorkUnit;
+    }
 
-	public void setType(Short type) {
-		this.type = type;
-	}
+    public Double getFlateRateAmount() {
+        return flateRateAmount;
+    }
 
-	public Short getMode() {
-		return mode;
-	}
+    public void setFlateRateAmount(Double flateRateAmount) {
+        this.flateRateAmount = flateRateAmount;
+    }
 
-	public void setMode(Short mode) {
-		this.mode = mode;
-	}
+    public DataLink getSubscriptionRowtype() {
+        return subscriptionRowtype;
+    }
 
-	public List<DataLink> getEntities() {
-		return entities;
-	}
+    public void setSubscriptionRowtype(DataLink subscriptionRowtype) {
+        this.subscriptionRowtype = subscriptionRowtype;
+    }
 
-	public void setEntities(List<DataLink> entities) {
-		this.entities = entities;
-	}
+    public List<DataLink> getSubscriptionTimeRowtypes() {
+        return subscriptionTimeRowtypes;
+    }
 
-	public DataLink getParent() {
-		return parent;
-	}
+    public void setSubscriptionTimeRowtypes(List<DataLink> subscriptionTimeRowtypes) {
+        this.subscriptionTimeRowtypes = subscriptionTimeRowtypes;
+    }
 
-	public void setParent(DataLink parent) {
-		this.parent = parent;
-	}
+    public Short getIsInvoiceable() {
+        return isInvoiceable;
+    }
 
-	public Short getGroup() {
-		return group;
-	}
+    public void setIsInvoiceable(Short isInvoiceable) {
+        this.isInvoiceable = isInvoiceable;
+    }
 
-	public void setGroup(Short group) {
-		this.group = group;
-	}
+    public Short getIsExcludedFromProductionCalculation() {
+        return isExcludedFromProductionCalculation;
+    }
 
-	public Short getIsWorkUnit() {
-		return isWorkUnit;
-	}
-
-	public void setIsWorkUnit(Short isWorkUnit) {
-		this.isWorkUnit = isWorkUnit;
-	}
-
-	public Double getFlateRateAmount() {
-		return flateRateAmount;
-	}
-
-	public void setFlateRateAmount(Double flateRateAmount) {
-		this.flateRateAmount = flateRateAmount;
-	}
-
-	public DataLink getSubscriptionRowtype() {
-		return subscriptionRowtype;
-	}
-
-	public void setSubscriptionRowtype(DataLink subscriptionRowtype) {
-		this.subscriptionRowtype = subscriptionRowtype;
-	}
-
-	public List<DataLink> getSubscriptionTimeRowtypes() {
-		return subscriptionTimeRowtypes;
-	}
-
-	public void setSubscriptionTimeRowtypes(List<DataLink> subscriptionTimeRowtypes) {
-		this.subscriptionTimeRowtypes = subscriptionTimeRowtypes;
-	}
-
-	public Short getIsInvoiceable() {
-		return isInvoiceable;
-	}
-
-	public void setIsInvoiceable(Short isInvoiceable) {
-		this.isInvoiceable = isInvoiceable;
-	}
-
-	public Short getIsExcludedFromProductionCalculation() {
-		return isExcludedFromProductionCalculation;
-	}
-
-	public void setIsExcludedFromProductionCalculation(Short isExcludedFromProductionCalculation) {
-		this.isExcludedFromProductionCalculation = isExcludedFromProductionCalculation;
-	}
+    public void setIsExcludedFromProductionCalculation(Short isExcludedFromProductionCalculation) {
+        this.isExcludedFromProductionCalculation = isExcludedFromProductionCalculation;
+    }
 }

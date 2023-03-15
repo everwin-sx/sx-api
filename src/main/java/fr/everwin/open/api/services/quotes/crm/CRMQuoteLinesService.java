@@ -16,16 +16,16 @@
 
 package fr.everwin.open.api.services.quotes.crm;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import fr.everwin.open.api.ClientApi;
 import fr.everwin.open.api.model.quotes.crm.lines.CRMQuoteLine;
 import fr.everwin.open.api.model.quotes.crm.lines.CRMQuoteLineList;
 import fr.everwin.open.api.services.core.BasicService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Service manager to query the CRM quote lines API resource
+ *
  * @author everwin-team
  */
 public class CRMQuoteLinesService extends BasicService<CRMQuoteLine, CRMQuoteLineList> {

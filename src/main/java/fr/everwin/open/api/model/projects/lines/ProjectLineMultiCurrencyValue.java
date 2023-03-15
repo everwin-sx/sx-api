@@ -15,41 +15,37 @@
  */
 
 package fr.everwin.open.api.model.projects.lines;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
+
+
 import fr.everwin.open.api.model.core.MultiCurrencyValue;
 
 /**
  * @author d.storti
  */
-@XmlRootElement(name = "project-line-multi-currency")
-@XmlAccessorType(XmlAccessType.FIELD)
 public class ProjectLineMultiCurrencyValue extends MultiCurrencyValue {
 
-	@XmlElement
-	private Double lineManagement;
 
-	/**
-	 * 
-	 */
-	public ProjectLineMultiCurrencyValue() {
+    private Double lineManagement;
 
-	}
+    /**
+     *
+     */
+    public ProjectLineMultiCurrencyValue() {
+        // Constructor empty
+    }
 
-	/**
-	 * @return the lineManagement
-	 */
-	public Double getLineManagement() {
-		return lineManagement;
-	}
+    /**
+     * @return the lineManagement
+     */
+    public Double getLineManagement() {
+        return lineManagement;
+    }
 
-	/**
-	 * @param lineManagement the lineManagement to set
-	 */
-	public void setLineManagement(Double lineManagement) {
-		this.lineManagement = lineManagement;
-	}
+    /**
+     * @param lineManagement the lineManagement to set
+     */
+    public void setLineManagement(Double lineManagement) {
+        this.lineManagement = lineManagement;
+    }
 
 }

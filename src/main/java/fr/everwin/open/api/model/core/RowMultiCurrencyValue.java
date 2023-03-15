@@ -16,12 +16,12 @@
 
 package fr.everwin.open.api.model.core;
 
-import javax.xml.bind.annotation.XmlElement;
 
 public class RowMultiCurrencyValue extends MultiCurrencyValue {
 
-    @XmlElement
+
     private Double lineManagement;
+
     /**
      * @return the lineManagement
      */

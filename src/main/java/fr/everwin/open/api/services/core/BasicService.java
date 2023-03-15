@@ -28,10 +28,10 @@ import fr.everwin.open.api.model.core.Error;
 import fr.everwin.open.api.model.documents.Document;
 import fr.everwin.open.api.model.documents.DocumentList;
 import fr.everwin.open.api.util.RequestParams;
+import jakarta.ws.rs.core.Response;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.ws.rs.core.Response;
 import java.io.File;
 import java.util.Date;
 
@@ -43,10 +43,10 @@ import java.util.Date;
  */
 public class BasicService<O extends BasicObject, L extends BasicList> {
 
-    protected static final Logger LOGGER = LoggerFactory.getLogger(BasicService.class);
     public static final String LOCATION = "Location";
     public static final String COMMENTS = "/comments/";
     public static final String DOCUMENTS = "/documents/";
+    protected static final Logger LOGGER = LoggerFactory.getLogger(BasicService.class);
     /**
      * The client API
      */
@@ -97,14 +97,13 @@ public class BasicService<O extends BasicObject, L extends BasicList> {
                     || response.getStatus() == Response.Status.CREATED.getStatusCode()) {
                 return response.readEntity(responseClass);
             } else {
-                throw createExceptionFromResponse(response.readEntity(String.class), response.getStatus(), response.getStatusInfo().getStatusCode());
+                throw createExceptionFromResponse("Bad response from server", response.getStatus(), response.getStatusInfo().getStatusCode());
             }
         } catch (RequestException e) {
             throw e;
         } catch (Exception e) {
-            e.printStackTrace(System.err);
             LOGGER.error("Unparsable error : " + e.getMessage(), e);
-            throw createExceptionFromResponse(response.readEntity(String.class), response.getStatus(), response.getStatusInfo().getStatusCode());
+            throw createExceptionFromResponse(e.getMessage(), response.getStatus(), response.getStatusInfo().getStatusCode());
         }
     }
 
@@ -332,7 +331,7 @@ public class BasicService<O extends BasicObject, L extends BasicList> {
             readResponse(response, String.class);
             // extract id from return location
             String locationUri = response.getHeaderString(LOCATION);
-            Long id = Long.parseLong(locationUri.substring(locationUri.lastIndexOf("/") + 1));
+            long id = Long.parseLong(locationUri.substring(locationUri.lastIndexOf("/") + 1));
             comment.setId(id);
             comment.setUpdatedOnTime(getComment(objectId, id).getUpdatedOnTime());
             return (getComment(objectId, id)).getUpdatedOnTime();
@@ -423,7 +422,7 @@ public class BasicService<O extends BasicObject, L extends BasicList> {
             readResponse(response, String.class);
             // extract id from return location
             String locationUri = response.getHeaderString(LOCATION);
-            Long id = Long.parseLong(locationUri.substring(locationUri.lastIndexOf("/") + 1));
+            long id = Long.parseLong(locationUri.substring(locationUri.lastIndexOf("/") + 1));
             document.setId(id);
             document.setUpdatedBy((getDocument(objectId, id)).getUpdatedBy());
             document.setUpdatedOnTime(getDocument(objectId, id).getUpdatedOnTime());

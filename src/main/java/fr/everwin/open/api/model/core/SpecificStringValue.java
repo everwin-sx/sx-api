@@ -15,54 +15,48 @@
  */
 
 /**
- * 
+ *
  */
 package fr.everwin.open.api.model.core;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * Specialized SpecificData for string
+ *
  * @author everwin-team
  */
-@XmlRootElement
-@XmlAccessorType(XmlAccessType.FIELD)
 public class SpecificStringValue extends SpecificData {
 
-	@XmlElement
-	private String value;
+    private String value;
 
-	public SpecificStringValue() {
-		super();
-		this.type = SpecificType.STRING;
-	}
+    public SpecificStringValue() {
+        super();
+        this.type = SpecificType.STRING;
+    }
 
-	public SpecificStringValue(String name) {
-		super(name);
-		this.type = SpecificType.STRING;
-	}
+    public SpecificStringValue(String name) {
+        super(name);
+        this.type = SpecificType.STRING;
+    }
 
-	public String getValue() {
-		return value;
-	}
+    public String getValue() {
+        return value;
+    }
 
-	public void setValue(String value) {
-		this.value = value;
-	}
+    public void setValue(String value) {
+        this.value = value;
+    }
 
-	@Override
-	public boolean equals(Object obj) {
-		if (obj == null)
-			return false;
-		if (obj instanceof SpecificStringValue) {
-			String val = ((SpecificStringValue) obj).getValue();
-			return (this.value == null && val == null) || this.value.equals(val);
-		} else {
-			return false;
-		}
-	}
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null)
+            return false;
+        if (obj instanceof SpecificStringValue) {
+            String val = ((SpecificStringValue) obj).getValue();
+            return (this.value == null && val == null) || this.value.equals(val);
+        } else {
+            return false;
+        }
+    }
 
 }

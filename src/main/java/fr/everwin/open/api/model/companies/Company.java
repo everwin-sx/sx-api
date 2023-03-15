@@ -16,179 +16,73 @@
 
 package fr.everwin.open.api.model.companies;
 
-import java.util.Date;
-import java.util.List;
-
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementWrapper;
-import javax.xml.bind.annotation.XmlElements;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import fr.everwin.open.api.model.core.BasicObject;
-import fr.everwin.open.api.model.core.DataLink;
-import fr.everwin.open.api.model.core.SpecificData;
-import fr.everwin.open.api.model.core.SpecificDateValue;
-import fr.everwin.open.api.model.core.SpecificLinkValue;
-import fr.everwin.open.api.model.core.SpecificMultiLinkValue;
-import fr.everwin.open.api.model.core.SpecificNumberValue;
-import fr.everwin.open.api.model.core.SpecificStringValue;
-import fr.everwin.open.api.util.JsonDateDeserializer;
-import fr.everwin.open.api.util.XMLDateAdapter;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import fr.everwin.open.api.model.core.BasicObject;
+import fr.everwin.open.api.model.core.DataLink;
+import fr.everwin.open.api.model.core.SpecificData;
+import fr.everwin.open.api.util.JsonDateDeserializer;
+
+import java.util.Date;
+import java.util.List;
 
 /**
  * Company class
+ *
  * @author everwin-team
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@XmlRootElement(name = "company")
-@XmlAccessorType(XmlAccessType.FIELD)
 public class Company extends BasicObject {
 
-    @XmlElement
     private String code;
-
     private String name;
-
-    @XmlElement
     private DataLink group;
-
-    @XmlElement
     private DataLink providedby;
-
-    @XmlElement
     private DataLink entity;
-
-    @XmlElement
     private DataLink accountManager;
-
-    @XmlElement
     private DataLink status;
-
-    @XmlElement
     private DataLink legalStatus;
-
-    @XmlElement
     private Short visibility;
-
     @JsonDeserialize(using = JsonDateDeserializer.class)
-    @XmlElement
     private Date visibilityDate;
-
-    @XmlElement
     private String identifierNumber;
-
-    @XmlElement
     private String phone;
-
-    @XmlElement
     private String fax;
-
-    @XmlElement
     private String address;
-
-    @XmlElement
     private String address2;
-
-    @XmlElement
     private String address3;
-
-    @XmlElement
     private String postalCode;
-
-    @XmlElement
     private String city;
-
-    @XmlElement
     private DataLink region;
-
-    @XmlElement
     private DataLink country;
-
-    @XmlElement
     private String email;
-
-    @XmlElement
     private String website;
-
-    @XmlElement
     private DataLink defaultAccount;
-
-    @XmlElement
     private DataLink ape;
-
-    @XmlElement
     private DataLink category;
-
-    @XmlElement
     private DataLink segment;
-
-    @XmlElement
     private String openSegment;
-
-    @XmlElement
     private DataLink turnoverSize;
-
-    @XmlElement
     private Double turnover;
-
-    @XmlElement
     private DataLink numberOfEmployeesSize;
-
-    @XmlElement
     private Long numberOfEmployees;
-
-    @XmlElement
     private Integer numberOfSites;
-
-    @XmlElement
     private String comment;
-
-    @XmlElement
     private Short isProvider;
-
-    @XmlElement
     private DataLink spanco;
-
-    @XmlElement
-    @XmlJavaTypeAdapter(XMLDateAdapter.class)
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date updatedOnTime;
-
-    @XmlElement
-    @XmlJavaTypeAdapter(XMLDateAdapter.class)
     @JsonDeserialize(using = JsonDateDeserializer.class)
     private Date createdOnTime;
-
     private String updatedBy;
-
-    @XmlElement
     private List<DataLink> offers;
-
-
-    @XmlElement
     private Short acceptEmailing;
-
-    @XmlElement
     private String companyRegistrationNumber;
-
-    @XmlElement
     private String logo;
-
-    @XmlElementWrapper(name = "extraData")
-    @XmlElements({@XmlElement(name = "stringval", type = SpecificStringValue.class),
-            @XmlElement(name = "dateval", type = SpecificDateValue.class),
-            @XmlElement(name = "numberval", type = SpecificNumberValue.class),
-            @XmlElement(name = "link", type = SpecificLinkValue.class),
-            @XmlElement(name = "multilink", type = SpecificMultiLinkValue.class)})
     private List<SpecificData> extraData;
+
     /**
      *
      */
@@ -275,6 +169,7 @@ public class Company extends BasicObject {
     public void setComment(String comment) {
         this.comment = comment;
     }
+
     public DataLink getStatus() {
         return status;
     }
@@ -282,6 +177,7 @@ public class Company extends BasicObject {
     public void setStatus(DataLink status) {
         this.status = status;
     }
+
     public DataLink getGroup() {
         return group;
     }
@@ -481,6 +377,7 @@ public class Company extends BasicObject {
     public void setUpdatedBy(String updatedBy) {
         this.updatedBy = updatedBy;
     }
+
     public DataLink getSpanco() {
         return spanco;
     }

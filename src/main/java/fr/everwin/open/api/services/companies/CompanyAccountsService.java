@@ -16,25 +16,25 @@
 
 package fr.everwin.open.api.services.companies;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import fr.everwin.open.api.ClientApi;
 import fr.everwin.open.api.exception.CoreException;
 import fr.everwin.open.api.model.companies.accounts.CompanyAccount;
 import fr.everwin.open.api.model.companies.accounts.CompanyAccountList;
 import fr.everwin.open.api.services.core.BasicService;
 import fr.everwin.open.api.util.RequestParams;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Service manager to query the company accounts API resource
+ *
  * @author everwin-team
  */
 public class CompanyAccountsService extends BasicService<CompanyAccount, CompanyAccountList> {
 
     protected static final Logger LOGGER = LoggerFactory.getLogger(CompanyAccountsService.class);
 
-    public CompanyAccountsService(ClientApi client){
+    public CompanyAccountsService(ClientApi client) {
         super(client, "company-accounts");
         setModels(CompanyAccount.class, CompanyAccountList.class);
     }

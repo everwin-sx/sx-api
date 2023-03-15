@@ -19,24 +19,20 @@
  */
 package fr.everwin.open.api.model.candidates;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import fr.everwin.open.api.model.core.BasicList;
 
-import javax.xml.bind.annotation.*;
 import java.util.List;
 
 
 /**
  * candidates list
+ *
  * @author everwin-team
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name = "candidatelist")
 public class CandidateList extends BasicList<Candidate> {
 
-    private final static String METHOD = "query";
-
-    @XmlElement(name = "candidate")
-    @XmlElementWrapper(name = "candidates")
+    @JsonProperty("candidate")
     private List<Candidate> items;
 
     @Override

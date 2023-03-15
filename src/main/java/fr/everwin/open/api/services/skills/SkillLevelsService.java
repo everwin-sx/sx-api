@@ -16,23 +16,23 @@
 
 package fr.everwin.open.api.services.skills;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import fr.everwin.open.api.ClientApi;
 import fr.everwin.open.api.model.skills.skillslevels.SkillLevel;
 import fr.everwin.open.api.model.skills.skillslevels.SkillLevelList;
 import fr.everwin.open.api.services.core.BasicService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Service manager to query the skilllevel API resource
+ *
  * @author everwin-team
  */
 public class SkillLevelsService extends BasicService<SkillLevel, SkillLevelList> {
 
     protected static final Logger LOGGER = LoggerFactory.getLogger(SkillLevelsService.class);
 
-    public SkillLevelsService(ClientApi client){
+    public SkillLevelsService(ClientApi client) {
         super(client, "skill-levels");
         setModels(SkillLevel.class, SkillLevelList.class);
     }

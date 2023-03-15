@@ -16,9 +16,9 @@
 
 package fr.everwin.open.api.model.leads.state;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import fr.everwin.open.api.model.core.BasicList;
 
-import javax.xml.bind.annotation.*;
 import java.util.List;
 
 /**
@@ -26,14 +26,9 @@ import java.util.List;
  *
  * @author d.storti
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name = "leadstatelist")
 public class LeadStateList extends BasicList<LeadState> {
 
-    private final static String METHOD = "query";
-
-    @XmlElement(name = "leadstate")
-    @XmlElementWrapper(name = "leadstates")
+    @JsonProperty("leadstate")
     private List<LeadState> items;
 
     @Override

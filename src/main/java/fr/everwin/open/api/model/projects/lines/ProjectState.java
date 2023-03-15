@@ -15,60 +15,53 @@
  */
 
 package fr.everwin.open.api.model.projects.lines;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
+
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
  * @author d.storti
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-@XmlRootElement(name = "project-state")
-@XmlAccessorType(XmlAccessType.FIELD)
 public class ProjectState {
 
-	@XmlElement
-	protected ProjectDebitCredit revenue;
+    protected ProjectDebitCredit revenue;
+    protected ProjectDebitCredit expenditure;
 
-	@XmlElement
-	protected ProjectDebitCredit expenditure;
+    /**
+     *
+     */
+    public ProjectState() {
+        revenue = new ProjectDebitCredit();
+        expenditure = new ProjectDebitCredit();
+    }
 
-	/**
-	 *
-	 */
-	public ProjectState() {
-		revenue = new ProjectDebitCredit();
-		expenditure = new ProjectDebitCredit();
-	}
+    /**
+     * @return the revenue
+     */
+    public ProjectDebitCredit getRevenue() {
+        return revenue;
+    }
 
-	/**
-	 * @return the revenue
-	 */
-	public ProjectDebitCredit getRevenue() {
-		return revenue;
-	}
+    /**
+     * @param revenue the revenue to set
+     */
+    public void setRevenue(ProjectDebitCredit revenue) {
+        this.revenue = revenue;
+    }
 
-	/**
-	 * @param revenue the revenue to set
-	 */
-	public void setRevenue(ProjectDebitCredit revenue) {
-		this.revenue = revenue;
-	}
+    /**
+     * @return the expenditure
+     */
+    public ProjectDebitCredit getExpenditure() {
+        return expenditure;
+    }
 
-	/**
-	 * @return the expenditure
-	 */
-	public ProjectDebitCredit getExpenditure() {
-		return expenditure;
-	}
-
-	/**
-	 * @param expenditure the expenditure to set
-	 */
-	public void setExpenditure(ProjectDebitCredit expenditure) {
-		this.expenditure = expenditure;
-	}
+    /**
+     * @param expenditure the expenditure to set
+     */
+    public void setExpenditure(ProjectDebitCredit expenditure) {
+        this.expenditure = expenditure;
+    }
 
 }

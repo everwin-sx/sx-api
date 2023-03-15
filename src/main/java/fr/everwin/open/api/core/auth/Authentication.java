@@ -16,14 +16,17 @@
 
 package fr.everwin.open.api.core.auth;
 
+import java.util.Objects;
+
 /**
  * Authentication object to manage OAuth2 or apiKey access
+ *
  * @author everwin-team
  */
 public class Authentication {
 
-    public static int TYPE_OAUTH = 0;
-    public static int TYPE_APIKEY = 1;
+    public static final int TYPE_OAUTH = 0;
+    public static final int TYPE_APIKEY = 1;
 
     private int type;
     private String clientId;
@@ -74,31 +77,27 @@ public class Authentication {
     /**
      * Builder class of the Authentication object
      */
-    public static class Builder{
+    public static class Builder {
         private String clientId;
         private String clientSecret;
         private String apiKey;
 
-        public Authentication build(){
+        public Authentication build() {
             Authentication authentication = new Authentication();
             authentication.setApiKey(apiKey);
             authentication.setClientId(clientId);
             authentication.setClientSecret(clientSecret);
-            if(apiKey != null){
-                authentication.setType(TYPE_APIKEY);
-            }else{
-                authentication.setType(TYPE_OAUTH);
-            }
+            authentication.setType(Objects.nonNull(apiKey) ? TYPE_APIKEY : TYPE_OAUTH);
             return authentication;
         }
 
-        public Builder withClientInfos(String clientId, String clientSecret){
+        public Builder withClientInfos(String clientId, String clientSecret) {
             this.clientId = clientId;
             this.clientSecret = clientSecret;
             return this;
         }
 
-        public Builder withApiKey(String apiKey){
+        public Builder withApiKey(String apiKey) {
             this.apiKey = apiKey;
             return this;
         }

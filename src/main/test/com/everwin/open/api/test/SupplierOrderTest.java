@@ -16,7 +16,7 @@
 
 package com.everwin.open.api.test;
 
-import javax.ws.rs.core.Response;
+import jakarta.ws.rs.core.Response;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -31,6 +31,7 @@ import com.everwin.open.api.core.BasicTest;
 
 import fr.everwin.open.api.core.config.ConfigHelper;
 import fr.everwin.open.api.exception.RequestException;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import fr.everwin.open.api.model.core.BasicList;
 import fr.everwin.open.api.model.core.DataLink;
 import fr.everwin.open.api.model.supplierorders.SupplierOrder;

@@ -16,9 +16,9 @@
 
 package fr.everwin.open.api.model.currencies;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import fr.everwin.open.api.model.core.BasicList;
 
-import javax.xml.bind.annotation.*;
 import java.util.List;
 
 /**
@@ -26,14 +26,9 @@ import java.util.List;
  *
  * @author d.storti
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name = "currencylist")
 public class CurrencyList extends BasicList<Currency> {
 
-    private final static String METHOD = "query";
-
-    @XmlElement(name = "currency")
-    @XmlElementWrapper(name = "currencies")
+    @JsonProperty("currency")
     private List<Currency> items;
 
     public CurrencyList() {

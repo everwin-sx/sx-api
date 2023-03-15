@@ -16,23 +16,23 @@
 
 package fr.everwin.open.api.services.equipments;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import fr.everwin.open.api.ClientApi;
 import fr.everwin.open.api.model.equipments.Equipment;
 import fr.everwin.open.api.model.equipments.EquipmentList;
 import fr.everwin.open.api.services.core.BasicService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Service manager to query the equipment API resource
+ *
  * @author everwin-team
  */
 public class EquipmentsService extends BasicService<Equipment, EquipmentList> {
 
     protected static final Logger LOGGER = LoggerFactory.getLogger(EquipmentsService.class);
 
-    public EquipmentsService(ClientApi client){
+    public EquipmentsService(ClientApi client) {
         super(client, "equipments");
         setModels(Equipment.class, EquipmentList.class);
     }

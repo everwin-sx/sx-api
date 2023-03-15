@@ -15,59 +15,53 @@
  */
 
 /**
- * 
+ *
  */
 package fr.everwin.open.api.model.core;
 
 import java.util.Date;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * Specialized SpecificData for date
+ *
  * @author everwin-team
  */
-@XmlRootElement
-@XmlAccessorType(XmlAccessType.FIELD)
 public class SpecificDateValue extends SpecificData {
 
-	@XmlElement
-	private Date value;
+    private Date value;
 
-	/**
-	 * 
-	 */
-	public SpecificDateValue() {
-		super();
-		this.type = SpecificType.DATE;
-	}
+    /**
+     *
+     */
+    public SpecificDateValue() {
+        super();
+        this.type = SpecificType.DATE;
+    }
 
-	public SpecificDateValue(String name) {
-		super(name);
-		this.type = SpecificType.DATE;
-	}
+    public SpecificDateValue(String name) {
+        super(name);
+        this.type = SpecificType.DATE;
+    }
 
-	public Date getValue() {
-		return value;
-	}
+    public Date getValue() {
+        return value;
+    }
 
-	public void setValue(Date value) {
-		this.value = value;
-	}
+    public void setValue(Date value) {
+        this.value = value;
+    }
 
-	@Override
-	public boolean equals(Object obj) {
-		if (obj == null)
-			return false;
-		if (obj instanceof SpecificDateValue) {
-			Date date = ((SpecificDateValue) obj).getValue();
-			return (this.value == null && date == null) || this.value.equals(date);
-		} else {
-			return false;
-		}
-	}
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null)
+            return false;
+        if (obj instanceof SpecificDateValue) {
+            Date date = ((SpecificDateValue) obj).getValue();
+            return (this.value == null && date == null) || this.value.equals(date);
+        } else {
+            return false;
+        }
+    }
 
 }

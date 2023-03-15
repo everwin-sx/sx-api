@@ -16,326 +16,262 @@
 
 package fr.everwin.open.api.model.supplierinvoices;
 
-import java.util.Date;
-import java.util.List;
-
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementWrapper;
-import javax.xml.bind.annotation.XmlElements;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import fr.everwin.open.api.model.core.BasicObject;
-import fr.everwin.open.api.model.core.DataLink;
-import fr.everwin.open.api.model.core.SpecificData;
-import fr.everwin.open.api.model.core.SpecificDateValue;
-import fr.everwin.open.api.model.core.SpecificLinkValue;
-import fr.everwin.open.api.model.core.SpecificMultiLinkValue;
-import fr.everwin.open.api.model.core.SpecificNumberValue;
-import fr.everwin.open.api.model.core.SpecificStringValue;
-import fr.everwin.open.api.util.JsonDateDeserializer;
-import fr.everwin.open.api.util.XMLDateAdapter;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import fr.everwin.open.api.model.core.BasicObject;
+import fr.everwin.open.api.model.core.DataLink;
+import fr.everwin.open.api.model.core.SpecificData;
+import fr.everwin.open.api.util.JsonDateDeserializer;
+
+import java.util.Date;
+import java.util.List;
 
 /**
  * Represents a supplier invoice
+ *
  * @author everwin-team
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@XmlRootElement(name = "supplierInvoice")
-@XmlAccessorType(XmlAccessType.FIELD)
 public class SupplierInvoice extends BasicObject {
 
-	@XmlElement
-	private String code;
+    private String code;
+    private String validationStep;
+    private DataLink supplier;
+    private DataLink contact;
+    private DataLink entity;
+    private DataLink financialEntity;
+    private DataLink lastValidator;
+    private DataLink paymentTerms;
+    private DataLink supplierAccount;
+    @JsonDeserialize(using = JsonDateDeserializer.class)
+    private Date date;
+    @JsonDeserialize(using = JsonDateDeserializer.class)
+    private Date dueDate;
+    private String reference;
+    private Short settlementStatus;
+    private String settlementComents;
+    private DataLink fiscalPosition;
+    private String currency;
+    private Double totalWithoutVat;
+    private Double totalIncludingVat;
+    private Double totalVat;
+    private Double totalToBeCharged;
 
-	@XmlElement
-	private String validationStep;
+    private List<SpecificData> extraData;
 
-	@XmlElement
-	private DataLink supplier;
+    public SupplierInvoice() {
+        // TODO Auto-generated constructor stub
+    }
 
-	@XmlElement
-	private DataLink contact;
 
-	@XmlElement
-	private DataLink entity;
+    public String getCode() {
+        return code;
+    }
 
-	@XmlElement
-	private DataLink financialEntity;
 
-	@XmlElement
-	private DataLink lastValidator;
+    public void setCode(String code) {
+        this.code = code;
+    }
 
-	@XmlElement
-	private DataLink paymentTerms;
 
-	@XmlElement
-	private DataLink supplierAccount;
+    public DataLink getSupplier() {
+        return supplier;
+    }
 
-	@XmlElement
-	@XmlJavaTypeAdapter(XMLDateAdapter.class)
-	@JsonDeserialize(using = JsonDateDeserializer.class)
-	private Date date;
 
-	@XmlElement
-	@XmlJavaTypeAdapter(XMLDateAdapter.class)
-	@JsonDeserialize(using = JsonDateDeserializer.class)
-	private Date dueDate;
+    public void setSupplier(DataLink supplier) {
+        this.supplier = supplier;
+    }
 
-	@XmlElement
-	private String reference;
 
-	@XmlElement
-	private Short settlementStatus;
+    public DataLink getContact() {
+        return contact;
+    }
 
-	@XmlElement
-	private String settlementComents;
 
-	@XmlElement
-	private DataLink fiscalPosition;
+    public void setContact(DataLink contact) {
+        this.contact = contact;
+    }
 
-	@XmlElement
-	private String currency;
 
-	@XmlElement
-	private Double totalWithoutVat;
+    public DataLink getEntity() {
+        return entity;
+    }
 
-	@XmlElement
-	private Double totalIncludingVat;
 
-	@XmlElement
-	private Double totalVat;
+    public void setEntity(DataLink entity) {
+        this.entity = entity;
+    }
 
-	@XmlElement
-	private Double totalToBeCharged;
 
-	@XmlElementWrapper(name = "extraData")
-	@XmlElements({@XmlElement(name = "stringval", type = SpecificStringValue.class),
-			@XmlElement(name = "dateval", type = SpecificDateValue.class),
-			@XmlElement(name = "numberval", type = SpecificNumberValue.class),
-			@XmlElement(name = "link", type = SpecificLinkValue.class),
-			@XmlElement(name = "multilink", type = SpecificMultiLinkValue.class)})
-	private List<SpecificData> extraData;
+    public DataLink getFinancialEntity() {
+        return financialEntity;
+    }
 
 
-	public SupplierInvoice() {
-		// TODO Auto-generated constructor stub
-	}
+    public void setFinancialEntity(DataLink financialEntity) {
+        this.financialEntity = financialEntity;
+    }
 
 
-	public String getCode() {
-		return code;
-	}
+    public DataLink getLastValidator() {
+        return lastValidator;
+    }
 
 
-	public void setCode(String code) {
-		this.code = code;
-	}
+    public void setLastValidator(DataLink lastValidator) {
+        this.lastValidator = lastValidator;
+    }
 
 
-	public DataLink getSupplier() {
-		return supplier;
-	}
+    public DataLink getPaymentTerms() {
+        return paymentTerms;
+    }
 
 
-	public void setSupplier(DataLink supplier) {
-		this.supplier = supplier;
-	}
+    public void setPaymentTerms(DataLink paymentTerms) {
+        this.paymentTerms = paymentTerms;
+    }
 
 
-	public DataLink getContact() {
-		return contact;
-	}
+    public DataLink getSupplierAccount() {
+        return supplierAccount;
+    }
 
 
-	public void setContact(DataLink contact) {
-		this.contact = contact;
-	}
+    public void setSupplierAccount(DataLink supplierAccount) {
+        this.supplierAccount = supplierAccount;
+    }
 
 
-	public DataLink getEntity() {
-		return entity;
-	}
+    public Date getDate() {
+        return date;
+    }
 
 
-	public void setEntity(DataLink entity) {
-		this.entity = entity;
-	}
+    public void setDate(Date date) {
+        this.date = date;
+    }
 
 
-	public DataLink getFinancialEntity() {
-		return financialEntity;
-	}
+    public Date getDueDate() {
+        return dueDate;
+    }
 
 
-	public void setFinancialEntity(DataLink financialEntity) {
-		this.financialEntity = financialEntity;
-	}
+    public void setDueDate(Date dueDate) {
+        this.dueDate = dueDate;
+    }
 
 
-	public DataLink getLastValidator() {
-		return lastValidator;
-	}
+    public String getReference() {
+        return reference;
+    }
 
 
-	public void setLastValidator(DataLink lastValidator) {
-		this.lastValidator = lastValidator;
-	}
+    public void setReference(String reference) {
+        this.reference = reference;
+    }
 
+    public Short getSettlementStatus() {
+        return settlementStatus;
+    }
 
-	public DataLink getPaymentTerms() {
-		return paymentTerms;
-	}
 
+    public void setSettlementStatus(Short settlementStatus) {
+        this.settlementStatus = settlementStatus;
+    }
 
-	public void setPaymentTerms(DataLink paymentTerms) {
-		this.paymentTerms = paymentTerms;
-	}
 
+    public String getSettlementComents() {
+        return settlementComents;
+    }
 
-	public DataLink getSupplierAccount() {
-		return supplierAccount;
-	}
 
+    public void setSettlementComents(String settlementComents) {
+        this.settlementComents = settlementComents;
+    }
 
-	public void setSupplierAccount(DataLink supplierAccount) {
-		this.supplierAccount = supplierAccount;
-	}
 
+    public DataLink getFiscalPosition() {
+        return fiscalPosition;
+    }
 
-	public Date getDate() {
-		return date;
-	}
 
+    public void setFiscalPosition(DataLink fiscalPosition) {
+        this.fiscalPosition = fiscalPosition;
+    }
 
-	public void setDate(Date date) {
-		this.date = date;
-	}
 
+    public String getCurrency() {
+        return currency;
+    }
 
-	public Date getDueDate() {
-		return dueDate;
-	}
 
+    public void setCurrency(String currency) {
+        this.currency = currency;
+    }
 
-	public void setDueDate(Date dueDate) {
-		this.dueDate = dueDate;
-	}
 
+    public Double getTotalWithoutVat() {
+        return totalWithoutVat;
+    }
 
-	public String getReference() {
-		return reference;
-	}
 
+    public void setTotalWithoutVat(Double totalWithoutVat) {
+        this.totalWithoutVat = totalWithoutVat;
+    }
 
-	public void setReference(String reference) {
-		this.reference = reference;
-	}
 
-	public Short getSettlementStatus() {
-		return settlementStatus;
-	}
+    public Double getTotalIncludingVat() {
+        return totalIncludingVat;
+    }
 
 
-	public void setSettlementStatus(Short settlementStatus) {
-		this.settlementStatus = settlementStatus;
-	}
+    public void setTotalIncludingVat(Double totalIncludingVat) {
+        this.totalIncludingVat = totalIncludingVat;
+    }
 
+    public Double getTotalVat() {
+        return totalVat;
+    }
 
-	public String getSettlementComents() {
-		return settlementComents;
-	}
+    public void setTotalVat(Double totalVat) {
+        this.totalVat = totalVat;
+    }
 
 
-	public void setSettlementComents(String settlementComents) {
-		this.settlementComents = settlementComents;
-	}
+    public Double getTotalToBeCharged() {
+        return totalToBeCharged;
+    }
 
 
-	public DataLink getFiscalPosition() {
-		return fiscalPosition;
-	}
+    public void setTotalToBeCharged(Double totalToBeCharged) {
+        this.totalToBeCharged = totalToBeCharged;
+    }
 
 
-	public void setFiscalPosition(DataLink fiscalPosition) {
-		this.fiscalPosition = fiscalPosition;
-	}
+    public List<SpecificData> getExtraData() {
+        return extraData;
+    }
 
 
-	public String getCurrency() {
-		return currency;
-	}
+    public void setExtraData(List<SpecificData> extraData) {
+        this.extraData = extraData;
+    }
 
+    @Override
+    public String toString() {
+        return "Supplier invoice [code=" + code + "]";
+    }
 
-	public void setCurrency(String currency) {
-		this.currency = currency;
-	}
+    public String getValidationStep() {
+        return validationStep;
+    }
 
-
-	public Double getTotalWithoutVat() {
-		return totalWithoutVat;
-	}
-
-
-	public void setTotalWithoutVat(Double totalWithoutVat) {
-		this.totalWithoutVat = totalWithoutVat;
-	}
-
-
-	public Double getTotalIncludingVat() {
-		return totalIncludingVat;
-	}
-
-
-	public void setTotalIncludingVat(Double totalIncludingVat) {
-		this.totalIncludingVat = totalIncludingVat;
-	}
-
-	public Double getTotalVat() {
-		return totalVat;
-	}
-
-	public void setTotalVat(Double totalVat) {
-		this.totalVat = totalVat;
-	}
-
-
-	public Double getTotalToBeCharged() {
-		return totalToBeCharged;
-	}
-
-
-	public void setTotalToBeCharged(Double totalToBeCharged) {
-		this.totalToBeCharged = totalToBeCharged;
-	}
-
-
-	public List<SpecificData> getExtraData() {
-		return extraData;
-	}
-
-
-	public void setExtraData(List<SpecificData> extraData) {
-		this.extraData = extraData;
-	}
-
-	@Override
-	public String toString() {
-		return "Supplier invoice [code=" + code + "]";
-	}
-
-	public String getValidationStep() {
-		return validationStep;
-	}
-
-	public void setValidationStep(String validationStep) {
-		this.validationStep = validationStep;
-	}
+    public void setValidationStep(String validationStep) {
+        this.validationStep = validationStep;
+    }
 }

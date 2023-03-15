@@ -15,258 +15,223 @@
  */
 
 /**
- * 
+ *
  */
 package fr.everwin.open.api.model.products.assets;
 
-import java.util.Date;
-
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import fr.everwin.open.api.model.core.BasicObject;
 import fr.everwin.open.api.model.core.DataLink;
 import fr.everwin.open.api.util.JsonDateDeserializer;
-import fr.everwin.open.api.util.XMLDateAdapter;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import java.util.Date;
 
 /**
  * CustomerAsset class
+ *
  * @author everwin-team
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-@XmlRootElement(name = "customer-asset")
-@XmlAccessorType(XmlAccessType.FIELD)
+
+
 public class CustomerAsset extends BasicObject {
 
-	@XmlElement(required = true, nillable = false)
-	private DataLink company;
+    private DataLink company;
+    private DataLink product;
+    private String comment;
+    private DataLink project;
+    private DataLink projectRow;
+    private Double quantity;
+    @JsonDeserialize(using = JsonDateDeserializer.class)
+    private Date validationDate;
+    @JsonDeserialize(using = JsonDateDeserializer.class)
+    private Date orderDate;
+    @JsonDeserialize(using = JsonDateDeserializer.class)
+    private Date deliveryDate;
+    @JsonDeserialize(using = JsonDateDeserializer.class)
+    private Date installationDate;
+    @JsonDeserialize(using = JsonDateDeserializer.class)
+    private Date maintenanceDate;
+    private Short isActive;
 
-	@XmlElement
-	private DataLink product;
+    /**
+     *
+     */
+    public CustomerAsset() {
+        // Constructor empty
+    }
 
-	@XmlElement
-	private String comment;
+    /**
+     * @return the company
+     */
+    public DataLink getCompany() {
+        return company;
+    }
 
-	@XmlElement
-	private DataLink project;
+    /**
+     * @param company the company to set
+     */
+    public void setCompany(DataLink company) {
+        this.company = company;
+    }
 
-	@XmlElement
-	private DataLink projectRow;
+    /**
+     * @return the product
+     */
+    public DataLink getProduct() {
+        return product;
+    }
 
-	@XmlElement
-	private Double quantity;
+    /**
+     * @param product the product to set
+     */
+    public void setProduct(DataLink product) {
+        this.product = product;
+    }
 
-	@XmlElement
-	@XmlJavaTypeAdapter(XMLDateAdapter.class)
-	@JsonDeserialize(using = JsonDateDeserializer.class)
-	private Date validationDate;
+    /**
+     * @return the comment
+     */
+    public String getComment() {
+        return comment;
+    }
 
-	@XmlElement
-	@XmlJavaTypeAdapter(XMLDateAdapter.class)
-	@JsonDeserialize(using = JsonDateDeserializer.class)
-	private Date orderDate;
+    /**
+     * @param comment the comment to set
+     */
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
 
-	@XmlElement
-	@XmlJavaTypeAdapter(XMLDateAdapter.class)
-	@JsonDeserialize(using = JsonDateDeserializer.class)
-	private Date deliveryDate;
+    /**
+     * @return the project
+     */
+    public DataLink getProject() {
+        return project;
+    }
 
-	@XmlElement
-	@XmlJavaTypeAdapter(XMLDateAdapter.class)
-	@JsonDeserialize(using = JsonDateDeserializer.class)
-	private Date installationDate;
+    /**
+     * @param project the project to set
+     */
+    public void setProject(DataLink project) {
+        this.project = project;
+    }
 
-	@XmlElement
-	@XmlJavaTypeAdapter(XMLDateAdapter.class)
-	@JsonDeserialize(using = JsonDateDeserializer.class)
-	private Date maintenanceDate;
+    /**
+     * @return the projectRow
+     */
+    public DataLink getProjectRow() {
+        return projectRow;
+    }
 
-	@XmlElement
-	private Short isActive;
+    /**
+     * @param projectRow the projectRow to set
+     */
+    public void setProjectRow(DataLink projectRow) {
+        this.projectRow = projectRow;
+    }
 
-	/**
-	 *
-	 */
-	public CustomerAsset() {
+    /**
+     * @return the quantity
+     */
+    public Double getQuantity() {
+        return quantity;
+    }
 
-	}
+    /**
+     * @param quantity the quantity to set
+     */
+    public void setQuantity(Double quantity) {
+        this.quantity = quantity;
+    }
 
-	/**
-	 * @return the company
-	 */
-	public DataLink getCompany() {
-		return company;
-	}
+    /**
+     * @return the validationDate
+     */
+    public Date getValidationDate() {
+        return validationDate;
+    }
 
-	/**
-	 * @param company the company to set
-	 */
-	public void setCompany(DataLink company) {
-		this.company = company;
-	}
+    /**
+     * @param validationDate the validationDate to set
+     */
+    public void setValidationDate(Date validationDate) {
+        this.validationDate = validationDate;
+    }
 
-	/**
-	 * @return the product
-	 */
-	public DataLink getProduct() {
-		return product;
-	}
+    /**
+     * @return the orderDate
+     */
+    public Date getOrderDate() {
+        return orderDate;
+    }
 
-	/**
-	 * @param product the product to set
-	 */
-	public void setProduct(DataLink product) {
-		this.product = product;
-	}
+    /**
+     * @param orderDate the orderDate to set
+     */
+    public void setOrderDate(Date orderDate) {
+        this.orderDate = orderDate;
+    }
 
-	/**
-	 * @return the comment
-	 */
-	public String getComment() {
-		return comment;
-	}
+    /**
+     * @return the deliveryDate
+     */
+    public Date getDeliveryDate() {
+        return deliveryDate;
+    }
 
-	/**
-	 * @param comment the comment to set
-	 */
-	public void setComment(String comment) {
-		this.comment = comment;
-	}
+    /**
+     * @param deliveryDate the deliveryDate to set
+     */
+    public void setDeliveryDate(Date deliveryDate) {
+        this.deliveryDate = deliveryDate;
+    }
 
-	/**
-	 * @return the project
-	 */
-	public DataLink getProject() {
-		return project;
-	}
+    /**
+     * @return the installationDate
+     */
+    public Date getInstallationDate() {
+        return installationDate;
+    }
 
-	/**
-	 * @param project the project to set
-	 */
-	public void setProject(DataLink project) {
-		this.project = project;
-	}
+    /**
+     * @param installationDate the installationDate to set
+     */
+    public void setInstallationDate(Date installationDate) {
+        this.installationDate = installationDate;
+    }
 
-	/**
-	 * @return the projectRow
-	 */
-	public DataLink getProjectRow() {
-		return projectRow;
-	}
+    /**
+     * @return the maintenanceDate
+     */
+    public Date getMaintenanceDate() {
+        return maintenanceDate;
+    }
 
-	/**
-	 * @param projectRow the projectRow to set
-	 */
-	public void setProjectRow(DataLink projectRow) {
-		this.projectRow = projectRow;
-	}
+    /**
+     * @param maintenanceDate the maintenanceDate to set
+     */
+    public void setMaintenanceDate(Date maintenanceDate) {
+        this.maintenanceDate = maintenanceDate;
+    }
 
-	/**
-	 * @return the quantity
-	 */
-	public Double getQuantity() {
-		return quantity;
-	}
+    /**
+     * @return the isActive
+     */
+    public Short getIsActive() {
+        return isActive;
+    }
 
-	/**
-	 * @param quantity the quantity to set
-	 */
-	public void setQuantity(Double quantity) {
-		this.quantity = quantity;
-	}
+    /**
+     * @param isActive the isActive to set
+     */
+    public void setIsActive(Short isActive) {
+        this.isActive = isActive;
+    }
 
-	/**
-	 * @return the validationDate
-	 */
-	public Date getValidationDate() {
-		return validationDate;
-	}
-
-	/**
-	 * @param validationDate the validationDate to set
-	 */
-	public void setValidationDate(Date validationDate) {
-		this.validationDate = validationDate;
-	}
-
-	/**
-	 * @return the orderDate
-	 */
-	public Date getOrderDate() {
-		return orderDate;
-	}
-
-	/**
-	 * @param orderDate the orderDate to set
-	 */
-	public void setOrderDate(Date orderDate) {
-		this.orderDate = orderDate;
-	}
-
-	/**
-	 * @return the deliveryDate
-	 */
-	public Date getDeliveryDate() {
-		return deliveryDate;
-	}
-
-	/**
-	 * @param deliveryDate the deliveryDate to set
-	 */
-	public void setDeliveryDate(Date deliveryDate) {
-		this.deliveryDate = deliveryDate;
-	}
-
-	/**
-	 * @return the installationDate
-	 */
-	public Date getInstallationDate() {
-		return installationDate;
-	}
-
-	/**
-	 * @param installationDate the installationDate to set
-	 */
-	public void setInstallationDate(Date installationDate) {
-		this.installationDate = installationDate;
-	}
-
-	/**
-	 * @return the maintenanceDate
-	 */
-	public Date getMaintenanceDate() {
-		return maintenanceDate;
-	}
-
-	/**
-	 * @param maintenanceDate the maintenanceDate to set
-	 */
-	public void setMaintenanceDate(Date maintenanceDate) {
-		this.maintenanceDate = maintenanceDate;
-	}
-
-	/**
-	 * @return the isActive
-	 */
-	public Short getIsActive() {
-		return isActive;
-	}
-
-	/**
-	 * @param isActive the isActive to set
-	 */
-	public void setIsActive(Short isActive) {
-		this.isActive = isActive;
-	}
-
-	@Override
-	public String toString() {
-		return "Customer asset [id=" + id + ", comment=" + comment + ", quantity=" + quantity + "]";
-	}
+    @Override
+    public String toString() {
+        return "Customer asset [id=" + id + ", comment=" + comment + ", quantity=" + quantity + "]";
+    }
 }

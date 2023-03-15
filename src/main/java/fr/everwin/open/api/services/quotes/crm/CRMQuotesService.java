@@ -16,11 +16,6 @@
 
 package fr.everwin.open.api.services.quotes.crm;
 
-import javax.ws.rs.core.Response;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import fr.everwin.open.api.ClientApi;
 import fr.everwin.open.api.exception.CoreException;
 import fr.everwin.open.api.model.quotes.crm.CRMQuote;
@@ -28,9 +23,13 @@ import fr.everwin.open.api.model.quotes.crm.CRMQuoteList;
 import fr.everwin.open.api.model.quotes.crm.lines.CRMQuoteLineList;
 import fr.everwin.open.api.services.core.BasicService;
 import fr.everwin.open.api.util.RequestParams;
+import jakarta.ws.rs.core.Response;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Service manager to query the CRM quotes API resource
+ *
  * @author everwin-team
  */
 public class CRMQuotesService extends BasicService<CRMQuote, CRMQuoteList> {
@@ -44,7 +43,8 @@ public class CRMQuotesService extends BasicService<CRMQuote, CRMQuoteList> {
 
     /**
      * Get a collection of supplier invoice lines
-     * @param params Extra parameters
+     *
+     * @param params   Extra parameters
      * @param objectId The linked supplier invoice id
      * @return CRMQuoteLineList
      * @throws CoreException If the request failed

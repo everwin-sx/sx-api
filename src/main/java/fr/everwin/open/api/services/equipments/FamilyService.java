@@ -15,12 +15,13 @@
  */
 
 package fr.everwin.open.api.services.equipments;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
 import fr.everwin.open.api.ClientApi;
 import fr.everwin.open.api.model.equipments.families.Family;
 import fr.everwin.open.api.model.equipments.families.FamilyList;
 import fr.everwin.open.api.services.core.BasicService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author d.storti

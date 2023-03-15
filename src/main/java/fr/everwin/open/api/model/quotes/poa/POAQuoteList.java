@@ -16,22 +16,17 @@
 
 package fr.everwin.open.api.model.quotes.poa;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import fr.everwin.open.api.model.core.BasicList;
 
-import javax.xml.bind.annotation.*;
 import java.util.List;
 
 /**
  * @author d.storti
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name = "poaquotelist")
 public class POAQuoteList extends BasicList<POAQuote> {
 
-    private final static String METHOD = "query";
-
-    @XmlElement(name = "poaquote")
-    @XmlElementWrapper(name = "poaquotes")
+    @JsonProperty("poaquote")
     private List<POAQuote> items;
 
     @Override

@@ -19,26 +19,21 @@
  */
 package fr.everwin.open.api.model.companies.accounts;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import fr.everwin.open.api.model.core.BasicList;
 
-import javax.xml.bind.annotation.*;
 import java.util.List;
 
 
 /**
  * CompanyAccount list
+ *
  * @author everwin-team
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name = "companyaccountlist")
 public class CompanyAccountList extends BasicList<CompanyAccount> {
 
-    private final static String METHOD = "query";
-
-    @XmlElement(name = "companyaccount")
-    @XmlElementWrapper(name = "companyaccounts")
+    @JsonProperty("companyaccount")
     private List<CompanyAccount> items;
-
 
     public CompanyAccountList() {
         // TODO Auto-generated constructor stub

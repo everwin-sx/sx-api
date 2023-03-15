@@ -16,23 +16,23 @@
 
 package fr.everwin.open.api.services.products;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import fr.everwin.open.api.ClientApi;
 import fr.everwin.open.api.model.products.Product;
 import fr.everwin.open.api.model.products.ProductList;
 import fr.everwin.open.api.services.core.BasicService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Service manager to query the product API resource
+ *
  * @author everwin-team
  */
 public class ProductsService extends BasicService<Product, ProductList> {
 
     protected static final Logger LOGGER = LoggerFactory.getLogger(ProductsService.class);
 
-    public ProductsService(ClientApi client){
+    public ProductsService(ClientApi client) {
         super(client, "products");
         setModels(Product.class, ProductList.class);
     }

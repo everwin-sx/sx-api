@@ -15,81 +15,70 @@
  */
 
 package fr.everwin.open.api.model.accounts;
-import java.util.List;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementWrapper;
-import javax.xml.bind.annotation.XmlElements;
-import javax.xml.bind.annotation.XmlRootElement;
-import fr.everwin.open.api.model.core.BasicObject;
-import fr.everwin.open.api.model.core.DataLink;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import fr.everwin.open.api.model.core.BasicObject;
+import fr.everwin.open.api.model.core.DataLink;
+import fr.everwin.open.api.util.ListDatalinkDeserializer;
+
+import java.util.List;
 
 /**
  * Candidate class
+ *
  * @author d.storti
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@XmlRootElement(name = "account")
-@XmlAccessorType(XmlAccessType.FIELD)
 public class Account extends BasicObject {
 
-	@XmlElement
-	private String label;
+    private String label;
+    private String code;
+    private Short vatSystem;
+    private Short type;
+    @JsonDeserialize(contentUsing = ListDatalinkDeserializer.class)
+    private List<DataLink> entities;
 
-	@XmlElement
-	private String code;
+    public List<DataLink> getEntities() {
+        return entities;
+    }
 
-	@XmlElement
-	private Short vatSystem;
+    public void setEntities(List<DataLink> entities) {
+        this.entities = entities;
+    }
 
-	@XmlElement
-	private Short type;
+    public String getLabel() {
+        return label;
+    }
 
-	@XmlElementWrapper(name = "entities")
-	@XmlElements(@XmlElement(name = "entities", type = DataLink.class))
-	private List<DataLink> entities;
+    public void setLabel(String label) {
+        this.label = label;
+    }
 
-	public List<DataLink> getEntities() {
-		return entities;
-	}
+    public String getCode() {
+        return code;
+    }
 
-	public void setEntities(List<DataLink> entities) {
-		this.entities = entities;
-	}
+    public void setCode(String code) {
+        this.code = code;
+    }
 
-	public String getLabel() {
-		return label;
-	}
+    public Short getVatSystem() {
+        return vatSystem;
+    }
 
-	public void setLabel(String label) {
-		this.label = label;
-	}
+    public void setVatSystem(Short vatSystem) {
+        this.vatSystem = vatSystem;
+    }
 
-	public String getCode() {
-		return code;
-	}
+    public Short getType() {
+        return type;
+    }
 
-	public void setCode(String code) {
-		this.code = code;
-	}
+    public void setType(Short type) {
+        this.type = type;
+    }
 
-	public Short getVatSystem() {
-		return vatSystem;
-	}
-
-	public void setVatSystem(Short vatSystem) {
-		this.vatSystem = vatSystem;
-	}
-
-	public Short getType() {
-		return type;
-	}
-
-	public void setType(Short type) {
-		this.type = type;
-	}
 }

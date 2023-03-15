@@ -15,43 +15,37 @@
  */
 
 package fr.everwin.open.api.model.projects;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
+
 
 import fr.everwin.open.api.model.projects.lines.ProjectDebitCredit;
 
 /**
  * @author d.storti
  */
-@XmlRootElement(name = "project-discountablestate")
-@XmlAccessorType(XmlAccessType.FIELD)
 public class DiscountableProjectState extends ProjectState {
 
-	@XmlElement
-	private ProjectDebitCredit discount;
+    private ProjectDebitCredit discount;
 
-	/**
-	 * 
-	 */
-	public DiscountableProjectState() {
-		super();
-		discount = new ProjectDebitCredit();
-	}
+    /**
+     *
+     */
+    public DiscountableProjectState() {
+        super();
+        discount = new ProjectDebitCredit();
+    }
 
-	/**
-	 * @return the discount
-	 */
-	public ProjectDebitCredit getDiscount() {
-		return discount;
-	}
+    /**
+     * @return the discount
+     */
+    public ProjectDebitCredit getDiscount() {
+        return discount;
+    }
 
-	/**
-	 * @param discount the discount to set
-	 */
-	public void setDiscount(ProjectDebitCredit discount) {
-		this.discount = discount;
-	}
+    /**
+     * @param discount the discount to set
+     */
+    public void setDiscount(ProjectDebitCredit discount) {
+        this.discount = discount;
+    }
 
 }

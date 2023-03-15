@@ -18,19 +18,20 @@ package fr.everwin.open.api.model.leaverequests;
 
 /**
  * Enumration for half day indicator in leaverequest
+ *
  * @author everwin-team
  */
 public enum HalfDayIndicator {
 
-	MORNING("1"), NOON("2"), ENDOFDAY("3"), MORNINGMID("4"), MIDNOON("5");
+    MORNING("1"), NOON("2"), ENDOFDAY("3"), MORNINGMID("4"), MIDNOON("5");
 
-	private String value;
+    private final String value;
 
-	HalfDayIndicator(String value) {
-		this.value = value;
-	}
+    HalfDayIndicator(String value) {
+        this.value = value;
+    }
 
-	public String getValue() {
-		return value;
-	}
+    public String getValue() {
+        return value;
+    }
 }

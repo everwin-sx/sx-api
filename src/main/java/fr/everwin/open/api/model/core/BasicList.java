@@ -16,10 +16,12 @@
 
 package fr.everwin.open.api.model.core;
 
-import javax.ws.rs.core.Link;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementWrapper;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.ws.rs.core.Link;
+
+import java.net.URI;
+import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 /**
@@ -29,13 +31,11 @@ import java.util.Optional;
  */
 public abstract class BasicList<T extends BasicObject> implements BasicListInterface<T> {
 
-    @XmlElement(name = "selflink")
+    @JsonProperty("selflink")
     protected String href;
 
-    @XmlElement(name = "link")
-    @XmlElementWrapper(name = "links")
-    @XmlJavaTypeAdapter(Link.JaxbAdapter.class)
-    protected java.util.List<Link> links;
+    @JsonProperty("link")
+    protected List<EverLink> links;
 
     public String getHref() {
         return href;
@@ -45,28 +45,52 @@ public abstract class BasicList<T extends BasicObject> implements BasicListInter
         this.href = href;
     }
 
-    public java.util.List<Link> getLinks() {
+    public List<EverLink> getLinks() {
         return links;
     }
 
-    public void setLinks(java.util.List<Link> links) {
+    public void setLinks(List<EverLink> links) {
         this.links = links;
     }
 
     public String getNext() {
-        if (links != null) {
-            Optional<Link> result = links.stream().filter(link -> link.getRel().equals("next")).findFirst();
-            return result.isPresent() ? result.get().getUri().toString() : null;
-        }
-        return null;
+        return Optional.ofNullable(links)
+                .flatMap(l -> l.stream().filter(link -> "next".equals(link.getRel())).findFirst())
+                .map(link -> link.getUri().toString())
+                .orElse(null);
     }
 
     public String getPrevious() {
-        if (links != null) {
-            Optional<Link> result = links.stream().filter(link -> link.getRel().equals("prev")).findFirst();
-            return result.isPresent() ? result.get().getUri().toString() : null;
-        }
-        return null;
+        return Optional.ofNullable(links)
+                .flatMap(l -> l.stream().filter(link -> "prev".equals(link.getRel())).findFirst())
+                .map(link -> link.getUri().toString())
+                .orElse(null);
     }
 
+    public static class EverLink {
+        private Map<String, String> params;
+        private URI href;
+
+    public EverLink() {
+        // Constructor empty
+    }
+
+        public void setParams(Map<String, String> params) {
+            this.params = params;
+        }
+
+        public void setHref(URI href) {
+            this.href = href;
+        }
+
+        public String getRel() {
+            return Optional.ofNullable(params)
+                    .map(p -> p.get(Link.REL))
+                    .orElse(null);
+        }
+
+        public URI getUri() {
+            return href;
+        }
+    }
 }

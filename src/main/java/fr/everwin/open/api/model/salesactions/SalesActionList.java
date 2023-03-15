@@ -19,24 +19,20 @@
  */
 package fr.everwin.open.api.model.salesactions;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import fr.everwin.open.api.model.core.BasicList;
 
-import javax.xml.bind.annotation.*;
 import java.util.List;
 
 
 /**
  * Sales action list
+ *
  * @author everwin-team
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name = "salesactionlist")
 public class SalesActionList extends BasicList<SalesAction> {
 
-    private final static String METHOD = "query";
-
-    @XmlElement(name = "salesaction")
-    @XmlElementWrapper(name = "salesactions")
+    @JsonProperty("salesaction")
     private List<SalesAction> items;
 
     @Override

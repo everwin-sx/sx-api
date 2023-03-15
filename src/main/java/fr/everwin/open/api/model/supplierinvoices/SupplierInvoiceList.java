@@ -19,24 +19,20 @@
  */
 package fr.everwin.open.api.model.supplierinvoices;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import fr.everwin.open.api.model.core.BasicList;
 
-import javax.xml.bind.annotation.*;
 import java.util.List;
 
 
 /**
  * Supplier invoices list
+ *
  * @author everwin-team
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name = "supplierinvoicelist")
 public class SupplierInvoiceList extends BasicList<SupplierInvoice> {
 
-    private final static String METHOD = "query";
-
-    @XmlElement(name = "supplierinvoice")
-    @XmlElementWrapper(name = "supplierinvoices")
+    @JsonProperty("supplierinvoice")
     private List<SupplierInvoice> items;
 
     @Override

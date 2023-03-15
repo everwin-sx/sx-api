@@ -15,53 +15,26 @@
  */
 
 package fr.everwin.open.api.model.suppliersettlement.lines;
-import java.util.List;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementWrapper;
-import javax.xml.bind.annotation.XmlElements;
-import javax.xml.bind.annotation.XmlRootElement;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import fr.everwin.open.api.model.core.BasicObject;
 import fr.everwin.open.api.model.core.DataLink;
 import fr.everwin.open.api.model.core.SpecificData;
-import fr.everwin.open.api.model.core.SpecificDateValue;
-import fr.everwin.open.api.model.core.SpecificLinkValue;
-import fr.everwin.open.api.model.core.SpecificMultiLinkValue;
-import fr.everwin.open.api.model.core.SpecificNumberValue;
-import fr.everwin.open.api.model.core.SpecificStringValue;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonInclude;
+
+import java.util.List;
 
 /**
  * @author d.storti
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@XmlRootElement(name = "suppliersettlementline")
-@XmlAccessorType(XmlAccessType.FIELD)
 public class SupplierSettlementLine extends BasicObject {
 
-    @XmlElement
     private DataLink supplierSettlement;
-
-    @XmlElement
     private DataLink supplierInvoice;
-
-    @XmlElement
     private SupplierSettlementLineMultiCurrencyValue amount;
-
-    @XmlElement
     private Short state;
-
-    @XmlElementWrapper(name = "extraData")
-    @XmlElements({
-            @XmlElement(name = "stringval", type = SpecificStringValue.class),
-            @XmlElement(name = "dateval", type = SpecificDateValue.class),
-            @XmlElement(name = "numberval", type = SpecificNumberValue.class),
-            @XmlElement(name = "link", type = SpecificLinkValue.class),
-            @XmlElement(name = "multilink", type = SpecificMultiLinkValue.class)
-    })
     private List<SpecificData> extraData;
 
     public SupplierSettlementLine() {
@@ -70,7 +43,7 @@ public class SupplierSettlementLine extends BasicObject {
 
     @Override
     public String toString() {
-        return "Supplier settlement line [supplierSettlement=" + (supplierSettlement !=null ? supplierSettlement.getId() : null) + "]";
+        return "Supplier settlement line [supplierSettlement=" + (supplierSettlement != null ? supplierSettlement.getId() : null) + "]";
     }
 
     public DataLink getSupplierSettlement() {

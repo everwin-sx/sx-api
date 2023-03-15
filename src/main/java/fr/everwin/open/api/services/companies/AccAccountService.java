@@ -16,23 +16,23 @@
 
 package fr.everwin.open.api.services.companies;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import fr.everwin.open.api.ClientApi;
 import fr.everwin.open.api.model.companies.accounts.acc.AccAccount;
 import fr.everwin.open.api.model.companies.accounts.acc.AccAccountList;
 import fr.everwin.open.api.services.core.BasicService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Service manager to query the company acc account API resource
+ *
  * @author everwin-team
  */
 public class AccAccountService extends BasicService<AccAccount, AccAccountList> {
 
     protected static final Logger LOGGER = LoggerFactory.getLogger(AccAccountService.class);
 
-    public AccAccountService(ClientApi client){
+    public AccAccountService(ClientApi client) {
         super(client, "acc-accounts");
         setModels(AccAccount.class, AccAccountList.class);
     }

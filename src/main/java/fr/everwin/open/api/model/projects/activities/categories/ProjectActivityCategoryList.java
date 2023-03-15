@@ -16,9 +16,9 @@
 
 package fr.everwin.open.api.model.projects.activities.categories;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import fr.everwin.open.api.model.core.BasicList;
 
-import javax.xml.bind.annotation.*;
 import java.util.List;
 
 /**
@@ -26,14 +26,9 @@ import java.util.List;
  *
  * @author d.storti
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name = "projectactivitycategorylist")
 public class ProjectActivityCategoryList extends BasicList<ProjectActivityCategory> {
 
-    private final static String METHOD = "query";
-
-    @XmlElement(name = "projectactivitycategory")
-    @XmlElementWrapper(name = "projectactivitycategory")
+    @JsonProperty("projectactivitycategory")
     private List<ProjectActivityCategory> items;
 
     @Override

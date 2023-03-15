@@ -16,9 +16,9 @@
 
 package fr.everwin.open.api.model.contacts;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import fr.everwin.open.api.model.core.BasicList;
 
-import javax.xml.bind.annotation.*;
 import java.util.List;
 
 /**
@@ -26,14 +26,9 @@ import java.util.List;
  *
  * @author everwin-team
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name = "contactresponsibilitylist")
 public class ContactResponsibilityList extends BasicList<ContactResponsibility> {
 
-    private final static String METHOD = "query";
-
-    @XmlElement(name = "contactresponsibility")
-    @XmlElementWrapper(name = "contactresponsibilities")
+    @JsonProperty("contactresponsibility")
     private List<ContactResponsibility> items;
 
     /**

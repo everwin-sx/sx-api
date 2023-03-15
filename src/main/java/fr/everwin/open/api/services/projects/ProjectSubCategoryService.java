@@ -16,13 +16,12 @@
 
 package fr.everwin.open.api.services.projects;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import fr.everwin.open.api.ClientApi;
 import fr.everwin.open.api.model.projects.subcategories.ProjectSubCategory;
 import fr.everwin.open.api.model.projects.subcategories.ProjectSubCategoryList;
 import fr.everwin.open.api.services.core.BasicService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author d.storti

@@ -15,39 +15,30 @@
  */
 
 package fr.everwin.open.api.model.leads.sources;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementWrapper;
-import javax.xml.bind.annotation.XmlElements;
-import javax.xml.bind.annotation.XmlRootElement;
-import java.util.List;
+
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import fr.everwin.open.api.model.core.BasicObject;
 import fr.everwin.open.api.model.core.DataLink;
+import fr.everwin.open.api.util.ListDatalinkDeserializer;
+
+import java.util.List;
 
 /**
  * LeadSource class
+ *
  * @author d.storti
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@XmlRootElement(name = "leadsource")
-@XmlAccessorType(XmlAccessType.FIELD)
 public class LeadSource extends BasicObject {
 
-    @XmlElement
     private String label;
-
-    @XmlElementWrapper(name = "entities")
-    @XmlElements(@XmlElement(name = "entities", type = DataLink.class))
+    @JsonDeserialize(contentUsing = ListDatalinkDeserializer.class)
     private List<DataLink> entities;
-
-    @XmlElement
     private Short order;
-
-    @XmlElement
     private Short isArchived;
 
     public String getLabel() {

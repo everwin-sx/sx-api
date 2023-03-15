@@ -16,60 +16,53 @@
 
 package fr.everwin.open.api.model.leaverequests.types;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
-
 import fr.everwin.open.api.model.core.BasicObject;
 import fr.everwin.open.api.model.core.DataLink;
 
 /**
  * Represents a leave request type. Available types can be found on the internral project
+ *
  * @author everwin-team
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@XmlRootElement(name = "Type")
-@XmlAccessorType(XmlAccessType.FIELD)
 public class Type extends BasicObject {
 
-	@XmlElement
-	private String label;
+    private String label;
+    private DataLink entity;
+    private String payrollId;
 
-	@XmlElement
-	private DataLink entity;
+    /**
+     *
+     */
+    public Type() {
+        // TODO Auto-generated constructor stub
+    }
 
-	@XmlElement
-	private String payrollId;
+    public String getLabel() {
+        return label;
+    }
 
-	/**
-	 *
-	 */
-	public Type() {
-		// TODO Auto-generated constructor stub
-	}
-	public String getLabel() {
-		return label;
-	}
-	public void setLabel(String label) {
-		this.label = label;
-	}
+    public void setLabel(String label) {
+        this.label = label;
+    }
 
-	public String getPayrollId() {
-		return payrollId;
-	}
-	public void setPayrollId(String payrollId) {
-		this.payrollId = payrollId;
-	}
+    public String getPayrollId() {
+        return payrollId;
+    }
 
-	public DataLink getEntity() {
-		return entity;
-	}
-	public void setEntity(DataLink entity) {
-		this.entity = entity;
-	}
+    public void setPayrollId(String payrollId) {
+        this.payrollId = payrollId;
+    }
+
+    public DataLink getEntity() {
+        return entity;
+    }
+
+    public void setEntity(DataLink entity) {
+        this.entity = entity;
+    }
 }

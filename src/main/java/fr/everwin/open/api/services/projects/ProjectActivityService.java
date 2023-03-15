@@ -16,16 +16,14 @@
 
 package fr.everwin.open.api.services.projects;
 
-import javax.ws.rs.core.Response;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import fr.everwin.open.api.ClientApi;
 import fr.everwin.open.api.exception.CoreException;
 import fr.everwin.open.api.model.projects.activities.ProjectActivity;
 import fr.everwin.open.api.model.projects.activities.ProjectActivityList;
 import fr.everwin.open.api.services.core.BasicService;
+import jakarta.ws.rs.core.Response;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author d.storti
@@ -41,6 +39,7 @@ public class ProjectActivityService extends BasicService<ProjectActivity, Projec
 
     /**
      * Renew an activity in the same activity
+     *
      * @param objectId The id of the activity to renew
      * @param activity The activity to create
      * @return The id of the activity
@@ -55,6 +54,7 @@ public class ProjectActivityService extends BasicService<ProjectActivity, Projec
 
     /**
      * Renew an activity to the new one
+     *
      * @param activity The activity to create
      * @return The id of the activity
      * @throws CoreException If the request failed

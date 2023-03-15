@@ -25,6 +25,7 @@ import org.testng.annotations.BeforeClass;
 
 import com.everwin.open.api.core.BasicTest;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import fr.everwin.open.api.model.core.BasicList;
 import fr.everwin.open.api.model.core.DataLink;
 import fr.everwin.open.api.model.quotes.crm.CRMQuote;
@@ -48,8 +49,6 @@ public class CRMQuoteTest extends BasicTest<CRMQuote, CRMQuotesService> {
     public final long ESTACOC = 162628;   // secondary contact
     public final long ESTENT = 105231;    // entity
     private CRMQuoteLine objectLineReceived;
-
-
     @Override
 	@BeforeClass
 	public void setUp() {

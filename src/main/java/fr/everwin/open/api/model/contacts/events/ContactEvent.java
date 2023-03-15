@@ -16,121 +16,80 @@
 
 package fr.everwin.open.api.model.contacts.events;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementWrapper;
-import javax.xml.bind.annotation.XmlElements;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-import java.util.Date;
-import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import fr.everwin.open.api.model.core.BasicObject;
 import fr.everwin.open.api.model.core.DataLink;
 import fr.everwin.open.api.model.core.SpecificData;
-import fr.everwin.open.api.model.core.SpecificDateValue;
-import fr.everwin.open.api.model.core.SpecificLinkValue;
-import fr.everwin.open.api.model.core.SpecificMultiLinkValue;
-import fr.everwin.open.api.model.core.SpecificNumberValue;
-import fr.everwin.open.api.model.core.SpecificStringValue;
 import fr.everwin.open.api.util.JsonDateDeserializer;
-import fr.everwin.open.api.util.XMLDateAdapter;
+
+import java.util.Date;
+import java.util.List;
 
 /**
  * contactevent
+ *
  * @author d.storti
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@XmlRootElement(name = "contactevent")
-@XmlAccessorType(XmlAccessType.FIELD)
 public class ContactEvent extends BasicObject {
-	@XmlElement
-	private DataLink contactResponsibility;
-	
 
-	@XmlJavaTypeAdapter(XMLDateAdapter.class)
-	@JsonDeserialize(using = JsonDateDeserializer.class)
-	private Date date;
-	
-	@XmlElement
-	private String type;
-	
-	@XmlElement
-	private String event;
-	
-	@XmlElementWrapper(name = "extraData")
-	@XmlElements({
-			@XmlElement(
-					name = "stringval",
-					type = SpecificStringValue.class
-			),
-			@XmlElement(
-					name = "dateval",
-					type = SpecificDateValue.class
-			),
-			@XmlElement(
-					name = "numberval",
-					type = SpecificNumberValue.class
-			),
-			@XmlElement(
-					name = "link",
-					type = SpecificLinkValue.class
-			),
-			@XmlElement(
-					name = "multilink",
-					type = SpecificMultiLinkValue.class
-			)
-	})
-	private List<SpecificData> extraData;
+    private DataLink contactResponsibility;
+    @JsonDeserialize(using = JsonDateDeserializer.class)
+    private Date date;
+    private String type;
+    private String event;
+    private List<SpecificData> extraData;
 
-	public ContactEvent() {}
-	 
-	public DataLink getContactResponsibility() {
-		return contactResponsibility;
-	}
+    public ContactEvent() {
+        // Constructor empty
+    }
 
-	public void setContactResponsibility(DataLink contactResponsibility) {
-		this.contactResponsibility = contactResponsibility;
-	}
+    public DataLink getContactResponsibility() {
+        return contactResponsibility;
+    }
 
-	public Date getDate() {
-		return date;
-	}
+    public void setContactResponsibility(DataLink contactResponsibility) {
+        this.contactResponsibility = contactResponsibility;
+    }
 
-	public void setDate(Date date) {
-		this.date = date;
-	}
+    public Date getDate() {
+        return date;
+    }
 
-	public String getType() {
-		return type;
-	}
+    public void setDate(Date date) {
+        this.date = date;
+    }
 
-	public void setType(String type) {
-		this.type = type;
-	}
+    public String getType() {
+        return type;
+    }
 
-	public String getEvent() {
-		return event;
-	}
+    public void setType(String type) {
+        this.type = type;
+    }
 
-	public void setEvent(String event) {
-		this.event = event;
-	}
-	
-	public List<SpecificData> getExtraData() {
-		return extraData;
-	}
+    public String getEvent() {
+        return event;
+    }
 
-	public void setExtraData(List<SpecificData> extraData) {
-		this.extraData = extraData;
-	}
+    public void setEvent(String event) {
+        this.event = event;
+    }
 
-	@Override
-	public String toString() {
-		return "Contact responsibility event [id=" + id + ", contactResponsibility=" + contactResponsibility + ", date=" + date + ", type=" + type + ", event=" + event + "]";
-	}
+    public List<SpecificData> getExtraData() {
+        return extraData;
+    }
+
+    public void setExtraData(List<SpecificData> extraData) {
+        this.extraData = extraData;
+    }
+
+    @Override
+    public String toString() {
+        return "Contact responsibility event [id=" + id + ", contactResponsibility=" + contactResponsibility + ", date=" + date + ", type=" + type + ", event=" + event + "]";
+    }
 }

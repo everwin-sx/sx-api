@@ -16,23 +16,23 @@
 
 package fr.everwin.open.api.services.vehicles;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import fr.everwin.open.api.ClientApi;
 import fr.everwin.open.api.model.employees.vehicles.Vehicle;
 import fr.everwin.open.api.model.employees.vehicles.VehicleList;
 import fr.everwin.open.api.services.core.BasicService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Service manager to query the employee API resource
+ *
  * @author d.storti
  */
 public class VehiclesService extends BasicService<Vehicle, VehicleList> {
 
     protected static final Logger LOGGER = LoggerFactory.getLogger(VehiclesService.class);
 
-    public VehiclesService(ClientApi client){
+    public VehiclesService(ClientApi client) {
         super(client, "vehicles");
         setModels(Vehicle.class, VehicleList.class);
     }

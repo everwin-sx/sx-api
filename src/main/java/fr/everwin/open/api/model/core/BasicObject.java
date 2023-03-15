@@ -16,15 +16,14 @@
 
 package fr.everwin.open.api.model.core;
 
-import javax.xml.bind.annotation.XmlElement;
 
 /**
  * The basic object model class which represents an object in SX identified by its id
+ *
  * @author everwin-team
  */
 public class BasicObject {
 
-    @XmlElement(required = true, nillable = false)
     protected Long id;
 
     public Long getId() {

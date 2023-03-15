@@ -19,41 +19,26 @@
  */
 package fr.everwin.open.api.model.products.assets;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import fr.everwin.open.api.model.core.BasicList;
 
-import javax.xml.bind.annotation.*;
 import java.util.List;
 
 
 /**
  * Customer assets list
+ *
  * @author everwin-team
  */
-@XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name = "customer-assetlist")
 public class CustomerAssetList extends BasicList<CustomerAsset> {
 
-    private final static String METHOD = "query";
-
-    @XmlTransient
     private int limit;
-
-    @XmlTransient
     private int offset;
-
-    @XmlTransient
     private int modelLimit;
-
-    @XmlTransient
     private String filter;
-
-    @XmlTransient
     private String sort;
-
-    @XmlElement(name = "customer-asset")
-    @XmlElementWrapper(name = "customer-assets")
+    @JsonProperty("customer-asset")
     private List<CustomerAsset> items;
-
 
     public int getLimit() {
         return limit;

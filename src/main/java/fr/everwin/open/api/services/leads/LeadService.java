@@ -16,9 +16,6 @@
 
 package fr.everwin.open.api.services.leads;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import fr.everwin.open.api.ClientApi;
 import fr.everwin.open.api.exception.CoreException;
 import fr.everwin.open.api.model.contacts.events.ContactEventList;
@@ -29,6 +26,8 @@ import fr.everwin.open.api.model.leads.events.LeadEventList;
 import fr.everwin.open.api.services.contacts.ContactEventService;
 import fr.everwin.open.api.services.core.BasicService;
 import fr.everwin.open.api.util.RequestParams;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author d.storti
@@ -44,11 +43,11 @@ public class LeadService extends BasicService<Lead, LeadList> {
 
     public LeadEventList queryLeadEvents(Lead lead, RequestParams params) throws CoreException {
         LeadEventService service = new LeadEventService(clientApi);
-        return service.query(path + "/" + lead.getId() +"/lead-events", params);
+        return service.query(path + "/" + lead.getId() + "/lead-events", params);
     }
 
     public ContactEventList queryLeadEventById(Lead lead, LeadEvent leadEvent, RequestParams params) throws CoreException {
         ContactEventService service = new ContactEventService(clientApi);
-        return service.query(path + "/" + lead.getId() +"/lead-event/" + leadEvent.getId(), params);
+        return service.query(path + "/" + lead.getId() + "/lead-event/" + leadEvent.getId(), params);
     }
 }

@@ -15,252 +15,199 @@
  */
 
 /**
- * 
+ *
  */
 package fr.everwin.open.api.model.equipments;
-
-import java.util.Date;
-import java.util.List;
-
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementWrapper;
-import javax.xml.bind.annotation.XmlElements;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import fr.everwin.open.api.model.core.BasicObject;
-import fr.everwin.open.api.model.core.DataLink;
-import fr.everwin.open.api.model.core.SpecificData;
-import fr.everwin.open.api.model.core.SpecificDateValue;
-import fr.everwin.open.api.model.core.SpecificLinkValue;
-import fr.everwin.open.api.model.core.SpecificMultiLinkValue;
-import fr.everwin.open.api.model.core.SpecificNumberValue;
-import fr.everwin.open.api.model.core.SpecificStringValue;
-import fr.everwin.open.api.util.JsonDateDeserializer;
-import fr.everwin.open.api.util.XMLDateAdapter;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import fr.everwin.open.api.model.core.BasicObject;
+import fr.everwin.open.api.model.core.DataLink;
+import fr.everwin.open.api.model.core.SpecificData;
+import fr.everwin.open.api.util.JsonDateDeserializer;
+
+import java.util.Date;
+import java.util.List;
 
 /**
  * Represents an equipment
+ *
  * @author everwin-team
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@XmlRootElement(name = "equipment")
-@XmlAccessorType(XmlAccessType.FIELD)
 public class Equipment extends BasicObject {
 
-	@XmlElement
-	private String code;
 
-	@XmlElement
-	private Short type;
+    private String code;
+    private Short type;
+    private DataLink entity;
+    private DataLink financialEntity;
+    @JsonDeserialize(using = JsonDateDeserializer.class)
+    private Date arrivalDate;
+    @JsonDeserialize(using = JsonDateDeserializer.class)
+    private Date leavingDate;
+    private DataLink family;
+    private DataLink workMode;
+    private Double salePrice;
+    private Double fullCostPrice;
+    private Double directCostPrice;
+    private Short isArchived;
+    private String comment;
+    private String updatedBy;
+    @JsonDeserialize(using = JsonDateDeserializer.class)
+    private Date updatedOnTime;
+    @JsonDeserialize(using = JsonDateDeserializer.class)
+    private Date createdOnTime;
 
-	@XmlElement
-	private DataLink entity;
+    private List<SpecificData> extraData;
 
-	@XmlElement
-	private DataLink financialEntity;
+    /**
+     *
+     */
+    public Equipment() {
+        // Constructor empty
+    }
 
-	@XmlElement
-	@XmlJavaTypeAdapter(XMLDateAdapter.class)
-	@JsonDeserialize(using = JsonDateDeserializer.class)
-	private Date arrivalDate;
+    public String getCode() {
+        return code;
+    }
 
-	@XmlElement
-	@XmlJavaTypeAdapter(XMLDateAdapter.class)
-	@JsonDeserialize(using = JsonDateDeserializer.class)
-	private Date leavingDate;
+    public void setCode(String code) {
+        this.code = code;
+    }
 
-	@XmlElement
-	private DataLink family;
+    public Short getType() {
+        return type;
+    }
 
-	@XmlElement
-	private DataLink workMode;
+    public void setType(Short type) {
+        this.type = type;
+    }
 
-	@XmlElement
-	private Double salePrice;
+    public DataLink getEntity() {
+        return entity;
+    }
 
-	@XmlElement
-	private Double fullCostPrice;
+    public void setEntity(DataLink entity) {
+        this.entity = entity;
+    }
 
-	@XmlElement
-	private Double directCostPrice;
+    public DataLink getFinancialEntity() {
+        return financialEntity;
+    }
 
-	@XmlElement
-	private Short isArchived;
+    public void setFinancialEntity(DataLink financialEntity) {
+        this.financialEntity = financialEntity;
+    }
 
-	@XmlElement
-	private String comment;
+    public Date getArrivalDate() {
+        return arrivalDate;
+    }
 
-	@XmlElement
-	private String updatedBy;
+    public void setArrivalDate(Date arrivalDate) {
+        this.arrivalDate = arrivalDate;
+    }
 
-	@XmlElement
-	@XmlJavaTypeAdapter(XMLDateAdapter.class)
-	@JsonDeserialize(using = JsonDateDeserializer.class)
-	private Date updatedOnTime;
+    public Date getLeavingDate() {
+        return leavingDate;
+    }
 
-	@XmlElement
-	@XmlJavaTypeAdapter(XMLDateAdapter.class)
-	@JsonDeserialize(using = JsonDateDeserializer.class)
-	private Date createdOnTime;
+    public void setLeavingDate(Date leavingDate) {
+        this.leavingDate = leavingDate;
+    }
 
-	@XmlElementWrapper(name = "extraData")
-	@XmlElements({@XmlElement(name = "stringval", type = SpecificStringValue.class),
-			@XmlElement(name = "dateval", type = SpecificDateValue.class),
-			@XmlElement(name = "numberval", type = SpecificNumberValue.class),
-			@XmlElement(name = "link", type = SpecificLinkValue.class),
-			@XmlElement(name = "multilink", type = SpecificMultiLinkValue.class)})
-	private List<SpecificData> extraData;
-	/**
-	 *
-	 */
-	public Equipment() {}
+    public DataLink getFamily() {
+        return family;
+    }
 
-	public String getCode() {
-		return code;
-	}
+    public void setFamily(DataLink family) {
+        this.family = family;
+    }
 
-	public void setCode(String code) {
-		this.code = code;
-	}
+    public DataLink getWorkMode() {
+        return workMode;
+    }
 
-	public Short getType() {
-		return type;
-	}
+    public void setWorkMode(DataLink workMode) {
+        this.workMode = workMode;
+    }
 
-	public void setType(Short type) {
-		this.type = type;
-	}
+    public Double getSalePrice() {
+        return salePrice;
+    }
 
-	public DataLink getEntity() {
-		return entity;
-	}
+    public void setSalePrice(Double salePrice) {
+        this.salePrice = salePrice;
+    }
 
-	public void setEntity(DataLink entity) {
-		this.entity = entity;
-	}
+    public Double getFullCostPrice() {
+        return fullCostPrice;
+    }
 
-	public DataLink getFinancialEntity() {
-		return financialEntity;
-	}
+    public void setFullCostPrice(Double fullCostPrice) {
+        this.fullCostPrice = fullCostPrice;
+    }
 
-	public void setFinancialEntity(DataLink financialEntity) {
-		this.financialEntity = financialEntity;
-	}
+    public Double getDirectCostPrice() {
+        return directCostPrice;
+    }
 
-	public Date getArrivalDate() {
-		return arrivalDate;
-	}
+    public void setDirectCostPrice(Double directCostPrice) {
+        this.directCostPrice = directCostPrice;
+    }
 
-	public void setArrivalDate(Date arrivalDate) {
-		this.arrivalDate = arrivalDate;
-	}
+    public Short getIsArchived() {
+        return isArchived;
+    }
 
-	public Date getLeavingDate() {
-		return leavingDate;
-	}
+    public void setIsArchived(Short isArchived) {
+        this.isArchived = isArchived;
+    }
 
-	public void setLeavingDate(Date leavingDate) {
-		this.leavingDate = leavingDate;
-	}
+    public String getComment() {
+        return comment;
+    }
 
-	public DataLink getFamily() {
-		return family;
-	}
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
 
-	public void setFamily(DataLink family) {
-		this.family = family;
-	}
+    public String getUpdatedBy() {
+        return updatedBy;
+    }
 
-	public DataLink getWorkMode() {
-		return workMode;
-	}
+    public void setUpdatedBy(String updatedBy) {
+        this.updatedBy = updatedBy;
+    }
 
-	public void setWorkMode(DataLink workMode) {
-		this.workMode = workMode;
-	}
+    public Date getUpdatedOnTime() {
+        return updatedOnTime;
+    }
 
-	public Double getSalePrice() {
-		return salePrice;
-	}
+    public void setUpdatedOnTime(Date updatedOnTime) {
+        this.updatedOnTime = updatedOnTime;
+    }
 
-	public void setSalePrice(Double salePrice) {
-		this.salePrice = salePrice;
-	}
+    public Date getCreatedOnTime() {
+        return createdOnTime;
+    }
 
-	public Double getFullCostPrice() {
-		return fullCostPrice;
-	}
+    public void setCreatedOnTime(Date createdOnTime) {
+        this.createdOnTime = createdOnTime;
+    }
 
-	public void setFullCostPrice(Double fullCostPrice) {
-		this.fullCostPrice = fullCostPrice;
-	}
+    public List<SpecificData> getExtraData() {
+        return extraData;
+    }
 
-	public Double getDirectCostPrice() {
-		return directCostPrice;
-	}
+    public void setExtraData(List<SpecificData> extraData) {
+        this.extraData = extraData;
+    }
 
-	public void setDirectCostPrice(Double directCostPrice) {
-		this.directCostPrice = directCostPrice;
-	}
-
-	public Short getIsArchived() {
-		return isArchived;
-	}
-
-	public void setIsArchived(Short isArchived) {
-		this.isArchived = isArchived;
-	}
-
-	public String getComment() {
-		return comment;
-	}
-
-	public void setComment(String comment) {
-		this.comment = comment;
-	}
-
-	public String getUpdatedBy() {
-		return updatedBy;
-	}
-
-	public void setUpdatedBy(String updatedBy) {
-		this.updatedBy = updatedBy;
-	}
-
-	public Date getUpdatedOnTime() {
-		return updatedOnTime;
-	}
-
-	public void setUpdatedOnTime(Date updatedOnTime) {
-		this.updatedOnTime = updatedOnTime;
-	}
-
-	public Date getCreatedOnTime() {
-		return createdOnTime;
-	}
-
-	public void setCreatedOnTime(Date createdOnTime) {
-		this.createdOnTime = createdOnTime;
-	}
-
-	public List<SpecificData> getExtraData() {
-		return extraData;
-	}
-
-	public void setExtraData(List<SpecificData> extraData) {
-		this.extraData = extraData;
-	}
-
-	@Override
-	public String toString() {
-		return "Equipment [id=" + getId() + ", code=" + getCode() + ", entity=" + getEntity() + ", workMode=" + getWorkMode() + "]";
-	}
+    @Override
+    public String toString() {
+        return "Equipment [id=" + getId() + ", code=" + getCode() + ", entity=" + getEntity() + ", workMode=" + getWorkMode() + "]";
+    }
 }

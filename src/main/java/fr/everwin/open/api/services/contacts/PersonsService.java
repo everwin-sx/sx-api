@@ -16,9 +16,6 @@
 
 package fr.everwin.open.api.services.contacts;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import fr.everwin.open.api.ClientApi;
 import fr.everwin.open.api.exception.CoreException;
 import fr.everwin.open.api.model.contacts.ContactResponsibilityList;
@@ -30,16 +27,19 @@ import fr.everwin.open.api.services.core.BasicService;
 import fr.everwin.open.api.services.leads.LeadService;
 import fr.everwin.open.api.services.salesactions.SalesActionsService;
 import fr.everwin.open.api.util.RequestParams;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Service manager to query the persons / contacts API resource
+ *
  * @author everwin-team
  */
 public class PersonsService extends BasicService<Person, PersonList> {
 
     protected static final Logger LOGGER = LoggerFactory.getLogger(PersonsService.class);
 
-    public PersonsService(ClientApi client){
+    public PersonsService(ClientApi client) {
         super(client, "contacts");
         setModels(Person.class, PersonList.class);
     }
@@ -56,6 +56,6 @@ public class PersonsService extends BasicService<Person, PersonList> {
 
     public LeadList queryLeadsFromContact(Person contact, RequestParams params) throws CoreException {
         LeadService service = new LeadService(clientApi);
-        return service.query("contacts/" + contact.getId() +"/leads", params);
+        return service.query("contacts/" + contact.getId() + "/leads", params);
     }
 }

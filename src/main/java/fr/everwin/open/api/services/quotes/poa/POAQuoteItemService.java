@@ -16,16 +16,14 @@
 
 package fr.everwin.open.api.services.quotes.poa;
 
-import javax.ws.rs.core.Response;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import fr.everwin.open.api.ClientApi;
 import fr.everwin.open.api.exception.CoreException;
 import fr.everwin.open.api.model.quotes.poa.items.POAQuoteItem;
 import fr.everwin.open.api.model.quotes.poa.items.POAQuoteItemList;
 import fr.everwin.open.api.services.core.BasicService;
+import jakarta.ws.rs.core.Response;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author d.storti
@@ -49,11 +47,12 @@ public class POAQuoteItemService extends BasicService<POAQuoteItem, POAQuoteItem
 
     /**
      * Update only not null fields of the document
-     * @param objectId The id of the object linked to the comment
+     *
+     * @param objectId     The id of the object linked to the comment
      * @param poaQuoteItem The document to update
      * @throws CoreException If the request failed
      */
-    public void updatePOAQuote(long objectId, POAQuoteItem poaQuoteItem ) throws CoreException {
+    public void updatePOAQuote(long objectId, POAQuoteItem poaQuoteItem) throws CoreException {
         try (Response response = clientApi.post("/poa-quote-item/" + objectId + "/sub-items", poaQuoteItem)) {
             readResponse(response, String.class);
         }

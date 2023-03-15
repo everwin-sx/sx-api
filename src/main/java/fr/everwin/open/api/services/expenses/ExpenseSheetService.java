@@ -16,13 +16,12 @@
 
 package fr.everwin.open.api.services.expenses;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import fr.everwin.open.api.ClientApi;
 import fr.everwin.open.api.model.expenses.sheets.ExpenseSheet;
 import fr.everwin.open.api.model.expenses.sheets.ExpenseSheetList;
 import fr.everwin.open.api.services.core.BasicService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author d.storti

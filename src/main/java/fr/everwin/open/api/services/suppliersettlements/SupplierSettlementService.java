@@ -16,11 +16,6 @@
 
 package fr.everwin.open.api.services.suppliersettlements;
 
-import javax.ws.rs.core.Response;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import fr.everwin.open.api.ClientApi;
 import fr.everwin.open.api.exception.CoreException;
 import fr.everwin.open.api.model.suppliersettlement.SupplierSettlement;
@@ -29,15 +24,18 @@ import fr.everwin.open.api.model.suppliersettlement.lines.SupplierSettlementLine
 import fr.everwin.open.api.model.suppliersettlement.lines.SupplierSettlementLineList;
 import fr.everwin.open.api.services.core.BasicService;
 import fr.everwin.open.api.util.RequestParams;
+import jakarta.ws.rs.core.Response;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author d.storti
  */
 public class SupplierSettlementService extends BasicService<SupplierSettlement, SupplierSettlementList> {
 
-    protected static final Logger LOGGER = LoggerFactory.getLogger(SupplierSettlementService.class);
     public static final String SUPPLIER_SETTLEMENTS = "supplier-settlements/";
     public static final String LINES = "/lines/";
+    protected static final Logger LOGGER = LoggerFactory.getLogger(SupplierSettlementService.class);
 
     public SupplierSettlementService(ClientApi client) {
         super(client, "supplier-settlements");
@@ -47,7 +45,8 @@ public class SupplierSettlementService extends BasicService<SupplierSettlement, 
 
     /**
      * Create a new supplier invoice line for the object identified by the objectId
-     * @param id The id of the supplier invoice to link
+     *
+     * @param id   The id of the supplier invoice to link
      * @param line The supplier invoice line
      * @throws CoreException If the request failed
      */
@@ -63,8 +62,9 @@ public class SupplierSettlementService extends BasicService<SupplierSettlement, 
 
     /**
      * Update only not null fields of the supplier invoice Line
+     *
      * @param objectId The id of the supplier invoice to link
-     * @param line The supplier invoice line to update
+     * @param line     The supplier invoice line to update
      * @throws CoreException If the request failed
      */
     public void updatePartiallyLine(long objectId, SupplierSettlementLine line) throws CoreException {
@@ -75,8 +75,9 @@ public class SupplierSettlementService extends BasicService<SupplierSettlement, 
 
     /**
      * Update the supplier invoice Line for the supplier invoice identified by the id
+     *
      * @param objectId The id of the object to link
-     * @param line The supplier invoice line to update
+     * @param line     The supplier invoice line to update
      * @throws CoreException If the request failed
      */
     public void updateLine(long objectId, SupplierSettlementLine line) throws CoreException {
@@ -87,8 +88,9 @@ public class SupplierSettlementService extends BasicService<SupplierSettlement, 
 
     /**
      * Delete the supplier invoice Line for the supplier invoice identified by the id
+     *
      * @param objectId The id of the supplier invoice
-     * @param line The Expense Sheet line to delet
+     * @param line     The Expense Sheet line to delet
      * @throws CoreException If the request failed
      */
     public void deleteLine(long objectId, SupplierSettlementLine line) throws CoreException {
@@ -99,7 +101,8 @@ public class SupplierSettlementService extends BasicService<SupplierSettlement, 
 
     /**
      * Get a collection of supplier invoice lines
-     * @param params Extra parameters
+     *
+     * @param params   Extra parameters
      * @param objectId The linked supplier invoice id
      * @return SupplierSettlementLineList
      * @throws CoreException If the request failed
@@ -112,8 +115,9 @@ public class SupplierSettlementService extends BasicService<SupplierSettlement, 
 
     /**
      * Get the supplier invoice line identified by id
+     *
      * @param objectId The linked supplier settlement id
-     * @param lineId The line where we are taking the supplier settlement line
+     * @param lineId   The line where we are taking the supplier settlement line
      * @return The supplier settlement line
      * @throws CoreException If the request failed
      */
