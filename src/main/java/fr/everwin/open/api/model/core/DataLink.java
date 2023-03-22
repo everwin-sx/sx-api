@@ -19,11 +19,16 @@
  */
 package fr.everwin.open.api.model.core;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 /**
  * Generic class for links
  *
  * @author everwin-team
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class DataLink {
 
     protected Long id;

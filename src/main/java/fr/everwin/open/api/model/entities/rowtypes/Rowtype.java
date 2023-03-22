@@ -19,9 +19,11 @@ package fr.everwin.open.api.model.entities.rowtypes;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import fr.everwin.open.api.model.core.BasicObject;
 import fr.everwin.open.api.model.core.DataLink;
-import fr.everwin.open.api.util.ListDatalinkDeserializer;
+import fr.everwin.open.api.util.JsonListDatalink;
+import fr.everwin.open.api.util.JsonListDatalinkKey;
 
 import java.util.List;
 
@@ -37,14 +39,20 @@ public class Rowtype extends BasicObject {
     private String code;
     private Short type;
     private Short mode;
-    @JsonDeserialize(contentUsing = ListDatalinkDeserializer.class)
+ 
+    @JsonDeserialize(contentUsing = JsonListDatalink.Deserializer.class)
+    @JsonSerialize(contentUsing = JsonListDatalink.Serializer.class)
+    @JsonListDatalinkKey(key = "entity")
     private List<DataLink> entities;
     private DataLink parent;
     private Short group;
     private Short isWorkUnit;
     private Double flateRateAmount;
     private DataLink subscriptionRowtype;
-    @JsonDeserialize(contentUsing = ListDatalinkDeserializer.class)
+ 
+    @JsonDeserialize(contentUsing = JsonListDatalink.Deserializer.class)
+    @JsonSerialize(contentUsing = JsonListDatalink.Serializer.class)
+    @JsonListDatalinkKey(key = "rowtype")
     private List<DataLink> subscriptionTimeRowtypes;
     private Short isInvoiceable;
     private Short isExcludedFromProductionCalculation;

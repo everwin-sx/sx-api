@@ -20,10 +20,11 @@ package fr.everwin.open.api.model.leads.events;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import fr.everwin.open.api.model.core.BasicObject;
 import fr.everwin.open.api.model.core.DataLink;
 import fr.everwin.open.api.model.core.SpecificData;
-import fr.everwin.open.api.util.JsonDateDeserializer;
+import fr.everwin.open.api.util.JsonDate;
 
 import java.util.Date;
 import java.util.List;
@@ -39,7 +40,8 @@ public class LeadEvent extends BasicObject {
 
 
     private DataLink lead;
-    @JsonDeserialize(using = JsonDateDeserializer.class)
+    @JsonDeserialize(using = JsonDate.Deserializer.class)
+    @JsonSerialize(using = JsonDate.Serializer.class)
     private Date date;
     private String type;
     private String event;
