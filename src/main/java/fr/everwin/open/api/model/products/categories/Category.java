@@ -24,7 +24,6 @@ import java.util.List;
 public class Category extends BasicObject {
 
     private String label;
- 
     @JsonDeserialize(contentUsing = JsonListDatalink.Deserializer.class)
     @JsonSerialize(contentUsing = JsonListDatalink.Serializer.class)
     @JsonListDatalinkKey(key = "rowtype")

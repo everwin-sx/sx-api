@@ -18,7 +18,6 @@ public class ProjectCategory extends BasicObject {
 
     private Short type;
     private String label;
- 
     @JsonDeserialize(contentUsing = JsonListDatalink.Deserializer.class)
     @JsonSerialize(contentUsing = JsonListDatalink.Serializer.class)
     @JsonListDatalinkKey(key = "entities")

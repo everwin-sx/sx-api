@@ -41,7 +41,6 @@ public class Scale extends BasicObject {
     private String label;
     private Double amount;
 
- 
     @JsonDeserialize(contentUsing = JsonListDatalink.Deserializer.class)
     @JsonSerialize(contentUsing = JsonListDatalink.Serializer.class)
     @JsonListDatalinkKey(key = "entities")

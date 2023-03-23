@@ -29,7 +29,6 @@ public class Quote extends BasicObject {
     private DataLink createdBy;
     private DataLink customer;
     private DataLink mainContact;
- 
     @JsonDeserialize(contentUsing = JsonListDatalink.Deserializer.class)
     @JsonSerialize(contentUsing = JsonListDatalink.Serializer.class)
     @JsonListDatalinkKey(key = "secondaryContact")

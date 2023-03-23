@@ -40,7 +40,6 @@ public class Account extends BasicObject {
     private String code;
     private Short vatSystem;
     private Short type;
- 
     @JsonDeserialize(contentUsing = JsonListDatalink.Deserializer.class)
     @JsonSerialize(contentUsing = JsonListDatalink.Serializer.class)
     @JsonListDatalinkKey(key = "entities")

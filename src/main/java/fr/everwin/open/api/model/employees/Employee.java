@@ -48,7 +48,6 @@ public class Employee extends BasicObject {
     private Short title;
     private Short type;
     private DataLink entity;
- 
     @JsonDeserialize(contentUsing = JsonListDatalink.Deserializer.class)
     @JsonSerialize(contentUsing = JsonListDatalink.Serializer.class)
     @JsonListDatalinkKey(key = "secondEntity")
@@ -67,14 +66,12 @@ public class Employee extends BasicObject {
     @JsonDeserialize(using = JsonDate.Deserializer.class)
     @JsonSerialize(using = JsonDate.Serializer.class)
     private Date birthDate;
- 
     @JsonDeserialize(contentUsing = JsonListDatalink.Deserializer.class)
     @JsonSerialize(contentUsing = JsonListDatalink.Serializer.class)
     @JsonListDatalinkKey(key = "profile")
     private List<DataLink> profiles;
     private DataLink mainProfile;
     private DataLink manager;
- 
     @JsonDeserialize(contentUsing = JsonListDatalink.Deserializer.class)
     @JsonSerialize(contentUsing = JsonListDatalink.Serializer.class)
     @JsonListDatalinkKey(key = "supportedCommercial")
@@ -93,7 +90,6 @@ public class Employee extends BasicObject {
     private String userRole;
     private DataLink userLanguage;
     private String function;
- 
     @JsonDeserialize(contentUsing = JsonListDatalink.Deserializer.class)
     @JsonSerialize(contentUsing = JsonListDatalink.Serializer.class)
     @JsonListDatalinkKey(key = "profile")

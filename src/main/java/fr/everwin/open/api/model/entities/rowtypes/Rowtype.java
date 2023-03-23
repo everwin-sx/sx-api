@@ -39,7 +39,6 @@ public class Rowtype extends BasicObject {
     private String code;
     private Short type;
     private Short mode;
- 
     @JsonDeserialize(contentUsing = JsonListDatalink.Deserializer.class)
     @JsonSerialize(contentUsing = JsonListDatalink.Serializer.class)
     @JsonListDatalinkKey(key = "entity")
@@ -49,7 +48,6 @@ public class Rowtype extends BasicObject {
     private Short isWorkUnit;
     private Double flateRateAmount;
     private DataLink subscriptionRowtype;
- 
     @JsonDeserialize(contentUsing = JsonListDatalink.Deserializer.class)
     @JsonSerialize(contentUsing = JsonListDatalink.Serializer.class)
     @JsonListDatalinkKey(key = "rowtype")

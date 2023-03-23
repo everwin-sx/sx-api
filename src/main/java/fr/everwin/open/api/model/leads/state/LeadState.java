@@ -39,7 +39,6 @@ public class LeadState extends BasicObject {
 
     private String label;
     private Short step;
- 
     @JsonDeserialize(contentUsing = JsonListDatalink.Deserializer.class)
     @JsonSerialize(contentUsing = JsonListDatalink.Serializer.class)
     @JsonListDatalinkKey(key = "entities")

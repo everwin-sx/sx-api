@@ -43,7 +43,6 @@ public class SkillDomain extends BasicObject {
     private Short isUnique;
     private Short hasDynamicSkills;
     private Short hasDate;
- 
     @JsonDeserialize(contentUsing = JsonListDatalink.Deserializer.class)
     @JsonSerialize(contentUsing = JsonListDatalink.Serializer.class)
     @JsonListDatalinkKey(key = "entities")

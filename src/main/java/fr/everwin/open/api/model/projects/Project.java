@@ -79,7 +79,6 @@ public class Project extends BasicObject {
     @JsonSerialize(using = JsonDate.Serializer.class)
     private Date realEndDate;
     private Short durationUnit;
- 
     @JsonDeserialize(contentUsing = JsonListDatalink.Deserializer.class)
     @JsonSerialize(contentUsing = JsonListDatalink.Serializer.class)
     @JsonListDatalinkKey(key = "secondaryContact")

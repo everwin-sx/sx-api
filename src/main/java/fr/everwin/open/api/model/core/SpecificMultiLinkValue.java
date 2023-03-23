@@ -31,7 +31,6 @@ import java.util.Objects;
  */
 public class SpecificMultiLinkValue extends SpecificData {
 
- 
     @JsonDeserialize(contentUsing = JsonListDatalink.Deserializer.class)
     @JsonSerialize(contentUsing = JsonListDatalink.Serializer.class)
     @JsonListDatalinkKey(key = "datalink")

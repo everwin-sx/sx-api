@@ -54,7 +54,6 @@ public class WSTest {
     private Double doubleWst;
     private String labelWst;
     private DataLink wstWss;
- 
     @JsonDeserialize(contentUsing = JsonListDatalink.Deserializer.class)
     @JsonSerialize(contentUsing = JsonListDatalink.Serializer.class)
     @JsonListDatalinkKey(key = "wstWsc")

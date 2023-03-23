@@ -44,7 +44,6 @@ public class Skill extends BasicObject {
     private String label;
     private DataLink domain;
     private String description;
- 
     @JsonDeserialize(contentUsing = JsonListDatalink.Deserializer.class)
     @JsonSerialize(contentUsing = JsonListDatalink.Serializer.class)
     @JsonListDatalinkKey(key = "entities")

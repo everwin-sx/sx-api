@@ -70,7 +70,7 @@ public class JsonListDatalink {
         @Override
         public void serialize(DataLink dataLink, JsonGenerator jsonGenerator, SerializerProvider serializerProvider) throws IOException {
             if (Objects.nonNull(dataLink)) {
-                jsonGenerator.writeString(objectMapper.writeValueAsString(List.of(new AbstractMap.SimpleEntry<>(key, dataLink))));
+                jsonGenerator.writeObject(new AbstractMap.SimpleEntry<>(key, dataLink));
             } else {
                 jsonGenerator.writeNull();
             }

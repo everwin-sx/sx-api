@@ -48,7 +48,6 @@ public class Opportunity extends BasicObject {
     private DataLink customer;
     private DataLink contributor;
     private DataLink mainContact;
- 
     @JsonDeserialize(contentUsing = JsonListDatalink.Deserializer.class)
     @JsonSerialize(contentUsing = JsonListDatalink.Serializer.class)
     @JsonListDatalinkKey(key = "secondaryContact")

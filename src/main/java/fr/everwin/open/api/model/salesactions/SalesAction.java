@@ -30,14 +30,12 @@ public class SalesAction extends BasicObject {
     private Short type;
     private String description;
     private DataLink mainPlayer;
- 
     @JsonDeserialize(contentUsing = JsonListDatalink.Deserializer.class)
     @JsonSerialize(contentUsing = JsonListDatalink.Serializer.class)
     @JsonListDatalinkKey(key = "secondaryPlayer")
     private List<DataLink> secondaryPlayers;
     private DataLink company;
     private DataLink mainContact;
- 
     @JsonDeserialize(contentUsing = JsonListDatalink.Deserializer.class)
     @JsonSerialize(contentUsing = JsonListDatalink.Serializer.class)
     @JsonListDatalinkKey(key = "secondaryContact")
@@ -63,7 +61,6 @@ public class SalesAction extends BasicObject {
     private DataLink salesStep;
     private DataLink introducedCollaborator;
     private Short isPrivate;
- 
     @JsonDeserialize(contentUsing = JsonListDatalink.Deserializer.class)
     @JsonSerialize(contentUsing = JsonListDatalink.Serializer.class)
     @JsonListDatalinkKey(key = "equipment")
