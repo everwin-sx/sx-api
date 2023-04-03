@@ -19,10 +19,12 @@ package fr.everwin.open.api.model.test;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import fr.everwin.open.api.model.core.DataLink;
 import fr.everwin.open.api.model.core.SpecificData;
-import fr.everwin.open.api.util.JsonDateDeserializer;
-import fr.everwin.open.api.util.ListDatalinkDeserializer;
+import fr.everwin.open.api.util.JsonDate;
+import fr.everwin.open.api.util.JsonListDatalink;
+import fr.everwin.open.api.util.JsonListDatalinkKey;
 
 import java.util.Date;
 import java.util.List;
@@ -36,9 +38,11 @@ public class WSTest {
 
     private Long id;
     private String idWst;
-    @JsonDeserialize(using = JsonDateDeserializer.class)
+    @JsonDeserialize(using = JsonDate.Deserializer.class)
+    @JsonSerialize(using = JsonDate.Serializer.class)
     private Date dateWst;
-    @JsonDeserialize(using = JsonDateDeserializer.class)
+    @JsonDeserialize(using = JsonDate.Deserializer.class)
+    @JsonSerialize(using = JsonDate.Serializer.class)
     private Date date2Wst;
     private Short decodeIntWst;
     private String decodeStrWst;
@@ -50,7 +54,9 @@ public class WSTest {
     private Double doubleWst;
     private String labelWst;
     private DataLink wstWss;
-    @JsonDeserialize(contentUsing = ListDatalinkDeserializer.class)
+    @JsonDeserialize(contentUsing = JsonListDatalink.Deserializer.class)
+    @JsonSerialize(contentUsing = JsonListDatalink.Serializer.class)
+    @JsonListDatalinkKey(key = "wstWsc")
     private List<DataLink> wstWscs;
     private DataLink wst2Wss;
     private String id2Wst;

@@ -6,12 +6,14 @@ package fr.everwin.open.api.model.salesactions;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import fr.everwin.open.api.model.core.BasicObject;
 import fr.everwin.open.api.model.core.DataLink;
 import fr.everwin.open.api.model.core.SpecificData;
-import fr.everwin.open.api.util.JsonDateDeserializer;
-import fr.everwin.open.api.util.JsonTimeDeserializer;
-import fr.everwin.open.api.util.ListDatalinkDeserializer;
+import fr.everwin.open.api.util.JsonDate;
+import fr.everwin.open.api.util.JsonListDatalink;
+import fr.everwin.open.api.util.JsonListDatalinkKey;
+import fr.everwin.open.api.util.JsonTime;
 
 import java.util.Date;
 import java.util.List;
@@ -28,37 +30,49 @@ public class SalesAction extends BasicObject {
     private Short type;
     private String description;
     private DataLink mainPlayer;
-    @JsonDeserialize(contentUsing = ListDatalinkDeserializer.class)
+    @JsonDeserialize(contentUsing = JsonListDatalink.Deserializer.class)
+    @JsonSerialize(contentUsing = JsonListDatalink.Serializer.class)
+    @JsonListDatalinkKey(key = "secondaryPlayer")
     private List<DataLink> secondaryPlayers;
     private DataLink company;
     private DataLink mainContact;
-    @JsonDeserialize(contentUsing = ListDatalinkDeserializer.class)
+    @JsonDeserialize(contentUsing = JsonListDatalink.Deserializer.class)
+    @JsonSerialize(contentUsing = JsonListDatalink.Serializer.class)
+    @JsonListDatalinkKey(key = "secondaryContact")
     private List<DataLink> secondaryContacts;
     private DataLink opportunity;
-    @JsonDeserialize(using = JsonDateDeserializer.class)
+    @JsonDeserialize(using = JsonDate.Deserializer.class)
+    @JsonSerialize(using = JsonDate.Serializer.class)
     private Date startDate;
     private String place;
-    @JsonDeserialize(using = JsonTimeDeserializer.class)
+    @JsonDeserialize(using = JsonTime.Deserializer.class)
+    @JsonSerialize(using = JsonTime.Serializer.class)
     private Date duration;
-    @JsonDeserialize(using = JsonDateDeserializer.class)
+    @JsonDeserialize(using = JsonDate.Deserializer.class)
+    @JsonSerialize(using = JsonDate.Serializer.class)
     private Date endDate;
     private Short priority;
     private DataLink marketingOperation;
     private Short status;
-    @JsonDeserialize(using = JsonDateDeserializer.class)
+    @JsonDeserialize(using = JsonDate.Deserializer.class)
+    @JsonSerialize(using = JsonDate.Serializer.class)
     private Date completionDate;
     private Short answer;
     private DataLink salesStep;
     private DataLink introducedCollaborator;
     private Short isPrivate;
-    @JsonDeserialize(contentUsing = ListDatalinkDeserializer.class)
+    @JsonDeserialize(contentUsing = JsonListDatalink.Deserializer.class)
+    @JsonSerialize(contentUsing = JsonListDatalink.Serializer.class)
+    @JsonListDatalinkKey(key = "equipment")
     private List<DataLink> equipments;
     private DataLink marketingCampaign;
     private DataLink lead;
     private String updatedBy;
-    @JsonDeserialize(using = JsonDateDeserializer.class)
+    @JsonDeserialize(using = JsonDate.Deserializer.class)
+    @JsonSerialize(using = JsonDate.Serializer.class)
     private Date updatedOnTime;
-    @JsonDeserialize(using = JsonDateDeserializer.class)
+    @JsonDeserialize(using = JsonDate.Deserializer.class)
+    @JsonSerialize(using = JsonDate.Serializer.class)
     private Date createdOnTime;
     private List<SpecificData> extraData;
 

@@ -22,11 +22,13 @@ package fr.everwin.open.api.model.employees;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import fr.everwin.open.api.model.core.BasicObject;
 import fr.everwin.open.api.model.core.DataLink;
 import fr.everwin.open.api.model.core.SpecificData;
-import fr.everwin.open.api.util.JsonDateDeserializer;
-import fr.everwin.open.api.util.ListDatalinkDeserializer;
+import fr.everwin.open.api.util.JsonDate;
+import fr.everwin.open.api.util.JsonListDatalink;
+import fr.everwin.open.api.util.JsonListDatalinkKey;
 
 import java.util.Date;
 import java.util.List;
@@ -46,19 +48,33 @@ public class Employee extends BasicObject {
     private Short title;
     private Short type;
     private DataLink entity;
-    @JsonDeserialize(contentUsing = ListDatalinkDeserializer.class)
+    @JsonDeserialize(contentUsing = JsonListDatalink.Deserializer.class)
+    @JsonSerialize(contentUsing = JsonListDatalink.Serializer.class)
+    @JsonListDatalinkKey(key = "secondEntity")
     private List<DataLink> secondEntities;
-    @JsonDeserialize(using = JsonDateDeserializer.class)
+    private DataLink financialEntity;
+    @JsonDeserialize(contentUsing = JsonListDatalink.Deserializer.class)
+    @JsonSerialize(contentUsing = JsonListDatalink.Serializer.class)
+    @JsonListDatalinkKey(key = "secondFinancialEntity")
+    private List<DataLink> secondFinancialEntities;
+    @JsonDeserialize(using = JsonDate.Deserializer.class)
+    @JsonSerialize(using = JsonDate.Serializer.class)
     private Date arrivalDate;
-    @JsonDeserialize(using = JsonDateDeserializer.class)
+    @JsonDeserialize(using = JsonDate.Deserializer.class)
+    @JsonSerialize(using = JsonDate.Serializer.class)
     private Date leavingDate;
-    @JsonDeserialize(using = JsonDateDeserializer.class)
+    @JsonDeserialize(using = JsonDate.Deserializer.class)
+    @JsonSerialize(using = JsonDate.Serializer.class)
     private Date birthDate;
-    @JsonDeserialize(contentUsing = ListDatalinkDeserializer.class)
+    @JsonDeserialize(contentUsing = JsonListDatalink.Deserializer.class)
+    @JsonSerialize(contentUsing = JsonListDatalink.Serializer.class)
+    @JsonListDatalinkKey(key = "profile")
     private List<DataLink> profiles;
     private DataLink mainProfile;
     private DataLink manager;
-    @JsonDeserialize(contentUsing = ListDatalinkDeserializer.class)
+    @JsonDeserialize(contentUsing = JsonListDatalink.Deserializer.class)
+    @JsonSerialize(contentUsing = JsonListDatalink.Serializer.class)
+    @JsonListDatalinkKey(key = "supportedCommercial")
     private List<DataLink> supportedCommercials;
     private DataLink workMode;
     private DataLink contractType;
@@ -74,7 +90,9 @@ public class Employee extends BasicObject {
     private String userRole;
     private DataLink userLanguage;
     private String function;
-    @JsonDeserialize(contentUsing = ListDatalinkDeserializer.class)
+    @JsonDeserialize(contentUsing = JsonListDatalink.Deserializer.class)
+    @JsonSerialize(contentUsing = JsonListDatalink.Serializer.class)
+    @JsonListDatalinkKey(key = "profile")
     private List<DataLink> languages;
     private DataLink nationality;
     private String phone;
@@ -94,9 +112,11 @@ public class Employee extends BasicObject {
     private DataLink fiscalPosition;
     private String comment;
     private String updatedBy;
-    @JsonDeserialize(using = JsonDateDeserializer.class)
+    @JsonDeserialize(using = JsonDate.Deserializer.class)
+    @JsonSerialize(using = JsonDate.Serializer.class)
     private Date updatedOnTime;
-    @JsonDeserialize(using = JsonDateDeserializer.class)
+    @JsonDeserialize(using = JsonDate.Deserializer.class)
+    @JsonSerialize(using = JsonDate.Serializer.class)
     private Date createdOnTime;
     private Short isLdapOut;
     private String ldapDomain;

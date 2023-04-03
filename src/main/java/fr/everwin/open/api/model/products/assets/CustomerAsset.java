@@ -21,9 +21,10 @@ package fr.everwin.open.api.model.products.assets;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import fr.everwin.open.api.model.core.BasicObject;
 import fr.everwin.open.api.model.core.DataLink;
-import fr.everwin.open.api.util.JsonDateDeserializer;
+import fr.everwin.open.api.util.JsonDate;
 
 import java.util.Date;
 
@@ -43,15 +44,20 @@ public class CustomerAsset extends BasicObject {
     private DataLink project;
     private DataLink projectRow;
     private Double quantity;
-    @JsonDeserialize(using = JsonDateDeserializer.class)
+    @JsonDeserialize(using = JsonDate.Deserializer.class)
+    @JsonSerialize(using = JsonDate.Serializer.class)
     private Date validationDate;
-    @JsonDeserialize(using = JsonDateDeserializer.class)
+    @JsonDeserialize(using = JsonDate.Deserializer.class)
+    @JsonSerialize(using = JsonDate.Serializer.class)
     private Date orderDate;
-    @JsonDeserialize(using = JsonDateDeserializer.class)
+    @JsonDeserialize(using = JsonDate.Deserializer.class)
+    @JsonSerialize(using = JsonDate.Serializer.class)
     private Date deliveryDate;
-    @JsonDeserialize(using = JsonDateDeserializer.class)
+    @JsonDeserialize(using = JsonDate.Deserializer.class)
+    @JsonSerialize(using = JsonDate.Serializer.class)
     private Date installationDate;
-    @JsonDeserialize(using = JsonDateDeserializer.class)
+    @JsonDeserialize(using = JsonDate.Deserializer.class)
+    @JsonSerialize(using = JsonDate.Serializer.class)
     private Date maintenanceDate;
     private Short isActive;
 

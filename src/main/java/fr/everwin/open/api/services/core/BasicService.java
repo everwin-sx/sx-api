@@ -34,6 +34,7 @@ import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.util.Date;
+import java.util.Optional;
 
 /**
  * A basic service manager to handle all methods.<br>
@@ -97,13 +98,14 @@ public class BasicService<O extends BasicObject, L extends BasicList> {
                     || response.getStatus() == Response.Status.CREATED.getStatusCode()) {
                 return response.readEntity(responseClass);
             } else {
-                throw createExceptionFromResponse("Bad response from server", response.getStatus(), response.getStatusInfo().getStatusCode());
+                throw createExceptionFromResponse(String.format("Bad response from server, detail: %s", response.getLength() > 0 ? response.readEntity(String.class) : "-"), response.getStatus(), response.getStatusInfo().getStatusCode());
             }
         } catch (RequestException e) {
             throw e;
         } catch (Exception e) {
             LOGGER.error("Unparsable error : " + e.getMessage(), e);
-            throw createExceptionFromResponse(e.getMessage(), response.getStatus(), response.getStatusInfo().getStatusCode());
+            throw createExceptionFromResponse(e.getMessage() + Optional.ofNullable(e.getCause()).map(Throwable::getMessage).orElse(""),
+                    response.getStatus(), response.getStatusInfo().getStatusCode());
         }
     }
 

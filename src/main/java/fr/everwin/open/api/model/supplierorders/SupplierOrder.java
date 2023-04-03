@@ -22,10 +22,11 @@ package fr.everwin.open.api.model.supplierorders;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import fr.everwin.open.api.model.core.BasicObject;
 import fr.everwin.open.api.model.core.DataLink;
 import fr.everwin.open.api.model.core.SpecificData;
-import fr.everwin.open.api.util.JsonDateDeserializer;
+import fr.everwin.open.api.util.JsonDate;
 
 import java.util.Date;
 import java.util.List;
@@ -48,9 +49,11 @@ public class SupplierOrder extends BasicObject {
     private DataLink project;
     private DataLink issuer;
     private DataLink supplierAccount;
-    @JsonDeserialize(using = JsonDateDeserializer.class)
+    @JsonDeserialize(using = JsonDate.Deserializer.class)
+    @JsonSerialize(using = JsonDate.Serializer.class)
     private Date creationDate;
-    @JsonDeserialize(using = JsonDateDeserializer.class)
+    @JsonDeserialize(using = JsonDate.Deserializer.class)
+    @JsonSerialize(using = JsonDate.Serializer.class)
     private Date deliveryDate;
     private String supplierReference;
     private String estimateReference;
@@ -59,9 +62,11 @@ public class SupplierOrder extends BasicObject {
     private String deliveryAddress;
     private Short deliveryStatus;
     private String comment;
-    @JsonDeserialize(using = JsonDateDeserializer.class)
+    @JsonDeserialize(using = JsonDate.Deserializer.class)
+    @JsonSerialize(using = JsonDate.Serializer.class)
     private Date updatedOnTime;
-    @JsonDeserialize(using = JsonDateDeserializer.class)
+    @JsonDeserialize(using = JsonDate.Deserializer.class)
+    @JsonSerialize(using = JsonDate.Serializer.class)
     private Date createdOnTime;
     private List<SpecificData> extraData;
 

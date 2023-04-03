@@ -21,6 +21,7 @@
  */
 package fr.everwin.open.api.model.core;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
@@ -35,6 +36,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
         @JsonSubTypes.Type(name = "multilink", value = SpecificMultiLinkValue.class)})
 public abstract class SpecificData {
 
+    @JsonIgnore
     protected SpecificType type;
     private String name;
 

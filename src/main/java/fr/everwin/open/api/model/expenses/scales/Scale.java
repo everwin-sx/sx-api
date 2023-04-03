@@ -20,9 +20,11 @@ package fr.everwin.open.api.model.expenses.scales;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import fr.everwin.open.api.model.core.BasicObject;
 import fr.everwin.open.api.model.core.DataLink;
-import fr.everwin.open.api.util.ListDatalinkDeserializer;
+import fr.everwin.open.api.util.JsonListDatalink;
+import fr.everwin.open.api.util.JsonListDatalinkKey;
 
 import java.util.List;
 
@@ -39,7 +41,9 @@ public class Scale extends BasicObject {
     private String label;
     private Double amount;
 
-    @JsonDeserialize(contentUsing = ListDatalinkDeserializer.class)
+    @JsonDeserialize(contentUsing = JsonListDatalink.Deserializer.class)
+    @JsonSerialize(contentUsing = JsonListDatalink.Serializer.class)
+    @JsonListDatalinkKey(key = "entities")
     private List<DataLink> entities;
     private Short isArchived;
 
