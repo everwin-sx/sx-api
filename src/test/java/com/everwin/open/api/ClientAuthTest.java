@@ -28,6 +28,13 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URLDecoder;
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 public class ClientAuthTest {
 
     protected ClientApi clientApi;
@@ -136,17 +143,37 @@ public class ClientAuthTest {
                                                     .offset(0)
                                                     .limit(50)
                                                     .build());
-            String nextPage = list.getNext();
-            Assert.assertEquals(nextPage, uri + "/" + version + "/companies?filter=&sort=&offset=50&limit=50&fields=");
-            // Go to next page
-            list = companyService.query(nextPage);
-            String prevPage = list.getPrevious();
-            Assert.assertEquals(prevPage, uri + "/" + version + "/companies?filter=&sort=&offset=0&limit=50&fields=");
+            Map<String, String> nextUriParameters = getParameters(list.getNext());
+            // uri + "/" + version + "/companies?filter=&sort=&offset=50&limit=50&fields="
+            Assert.assertEquals(nextUriParameters.get("offset"), "50");
+            Assert.assertEquals(nextUriParameters.get("limit"), "50");
+            Assert.assertEquals(nextUriParameters.get("filter"), "");
+            Assert.assertEquals(nextUriParameters.get("sort"), "");
+
+
+            // Go to previous page
+            list = companyService.query(list.getNext());
+            Map<String, String> previousUriParameters = getParameters(list.getPrevious());
+            //uri + "/" + version + "/companies?filter=&sort=&offset=0&limit=50&fields="
+            Assert.assertEquals(previousUriParameters.get("offset"), "0");
+            Assert.assertEquals(previousUriParameters.get("limit"), "50");
+            Assert.assertEquals(previousUriParameters.get("filter"), "");
+            Assert.assertEquals(previousUriParameters.get("sort"), "");
         } catch (Exception e) {
             e.printStackTrace(System.err);
             Assert.fail("Multi page error : " + e.getMessage());
         }
 
+    }
+
+    private Map<String, String> getParameters(String stringUri) throws URISyntaxException, UnsupportedEncodingException {
+        URI uri = new URI(stringUri);
+        Map<String, String> parameters = new LinkedHashMap<>();
+        for (String pair : uri.getQuery().split("&")) {
+            int idx = pair.indexOf("=");
+            parameters.put(URLDecoder.decode(pair.substring(0, idx), "UTF-8"), URLDecoder.decode(pair.substring(idx + 1), "UTF-8"));
+        }
+        return parameters;
     }
 
     @Test(priority = 2)

@@ -505,6 +505,7 @@ public class ClientApiResourcesTest {
             EmployeeList list = service.query();
             Employee employee = list.getItems().get(0);
 
+            employee.setLoginMode("sx");
             service.queryVehicle(employee, null);
             service.queryLRType(employee, null);
             service.queryCommercial(null);

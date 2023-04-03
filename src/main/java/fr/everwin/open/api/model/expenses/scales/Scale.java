@@ -43,7 +43,7 @@ public class Scale extends BasicObject {
 
     @JsonDeserialize(contentUsing = JsonListDatalink.Deserializer.class)
     @JsonSerialize(contentUsing = JsonListDatalink.Serializer.class)
-    @JsonListDatalinkKey(key = "entity")
+    @JsonListDatalinkKey(key = "entities")
     private List<DataLink> entities;
     private Short isArchived;
 
