@@ -50,7 +50,7 @@ public class Rowtype extends BasicObject {
     private DataLink subscriptionRowtype;
     @JsonDeserialize(contentUsing = JsonListDatalink.Deserializer.class)
     @JsonSerialize(contentUsing = JsonListDatalink.Serializer.class)
-    @JsonListDatalinkKey(key = "rowtype")
+    @JsonListDatalinkKey(key = "subscriptionTimeRowtype")
     private List<DataLink> subscriptionTimeRowtypes;
     private Short isInvoiceable;
     private Short isExcludedFromProductionCalculation;

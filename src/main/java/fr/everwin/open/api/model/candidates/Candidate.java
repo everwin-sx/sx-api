@@ -54,11 +54,11 @@ public class Candidate extends BasicObject {
     private DataLink connectionType;
     @JsonDeserialize(contentUsing = JsonListDatalink.Deserializer.class)
     @JsonSerialize(contentUsing = JsonListDatalink.Serializer.class)
-    @JsonListDatalinkKey(key = "profile")
+    @JsonListDatalinkKey(key = "activityCategory")
     private List<DataLink> activityCategories;
     @JsonDeserialize(contentUsing = JsonListDatalink.Deserializer.class)
     @JsonSerialize(contentUsing = JsonListDatalink.Serializer.class)
-    @JsonListDatalinkKey(key = "profile")
+    @JsonListDatalinkKey(key = "business")
     private List<DataLink> businesses;
     private DataLink candidacyOrigin;
     private DataLink experienceDuration;

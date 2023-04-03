@@ -92,7 +92,7 @@ public class Employee extends BasicObject {
     private String function;
     @JsonDeserialize(contentUsing = JsonListDatalink.Deserializer.class)
     @JsonSerialize(contentUsing = JsonListDatalink.Serializer.class)
-    @JsonListDatalinkKey(key = "profile")
+    @JsonListDatalinkKey(key = "language")
     private List<DataLink> languages;
     private DataLink nationality;
     private String phone;
