@@ -32,7 +32,7 @@ import java.util.List;
  */
 public class PersonList extends BasicList<Person> {
 
-    @JsonProperty("contact")
+    @JsonProperty("contacts")
     private List<Person> items;
 
     /**

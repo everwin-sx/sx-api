@@ -28,7 +28,7 @@ import java.util.List;
  */
 public class ContactResponsibilityList extends BasicList<ContactResponsibility> {
 
-    @JsonProperty("contactresponsibility")
+    @JsonProperty("contactresponsibilities")
     private List<ContactResponsibility> items;
 
     /**

@@ -35,7 +35,7 @@ public class ProjectLineList extends BasicList<ProjectLine> {
     private String filter;
     private String sort;
 
-    @JsonProperty("project-line")
+    @JsonProperty("project-lines")
     private List<ProjectLine> items;
 
     /**

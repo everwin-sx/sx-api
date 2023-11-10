@@ -28,7 +28,7 @@ import java.util.List;
  */
 public class ProjectActivityList extends BasicList<ProjectActivity> {
 
-    @JsonProperty("project-activity")
+    @JsonProperty("project-activities")
     private List<ProjectActivity> items;
 
     @Override

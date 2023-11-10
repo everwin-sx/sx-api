@@ -32,7 +32,7 @@ import java.util.List;
  */
 public class ProfileList extends BasicList<Profile> {
 
-    @JsonProperty("profile")
+    @JsonProperty("profiles")
     private List<Profile> items;
 
     @Override

@@ -37,7 +37,7 @@ public class CustomerAssetList extends BasicList<CustomerAsset> {
     private int modelLimit;
     private String filter;
     private String sort;
-    @JsonProperty("customer-asset")
+    @JsonProperty("customer-assets")
     private List<CustomerAsset> items;
 
     public int getLimit() {

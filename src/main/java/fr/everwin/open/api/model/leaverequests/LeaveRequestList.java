@@ -32,7 +32,7 @@ import java.util.List;
  */
 public class LeaveRequestList extends BasicList<LeaveRequest> {
 
-    @JsonProperty("leaverequest")
+    @JsonProperty("leaverequests")
     private List<LeaveRequest> items;
 
     @Override

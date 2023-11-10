@@ -26,7 +26,7 @@ import java.util.List;
  */
 public class MissionOrderList extends BasicList<MissionOrder> {
 
-    @JsonProperty("missionorder")
+    @JsonProperty("missionorders")
     private List<MissionOrder> items;
 
     public MissionOrderList() {

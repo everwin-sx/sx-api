@@ -36,7 +36,7 @@ public class CategoryList extends BasicList<Category> {
     private int modelLimit;
     private String filter;
     private String sort;
-    @JsonProperty("product-category")
+    @JsonProperty("product-categories")
     private List<Category> items;
 
     public int getLimit() {

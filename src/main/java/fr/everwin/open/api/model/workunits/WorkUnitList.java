@@ -26,7 +26,7 @@ import java.util.List;
  */
 public class WorkUnitList extends BasicList<WorkUnit> {
 
-    @JsonProperty("workunit")
+    @JsonProperty("workunits")
     private List<WorkUnit> items;
 
     @Override

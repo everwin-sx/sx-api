@@ -28,7 +28,7 @@ import java.util.List;
  */
 public class ExpenseSheetLineList extends BasicList<ExpenseSheetLine> {
 
-    @JsonProperty("expensesheetline")
+    @JsonProperty("expensesheetlines")
     private List<ExpenseSheetLine> items;
 
     @Override

@@ -28,7 +28,7 @@ import java.util.List;
  */
 public class ContactEventList extends BasicList<ContactEvent> {
 
-    @JsonProperty("contactevent")
+    @JsonProperty("contactevents")
     private List<ContactEvent> items;
 
     /**

@@ -34,7 +34,7 @@ import java.util.List;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SkillList extends BasicList<Skill> {
 
-    @JsonProperty("skill")
+    @JsonProperty("skills")
     private List<Skill> items;
 
     @Override

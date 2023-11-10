@@ -31,7 +31,7 @@ import java.util.List;
  */
 public class CandidateSkillList extends BasicList<CandidateSkill> {
 
-    @JsonProperty("candidateskill")
+    @JsonProperty("candidateskills")
     private List<CandidateSkill> items;
 
     @Override

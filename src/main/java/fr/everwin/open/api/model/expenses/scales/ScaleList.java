@@ -28,7 +28,7 @@ import java.util.List;
  */
 public class ScaleList extends BasicList<Scale> {
 
-    @JsonProperty("scale")
+    @JsonProperty("scales")
     private List<Scale> items;
 
     @Override

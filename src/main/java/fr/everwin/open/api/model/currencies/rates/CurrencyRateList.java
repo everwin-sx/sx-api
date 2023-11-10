@@ -32,7 +32,7 @@ import java.util.List;
  */
 public class CurrencyRateList extends BasicList<CurrencyRate> {
 
-    @JsonProperty("currencyrate")
+    @JsonProperty("currencyrates")
     private List<CurrencyRate> items;
 
     @Override

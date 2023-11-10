@@ -32,7 +32,7 @@ import java.util.List;
  */
 public class NafList extends BasicList<Naf> {
 
-    @JsonProperty("naf")
+    @JsonProperty("nafs")
     private List<Naf> items;
 
     /**

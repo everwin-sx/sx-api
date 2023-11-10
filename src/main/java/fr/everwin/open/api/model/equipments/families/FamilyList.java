@@ -28,7 +28,7 @@ import java.util.List;
  */
 public class FamilyList extends BasicList<Family> {
 
-    @JsonProperty("profile")
+    @JsonProperty("profiles")
     private List<Family> items;
 
     @Override

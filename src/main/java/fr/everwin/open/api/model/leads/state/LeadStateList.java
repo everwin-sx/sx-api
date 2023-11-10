@@ -28,7 +28,7 @@ import java.util.List;
  */
 public class LeadStateList extends BasicList<LeadState> {
 
-    @JsonProperty("leadstate")
+    @JsonProperty("leadstates")
     private List<LeadState> items;
 
     @Override

@@ -26,7 +26,7 @@ import java.util.List;
  */
 public class CRMQuoteLineList extends BasicList<CRMQuoteLine> {
 
-    @JsonProperty("crmquoteline")
+    @JsonProperty("crmquotelines")
     private List<CRMQuoteLine> items;
 
     @Override

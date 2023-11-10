@@ -32,7 +32,7 @@ import java.util.List;
  */
 public class RowtypeList extends BasicList<Rowtype> {
 
-    @JsonProperty("rowtype")
+    @JsonProperty("rowtypes")
     private List<Rowtype> items;
 
     /**

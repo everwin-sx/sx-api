@@ -28,7 +28,7 @@ import java.util.List;
  */
 public class CurrencyList extends BasicList<Currency> {
 
-    @JsonProperty("currency")
+    @JsonProperty("currencies")
     private List<Currency> items;
 
     public CurrencyList() {

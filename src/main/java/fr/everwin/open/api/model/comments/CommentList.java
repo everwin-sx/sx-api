@@ -32,7 +32,7 @@ import java.util.List;
 public class CommentList extends BasicList<Comment> {
 
 
-    @JsonProperty("comment")
+    @JsonProperty("comments")
     private List<Comment> items;
 
     /**

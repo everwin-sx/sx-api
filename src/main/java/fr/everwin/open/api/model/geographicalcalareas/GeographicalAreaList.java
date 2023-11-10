@@ -28,7 +28,7 @@ import java.util.List;
  */
 public class GeographicalAreaList extends BasicList<GeographicalArea> {
 
-    @JsonProperty("geographicalarea")
+    @JsonProperty("geographicalareas")
     private List<GeographicalArea> items;
 
     @Override

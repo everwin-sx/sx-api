@@ -26,7 +26,7 @@ import java.util.List;
  */
 public class SupplierReceivingNoteLineList extends BasicList<SupplierReceivingNoteLine> {
 
-    @JsonProperty("supplierreceivingnoteline")
+    @JsonProperty("supplierreceivingnotelines")
     private List<SupplierReceivingNoteLine> items;
 
     @Override

@@ -32,7 +32,7 @@ import java.util.List;
  */
 public class CompanyList extends BasicList<Company> {
 
-    @JsonProperty("company")
+    @JsonProperty("companies")
     protected List<Company> items;
 
     /**

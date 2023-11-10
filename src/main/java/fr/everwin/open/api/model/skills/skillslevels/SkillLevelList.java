@@ -32,7 +32,7 @@ import java.util.List;
  */
 public class SkillLevelList extends BasicList<SkillLevel> {
 
-    @JsonProperty("skilllevel")
+    @JsonProperty("skilllevels")
     private List<SkillLevel> items;
 
     @Override

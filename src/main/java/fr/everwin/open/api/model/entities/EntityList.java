@@ -32,7 +32,7 @@ import java.util.List;
  */
 public class EntityList extends BasicList<Entity> {
 
-    @JsonProperty("entity")
+    @JsonProperty("entities")
     private List<Entity> items;
 
     /**

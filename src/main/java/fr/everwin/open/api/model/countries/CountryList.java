@@ -28,7 +28,7 @@ import java.util.List;
  */
 public class CountryList extends BasicList<Country> {
 
-    @JsonProperty("country")
+    @JsonProperty("countries")
     private List<Country> items;
 
     /**

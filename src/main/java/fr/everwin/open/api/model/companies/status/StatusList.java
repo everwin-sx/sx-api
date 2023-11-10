@@ -32,7 +32,7 @@ import java.util.List;
  */
 public class StatusList extends BasicList<Status> {
 
-    @JsonProperty("status")
+    @JsonProperty("status-list")
     private List<Status> items;
 
     @Override

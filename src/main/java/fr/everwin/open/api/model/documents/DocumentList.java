@@ -28,7 +28,7 @@ import java.util.List;
  */
 public class DocumentList extends BasicList<Document> {
 
-    @JsonProperty("document")
+    @JsonProperty("documents")
     private List<Document> items;
 
     public DocumentList() {

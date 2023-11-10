@@ -28,7 +28,7 @@ import java.util.List;
  */
 public class CommercialList extends BasicList<Employee> {
 
-    @JsonProperty("employee")
+    @JsonProperty("employees")
     private List<Employee> items;
 
     @Override

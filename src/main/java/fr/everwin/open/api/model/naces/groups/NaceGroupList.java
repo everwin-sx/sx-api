@@ -28,7 +28,7 @@ import java.util.List;
  */
 public class NaceGroupList extends BasicList<NaceGroup> {
 
-    @JsonProperty("nacegroup")
+    @JsonProperty("nacegroups")
     private List<NaceGroup> items;
 
     /**

@@ -28,7 +28,7 @@ import java.util.List;
  */
 public class AccountList extends BasicList<Account> {
 
-    @JsonProperty("account")
+    @JsonProperty("accounts")
     private List<Account> items;
 
     /**

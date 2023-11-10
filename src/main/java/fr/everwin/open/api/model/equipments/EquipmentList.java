@@ -32,7 +32,7 @@ import java.util.List;
  */
 public class EquipmentList extends BasicList<Equipment> {
 
-    @JsonProperty("equipment")
+    @JsonProperty("equipments")
     private List<Equipment> items;
 
     @Override

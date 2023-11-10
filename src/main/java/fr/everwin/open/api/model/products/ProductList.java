@@ -37,7 +37,7 @@ public class ProductList extends BasicList<Product> {
     private int modelLimit;
     private String filter;
     private String sort;
-    @JsonProperty("product")
+    @JsonProperty("products")
     private List<Product> items;
 
     /**

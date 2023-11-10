@@ -26,7 +26,7 @@ import java.util.List;
  */
 public class NaceList extends BasicList<Nace> {
 
-    @JsonProperty("nace")
+    @JsonProperty("naces")
     private List<Nace> items;
 
     /**

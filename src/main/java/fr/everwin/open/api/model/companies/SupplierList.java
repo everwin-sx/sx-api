@@ -31,7 +31,7 @@ import java.util.List;
  */
 public class SupplierList extends BasicList<Company> {
 
-    @JsonProperty("company")
+    @JsonProperty("companies")
     private List<Company> items;
 
     /**

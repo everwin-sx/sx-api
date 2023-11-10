@@ -28,7 +28,7 @@ import java.util.List;
  */
 public class VehicleList extends BasicList<Vehicle> {
 
-    @JsonProperty("vehicle")
+    @JsonProperty("vehicles")
     private List<Vehicle> items;
 
     @Override

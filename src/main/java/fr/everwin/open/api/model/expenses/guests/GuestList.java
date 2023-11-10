@@ -28,7 +28,7 @@ import java.util.List;
  */
 public class GuestList extends BasicList<Guest> {
 
-    @JsonProperty("guest")
+    @JsonProperty("guests")
     private List<Guest> items;
 
     /**

@@ -28,7 +28,7 @@ import java.util.List;
  */
 public class RecruitmentManagerList extends BasicList<Employee> {
 
-    @JsonProperty("employee")
+    @JsonProperty("employees")
     private List<Employee> items;
 
     @Override

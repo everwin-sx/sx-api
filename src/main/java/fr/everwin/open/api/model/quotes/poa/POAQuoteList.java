@@ -26,7 +26,7 @@ import java.util.List;
  */
 public class POAQuoteList extends BasicList<POAQuote> {
 
-    @JsonProperty("poaquote")
+    @JsonProperty("poaquotes")
     private List<POAQuote> items;
 
     @Override
