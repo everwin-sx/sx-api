@@ -34,7 +34,7 @@ public abstract class BasicList<T extends BasicObject> implements BasicListInter
     @JsonProperty("selflink")
     protected String href;
 
-    @JsonProperty("link")
+    @JsonProperty("links")
     protected List<EverLink> links;
 
     public String getHref() {
