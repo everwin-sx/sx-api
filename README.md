@@ -9,7 +9,9 @@ More informations about our products on https://www.everwin.fr.
 
 ## Installation
 Jar files are available from Maven Central. To use sx-api you have to include it in your project dependencies :
+
 For a server before version 13.0 (2023), the version 1.12 must be used.
+
 Since version 13.0 (2023), the version must be at least 1.14.
 
 ```xml 

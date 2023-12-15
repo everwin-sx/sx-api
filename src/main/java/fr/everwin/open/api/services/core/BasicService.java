@@ -98,7 +98,7 @@ public class BasicService<O extends BasicObject, L extends BasicList> {
                     || response.getStatus() == Response.Status.CREATED.getStatusCode()) {
                 return response.readEntity(responseClass);
             } else {
-                throw createExceptionFromResponse(String.format("Bad response from server, detail: %s", response.getLength() > 0 ? response.readEntity(String.class) : "-"), response.getStatus(), response.getStatusInfo().getStatusCode());
+                throw createExceptionFromResponse(response);
             }
         } catch (RequestException e) {
             throw e;
@@ -115,6 +115,15 @@ public class BasicService<O extends BasicObject, L extends BasicList> {
         exception.setStatus(error.getStatus());
         exception.setDevelopperMessage(error.getDeveloperMessage());
         return exception;
+    }
+
+    private RequestException createExceptionFromResponse(Response response) {
+        try{
+            return createExceptionFromError(response.readEntity(Error.class));
+        } catch(Exception e) {
+            String msg = String.format("Bad response from server, detail: %s", response.getLength() > 0 ? response.readEntity(String.class) : "-");
+            return createExceptionFromResponse(msg, response.getStatus(), response.getStatusInfo().getStatusCode());
+        }
     }
 
     private RequestException createExceptionFromResponse(String msg, int status, int statusCode) {
