@@ -16,6 +16,7 @@
 
 package fr.everwin.open.api.core.auth;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
@@ -23,11 +24,14 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  *
  * @author everwin-team
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Token {
     @JsonProperty("access_token")
     private String accessToken;
     @JsonProperty("expires_in")
     private long expires;
+    @JsonProperty("token_type")
+    private String tokenType;
 
     public String getAccessToken() {
         return this.accessToken;
@@ -43,5 +47,13 @@ public class Token {
 
     public void setExpires(long expires) {
         this.expires = expires;
+    }
+
+    public String getTokenType() {
+        return tokenType;
+    }
+
+    public void setTokenType(String tokenType) {
+        this.tokenType = tokenType;
     }
 }
