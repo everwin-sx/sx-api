@@ -93,6 +93,7 @@ CompaniesApi companiesApi = new CompaniesApi(clientApi);
 To create a new company
 ```java
 Company company = new Company()
+        .name("New Company Name")
         .code("New Company")
         .status(new StatusDataLink().id(963L));
 companiesApi.create(company);
