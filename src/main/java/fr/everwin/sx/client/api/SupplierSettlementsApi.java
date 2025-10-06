@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 
-@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-05-22T08:24:46.022483900+02:00[Europe/Paris]")
+@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-10-06T08:58:20.555636300+02:00[Europe/Paris]")
 public class SupplierSettlementsApi {
   private ApiClient apiClient;
 
@@ -49,6 +49,7 @@ public class SupplierSettlementsApi {
    * Create a Supplier Settlement
    * 
    * @param supplierSettlement SupplierSettlement (required)
+   * @return SupplierSettlement
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -60,15 +61,15 @@ public class SupplierSettlementsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void create(SupplierSettlement supplierSettlement) throws ApiException {
-    createWithHttpInfo(supplierSettlement);
+  public SupplierSettlement createSupplierSettlement(SupplierSettlement supplierSettlement) throws ApiException {
+    return createSupplierSettlementWithHttpInfo(supplierSettlement).getData();
   }
 
   /**
    * Create a Supplier Settlement
    * 
    * @param supplierSettlement SupplierSettlement (required)
-   * @return ApiResponse&lt;Void&gt;
+   * @return ApiResponse&lt;SupplierSettlement&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -80,24 +81,26 @@ public class SupplierSettlementsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> createWithHttpInfo(SupplierSettlement supplierSettlement) throws ApiException {
+  public ApiResponse<SupplierSettlement> createSupplierSettlementWithHttpInfo(SupplierSettlement supplierSettlement) throws ApiException {
     // Check required parameters
     if (supplierSettlement == null) {
-      throw new ApiException(400, "Missing the required parameter 'supplierSettlement' when calling create");
+      throw new ApiException(400, "Missing the required parameter 'supplierSettlement' when calling createSupplierSettlement");
     }
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("SupplierSettlementsApi.create", "/supplier-settlements", "POST", new ArrayList<>(), supplierSettlement,
+    GenericType<SupplierSettlement> localVarReturnType = new GenericType<SupplierSettlement>() {};
+    return apiClient.invokeAPI("SupplierSettlementsApi.createSupplierSettlement", "/supplier-settlements", "POST", new ArrayList<>(), supplierSettlement,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
+                               localVarAuthNames, localVarReturnType, false);
   }
   /**
    * Create a Supplier Settlement Line for A Supplier Settlement
    * 
    * @param id id (required)
    * @param supplierSettlementLine SupplierSettlementLine (required)
+   * @return SupplierSettlementLine
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -109,8 +112,8 @@ public class SupplierSettlementsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void createSupplierSettlementLine(Long id, SupplierSettlementLine supplierSettlementLine) throws ApiException {
-    createSupplierSettlementLineWithHttpInfo(id, supplierSettlementLine);
+  public SupplierSettlementLine createSupplierSettlementSupplierSettlementLine(Long id, SupplierSettlementLine supplierSettlementLine) throws ApiException {
+    return createSupplierSettlementSupplierSettlementLineWithHttpInfo(id, supplierSettlementLine).getData();
   }
 
   /**
@@ -118,7 +121,7 @@ public class SupplierSettlementsApi {
    * 
    * @param id id (required)
    * @param supplierSettlementLine SupplierSettlementLine (required)
-   * @return ApiResponse&lt;Void&gt;
+   * @return ApiResponse&lt;SupplierSettlementLine&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -130,13 +133,13 @@ public class SupplierSettlementsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> createSupplierSettlementLineWithHttpInfo(Long id, SupplierSettlementLine supplierSettlementLine) throws ApiException {
+  public ApiResponse<SupplierSettlementLine> createSupplierSettlementSupplierSettlementLineWithHttpInfo(Long id, SupplierSettlementLine supplierSettlementLine) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling createSupplierSettlementLine");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling createSupplierSettlementSupplierSettlementLine");
     }
     if (supplierSettlementLine == null) {
-      throw new ApiException(400, "Missing the required parameter 'supplierSettlementLine' when calling createSupplierSettlementLine");
+      throw new ApiException(400, "Missing the required parameter 'supplierSettlementLine' when calling createSupplierSettlementSupplierSettlementLine");
     }
 
     // Path parameters
@@ -146,9 +149,10 @@ public class SupplierSettlementsApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("SupplierSettlementsApi.createSupplierSettlementLine", localVarPath, "POST", new ArrayList<>(), supplierSettlementLine,
+    GenericType<SupplierSettlementLine> localVarReturnType = new GenericType<SupplierSettlementLine>() {};
+    return apiClient.invokeAPI("SupplierSettlementsApi.createSupplierSettlementSupplierSettlementLine", localVarPath, "POST", new ArrayList<>(), supplierSettlementLine,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
+                               localVarAuthNames, localVarReturnType, false);
   }
   /**
    * Delete a Supplier Settlement
@@ -166,8 +170,8 @@ public class SupplierSettlementsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void delete(Long id) throws ApiException {
-    deleteWithHttpInfo(id);
+  public void deleteSupplierSettlement(Long id) throws ApiException {
+    deleteSupplierSettlementWithHttpInfo(id);
   }
 
   /**
@@ -187,10 +191,10 @@ public class SupplierSettlementsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> deleteWithHttpInfo(Long id) throws ApiException {
+  public ApiResponse<Void> deleteSupplierSettlementWithHttpInfo(Long id) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling delete");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteSupplierSettlement");
     }
 
     // Path parameters
@@ -200,7 +204,7 @@ public class SupplierSettlementsApi {
     String localVarAccept = apiClient.selectHeaderAccept("*/*");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("SupplierSettlementsApi.delete", localVarPath, "DELETE", new ArrayList<>(), null,
+    return apiClient.invokeAPI("SupplierSettlementsApi.deleteSupplierSettlement", localVarPath, "DELETE", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -221,8 +225,8 @@ public class SupplierSettlementsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void deleteSupplierSettlementLine(Long id, Long lineid) throws ApiException {
-    deleteSupplierSettlementLineWithHttpInfo(id, lineid);
+  public void deleteSupplierSettlementSupplierSettlementLine(Long id, Long lineid) throws ApiException {
+    deleteSupplierSettlementSupplierSettlementLineWithHttpInfo(id, lineid);
   }
 
   /**
@@ -243,13 +247,13 @@ public class SupplierSettlementsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> deleteSupplierSettlementLineWithHttpInfo(Long id, Long lineid) throws ApiException {
+  public ApiResponse<Void> deleteSupplierSettlementSupplierSettlementLineWithHttpInfo(Long id, Long lineid) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteSupplierSettlementLine");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteSupplierSettlementSupplierSettlementLine");
     }
     if (lineid == null) {
-      throw new ApiException(400, "Missing the required parameter 'lineid' when calling deleteSupplierSettlementLine");
+      throw new ApiException(400, "Missing the required parameter 'lineid' when calling deleteSupplierSettlementSupplierSettlementLine");
     }
 
     // Path parameters
@@ -260,7 +264,7 @@ public class SupplierSettlementsApi {
     String localVarAccept = apiClient.selectHeaderAccept("*/*");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("SupplierSettlementsApi.deleteSupplierSettlementLine", localVarPath, "DELETE", new ArrayList<>(), null,
+    return apiClient.invokeAPI("SupplierSettlementsApi.deleteSupplierSettlementSupplierSettlementLine", localVarPath, "DELETE", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -282,8 +286,8 @@ public class SupplierSettlementsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public SupplierSettlement getById(Long id, String fields) throws ApiException {
-    return getByIdWithHttpInfo(id, fields).getData();
+  public SupplierSettlement getSupplierSettlementById(Long id, String fields) throws ApiException {
+    return getSupplierSettlementByIdWithHttpInfo(id, fields).getData();
   }
 
   /**
@@ -304,10 +308,10 @@ public class SupplierSettlementsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<SupplierSettlement> getByIdWithHttpInfo(Long id, String fields) throws ApiException {
+  public ApiResponse<SupplierSettlement> getSupplierSettlementByIdWithHttpInfo(Long id, String fields) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getById");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getSupplierSettlementById");
     }
 
     // Path parameters
@@ -323,76 +327,7 @@ public class SupplierSettlementsApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<SupplierSettlement> localVarReturnType = new GenericType<SupplierSettlement>() {};
-    return apiClient.invokeAPI("SupplierSettlementsApi.getById", localVarPath, "GET", localVarQueryParams, null,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
-  }
-  /**
-   * Get a supplier Settlement line for the given supplier Settlement
-   * 
-   * @param id id (required)
-   * @param lineid lineid (required)
-   * @param fields fields (optional)
-   * @return SupplierSettlementLine
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
-       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
-     </table>
-   */
-  public SupplierSettlementLine getSupplierSettlementLineById(Long id, Long lineid, String fields) throws ApiException {
-    return getSupplierSettlementLineByIdWithHttpInfo(id, lineid, fields).getData();
-  }
-
-  /**
-   * Get a supplier Settlement line for the given supplier Settlement
-   * 
-   * @param id id (required)
-   * @param lineid lineid (required)
-   * @param fields fields (optional)
-   * @return ApiResponse&lt;SupplierSettlementLine&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
-       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
-     </table>
-   */
-  public ApiResponse<SupplierSettlementLine> getSupplierSettlementLineByIdWithHttpInfo(Long id, Long lineid, String fields) throws ApiException {
-    // Check required parameters
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getSupplierSettlementLineById");
-    }
-    if (lineid == null) {
-      throw new ApiException(400, "Missing the required parameter 'lineid' when calling getSupplierSettlementLineById");
-    }
-
-    // Path parameters
-    String localVarPath = "/supplier-settlements/{id}/lines/{lineid}"
-            .replaceAll("\\{id}", apiClient.escapeString(id.toString()))
-            .replaceAll("\\{lineid}", apiClient.escapeString(lineid.toString()));
-
-    // Query parameters
-    List<Pair> localVarQueryParams = new ArrayList<>(
-            apiClient.parameterToPairs("", "fields", fields)
-    );
-
-    String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
-    String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    GenericType<SupplierSettlementLine> localVarReturnType = new GenericType<SupplierSettlementLine>() {};
-    return apiClient.invokeAPI("SupplierSettlementsApi.getSupplierSettlementLineById", localVarPath, "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("SupplierSettlementsApi.getSupplierSettlementById", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -472,6 +407,75 @@ public class SupplierSettlementsApi {
                                localVarAuthNames, localVarReturnType, false);
   }
   /**
+   * Get a supplier Settlement line for the given supplier Settlement
+   * 
+   * @param id id (required)
+   * @param lineid lineid (required)
+   * @param fields fields (optional)
+   * @return SupplierSettlementLine
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
+       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
+     </table>
+   */
+  public SupplierSettlementLine getSupplierSettlementSupplierSettlementLineById(Long id, Long lineid, String fields) throws ApiException {
+    return getSupplierSettlementSupplierSettlementLineByIdWithHttpInfo(id, lineid, fields).getData();
+  }
+
+  /**
+   * Get a supplier Settlement line for the given supplier Settlement
+   * 
+   * @param id id (required)
+   * @param lineid lineid (required)
+   * @param fields fields (optional)
+   * @return ApiResponse&lt;SupplierSettlementLine&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
+       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<SupplierSettlementLine> getSupplierSettlementSupplierSettlementLineByIdWithHttpInfo(Long id, Long lineid, String fields) throws ApiException {
+    // Check required parameters
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getSupplierSettlementSupplierSettlementLineById");
+    }
+    if (lineid == null) {
+      throw new ApiException(400, "Missing the required parameter 'lineid' when calling getSupplierSettlementSupplierSettlementLineById");
+    }
+
+    // Path parameters
+    String localVarPath = "/supplier-settlements/{id}/lines/{lineid}"
+            .replaceAll("\\{id}", apiClient.escapeString(id.toString()))
+            .replaceAll("\\{lineid}", apiClient.escapeString(lineid.toString()));
+
+    // Query parameters
+    List<Pair> localVarQueryParams = new ArrayList<>(
+            apiClient.parameterToPairs("", "fields", fields)
+    );
+
+    String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
+    String localVarContentType = apiClient.selectHeaderContentType();
+    String[] localVarAuthNames = new String[] {"api_key", "oauth"};
+    GenericType<SupplierSettlementLine> localVarReturnType = new GenericType<SupplierSettlementLine>() {};
+    return apiClient.invokeAPI("SupplierSettlementsApi.getSupplierSettlementSupplierSettlementLineById", localVarPath, "GET", localVarQueryParams, null,
+                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, false);
+  }
+  /**
    * Test Supplier Settlements service
    * 
    * @return String
@@ -484,8 +488,8 @@ public class SupplierSettlementsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public String ping() throws ApiException {
-    return pingWithHttpInfo().getData();
+  public String pingSupplierSettlement() throws ApiException {
+    return pingSupplierSettlementWithHttpInfo().getData();
   }
 
   /**
@@ -501,12 +505,12 @@ public class SupplierSettlementsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<String> pingWithHttpInfo() throws ApiException {
+  public ApiResponse<String> pingSupplierSettlementWithHttpInfo() throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("text/plain");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<String> localVarReturnType = new GenericType<String>() {};
-    return apiClient.invokeAPI("SupplierSettlementsApi.ping", "/supplier-settlements/ping", "GET", new ArrayList<>(), null,
+    return apiClient.invokeAPI("SupplierSettlementsApi.pingSupplierSettlement", "/supplier-settlements/ping", "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -529,8 +533,8 @@ public class SupplierSettlementsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public SupplierSettlementList query(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
-    return queryWithHttpInfo(filter, sort, offset, limit, fields).getData();
+  public SupplierSettlementList querySupplierSettlement(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+    return querySupplierSettlementWithHttpInfo(filter, sort, offset, limit, fields).getData();
   }
 
   /**
@@ -552,7 +556,7 @@ public class SupplierSettlementsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<SupplierSettlementList> queryWithHttpInfo(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+  public ApiResponse<SupplierSettlementList> querySupplierSettlementWithHttpInfo(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
     // Query parameters
     List<Pair> localVarQueryParams = new ArrayList<>(
             apiClient.parameterToPairs("", "filter", filter)
@@ -566,72 +570,11 @@ public class SupplierSettlementsApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<SupplierSettlementList> localVarReturnType = new GenericType<SupplierSettlementList>() {};
-    return apiClient.invokeAPI("SupplierSettlementsApi.query", "/supplier-settlements", "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("SupplierSettlementsApi.querySupplierSettlement", "/supplier-settlements", "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
   /**
-   * Full update of a Supplier Settlement. If Supplier Settlement doesn&#39;t exist, it&#39;s created.
-   * 
-   * @param id id (required)
-   * @param supplierSettlement SupplierSettlement (required)
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-       <tr><td> 201 </td><td> Created </td><td>  * Location - URL to created work unit <br>  </td></tr>
-       <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
-       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
-     </table>
-   */
-  public void update(Long id, SupplierSettlement supplierSettlement) throws ApiException {
-    updateWithHttpInfo(id, supplierSettlement);
-  }
-
-  /**
-   * Full update of a Supplier Settlement. If Supplier Settlement doesn&#39;t exist, it&#39;s created.
-   * 
-   * @param id id (required)
-   * @param supplierSettlement SupplierSettlement (required)
-   * @return ApiResponse&lt;Void&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-       <tr><td> 201 </td><td> Created </td><td>  * Location - URL to created work unit <br>  </td></tr>
-       <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
-       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
-     </table>
-   */
-  public ApiResponse<Void> updateWithHttpInfo(Long id, SupplierSettlement supplierSettlement) throws ApiException {
-    // Check required parameters
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling update");
-    }
-    if (supplierSettlement == null) {
-      throw new ApiException(400, "Missing the required parameter 'supplierSettlement' when calling update");
-    }
-
-    // Path parameters
-    String localVarPath = "/supplier-settlements/{id}"
-            .replaceAll("\\{id}", apiClient.escapeString(id.toString()));
-
-    String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
-    String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
-    String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("SupplierSettlementsApi.update", localVarPath, "PUT", new ArrayList<>(), supplierSettlement,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
-  }
-  /**
    * Partial update of a Supplier Settlement
    * 
    * @param id id (required)
@@ -649,8 +592,8 @@ public class SupplierSettlementsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void updatePartial(Long id, SupplierSettlement supplierSettlement) throws ApiException {
-    updatePartialWithHttpInfo(id, supplierSettlement);
+  public void updatePartialSupplierSettlement(Long id, SupplierSettlement supplierSettlement) throws ApiException {
+    updatePartialSupplierSettlementWithHttpInfo(id, supplierSettlement);
   }
 
   /**
@@ -672,13 +615,13 @@ public class SupplierSettlementsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> updatePartialWithHttpInfo(Long id, SupplierSettlement supplierSettlement) throws ApiException {
+  public ApiResponse<Void> updatePartialSupplierSettlementWithHttpInfo(Long id, SupplierSettlement supplierSettlement) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling updatePartial");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updatePartialSupplierSettlement");
     }
     if (supplierSettlement == null) {
-      throw new ApiException(400, "Missing the required parameter 'supplierSettlement' when calling updatePartial");
+      throw new ApiException(400, "Missing the required parameter 'supplierSettlement' when calling updatePartialSupplierSettlement");
     }
 
     // Path parameters
@@ -688,7 +631,7 @@ public class SupplierSettlementsApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("SupplierSettlementsApi.updatePartial", localVarPath, "POST", new ArrayList<>(), supplierSettlement,
+    return apiClient.invokeAPI("SupplierSettlementsApi.updatePartialSupplierSettlement", localVarPath, "POST", new ArrayList<>(), supplierSettlement,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -711,8 +654,8 @@ public class SupplierSettlementsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void updatePartialSupplierSettlementLine(Long id, Long lineid, SupplierSettlementLine supplierSettlementLine) throws ApiException {
-    updatePartialSupplierSettlementLineWithHttpInfo(id, lineid, supplierSettlementLine);
+  public void updatePartialSupplierSettlementSupplierSettlementLine(Long id, Long lineid, SupplierSettlementLine supplierSettlementLine) throws ApiException {
+    updatePartialSupplierSettlementSupplierSettlementLineWithHttpInfo(id, lineid, supplierSettlementLine);
   }
 
   /**
@@ -735,16 +678,16 @@ public class SupplierSettlementsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> updatePartialSupplierSettlementLineWithHttpInfo(Long id, Long lineid, SupplierSettlementLine supplierSettlementLine) throws ApiException {
+  public ApiResponse<Void> updatePartialSupplierSettlementSupplierSettlementLineWithHttpInfo(Long id, Long lineid, SupplierSettlementLine supplierSettlementLine) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling updatePartialSupplierSettlementLine");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updatePartialSupplierSettlementSupplierSettlementLine");
     }
     if (lineid == null) {
-      throw new ApiException(400, "Missing the required parameter 'lineid' when calling updatePartialSupplierSettlementLine");
+      throw new ApiException(400, "Missing the required parameter 'lineid' when calling updatePartialSupplierSettlementSupplierSettlementLine");
     }
     if (supplierSettlementLine == null) {
-      throw new ApiException(400, "Missing the required parameter 'supplierSettlementLine' when calling updatePartialSupplierSettlementLine");
+      throw new ApiException(400, "Missing the required parameter 'supplierSettlementLine' when calling updatePartialSupplierSettlementSupplierSettlementLine");
     }
 
     // Path parameters
@@ -755,7 +698,68 @@ public class SupplierSettlementsApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("SupplierSettlementsApi.updatePartialSupplierSettlementLine", localVarPath, "POST", new ArrayList<>(), supplierSettlementLine,
+    return apiClient.invokeAPI("SupplierSettlementsApi.updatePartialSupplierSettlementSupplierSettlementLine", localVarPath, "POST", new ArrayList<>(), supplierSettlementLine,
+                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
+                               localVarAuthNames, null, false);
+  }
+  /**
+   * Full update of a Supplier Settlement. If Supplier Settlement doesn&#39;t exist, it&#39;s created.
+   * 
+   * @param id id (required)
+   * @param supplierSettlement SupplierSettlement (required)
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+       <tr><td> 201 </td><td> Created </td><td>  * Location - URL to created work unit <br>  </td></tr>
+       <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
+       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
+     </table>
+   */
+  public void updateSupplierSettlement(Long id, SupplierSettlement supplierSettlement) throws ApiException {
+    updateSupplierSettlementWithHttpInfo(id, supplierSettlement);
+  }
+
+  /**
+   * Full update of a Supplier Settlement. If Supplier Settlement doesn&#39;t exist, it&#39;s created.
+   * 
+   * @param id id (required)
+   * @param supplierSettlement SupplierSettlement (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+       <tr><td> 201 </td><td> Created </td><td>  * Location - URL to created work unit <br>  </td></tr>
+       <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
+       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<Void> updateSupplierSettlementWithHttpInfo(Long id, SupplierSettlement supplierSettlement) throws ApiException {
+    // Check required parameters
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updateSupplierSettlement");
+    }
+    if (supplierSettlement == null) {
+      throw new ApiException(400, "Missing the required parameter 'supplierSettlement' when calling updateSupplierSettlement");
+    }
+
+    // Path parameters
+    String localVarPath = "/supplier-settlements/{id}"
+            .replaceAll("\\{id}", apiClient.escapeString(id.toString()));
+
+    String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
+    String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
+    String[] localVarAuthNames = new String[] {"api_key", "oauth"};
+    return apiClient.invokeAPI("SupplierSettlementsApi.updateSupplierSettlement", localVarPath, "PUT", new ArrayList<>(), supplierSettlement,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -778,8 +782,8 @@ public class SupplierSettlementsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void updateSupplierSettlementLine(Long id, Long lineid, SupplierSettlementLine supplierSettlementLine) throws ApiException {
-    updateSupplierSettlementLineWithHttpInfo(id, lineid, supplierSettlementLine);
+  public void updateSupplierSettlementSupplierSettlementLine(Long id, Long lineid, SupplierSettlementLine supplierSettlementLine) throws ApiException {
+    updateSupplierSettlementSupplierSettlementLineWithHttpInfo(id, lineid, supplierSettlementLine);
   }
 
   /**
@@ -802,16 +806,16 @@ public class SupplierSettlementsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> updateSupplierSettlementLineWithHttpInfo(Long id, Long lineid, SupplierSettlementLine supplierSettlementLine) throws ApiException {
+  public ApiResponse<Void> updateSupplierSettlementSupplierSettlementLineWithHttpInfo(Long id, Long lineid, SupplierSettlementLine supplierSettlementLine) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling updateSupplierSettlementLine");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updateSupplierSettlementSupplierSettlementLine");
     }
     if (lineid == null) {
-      throw new ApiException(400, "Missing the required parameter 'lineid' when calling updateSupplierSettlementLine");
+      throw new ApiException(400, "Missing the required parameter 'lineid' when calling updateSupplierSettlementSupplierSettlementLine");
     }
     if (supplierSettlementLine == null) {
-      throw new ApiException(400, "Missing the required parameter 'supplierSettlementLine' when calling updateSupplierSettlementLine");
+      throw new ApiException(400, "Missing the required parameter 'supplierSettlementLine' when calling updateSupplierSettlementSupplierSettlementLine");
     }
 
     // Path parameters
@@ -822,7 +826,7 @@ public class SupplierSettlementsApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("SupplierSettlementsApi.updateSupplierSettlementLine", localVarPath, "PUT", new ArrayList<>(), supplierSettlementLine,
+    return apiClient.invokeAPI("SupplierSettlementsApi.updateSupplierSettlementSupplierSettlementLine", localVarPath, "PUT", new ArrayList<>(), supplierSettlementLine,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }

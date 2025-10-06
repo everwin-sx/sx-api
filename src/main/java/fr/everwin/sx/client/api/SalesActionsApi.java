@@ -19,7 +19,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-05-22T08:24:46.022483900+02:00[Europe/Paris]")
+@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-10-06T08:58:20.555636300+02:00[Europe/Paris]")
 public class SalesActionsApi {
   private ApiClient apiClient;
 
@@ -53,6 +53,7 @@ public class SalesActionsApi {
    * Create an sales action
    * 
    * @param salesAction Sales action (required)
+   * @return SalesAction
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -64,15 +65,15 @@ public class SalesActionsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void create(SalesAction salesAction) throws ApiException {
-    createWithHttpInfo(salesAction);
+  public SalesAction createSalesAction(SalesAction salesAction) throws ApiException {
+    return createSalesActionWithHttpInfo(salesAction).getData();
   }
 
   /**
    * Create an sales action
    * 
    * @param salesAction Sales action (required)
-   * @return ApiResponse&lt;Void&gt;
+   * @return ApiResponse&lt;SalesAction&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -84,24 +85,26 @@ public class SalesActionsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> createWithHttpInfo(SalesAction salesAction) throws ApiException {
+  public ApiResponse<SalesAction> createSalesActionWithHttpInfo(SalesAction salesAction) throws ApiException {
     // Check required parameters
     if (salesAction == null) {
-      throw new ApiException(400, "Missing the required parameter 'salesAction' when calling create");
+      throw new ApiException(400, "Missing the required parameter 'salesAction' when calling createSalesAction");
     }
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("SalesActionsApi.create", "/sales-actions", "POST", new ArrayList<>(), salesAction,
+    GenericType<SalesAction> localVarReturnType = new GenericType<SalesAction>() {};
+    return apiClient.invokeAPI("SalesActionsApi.createSalesAction", "/sales-actions", "POST", new ArrayList<>(), salesAction,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
+                               localVarAuthNames, localVarReturnType, false);
   }
   /**
    * Create a comment for the action
    * 
    * @param id id (required)
    * @param comment Comment (required)
+   * @return Comment
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -113,8 +116,8 @@ public class SalesActionsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void createComment(Long id, Comment comment) throws ApiException {
-    createCommentWithHttpInfo(id, comment);
+  public Comment createSalesActionComment(Long id, Comment comment) throws ApiException {
+    return createSalesActionCommentWithHttpInfo(id, comment).getData();
   }
 
   /**
@@ -122,7 +125,7 @@ public class SalesActionsApi {
    * 
    * @param id id (required)
    * @param comment Comment (required)
-   * @return ApiResponse&lt;Void&gt;
+   * @return ApiResponse&lt;Comment&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -134,13 +137,13 @@ public class SalesActionsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> createCommentWithHttpInfo(Long id, Comment comment) throws ApiException {
+  public ApiResponse<Comment> createSalesActionCommentWithHttpInfo(Long id, Comment comment) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling createComment");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling createSalesActionComment");
     }
     if (comment == null) {
-      throw new ApiException(400, "Missing the required parameter 'comment' when calling createComment");
+      throw new ApiException(400, "Missing the required parameter 'comment' when calling createSalesActionComment");
     }
 
     // Path parameters
@@ -150,15 +153,17 @@ public class SalesActionsApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("SalesActionsApi.createComment", localVarPath, "POST", new ArrayList<>(), comment,
+    GenericType<Comment> localVarReturnType = new GenericType<Comment>() {};
+    return apiClient.invokeAPI("SalesActionsApi.createSalesActionComment", localVarPath, "POST", new ArrayList<>(), comment,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
+                               localVarAuthNames, localVarReturnType, false);
   }
   /**
    * Create a new document for the action
    * 
    * @param id id (required)
    * @param document Document (required)
+   * @return Document
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -170,8 +175,8 @@ public class SalesActionsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void createDocument(Long id, Document document) throws ApiException {
-    createDocumentWithHttpInfo(id, document);
+  public Document createSalesActionDocument(Long id, Document document) throws ApiException {
+    return createSalesActionDocumentWithHttpInfo(id, document).getData();
   }
 
   /**
@@ -179,7 +184,7 @@ public class SalesActionsApi {
    * 
    * @param id id (required)
    * @param document Document (required)
-   * @return ApiResponse&lt;Void&gt;
+   * @return ApiResponse&lt;Document&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -191,13 +196,13 @@ public class SalesActionsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> createDocumentWithHttpInfo(Long id, Document document) throws ApiException {
+  public ApiResponse<Document> createSalesActionDocumentWithHttpInfo(Long id, Document document) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling createDocument");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling createSalesActionDocument");
     }
     if (document == null) {
-      throw new ApiException(400, "Missing the required parameter 'document' when calling createDocument");
+      throw new ApiException(400, "Missing the required parameter 'document' when calling createSalesActionDocument");
     }
 
     // Path parameters
@@ -207,9 +212,10 @@ public class SalesActionsApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("SalesActionsApi.createDocument", localVarPath, "POST", new ArrayList<>(), document,
+    GenericType<Document> localVarReturnType = new GenericType<Document>() {};
+    return apiClient.invokeAPI("SalesActionsApi.createSalesActionDocument", localVarPath, "POST", new ArrayList<>(), document,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
+                               localVarAuthNames, localVarReturnType, false);
   }
   /**
    * Delete a sales action
@@ -227,8 +233,8 @@ public class SalesActionsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void delete(Long id) throws ApiException {
-    deleteWithHttpInfo(id);
+  public void deleteSalesAction(Long id) throws ApiException {
+    deleteSalesActionWithHttpInfo(id);
   }
 
   /**
@@ -248,10 +254,10 @@ public class SalesActionsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> deleteWithHttpInfo(Long id) throws ApiException {
+  public ApiResponse<Void> deleteSalesActionWithHttpInfo(Long id) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling delete");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteSalesAction");
     }
 
     // Path parameters
@@ -261,7 +267,7 @@ public class SalesActionsApi {
     String localVarAccept = apiClient.selectHeaderAccept("*/*");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("SalesActionsApi.delete", localVarPath, "DELETE", new ArrayList<>(), null,
+    return apiClient.invokeAPI("SalesActionsApi.deleteSalesAction", localVarPath, "DELETE", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -282,8 +288,8 @@ public class SalesActionsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void deleteComment(Long id, Long cid) throws ApiException {
-    deleteCommentWithHttpInfo(id, cid);
+  public void deleteSalesActionComment(Long id, Long cid) throws ApiException {
+    deleteSalesActionCommentWithHttpInfo(id, cid);
   }
 
   /**
@@ -304,13 +310,13 @@ public class SalesActionsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> deleteCommentWithHttpInfo(Long id, Long cid) throws ApiException {
+  public ApiResponse<Void> deleteSalesActionCommentWithHttpInfo(Long id, Long cid) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteComment");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteSalesActionComment");
     }
     if (cid == null) {
-      throw new ApiException(400, "Missing the required parameter 'cid' when calling deleteComment");
+      throw new ApiException(400, "Missing the required parameter 'cid' when calling deleteSalesActionComment");
     }
 
     // Path parameters
@@ -321,7 +327,7 @@ public class SalesActionsApi {
     String localVarAccept = apiClient.selectHeaderAccept("*/*");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("SalesActionsApi.deleteComment", localVarPath, "DELETE", new ArrayList<>(), null,
+    return apiClient.invokeAPI("SalesActionsApi.deleteSalesActionComment", localVarPath, "DELETE", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -342,8 +348,8 @@ public class SalesActionsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void deleteDocument(Long id, Long did) throws ApiException {
-    deleteDocumentWithHttpInfo(id, did);
+  public void deleteSalesActionDocument(Long id, Long did) throws ApiException {
+    deleteSalesActionDocumentWithHttpInfo(id, did);
   }
 
   /**
@@ -364,13 +370,13 @@ public class SalesActionsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> deleteDocumentWithHttpInfo(Long id, Long did) throws ApiException {
+  public ApiResponse<Void> deleteSalesActionDocumentWithHttpInfo(Long id, Long did) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteDocument");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteSalesActionDocument");
     }
     if (did == null) {
-      throw new ApiException(400, "Missing the required parameter 'did' when calling deleteDocument");
+      throw new ApiException(400, "Missing the required parameter 'did' when calling deleteSalesActionDocument");
     }
 
     // Path parameters
@@ -381,7 +387,7 @@ public class SalesActionsApi {
     String localVarAccept = apiClient.selectHeaderAccept("*/*");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("SalesActionsApi.deleteDocument", localVarPath, "DELETE", new ArrayList<>(), null,
+    return apiClient.invokeAPI("SalesActionsApi.deleteSalesActionDocument", localVarPath, "DELETE", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -402,8 +408,8 @@ public class SalesActionsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void downloadDocument(Long id, Long did) throws ApiException {
-    downloadDocumentWithHttpInfo(id, did);
+  public void downloadSalesActionDocument(Long id, Long did) throws ApiException {
+    downloadSalesActionDocumentWithHttpInfo(id, did);
   }
 
   /**
@@ -424,13 +430,13 @@ public class SalesActionsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> downloadDocumentWithHttpInfo(Long id, Long did) throws ApiException {
+  public ApiResponse<Void> downloadSalesActionDocumentWithHttpInfo(Long id, Long did) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling downloadDocument");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling downloadSalesActionDocument");
     }
     if (did == null) {
-      throw new ApiException(400, "Missing the required parameter 'did' when calling downloadDocument");
+      throw new ApiException(400, "Missing the required parameter 'did' when calling downloadSalesActionDocument");
     }
 
     // Path parameters
@@ -441,7 +447,7 @@ public class SalesActionsApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/octet-stream");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("SalesActionsApi.downloadDocument", localVarPath, "GET", new ArrayList<>(), null,
+    return apiClient.invokeAPI("SalesActionsApi.downloadSalesActionDocument", localVarPath, "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -463,8 +469,8 @@ public class SalesActionsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public SalesAction getById(Long id, String fields) throws ApiException {
-    return getByIdWithHttpInfo(id, fields).getData();
+  public SalesAction getSalesActionById(Long id, String fields) throws ApiException {
+    return getSalesActionByIdWithHttpInfo(id, fields).getData();
   }
 
   /**
@@ -485,10 +491,10 @@ public class SalesActionsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<SalesAction> getByIdWithHttpInfo(Long id, String fields) throws ApiException {
+  public ApiResponse<SalesAction> getSalesActionByIdWithHttpInfo(Long id, String fields) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getById");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getSalesActionById");
     }
 
     // Path parameters
@@ -504,7 +510,7 @@ public class SalesActionsApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<SalesAction> localVarReturnType = new GenericType<SalesAction>() {};
-    return apiClient.invokeAPI("SalesActionsApi.getById", localVarPath, "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("SalesActionsApi.getSalesActionById", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -527,8 +533,8 @@ public class SalesActionsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public Comment getCommentById(Long id, Long cid, String fields) throws ApiException {
-    return getCommentByIdWithHttpInfo(id, cid, fields).getData();
+  public Comment getSalesActionCommentById(Long id, Long cid, String fields) throws ApiException {
+    return getSalesActionCommentByIdWithHttpInfo(id, cid, fields).getData();
   }
 
   /**
@@ -550,13 +556,13 @@ public class SalesActionsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Comment> getCommentByIdWithHttpInfo(Long id, Long cid, String fields) throws ApiException {
+  public ApiResponse<Comment> getSalesActionCommentByIdWithHttpInfo(Long id, Long cid, String fields) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getCommentById");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getSalesActionCommentById");
     }
     if (cid == null) {
-      throw new ApiException(400, "Missing the required parameter 'cid' when calling getCommentById");
+      throw new ApiException(400, "Missing the required parameter 'cid' when calling getSalesActionCommentById");
     }
 
     // Path parameters
@@ -573,7 +579,7 @@ public class SalesActionsApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<Comment> localVarReturnType = new GenericType<Comment>() {};
-    return apiClient.invokeAPI("SalesActionsApi.getCommentById", localVarPath, "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("SalesActionsApi.getSalesActionCommentById", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -599,8 +605,8 @@ public class SalesActionsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public CommentList getComments(Long id, String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
-    return getCommentsWithHttpInfo(id, filter, sort, offset, limit, fields).getData();
+  public CommentList getSalesActionComments(Long id, String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+    return getSalesActionCommentsWithHttpInfo(id, filter, sort, offset, limit, fields).getData();
   }
 
   /**
@@ -625,10 +631,10 @@ public class SalesActionsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<CommentList> getCommentsWithHttpInfo(Long id, String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+  public ApiResponse<CommentList> getSalesActionCommentsWithHttpInfo(Long id, String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getComments");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getSalesActionComments");
     }
 
     // Path parameters
@@ -648,7 +654,7 @@ public class SalesActionsApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<CommentList> localVarReturnType = new GenericType<CommentList>() {};
-    return apiClient.invokeAPI("SalesActionsApi.getComments", localVarPath, "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("SalesActionsApi.getSalesActionComments", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -671,8 +677,8 @@ public class SalesActionsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public Document getDocumentById(Long id, Long did, String fields) throws ApiException {
-    return getDocumentByIdWithHttpInfo(id, did, fields).getData();
+  public Document getSalesActionDocumentById(Long id, Long did, String fields) throws ApiException {
+    return getSalesActionDocumentByIdWithHttpInfo(id, did, fields).getData();
   }
 
   /**
@@ -694,13 +700,13 @@ public class SalesActionsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Document> getDocumentByIdWithHttpInfo(Long id, Long did, String fields) throws ApiException {
+  public ApiResponse<Document> getSalesActionDocumentByIdWithHttpInfo(Long id, Long did, String fields) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getDocumentById");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getSalesActionDocumentById");
     }
     if (did == null) {
-      throw new ApiException(400, "Missing the required parameter 'did' when calling getDocumentById");
+      throw new ApiException(400, "Missing the required parameter 'did' when calling getSalesActionDocumentById");
     }
 
     // Path parameters
@@ -717,7 +723,7 @@ public class SalesActionsApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<Document> localVarReturnType = new GenericType<Document>() {};
-    return apiClient.invokeAPI("SalesActionsApi.getDocumentById", localVarPath, "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("SalesActionsApi.getSalesActionDocumentById", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -743,8 +749,8 @@ public class SalesActionsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public DocumentList getDocuments(Long id, String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
-    return getDocumentsWithHttpInfo(id, filter, sort, offset, limit, fields).getData();
+  public DocumentList getSalesActionDocuments(Long id, String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+    return getSalesActionDocumentsWithHttpInfo(id, filter, sort, offset, limit, fields).getData();
   }
 
   /**
@@ -769,10 +775,10 @@ public class SalesActionsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<DocumentList> getDocumentsWithHttpInfo(Long id, String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+  public ApiResponse<DocumentList> getSalesActionDocumentsWithHttpInfo(Long id, String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getDocuments");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getSalesActionDocuments");
     }
 
     // Path parameters
@@ -792,7 +798,7 @@ public class SalesActionsApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<DocumentList> localVarReturnType = new GenericType<DocumentList>() {};
-    return apiClient.invokeAPI("SalesActionsApi.getDocuments", localVarPath, "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("SalesActionsApi.getSalesActionDocuments", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -809,8 +815,8 @@ public class SalesActionsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public String ping() throws ApiException {
-    return pingWithHttpInfo().getData();
+  public String pingSalesAction() throws ApiException {
+    return pingSalesActionWithHttpInfo().getData();
   }
 
   /**
@@ -826,12 +832,12 @@ public class SalesActionsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<String> pingWithHttpInfo() throws ApiException {
+  public ApiResponse<String> pingSalesActionWithHttpInfo() throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("text/plain");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<String> localVarReturnType = new GenericType<String>() {};
-    return apiClient.invokeAPI("SalesActionsApi.ping", "/sales-actions/ping", "GET", new ArrayList<>(), null,
+    return apiClient.invokeAPI("SalesActionsApi.pingSalesAction", "/sales-actions/ping", "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -854,8 +860,8 @@ public class SalesActionsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public SalesActionList query(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
-    return queryWithHttpInfo(filter, sort, offset, limit, fields).getData();
+  public SalesActionList querySalesAction(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+    return querySalesActionWithHttpInfo(filter, sort, offset, limit, fields).getData();
   }
 
   /**
@@ -877,7 +883,7 @@ public class SalesActionsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<SalesActionList> queryWithHttpInfo(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+  public ApiResponse<SalesActionList> querySalesActionWithHttpInfo(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
     // Query parameters
     List<Pair> localVarQueryParams = new ArrayList<>(
             apiClient.parameterToPairs("", "filter", filter)
@@ -891,206 +897,11 @@ public class SalesActionsApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<SalesActionList> localVarReturnType = new GenericType<SalesActionList>() {};
-    return apiClient.invokeAPI("SalesActionsApi.query", "/sales-actions", "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("SalesActionsApi.querySalesAction", "/sales-actions", "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
   /**
-   * Full update of an sales action. If sales action doesn&#39;t exist, it&#39;s created.
-   * 
-   * @param id id (required)
-   * @param salesAction Sales-action (required)
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-       <tr><td> 201 </td><td> Created </td><td>  * Location - URL to created work unit <br>  </td></tr>
-       <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
-       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
-     </table>
-   */
-  public void update(Long id, SalesAction salesAction) throws ApiException {
-    updateWithHttpInfo(id, salesAction);
-  }
-
-  /**
-   * Full update of an sales action. If sales action doesn&#39;t exist, it&#39;s created.
-   * 
-   * @param id id (required)
-   * @param salesAction Sales-action (required)
-   * @return ApiResponse&lt;Void&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-       <tr><td> 201 </td><td> Created </td><td>  * Location - URL to created work unit <br>  </td></tr>
-       <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
-       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
-     </table>
-   */
-  public ApiResponse<Void> updateWithHttpInfo(Long id, SalesAction salesAction) throws ApiException {
-    // Check required parameters
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling update");
-    }
-    if (salesAction == null) {
-      throw new ApiException(400, "Missing the required parameter 'salesAction' when calling update");
-    }
-
-    // Path parameters
-    String localVarPath = "/sales-actions/{id}"
-            .replaceAll("\\{id}", apiClient.escapeString(id.toString()));
-
-    String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
-    String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
-    String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("SalesActionsApi.update", localVarPath, "PUT", new ArrayList<>(), salesAction,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
-  }
-  /**
-   * Full update of an action comment. If comment doesn&#39;t exist, it&#39;s created.
-   * 
-   * @param id id (required)
-   * @param cid cid (required)
-   * @param comment Comment (required)
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-       <tr><td> 201 </td><td> Created </td><td>  * Location - URL to created work unit <br>  </td></tr>
-       <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
-       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
-     </table>
-   */
-  public void updateComment(Long id, Long cid, Comment comment) throws ApiException {
-    updateCommentWithHttpInfo(id, cid, comment);
-  }
-
-  /**
-   * Full update of an action comment. If comment doesn&#39;t exist, it&#39;s created.
-   * 
-   * @param id id (required)
-   * @param cid cid (required)
-   * @param comment Comment (required)
-   * @return ApiResponse&lt;Void&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-       <tr><td> 201 </td><td> Created </td><td>  * Location - URL to created work unit <br>  </td></tr>
-       <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
-       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
-     </table>
-   */
-  public ApiResponse<Void> updateCommentWithHttpInfo(Long id, Long cid, Comment comment) throws ApiException {
-    // Check required parameters
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling updateComment");
-    }
-    if (cid == null) {
-      throw new ApiException(400, "Missing the required parameter 'cid' when calling updateComment");
-    }
-    if (comment == null) {
-      throw new ApiException(400, "Missing the required parameter 'comment' when calling updateComment");
-    }
-
-    // Path parameters
-    String localVarPath = "/sales-actions/{id}/comments/{cid}"
-            .replaceAll("\\{id}", apiClient.escapeString(id.toString()))
-            .replaceAll("\\{cid}", apiClient.escapeString(cid.toString()));
-
-    String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
-    String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
-    String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("SalesActionsApi.updateComment", localVarPath, "PUT", new ArrayList<>(), comment,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
-  }
-  /**
-   * Full update of a action document. If document doesn&#39;t exist, it&#39;s created.
-   * 
-   * @param id id (required)
-   * @param did did (required)
-   * @param document Document (required)
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-       <tr><td> 201 </td><td> Created </td><td>  * Location - URL to created work unit <br>  </td></tr>
-       <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
-       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
-     </table>
-   */
-  public void updateDocument(Long id, Long did, Document document) throws ApiException {
-    updateDocumentWithHttpInfo(id, did, document);
-  }
-
-  /**
-   * Full update of a action document. If document doesn&#39;t exist, it&#39;s created.
-   * 
-   * @param id id (required)
-   * @param did did (required)
-   * @param document Document (required)
-   * @return ApiResponse&lt;Void&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-       <tr><td> 201 </td><td> Created </td><td>  * Location - URL to created work unit <br>  </td></tr>
-       <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
-       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
-     </table>
-   */
-  public ApiResponse<Void> updateDocumentWithHttpInfo(Long id, Long did, Document document) throws ApiException {
-    // Check required parameters
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling updateDocument");
-    }
-    if (did == null) {
-      throw new ApiException(400, "Missing the required parameter 'did' when calling updateDocument");
-    }
-    if (document == null) {
-      throw new ApiException(400, "Missing the required parameter 'document' when calling updateDocument");
-    }
-
-    // Path parameters
-    String localVarPath = "/sales-actions/{id}/documents/{did}"
-            .replaceAll("\\{id}", apiClient.escapeString(id.toString()))
-            .replaceAll("\\{did}", apiClient.escapeString(did.toString()));
-
-    String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
-    String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
-    String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("SalesActionsApi.updateDocument", localVarPath, "PUT", new ArrayList<>(), document,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
-  }
-  /**
    * Partial update of a sales action
    * 
    * @param id id (required)
@@ -1108,8 +919,8 @@ public class SalesActionsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void updatePartial(Long id, SalesAction salesAction) throws ApiException {
-    updatePartialWithHttpInfo(id, salesAction);
+  public void updatePartialSalesAction(Long id, SalesAction salesAction) throws ApiException {
+    updatePartialSalesActionWithHttpInfo(id, salesAction);
   }
 
   /**
@@ -1131,13 +942,13 @@ public class SalesActionsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> updatePartialWithHttpInfo(Long id, SalesAction salesAction) throws ApiException {
+  public ApiResponse<Void> updatePartialSalesActionWithHttpInfo(Long id, SalesAction salesAction) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling updatePartial");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updatePartialSalesAction");
     }
     if (salesAction == null) {
-      throw new ApiException(400, "Missing the required parameter 'salesAction' when calling updatePartial");
+      throw new ApiException(400, "Missing the required parameter 'salesAction' when calling updatePartialSalesAction");
     }
 
     // Path parameters
@@ -1147,7 +958,7 @@ public class SalesActionsApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("SalesActionsApi.updatePartial", localVarPath, "POST", new ArrayList<>(), salesAction,
+    return apiClient.invokeAPI("SalesActionsApi.updatePartialSalesAction", localVarPath, "POST", new ArrayList<>(), salesAction,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -1170,8 +981,8 @@ public class SalesActionsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void updatePartialComment(Long id, Long cid, Comment comment) throws ApiException {
-    updatePartialCommentWithHttpInfo(id, cid, comment);
+  public void updatePartialSalesActionComment(Long id, Long cid, Comment comment) throws ApiException {
+    updatePartialSalesActionCommentWithHttpInfo(id, cid, comment);
   }
 
   /**
@@ -1194,16 +1005,16 @@ public class SalesActionsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> updatePartialCommentWithHttpInfo(Long id, Long cid, Comment comment) throws ApiException {
+  public ApiResponse<Void> updatePartialSalesActionCommentWithHttpInfo(Long id, Long cid, Comment comment) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling updatePartialComment");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updatePartialSalesActionComment");
     }
     if (cid == null) {
-      throw new ApiException(400, "Missing the required parameter 'cid' when calling updatePartialComment");
+      throw new ApiException(400, "Missing the required parameter 'cid' when calling updatePartialSalesActionComment");
     }
     if (comment == null) {
-      throw new ApiException(400, "Missing the required parameter 'comment' when calling updatePartialComment");
+      throw new ApiException(400, "Missing the required parameter 'comment' when calling updatePartialSalesActionComment");
     }
 
     // Path parameters
@@ -1214,7 +1025,7 @@ public class SalesActionsApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("SalesActionsApi.updatePartialComment", localVarPath, "POST", new ArrayList<>(), comment,
+    return apiClient.invokeAPI("SalesActionsApi.updatePartialSalesActionComment", localVarPath, "POST", new ArrayList<>(), comment,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -1237,8 +1048,8 @@ public class SalesActionsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void updatePartialDocument(Long id, Long did, Document document) throws ApiException {
-    updatePartialDocumentWithHttpInfo(id, did, document);
+  public void updatePartialSalesActionDocument(Long id, Long did, Document document) throws ApiException {
+    updatePartialSalesActionDocumentWithHttpInfo(id, did, document);
   }
 
   /**
@@ -1261,16 +1072,16 @@ public class SalesActionsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> updatePartialDocumentWithHttpInfo(Long id, Long did, Document document) throws ApiException {
+  public ApiResponse<Void> updatePartialSalesActionDocumentWithHttpInfo(Long id, Long did, Document document) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling updatePartialDocument");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updatePartialSalesActionDocument");
     }
     if (did == null) {
-      throw new ApiException(400, "Missing the required parameter 'did' when calling updatePartialDocument");
+      throw new ApiException(400, "Missing the required parameter 'did' when calling updatePartialSalesActionDocument");
     }
     if (document == null) {
-      throw new ApiException(400, "Missing the required parameter 'document' when calling updatePartialDocument");
+      throw new ApiException(400, "Missing the required parameter 'document' when calling updatePartialSalesActionDocument");
     }
 
     // Path parameters
@@ -1281,7 +1092,202 @@ public class SalesActionsApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("SalesActionsApi.updatePartialDocument", localVarPath, "POST", new ArrayList<>(), document,
+    return apiClient.invokeAPI("SalesActionsApi.updatePartialSalesActionDocument", localVarPath, "POST", new ArrayList<>(), document,
+                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
+                               localVarAuthNames, null, false);
+  }
+  /**
+   * Full update of an sales action. If sales action doesn&#39;t exist, it&#39;s created.
+   * 
+   * @param id id (required)
+   * @param salesAction Sales-action (required)
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+       <tr><td> 201 </td><td> Created </td><td>  * Location - URL to created work unit <br>  </td></tr>
+       <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
+       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
+     </table>
+   */
+  public void updateSalesAction(Long id, SalesAction salesAction) throws ApiException {
+    updateSalesActionWithHttpInfo(id, salesAction);
+  }
+
+  /**
+   * Full update of an sales action. If sales action doesn&#39;t exist, it&#39;s created.
+   * 
+   * @param id id (required)
+   * @param salesAction Sales-action (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+       <tr><td> 201 </td><td> Created </td><td>  * Location - URL to created work unit <br>  </td></tr>
+       <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
+       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<Void> updateSalesActionWithHttpInfo(Long id, SalesAction salesAction) throws ApiException {
+    // Check required parameters
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updateSalesAction");
+    }
+    if (salesAction == null) {
+      throw new ApiException(400, "Missing the required parameter 'salesAction' when calling updateSalesAction");
+    }
+
+    // Path parameters
+    String localVarPath = "/sales-actions/{id}"
+            .replaceAll("\\{id}", apiClient.escapeString(id.toString()));
+
+    String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
+    String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
+    String[] localVarAuthNames = new String[] {"api_key", "oauth"};
+    return apiClient.invokeAPI("SalesActionsApi.updateSalesAction", localVarPath, "PUT", new ArrayList<>(), salesAction,
+                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
+                               localVarAuthNames, null, false);
+  }
+  /**
+   * Full update of an action comment. If comment doesn&#39;t exist, it&#39;s created.
+   * 
+   * @param id id (required)
+   * @param cid cid (required)
+   * @param comment Comment (required)
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+       <tr><td> 201 </td><td> Created </td><td>  * Location - URL to created work unit <br>  </td></tr>
+       <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
+       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
+     </table>
+   */
+  public void updateSalesActionComment(Long id, Long cid, Comment comment) throws ApiException {
+    updateSalesActionCommentWithHttpInfo(id, cid, comment);
+  }
+
+  /**
+   * Full update of an action comment. If comment doesn&#39;t exist, it&#39;s created.
+   * 
+   * @param id id (required)
+   * @param cid cid (required)
+   * @param comment Comment (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+       <tr><td> 201 </td><td> Created </td><td>  * Location - URL to created work unit <br>  </td></tr>
+       <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
+       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<Void> updateSalesActionCommentWithHttpInfo(Long id, Long cid, Comment comment) throws ApiException {
+    // Check required parameters
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updateSalesActionComment");
+    }
+    if (cid == null) {
+      throw new ApiException(400, "Missing the required parameter 'cid' when calling updateSalesActionComment");
+    }
+    if (comment == null) {
+      throw new ApiException(400, "Missing the required parameter 'comment' when calling updateSalesActionComment");
+    }
+
+    // Path parameters
+    String localVarPath = "/sales-actions/{id}/comments/{cid}"
+            .replaceAll("\\{id}", apiClient.escapeString(id.toString()))
+            .replaceAll("\\{cid}", apiClient.escapeString(cid.toString()));
+
+    String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
+    String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
+    String[] localVarAuthNames = new String[] {"api_key", "oauth"};
+    return apiClient.invokeAPI("SalesActionsApi.updateSalesActionComment", localVarPath, "PUT", new ArrayList<>(), comment,
+                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
+                               localVarAuthNames, null, false);
+  }
+  /**
+   * Full update of a action document. If document doesn&#39;t exist, it&#39;s created.
+   * 
+   * @param id id (required)
+   * @param did did (required)
+   * @param document Document (required)
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+       <tr><td> 201 </td><td> Created </td><td>  * Location - URL to created work unit <br>  </td></tr>
+       <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
+       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
+     </table>
+   */
+  public void updateSalesActionDocument(Long id, Long did, Document document) throws ApiException {
+    updateSalesActionDocumentWithHttpInfo(id, did, document);
+  }
+
+  /**
+   * Full update of a action document. If document doesn&#39;t exist, it&#39;s created.
+   * 
+   * @param id id (required)
+   * @param did did (required)
+   * @param document Document (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+       <tr><td> 201 </td><td> Created </td><td>  * Location - URL to created work unit <br>  </td></tr>
+       <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
+       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<Void> updateSalesActionDocumentWithHttpInfo(Long id, Long did, Document document) throws ApiException {
+    // Check required parameters
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updateSalesActionDocument");
+    }
+    if (did == null) {
+      throw new ApiException(400, "Missing the required parameter 'did' when calling updateSalesActionDocument");
+    }
+    if (document == null) {
+      throw new ApiException(400, "Missing the required parameter 'document' when calling updateSalesActionDocument");
+    }
+
+    // Path parameters
+    String localVarPath = "/sales-actions/{id}/documents/{did}"
+            .replaceAll("\\{id}", apiClient.escapeString(id.toString()))
+            .replaceAll("\\{did}", apiClient.escapeString(did.toString()));
+
+    String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
+    String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
+    String[] localVarAuthNames = new String[] {"api_key", "oauth"};
+    return apiClient.invokeAPI("SalesActionsApi.updateSalesActionDocument", localVarPath, "PUT", new ArrayList<>(), document,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -1303,8 +1309,8 @@ public class SalesActionsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void uploadDocument(Long id, Long did, FormDataContentDisposition _file) throws ApiException {
-    uploadDocumentWithHttpInfo(id, did, _file);
+  public void uploadSalesActionDocument(Long id, Long did, FormDataContentDisposition _file) throws ApiException {
+    uploadSalesActionDocumentWithHttpInfo(id, did, _file);
   }
 
   /**
@@ -1326,16 +1332,16 @@ public class SalesActionsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> uploadDocumentWithHttpInfo(Long id, Long did, FormDataContentDisposition _file) throws ApiException {
+  public ApiResponse<Void> uploadSalesActionDocumentWithHttpInfo(Long id, Long did, FormDataContentDisposition _file) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling uploadDocument");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling uploadSalesActionDocument");
     }
     if (did == null) {
-      throw new ApiException(400, "Missing the required parameter 'did' when calling uploadDocument");
+      throw new ApiException(400, "Missing the required parameter 'did' when calling uploadSalesActionDocument");
     }
     if (_file == null) {
-      throw new ApiException(400, "Missing the required parameter '_file' when calling uploadDocument");
+      throw new ApiException(400, "Missing the required parameter '_file' when calling uploadSalesActionDocument");
     }
 
     // Path parameters
@@ -1350,7 +1356,7 @@ public class SalesActionsApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("multipart/form-data");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("SalesActionsApi.uploadDocument", localVarPath, "POST", new ArrayList<>(), null,
+    return apiClient.invokeAPI("SalesActionsApi.uploadSalesActionDocument", localVarPath, "POST", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }

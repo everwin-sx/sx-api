@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 
-@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-05-22T08:24:46.022483900+02:00[Europe/Paris]")
+@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-10-06T08:58:20.555636300+02:00[Europe/Paris]")
 public class PoaQuotesApi {
   private ApiClient apiClient;
 
@@ -65,8 +65,8 @@ public class PoaQuotesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void addEstimateToOrder(Long orderId, Long estimateId, CustomerOrder customerOrder) throws ApiException {
-    addEstimateToOrderWithHttpInfo(orderId, estimateId, customerOrder);
+  public void addPOAQuoteEstimateToOrder(Long orderId, Long estimateId, CustomerOrder customerOrder) throws ApiException {
+    addPOAQuoteEstimateToOrderWithHttpInfo(orderId, estimateId, customerOrder);
   }
 
   /**
@@ -89,16 +89,16 @@ public class PoaQuotesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> addEstimateToOrderWithHttpInfo(Long orderId, Long estimateId, CustomerOrder customerOrder) throws ApiException {
+  public ApiResponse<Void> addPOAQuoteEstimateToOrderWithHttpInfo(Long orderId, Long estimateId, CustomerOrder customerOrder) throws ApiException {
     // Check required parameters
     if (orderId == null) {
-      throw new ApiException(400, "Missing the required parameter 'orderId' when calling addEstimateToOrder");
+      throw new ApiException(400, "Missing the required parameter 'orderId' when calling addPOAQuoteEstimateToOrder");
     }
     if (estimateId == null) {
-      throw new ApiException(400, "Missing the required parameter 'estimateId' when calling addEstimateToOrder");
+      throw new ApiException(400, "Missing the required parameter 'estimateId' when calling addPOAQuoteEstimateToOrder");
     }
     if (customerOrder == null) {
-      throw new ApiException(400, "Missing the required parameter 'customerOrder' when calling addEstimateToOrder");
+      throw new ApiException(400, "Missing the required parameter 'customerOrder' when calling addPOAQuoteEstimateToOrder");
     }
 
     // Path parameters
@@ -109,7 +109,7 @@ public class PoaQuotesApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("PoaQuotesApi.addEstimateToOrder", localVarPath, "PUT", new ArrayList<>(), customerOrder,
+    return apiClient.invokeAPI("PoaQuotesApi.addPOAQuoteEstimateToOrder", localVarPath, "PUT", new ArrayList<>(), customerOrder,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -131,8 +131,8 @@ public class PoaQuotesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void createOrderFromEstimate(Long estimateId, CustomerOrder customerOrder) throws ApiException {
-    createOrderFromEstimateWithHttpInfo(estimateId, customerOrder);
+  public void createPOAQuoteOrderFromEstimate(Long estimateId, CustomerOrder customerOrder) throws ApiException {
+    createPOAQuoteOrderFromEstimateWithHttpInfo(estimateId, customerOrder);
   }
 
   /**
@@ -154,13 +154,13 @@ public class PoaQuotesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> createOrderFromEstimateWithHttpInfo(Long estimateId, CustomerOrder customerOrder) throws ApiException {
+  public ApiResponse<Void> createPOAQuoteOrderFromEstimateWithHttpInfo(Long estimateId, CustomerOrder customerOrder) throws ApiException {
     // Check required parameters
     if (estimateId == null) {
-      throw new ApiException(400, "Missing the required parameter 'estimateId' when calling createOrderFromEstimate");
+      throw new ApiException(400, "Missing the required parameter 'estimateId' when calling createPOAQuoteOrderFromEstimate");
     }
     if (customerOrder == null) {
-      throw new ApiException(400, "Missing the required parameter 'customerOrder' when calling createOrderFromEstimate");
+      throw new ApiException(400, "Missing the required parameter 'customerOrder' when calling createPOAQuoteOrderFromEstimate");
     }
 
     // Path parameters
@@ -170,7 +170,7 @@ public class PoaQuotesApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("PoaQuotesApi.createOrderFromEstimate", localVarPath, "POST", new ArrayList<>(), customerOrder,
+    return apiClient.invokeAPI("PoaQuotesApi.createPOAQuoteOrderFromEstimate", localVarPath, "POST", new ArrayList<>(), customerOrder,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -190,8 +190,8 @@ public class PoaQuotesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void delete(Long id) throws ApiException {
-    deleteWithHttpInfo(id);
+  public void deletePOAQuote(Long id) throws ApiException {
+    deletePOAQuoteWithHttpInfo(id);
   }
 
   /**
@@ -211,10 +211,10 @@ public class PoaQuotesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> deleteWithHttpInfo(Long id) throws ApiException {
+  public ApiResponse<Void> deletePOAQuoteWithHttpInfo(Long id) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling delete");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling deletePOAQuote");
     }
 
     // Path parameters
@@ -224,72 +224,9 @@ public class PoaQuotesApi {
     String localVarAccept = apiClient.selectHeaderAccept("*/*");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("PoaQuotesApi.delete", localVarPath, "DELETE", new ArrayList<>(), null,
+    return apiClient.invokeAPI("PoaQuotesApi.deletePOAQuote", localVarPath, "DELETE", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
-  }
-  /**
-   * Get a poa quote by id
-   * 
-   * @param id id (required)
-   * @param fields fields (optional)
-   * @return Poaquote
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
-       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
-     </table>
-   */
-  public Poaquote getById(Long id, String fields) throws ApiException {
-    return getByIdWithHttpInfo(id, fields).getData();
-  }
-
-  /**
-   * Get a poa quote by id
-   * 
-   * @param id id (required)
-   * @param fields fields (optional)
-   * @return ApiResponse&lt;Poaquote&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
-       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
-     </table>
-   */
-  public ApiResponse<Poaquote> getByIdWithHttpInfo(Long id, String fields) throws ApiException {
-    // Check required parameters
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getById");
-    }
-
-    // Path parameters
-    String localVarPath = "/poa-quotes/{id}"
-            .replaceAll("\\{id}", apiClient.escapeString(id.toString()));
-
-    // Query parameters
-    List<Pair> localVarQueryParams = new ArrayList<>(
-            apiClient.parameterToPairs("", "fields", fields)
-    );
-
-    String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
-    String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    GenericType<Poaquote> localVarReturnType = new GenericType<Poaquote>() {};
-    return apiClient.invokeAPI("PoaQuotesApi.getById", localVarPath, "GET", localVarQueryParams, null,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
   }
   /**
    * Get a collection of poa quote items for the poa quote
@@ -367,6 +304,69 @@ public class PoaQuotesApi {
                                localVarAuthNames, localVarReturnType, false);
   }
   /**
+   * Get a poa quote by id
+   * 
+   * @param id id (required)
+   * @param fields fields (optional)
+   * @return Poaquote
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
+       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
+     </table>
+   */
+  public Poaquote getPOAQuoteById(Long id, String fields) throws ApiException {
+    return getPOAQuoteByIdWithHttpInfo(id, fields).getData();
+  }
+
+  /**
+   * Get a poa quote by id
+   * 
+   * @param id id (required)
+   * @param fields fields (optional)
+   * @return ApiResponse&lt;Poaquote&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
+       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<Poaquote> getPOAQuoteByIdWithHttpInfo(Long id, String fields) throws ApiException {
+    // Check required parameters
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getPOAQuoteById");
+    }
+
+    // Path parameters
+    String localVarPath = "/poa-quotes/{id}"
+            .replaceAll("\\{id}", apiClient.escapeString(id.toString()));
+
+    // Query parameters
+    List<Pair> localVarQueryParams = new ArrayList<>(
+            apiClient.parameterToPairs("", "fields", fields)
+    );
+
+    String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
+    String localVarContentType = apiClient.selectHeaderContentType();
+    String[] localVarAuthNames = new String[] {"api_key", "oauth"};
+    GenericType<Poaquote> localVarReturnType = new GenericType<Poaquote>() {};
+    return apiClient.invokeAPI("PoaQuotesApi.getPOAQuoteById", localVarPath, "GET", localVarQueryParams, null,
+                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, false);
+  }
+  /**
    * Get a poa quote lines by quote id
    * 
    * @param id id (required)
@@ -388,8 +388,8 @@ public class PoaQuotesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public POAQuoteLineList getLines(Long id, String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
-    return getLinesWithHttpInfo(id, filter, sort, offset, limit, fields).getData();
+  public POAQuoteLineList getPOAQuoteLines(Long id, String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+    return getPOAQuoteLinesWithHttpInfo(id, filter, sort, offset, limit, fields).getData();
   }
 
   /**
@@ -414,10 +414,10 @@ public class PoaQuotesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<POAQuoteLineList> getLinesWithHttpInfo(Long id, String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+  public ApiResponse<POAQuoteLineList> getPOAQuoteLinesWithHttpInfo(Long id, String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getLines");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getPOAQuoteLines");
     }
 
     // Path parameters
@@ -437,7 +437,7 @@ public class PoaQuotesApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<POAQuoteLineList> localVarReturnType = new GenericType<POAQuoteLineList>() {};
-    return apiClient.invokeAPI("PoaQuotesApi.getLines", localVarPath, "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("PoaQuotesApi.getPOAQuoteLines", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -454,8 +454,8 @@ public class PoaQuotesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public String ping() throws ApiException {
-    return pingWithHttpInfo().getData();
+  public String pingPOAQuote() throws ApiException {
+    return pingPOAQuoteWithHttpInfo().getData();
   }
 
   /**
@@ -471,12 +471,12 @@ public class PoaQuotesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<String> pingWithHttpInfo() throws ApiException {
+  public ApiResponse<String> pingPOAQuoteWithHttpInfo() throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("text/plain");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<String> localVarReturnType = new GenericType<String>() {};
-    return apiClient.invokeAPI("PoaQuotesApi.ping", "/poa-quotes/ping", "GET", new ArrayList<>(), null,
+    return apiClient.invokeAPI("PoaQuotesApi.pingPOAQuote", "/poa-quotes/ping", "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -499,8 +499,8 @@ public class PoaQuotesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public POAQuoteList query(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
-    return queryWithHttpInfo(filter, sort, offset, limit, fields).getData();
+  public POAQuoteList queryPOAQuote(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+    return queryPOAQuoteWithHttpInfo(filter, sort, offset, limit, fields).getData();
   }
 
   /**
@@ -522,7 +522,7 @@ public class PoaQuotesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<POAQuoteList> queryWithHttpInfo(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+  public ApiResponse<POAQuoteList> queryPOAQuoteWithHttpInfo(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
     // Query parameters
     List<Pair> localVarQueryParams = new ArrayList<>(
             apiClient.parameterToPairs("", "filter", filter)
@@ -536,7 +536,7 @@ public class PoaQuotesApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<POAQuoteList> localVarReturnType = new GenericType<POAQuoteList>() {};
-    return apiClient.invokeAPI("PoaQuotesApi.query", "/poa-quotes", "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("PoaQuotesApi.queryPOAQuote", "/poa-quotes", "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -557,8 +557,8 @@ public class PoaQuotesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void validate(Long id, String step) throws ApiException {
-    validateWithHttpInfo(id, step);
+  public void validatePOAQuote(Long id, String step) throws ApiException {
+    validatePOAQuoteWithHttpInfo(id, step);
   }
 
   /**
@@ -579,13 +579,13 @@ public class PoaQuotesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> validateWithHttpInfo(Long id, String step) throws ApiException {
+  public ApiResponse<Void> validatePOAQuoteWithHttpInfo(Long id, String step) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling validate");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling validatePOAQuote");
     }
     if (step == null) {
-      throw new ApiException(400, "Missing the required parameter 'step' when calling validate");
+      throw new ApiException(400, "Missing the required parameter 'step' when calling validatePOAQuote");
     }
 
     // Path parameters
@@ -600,7 +600,7 @@ public class PoaQuotesApi {
     String localVarAccept = apiClient.selectHeaderAccept("*/*");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("PoaQuotesApi.validate", localVarPath, "POST", localVarQueryParams, null,
+    return apiClient.invokeAPI("PoaQuotesApi.validatePOAQuote", localVarPath, "POST", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }

@@ -10,7 +10,7 @@ import jakarta.ws.rs.core.GenericType;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 
-@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-05-22T08:24:46.022483900+02:00[Europe/Paris]")
+@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-10-06T08:58:20.555636300+02:00[Europe/Paris]")
 public class ParametersApi {
   private ApiClient apiClient;
 
@@ -109,8 +109,8 @@ public class ParametersApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public String ping() throws ApiException {
-    return pingWithHttpInfo().getData();
+  public String pingParameter() throws ApiException {
+    return pingParameterWithHttpInfo().getData();
   }
 
   /**
@@ -126,12 +126,12 @@ public class ParametersApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<String> pingWithHttpInfo() throws ApiException {
+  public ApiResponse<String> pingParameterWithHttpInfo() throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("text/plain");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<String> localVarReturnType = new GenericType<String>() {};
-    return apiClient.invokeAPI("ParametersApi.ping", "/parameters/ping", "GET", new ArrayList<>(), null,
+    return apiClient.invokeAPI("ParametersApi.pingParameter", "/parameters/ping", "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -153,8 +153,8 @@ public class ParametersApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void update(String name, ApplicationParameter applicationParameter) throws ApiException {
-    updateWithHttpInfo(name, applicationParameter);
+  public void updateParameter(String name, ApplicationParameter applicationParameter) throws ApiException {
+    updateParameterWithHttpInfo(name, applicationParameter);
   }
 
   /**
@@ -176,13 +176,13 @@ public class ParametersApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> updateWithHttpInfo(String name, ApplicationParameter applicationParameter) throws ApiException {
+  public ApiResponse<Void> updateParameterWithHttpInfo(String name, ApplicationParameter applicationParameter) throws ApiException {
     // Check required parameters
     if (name == null) {
-      throw new ApiException(400, "Missing the required parameter 'name' when calling update");
+      throw new ApiException(400, "Missing the required parameter 'name' when calling updateParameter");
     }
     if (applicationParameter == null) {
-      throw new ApiException(400, "Missing the required parameter 'applicationParameter' when calling update");
+      throw new ApiException(400, "Missing the required parameter 'applicationParameter' when calling updateParameter");
     }
 
     // Path parameters
@@ -192,7 +192,7 @@ public class ParametersApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("ParametersApi.update", localVarPath, "POST", new ArrayList<>(), applicationParameter,
+    return apiClient.invokeAPI("ParametersApi.updateParameter", localVarPath, "POST", new ArrayList<>(), applicationParameter,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }

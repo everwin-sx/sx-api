@@ -27,7 +27,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-05-22T08:24:46.022483900+02:00[Europe/Paris]")
+@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-10-06T08:58:20.555636300+02:00[Europe/Paris]")
 public class TimesheetsApi {
   private ApiClient apiClient;
 
@@ -129,8 +129,8 @@ public class TimesheetsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void convertDurationFromAction_0(Long id, Long idTsk, java.time.LocalDateTime date) throws ApiException {
-    convertDurationFromAction_0WithHttpInfo(id, idTsk, date);
+  public void convertDurationFromActionByTask(Long id, Long idTsk, java.time.LocalDateTime date) throws ApiException {
+    convertDurationFromActionByTaskWithHttpInfo(id, idTsk, date);
   }
 
   /**
@@ -152,13 +152,13 @@ public class TimesheetsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> convertDurationFromAction_0WithHttpInfo(Long id, Long idTsk, java.time.LocalDateTime date) throws ApiException {
+  public ApiResponse<Void> convertDurationFromActionByTaskWithHttpInfo(Long id, Long idTsk, java.time.LocalDateTime date) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling convertDurationFromAction_0");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling convertDurationFromActionByTask");
     }
     if (idTsk == null) {
-      throw new ApiException(400, "Missing the required parameter 'idTsk' when calling convertDurationFromAction_0");
+      throw new ApiException(400, "Missing the required parameter 'idTsk' when calling convertDurationFromActionByTask");
     }
 
     // Path parameters
@@ -174,7 +174,7 @@ public class TimesheetsApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("TimesheetsApi.convertDurationFromAction_0", localVarPath, "POST", localVarQueryParams, null,
+    return apiClient.invokeAPI("TimesheetsApi.convertDurationFromActionByTask", localVarPath, "POST", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -182,6 +182,7 @@ public class TimesheetsApi {
    * Create a timesheet
    * 
    * @param timesheet Timesheet (required)
+   * @return Timesheet
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -193,15 +194,15 @@ public class TimesheetsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void create(Timesheet timesheet) throws ApiException {
-    createWithHttpInfo(timesheet);
+  public Timesheet createTimesheet(Timesheet timesheet) throws ApiException {
+    return createTimesheetWithHttpInfo(timesheet).getData();
   }
 
   /**
    * Create a timesheet
    * 
    * @param timesheet Timesheet (required)
-   * @return ApiResponse&lt;Void&gt;
+   * @return ApiResponse&lt;Timesheet&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -213,24 +214,26 @@ public class TimesheetsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> createWithHttpInfo(Timesheet timesheet) throws ApiException {
+  public ApiResponse<Timesheet> createTimesheetWithHttpInfo(Timesheet timesheet) throws ApiException {
     // Check required parameters
     if (timesheet == null) {
-      throw new ApiException(400, "Missing the required parameter 'timesheet' when calling create");
+      throw new ApiException(400, "Missing the required parameter 'timesheet' when calling createTimesheet");
     }
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("TimesheetsApi.create", "/timesheets", "POST", new ArrayList<>(), timesheet,
+    GenericType<Timesheet> localVarReturnType = new GenericType<Timesheet>() {};
+    return apiClient.invokeAPI("TimesheetsApi.createTimesheet", "/timesheets", "POST", new ArrayList<>(), timesheet,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
+                               localVarAuthNames, localVarReturnType, false);
   }
   /**
    * Create a new document for the timesheet
    * 
    * @param id id (required)
    * @param document Document (required)
+   * @return Document
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -242,8 +245,8 @@ public class TimesheetsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void createDocument(Long id, Document document) throws ApiException {
-    createDocumentWithHttpInfo(id, document);
+  public Document createTimesheetDocument(Long id, Document document) throws ApiException {
+    return createTimesheetDocumentWithHttpInfo(id, document).getData();
   }
 
   /**
@@ -251,7 +254,7 @@ public class TimesheetsApi {
    * 
    * @param id id (required)
    * @param document Document (required)
-   * @return ApiResponse&lt;Void&gt;
+   * @return ApiResponse&lt;Document&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -263,13 +266,13 @@ public class TimesheetsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> createDocumentWithHttpInfo(Long id, Document document) throws ApiException {
+  public ApiResponse<Document> createTimesheetDocumentWithHttpInfo(Long id, Document document) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling createDocument");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling createTimesheetDocument");
     }
     if (document == null) {
-      throw new ApiException(400, "Missing the required parameter 'document' when calling createDocument");
+      throw new ApiException(400, "Missing the required parameter 'document' when calling createTimesheetDocument");
     }
 
     // Path parameters
@@ -279,15 +282,17 @@ public class TimesheetsApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("TimesheetsApi.createDocument", localVarPath, "POST", new ArrayList<>(), document,
+    GenericType<Document> localVarReturnType = new GenericType<Document>() {};
+    return apiClient.invokeAPI("TimesheetsApi.createTimesheetDocument", localVarPath, "POST", new ArrayList<>(), document,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
+                               localVarAuthNames, localVarReturnType, false);
   }
   /**
    * Create a Timesheet Line for A Timesheet
    * 
    * @param id id (required)
    * @param timesheetLine TimesheetLine (required)
+   * @return TimesheetLine
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -299,8 +304,8 @@ public class TimesheetsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void createTimesheetLine(Long id, TimesheetLine timesheetLine) throws ApiException {
-    createTimesheetLineWithHttpInfo(id, timesheetLine);
+  public TimesheetLine createTimesheetTimesheetLine(Long id, TimesheetLine timesheetLine) throws ApiException {
+    return createTimesheetTimesheetLineWithHttpInfo(id, timesheetLine).getData();
   }
 
   /**
@@ -308,7 +313,7 @@ public class TimesheetsApi {
    * 
    * @param id id (required)
    * @param timesheetLine TimesheetLine (required)
-   * @return ApiResponse&lt;Void&gt;
+   * @return ApiResponse&lt;TimesheetLine&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -320,13 +325,13 @@ public class TimesheetsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> createTimesheetLineWithHttpInfo(Long id, TimesheetLine timesheetLine) throws ApiException {
+  public ApiResponse<TimesheetLine> createTimesheetTimesheetLineWithHttpInfo(Long id, TimesheetLine timesheetLine) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling createTimesheetLine");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling createTimesheetTimesheetLine");
     }
     if (timesheetLine == null) {
-      throw new ApiException(400, "Missing the required parameter 'timesheetLine' when calling createTimesheetLine");
+      throw new ApiException(400, "Missing the required parameter 'timesheetLine' when calling createTimesheetTimesheetLine");
     }
 
     // Path parameters
@@ -336,9 +341,10 @@ public class TimesheetsApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("TimesheetsApi.createTimesheetLine", localVarPath, "POST", new ArrayList<>(), timesheetLine,
+    GenericType<TimesheetLine> localVarReturnType = new GenericType<TimesheetLine>() {};
+    return apiClient.invokeAPI("TimesheetsApi.createTimesheetTimesheetLine", localVarPath, "POST", new ArrayList<>(), timesheetLine,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
+                               localVarAuthNames, localVarReturnType, false);
   }
   /**
    * Delete a timesheet
@@ -356,8 +362,8 @@ public class TimesheetsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void delete(Long id) throws ApiException {
-    deleteWithHttpInfo(id);
+  public void deleteTimesheet(Long id) throws ApiException {
+    deleteTimesheetWithHttpInfo(id);
   }
 
   /**
@@ -377,10 +383,10 @@ public class TimesheetsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> deleteWithHttpInfo(Long id) throws ApiException {
+  public ApiResponse<Void> deleteTimesheetWithHttpInfo(Long id) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling delete");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteTimesheet");
     }
 
     // Path parameters
@@ -390,7 +396,7 @@ public class TimesheetsApi {
     String localVarAccept = apiClient.selectHeaderAccept("*/*");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("TimesheetsApi.delete", localVarPath, "DELETE", new ArrayList<>(), null,
+    return apiClient.invokeAPI("TimesheetsApi.deleteTimesheet", localVarPath, "DELETE", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -411,8 +417,8 @@ public class TimesheetsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void deleteDocument(Long id, Long did) throws ApiException {
-    deleteDocumentWithHttpInfo(id, did);
+  public void deleteTimesheetDocument(Long id, Long did) throws ApiException {
+    deleteTimesheetDocumentWithHttpInfo(id, did);
   }
 
   /**
@@ -433,13 +439,13 @@ public class TimesheetsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> deleteDocumentWithHttpInfo(Long id, Long did) throws ApiException {
+  public ApiResponse<Void> deleteTimesheetDocumentWithHttpInfo(Long id, Long did) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteDocument");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteTimesheetDocument");
     }
     if (did == null) {
-      throw new ApiException(400, "Missing the required parameter 'did' when calling deleteDocument");
+      throw new ApiException(400, "Missing the required parameter 'did' when calling deleteTimesheetDocument");
     }
 
     // Path parameters
@@ -450,7 +456,7 @@ public class TimesheetsApi {
     String localVarAccept = apiClient.selectHeaderAccept("*/*");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("TimesheetsApi.deleteDocument", localVarPath, "DELETE", new ArrayList<>(), null,
+    return apiClient.invokeAPI("TimesheetsApi.deleteTimesheetDocument", localVarPath, "DELETE", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -471,8 +477,8 @@ public class TimesheetsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void deleteTimesheetLine(Long id, Long lineid) throws ApiException {
-    deleteTimesheetLineWithHttpInfo(id, lineid);
+  public void deleteTimesheetTimesheetLine(Long id, Long lineid) throws ApiException {
+    deleteTimesheetTimesheetLineWithHttpInfo(id, lineid);
   }
 
   /**
@@ -493,13 +499,13 @@ public class TimesheetsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> deleteTimesheetLineWithHttpInfo(Long id, Long lineid) throws ApiException {
+  public ApiResponse<Void> deleteTimesheetTimesheetLineWithHttpInfo(Long id, Long lineid) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteTimesheetLine");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteTimesheetTimesheetLine");
     }
     if (lineid == null) {
-      throw new ApiException(400, "Missing the required parameter 'lineid' when calling deleteTimesheetLine");
+      throw new ApiException(400, "Missing the required parameter 'lineid' when calling deleteTimesheetTimesheetLine");
     }
 
     // Path parameters
@@ -510,7 +516,7 @@ public class TimesheetsApi {
     String localVarAccept = apiClient.selectHeaderAccept("*/*");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("TimesheetsApi.deleteTimesheetLine", localVarPath, "DELETE", new ArrayList<>(), null,
+    return apiClient.invokeAPI("TimesheetsApi.deleteTimesheetTimesheetLine", localVarPath, "DELETE", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -531,8 +537,8 @@ public class TimesheetsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void downloadDocument(Long id, Long did) throws ApiException {
-    downloadDocumentWithHttpInfo(id, did);
+  public void downloadTimesheetDocument(Long id, Long did) throws ApiException {
+    downloadTimesheetDocumentWithHttpInfo(id, did);
   }
 
   /**
@@ -553,13 +559,13 @@ public class TimesheetsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> downloadDocumentWithHttpInfo(Long id, Long did) throws ApiException {
+  public ApiResponse<Void> downloadTimesheetDocumentWithHttpInfo(Long id, Long did) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling downloadDocument");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling downloadTimesheetDocument");
     }
     if (did == null) {
-      throw new ApiException(400, "Missing the required parameter 'did' when calling downloadDocument");
+      throw new ApiException(400, "Missing the required parameter 'did' when calling downloadTimesheetDocument");
     }
 
     // Path parameters
@@ -570,7 +576,7 @@ public class TimesheetsApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/octet-stream");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("TimesheetsApi.downloadDocument", localVarPath, "GET", new ArrayList<>(), null,
+    return apiClient.invokeAPI("TimesheetsApi.downloadTimesheetDocument", localVarPath, "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -591,8 +597,8 @@ public class TimesheetsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void duplicate(Long id, CopyData copyData) throws ApiException {
-    duplicateWithHttpInfo(id, copyData);
+  public void duplicateTimesheet(Long id, CopyData copyData) throws ApiException {
+    duplicateTimesheetWithHttpInfo(id, copyData);
   }
 
   /**
@@ -613,13 +619,13 @@ public class TimesheetsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> duplicateWithHttpInfo(Long id, CopyData copyData) throws ApiException {
+  public ApiResponse<Void> duplicateTimesheetWithHttpInfo(Long id, CopyData copyData) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling duplicate");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling duplicateTimesheet");
     }
     if (copyData == null) {
-      throw new ApiException(400, "Missing the required parameter 'copyData' when calling duplicate");
+      throw new ApiException(400, "Missing the required parameter 'copyData' when calling duplicateTimesheet");
     }
 
     // Path parameters
@@ -629,216 +635,9 @@ public class TimesheetsApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("TimesheetsApi.duplicate", localVarPath, "POST", new ArrayList<>(), copyData,
+    return apiClient.invokeAPI("TimesheetsApi.duplicateTimesheet", localVarPath, "POST", new ArrayList<>(), copyData,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
-  }
-  /**
-   * Get a timesheet by id
-   * 
-   * @param id id (required)
-   * @param fields fields (optional)
-   * @return Timesheet
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
-       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
-     </table>
-   */
-  public Timesheet getById(Long id, String fields) throws ApiException {
-    return getByIdWithHttpInfo(id, fields).getData();
-  }
-
-  /**
-   * Get a timesheet by id
-   * 
-   * @param id id (required)
-   * @param fields fields (optional)
-   * @return ApiResponse&lt;Timesheet&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
-       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
-     </table>
-   */
-  public ApiResponse<Timesheet> getByIdWithHttpInfo(Long id, String fields) throws ApiException {
-    // Check required parameters
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getById");
-    }
-
-    // Path parameters
-    String localVarPath = "/timesheets/{id}"
-            .replaceAll("\\{id}", apiClient.escapeString(id.toString()));
-
-    // Query parameters
-    List<Pair> localVarQueryParams = new ArrayList<>(
-            apiClient.parameterToPairs("", "fields", fields)
-    );
-
-    String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
-    String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    GenericType<Timesheet> localVarReturnType = new GenericType<Timesheet>() {};
-    return apiClient.invokeAPI("TimesheetsApi.getById", localVarPath, "GET", localVarQueryParams, null,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
-  }
-  /**
-   * Get a timesheet document by id
-   * 
-   * @param id id (required)
-   * @param did did (required)
-   * @param fields fields (optional)
-   * @return Document
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
-       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
-     </table>
-   */
-  public Document getDocumentById(Long id, Long did, String fields) throws ApiException {
-    return getDocumentByIdWithHttpInfo(id, did, fields).getData();
-  }
-
-  /**
-   * Get a timesheet document by id
-   * 
-   * @param id id (required)
-   * @param did did (required)
-   * @param fields fields (optional)
-   * @return ApiResponse&lt;Document&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
-       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
-     </table>
-   */
-  public ApiResponse<Document> getDocumentByIdWithHttpInfo(Long id, Long did, String fields) throws ApiException {
-    // Check required parameters
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getDocumentById");
-    }
-    if (did == null) {
-      throw new ApiException(400, "Missing the required parameter 'did' when calling getDocumentById");
-    }
-
-    // Path parameters
-    String localVarPath = "/timesheets/{id}/documents/{did}"
-            .replaceAll("\\{id}", apiClient.escapeString(id.toString()))
-            .replaceAll("\\{did}", apiClient.escapeString(did.toString()));
-
-    // Query parameters
-    List<Pair> localVarQueryParams = new ArrayList<>(
-            apiClient.parameterToPairs("", "fields", fields)
-    );
-
-    String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
-    String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    GenericType<Document> localVarReturnType = new GenericType<Document>() {};
-    return apiClient.invokeAPI("TimesheetsApi.getDocumentById", localVarPath, "GET", localVarQueryParams, null,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
-  }
-  /**
-   * Get a collection of documents for the given timesheet
-   * 
-   * @param id id (required)
-   * @param filter filter (optional)
-   * @param sort sort (optional)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
-   * @param fields fields (optional)
-   * @return DocumentList
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> OK </td><td>  * x-total-count - The total number of records <br>  * link - Link to the list <br>  * x-page-count - The total number of pages <br>  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
-       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
-     </table>
-   */
-  public DocumentList getDocuments(Long id, String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
-    return getDocumentsWithHttpInfo(id, filter, sort, offset, limit, fields).getData();
-  }
-
-  /**
-   * Get a collection of documents for the given timesheet
-   * 
-   * @param id id (required)
-   * @param filter filter (optional)
-   * @param sort sort (optional)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
-   * @param fields fields (optional)
-   * @return ApiResponse&lt;DocumentList&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> OK </td><td>  * x-total-count - The total number of records <br>  * link - Link to the list <br>  * x-page-count - The total number of pages <br>  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
-       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
-     </table>
-   */
-  public ApiResponse<DocumentList> getDocumentsWithHttpInfo(Long id, String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
-    // Check required parameters
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getDocuments");
-    }
-
-    // Path parameters
-    String localVarPath = "/timesheets/{id}/documents"
-            .replaceAll("\\{id}", apiClient.escapeString(id.toString()));
-
-    // Query parameters
-    List<Pair> localVarQueryParams = new ArrayList<>(
-            apiClient.parameterToPairs("", "filter", filter)
-    );
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "offset", offset));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "fields", fields));
-
-    String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
-    String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    GenericType<DocumentList> localVarReturnType = new GenericType<DocumentList>() {};
-    return apiClient.invokeAPI("TimesheetsApi.getDocuments", localVarPath, "GET", localVarQueryParams, null,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
   }
   /**
    * Get a collection of schedulings for a timesheet
@@ -895,16 +694,16 @@ public class TimesheetsApi {
                                localVarAuthNames, null, false);
   }
   /**
-   * Get 20 last recent projects for an timesheet by id
+   * Get a timesheet by id
    * 
    * @param id id (required)
    * @param fields fields (optional)
-   * @return ProjectList
+   * @return Timesheet
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> OK </td><td>  * x-total-count - The total number of records <br>  * link - Link to the list <br>  * x-page-count - The total number of pages <br>  </td></tr>
+       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
@@ -912,21 +711,21 @@ public class TimesheetsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ProjectList getRecentProjects(Long id, String fields) throws ApiException {
-    return getRecentProjectsWithHttpInfo(id, fields).getData();
+  public Timesheet getTimesheetById(Long id, String fields) throws ApiException {
+    return getTimesheetByIdWithHttpInfo(id, fields).getData();
   }
 
   /**
-   * Get 20 last recent projects for an timesheet by id
+   * Get a timesheet by id
    * 
    * @param id id (required)
    * @param fields fields (optional)
-   * @return ApiResponse&lt;ProjectList&gt;
+   * @return ApiResponse&lt;Timesheet&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> OK </td><td>  * x-total-count - The total number of records <br>  * link - Link to the list <br>  * x-page-count - The total number of pages <br>  </td></tr>
+       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
        <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
@@ -934,14 +733,14 @@ public class TimesheetsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<ProjectList> getRecentProjectsWithHttpInfo(Long id, String fields) throws ApiException {
+  public ApiResponse<Timesheet> getTimesheetByIdWithHttpInfo(Long id, String fields) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getRecentProjects");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getTimesheetById");
     }
 
     // Path parameters
-    String localVarPath = "/timesheets/{id}/projects/recent"
+    String localVarPath = "/timesheets/{id}"
             .replaceAll("\\{id}", apiClient.escapeString(id.toString()));
 
     // Query parameters
@@ -952,18 +751,18 @@ public class TimesheetsApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    GenericType<ProjectList> localVarReturnType = new GenericType<ProjectList>() {};
-    return apiClient.invokeAPI("TimesheetsApi.getRecentProjects", localVarPath, "GET", localVarQueryParams, null,
+    GenericType<Timesheet> localVarReturnType = new GenericType<Timesheet>() {};
+    return apiClient.invokeAPI("TimesheetsApi.getTimesheetById", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
   /**
-   * Get a timesheet line for the given timesheet
+   * Get a timesheet document by id
    * 
    * @param id id (required)
-   * @param lineid lineid (required)
+   * @param did did (required)
    * @param fields fields (optional)
-   * @return TimesheetLine
+   * @return Document
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -976,17 +775,17 @@ public class TimesheetsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public TimesheetLine getTimesheetLineById(Long id, Long lineid, String fields) throws ApiException {
-    return getTimesheetLineByIdWithHttpInfo(id, lineid, fields).getData();
+  public Document getTimesheetDocumentById(Long id, Long did, String fields) throws ApiException {
+    return getTimesheetDocumentByIdWithHttpInfo(id, did, fields).getData();
   }
 
   /**
-   * Get a timesheet line for the given timesheet
+   * Get a timesheet document by id
    * 
    * @param id id (required)
-   * @param lineid lineid (required)
+   * @param did did (required)
    * @param fields fields (optional)
-   * @return ApiResponse&lt;TimesheetLine&gt;
+   * @return ApiResponse&lt;Document&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -999,19 +798,19 @@ public class TimesheetsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<TimesheetLine> getTimesheetLineByIdWithHttpInfo(Long id, Long lineid, String fields) throws ApiException {
+  public ApiResponse<Document> getTimesheetDocumentByIdWithHttpInfo(Long id, Long did, String fields) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getTimesheetLineById");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getTimesheetDocumentById");
     }
-    if (lineid == null) {
-      throw new ApiException(400, "Missing the required parameter 'lineid' when calling getTimesheetLineById");
+    if (did == null) {
+      throw new ApiException(400, "Missing the required parameter 'did' when calling getTimesheetDocumentById");
     }
 
     // Path parameters
-    String localVarPath = "/timesheets/{id}/lines/{lineid}"
+    String localVarPath = "/timesheets/{id}/documents/{did}"
             .replaceAll("\\{id}", apiClient.escapeString(id.toString()))
-            .replaceAll("\\{lineid}", apiClient.escapeString(lineid.toString()));
+            .replaceAll("\\{did}", apiClient.escapeString(did.toString()));
 
     // Query parameters
     List<Pair> localVarQueryParams = new ArrayList<>(
@@ -1021,8 +820,83 @@ public class TimesheetsApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    GenericType<TimesheetLine> localVarReturnType = new GenericType<TimesheetLine>() {};
-    return apiClient.invokeAPI("TimesheetsApi.getTimesheetLineById", localVarPath, "GET", localVarQueryParams, null,
+    GenericType<Document> localVarReturnType = new GenericType<Document>() {};
+    return apiClient.invokeAPI("TimesheetsApi.getTimesheetDocumentById", localVarPath, "GET", localVarQueryParams, null,
+                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, false);
+  }
+  /**
+   * Get a collection of documents for the given timesheet
+   * 
+   * @param id id (required)
+   * @param filter filter (optional)
+   * @param sort sort (optional)
+   * @param offset offset (optional)
+   * @param limit limit (optional)
+   * @param fields fields (optional)
+   * @return DocumentList
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> OK </td><td>  * x-total-count - The total number of records <br>  * link - Link to the list <br>  * x-page-count - The total number of pages <br>  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
+       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
+     </table>
+   */
+  public DocumentList getTimesheetDocuments(Long id, String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+    return getTimesheetDocumentsWithHttpInfo(id, filter, sort, offset, limit, fields).getData();
+  }
+
+  /**
+   * Get a collection of documents for the given timesheet
+   * 
+   * @param id id (required)
+   * @param filter filter (optional)
+   * @param sort sort (optional)
+   * @param offset offset (optional)
+   * @param limit limit (optional)
+   * @param fields fields (optional)
+   * @return ApiResponse&lt;DocumentList&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> OK </td><td>  * x-total-count - The total number of records <br>  * link - Link to the list <br>  * x-page-count - The total number of pages <br>  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
+       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<DocumentList> getTimesheetDocumentsWithHttpInfo(Long id, String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+    // Check required parameters
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getTimesheetDocuments");
+    }
+
+    // Path parameters
+    String localVarPath = "/timesheets/{id}/documents"
+            .replaceAll("\\{id}", apiClient.escapeString(id.toString()));
+
+    // Query parameters
+    List<Pair> localVarQueryParams = new ArrayList<>(
+            apiClient.parameterToPairs("", "filter", filter)
+    );
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "offset", offset));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "fields", fields));
+
+    String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
+    String localVarContentType = apiClient.selectHeaderContentType();
+    String[] localVarAuthNames = new String[] {"api_key", "oauth"};
+    GenericType<DocumentList> localVarReturnType = new GenericType<DocumentList>() {};
+    return apiClient.invokeAPI("TimesheetsApi.getTimesheetDocuments", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -1102,6 +976,69 @@ public class TimesheetsApi {
                                localVarAuthNames, localVarReturnType, false);
   }
   /**
+   * Get 20 last recent projects for an timesheet by id
+   * 
+   * @param id id (required)
+   * @param fields fields (optional)
+   * @return ProjectList
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> OK </td><td>  * x-total-count - The total number of records <br>  * link - Link to the list <br>  * x-page-count - The total number of pages <br>  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
+       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
+     </table>
+   */
+  public ProjectList getTimesheetRecentProjects(Long id, String fields) throws ApiException {
+    return getTimesheetRecentProjectsWithHttpInfo(id, fields).getData();
+  }
+
+  /**
+   * Get 20 last recent projects for an timesheet by id
+   * 
+   * @param id id (required)
+   * @param fields fields (optional)
+   * @return ApiResponse&lt;ProjectList&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> OK </td><td>  * x-total-count - The total number of records <br>  * link - Link to the list <br>  * x-page-count - The total number of pages <br>  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
+       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<ProjectList> getTimesheetRecentProjectsWithHttpInfo(Long id, String fields) throws ApiException {
+    // Check required parameters
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getTimesheetRecentProjects");
+    }
+
+    // Path parameters
+    String localVarPath = "/timesheets/{id}/projects/recent"
+            .replaceAll("\\{id}", apiClient.escapeString(id.toString()));
+
+    // Query parameters
+    List<Pair> localVarQueryParams = new ArrayList<>(
+            apiClient.parameterToPairs("", "fields", fields)
+    );
+
+    String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
+    String localVarContentType = apiClient.selectHeaderContentType();
+    String[] localVarAuthNames = new String[] {"api_key", "oauth"};
+    GenericType<ProjectList> localVarReturnType = new GenericType<ProjectList>() {};
+    return apiClient.invokeAPI("TimesheetsApi.getTimesheetRecentProjects", localVarPath, "GET", localVarQueryParams, null,
+                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, false);
+  }
+  /**
    * Get a collection of tasks with visibility for a timesheet
    * 
    * @param id id (required)
@@ -1154,6 +1091,75 @@ public class TimesheetsApi {
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<TimesheetTaskVisibility> localVarReturnType = new GenericType<TimesheetTaskVisibility>() {};
     return apiClient.invokeAPI("TimesheetsApi.getTimesheetTaskVisibility", localVarPath, "GET", new ArrayList<>(), null,
+                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, false);
+  }
+  /**
+   * Get a timesheet line for the given timesheet
+   * 
+   * @param id id (required)
+   * @param lineid lineid (required)
+   * @param fields fields (optional)
+   * @return TimesheetLine
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
+       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
+     </table>
+   */
+  public TimesheetLine getTimesheetTimesheetLineById(Long id, Long lineid, String fields) throws ApiException {
+    return getTimesheetTimesheetLineByIdWithHttpInfo(id, lineid, fields).getData();
+  }
+
+  /**
+   * Get a timesheet line for the given timesheet
+   * 
+   * @param id id (required)
+   * @param lineid lineid (required)
+   * @param fields fields (optional)
+   * @return ApiResponse&lt;TimesheetLine&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
+       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<TimesheetLine> getTimesheetTimesheetLineByIdWithHttpInfo(Long id, Long lineid, String fields) throws ApiException {
+    // Check required parameters
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getTimesheetTimesheetLineById");
+    }
+    if (lineid == null) {
+      throw new ApiException(400, "Missing the required parameter 'lineid' when calling getTimesheetTimesheetLineById");
+    }
+
+    // Path parameters
+    String localVarPath = "/timesheets/{id}/lines/{lineid}"
+            .replaceAll("\\{id}", apiClient.escapeString(id.toString()))
+            .replaceAll("\\{lineid}", apiClient.escapeString(lineid.toString()));
+
+    // Query parameters
+    List<Pair> localVarQueryParams = new ArrayList<>(
+            apiClient.parameterToPairs("", "fields", fields)
+    );
+
+    String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
+    String localVarContentType = apiClient.selectHeaderContentType();
+    String[] localVarAuthNames = new String[] {"api_key", "oauth"};
+    GenericType<TimesheetLine> localVarReturnType = new GenericType<TimesheetLine>() {};
+    return apiClient.invokeAPI("TimesheetsApi.getTimesheetTimesheetLineById", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -1298,8 +1304,8 @@ public class TimesheetsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public String ping() throws ApiException {
-    return pingWithHttpInfo().getData();
+  public String pingTimesheet() throws ApiException {
+    return pingTimesheetWithHttpInfo().getData();
   }
 
   /**
@@ -1315,141 +1321,12 @@ public class TimesheetsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<String> pingWithHttpInfo() throws ApiException {
+  public ApiResponse<String> pingTimesheetWithHttpInfo() throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("text/plain");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<String> localVarReturnType = new GenericType<String>() {};
-    return apiClient.invokeAPI("TimesheetsApi.ping", "/timesheets/ping", "GET", new ArrayList<>(), null,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
-  }
-  /**
-   * Get a timesheets collection
-   * 
-   * @param filter filter (optional)
-   * @param sort sort (optional)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
-   * @param fields fields (optional)
-   * @return TimesheetList
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> OK </td><td>  * x-total-count - The total number of records <br>  * link - Link to the list <br>  * x-page-count - The total number of pages <br>  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
-       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
-     </table>
-   */
-  public TimesheetList query(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
-    return queryWithHttpInfo(filter, sort, offset, limit, fields).getData();
-  }
-
-  /**
-   * Get a timesheets collection
-   * 
-   * @param filter filter (optional)
-   * @param sort sort (optional)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
-   * @param fields fields (optional)
-   * @return ApiResponse&lt;TimesheetList&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> OK </td><td>  * x-total-count - The total number of records <br>  * link - Link to the list <br>  * x-page-count - The total number of pages <br>  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
-       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
-     </table>
-   */
-  public ApiResponse<TimesheetList> queryWithHttpInfo(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
-    // Query parameters
-    List<Pair> localVarQueryParams = new ArrayList<>(
-            apiClient.parameterToPairs("", "filter", filter)
-    );
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "offset", offset));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "fields", fields));
-
-    String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
-    String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    GenericType<TimesheetList> localVarReturnType = new GenericType<TimesheetList>() {};
-    return apiClient.invokeAPI("TimesheetsApi.query", "/timesheets", "GET", localVarQueryParams, null,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
-  }
-  /**
-   * Get the project lines linked to the project and timesheet
-   * 
-   * @param id id (required)
-   * @param projectid projectid (required)
-   * @param fields fields (optional)
-   * @return ProjectLineList
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> OK </td><td>  * x-total-count - The total number of records <br>  * link - Link to the list <br>  * x-page-count - The total number of pages <br>  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
-       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
-     </table>
-   */
-  public ProjectLineList queryProjectLines(Long id, Long projectid, String fields) throws ApiException {
-    return queryProjectLinesWithHttpInfo(id, projectid, fields).getData();
-  }
-
-  /**
-   * Get the project lines linked to the project and timesheet
-   * 
-   * @param id id (required)
-   * @param projectid projectid (required)
-   * @param fields fields (optional)
-   * @return ApiResponse&lt;ProjectLineList&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> OK </td><td>  * x-total-count - The total number of records <br>  * link - Link to the list <br>  * x-page-count - The total number of pages <br>  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
-       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
-     </table>
-   */
-  public ApiResponse<ProjectLineList> queryProjectLinesWithHttpInfo(Long id, Long projectid, String fields) throws ApiException {
-    // Check required parameters
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling queryProjectLines");
-    }
-    if (projectid == null) {
-      throw new ApiException(400, "Missing the required parameter 'projectid' when calling queryProjectLines");
-    }
-
-    // Path parameters
-    String localVarPath = "/timesheets/{id}/projects/{projectid}/project-lines"
-            .replaceAll("\\{id}", apiClient.escapeString(id.toString()))
-            .replaceAll("\\{projectid}", apiClient.escapeString(projectid.toString()));
-
-    // Query parameters
-    List<Pair> localVarQueryParams = new ArrayList<>(
-            apiClient.parameterToPairs("", "fields", fields)
-    );
-
-    String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
-    String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    GenericType<ProjectLineList> localVarReturnType = new GenericType<ProjectLineList>() {};
-    return apiClient.invokeAPI("TimesheetsApi.queryProjectLines", localVarPath, "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("TimesheetsApi.pingTimesheet", "/timesheets/ping", "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -1519,72 +1396,6 @@ public class TimesheetsApi {
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<ProjectSubLineList> localVarReturnType = new GenericType<ProjectSubLineList>() {};
     return apiClient.invokeAPI("TimesheetsApi.queryProjectSubLines", localVarPath, "GET", localVarQueryParams, null,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
-  }
-  /**
-   * Get available projects for the times on a timesheet by id
-   * 
-   * @param id id (required)
-   * @param filter filter (optional)
-   * @param fields fields (optional)
-   * @return ProjectList
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> OK </td><td>  * x-total-count - The total number of records <br>  * link - Link to the list <br>  * x-page-count - The total number of pages <br>  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
-       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
-     </table>
-   */
-  public ProjectList queryProjects(Long id, String filter, String fields) throws ApiException {
-    return queryProjectsWithHttpInfo(id, filter, fields).getData();
-  }
-
-  /**
-   * Get available projects for the times on a timesheet by id
-   * 
-   * @param id id (required)
-   * @param filter filter (optional)
-   * @param fields fields (optional)
-   * @return ApiResponse&lt;ProjectList&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> OK </td><td>  * x-total-count - The total number of records <br>  * link - Link to the list <br>  * x-page-count - The total number of pages <br>  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
-       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
-     </table>
-   */
-  public ApiResponse<ProjectList> queryProjectsWithHttpInfo(Long id, String filter, String fields) throws ApiException {
-    // Check required parameters
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling queryProjects");
-    }
-
-    // Path parameters
-    String localVarPath = "/timesheets/{id}/projects"
-            .replaceAll("\\{id}", apiClient.escapeString(id.toString()));
-
-    // Query parameters
-    List<Pair> localVarQueryParams = new ArrayList<>(
-            apiClient.parameterToPairs("", "filter", filter)
-    );
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "fields", fields));
-
-    String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
-    String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    GenericType<ProjectList> localVarReturnType = new GenericType<ProjectList>() {};
-    return apiClient.invokeAPI("TimesheetsApi.queryProjects", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -1880,6 +1691,201 @@ public class TimesheetsApi {
                                localVarAuthNames, localVarReturnType, false);
   }
   /**
+   * Get a timesheets collection
+   * 
+   * @param filter filter (optional)
+   * @param sort sort (optional)
+   * @param offset offset (optional)
+   * @param limit limit (optional)
+   * @param fields fields (optional)
+   * @return TimesheetList
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> OK </td><td>  * x-total-count - The total number of records <br>  * link - Link to the list <br>  * x-page-count - The total number of pages <br>  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
+       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
+     </table>
+   */
+  public TimesheetList queryTimesheet(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+    return queryTimesheetWithHttpInfo(filter, sort, offset, limit, fields).getData();
+  }
+
+  /**
+   * Get a timesheets collection
+   * 
+   * @param filter filter (optional)
+   * @param sort sort (optional)
+   * @param offset offset (optional)
+   * @param limit limit (optional)
+   * @param fields fields (optional)
+   * @return ApiResponse&lt;TimesheetList&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> OK </td><td>  * x-total-count - The total number of records <br>  * link - Link to the list <br>  * x-page-count - The total number of pages <br>  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
+       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<TimesheetList> queryTimesheetWithHttpInfo(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+    // Query parameters
+    List<Pair> localVarQueryParams = new ArrayList<>(
+            apiClient.parameterToPairs("", "filter", filter)
+    );
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "offset", offset));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "fields", fields));
+
+    String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
+    String localVarContentType = apiClient.selectHeaderContentType();
+    String[] localVarAuthNames = new String[] {"api_key", "oauth"};
+    GenericType<TimesheetList> localVarReturnType = new GenericType<TimesheetList>() {};
+    return apiClient.invokeAPI("TimesheetsApi.queryTimesheet", "/timesheets", "GET", localVarQueryParams, null,
+                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, false);
+  }
+  /**
+   * Get the project lines linked to the project and timesheet
+   * 
+   * @param id id (required)
+   * @param projectid projectid (required)
+   * @param fields fields (optional)
+   * @return ProjectLineList
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> OK </td><td>  * x-total-count - The total number of records <br>  * link - Link to the list <br>  * x-page-count - The total number of pages <br>  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
+       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
+     </table>
+   */
+  public ProjectLineList queryTimesheetProjectLines(Long id, Long projectid, String fields) throws ApiException {
+    return queryTimesheetProjectLinesWithHttpInfo(id, projectid, fields).getData();
+  }
+
+  /**
+   * Get the project lines linked to the project and timesheet
+   * 
+   * @param id id (required)
+   * @param projectid projectid (required)
+   * @param fields fields (optional)
+   * @return ApiResponse&lt;ProjectLineList&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> OK </td><td>  * x-total-count - The total number of records <br>  * link - Link to the list <br>  * x-page-count - The total number of pages <br>  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
+       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<ProjectLineList> queryTimesheetProjectLinesWithHttpInfo(Long id, Long projectid, String fields) throws ApiException {
+    // Check required parameters
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling queryTimesheetProjectLines");
+    }
+    if (projectid == null) {
+      throw new ApiException(400, "Missing the required parameter 'projectid' when calling queryTimesheetProjectLines");
+    }
+
+    // Path parameters
+    String localVarPath = "/timesheets/{id}/projects/{projectid}/project-lines"
+            .replaceAll("\\{id}", apiClient.escapeString(id.toString()))
+            .replaceAll("\\{projectid}", apiClient.escapeString(projectid.toString()));
+
+    // Query parameters
+    List<Pair> localVarQueryParams = new ArrayList<>(
+            apiClient.parameterToPairs("", "fields", fields)
+    );
+
+    String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
+    String localVarContentType = apiClient.selectHeaderContentType();
+    String[] localVarAuthNames = new String[] {"api_key", "oauth"};
+    GenericType<ProjectLineList> localVarReturnType = new GenericType<ProjectLineList>() {};
+    return apiClient.invokeAPI("TimesheetsApi.queryTimesheetProjectLines", localVarPath, "GET", localVarQueryParams, null,
+                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, false);
+  }
+  /**
+   * Get available projects for the times on a timesheet by id
+   * 
+   * @param id id (required)
+   * @param filter filter (optional)
+   * @param fields fields (optional)
+   * @return ProjectList
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> OK </td><td>  * x-total-count - The total number of records <br>  * link - Link to the list <br>  * x-page-count - The total number of pages <br>  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
+       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
+     </table>
+   */
+  public ProjectList queryTimesheetProjects(Long id, String filter, String fields) throws ApiException {
+    return queryTimesheetProjectsWithHttpInfo(id, filter, fields).getData();
+  }
+
+  /**
+   * Get available projects for the times on a timesheet by id
+   * 
+   * @param id id (required)
+   * @param filter filter (optional)
+   * @param fields fields (optional)
+   * @return ApiResponse&lt;ProjectList&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> OK </td><td>  * x-total-count - The total number of records <br>  * link - Link to the list <br>  * x-page-count - The total number of pages <br>  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
+       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<ProjectList> queryTimesheetProjectsWithHttpInfo(Long id, String filter, String fields) throws ApiException {
+    // Check required parameters
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling queryTimesheetProjects");
+    }
+
+    // Path parameters
+    String localVarPath = "/timesheets/{id}/projects"
+            .replaceAll("\\{id}", apiClient.escapeString(id.toString()));
+
+    // Query parameters
+    List<Pair> localVarQueryParams = new ArrayList<>(
+            apiClient.parameterToPairs("", "filter", filter)
+    );
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "fields", fields));
+
+    String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
+    String localVarContentType = apiClient.selectHeaderContentType();
+    String[] localVarAuthNames = new String[] {"api_key", "oauth"};
+    GenericType<ProjectList> localVarReturnType = new GenericType<ProjectList>() {};
+    return apiClient.invokeAPI("TimesheetsApi.queryTimesheetProjects", localVarPath, "GET", localVarQueryParams, null,
+                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, false);
+  }
+  /**
    * Get a collection of flow history for the given timesheet
    * 
    * @param id id (required)
@@ -1898,8 +1904,8 @@ public class TimesheetsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public TimeSheetFlowHistoryList queryValidationHistoryList(Long id, String filter, String fields) throws ApiException {
-    return queryValidationHistoryListWithHttpInfo(id, filter, fields).getData();
+  public TimeSheetFlowHistoryList queryTimesheetValidationHistoryList(Long id, String filter, String fields) throws ApiException {
+    return queryTimesheetValidationHistoryListWithHttpInfo(id, filter, fields).getData();
   }
 
   /**
@@ -1921,10 +1927,10 @@ public class TimesheetsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<TimeSheetFlowHistoryList> queryValidationHistoryListWithHttpInfo(Long id, String filter, String fields) throws ApiException {
+  public ApiResponse<TimeSheetFlowHistoryList> queryTimesheetValidationHistoryListWithHttpInfo(Long id, String filter, String fields) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling queryValidationHistoryList");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling queryTimesheetValidationHistoryList");
     }
 
     // Path parameters
@@ -1941,7 +1947,7 @@ public class TimesheetsApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<TimeSheetFlowHistoryList> localVarReturnType = new GenericType<TimeSheetFlowHistoryList>() {};
-    return apiClient.invokeAPI("TimesheetsApi.queryValidationHistoryList", localVarPath, "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("TimesheetsApi.queryTimesheetValidationHistoryList", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -1962,8 +1968,8 @@ public class TimesheetsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void unvalidate(Long id, ValidationInfo validationInfo) throws ApiException {
-    unvalidateWithHttpInfo(id, validationInfo);
+  public void unvalidateTimesheet(Long id, ValidationInfo validationInfo) throws ApiException {
+    unvalidateTimesheetWithHttpInfo(id, validationInfo);
   }
 
   /**
@@ -1984,10 +1990,10 @@ public class TimesheetsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> unvalidateWithHttpInfo(Long id, ValidationInfo validationInfo) throws ApiException {
+  public ApiResponse<Void> unvalidateTimesheetWithHttpInfo(Long id, ValidationInfo validationInfo) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling unvalidate");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling unvalidateTimesheet");
     }
 
     // Path parameters
@@ -1997,135 +2003,7 @@ public class TimesheetsApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("TimesheetsApi.unvalidate", localVarPath, "PUT", new ArrayList<>(), validationInfo,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
-  }
-  /**
-   * Full update of a Timesheet. If Timesheet doesn&#39;t exist, it&#39;s created.
-   * 
-   * @param id id (required)
-   * @param timesheet Timesheet (required)
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-       <tr><td> 201 </td><td> Created </td><td>  * Location - URL to created work unit <br>  </td></tr>
-       <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
-       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
-     </table>
-   */
-  public void update(Long id, Timesheet timesheet) throws ApiException {
-    updateWithHttpInfo(id, timesheet);
-  }
-
-  /**
-   * Full update of a Timesheet. If Timesheet doesn&#39;t exist, it&#39;s created.
-   * 
-   * @param id id (required)
-   * @param timesheet Timesheet (required)
-   * @return ApiResponse&lt;Void&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-       <tr><td> 201 </td><td> Created </td><td>  * Location - URL to created work unit <br>  </td></tr>
-       <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
-       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
-     </table>
-   */
-  public ApiResponse<Void> updateWithHttpInfo(Long id, Timesheet timesheet) throws ApiException {
-    // Check required parameters
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling update");
-    }
-    if (timesheet == null) {
-      throw new ApiException(400, "Missing the required parameter 'timesheet' when calling update");
-    }
-
-    // Path parameters
-    String localVarPath = "/timesheets/{id}"
-            .replaceAll("\\{id}", apiClient.escapeString(id.toString()));
-
-    String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
-    String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
-    String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("TimesheetsApi.update", localVarPath, "PUT", new ArrayList<>(), timesheet,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
-  }
-  /**
-   * Full update of a timesheet document. If document doesn&#39;t exist, it&#39;s created.
-   * 
-   * @param id id (required)
-   * @param did did (required)
-   * @param document Document (required)
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-       <tr><td> 201 </td><td> Created </td><td>  * Location - URL to created work unit <br>  </td></tr>
-       <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
-       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
-     </table>
-   */
-  public void updateDocument(Long id, Long did, Document document) throws ApiException {
-    updateDocumentWithHttpInfo(id, did, document);
-  }
-
-  /**
-   * Full update of a timesheet document. If document doesn&#39;t exist, it&#39;s created.
-   * 
-   * @param id id (required)
-   * @param did did (required)
-   * @param document Document (required)
-   * @return ApiResponse&lt;Void&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-       <tr><td> 201 </td><td> Created </td><td>  * Location - URL to created work unit <br>  </td></tr>
-       <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
-       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
-     </table>
-   */
-  public ApiResponse<Void> updateDocumentWithHttpInfo(Long id, Long did, Document document) throws ApiException {
-    // Check required parameters
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling updateDocument");
-    }
-    if (did == null) {
-      throw new ApiException(400, "Missing the required parameter 'did' when calling updateDocument");
-    }
-    if (document == null) {
-      throw new ApiException(400, "Missing the required parameter 'document' when calling updateDocument");
-    }
-
-    // Path parameters
-    String localVarPath = "/timesheets/{id}/documents/{did}"
-            .replaceAll("\\{id}", apiClient.escapeString(id.toString()))
-            .replaceAll("\\{did}", apiClient.escapeString(did.toString()));
-
-    String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
-    String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
-    String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("TimesheetsApi.updateDocument", localVarPath, "PUT", new ArrayList<>(), document,
+    return apiClient.invokeAPI("TimesheetsApi.unvalidateTimesheet", localVarPath, "PUT", new ArrayList<>(), validationInfo,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -2147,8 +2025,8 @@ public class TimesheetsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void updatePartial(Long id, Timesheet timesheet) throws ApiException {
-    updatePartialWithHttpInfo(id, timesheet);
+  public void updatePartialTimesheet(Long id, Timesheet timesheet) throws ApiException {
+    updatePartialTimesheetWithHttpInfo(id, timesheet);
   }
 
   /**
@@ -2170,13 +2048,13 @@ public class TimesheetsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> updatePartialWithHttpInfo(Long id, Timesheet timesheet) throws ApiException {
+  public ApiResponse<Void> updatePartialTimesheetWithHttpInfo(Long id, Timesheet timesheet) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling updatePartial");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updatePartialTimesheet");
     }
     if (timesheet == null) {
-      throw new ApiException(400, "Missing the required parameter 'timesheet' when calling updatePartial");
+      throw new ApiException(400, "Missing the required parameter 'timesheet' when calling updatePartialTimesheet");
     }
 
     // Path parameters
@@ -2186,7 +2064,7 @@ public class TimesheetsApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("TimesheetsApi.updatePartial", localVarPath, "POST", new ArrayList<>(), timesheet,
+    return apiClient.invokeAPI("TimesheetsApi.updatePartialTimesheet", localVarPath, "POST", new ArrayList<>(), timesheet,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -2209,8 +2087,8 @@ public class TimesheetsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void updatePartialDocument(Long id, Long did, Document document) throws ApiException {
-    updatePartialDocumentWithHttpInfo(id, did, document);
+  public void updatePartialTimesheetDocument(Long id, Long did, Document document) throws ApiException {
+    updatePartialTimesheetDocumentWithHttpInfo(id, did, document);
   }
 
   /**
@@ -2233,16 +2111,16 @@ public class TimesheetsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> updatePartialDocumentWithHttpInfo(Long id, Long did, Document document) throws ApiException {
+  public ApiResponse<Void> updatePartialTimesheetDocumentWithHttpInfo(Long id, Long did, Document document) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling updatePartialDocument");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updatePartialTimesheetDocument");
     }
     if (did == null) {
-      throw new ApiException(400, "Missing the required parameter 'did' when calling updatePartialDocument");
+      throw new ApiException(400, "Missing the required parameter 'did' when calling updatePartialTimesheetDocument");
     }
     if (document == null) {
-      throw new ApiException(400, "Missing the required parameter 'document' when calling updatePartialDocument");
+      throw new ApiException(400, "Missing the required parameter 'document' when calling updatePartialTimesheetDocument");
     }
 
     // Path parameters
@@ -2253,7 +2131,7 @@ public class TimesheetsApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("TimesheetsApi.updatePartialDocument", localVarPath, "POST", new ArrayList<>(), document,
+    return apiClient.invokeAPI("TimesheetsApi.updatePartialTimesheetDocument", localVarPath, "POST", new ArrayList<>(), document,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -2276,8 +2154,8 @@ public class TimesheetsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void updatePartialTimesheetLine(Long id, Long lineid, TimesheetLine timesheetLine) throws ApiException {
-    updatePartialTimesheetLineWithHttpInfo(id, lineid, timesheetLine);
+  public void updatePartialTimesheetTimesheetLine(Long id, Long lineid, TimesheetLine timesheetLine) throws ApiException {
+    updatePartialTimesheetTimesheetLineWithHttpInfo(id, lineid, timesheetLine);
   }
 
   /**
@@ -2300,16 +2178,16 @@ public class TimesheetsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> updatePartialTimesheetLineWithHttpInfo(Long id, Long lineid, TimesheetLine timesheetLine) throws ApiException {
+  public ApiResponse<Void> updatePartialTimesheetTimesheetLineWithHttpInfo(Long id, Long lineid, TimesheetLine timesheetLine) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling updatePartialTimesheetLine");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updatePartialTimesheetTimesheetLine");
     }
     if (lineid == null) {
-      throw new ApiException(400, "Missing the required parameter 'lineid' when calling updatePartialTimesheetLine");
+      throw new ApiException(400, "Missing the required parameter 'lineid' when calling updatePartialTimesheetTimesheetLine");
     }
     if (timesheetLine == null) {
-      throw new ApiException(400, "Missing the required parameter 'timesheetLine' when calling updatePartialTimesheetLine");
+      throw new ApiException(400, "Missing the required parameter 'timesheetLine' when calling updatePartialTimesheetTimesheetLine");
     }
 
     // Path parameters
@@ -2320,16 +2198,15 @@ public class TimesheetsApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("TimesheetsApi.updatePartialTimesheetLine", localVarPath, "POST", new ArrayList<>(), timesheetLine,
+    return apiClient.invokeAPI("TimesheetsApi.updatePartialTimesheetTimesheetLine", localVarPath, "POST", new ArrayList<>(), timesheetLine,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
   /**
-   * Full update of a Timesheet Line for a Timesheet. If Timesheet Line doesn&#39;t exist, it&#39;s created.
+   * Full update of a Timesheet. If Timesheet doesn&#39;t exist, it&#39;s created.
    * 
    * @param id id (required)
-   * @param lineid lineid (required)
-   * @param timesheetLine TimesheetLine (required)
+   * @param timesheet Timesheet (required)
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -2343,16 +2220,15 @@ public class TimesheetsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void updateTimesheetLine(Long id, Long lineid, TimesheetLine timesheetLine) throws ApiException {
-    updateTimesheetLineWithHttpInfo(id, lineid, timesheetLine);
+  public void updateTimesheet(Long id, Timesheet timesheet) throws ApiException {
+    updateTimesheetWithHttpInfo(id, timesheet);
   }
 
   /**
-   * Full update of a Timesheet Line for a Timesheet. If Timesheet Line doesn&#39;t exist, it&#39;s created.
+   * Full update of a Timesheet. If Timesheet doesn&#39;t exist, it&#39;s created.
    * 
    * @param id id (required)
-   * @param lineid lineid (required)
-   * @param timesheetLine TimesheetLine (required)
+   * @param timesheet Timesheet (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -2367,81 +2243,211 @@ public class TimesheetsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> updateTimesheetLineWithHttpInfo(Long id, Long lineid, TimesheetLine timesheetLine) throws ApiException {
+  public ApiResponse<Void> updateTimesheetWithHttpInfo(Long id, Timesheet timesheet) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling updateTimesheetLine");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updateTimesheet");
     }
-    if (lineid == null) {
-      throw new ApiException(400, "Missing the required parameter 'lineid' when calling updateTimesheetLine");
-    }
-    if (timesheetLine == null) {
-      throw new ApiException(400, "Missing the required parameter 'timesheetLine' when calling updateTimesheetLine");
+    if (timesheet == null) {
+      throw new ApiException(400, "Missing the required parameter 'timesheet' when calling updateTimesheet");
     }
 
     // Path parameters
-    String localVarPath = "/timesheets/{id}/lines/{lineid}"
-            .replaceAll("\\{id}", apiClient.escapeString(id.toString()))
-            .replaceAll("\\{lineid}", apiClient.escapeString(lineid.toString()));
+    String localVarPath = "/timesheets/{id}"
+            .replaceAll("\\{id}", apiClient.escapeString(id.toString()));
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("TimesheetsApi.updateTimesheetLine", localVarPath, "PUT", new ArrayList<>(), timesheetLine,
+    return apiClient.invokeAPI("TimesheetsApi.updateTimesheet", localVarPath, "PUT", new ArrayList<>(), timesheet,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
   /**
-   * Upload physical file linked to the timesheet document
+   * Full update of a timesheet document. If document doesn&#39;t exist, it&#39;s created.
    * 
    * @param id id (required)
    * @param did did (required)
-   * @param _file  (required)
+   * @param document Document (required)
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+       <tr><td> 201 </td><td> Created </td><td>  * Location - URL to created work unit <br>  </td></tr>
+       <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void uploadDocument(Long id, Long did, FormDataContentDisposition _file) throws ApiException {
-    uploadDocumentWithHttpInfo(id, did, _file);
+  public void updateTimesheetDocument(Long id, Long did, Document document) throws ApiException {
+    updateTimesheetDocumentWithHttpInfo(id, did, document);
   }
 
   /**
-   * Upload physical file linked to the timesheet document
+   * Full update of a timesheet document. If document doesn&#39;t exist, it&#39;s created.
    * 
    * @param id id (required)
    * @param did did (required)
-   * @param _file  (required)
+   * @param document Document (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+       <tr><td> 201 </td><td> Created </td><td>  * Location - URL to created work unit <br>  </td></tr>
+       <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> uploadDocumentWithHttpInfo(Long id, Long did, FormDataContentDisposition _file) throws ApiException {
+  public ApiResponse<Void> updateTimesheetDocumentWithHttpInfo(Long id, Long did, Document document) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling uploadDocument");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updateTimesheetDocument");
     }
     if (did == null) {
-      throw new ApiException(400, "Missing the required parameter 'did' when calling uploadDocument");
+      throw new ApiException(400, "Missing the required parameter 'did' when calling updateTimesheetDocument");
+    }
+    if (document == null) {
+      throw new ApiException(400, "Missing the required parameter 'document' when calling updateTimesheetDocument");
+    }
+
+    // Path parameters
+    String localVarPath = "/timesheets/{id}/documents/{did}"
+            .replaceAll("\\{id}", apiClient.escapeString(id.toString()))
+            .replaceAll("\\{did}", apiClient.escapeString(did.toString()));
+
+    String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
+    String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
+    String[] localVarAuthNames = new String[] {"api_key", "oauth"};
+    return apiClient.invokeAPI("TimesheetsApi.updateTimesheetDocument", localVarPath, "PUT", new ArrayList<>(), document,
+                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
+                               localVarAuthNames, null, false);
+  }
+  /**
+   * Full update of a Timesheet Line for a Timesheet. If Timesheet Line doesn&#39;t exist, it&#39;s created.
+   * 
+   * @param id id (required)
+   * @param lineid lineid (required)
+   * @param timesheetLine TimesheetLine (required)
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+       <tr><td> 201 </td><td> Created </td><td>  * Location - URL to created work unit <br>  </td></tr>
+       <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
+       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
+     </table>
+   */
+  public void updateTimesheetTimesheetLine(Long id, Long lineid, TimesheetLine timesheetLine) throws ApiException {
+    updateTimesheetTimesheetLineWithHttpInfo(id, lineid, timesheetLine);
+  }
+
+  /**
+   * Full update of a Timesheet Line for a Timesheet. If Timesheet Line doesn&#39;t exist, it&#39;s created.
+   * 
+   * @param id id (required)
+   * @param lineid lineid (required)
+   * @param timesheetLine TimesheetLine (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+       <tr><td> 201 </td><td> Created </td><td>  * Location - URL to created work unit <br>  </td></tr>
+       <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
+       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<Void> updateTimesheetTimesheetLineWithHttpInfo(Long id, Long lineid, TimesheetLine timesheetLine) throws ApiException {
+    // Check required parameters
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updateTimesheetTimesheetLine");
+    }
+    if (lineid == null) {
+      throw new ApiException(400, "Missing the required parameter 'lineid' when calling updateTimesheetTimesheetLine");
+    }
+    if (timesheetLine == null) {
+      throw new ApiException(400, "Missing the required parameter 'timesheetLine' when calling updateTimesheetTimesheetLine");
+    }
+
+    // Path parameters
+    String localVarPath = "/timesheets/{id}/lines/{lineid}"
+            .replaceAll("\\{id}", apiClient.escapeString(id.toString()))
+            .replaceAll("\\{lineid}", apiClient.escapeString(lineid.toString()));
+
+    String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
+    String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
+    String[] localVarAuthNames = new String[] {"api_key", "oauth"};
+    return apiClient.invokeAPI("TimesheetsApi.updateTimesheetTimesheetLine", localVarPath, "PUT", new ArrayList<>(), timesheetLine,
+                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
+                               localVarAuthNames, null, false);
+  }
+  /**
+   * Upload physical file linked to the timesheet document
+   * 
+   * @param id id (required)
+   * @param did did (required)
+   * @param _file  (required)
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
+       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
+     </table>
+   */
+  public void uploadTimesheetDocument(Long id, Long did, FormDataContentDisposition _file) throws ApiException {
+    uploadTimesheetDocumentWithHttpInfo(id, did, _file);
+  }
+
+  /**
+   * Upload physical file linked to the timesheet document
+   * 
+   * @param id id (required)
+   * @param did did (required)
+   * @param _file  (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
+       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<Void> uploadTimesheetDocumentWithHttpInfo(Long id, Long did, FormDataContentDisposition _file) throws ApiException {
+    // Check required parameters
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling uploadTimesheetDocument");
+    }
+    if (did == null) {
+      throw new ApiException(400, "Missing the required parameter 'did' when calling uploadTimesheetDocument");
     }
     if (_file == null) {
-      throw new ApiException(400, "Missing the required parameter '_file' when calling uploadDocument");
+      throw new ApiException(400, "Missing the required parameter '_file' when calling uploadTimesheetDocument");
     }
 
     // Path parameters
@@ -2456,7 +2462,7 @@ public class TimesheetsApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("multipart/form-data");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("TimesheetsApi.uploadDocument", localVarPath, "POST", new ArrayList<>(), null,
+    return apiClient.invokeAPI("TimesheetsApi.uploadTimesheetDocument", localVarPath, "POST", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -2477,8 +2483,8 @@ public class TimesheetsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void validate(Long id, ValidationInfo validationInfo) throws ApiException {
-    validateWithHttpInfo(id, validationInfo);
+  public void validateTimesheet(Long id, ValidationInfo validationInfo) throws ApiException {
+    validateTimesheetWithHttpInfo(id, validationInfo);
   }
 
   /**
@@ -2499,10 +2505,10 @@ public class TimesheetsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> validateWithHttpInfo(Long id, ValidationInfo validationInfo) throws ApiException {
+  public ApiResponse<Void> validateTimesheetWithHttpInfo(Long id, ValidationInfo validationInfo) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling validate");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling validateTimesheet");
     }
 
     // Path parameters
@@ -2512,7 +2518,7 @@ public class TimesheetsApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("TimesheetsApi.validate", localVarPath, "PUT", new ArrayList<>(), validationInfo,
+    return apiClient.invokeAPI("TimesheetsApi.validateTimesheet", localVarPath, "PUT", new ArrayList<>(), validationInfo,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }

@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 
-@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-05-22T08:24:46.022483900+02:00[Europe/Paris]")
+@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-10-06T08:58:20.555636300+02:00[Europe/Paris]")
 public class EntitiesApi {
   private ApiClient apiClient;
 
@@ -136,8 +136,8 @@ public class EntitiesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public Entity getById(Long id, String fields) throws ApiException {
-    return getByIdWithHttpInfo(id, fields).getData();
+  public Entity getEntityById(Long id, String fields) throws ApiException {
+    return getEntityByIdWithHttpInfo(id, fields).getData();
   }
 
   /**
@@ -158,10 +158,10 @@ public class EntitiesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Entity> getByIdWithHttpInfo(Long id, String fields) throws ApiException {
+  public ApiResponse<Entity> getEntityByIdWithHttpInfo(Long id, String fields) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getById");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getEntityById");
     }
 
     // Path parameters
@@ -177,7 +177,7 @@ public class EntitiesApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<Entity> localVarReturnType = new GenericType<Entity>() {};
-    return apiClient.invokeAPI("EntitiesApi.getById", localVarPath, "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("EntitiesApi.getEntityById", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -316,8 +316,8 @@ public class EntitiesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public String ping() throws ApiException {
-    return pingWithHttpInfo().getData();
+  public String pingEntity() throws ApiException {
+    return pingEntityWithHttpInfo().getData();
   }
 
   /**
@@ -333,72 +333,12 @@ public class EntitiesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<String> pingWithHttpInfo() throws ApiException {
+  public ApiResponse<String> pingEntityWithHttpInfo() throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("text/plain");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<String> localVarReturnType = new GenericType<String>() {};
-    return apiClient.invokeAPI("EntitiesApi.ping", "/entities/ping", "GET", new ArrayList<>(), null,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
-  }
-  /**
-   * Get a entities collection
-   * 
-   * @param filter filter (optional)
-   * @param sort sort (optional)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
-   * @param fields fields (optional)
-   * @return EntityList
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> OK </td><td>  * x-total-count - The total number of records <br>  * link - Link to the list <br>  * x-page-count - The total number of pages <br>  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
-       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
-     </table>
-   */
-  public EntityList query(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
-    return queryWithHttpInfo(filter, sort, offset, limit, fields).getData();
-  }
-
-  /**
-   * Get a entities collection
-   * 
-   * @param filter filter (optional)
-   * @param sort sort (optional)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
-   * @param fields fields (optional)
-   * @return ApiResponse&lt;EntityList&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> OK </td><td>  * x-total-count - The total number of records <br>  * link - Link to the list <br>  * x-page-count - The total number of pages <br>  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
-       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
-     </table>
-   */
-  public ApiResponse<EntityList> queryWithHttpInfo(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
-    // Query parameters
-    List<Pair> localVarQueryParams = new ArrayList<>(
-            apiClient.parameterToPairs("", "filter", filter)
-    );
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "offset", offset));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "fields", fields));
-
-    String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
-    String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    GenericType<EntityList> localVarReturnType = new GenericType<EntityList>() {};
-    return apiClient.invokeAPI("EntitiesApi.query", "/entities", "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("EntitiesApi.pingEntity", "/entities/ping", "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -680,8 +620,8 @@ public class EntitiesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public CurrencyList queryCurrencies_0(Long id, Long cid, String filter, String fields) throws ApiException {
-    return queryCurrencies_0WithHttpInfo(id, cid, filter, fields).getData();
+  public CurrencyList queryCurrenciesByCurrencyId(Long id, Long cid, String filter, String fields) throws ApiException {
+    return queryCurrenciesByCurrencyIdWithHttpInfo(id, cid, filter, fields).getData();
   }
 
   /**
@@ -704,13 +644,13 @@ public class EntitiesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<CurrencyList> queryCurrencies_0WithHttpInfo(Long id, Long cid, String filter, String fields) throws ApiException {
+  public ApiResponse<CurrencyList> queryCurrenciesByCurrencyIdWithHttpInfo(Long id, Long cid, String filter, String fields) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling queryCurrencies_0");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling queryCurrenciesByCurrencyId");
     }
     if (cid == null) {
-      throw new ApiException(400, "Missing the required parameter 'cid' when calling queryCurrencies_0");
+      throw new ApiException(400, "Missing the required parameter 'cid' when calling queryCurrenciesByCurrencyId");
     }
 
     // Path parameters
@@ -728,7 +668,7 @@ public class EntitiesApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<CurrencyList> localVarReturnType = new GenericType<CurrencyList>() {};
-    return apiClient.invokeAPI("EntitiesApi.queryCurrencies_0", localVarPath, "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("EntitiesApi.queryCurrenciesByCurrencyId", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -795,6 +735,66 @@ public class EntitiesApi {
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<CurrencyRateList> localVarReturnType = new GenericType<CurrencyRateList>() {};
     return apiClient.invokeAPI("EntitiesApi.queryCurrencyRates", localVarPath, "GET", localVarQueryParams, null,
+                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, false);
+  }
+  /**
+   * Get a entities collection
+   * 
+   * @param filter filter (optional)
+   * @param sort sort (optional)
+   * @param offset offset (optional)
+   * @param limit limit (optional)
+   * @param fields fields (optional)
+   * @return EntityList
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> OK </td><td>  * x-total-count - The total number of records <br>  * link - Link to the list <br>  * x-page-count - The total number of pages <br>  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
+       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
+     </table>
+   */
+  public EntityList queryEntity(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+    return queryEntityWithHttpInfo(filter, sort, offset, limit, fields).getData();
+  }
+
+  /**
+   * Get a entities collection
+   * 
+   * @param filter filter (optional)
+   * @param sort sort (optional)
+   * @param offset offset (optional)
+   * @param limit limit (optional)
+   * @param fields fields (optional)
+   * @return ApiResponse&lt;EntityList&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> OK </td><td>  * x-total-count - The total number of records <br>  * link - Link to the list <br>  * x-page-count - The total number of pages <br>  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
+       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<EntityList> queryEntityWithHttpInfo(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+    // Query parameters
+    List<Pair> localVarQueryParams = new ArrayList<>(
+            apiClient.parameterToPairs("", "filter", filter)
+    );
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "offset", offset));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "fields", fields));
+
+    String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
+    String localVarContentType = apiClient.selectHeaderContentType();
+    String[] localVarAuthNames = new String[] {"api_key", "oauth"};
+    GenericType<EntityList> localVarReturnType = new GenericType<EntityList>() {};
+    return apiClient.invokeAPI("EntitiesApi.queryEntity", "/entities", "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }

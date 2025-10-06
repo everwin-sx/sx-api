@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 
-@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-05-22T08:24:46.022483900+02:00[Europe/Paris]")
+@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-10-06T08:58:20.555636300+02:00[Europe/Paris]")
 public class SkillLevelsApi {
   private ApiClient apiClient;
 
@@ -47,6 +47,7 @@ public class SkillLevelsApi {
    * Create a skill level
    * 
    * @param skillLevel SkillLevel (required)
+   * @return SkillLevel
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -58,15 +59,15 @@ public class SkillLevelsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void create(SkillLevel skillLevel) throws ApiException {
-    createWithHttpInfo(skillLevel);
+  public SkillLevel createSkillLevel(SkillLevel skillLevel) throws ApiException {
+    return createSkillLevelWithHttpInfo(skillLevel).getData();
   }
 
   /**
    * Create a skill level
    * 
    * @param skillLevel SkillLevel (required)
-   * @return ApiResponse&lt;Void&gt;
+   * @return ApiResponse&lt;SkillLevel&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -78,18 +79,19 @@ public class SkillLevelsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> createWithHttpInfo(SkillLevel skillLevel) throws ApiException {
+  public ApiResponse<SkillLevel> createSkillLevelWithHttpInfo(SkillLevel skillLevel) throws ApiException {
     // Check required parameters
     if (skillLevel == null) {
-      throw new ApiException(400, "Missing the required parameter 'skillLevel' when calling create");
+      throw new ApiException(400, "Missing the required parameter 'skillLevel' when calling createSkillLevel");
     }
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("SkillLevelsApi.create", "/skill-levels", "POST", new ArrayList<>(), skillLevel,
+    GenericType<SkillLevel> localVarReturnType = new GenericType<SkillLevel>() {};
+    return apiClient.invokeAPI("SkillLevelsApi.createSkillLevel", "/skill-levels", "POST", new ArrayList<>(), skillLevel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
+                               localVarAuthNames, localVarReturnType, false);
   }
   /**
    * Delete a Skill Level
@@ -107,8 +109,8 @@ public class SkillLevelsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void delete(Long id) throws ApiException {
-    deleteWithHttpInfo(id);
+  public void deleteSkillLevel(Long id) throws ApiException {
+    deleteSkillLevelWithHttpInfo(id);
   }
 
   /**
@@ -128,10 +130,10 @@ public class SkillLevelsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> deleteWithHttpInfo(Long id) throws ApiException {
+  public ApiResponse<Void> deleteSkillLevelWithHttpInfo(Long id) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling delete");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteSkillLevel");
     }
 
     // Path parameters
@@ -141,7 +143,7 @@ public class SkillLevelsApi {
     String localVarAccept = apiClient.selectHeaderAccept("*/*");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("SkillLevelsApi.delete", localVarPath, "DELETE", new ArrayList<>(), null,
+    return apiClient.invokeAPI("SkillLevelsApi.deleteSkillLevel", localVarPath, "DELETE", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -163,8 +165,8 @@ public class SkillLevelsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public SkillLevel getById(Long id, String fields) throws ApiException {
-    return getByIdWithHttpInfo(id, fields).getData();
+  public SkillLevel getSkillLevelById(Long id, String fields) throws ApiException {
+    return getSkillLevelByIdWithHttpInfo(id, fields).getData();
   }
 
   /**
@@ -185,10 +187,10 @@ public class SkillLevelsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<SkillLevel> getByIdWithHttpInfo(Long id, String fields) throws ApiException {
+  public ApiResponse<SkillLevel> getSkillLevelByIdWithHttpInfo(Long id, String fields) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getById");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getSkillLevelById");
     }
 
     // Path parameters
@@ -204,7 +206,7 @@ public class SkillLevelsApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<SkillLevel> localVarReturnType = new GenericType<SkillLevel>() {};
-    return apiClient.invokeAPI("SkillLevelsApi.getById", localVarPath, "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("SkillLevelsApi.getSkillLevelById", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -221,8 +223,8 @@ public class SkillLevelsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public String ping() throws ApiException {
-    return pingWithHttpInfo().getData();
+  public String pingSkillLevel() throws ApiException {
+    return pingSkillLevelWithHttpInfo().getData();
   }
 
   /**
@@ -238,12 +240,12 @@ public class SkillLevelsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<String> pingWithHttpInfo() throws ApiException {
+  public ApiResponse<String> pingSkillLevelWithHttpInfo() throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("text/plain");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<String> localVarReturnType = new GenericType<String>() {};
-    return apiClient.invokeAPI("SkillLevelsApi.ping", "/skill-levels/ping", "GET", new ArrayList<>(), null,
+    return apiClient.invokeAPI("SkillLevelsApi.pingSkillLevel", "/skill-levels/ping", "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -266,8 +268,8 @@ public class SkillLevelsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public SkillLevelList query(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
-    return queryWithHttpInfo(filter, sort, offset, limit, fields).getData();
+  public SkillLevelList querySkillLevel(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+    return querySkillLevelWithHttpInfo(filter, sort, offset, limit, fields).getData();
   }
 
   /**
@@ -289,7 +291,7 @@ public class SkillLevelsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<SkillLevelList> queryWithHttpInfo(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+  public ApiResponse<SkillLevelList> querySkillLevelWithHttpInfo(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
     // Query parameters
     List<Pair> localVarQueryParams = new ArrayList<>(
             apiClient.parameterToPairs("", "filter", filter)
@@ -303,12 +305,12 @@ public class SkillLevelsApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<SkillLevelList> localVarReturnType = new GenericType<SkillLevelList>() {};
-    return apiClient.invokeAPI("SkillLevelsApi.query", "/skill-levels", "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("SkillLevelsApi.querySkillLevel", "/skill-levels", "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
   /**
-   * Full update of a Skill level. If Skill Level doesn&#39;t exist, it&#39;s created.
+   * Partial update of a Skill Level
    * 
    * @param id id (required)
    * @param skillLevel SkillLevel (required)
@@ -317,20 +319,20 @@ public class SkillLevelsApi {
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-       <tr><td> 201 </td><td> Created </td><td>  * Location - URL to created work unit <br>  </td></tr>
        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void update(Long id, SkillLevel skillLevel) throws ApiException {
-    updateWithHttpInfo(id, skillLevel);
+  public void updatePartialSkillLevel(Long id, SkillLevel skillLevel) throws ApiException {
+    updatePartialSkillLevelWithHttpInfo(id, skillLevel);
   }
 
   /**
-   * Full update of a Skill level. If Skill Level doesn&#39;t exist, it&#39;s created.
+   * Partial update of a Skill Level
    * 
    * @param id id (required)
    * @param skillLevel SkillLevel (required)
@@ -340,21 +342,21 @@ public class SkillLevelsApi {
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-       <tr><td> 201 </td><td> Created </td><td>  * Location - URL to created work unit <br>  </td></tr>
        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> updateWithHttpInfo(Long id, SkillLevel skillLevel) throws ApiException {
+  public ApiResponse<Void> updatePartialSkillLevelWithHttpInfo(Long id, SkillLevel skillLevel) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling update");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updatePartialSkillLevel");
     }
     if (skillLevel == null) {
-      throw new ApiException(400, "Missing the required parameter 'skillLevel' when calling update");
+      throw new ApiException(400, "Missing the required parameter 'skillLevel' when calling updatePartialSkillLevel");
     }
 
     // Path parameters
@@ -364,12 +366,12 @@ public class SkillLevelsApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("SkillLevelsApi.update", localVarPath, "PUT", new ArrayList<>(), skillLevel,
+    return apiClient.invokeAPI("SkillLevelsApi.updatePartialSkillLevel", localVarPath, "POST", new ArrayList<>(), skillLevel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
   /**
-   * Partial update of a Skill Level
+   * Full update of a Skill level. If Skill Level doesn&#39;t exist, it&#39;s created.
    * 
    * @param id id (required)
    * @param skillLevel SkillLevel (required)
@@ -378,20 +380,20 @@ public class SkillLevelsApi {
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+       <tr><td> 201 </td><td> Created </td><td>  * Location - URL to created work unit <br>  </td></tr>
        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void updatePartial(Long id, SkillLevel skillLevel) throws ApiException {
-    updatePartialWithHttpInfo(id, skillLevel);
+  public void updateSkillLevel(Long id, SkillLevel skillLevel) throws ApiException {
+    updateSkillLevelWithHttpInfo(id, skillLevel);
   }
 
   /**
-   * Partial update of a Skill Level
+   * Full update of a Skill level. If Skill Level doesn&#39;t exist, it&#39;s created.
    * 
    * @param id id (required)
    * @param skillLevel SkillLevel (required)
@@ -401,21 +403,21 @@ public class SkillLevelsApi {
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+       <tr><td> 201 </td><td> Created </td><td>  * Location - URL to created work unit <br>  </td></tr>
        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> updatePartialWithHttpInfo(Long id, SkillLevel skillLevel) throws ApiException {
+  public ApiResponse<Void> updateSkillLevelWithHttpInfo(Long id, SkillLevel skillLevel) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling updatePartial");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updateSkillLevel");
     }
     if (skillLevel == null) {
-      throw new ApiException(400, "Missing the required parameter 'skillLevel' when calling updatePartial");
+      throw new ApiException(400, "Missing the required parameter 'skillLevel' when calling updateSkillLevel");
     }
 
     // Path parameters
@@ -425,7 +427,7 @@ public class SkillLevelsApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("SkillLevelsApi.updatePartial", localVarPath, "POST", new ArrayList<>(), skillLevel,
+    return apiClient.invokeAPI("SkillLevelsApi.updateSkillLevel", localVarPath, "PUT", new ArrayList<>(), skillLevel,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }

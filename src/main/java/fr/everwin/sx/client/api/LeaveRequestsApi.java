@@ -19,7 +19,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-05-22T08:24:46.022483900+02:00[Europe/Paris]")
+@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-10-06T08:58:20.555636300+02:00[Europe/Paris]")
 public class LeaveRequestsApi {
   private ApiClient apiClient;
 
@@ -53,6 +53,7 @@ public class LeaveRequestsApi {
    * Create an leave request
    * 
    * @param leaveRequest Leave Request (required)
+   * @return LeaveRequest
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -64,15 +65,15 @@ public class LeaveRequestsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void create(LeaveRequest leaveRequest) throws ApiException {
-    createWithHttpInfo(leaveRequest);
+  public LeaveRequest createLeaveRequest(LeaveRequest leaveRequest) throws ApiException {
+    return createLeaveRequestWithHttpInfo(leaveRequest).getData();
   }
 
   /**
    * Create an leave request
    * 
    * @param leaveRequest Leave Request (required)
-   * @return ApiResponse&lt;Void&gt;
+   * @return ApiResponse&lt;LeaveRequest&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -84,24 +85,26 @@ public class LeaveRequestsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> createWithHttpInfo(LeaveRequest leaveRequest) throws ApiException {
+  public ApiResponse<LeaveRequest> createLeaveRequestWithHttpInfo(LeaveRequest leaveRequest) throws ApiException {
     // Check required parameters
     if (leaveRequest == null) {
-      throw new ApiException(400, "Missing the required parameter 'leaveRequest' when calling create");
+      throw new ApiException(400, "Missing the required parameter 'leaveRequest' when calling createLeaveRequest");
     }
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("LeaveRequestsApi.create", "/leave-requests", "POST", new ArrayList<>(), leaveRequest,
+    GenericType<LeaveRequest> localVarReturnType = new GenericType<LeaveRequest>() {};
+    return apiClient.invokeAPI("LeaveRequestsApi.createLeaveRequest", "/leave-requests", "POST", new ArrayList<>(), leaveRequest,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
+                               localVarAuthNames, localVarReturnType, false);
   }
   /**
    * Create a new document for the leave request
    * 
    * @param id id (required)
    * @param document Document (required)
+   * @return Document
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -113,8 +116,8 @@ public class LeaveRequestsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void createDocument(Long id, Document document) throws ApiException {
-    createDocumentWithHttpInfo(id, document);
+  public Document createLeaveRequestDocument(Long id, Document document) throws ApiException {
+    return createLeaveRequestDocumentWithHttpInfo(id, document).getData();
   }
 
   /**
@@ -122,7 +125,7 @@ public class LeaveRequestsApi {
    * 
    * @param id id (required)
    * @param document Document (required)
-   * @return ApiResponse&lt;Void&gt;
+   * @return ApiResponse&lt;Document&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -134,13 +137,13 @@ public class LeaveRequestsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> createDocumentWithHttpInfo(Long id, Document document) throws ApiException {
+  public ApiResponse<Document> createLeaveRequestDocumentWithHttpInfo(Long id, Document document) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling createDocument");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling createLeaveRequestDocument");
     }
     if (document == null) {
-      throw new ApiException(400, "Missing the required parameter 'document' when calling createDocument");
+      throw new ApiException(400, "Missing the required parameter 'document' when calling createLeaveRequestDocument");
     }
 
     // Path parameters
@@ -150,9 +153,10 @@ public class LeaveRequestsApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("LeaveRequestsApi.createDocument", localVarPath, "POST", new ArrayList<>(), document,
+    GenericType<Document> localVarReturnType = new GenericType<Document>() {};
+    return apiClient.invokeAPI("LeaveRequestsApi.createLeaveRequestDocument", localVarPath, "POST", new ArrayList<>(), document,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
+                               localVarAuthNames, localVarReturnType, false);
   }
   /**
    * Delete an leave request
@@ -170,8 +174,8 @@ public class LeaveRequestsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void delete(Long id) throws ApiException {
-    deleteWithHttpInfo(id);
+  public void deleteLeaveRequest(Long id) throws ApiException {
+    deleteLeaveRequestWithHttpInfo(id);
   }
 
   /**
@@ -191,10 +195,10 @@ public class LeaveRequestsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> deleteWithHttpInfo(Long id) throws ApiException {
+  public ApiResponse<Void> deleteLeaveRequestWithHttpInfo(Long id) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling delete");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteLeaveRequest");
     }
 
     // Path parameters
@@ -204,7 +208,7 @@ public class LeaveRequestsApi {
     String localVarAccept = apiClient.selectHeaderAccept("*/*");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("LeaveRequestsApi.delete", localVarPath, "DELETE", new ArrayList<>(), null,
+    return apiClient.invokeAPI("LeaveRequestsApi.deleteLeaveRequest", localVarPath, "DELETE", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -225,8 +229,8 @@ public class LeaveRequestsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void deleteDocument(Long id, Long did) throws ApiException {
-    deleteDocumentWithHttpInfo(id, did);
+  public void deleteLeaveRequestDocument(Long id, Long did) throws ApiException {
+    deleteLeaveRequestDocumentWithHttpInfo(id, did);
   }
 
   /**
@@ -247,13 +251,13 @@ public class LeaveRequestsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> deleteDocumentWithHttpInfo(Long id, Long did) throws ApiException {
+  public ApiResponse<Void> deleteLeaveRequestDocumentWithHttpInfo(Long id, Long did) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteDocument");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteLeaveRequestDocument");
     }
     if (did == null) {
-      throw new ApiException(400, "Missing the required parameter 'did' when calling deleteDocument");
+      throw new ApiException(400, "Missing the required parameter 'did' when calling deleteLeaveRequestDocument");
     }
 
     // Path parameters
@@ -264,7 +268,7 @@ public class LeaveRequestsApi {
     String localVarAccept = apiClient.selectHeaderAccept("*/*");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("LeaveRequestsApi.deleteDocument", localVarPath, "DELETE", new ArrayList<>(), null,
+    return apiClient.invokeAPI("LeaveRequestsApi.deleteLeaveRequestDocument", localVarPath, "DELETE", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -285,8 +289,8 @@ public class LeaveRequestsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void downloadDocument(Long id, Long did) throws ApiException {
-    downloadDocumentWithHttpInfo(id, did);
+  public void downloadLeaveRequestDocument(Long id, Long did) throws ApiException {
+    downloadLeaveRequestDocumentWithHttpInfo(id, did);
   }
 
   /**
@@ -307,13 +311,13 @@ public class LeaveRequestsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> downloadDocumentWithHttpInfo(Long id, Long did) throws ApiException {
+  public ApiResponse<Void> downloadLeaveRequestDocumentWithHttpInfo(Long id, Long did) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling downloadDocument");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling downloadLeaveRequestDocument");
     }
     if (did == null) {
-      throw new ApiException(400, "Missing the required parameter 'did' when calling downloadDocument");
+      throw new ApiException(400, "Missing the required parameter 'did' when calling downloadLeaveRequestDocument");
     }
 
     // Path parameters
@@ -324,7 +328,7 @@ public class LeaveRequestsApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/octet-stream");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("LeaveRequestsApi.downloadDocument", localVarPath, "GET", new ArrayList<>(), null,
+    return apiClient.invokeAPI("LeaveRequestsApi.downloadLeaveRequestDocument", localVarPath, "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -346,8 +350,8 @@ public class LeaveRequestsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public LeaveRequest getById(Long id, String fields) throws ApiException {
-    return getByIdWithHttpInfo(id, fields).getData();
+  public LeaveRequest getLeaveRequestById(Long id, String fields) throws ApiException {
+    return getLeaveRequestByIdWithHttpInfo(id, fields).getData();
   }
 
   /**
@@ -368,10 +372,10 @@ public class LeaveRequestsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<LeaveRequest> getByIdWithHttpInfo(Long id, String fields) throws ApiException {
+  public ApiResponse<LeaveRequest> getLeaveRequestByIdWithHttpInfo(Long id, String fields) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getById");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getLeaveRequestById");
     }
 
     // Path parameters
@@ -387,7 +391,7 @@ public class LeaveRequestsApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<LeaveRequest> localVarReturnType = new GenericType<LeaveRequest>() {};
-    return apiClient.invokeAPI("LeaveRequestsApi.getById", localVarPath, "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("LeaveRequestsApi.getLeaveRequestById", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -410,8 +414,8 @@ public class LeaveRequestsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public Document getDocumentById(Long id, Long did, String fields) throws ApiException {
-    return getDocumentByIdWithHttpInfo(id, did, fields).getData();
+  public Document getLeaveRequestDocumentById(Long id, Long did, String fields) throws ApiException {
+    return getLeaveRequestDocumentByIdWithHttpInfo(id, did, fields).getData();
   }
 
   /**
@@ -433,13 +437,13 @@ public class LeaveRequestsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Document> getDocumentByIdWithHttpInfo(Long id, Long did, String fields) throws ApiException {
+  public ApiResponse<Document> getLeaveRequestDocumentByIdWithHttpInfo(Long id, Long did, String fields) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getDocumentById");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getLeaveRequestDocumentById");
     }
     if (did == null) {
-      throw new ApiException(400, "Missing the required parameter 'did' when calling getDocumentById");
+      throw new ApiException(400, "Missing the required parameter 'did' when calling getLeaveRequestDocumentById");
     }
 
     // Path parameters
@@ -456,7 +460,7 @@ public class LeaveRequestsApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<Document> localVarReturnType = new GenericType<Document>() {};
-    return apiClient.invokeAPI("LeaveRequestsApi.getDocumentById", localVarPath, "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("LeaveRequestsApi.getLeaveRequestDocumentById", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -482,8 +486,8 @@ public class LeaveRequestsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public DocumentList getDocuments(Long id, String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
-    return getDocumentsWithHttpInfo(id, filter, sort, offset, limit, fields).getData();
+  public DocumentList getLeaveRequestDocuments(Long id, String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+    return getLeaveRequestDocumentsWithHttpInfo(id, filter, sort, offset, limit, fields).getData();
   }
 
   /**
@@ -508,10 +512,10 @@ public class LeaveRequestsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<DocumentList> getDocumentsWithHttpInfo(Long id, String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+  public ApiResponse<DocumentList> getLeaveRequestDocumentsWithHttpInfo(Long id, String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getDocuments");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getLeaveRequestDocuments");
     }
 
     // Path parameters
@@ -531,7 +535,7 @@ public class LeaveRequestsApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<DocumentList> localVarReturnType = new GenericType<DocumentList>() {};
-    return apiClient.invokeAPI("LeaveRequestsApi.getDocuments", localVarPath, "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("LeaveRequestsApi.getLeaveRequestDocuments", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -548,8 +552,8 @@ public class LeaveRequestsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public String ping() throws ApiException {
-    return pingWithHttpInfo().getData();
+  public String pingLeaveRequest() throws ApiException {
+    return pingLeaveRequestWithHttpInfo().getData();
   }
 
   /**
@@ -565,12 +569,12 @@ public class LeaveRequestsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<String> pingWithHttpInfo() throws ApiException {
+  public ApiResponse<String> pingLeaveRequestWithHttpInfo() throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("text/plain");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<String> localVarReturnType = new GenericType<String>() {};
-    return apiClient.invokeAPI("LeaveRequestsApi.ping", "/leave-requests/ping", "GET", new ArrayList<>(), null,
+    return apiClient.invokeAPI("LeaveRequestsApi.pingLeaveRequest", "/leave-requests/ping", "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -593,8 +597,8 @@ public class LeaveRequestsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public LeaveRequestList query(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
-    return queryWithHttpInfo(filter, sort, offset, limit, fields).getData();
+  public LeaveRequestList queryLeaveRequest(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+    return queryLeaveRequestWithHttpInfo(filter, sort, offset, limit, fields).getData();
   }
 
   /**
@@ -616,7 +620,7 @@ public class LeaveRequestsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<LeaveRequestList> queryWithHttpInfo(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+  public ApiResponse<LeaveRequestList> queryLeaveRequestWithHttpInfo(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
     // Query parameters
     List<Pair> localVarQueryParams = new ArrayList<>(
             apiClient.parameterToPairs("", "filter", filter)
@@ -630,7 +634,7 @@ public class LeaveRequestsApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<LeaveRequestList> localVarReturnType = new GenericType<LeaveRequestList>() {};
-    return apiClient.invokeAPI("LeaveRequestsApi.query", "/leave-requests", "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("LeaveRequestsApi.queryLeaveRequest", "/leave-requests", "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -653,8 +657,8 @@ public class LeaveRequestsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public LeaveRequestFlowHistoryList queryValidationHistoryList(Long id, String filter, String fields) throws ApiException {
-    return queryValidationHistoryListWithHttpInfo(id, filter, fields).getData();
+  public LeaveRequestFlowHistoryList queryLeaveRequestValidationHistoryList(Long id, String filter, String fields) throws ApiException {
+    return queryLeaveRequestValidationHistoryListWithHttpInfo(id, filter, fields).getData();
   }
 
   /**
@@ -676,10 +680,10 @@ public class LeaveRequestsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<LeaveRequestFlowHistoryList> queryValidationHistoryListWithHttpInfo(Long id, String filter, String fields) throws ApiException {
+  public ApiResponse<LeaveRequestFlowHistoryList> queryLeaveRequestValidationHistoryListWithHttpInfo(Long id, String filter, String fields) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling queryValidationHistoryList");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling queryLeaveRequestValidationHistoryList");
     }
 
     // Path parameters
@@ -696,7 +700,7 @@ public class LeaveRequestsApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<LeaveRequestFlowHistoryList> localVarReturnType = new GenericType<LeaveRequestFlowHistoryList>() {};
-    return apiClient.invokeAPI("LeaveRequestsApi.queryValidationHistoryList", localVarPath, "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("LeaveRequestsApi.queryLeaveRequestValidationHistoryList", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -773,8 +777,8 @@ public class LeaveRequestsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void unvalidate(Long id, Comment comment) throws ApiException {
-    unvalidateWithHttpInfo(id, comment);
+  public void unvalidateLeaveRequest(Long id, Comment comment) throws ApiException {
+    unvalidateLeaveRequestWithHttpInfo(id, comment);
   }
 
   /**
@@ -795,10 +799,10 @@ public class LeaveRequestsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> unvalidateWithHttpInfo(Long id, Comment comment) throws ApiException {
+  public ApiResponse<Void> unvalidateLeaveRequestWithHttpInfo(Long id, Comment comment) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling unvalidate");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling unvalidateLeaveRequest");
     }
 
     // Path parameters
@@ -808,7 +812,7 @@ public class LeaveRequestsApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("LeaveRequestsApi.unvalidate", localVarPath, "PUT", new ArrayList<>(), comment,
+    return apiClient.invokeAPI("LeaveRequestsApi.unvalidateLeaveRequest", localVarPath, "PUT", new ArrayList<>(), comment,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -830,8 +834,8 @@ public class LeaveRequestsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void update(Long id, LeaveRequest leaveRequest) throws ApiException {
-    updateWithHttpInfo(id, leaveRequest);
+  public void updateLeaveRequest(Long id, LeaveRequest leaveRequest) throws ApiException {
+    updateLeaveRequestWithHttpInfo(id, leaveRequest);
   }
 
   /**
@@ -853,13 +857,13 @@ public class LeaveRequestsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> updateWithHttpInfo(Long id, LeaveRequest leaveRequest) throws ApiException {
+  public ApiResponse<Void> updateLeaveRequestWithHttpInfo(Long id, LeaveRequest leaveRequest) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling update");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updateLeaveRequest");
     }
     if (leaveRequest == null) {
-      throw new ApiException(400, "Missing the required parameter 'leaveRequest' when calling update");
+      throw new ApiException(400, "Missing the required parameter 'leaveRequest' when calling updateLeaveRequest");
     }
 
     // Path parameters
@@ -869,7 +873,7 @@ public class LeaveRequestsApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("LeaveRequestsApi.update", localVarPath, "PUT", new ArrayList<>(), leaveRequest,
+    return apiClient.invokeAPI("LeaveRequestsApi.updateLeaveRequest", localVarPath, "PUT", new ArrayList<>(), leaveRequest,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -892,8 +896,8 @@ public class LeaveRequestsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void updateDocument(Long id, Long did, Document document) throws ApiException {
-    updateDocumentWithHttpInfo(id, did, document);
+  public void updateLeaveRequestDocument(Long id, Long did, Document document) throws ApiException {
+    updateLeaveRequestDocumentWithHttpInfo(id, did, document);
   }
 
   /**
@@ -916,16 +920,16 @@ public class LeaveRequestsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> updateDocumentWithHttpInfo(Long id, Long did, Document document) throws ApiException {
+  public ApiResponse<Void> updateLeaveRequestDocumentWithHttpInfo(Long id, Long did, Document document) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling updateDocument");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updateLeaveRequestDocument");
     }
     if (did == null) {
-      throw new ApiException(400, "Missing the required parameter 'did' when calling updateDocument");
+      throw new ApiException(400, "Missing the required parameter 'did' when calling updateLeaveRequestDocument");
     }
     if (document == null) {
-      throw new ApiException(400, "Missing the required parameter 'document' when calling updateDocument");
+      throw new ApiException(400, "Missing the required parameter 'document' when calling updateLeaveRequestDocument");
     }
 
     // Path parameters
@@ -936,7 +940,7 @@ public class LeaveRequestsApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("LeaveRequestsApi.updateDocument", localVarPath, "PUT", new ArrayList<>(), document,
+    return apiClient.invokeAPI("LeaveRequestsApi.updateLeaveRequestDocument", localVarPath, "PUT", new ArrayList<>(), document,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -958,8 +962,8 @@ public class LeaveRequestsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void updatePartial(Long id, LeaveRequest leaveRequest) throws ApiException {
-    updatePartialWithHttpInfo(id, leaveRequest);
+  public void updatePartialLeaveRequest(Long id, LeaveRequest leaveRequest) throws ApiException {
+    updatePartialLeaveRequestWithHttpInfo(id, leaveRequest);
   }
 
   /**
@@ -981,13 +985,13 @@ public class LeaveRequestsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> updatePartialWithHttpInfo(Long id, LeaveRequest leaveRequest) throws ApiException {
+  public ApiResponse<Void> updatePartialLeaveRequestWithHttpInfo(Long id, LeaveRequest leaveRequest) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling updatePartial");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updatePartialLeaveRequest");
     }
     if (leaveRequest == null) {
-      throw new ApiException(400, "Missing the required parameter 'leaveRequest' when calling updatePartial");
+      throw new ApiException(400, "Missing the required parameter 'leaveRequest' when calling updatePartialLeaveRequest");
     }
 
     // Path parameters
@@ -997,7 +1001,7 @@ public class LeaveRequestsApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("LeaveRequestsApi.updatePartial", localVarPath, "POST", new ArrayList<>(), leaveRequest,
+    return apiClient.invokeAPI("LeaveRequestsApi.updatePartialLeaveRequest", localVarPath, "POST", new ArrayList<>(), leaveRequest,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -1020,8 +1024,8 @@ public class LeaveRequestsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void updatePartialDocument(Long id, Long did, Document document) throws ApiException {
-    updatePartialDocumentWithHttpInfo(id, did, document);
+  public void updatePartialLeaveRequestDocument(Long id, Long did, Document document) throws ApiException {
+    updatePartialLeaveRequestDocumentWithHttpInfo(id, did, document);
   }
 
   /**
@@ -1044,16 +1048,16 @@ public class LeaveRequestsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> updatePartialDocumentWithHttpInfo(Long id, Long did, Document document) throws ApiException {
+  public ApiResponse<Void> updatePartialLeaveRequestDocumentWithHttpInfo(Long id, Long did, Document document) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling updatePartialDocument");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updatePartialLeaveRequestDocument");
     }
     if (did == null) {
-      throw new ApiException(400, "Missing the required parameter 'did' when calling updatePartialDocument");
+      throw new ApiException(400, "Missing the required parameter 'did' when calling updatePartialLeaveRequestDocument");
     }
     if (document == null) {
-      throw new ApiException(400, "Missing the required parameter 'document' when calling updatePartialDocument");
+      throw new ApiException(400, "Missing the required parameter 'document' when calling updatePartialLeaveRequestDocument");
     }
 
     // Path parameters
@@ -1064,7 +1068,7 @@ public class LeaveRequestsApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("LeaveRequestsApi.updatePartialDocument", localVarPath, "POST", new ArrayList<>(), document,
+    return apiClient.invokeAPI("LeaveRequestsApi.updatePartialLeaveRequestDocument", localVarPath, "POST", new ArrayList<>(), document,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -1086,8 +1090,8 @@ public class LeaveRequestsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void uploadDocument(Long id, Long did, FormDataContentDisposition _file) throws ApiException {
-    uploadDocumentWithHttpInfo(id, did, _file);
+  public void uploadLeaveRequestDocument(Long id, Long did, FormDataContentDisposition _file) throws ApiException {
+    uploadLeaveRequestDocumentWithHttpInfo(id, did, _file);
   }
 
   /**
@@ -1109,16 +1113,16 @@ public class LeaveRequestsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> uploadDocumentWithHttpInfo(Long id, Long did, FormDataContentDisposition _file) throws ApiException {
+  public ApiResponse<Void> uploadLeaveRequestDocumentWithHttpInfo(Long id, Long did, FormDataContentDisposition _file) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling uploadDocument");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling uploadLeaveRequestDocument");
     }
     if (did == null) {
-      throw new ApiException(400, "Missing the required parameter 'did' when calling uploadDocument");
+      throw new ApiException(400, "Missing the required parameter 'did' when calling uploadLeaveRequestDocument");
     }
     if (_file == null) {
-      throw new ApiException(400, "Missing the required parameter '_file' when calling uploadDocument");
+      throw new ApiException(400, "Missing the required parameter '_file' when calling uploadLeaveRequestDocument");
     }
 
     // Path parameters
@@ -1133,7 +1137,7 @@ public class LeaveRequestsApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("multipart/form-data");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("LeaveRequestsApi.uploadDocument", localVarPath, "POST", new ArrayList<>(), null,
+    return apiClient.invokeAPI("LeaveRequestsApi.uploadLeaveRequestDocument", localVarPath, "POST", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -1154,8 +1158,8 @@ public class LeaveRequestsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void validate(Long id, Comment comment) throws ApiException {
-    validateWithHttpInfo(id, comment);
+  public void validateLeaveRequest(Long id, Comment comment) throws ApiException {
+    validateLeaveRequestWithHttpInfo(id, comment);
   }
 
   /**
@@ -1176,10 +1180,10 @@ public class LeaveRequestsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> validateWithHttpInfo(Long id, Comment comment) throws ApiException {
+  public ApiResponse<Void> validateLeaveRequestWithHttpInfo(Long id, Comment comment) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling validate");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling validateLeaveRequest");
     }
 
     // Path parameters
@@ -1189,7 +1193,7 @@ public class LeaveRequestsApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("LeaveRequestsApi.validate", localVarPath, "PUT", new ArrayList<>(), comment,
+    return apiClient.invokeAPI("LeaveRequestsApi.validateLeaveRequest", localVarPath, "PUT", new ArrayList<>(), comment,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }

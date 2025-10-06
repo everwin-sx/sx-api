@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 
-@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-05-22T08:24:46.022483900+02:00[Europe/Paris]")
+@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-10-06T08:58:20.555636300+02:00[Europe/Paris]")
 public class ExpenseAdvancesApi {
   private ApiClient apiClient;
 
@@ -61,8 +61,8 @@ public class ExpenseAdvancesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void cancel(Long id, Comment comment) throws ApiException {
-    cancelWithHttpInfo(id, comment);
+  public void cancelAdvance(Long id, Comment comment) throws ApiException {
+    cancelAdvanceWithHttpInfo(id, comment);
   }
 
   /**
@@ -83,10 +83,10 @@ public class ExpenseAdvancesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> cancelWithHttpInfo(Long id, Comment comment) throws ApiException {
+  public ApiResponse<Void> cancelAdvanceWithHttpInfo(Long id, Comment comment) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling cancel");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling cancelAdvance");
     }
 
     // Path parameters
@@ -96,7 +96,7 @@ public class ExpenseAdvancesApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("ExpenseAdvancesApi.cancel", localVarPath, "PUT", new ArrayList<>(), comment,
+    return apiClient.invokeAPI("ExpenseAdvancesApi.cancelAdvance", localVarPath, "PUT", new ArrayList<>(), comment,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -104,6 +104,7 @@ public class ExpenseAdvancesApi {
    * Create an advance
    * 
    * @param advance Advance (required)
+   * @return Advance
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -115,15 +116,15 @@ public class ExpenseAdvancesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void create(Advance advance) throws ApiException {
-    createWithHttpInfo(advance);
+  public Advance createAdvance(Advance advance) throws ApiException {
+    return createAdvanceWithHttpInfo(advance).getData();
   }
 
   /**
    * Create an advance
    * 
    * @param advance Advance (required)
-   * @return ApiResponse&lt;Void&gt;
+   * @return ApiResponse&lt;Advance&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -135,18 +136,19 @@ public class ExpenseAdvancesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> createWithHttpInfo(Advance advance) throws ApiException {
+  public ApiResponse<Advance> createAdvanceWithHttpInfo(Advance advance) throws ApiException {
     // Check required parameters
     if (advance == null) {
-      throw new ApiException(400, "Missing the required parameter 'advance' when calling create");
+      throw new ApiException(400, "Missing the required parameter 'advance' when calling createAdvance");
     }
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("ExpenseAdvancesApi.create", "/expense-advances", "POST", new ArrayList<>(), advance,
+    GenericType<Advance> localVarReturnType = new GenericType<Advance>() {};
+    return apiClient.invokeAPI("ExpenseAdvancesApi.createAdvance", "/expense-advances", "POST", new ArrayList<>(), advance,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
+                               localVarAuthNames, localVarReturnType, false);
   }
   /**
    * Delete an advance
@@ -164,8 +166,8 @@ public class ExpenseAdvancesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void delete(Long id) throws ApiException {
-    deleteWithHttpInfo(id);
+  public void deleteAdvance(Long id) throws ApiException {
+    deleteAdvanceWithHttpInfo(id);
   }
 
   /**
@@ -185,10 +187,10 @@ public class ExpenseAdvancesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> deleteWithHttpInfo(Long id) throws ApiException {
+  public ApiResponse<Void> deleteAdvanceWithHttpInfo(Long id) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling delete");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteAdvance");
     }
 
     // Path parameters
@@ -198,7 +200,7 @@ public class ExpenseAdvancesApi {
     String localVarAccept = apiClient.selectHeaderAccept("*/*");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("ExpenseAdvancesApi.delete", localVarPath, "DELETE", new ArrayList<>(), null,
+    return apiClient.invokeAPI("ExpenseAdvancesApi.deleteAdvance", localVarPath, "DELETE", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -220,8 +222,8 @@ public class ExpenseAdvancesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public Advance getById(Long id, String fields) throws ApiException {
-    return getByIdWithHttpInfo(id, fields).getData();
+  public Advance getAdvanceById(Long id, String fields) throws ApiException {
+    return getAdvanceByIdWithHttpInfo(id, fields).getData();
   }
 
   /**
@@ -242,10 +244,10 @@ public class ExpenseAdvancesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Advance> getByIdWithHttpInfo(Long id, String fields) throws ApiException {
+  public ApiResponse<Advance> getAdvanceByIdWithHttpInfo(Long id, String fields) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getById");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getAdvanceById");
     }
 
     // Path parameters
@@ -261,7 +263,7 @@ public class ExpenseAdvancesApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<Advance> localVarReturnType = new GenericType<Advance>() {};
-    return apiClient.invokeAPI("ExpenseAdvancesApi.getById", localVarPath, "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("ExpenseAdvancesApi.getAdvanceById", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -278,8 +280,8 @@ public class ExpenseAdvancesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public String ping() throws ApiException {
-    return pingWithHttpInfo().getData();
+  public String pingAdvance() throws ApiException {
+    return pingAdvanceWithHttpInfo().getData();
   }
 
   /**
@@ -295,12 +297,12 @@ public class ExpenseAdvancesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<String> pingWithHttpInfo() throws ApiException {
+  public ApiResponse<String> pingAdvanceWithHttpInfo() throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("text/plain");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<String> localVarReturnType = new GenericType<String>() {};
-    return apiClient.invokeAPI("ExpenseAdvancesApi.ping", "/expense-advances/ping", "GET", new ArrayList<>(), null,
+    return apiClient.invokeAPI("ExpenseAdvancesApi.pingAdvance", "/expense-advances/ping", "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -323,8 +325,8 @@ public class ExpenseAdvancesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public AdvanceList query(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
-    return queryWithHttpInfo(filter, sort, offset, limit, fields).getData();
+  public AdvanceList queryAdvance(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+    return queryAdvanceWithHttpInfo(filter, sort, offset, limit, fields).getData();
   }
 
   /**
@@ -346,7 +348,7 @@ public class ExpenseAdvancesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<AdvanceList> queryWithHttpInfo(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+  public ApiResponse<AdvanceList> queryAdvanceWithHttpInfo(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
     // Query parameters
     List<Pair> localVarQueryParams = new ArrayList<>(
             apiClient.parameterToPairs("", "filter", filter)
@@ -360,7 +362,7 @@ public class ExpenseAdvancesApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<AdvanceList> localVarReturnType = new GenericType<AdvanceList>() {};
-    return apiClient.invokeAPI("ExpenseAdvancesApi.query", "/expense-advances", "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("ExpenseAdvancesApi.queryAdvance", "/expense-advances", "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -382,8 +384,8 @@ public class ExpenseAdvancesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void queryAffectationList(Long id, String filter, String fields) throws ApiException {
-    queryAffectationListWithHttpInfo(id, filter, fields);
+  public void queryAdvanceAffectationList(Long id, String filter, String fields) throws ApiException {
+    queryAdvanceAffectationListWithHttpInfo(id, filter, fields);
   }
 
   /**
@@ -405,10 +407,10 @@ public class ExpenseAdvancesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> queryAffectationListWithHttpInfo(Long id, String filter, String fields) throws ApiException {
+  public ApiResponse<Void> queryAdvanceAffectationListWithHttpInfo(Long id, String filter, String fields) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling queryAffectationList");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling queryAdvanceAffectationList");
     }
 
     // Path parameters
@@ -424,7 +426,7 @@ public class ExpenseAdvancesApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("ExpenseAdvancesApi.queryAffectationList", localVarPath, "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("ExpenseAdvancesApi.queryAdvanceAffectationList", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -445,8 +447,8 @@ public class ExpenseAdvancesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void unvalidate(Long id, Comment comment) throws ApiException {
-    unvalidateWithHttpInfo(id, comment);
+  public void unvalidateAdvance(Long id, Comment comment) throws ApiException {
+    unvalidateAdvanceWithHttpInfo(id, comment);
   }
 
   /**
@@ -467,10 +469,10 @@ public class ExpenseAdvancesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> unvalidateWithHttpInfo(Long id, Comment comment) throws ApiException {
+  public ApiResponse<Void> unvalidateAdvanceWithHttpInfo(Long id, Comment comment) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling unvalidate");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling unvalidateAdvance");
     }
 
     // Path parameters
@@ -480,7 +482,7 @@ public class ExpenseAdvancesApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("ExpenseAdvancesApi.unvalidate", localVarPath, "PUT", new ArrayList<>(), comment,
+    return apiClient.invokeAPI("ExpenseAdvancesApi.unvalidateAdvance", localVarPath, "PUT", new ArrayList<>(), comment,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -502,8 +504,8 @@ public class ExpenseAdvancesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void update(Long id, Advance advance) throws ApiException {
-    updateWithHttpInfo(id, advance);
+  public void updateAdvance(Long id, Advance advance) throws ApiException {
+    updateAdvanceWithHttpInfo(id, advance);
   }
 
   /**
@@ -525,13 +527,13 @@ public class ExpenseAdvancesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> updateWithHttpInfo(Long id, Advance advance) throws ApiException {
+  public ApiResponse<Void> updateAdvanceWithHttpInfo(Long id, Advance advance) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling update");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updateAdvance");
     }
     if (advance == null) {
-      throw new ApiException(400, "Missing the required parameter 'advance' when calling update");
+      throw new ApiException(400, "Missing the required parameter 'advance' when calling updateAdvance");
     }
 
     // Path parameters
@@ -541,7 +543,7 @@ public class ExpenseAdvancesApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("ExpenseAdvancesApi.update", localVarPath, "PUT", new ArrayList<>(), advance,
+    return apiClient.invokeAPI("ExpenseAdvancesApi.updateAdvance", localVarPath, "PUT", new ArrayList<>(), advance,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -563,8 +565,8 @@ public class ExpenseAdvancesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void updatePartial(Long id, Advance advance) throws ApiException {
-    updatePartialWithHttpInfo(id, advance);
+  public void updatePartialAdvance(Long id, Advance advance) throws ApiException {
+    updatePartialAdvanceWithHttpInfo(id, advance);
   }
 
   /**
@@ -586,13 +588,13 @@ public class ExpenseAdvancesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> updatePartialWithHttpInfo(Long id, Advance advance) throws ApiException {
+  public ApiResponse<Void> updatePartialAdvanceWithHttpInfo(Long id, Advance advance) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling updatePartial");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updatePartialAdvance");
     }
     if (advance == null) {
-      throw new ApiException(400, "Missing the required parameter 'advance' when calling updatePartial");
+      throw new ApiException(400, "Missing the required parameter 'advance' when calling updatePartialAdvance");
     }
 
     // Path parameters
@@ -602,7 +604,7 @@ public class ExpenseAdvancesApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("ExpenseAdvancesApi.updatePartial", localVarPath, "POST", new ArrayList<>(), advance,
+    return apiClient.invokeAPI("ExpenseAdvancesApi.updatePartialAdvance", localVarPath, "POST", new ArrayList<>(), advance,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -623,8 +625,8 @@ public class ExpenseAdvancesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void validate(Long id, Comment comment) throws ApiException {
-    validateWithHttpInfo(id, comment);
+  public void validateAdvance(Long id, Comment comment) throws ApiException {
+    validateAdvanceWithHttpInfo(id, comment);
   }
 
   /**
@@ -645,10 +647,10 @@ public class ExpenseAdvancesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> validateWithHttpInfo(Long id, Comment comment) throws ApiException {
+  public ApiResponse<Void> validateAdvanceWithHttpInfo(Long id, Comment comment) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling validate");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling validateAdvance");
     }
 
     // Path parameters
@@ -658,7 +660,7 @@ public class ExpenseAdvancesApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("ExpenseAdvancesApi.validate", localVarPath, "PUT", new ArrayList<>(), comment,
+    return apiClient.invokeAPI("ExpenseAdvancesApi.validateAdvance", localVarPath, "PUT", new ArrayList<>(), comment,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }

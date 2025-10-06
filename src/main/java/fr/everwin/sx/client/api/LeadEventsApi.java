@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 
-@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-05-22T08:24:46.022483900+02:00[Europe/Paris]")
+@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-10-06T08:58:20.555636300+02:00[Europe/Paris]")
 public class LeadEventsApi {
   private ApiClient apiClient;
 
@@ -47,49 +47,51 @@ public class LeadEventsApi {
    * Create a lead event
    * 
    * @param leadEvent Lead Event (required)
+   * @return LeadEvent
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 201 </td><td> Created </td><td>  * Location - URL to created work unit <br>  </td></tr>
+       <tr><td> 200 </td><td> OK </td><td>  * Location - URL to created work unit <br>  </td></tr>
        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void create(LeadEvent leadEvent) throws ApiException {
-    createWithHttpInfo(leadEvent);
+  public LeadEvent createLeadEvent(LeadEvent leadEvent) throws ApiException {
+    return createLeadEventWithHttpInfo(leadEvent).getData();
   }
 
   /**
    * Create a lead event
    * 
    * @param leadEvent Lead Event (required)
-   * @return ApiResponse&lt;Void&gt;
+   * @return ApiResponse&lt;LeadEvent&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 201 </td><td> Created </td><td>  * Location - URL to created work unit <br>  </td></tr>
+       <tr><td> 200 </td><td> OK </td><td>  * Location - URL to created work unit <br>  </td></tr>
        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> createWithHttpInfo(LeadEvent leadEvent) throws ApiException {
+  public ApiResponse<LeadEvent> createLeadEventWithHttpInfo(LeadEvent leadEvent) throws ApiException {
     // Check required parameters
     if (leadEvent == null) {
-      throw new ApiException(400, "Missing the required parameter 'leadEvent' when calling create");
+      throw new ApiException(400, "Missing the required parameter 'leadEvent' when calling createLeadEvent");
     }
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("LeadEventsApi.create", "/lead-events", "POST", new ArrayList<>(), leadEvent,
+    GenericType<LeadEvent> localVarReturnType = new GenericType<LeadEvent>() {};
+    return apiClient.invokeAPI("LeadEventsApi.createLeadEvent", "/lead-events", "POST", new ArrayList<>(), leadEvent,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
+                               localVarAuthNames, localVarReturnType, false);
   }
   /**
    * Delete an lead event
@@ -107,8 +109,8 @@ public class LeadEventsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void delete(Long id) throws ApiException {
-    deleteWithHttpInfo(id);
+  public void deleteLeadEvent(Long id) throws ApiException {
+    deleteLeadEventWithHttpInfo(id);
   }
 
   /**
@@ -128,10 +130,10 @@ public class LeadEventsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> deleteWithHttpInfo(Long id) throws ApiException {
+  public ApiResponse<Void> deleteLeadEventWithHttpInfo(Long id) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling delete");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteLeadEvent");
     }
 
     // Path parameters
@@ -141,7 +143,7 @@ public class LeadEventsApi {
     String localVarAccept = apiClient.selectHeaderAccept("*/*");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("LeadEventsApi.delete", localVarPath, "DELETE", new ArrayList<>(), null,
+    return apiClient.invokeAPI("LeadEventsApi.deleteLeadEvent", localVarPath, "DELETE", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -163,8 +165,8 @@ public class LeadEventsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public LeadEvent getById(Long id, String fields) throws ApiException {
-    return getByIdWithHttpInfo(id, fields).getData();
+  public LeadEvent getLeadEventById(Long id, String fields) throws ApiException {
+    return getLeadEventByIdWithHttpInfo(id, fields).getData();
   }
 
   /**
@@ -185,10 +187,10 @@ public class LeadEventsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<LeadEvent> getByIdWithHttpInfo(Long id, String fields) throws ApiException {
+  public ApiResponse<LeadEvent> getLeadEventByIdWithHttpInfo(Long id, String fields) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getById");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getLeadEventById");
     }
 
     // Path parameters
@@ -204,7 +206,7 @@ public class LeadEventsApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<LeadEvent> localVarReturnType = new GenericType<LeadEvent>() {};
-    return apiClient.invokeAPI("LeadEventsApi.getById", localVarPath, "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("LeadEventsApi.getLeadEventById", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -221,8 +223,8 @@ public class LeadEventsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public String ping() throws ApiException {
-    return pingWithHttpInfo().getData();
+  public String pingLeadEvent() throws ApiException {
+    return pingLeadEventWithHttpInfo().getData();
   }
 
   /**
@@ -238,12 +240,12 @@ public class LeadEventsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<String> pingWithHttpInfo() throws ApiException {
+  public ApiResponse<String> pingLeadEventWithHttpInfo() throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("text/plain");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<String> localVarReturnType = new GenericType<String>() {};
-    return apiClient.invokeAPI("LeadEventsApi.ping", "/lead-events/ping", "GET", new ArrayList<>(), null,
+    return apiClient.invokeAPI("LeadEventsApi.pingLeadEvent", "/lead-events/ping", "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -266,8 +268,8 @@ public class LeadEventsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public LeadEventList query(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
-    return queryWithHttpInfo(filter, sort, offset, limit, fields).getData();
+  public LeadEventList queryLeadEvent(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+    return queryLeadEventWithHttpInfo(filter, sort, offset, limit, fields).getData();
   }
 
   /**
@@ -289,7 +291,7 @@ public class LeadEventsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<LeadEventList> queryWithHttpInfo(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+  public ApiResponse<LeadEventList> queryLeadEventWithHttpInfo(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
     // Query parameters
     List<Pair> localVarQueryParams = new ArrayList<>(
             apiClient.parameterToPairs("", "filter", filter)
@@ -303,7 +305,7 @@ public class LeadEventsApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<LeadEventList> localVarReturnType = new GenericType<LeadEventList>() {};
-    return apiClient.invokeAPI("LeadEventsApi.query", "/lead-events", "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("LeadEventsApi.queryLeadEvent", "/lead-events", "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -325,8 +327,8 @@ public class LeadEventsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void update(Long id, LeadEvent leadEvent) throws ApiException {
-    updateWithHttpInfo(id, leadEvent);
+  public void updateLeadEvent(Long id, LeadEvent leadEvent) throws ApiException {
+    updateLeadEventWithHttpInfo(id, leadEvent);
   }
 
   /**
@@ -348,13 +350,13 @@ public class LeadEventsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> updateWithHttpInfo(Long id, LeadEvent leadEvent) throws ApiException {
+  public ApiResponse<Void> updateLeadEventWithHttpInfo(Long id, LeadEvent leadEvent) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling update");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updateLeadEvent");
     }
     if (leadEvent == null) {
-      throw new ApiException(400, "Missing the required parameter 'leadEvent' when calling update");
+      throw new ApiException(400, "Missing the required parameter 'leadEvent' when calling updateLeadEvent");
     }
 
     // Path parameters
@@ -364,7 +366,7 @@ public class LeadEventsApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("LeadEventsApi.update", localVarPath, "PUT", new ArrayList<>(), leadEvent,
+    return apiClient.invokeAPI("LeadEventsApi.updateLeadEvent", localVarPath, "PUT", new ArrayList<>(), leadEvent,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -386,8 +388,8 @@ public class LeadEventsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void updatePartial(Long id, LeadEvent leadEvent) throws ApiException {
-    updatePartialWithHttpInfo(id, leadEvent);
+  public void updatePartialLeadEvent(Long id, LeadEvent leadEvent) throws ApiException {
+    updatePartialLeadEventWithHttpInfo(id, leadEvent);
   }
 
   /**
@@ -409,13 +411,13 @@ public class LeadEventsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> updatePartialWithHttpInfo(Long id, LeadEvent leadEvent) throws ApiException {
+  public ApiResponse<Void> updatePartialLeadEventWithHttpInfo(Long id, LeadEvent leadEvent) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling updatePartial");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updatePartialLeadEvent");
     }
     if (leadEvent == null) {
-      throw new ApiException(400, "Missing the required parameter 'leadEvent' when calling updatePartial");
+      throw new ApiException(400, "Missing the required parameter 'leadEvent' when calling updatePartialLeadEvent");
     }
 
     // Path parameters
@@ -425,7 +427,7 @@ public class LeadEventsApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("LeadEventsApi.updatePartial", localVarPath, "POST", new ArrayList<>(), leadEvent,
+    return apiClient.invokeAPI("LeadEventsApi.updatePartialLeadEvent", localVarPath, "POST", new ArrayList<>(), leadEvent,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }

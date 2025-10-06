@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 
-@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-05-22T08:24:46.022483900+02:00[Europe/Paris]")
+@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-10-06T08:58:20.555636300+02:00[Europe/Paris]")
 public class PoaQuoteItemsApi {
   private ApiClient apiClient;
 
@@ -62,8 +62,8 @@ public class PoaQuoteItemsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public PoaquoteItem getById(Long id, String fields) throws ApiException {
-    return getByIdWithHttpInfo(id, fields).getData();
+  public PoaquoteItem getPOAQuoteItemById(Long id, String fields) throws ApiException {
+    return getPOAQuoteItemByIdWithHttpInfo(id, fields).getData();
   }
 
   /**
@@ -84,10 +84,10 @@ public class PoaQuoteItemsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<PoaquoteItem> getByIdWithHttpInfo(Long id, String fields) throws ApiException {
+  public ApiResponse<PoaquoteItem> getPOAQuoteItemByIdWithHttpInfo(Long id, String fields) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getById");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getPOAQuoteItemById");
     }
 
     // Path parameters
@@ -103,7 +103,7 @@ public class PoaQuoteItemsApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<PoaquoteItem> localVarReturnType = new GenericType<PoaquoteItem>() {};
-    return apiClient.invokeAPI("PoaQuoteItemsApi.getById", localVarPath, "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("PoaQuoteItemsApi.getPOAQuoteItemById", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -195,8 +195,8 @@ public class PoaQuoteItemsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public String ping() throws ApiException {
-    return pingWithHttpInfo().getData();
+  public String pingPOAQuoteItem() throws ApiException {
+    return pingPOAQuoteItemWithHttpInfo().getData();
   }
 
   /**
@@ -212,12 +212,12 @@ public class PoaQuoteItemsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<String> pingWithHttpInfo() throws ApiException {
+  public ApiResponse<String> pingPOAQuoteItemWithHttpInfo() throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("text/plain");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<String> localVarReturnType = new GenericType<String>() {};
-    return apiClient.invokeAPI("PoaQuoteItemsApi.ping", "/poa-quote-items/ping", "GET", new ArrayList<>(), null,
+    return apiClient.invokeAPI("PoaQuoteItemsApi.pingPOAQuoteItem", "/poa-quote-items/ping", "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -240,8 +240,8 @@ public class PoaQuoteItemsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public POAQuoteItemList query(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
-    return queryWithHttpInfo(filter, sort, offset, limit, fields).getData();
+  public POAQuoteItemList queryPOAQuoteItem(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+    return queryPOAQuoteItemWithHttpInfo(filter, sort, offset, limit, fields).getData();
   }
 
   /**
@@ -263,7 +263,7 @@ public class PoaQuoteItemsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<POAQuoteItemList> queryWithHttpInfo(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+  public ApiResponse<POAQuoteItemList> queryPOAQuoteItemWithHttpInfo(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
     // Query parameters
     List<Pair> localVarQueryParams = new ArrayList<>(
             apiClient.parameterToPairs("", "filter", filter)
@@ -277,7 +277,7 @@ public class PoaQuoteItemsApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<POAQuoteItemList> localVarReturnType = new GenericType<POAQuoteItemList>() {};
-    return apiClient.invokeAPI("PoaQuoteItemsApi.query", "/poa-quote-items", "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("PoaQuoteItemsApi.queryPOAQuoteItem", "/poa-quote-items", "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -299,8 +299,8 @@ public class PoaQuoteItemsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void updatePartial(Long id, PoaquoteItem poaquoteItem) throws ApiException {
-    updatePartialWithHttpInfo(id, poaquoteItem);
+  public void updatePartialPOAQuoteItem(Long id, PoaquoteItem poaquoteItem) throws ApiException {
+    updatePartialPOAQuoteItemWithHttpInfo(id, poaquoteItem);
   }
 
   /**
@@ -322,13 +322,13 @@ public class PoaQuoteItemsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> updatePartialWithHttpInfo(Long id, PoaquoteItem poaquoteItem) throws ApiException {
+  public ApiResponse<Void> updatePartialPOAQuoteItemWithHttpInfo(Long id, PoaquoteItem poaquoteItem) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling updatePartial");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updatePartialPOAQuoteItem");
     }
     if (poaquoteItem == null) {
-      throw new ApiException(400, "Missing the required parameter 'poaquoteItem' when calling updatePartial");
+      throw new ApiException(400, "Missing the required parameter 'poaquoteItem' when calling updatePartialPOAQuoteItem");
     }
 
     // Path parameters
@@ -338,7 +338,7 @@ public class PoaQuoteItemsApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("PoaQuoteItemsApi.updatePartial", localVarPath, "POST", new ArrayList<>(), poaquoteItem,
+    return apiClient.invokeAPI("PoaQuoteItemsApi.updatePartialPOAQuoteItem", localVarPath, "POST", new ArrayList<>(), poaquoteItem,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }

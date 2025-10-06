@@ -17,7 +17,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-05-22T08:24:46.022483900+02:00[Europe/Paris]")
+@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-10-06T08:58:20.555636300+02:00[Europe/Paris]")
 public class EquipmentsApi {
   private ApiClient apiClient;
 
@@ -52,6 +52,7 @@ public class EquipmentsApi {
    * 
    * @param id id (required)
    * @param document Document (required)
+   * @return Document
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -63,8 +64,8 @@ public class EquipmentsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void createDocument(Long id, Document document) throws ApiException {
-    createDocumentWithHttpInfo(id, document);
+  public Document createEquipmentDocument(Long id, Document document) throws ApiException {
+    return createEquipmentDocumentWithHttpInfo(id, document).getData();
   }
 
   /**
@@ -72,7 +73,7 @@ public class EquipmentsApi {
    * 
    * @param id id (required)
    * @param document Document (required)
-   * @return ApiResponse&lt;Void&gt;
+   * @return ApiResponse&lt;Document&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -84,13 +85,13 @@ public class EquipmentsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> createDocumentWithHttpInfo(Long id, Document document) throws ApiException {
+  public ApiResponse<Document> createEquipmentDocumentWithHttpInfo(Long id, Document document) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling createDocument");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling createEquipmentDocument");
     }
     if (document == null) {
-      throw new ApiException(400, "Missing the required parameter 'document' when calling createDocument");
+      throw new ApiException(400, "Missing the required parameter 'document' when calling createEquipmentDocument");
     }
 
     // Path parameters
@@ -100,9 +101,10 @@ public class EquipmentsApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("EquipmentsApi.createDocument", localVarPath, "POST", new ArrayList<>(), document,
+    GenericType<Document> localVarReturnType = new GenericType<Document>() {};
+    return apiClient.invokeAPI("EquipmentsApi.createEquipmentDocument", localVarPath, "POST", new ArrayList<>(), document,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
+                               localVarAuthNames, localVarReturnType, false);
   }
   /**
    * Delete a equipment document
@@ -121,8 +123,8 @@ public class EquipmentsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void deleteDocument(Long id, Long did) throws ApiException {
-    deleteDocumentWithHttpInfo(id, did);
+  public void deleteEquipmentDocument(Long id, Long did) throws ApiException {
+    deleteEquipmentDocumentWithHttpInfo(id, did);
   }
 
   /**
@@ -143,13 +145,13 @@ public class EquipmentsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> deleteDocumentWithHttpInfo(Long id, Long did) throws ApiException {
+  public ApiResponse<Void> deleteEquipmentDocumentWithHttpInfo(Long id, Long did) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteDocument");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteEquipmentDocument");
     }
     if (did == null) {
-      throw new ApiException(400, "Missing the required parameter 'did' when calling deleteDocument");
+      throw new ApiException(400, "Missing the required parameter 'did' when calling deleteEquipmentDocument");
     }
 
     // Path parameters
@@ -160,7 +162,7 @@ public class EquipmentsApi {
     String localVarAccept = apiClient.selectHeaderAccept("*/*");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("EquipmentsApi.deleteDocument", localVarPath, "DELETE", new ArrayList<>(), null,
+    return apiClient.invokeAPI("EquipmentsApi.deleteEquipmentDocument", localVarPath, "DELETE", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -181,8 +183,8 @@ public class EquipmentsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void downloadDocument(Long id, Long did) throws ApiException {
-    downloadDocumentWithHttpInfo(id, did);
+  public void downloadEquipmentDocument(Long id, Long did) throws ApiException {
+    downloadEquipmentDocumentWithHttpInfo(id, did);
   }
 
   /**
@@ -203,13 +205,13 @@ public class EquipmentsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> downloadDocumentWithHttpInfo(Long id, Long did) throws ApiException {
+  public ApiResponse<Void> downloadEquipmentDocumentWithHttpInfo(Long id, Long did) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling downloadDocument");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling downloadEquipmentDocument");
     }
     if (did == null) {
-      throw new ApiException(400, "Missing the required parameter 'did' when calling downloadDocument");
+      throw new ApiException(400, "Missing the required parameter 'did' when calling downloadEquipmentDocument");
     }
 
     // Path parameters
@@ -220,7 +222,7 @@ public class EquipmentsApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/octet-stream");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("EquipmentsApi.downloadDocument", localVarPath, "GET", new ArrayList<>(), null,
+    return apiClient.invokeAPI("EquipmentsApi.downloadEquipmentDocument", localVarPath, "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -242,8 +244,8 @@ public class EquipmentsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public Equipment getById(Long id, String fields) throws ApiException {
-    return getByIdWithHttpInfo(id, fields).getData();
+  public Equipment getEquipmentById(Long id, String fields) throws ApiException {
+    return getEquipmentByIdWithHttpInfo(id, fields).getData();
   }
 
   /**
@@ -264,10 +266,10 @@ public class EquipmentsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Equipment> getByIdWithHttpInfo(Long id, String fields) throws ApiException {
+  public ApiResponse<Equipment> getEquipmentByIdWithHttpInfo(Long id, String fields) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getById");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getEquipmentById");
     }
 
     // Path parameters
@@ -283,7 +285,7 @@ public class EquipmentsApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<Equipment> localVarReturnType = new GenericType<Equipment>() {};
-    return apiClient.invokeAPI("EquipmentsApi.getById", localVarPath, "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("EquipmentsApi.getEquipmentById", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -306,8 +308,8 @@ public class EquipmentsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public Document getDocumentById(Long id, Long did, String fields) throws ApiException {
-    return getDocumentByIdWithHttpInfo(id, did, fields).getData();
+  public Document getEquipmentDocumentById(Long id, Long did, String fields) throws ApiException {
+    return getEquipmentDocumentByIdWithHttpInfo(id, did, fields).getData();
   }
 
   /**
@@ -329,13 +331,13 @@ public class EquipmentsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Document> getDocumentByIdWithHttpInfo(Long id, Long did, String fields) throws ApiException {
+  public ApiResponse<Document> getEquipmentDocumentByIdWithHttpInfo(Long id, Long did, String fields) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getDocumentById");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getEquipmentDocumentById");
     }
     if (did == null) {
-      throw new ApiException(400, "Missing the required parameter 'did' when calling getDocumentById");
+      throw new ApiException(400, "Missing the required parameter 'did' when calling getEquipmentDocumentById");
     }
 
     // Path parameters
@@ -352,7 +354,7 @@ public class EquipmentsApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<Document> localVarReturnType = new GenericType<Document>() {};
-    return apiClient.invokeAPI("EquipmentsApi.getDocumentById", localVarPath, "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("EquipmentsApi.getEquipmentDocumentById", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -378,8 +380,8 @@ public class EquipmentsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public DocumentList getDocuments(Long id, String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
-    return getDocumentsWithHttpInfo(id, filter, sort, offset, limit, fields).getData();
+  public DocumentList getEquipmentDocuments(Long id, String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+    return getEquipmentDocumentsWithHttpInfo(id, filter, sort, offset, limit, fields).getData();
   }
 
   /**
@@ -404,10 +406,10 @@ public class EquipmentsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<DocumentList> getDocumentsWithHttpInfo(Long id, String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+  public ApiResponse<DocumentList> getEquipmentDocumentsWithHttpInfo(Long id, String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getDocuments");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getEquipmentDocuments");
     }
 
     // Path parameters
@@ -427,7 +429,7 @@ public class EquipmentsApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<DocumentList> localVarReturnType = new GenericType<DocumentList>() {};
-    return apiClient.invokeAPI("EquipmentsApi.getDocuments", localVarPath, "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("EquipmentsApi.getEquipmentDocuments", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -443,8 +445,8 @@ public class EquipmentsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void ping() throws ApiException {
-    pingWithHttpInfo();
+  public void pingEquipment() throws ApiException {
+    pingEquipmentWithHttpInfo();
   }
 
   /**
@@ -460,11 +462,11 @@ public class EquipmentsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> pingWithHttpInfo() throws ApiException {
+  public ApiResponse<Void> pingEquipmentWithHttpInfo() throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("text/plain");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("EquipmentsApi.ping", "/equipments/ping", "GET", new ArrayList<>(), null,
+    return apiClient.invokeAPI("EquipmentsApi.pingEquipment", "/equipments/ping", "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -487,8 +489,8 @@ public class EquipmentsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public EquipmentList query(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
-    return queryWithHttpInfo(filter, sort, offset, limit, fields).getData();
+  public EquipmentList queryEquipment(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+    return queryEquipmentWithHttpInfo(filter, sort, offset, limit, fields).getData();
   }
 
   /**
@@ -510,7 +512,7 @@ public class EquipmentsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<EquipmentList> queryWithHttpInfo(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+  public ApiResponse<EquipmentList> queryEquipmentWithHttpInfo(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
     // Query parameters
     List<Pair> localVarQueryParams = new ArrayList<>(
             apiClient.parameterToPairs("", "filter", filter)
@@ -524,7 +526,7 @@ public class EquipmentsApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<EquipmentList> localVarReturnType = new GenericType<EquipmentList>() {};
-    return apiClient.invokeAPI("EquipmentsApi.query", "/equipments", "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("EquipmentsApi.queryEquipment", "/equipments", "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -547,8 +549,8 @@ public class EquipmentsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void updateDocument(Long id, Long did, Document document) throws ApiException {
-    updateDocumentWithHttpInfo(id, did, document);
+  public void updateEquipmentDocument(Long id, Long did, Document document) throws ApiException {
+    updateEquipmentDocumentWithHttpInfo(id, did, document);
   }
 
   /**
@@ -571,16 +573,16 @@ public class EquipmentsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> updateDocumentWithHttpInfo(Long id, Long did, Document document) throws ApiException {
+  public ApiResponse<Void> updateEquipmentDocumentWithHttpInfo(Long id, Long did, Document document) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling updateDocument");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updateEquipmentDocument");
     }
     if (did == null) {
-      throw new ApiException(400, "Missing the required parameter 'did' when calling updateDocument");
+      throw new ApiException(400, "Missing the required parameter 'did' when calling updateEquipmentDocument");
     }
     if (document == null) {
-      throw new ApiException(400, "Missing the required parameter 'document' when calling updateDocument");
+      throw new ApiException(400, "Missing the required parameter 'document' when calling updateEquipmentDocument");
     }
 
     // Path parameters
@@ -591,7 +593,7 @@ public class EquipmentsApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("EquipmentsApi.updateDocument", localVarPath, "PUT", new ArrayList<>(), document,
+    return apiClient.invokeAPI("EquipmentsApi.updateEquipmentDocument", localVarPath, "PUT", new ArrayList<>(), document,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -614,8 +616,8 @@ public class EquipmentsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void updatePartialDocument(Long id, Long did, Document document) throws ApiException {
-    updatePartialDocumentWithHttpInfo(id, did, document);
+  public void updatePartialEquipmentDocument(Long id, Long did, Document document) throws ApiException {
+    updatePartialEquipmentDocumentWithHttpInfo(id, did, document);
   }
 
   /**
@@ -638,16 +640,16 @@ public class EquipmentsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> updatePartialDocumentWithHttpInfo(Long id, Long did, Document document) throws ApiException {
+  public ApiResponse<Void> updatePartialEquipmentDocumentWithHttpInfo(Long id, Long did, Document document) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling updatePartialDocument");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updatePartialEquipmentDocument");
     }
     if (did == null) {
-      throw new ApiException(400, "Missing the required parameter 'did' when calling updatePartialDocument");
+      throw new ApiException(400, "Missing the required parameter 'did' when calling updatePartialEquipmentDocument");
     }
     if (document == null) {
-      throw new ApiException(400, "Missing the required parameter 'document' when calling updatePartialDocument");
+      throw new ApiException(400, "Missing the required parameter 'document' when calling updatePartialEquipmentDocument");
     }
 
     // Path parameters
@@ -658,7 +660,7 @@ public class EquipmentsApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("EquipmentsApi.updatePartialDocument", localVarPath, "POST", new ArrayList<>(), document,
+    return apiClient.invokeAPI("EquipmentsApi.updatePartialEquipmentDocument", localVarPath, "POST", new ArrayList<>(), document,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -680,8 +682,8 @@ public class EquipmentsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void uploadDocument(Long id, Long did, FormDataContentDisposition _file) throws ApiException {
-    uploadDocumentWithHttpInfo(id, did, _file);
+  public void uploadEquipmentDocument(Long id, Long did, FormDataContentDisposition _file) throws ApiException {
+    uploadEquipmentDocumentWithHttpInfo(id, did, _file);
   }
 
   /**
@@ -703,16 +705,16 @@ public class EquipmentsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> uploadDocumentWithHttpInfo(Long id, Long did, FormDataContentDisposition _file) throws ApiException {
+  public ApiResponse<Void> uploadEquipmentDocumentWithHttpInfo(Long id, Long did, FormDataContentDisposition _file) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling uploadDocument");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling uploadEquipmentDocument");
     }
     if (did == null) {
-      throw new ApiException(400, "Missing the required parameter 'did' when calling uploadDocument");
+      throw new ApiException(400, "Missing the required parameter 'did' when calling uploadEquipmentDocument");
     }
     if (_file == null) {
-      throw new ApiException(400, "Missing the required parameter '_file' when calling uploadDocument");
+      throw new ApiException(400, "Missing the required parameter '_file' when calling uploadEquipmentDocument");
     }
 
     // Path parameters
@@ -727,7 +729,7 @@ public class EquipmentsApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("multipart/form-data");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("EquipmentsApi.uploadDocument", localVarPath, "POST", new ArrayList<>(), null,
+    return apiClient.invokeAPI("EquipmentsApi.uploadEquipmentDocument", localVarPath, "POST", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }

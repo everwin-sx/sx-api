@@ -13,27 +13,18 @@
 
 package fr.everwin.sx.client.model;
 
-import java.util.Objects;
-import java.util.Map;
-import java.util.HashMap;
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import fr.everwin.sx.client.model.FilterRegistration;
-import fr.everwin.sx.client.model.JspConfigDescriptor;
-import fr.everwin.sx.client.model.ServletContextClassLoader;
-import fr.everwin.sx.client.model.ServletRegistration;
-import fr.everwin.sx.client.model.SessionCookieConfig;
-import java.util.Arrays;
+
 import java.util.HashMap;
 import java.util.LinkedHashSet;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import fr.everwin.sx.client.JSON;
 
 
 /**

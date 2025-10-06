@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 
-@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-05-22T08:24:46.022483900+02:00[Europe/Paris]")
+@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-10-06T08:58:20.555636300+02:00[Europe/Paris]")
 public class CrmQuotesApi {
   private ApiClient apiClient;
 
@@ -64,8 +64,8 @@ public class CrmQuotesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void addEstimateToOrder(Long orderId, Long estimateId, CustomerOrder customerOrder) throws ApiException {
-    addEstimateToOrderWithHttpInfo(orderId, estimateId, customerOrder);
+  public void addCRMQuoteEstimateToOrder(Long orderId, Long estimateId, CustomerOrder customerOrder) throws ApiException {
+    addCRMQuoteEstimateToOrderWithHttpInfo(orderId, estimateId, customerOrder);
   }
 
   /**
@@ -88,16 +88,16 @@ public class CrmQuotesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> addEstimateToOrderWithHttpInfo(Long orderId, Long estimateId, CustomerOrder customerOrder) throws ApiException {
+  public ApiResponse<Void> addCRMQuoteEstimateToOrderWithHttpInfo(Long orderId, Long estimateId, CustomerOrder customerOrder) throws ApiException {
     // Check required parameters
     if (orderId == null) {
-      throw new ApiException(400, "Missing the required parameter 'orderId' when calling addEstimateToOrder");
+      throw new ApiException(400, "Missing the required parameter 'orderId' when calling addCRMQuoteEstimateToOrder");
     }
     if (estimateId == null) {
-      throw new ApiException(400, "Missing the required parameter 'estimateId' when calling addEstimateToOrder");
+      throw new ApiException(400, "Missing the required parameter 'estimateId' when calling addCRMQuoteEstimateToOrder");
     }
     if (customerOrder == null) {
-      throw new ApiException(400, "Missing the required parameter 'customerOrder' when calling addEstimateToOrder");
+      throw new ApiException(400, "Missing the required parameter 'customerOrder' when calling addCRMQuoteEstimateToOrder");
     }
 
     // Path parameters
@@ -108,7 +108,7 @@ public class CrmQuotesApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("CrmQuotesApi.addEstimateToOrder", localVarPath, "PUT", new ArrayList<>(), customerOrder,
+    return apiClient.invokeAPI("CrmQuotesApi.addCRMQuoteEstimateToOrder", localVarPath, "PUT", new ArrayList<>(), customerOrder,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -116,6 +116,7 @@ public class CrmQuotesApi {
    * Create an crm quote action
    * 
    * @param crmQuote CRM quote (required)
+   * @return CrmQuote
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -128,15 +129,15 @@ public class CrmQuotesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void create(CrmQuote crmQuote) throws ApiException {
-    createWithHttpInfo(crmQuote);
+  public CrmQuote createCRMQuote(CrmQuote crmQuote) throws ApiException {
+    return createCRMQuoteWithHttpInfo(crmQuote).getData();
   }
 
   /**
    * Create an crm quote action
    * 
    * @param crmQuote CRM quote (required)
-   * @return ApiResponse&lt;Void&gt;
+   * @return ApiResponse&lt;CrmQuote&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -149,18 +150,19 @@ public class CrmQuotesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> createWithHttpInfo(CrmQuote crmQuote) throws ApiException {
+  public ApiResponse<CrmQuote> createCRMQuoteWithHttpInfo(CrmQuote crmQuote) throws ApiException {
     // Check required parameters
     if (crmQuote == null) {
-      throw new ApiException(400, "Missing the required parameter 'crmQuote' when calling create");
+      throw new ApiException(400, "Missing the required parameter 'crmQuote' when calling createCRMQuote");
     }
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("CrmQuotesApi.create", "/crm-quotes", "POST", new ArrayList<>(), crmQuote,
+    GenericType<CrmQuote> localVarReturnType = new GenericType<CrmQuote>() {};
+    return apiClient.invokeAPI("CrmQuotesApi.createCRMQuote", "/crm-quotes", "POST", new ArrayList<>(), crmQuote,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
+                               localVarAuthNames, localVarReturnType, false);
   }
   /**
    * Creation of a Customer Order from an estimate
@@ -180,8 +182,8 @@ public class CrmQuotesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void createOrderFromEstimate(Long estimateId, CustomerOrder customerOrder) throws ApiException {
-    createOrderFromEstimateWithHttpInfo(estimateId, customerOrder);
+  public void createCRMQuoteOrderFromEstimate(Long estimateId, CustomerOrder customerOrder) throws ApiException {
+    createCRMQuoteOrderFromEstimateWithHttpInfo(estimateId, customerOrder);
   }
 
   /**
@@ -203,13 +205,13 @@ public class CrmQuotesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> createOrderFromEstimateWithHttpInfo(Long estimateId, CustomerOrder customerOrder) throws ApiException {
+  public ApiResponse<Void> createCRMQuoteOrderFromEstimateWithHttpInfo(Long estimateId, CustomerOrder customerOrder) throws ApiException {
     // Check required parameters
     if (estimateId == null) {
-      throw new ApiException(400, "Missing the required parameter 'estimateId' when calling createOrderFromEstimate");
+      throw new ApiException(400, "Missing the required parameter 'estimateId' when calling createCRMQuoteOrderFromEstimate");
     }
     if (customerOrder == null) {
-      throw new ApiException(400, "Missing the required parameter 'customerOrder' when calling createOrderFromEstimate");
+      throw new ApiException(400, "Missing the required parameter 'customerOrder' when calling createCRMQuoteOrderFromEstimate");
     }
 
     // Path parameters
@@ -219,7 +221,7 @@ public class CrmQuotesApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("CrmQuotesApi.createOrderFromEstimate", localVarPath, "POST", new ArrayList<>(), customerOrder,
+    return apiClient.invokeAPI("CrmQuotesApi.createCRMQuoteOrderFromEstimate", localVarPath, "POST", new ArrayList<>(), customerOrder,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -239,8 +241,8 @@ public class CrmQuotesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void delete(Long id) throws ApiException {
-    deleteWithHttpInfo(id);
+  public void deleteCRMQuote(Long id) throws ApiException {
+    deleteCRMQuoteWithHttpInfo(id);
   }
 
   /**
@@ -260,10 +262,10 @@ public class CrmQuotesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> deleteWithHttpInfo(Long id) throws ApiException {
+  public ApiResponse<Void> deleteCRMQuoteWithHttpInfo(Long id) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling delete");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteCRMQuote");
     }
 
     // Path parameters
@@ -273,7 +275,7 @@ public class CrmQuotesApi {
     String localVarAccept = apiClient.selectHeaderAccept("*/*");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("CrmQuotesApi.delete", localVarPath, "DELETE", new ArrayList<>(), null,
+    return apiClient.invokeAPI("CrmQuotesApi.deleteCRMQuote", localVarPath, "DELETE", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -295,8 +297,8 @@ public class CrmQuotesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public CrmQuote getById(Long id, String fields) throws ApiException {
-    return getByIdWithHttpInfo(id, fields).getData();
+  public CrmQuote getCRMQuoteById(Long id, String fields) throws ApiException {
+    return getCRMQuoteByIdWithHttpInfo(id, fields).getData();
   }
 
   /**
@@ -317,10 +319,10 @@ public class CrmQuotesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<CrmQuote> getByIdWithHttpInfo(Long id, String fields) throws ApiException {
+  public ApiResponse<CrmQuote> getCRMQuoteByIdWithHttpInfo(Long id, String fields) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getById");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getCRMQuoteById");
     }
 
     // Path parameters
@@ -336,7 +338,7 @@ public class CrmQuotesApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<CrmQuote> localVarReturnType = new GenericType<CrmQuote>() {};
-    return apiClient.invokeAPI("CrmQuotesApi.getById", localVarPath, "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("CrmQuotesApi.getCRMQuoteById", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -428,8 +430,8 @@ public class CrmQuotesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public String ping() throws ApiException {
-    return pingWithHttpInfo().getData();
+  public String pingCRMQuote() throws ApiException {
+    return pingCRMQuoteWithHttpInfo().getData();
   }
 
   /**
@@ -445,12 +447,12 @@ public class CrmQuotesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<String> pingWithHttpInfo() throws ApiException {
+  public ApiResponse<String> pingCRMQuoteWithHttpInfo() throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("text/plain");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<String> localVarReturnType = new GenericType<String>() {};
-    return apiClient.invokeAPI("CrmQuotesApi.ping", "/crm-quotes/ping", "GET", new ArrayList<>(), null,
+    return apiClient.invokeAPI("CrmQuotesApi.pingCRMQuote", "/crm-quotes/ping", "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -473,8 +475,8 @@ public class CrmQuotesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public CRMQuoteList query(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
-    return queryWithHttpInfo(filter, sort, offset, limit, fields).getData();
+  public CRMQuoteList queryCRMQuote(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+    return queryCRMQuoteWithHttpInfo(filter, sort, offset, limit, fields).getData();
   }
 
   /**
@@ -496,7 +498,7 @@ public class CrmQuotesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<CRMQuoteList> queryWithHttpInfo(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+  public ApiResponse<CRMQuoteList> queryCRMQuoteWithHttpInfo(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
     // Query parameters
     List<Pair> localVarQueryParams = new ArrayList<>(
             apiClient.parameterToPairs("", "filter", filter)
@@ -510,7 +512,7 @@ public class CrmQuotesApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<CRMQuoteList> localVarReturnType = new GenericType<CRMQuoteList>() {};
-    return apiClient.invokeAPI("CrmQuotesApi.query", "/crm-quotes", "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("CrmQuotesApi.queryCRMQuote", "/crm-quotes", "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -532,8 +534,8 @@ public class CrmQuotesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void update(Long id, CrmQuote crmQuote) throws ApiException {
-    updateWithHttpInfo(id, crmQuote);
+  public void updateCRMQuote(Long id, CrmQuote crmQuote) throws ApiException {
+    updateCRMQuoteWithHttpInfo(id, crmQuote);
   }
 
   /**
@@ -555,13 +557,13 @@ public class CrmQuotesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> updateWithHttpInfo(Long id, CrmQuote crmQuote) throws ApiException {
+  public ApiResponse<Void> updateCRMQuoteWithHttpInfo(Long id, CrmQuote crmQuote) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling update");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updateCRMQuote");
     }
     if (crmQuote == null) {
-      throw new ApiException(400, "Missing the required parameter 'crmQuote' when calling update");
+      throw new ApiException(400, "Missing the required parameter 'crmQuote' when calling updateCRMQuote");
     }
 
     // Path parameters
@@ -571,7 +573,7 @@ public class CrmQuotesApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("CrmQuotesApi.update", localVarPath, "PUT", new ArrayList<>(), crmQuote,
+    return apiClient.invokeAPI("CrmQuotesApi.updateCRMQuote", localVarPath, "PUT", new ArrayList<>(), crmQuote,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -593,8 +595,8 @@ public class CrmQuotesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void updatePartial(Long id, CrmQuote crmQuote) throws ApiException {
-    updatePartialWithHttpInfo(id, crmQuote);
+  public void updatePartialCRMQuote(Long id, CrmQuote crmQuote) throws ApiException {
+    updatePartialCRMQuoteWithHttpInfo(id, crmQuote);
   }
 
   /**
@@ -616,13 +618,13 @@ public class CrmQuotesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> updatePartialWithHttpInfo(Long id, CrmQuote crmQuote) throws ApiException {
+  public ApiResponse<Void> updatePartialCRMQuoteWithHttpInfo(Long id, CrmQuote crmQuote) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling updatePartial");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updatePartialCRMQuote");
     }
     if (crmQuote == null) {
-      throw new ApiException(400, "Missing the required parameter 'crmQuote' when calling updatePartial");
+      throw new ApiException(400, "Missing the required parameter 'crmQuote' when calling updatePartialCRMQuote");
     }
 
     // Path parameters
@@ -632,7 +634,7 @@ public class CrmQuotesApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("CrmQuotesApi.updatePartial", localVarPath, "POST", new ArrayList<>(), crmQuote,
+    return apiClient.invokeAPI("CrmQuotesApi.updatePartialCRMQuote", localVarPath, "POST", new ArrayList<>(), crmQuote,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }

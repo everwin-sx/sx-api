@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 
-@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-05-22T08:24:46.022483900+02:00[Europe/Paris]")
+@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-10-06T08:58:20.555636300+02:00[Europe/Paris]")
 public class CurrencyRatesApi {
   private ApiClient apiClient;
 
@@ -61,8 +61,8 @@ public class CurrencyRatesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public CurrencyRate getById(Long id, String fields) throws ApiException {
-    return getByIdWithHttpInfo(id, fields).getData();
+  public CurrencyRate getCurrencyRateById(Long id, String fields) throws ApiException {
+    return getCurrencyRateByIdWithHttpInfo(id, fields).getData();
   }
 
   /**
@@ -83,10 +83,10 @@ public class CurrencyRatesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<CurrencyRate> getByIdWithHttpInfo(Long id, String fields) throws ApiException {
+  public ApiResponse<CurrencyRate> getCurrencyRateByIdWithHttpInfo(Long id, String fields) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getById");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getCurrencyRateById");
     }
 
     // Path parameters
@@ -102,7 +102,7 @@ public class CurrencyRatesApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<CurrencyRate> localVarReturnType = new GenericType<CurrencyRate>() {};
-    return apiClient.invokeAPI("CurrencyRatesApi.getById", localVarPath, "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("CurrencyRatesApi.getCurrencyRateById", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -119,8 +119,8 @@ public class CurrencyRatesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public String ping() throws ApiException {
-    return pingWithHttpInfo().getData();
+  public String pingCurrencyRate() throws ApiException {
+    return pingCurrencyRateWithHttpInfo().getData();
   }
 
   /**
@@ -136,12 +136,12 @@ public class CurrencyRatesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<String> pingWithHttpInfo() throws ApiException {
+  public ApiResponse<String> pingCurrencyRateWithHttpInfo() throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("text/plain");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<String> localVarReturnType = new GenericType<String>() {};
-    return apiClient.invokeAPI("CurrencyRatesApi.ping", "/currency-rates/ping", "GET", new ArrayList<>(), null,
+    return apiClient.invokeAPI("CurrencyRatesApi.pingCurrencyRate", "/currency-rates/ping", "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -164,8 +164,8 @@ public class CurrencyRatesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public CurrencyRateList query(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
-    return queryWithHttpInfo(filter, sort, offset, limit, fields).getData();
+  public CurrencyRateList queryCurrencyRate(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+    return queryCurrencyRateWithHttpInfo(filter, sort, offset, limit, fields).getData();
   }
 
   /**
@@ -187,7 +187,7 @@ public class CurrencyRatesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<CurrencyRateList> queryWithHttpInfo(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+  public ApiResponse<CurrencyRateList> queryCurrencyRateWithHttpInfo(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
     // Query parameters
     List<Pair> localVarQueryParams = new ArrayList<>(
             apiClient.parameterToPairs("", "filter", filter)
@@ -201,7 +201,7 @@ public class CurrencyRatesApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<CurrencyRateList> localVarReturnType = new GenericType<CurrencyRateList>() {};
-    return apiClient.invokeAPI("CurrencyRatesApi.query", "/currency-rates", "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("CurrencyRatesApi.queryCurrencyRate", "/currency-rates", "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }

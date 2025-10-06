@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 
-@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-05-22T08:24:46.022483900+02:00[Europe/Paris]")
+@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-10-06T08:58:20.555636300+02:00[Europe/Paris]")
 public class CustomerOrderLinesApi {
   private ApiClient apiClient;
 
@@ -61,8 +61,8 @@ public class CustomerOrderLinesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public CustomerOrderLine getById(Long id, String fields) throws ApiException {
-    return getByIdWithHttpInfo(id, fields).getData();
+  public CustomerOrderLine getCustomerOrderLineById(Long id, String fields) throws ApiException {
+    return getCustomerOrderLineByIdWithHttpInfo(id, fields).getData();
   }
 
   /**
@@ -83,10 +83,10 @@ public class CustomerOrderLinesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<CustomerOrderLine> getByIdWithHttpInfo(Long id, String fields) throws ApiException {
+  public ApiResponse<CustomerOrderLine> getCustomerOrderLineByIdWithHttpInfo(Long id, String fields) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getById");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getCustomerOrderLineById");
     }
 
     // Path parameters
@@ -102,7 +102,7 @@ public class CustomerOrderLinesApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<CustomerOrderLine> localVarReturnType = new GenericType<CustomerOrderLine>() {};
-    return apiClient.invokeAPI("CustomerOrderLinesApi.getById", localVarPath, "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("CustomerOrderLinesApi.getCustomerOrderLineById", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -119,8 +119,8 @@ public class CustomerOrderLinesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public String ping() throws ApiException {
-    return pingWithHttpInfo().getData();
+  public String pingCustomerOrderLine() throws ApiException {
+    return pingCustomerOrderLineWithHttpInfo().getData();
   }
 
   /**
@@ -136,12 +136,12 @@ public class CustomerOrderLinesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<String> pingWithHttpInfo() throws ApiException {
+  public ApiResponse<String> pingCustomerOrderLineWithHttpInfo() throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("text/plain");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<String> localVarReturnType = new GenericType<String>() {};
-    return apiClient.invokeAPI("CustomerOrderLinesApi.ping", "/customer-order-lines/ping", "GET", new ArrayList<>(), null,
+    return apiClient.invokeAPI("CustomerOrderLinesApi.pingCustomerOrderLine", "/customer-order-lines/ping", "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -164,8 +164,8 @@ public class CustomerOrderLinesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public CustomerOrderLineList query(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
-    return queryWithHttpInfo(filter, sort, offset, limit, fields).getData();
+  public CustomerOrderLineList queryCustomerOrderLine(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+    return queryCustomerOrderLineWithHttpInfo(filter, sort, offset, limit, fields).getData();
   }
 
   /**
@@ -187,7 +187,7 @@ public class CustomerOrderLinesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<CustomerOrderLineList> queryWithHttpInfo(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+  public ApiResponse<CustomerOrderLineList> queryCustomerOrderLineWithHttpInfo(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
     // Query parameters
     List<Pair> localVarQueryParams = new ArrayList<>(
             apiClient.parameterToPairs("", "filter", filter)
@@ -201,7 +201,7 @@ public class CustomerOrderLinesApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<CustomerOrderLineList> localVarReturnType = new GenericType<CustomerOrderLineList>() {};
-    return apiClient.invokeAPI("CustomerOrderLinesApi.query", "/customer-order-lines", "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("CustomerOrderLinesApi.queryCustomerOrderLine", "/customer-order-lines", "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -223,8 +223,8 @@ public class CustomerOrderLinesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void update(Long id, CustomerOrderLine customerOrderLine) throws ApiException {
-    updateWithHttpInfo(id, customerOrderLine);
+  public void updateCustomerOrderLine(Long id, CustomerOrderLine customerOrderLine) throws ApiException {
+    updateCustomerOrderLineWithHttpInfo(id, customerOrderLine);
   }
 
   /**
@@ -246,13 +246,13 @@ public class CustomerOrderLinesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> updateWithHttpInfo(Long id, CustomerOrderLine customerOrderLine) throws ApiException {
+  public ApiResponse<Void> updateCustomerOrderLineWithHttpInfo(Long id, CustomerOrderLine customerOrderLine) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling update");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updateCustomerOrderLine");
     }
     if (customerOrderLine == null) {
-      throw new ApiException(400, "Missing the required parameter 'customerOrderLine' when calling update");
+      throw new ApiException(400, "Missing the required parameter 'customerOrderLine' when calling updateCustomerOrderLine");
     }
 
     // Path parameters
@@ -262,7 +262,7 @@ public class CustomerOrderLinesApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("CustomerOrderLinesApi.update", localVarPath, "PUT", new ArrayList<>(), customerOrderLine,
+    return apiClient.invokeAPI("CustomerOrderLinesApi.updateCustomerOrderLine", localVarPath, "PUT", new ArrayList<>(), customerOrderLine,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -284,8 +284,8 @@ public class CustomerOrderLinesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void updatePartial(Long id, CustomerOrderLine customerOrderLine) throws ApiException {
-    updatePartialWithHttpInfo(id, customerOrderLine);
+  public void updatePartialCustomerOrderLine(Long id, CustomerOrderLine customerOrderLine) throws ApiException {
+    updatePartialCustomerOrderLineWithHttpInfo(id, customerOrderLine);
   }
 
   /**
@@ -307,13 +307,13 @@ public class CustomerOrderLinesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> updatePartialWithHttpInfo(Long id, CustomerOrderLine customerOrderLine) throws ApiException {
+  public ApiResponse<Void> updatePartialCustomerOrderLineWithHttpInfo(Long id, CustomerOrderLine customerOrderLine) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling updatePartial");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updatePartialCustomerOrderLine");
     }
     if (customerOrderLine == null) {
-      throw new ApiException(400, "Missing the required parameter 'customerOrderLine' when calling updatePartial");
+      throw new ApiException(400, "Missing the required parameter 'customerOrderLine' when calling updatePartialCustomerOrderLine");
     }
 
     // Path parameters
@@ -323,7 +323,7 @@ public class CustomerOrderLinesApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("CustomerOrderLinesApi.updatePartial", localVarPath, "POST", new ArrayList<>(), customerOrderLine,
+    return apiClient.invokeAPI("CustomerOrderLinesApi.updatePartialCustomerOrderLine", localVarPath, "POST", new ArrayList<>(), customerOrderLine,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }

@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 
-@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-05-22T08:24:46.022483900+02:00[Europe/Paris]")
+@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-10-06T08:58:20.555636300+02:00[Europe/Paris]")
 public class AccountingAccountsApi {
   private ApiClient apiClient;
 
@@ -47,6 +47,7 @@ public class AccountingAccountsApi {
    * Create a new accounting account
    * 
    * @param accaccount Accounting Account (required)
+   * @return Accaccount
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -58,15 +59,15 @@ public class AccountingAccountsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void create(Accaccount accaccount) throws ApiException {
-    createWithHttpInfo(accaccount);
+  public Accaccount createAccAccount(Accaccount accaccount) throws ApiException {
+    return createAccAccountWithHttpInfo(accaccount).getData();
   }
 
   /**
    * Create a new accounting account
    * 
    * @param accaccount Accounting Account (required)
-   * @return ApiResponse&lt;Void&gt;
+   * @return ApiResponse&lt;Accaccount&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -78,18 +79,19 @@ public class AccountingAccountsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> createWithHttpInfo(Accaccount accaccount) throws ApiException {
+  public ApiResponse<Accaccount> createAccAccountWithHttpInfo(Accaccount accaccount) throws ApiException {
     // Check required parameters
     if (accaccount == null) {
-      throw new ApiException(400, "Missing the required parameter 'accaccount' when calling create");
+      throw new ApiException(400, "Missing the required parameter 'accaccount' when calling createAccAccount");
     }
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("AccountingAccountsApi.create", "/acc-accounts", "POST", new ArrayList<>(), accaccount,
+    GenericType<Accaccount> localVarReturnType = new GenericType<Accaccount>() {};
+    return apiClient.invokeAPI("AccountingAccountsApi.createAccAccount", "/acc-accounts", "POST", new ArrayList<>(), accaccount,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
+                               localVarAuthNames, localVarReturnType, false);
   }
   /**
    * Delete an accouting account
@@ -107,8 +109,8 @@ public class AccountingAccountsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void delete(Long id) throws ApiException {
-    deleteWithHttpInfo(id);
+  public void deleteAccAccount(Long id) throws ApiException {
+    deleteAccAccountWithHttpInfo(id);
   }
 
   /**
@@ -128,10 +130,10 @@ public class AccountingAccountsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> deleteWithHttpInfo(Long id) throws ApiException {
+  public ApiResponse<Void> deleteAccAccountWithHttpInfo(Long id) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling delete");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteAccAccount");
     }
 
     // Path parameters
@@ -141,7 +143,7 @@ public class AccountingAccountsApi {
     String localVarAccept = apiClient.selectHeaderAccept("*/*");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("AccountingAccountsApi.delete", localVarPath, "DELETE", new ArrayList<>(), null,
+    return apiClient.invokeAPI("AccountingAccountsApi.deleteAccAccount", localVarPath, "DELETE", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -163,8 +165,8 @@ public class AccountingAccountsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public Accaccount getById(Long id, String fields) throws ApiException {
-    return getByIdWithHttpInfo(id, fields).getData();
+  public Accaccount getAccAccountById(Long id, String fields) throws ApiException {
+    return getAccAccountByIdWithHttpInfo(id, fields).getData();
   }
 
   /**
@@ -185,10 +187,10 @@ public class AccountingAccountsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Accaccount> getByIdWithHttpInfo(Long id, String fields) throws ApiException {
+  public ApiResponse<Accaccount> getAccAccountByIdWithHttpInfo(Long id, String fields) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getById");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getAccAccountById");
     }
 
     // Path parameters
@@ -204,7 +206,7 @@ public class AccountingAccountsApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<Accaccount> localVarReturnType = new GenericType<Accaccount>() {};
-    return apiClient.invokeAPI("AccountingAccountsApi.getById", localVarPath, "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("AccountingAccountsApi.getAccAccountById", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -221,8 +223,8 @@ public class AccountingAccountsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public String ping() throws ApiException {
-    return pingWithHttpInfo().getData();
+  public String pingAccAccount() throws ApiException {
+    return pingAccAccountWithHttpInfo().getData();
   }
 
   /**
@@ -238,12 +240,12 @@ public class AccountingAccountsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<String> pingWithHttpInfo() throws ApiException {
+  public ApiResponse<String> pingAccAccountWithHttpInfo() throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("text/plain");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<String> localVarReturnType = new GenericType<String>() {};
-    return apiClient.invokeAPI("AccountingAccountsApi.ping", "/acc-accounts/ping", "GET", new ArrayList<>(), null,
+    return apiClient.invokeAPI("AccountingAccountsApi.pingAccAccount", "/acc-accounts/ping", "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -266,8 +268,8 @@ public class AccountingAccountsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public AccAccountList query(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
-    return queryWithHttpInfo(filter, sort, offset, limit, fields).getData();
+  public AccAccountList queryAccAccount(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+    return queryAccAccountWithHttpInfo(filter, sort, offset, limit, fields).getData();
   }
 
   /**
@@ -289,7 +291,7 @@ public class AccountingAccountsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<AccAccountList> queryWithHttpInfo(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+  public ApiResponse<AccAccountList> queryAccAccountWithHttpInfo(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
     // Query parameters
     List<Pair> localVarQueryParams = new ArrayList<>(
             apiClient.parameterToPairs("", "filter", filter)
@@ -303,7 +305,7 @@ public class AccountingAccountsApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<AccAccountList> localVarReturnType = new GenericType<AccAccountList>() {};
-    return apiClient.invokeAPI("AccountingAccountsApi.query", "/acc-accounts", "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("AccountingAccountsApi.queryAccAccount", "/acc-accounts", "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -325,8 +327,8 @@ public class AccountingAccountsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void update(Long id, Accaccount accaccount) throws ApiException {
-    updateWithHttpInfo(id, accaccount);
+  public void updateAccAccount(Long id, Accaccount accaccount) throws ApiException {
+    updateAccAccountWithHttpInfo(id, accaccount);
   }
 
   /**
@@ -348,13 +350,13 @@ public class AccountingAccountsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> updateWithHttpInfo(Long id, Accaccount accaccount) throws ApiException {
+  public ApiResponse<Void> updateAccAccountWithHttpInfo(Long id, Accaccount accaccount) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling update");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updateAccAccount");
     }
     if (accaccount == null) {
-      throw new ApiException(400, "Missing the required parameter 'accaccount' when calling update");
+      throw new ApiException(400, "Missing the required parameter 'accaccount' when calling updateAccAccount");
     }
 
     // Path parameters
@@ -364,7 +366,7 @@ public class AccountingAccountsApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("AccountingAccountsApi.update", localVarPath, "PUT", new ArrayList<>(), accaccount,
+    return apiClient.invokeAPI("AccountingAccountsApi.updateAccAccount", localVarPath, "PUT", new ArrayList<>(), accaccount,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -386,8 +388,8 @@ public class AccountingAccountsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void updatePartial(Long id, Accaccount accaccount) throws ApiException {
-    updatePartialWithHttpInfo(id, accaccount);
+  public void updatePartialAccAccount(Long id, Accaccount accaccount) throws ApiException {
+    updatePartialAccAccountWithHttpInfo(id, accaccount);
   }
 
   /**
@@ -409,13 +411,13 @@ public class AccountingAccountsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> updatePartialWithHttpInfo(Long id, Accaccount accaccount) throws ApiException {
+  public ApiResponse<Void> updatePartialAccAccountWithHttpInfo(Long id, Accaccount accaccount) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling updatePartial");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updatePartialAccAccount");
     }
     if (accaccount == null) {
-      throw new ApiException(400, "Missing the required parameter 'accaccount' when calling updatePartial");
+      throw new ApiException(400, "Missing the required parameter 'accaccount' when calling updatePartialAccAccount");
     }
 
     // Path parameters
@@ -425,7 +427,7 @@ public class AccountingAccountsApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("AccountingAccountsApi.updatePartial", localVarPath, "POST", new ArrayList<>(), accaccount,
+    return apiClient.invokeAPI("AccountingAccountsApi.updatePartialAccAccount", localVarPath, "POST", new ArrayList<>(), accaccount,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }

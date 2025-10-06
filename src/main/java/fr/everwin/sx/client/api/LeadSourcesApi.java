@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 
-@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-05-22T08:24:46.022483900+02:00[Europe/Paris]")
+@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-10-06T08:58:20.555636300+02:00[Europe/Paris]")
 public class LeadSourcesApi {
   private ApiClient apiClient;
 
@@ -61,8 +61,8 @@ public class LeadSourcesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public LeadSource getById(Long id, String fields) throws ApiException {
-    return getByIdWithHttpInfo(id, fields).getData();
+  public LeadSource getLeadSourceById(Long id, String fields) throws ApiException {
+    return getLeadSourceByIdWithHttpInfo(id, fields).getData();
   }
 
   /**
@@ -83,10 +83,10 @@ public class LeadSourcesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<LeadSource> getByIdWithHttpInfo(Long id, String fields) throws ApiException {
+  public ApiResponse<LeadSource> getLeadSourceByIdWithHttpInfo(Long id, String fields) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getById");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getLeadSourceById");
     }
 
     // Path parameters
@@ -102,7 +102,7 @@ public class LeadSourcesApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<LeadSource> localVarReturnType = new GenericType<LeadSource>() {};
-    return apiClient.invokeAPI("LeadSourcesApi.getById", localVarPath, "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("LeadSourcesApi.getLeadSourceById", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -119,8 +119,8 @@ public class LeadSourcesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public String ping() throws ApiException {
-    return pingWithHttpInfo().getData();
+  public String pingLeadSource() throws ApiException {
+    return pingLeadSourceWithHttpInfo().getData();
   }
 
   /**
@@ -136,12 +136,12 @@ public class LeadSourcesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<String> pingWithHttpInfo() throws ApiException {
+  public ApiResponse<String> pingLeadSourceWithHttpInfo() throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("text/plain");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<String> localVarReturnType = new GenericType<String>() {};
-    return apiClient.invokeAPI("LeadSourcesApi.ping", "/lead-sources/ping", "GET", new ArrayList<>(), null,
+    return apiClient.invokeAPI("LeadSourcesApi.pingLeadSource", "/lead-sources/ping", "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -164,8 +164,8 @@ public class LeadSourcesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public LeadSourceList query(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
-    return queryWithHttpInfo(filter, sort, offset, limit, fields).getData();
+  public LeadSourceList queryLeadSource(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+    return queryLeadSourceWithHttpInfo(filter, sort, offset, limit, fields).getData();
   }
 
   /**
@@ -187,7 +187,7 @@ public class LeadSourcesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<LeadSourceList> queryWithHttpInfo(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+  public ApiResponse<LeadSourceList> queryLeadSourceWithHttpInfo(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
     // Query parameters
     List<Pair> localVarQueryParams = new ArrayList<>(
             apiClient.parameterToPairs("", "filter", filter)
@@ -201,7 +201,7 @@ public class LeadSourcesApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<LeadSourceList> localVarReturnType = new GenericType<LeadSourceList>() {};
-    return apiClient.invokeAPI("LeadSourcesApi.query", "/lead-sources", "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("LeadSourcesApi.queryLeadSource", "/lead-sources", "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }

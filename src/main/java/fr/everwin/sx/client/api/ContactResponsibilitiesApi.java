@@ -22,7 +22,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-05-22T08:24:46.022483900+02:00[Europe/Paris]")
+@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-10-06T08:58:20.555636300+02:00[Europe/Paris]")
 public class ContactResponsibilitiesApi {
   private ApiClient apiClient;
 
@@ -56,6 +56,7 @@ public class ContactResponsibilitiesApi {
    * Create a contact responsibility
    * 
    * @param contactresponsibility Contact (required)
+   * @return Contactresponsibility
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -67,15 +68,15 @@ public class ContactResponsibilitiesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void create(Contactresponsibility contactresponsibility) throws ApiException {
-    createWithHttpInfo(contactresponsibility);
+  public Contactresponsibility createContactResponsibility(Contactresponsibility contactresponsibility) throws ApiException {
+    return createContactResponsibilityWithHttpInfo(contactresponsibility).getData();
   }
 
   /**
    * Create a contact responsibility
    * 
    * @param contactresponsibility Contact (required)
-   * @return ApiResponse&lt;Void&gt;
+   * @return ApiResponse&lt;Contactresponsibility&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -87,24 +88,26 @@ public class ContactResponsibilitiesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> createWithHttpInfo(Contactresponsibility contactresponsibility) throws ApiException {
+  public ApiResponse<Contactresponsibility> createContactResponsibilityWithHttpInfo(Contactresponsibility contactresponsibility) throws ApiException {
     // Check required parameters
     if (contactresponsibility == null) {
-      throw new ApiException(400, "Missing the required parameter 'contactresponsibility' when calling create");
+      throw new ApiException(400, "Missing the required parameter 'contactresponsibility' when calling createContactResponsibility");
     }
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("ContactResponsibilitiesApi.create", "/contact-responsibilities", "POST", new ArrayList<>(), contactresponsibility,
+    GenericType<Contactresponsibility> localVarReturnType = new GenericType<Contactresponsibility>() {};
+    return apiClient.invokeAPI("ContactResponsibilitiesApi.createContactResponsibility", "/contact-responsibilities", "POST", new ArrayList<>(), contactresponsibility,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
+                               localVarAuthNames, localVarReturnType, false);
   }
   /**
    * Create a comment
    * 
    * @param id id (required)
    * @param comment Comment (required)
+   * @return Comment
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -116,8 +119,8 @@ public class ContactResponsibilitiesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void createComment(Long id, Comment comment) throws ApiException {
-    createCommentWithHttpInfo(id, comment);
+  public Comment createContactResponsibilityComment(Long id, Comment comment) throws ApiException {
+    return createContactResponsibilityCommentWithHttpInfo(id, comment).getData();
   }
 
   /**
@@ -125,7 +128,7 @@ public class ContactResponsibilitiesApi {
    * 
    * @param id id (required)
    * @param comment Comment (required)
-   * @return ApiResponse&lt;Void&gt;
+   * @return ApiResponse&lt;Comment&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -137,13 +140,13 @@ public class ContactResponsibilitiesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> createCommentWithHttpInfo(Long id, Comment comment) throws ApiException {
+  public ApiResponse<Comment> createContactResponsibilityCommentWithHttpInfo(Long id, Comment comment) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling createComment");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling createContactResponsibilityComment");
     }
     if (comment == null) {
-      throw new ApiException(400, "Missing the required parameter 'comment' when calling createComment");
+      throw new ApiException(400, "Missing the required parameter 'comment' when calling createContactResponsibilityComment");
     }
 
     // Path parameters
@@ -153,15 +156,17 @@ public class ContactResponsibilitiesApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("ContactResponsibilitiesApi.createComment", localVarPath, "POST", new ArrayList<>(), comment,
+    GenericType<Comment> localVarReturnType = new GenericType<Comment>() {};
+    return apiClient.invokeAPI("ContactResponsibilitiesApi.createContactResponsibilityComment", localVarPath, "POST", new ArrayList<>(), comment,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
+                               localVarAuthNames, localVarReturnType, false);
   }
   /**
    * Create a new document for the responsibility
    * 
    * @param id id (required)
    * @param document Document (required)
+   * @return Document
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -173,8 +178,8 @@ public class ContactResponsibilitiesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void createDocument(Long id, Document document) throws ApiException {
-    createDocumentWithHttpInfo(id, document);
+  public Document createContactResponsibilityDocument(Long id, Document document) throws ApiException {
+    return createContactResponsibilityDocumentWithHttpInfo(id, document).getData();
   }
 
   /**
@@ -182,7 +187,7 @@ public class ContactResponsibilitiesApi {
    * 
    * @param id id (required)
    * @param document Document (required)
-   * @return ApiResponse&lt;Void&gt;
+   * @return ApiResponse&lt;Document&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -194,13 +199,13 @@ public class ContactResponsibilitiesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> createDocumentWithHttpInfo(Long id, Document document) throws ApiException {
+  public ApiResponse<Document> createContactResponsibilityDocumentWithHttpInfo(Long id, Document document) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling createDocument");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling createContactResponsibilityDocument");
     }
     if (document == null) {
-      throw new ApiException(400, "Missing the required parameter 'document' when calling createDocument");
+      throw new ApiException(400, "Missing the required parameter 'document' when calling createContactResponsibilityDocument");
     }
 
     // Path parameters
@@ -210,9 +215,10 @@ public class ContactResponsibilitiesApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("ContactResponsibilitiesApi.createDocument", localVarPath, "POST", new ArrayList<>(), document,
+    GenericType<Document> localVarReturnType = new GenericType<Document>() {};
+    return apiClient.invokeAPI("ContactResponsibilitiesApi.createContactResponsibilityDocument", localVarPath, "POST", new ArrayList<>(), document,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
+                               localVarAuthNames, localVarReturnType, false);
   }
   /**
    * Delete a contact responsibility
@@ -230,8 +236,8 @@ public class ContactResponsibilitiesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void delete(Long id) throws ApiException {
-    deleteWithHttpInfo(id);
+  public void deleteContactResponsibility(Long id) throws ApiException {
+    deleteContactResponsibilityWithHttpInfo(id);
   }
 
   /**
@@ -251,10 +257,10 @@ public class ContactResponsibilitiesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> deleteWithHttpInfo(Long id) throws ApiException {
+  public ApiResponse<Void> deleteContactResponsibilityWithHttpInfo(Long id) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling delete");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteContactResponsibility");
     }
 
     // Path parameters
@@ -264,7 +270,7 @@ public class ContactResponsibilitiesApi {
     String localVarAccept = apiClient.selectHeaderAccept("*/*");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("ContactResponsibilitiesApi.delete", localVarPath, "DELETE", new ArrayList<>(), null,
+    return apiClient.invokeAPI("ContactResponsibilitiesApi.deleteContactResponsibility", localVarPath, "DELETE", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -285,8 +291,8 @@ public class ContactResponsibilitiesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void deleteComment(Long id, Long cid) throws ApiException {
-    deleteCommentWithHttpInfo(id, cid);
+  public void deleteContactResponsibilityComment(Long id, Long cid) throws ApiException {
+    deleteContactResponsibilityCommentWithHttpInfo(id, cid);
   }
 
   /**
@@ -307,13 +313,13 @@ public class ContactResponsibilitiesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> deleteCommentWithHttpInfo(Long id, Long cid) throws ApiException {
+  public ApiResponse<Void> deleteContactResponsibilityCommentWithHttpInfo(Long id, Long cid) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteComment");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteContactResponsibilityComment");
     }
     if (cid == null) {
-      throw new ApiException(400, "Missing the required parameter 'cid' when calling deleteComment");
+      throw new ApiException(400, "Missing the required parameter 'cid' when calling deleteContactResponsibilityComment");
     }
 
     // Path parameters
@@ -324,7 +330,7 @@ public class ContactResponsibilitiesApi {
     String localVarAccept = apiClient.selectHeaderAccept("*/*");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("ContactResponsibilitiesApi.deleteComment", localVarPath, "DELETE", new ArrayList<>(), null,
+    return apiClient.invokeAPI("ContactResponsibilitiesApi.deleteContactResponsibilityComment", localVarPath, "DELETE", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -345,8 +351,8 @@ public class ContactResponsibilitiesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void deleteDocument(Long id, Long did) throws ApiException {
-    deleteDocumentWithHttpInfo(id, did);
+  public void deleteContactResponsibilityDocument(Long id, Long did) throws ApiException {
+    deleteContactResponsibilityDocumentWithHttpInfo(id, did);
   }
 
   /**
@@ -367,13 +373,13 @@ public class ContactResponsibilitiesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> deleteDocumentWithHttpInfo(Long id, Long did) throws ApiException {
+  public ApiResponse<Void> deleteContactResponsibilityDocumentWithHttpInfo(Long id, Long did) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteDocument");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteContactResponsibilityDocument");
     }
     if (did == null) {
-      throw new ApiException(400, "Missing the required parameter 'did' when calling deleteDocument");
+      throw new ApiException(400, "Missing the required parameter 'did' when calling deleteContactResponsibilityDocument");
     }
 
     // Path parameters
@@ -384,7 +390,7 @@ public class ContactResponsibilitiesApi {
     String localVarAccept = apiClient.selectHeaderAccept("*/*");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("ContactResponsibilitiesApi.deleteDocument", localVarPath, "DELETE", new ArrayList<>(), null,
+    return apiClient.invokeAPI("ContactResponsibilitiesApi.deleteContactResponsibilityDocument", localVarPath, "DELETE", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -405,8 +411,8 @@ public class ContactResponsibilitiesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void downloadDocument(Long id, Long did) throws ApiException {
-    downloadDocumentWithHttpInfo(id, did);
+  public void downloadContactResponsibilityDocument(Long id, Long did) throws ApiException {
+    downloadContactResponsibilityDocumentWithHttpInfo(id, did);
   }
 
   /**
@@ -427,13 +433,13 @@ public class ContactResponsibilitiesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> downloadDocumentWithHttpInfo(Long id, Long did) throws ApiException {
+  public ApiResponse<Void> downloadContactResponsibilityDocumentWithHttpInfo(Long id, Long did) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling downloadDocument");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling downloadContactResponsibilityDocument");
     }
     if (did == null) {
-      throw new ApiException(400, "Missing the required parameter 'did' when calling downloadDocument");
+      throw new ApiException(400, "Missing the required parameter 'did' when calling downloadContactResponsibilityDocument");
     }
 
     // Path parameters
@@ -444,7 +450,7 @@ public class ContactResponsibilitiesApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/octet-stream");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("ContactResponsibilitiesApi.downloadDocument", localVarPath, "GET", new ArrayList<>(), null,
+    return apiClient.invokeAPI("ContactResponsibilitiesApi.downloadContactResponsibilityDocument", localVarPath, "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -466,8 +472,8 @@ public class ContactResponsibilitiesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public Contactresponsibility getById(Long id, String fields) throws ApiException {
-    return getByIdWithHttpInfo(id, fields).getData();
+  public Contactresponsibility getContactResponsibilityById(Long id, String fields) throws ApiException {
+    return getContactResponsibilityByIdWithHttpInfo(id, fields).getData();
   }
 
   /**
@@ -488,10 +494,10 @@ public class ContactResponsibilitiesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Contactresponsibility> getByIdWithHttpInfo(Long id, String fields) throws ApiException {
+  public ApiResponse<Contactresponsibility> getContactResponsibilityByIdWithHttpInfo(Long id, String fields) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getById");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getContactResponsibilityById");
     }
 
     // Path parameters
@@ -507,7 +513,7 @@ public class ContactResponsibilitiesApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<Contactresponsibility> localVarReturnType = new GenericType<Contactresponsibility>() {};
-    return apiClient.invokeAPI("ContactResponsibilitiesApi.getById", localVarPath, "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("ContactResponsibilitiesApi.getContactResponsibilityById", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -530,8 +536,8 @@ public class ContactResponsibilitiesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public Comment getCommentById(Long id, Long cid, String fields) throws ApiException {
-    return getCommentByIdWithHttpInfo(id, cid, fields).getData();
+  public Comment getContactResponsibilityCommentById(Long id, Long cid, String fields) throws ApiException {
+    return getContactResponsibilityCommentByIdWithHttpInfo(id, cid, fields).getData();
   }
 
   /**
@@ -553,13 +559,13 @@ public class ContactResponsibilitiesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Comment> getCommentByIdWithHttpInfo(Long id, Long cid, String fields) throws ApiException {
+  public ApiResponse<Comment> getContactResponsibilityCommentByIdWithHttpInfo(Long id, Long cid, String fields) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getCommentById");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getContactResponsibilityCommentById");
     }
     if (cid == null) {
-      throw new ApiException(400, "Missing the required parameter 'cid' when calling getCommentById");
+      throw new ApiException(400, "Missing the required parameter 'cid' when calling getContactResponsibilityCommentById");
     }
 
     // Path parameters
@@ -576,7 +582,7 @@ public class ContactResponsibilitiesApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<Comment> localVarReturnType = new GenericType<Comment>() {};
-    return apiClient.invokeAPI("ContactResponsibilitiesApi.getCommentById", localVarPath, "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("ContactResponsibilitiesApi.getContactResponsibilityCommentById", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -602,8 +608,8 @@ public class ContactResponsibilitiesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public CommentList getComments(Long id, String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
-    return getCommentsWithHttpInfo(id, filter, sort, offset, limit, fields).getData();
+  public CommentList getContactResponsibilityComments(Long id, String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+    return getContactResponsibilityCommentsWithHttpInfo(id, filter, sort, offset, limit, fields).getData();
   }
 
   /**
@@ -628,10 +634,10 @@ public class ContactResponsibilitiesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<CommentList> getCommentsWithHttpInfo(Long id, String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+  public ApiResponse<CommentList> getContactResponsibilityCommentsWithHttpInfo(Long id, String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getComments");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getContactResponsibilityComments");
     }
 
     // Path parameters
@@ -651,7 +657,7 @@ public class ContactResponsibilitiesApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<CommentList> localVarReturnType = new GenericType<CommentList>() {};
-    return apiClient.invokeAPI("ContactResponsibilitiesApi.getComments", localVarPath, "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("ContactResponsibilitiesApi.getContactResponsibilityComments", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -674,8 +680,8 @@ public class ContactResponsibilitiesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public Document getDocumentById(Long id, Long did, String fields) throws ApiException {
-    return getDocumentByIdWithHttpInfo(id, did, fields).getData();
+  public Document getContactResponsibilityDocumentById(Long id, Long did, String fields) throws ApiException {
+    return getContactResponsibilityDocumentByIdWithHttpInfo(id, did, fields).getData();
   }
 
   /**
@@ -697,13 +703,13 @@ public class ContactResponsibilitiesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Document> getDocumentByIdWithHttpInfo(Long id, Long did, String fields) throws ApiException {
+  public ApiResponse<Document> getContactResponsibilityDocumentByIdWithHttpInfo(Long id, Long did, String fields) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getDocumentById");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getContactResponsibilityDocumentById");
     }
     if (did == null) {
-      throw new ApiException(400, "Missing the required parameter 'did' when calling getDocumentById");
+      throw new ApiException(400, "Missing the required parameter 'did' when calling getContactResponsibilityDocumentById");
     }
 
     // Path parameters
@@ -720,7 +726,7 @@ public class ContactResponsibilitiesApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<Document> localVarReturnType = new GenericType<Document>() {};
-    return apiClient.invokeAPI("ContactResponsibilitiesApi.getDocumentById", localVarPath, "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("ContactResponsibilitiesApi.getContactResponsibilityDocumentById", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -746,8 +752,8 @@ public class ContactResponsibilitiesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public DocumentList getDocuments(Long id, String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
-    return getDocumentsWithHttpInfo(id, filter, sort, offset, limit, fields).getData();
+  public DocumentList getContactResponsibilityDocuments(Long id, String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+    return getContactResponsibilityDocumentsWithHttpInfo(id, filter, sort, offset, limit, fields).getData();
   }
 
   /**
@@ -772,10 +778,10 @@ public class ContactResponsibilitiesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<DocumentList> getDocumentsWithHttpInfo(Long id, String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+  public ApiResponse<DocumentList> getContactResponsibilityDocumentsWithHttpInfo(Long id, String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getDocuments");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getContactResponsibilityDocuments");
     }
 
     // Path parameters
@@ -795,7 +801,82 @@ public class ContactResponsibilitiesApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<DocumentList> localVarReturnType = new GenericType<DocumentList>() {};
-    return apiClient.invokeAPI("ContactResponsibilitiesApi.getDocuments", localVarPath, "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("ContactResponsibilitiesApi.getContactResponsibilityDocuments", localVarPath, "GET", localVarQueryParams, null,
+                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, false);
+  }
+  /**
+   * Get a collection of sales actions for the given responsability
+   * 
+   * @param id id (required)
+   * @param filter filter (optional)
+   * @param sort sort (optional)
+   * @param offset offset (optional)
+   * @param limit limit (optional)
+   * @param fields fields (optional)
+   * @return SalesActionList
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> OK </td><td>  * x-total-count - The total number of records <br>  * link - Link to the list <br>  * x-page-count - The total number of pages <br>  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
+       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
+     </table>
+   */
+  public SalesActionList getContactResponsibilitySalesActions(Long id, String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+    return getContactResponsibilitySalesActionsWithHttpInfo(id, filter, sort, offset, limit, fields).getData();
+  }
+
+  /**
+   * Get a collection of sales actions for the given responsability
+   * 
+   * @param id id (required)
+   * @param filter filter (optional)
+   * @param sort sort (optional)
+   * @param offset offset (optional)
+   * @param limit limit (optional)
+   * @param fields fields (optional)
+   * @return ApiResponse&lt;SalesActionList&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> OK </td><td>  * x-total-count - The total number of records <br>  * link - Link to the list <br>  * x-page-count - The total number of pages <br>  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
+       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<SalesActionList> getContactResponsibilitySalesActionsWithHttpInfo(Long id, String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+    // Check required parameters
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getContactResponsibilitySalesActions");
+    }
+
+    // Path parameters
+    String localVarPath = "/contact-responsibilities/{id}/sales-actions"
+            .replaceAll("\\{id}", apiClient.escapeString(id.toString()));
+
+    // Query parameters
+    List<Pair> localVarQueryParams = new ArrayList<>(
+            apiClient.parameterToPairs("", "filter", filter)
+    );
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "offset", offset));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "fields", fields));
+
+    String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
+    String localVarContentType = apiClient.selectHeaderContentType();
+    String[] localVarAuthNames = new String[] {"api_key", "oauth"};
+    GenericType<SalesActionList> localVarReturnType = new GenericType<SalesActionList>() {};
+    return apiClient.invokeAPI("ContactResponsibilitiesApi.getContactResponsibilitySalesActions", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -944,81 +1025,6 @@ public class ContactResponsibilitiesApi {
                                localVarAuthNames, localVarReturnType, false);
   }
   /**
-   * Get a collection of sales actions for the given responsability
-   * 
-   * @param id id (required)
-   * @param filter filter (optional)
-   * @param sort sort (optional)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
-   * @param fields fields (optional)
-   * @return SalesActionList
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> OK </td><td>  * x-total-count - The total number of records <br>  * link - Link to the list <br>  * x-page-count - The total number of pages <br>  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
-       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
-     </table>
-   */
-  public SalesActionList getSalesActions(Long id, String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
-    return getSalesActionsWithHttpInfo(id, filter, sort, offset, limit, fields).getData();
-  }
-
-  /**
-   * Get a collection of sales actions for the given responsability
-   * 
-   * @param id id (required)
-   * @param filter filter (optional)
-   * @param sort sort (optional)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
-   * @param fields fields (optional)
-   * @return ApiResponse&lt;SalesActionList&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> OK </td><td>  * x-total-count - The total number of records <br>  * link - Link to the list <br>  * x-page-count - The total number of pages <br>  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
-       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
-     </table>
-   */
-  public ApiResponse<SalesActionList> getSalesActionsWithHttpInfo(Long id, String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
-    // Check required parameters
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getSalesActions");
-    }
-
-    // Path parameters
-    String localVarPath = "/contact-responsibilities/{id}/sales-actions"
-            .replaceAll("\\{id}", apiClient.escapeString(id.toString()));
-
-    // Query parameters
-    List<Pair> localVarQueryParams = new ArrayList<>(
-            apiClient.parameterToPairs("", "filter", filter)
-    );
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "offset", offset));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "fields", fields));
-
-    String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
-    String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    GenericType<SalesActionList> localVarReturnType = new GenericType<SalesActionList>() {};
-    return apiClient.invokeAPI("ContactResponsibilitiesApi.getSalesActions", localVarPath, "GET", localVarQueryParams, null,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
-  }
-  /**
    * Test contact responsibilities service
    * 
    * @return String
@@ -1031,8 +1037,8 @@ public class ContactResponsibilitiesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public String ping() throws ApiException {
-    return pingWithHttpInfo().getData();
+  public String pingContactResponsibility() throws ApiException {
+    return pingContactResponsibilityWithHttpInfo().getData();
   }
 
   /**
@@ -1048,12 +1054,12 @@ public class ContactResponsibilitiesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<String> pingWithHttpInfo() throws ApiException {
+  public ApiResponse<String> pingContactResponsibilityWithHttpInfo() throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("text/plain");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<String> localVarReturnType = new GenericType<String>() {};
-    return apiClient.invokeAPI("ContactResponsibilitiesApi.ping", "/contact-responsibilities/ping", "GET", new ArrayList<>(), null,
+    return apiClient.invokeAPI("ContactResponsibilitiesApi.pingContactResponsibility", "/contact-responsibilities/ping", "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -1076,8 +1082,8 @@ public class ContactResponsibilitiesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ContactResponsibilityList query(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
-    return queryWithHttpInfo(filter, sort, offset, limit, fields).getData();
+  public ContactResponsibilityList queryContactResponsibility(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+    return queryContactResponsibilityWithHttpInfo(filter, sort, offset, limit, fields).getData();
   }
 
   /**
@@ -1099,7 +1105,7 @@ public class ContactResponsibilitiesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<ContactResponsibilityList> queryWithHttpInfo(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+  public ApiResponse<ContactResponsibilityList> queryContactResponsibilityWithHttpInfo(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
     // Query parameters
     List<Pair> localVarQueryParams = new ArrayList<>(
             apiClient.parameterToPairs("", "filter", filter)
@@ -1113,7 +1119,7 @@ public class ContactResponsibilitiesApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<ContactResponsibilityList> localVarReturnType = new GenericType<ContactResponsibilityList>() {};
-    return apiClient.invokeAPI("ContactResponsibilitiesApi.query", "/contact-responsibilities", "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("ContactResponsibilitiesApi.queryContactResponsibility", "/contact-responsibilities", "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -1135,8 +1141,8 @@ public class ContactResponsibilitiesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void update(Long id, Contactresponsibility contactresponsibility) throws ApiException {
-    updateWithHttpInfo(id, contactresponsibility);
+  public void updateContactResponsibility(Long id, Contactresponsibility contactresponsibility) throws ApiException {
+    updateContactResponsibilityWithHttpInfo(id, contactresponsibility);
   }
 
   /**
@@ -1158,13 +1164,13 @@ public class ContactResponsibilitiesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> updateWithHttpInfo(Long id, Contactresponsibility contactresponsibility) throws ApiException {
+  public ApiResponse<Void> updateContactResponsibilityWithHttpInfo(Long id, Contactresponsibility contactresponsibility) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling update");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updateContactResponsibility");
     }
     if (contactresponsibility == null) {
-      throw new ApiException(400, "Missing the required parameter 'contactresponsibility' when calling update");
+      throw new ApiException(400, "Missing the required parameter 'contactresponsibility' when calling updateContactResponsibility");
     }
 
     // Path parameters
@@ -1174,7 +1180,7 @@ public class ContactResponsibilitiesApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("ContactResponsibilitiesApi.update", localVarPath, "PUT", new ArrayList<>(), contactresponsibility,
+    return apiClient.invokeAPI("ContactResponsibilitiesApi.updateContactResponsibility", localVarPath, "PUT", new ArrayList<>(), contactresponsibility,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -1197,8 +1203,8 @@ public class ContactResponsibilitiesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void updateComment(Long id, Long cid, Comment comment) throws ApiException {
-    updateCommentWithHttpInfo(id, cid, comment);
+  public void updateContactResponsibilityComment(Long id, Long cid, Comment comment) throws ApiException {
+    updateContactResponsibilityCommentWithHttpInfo(id, cid, comment);
   }
 
   /**
@@ -1221,16 +1227,16 @@ public class ContactResponsibilitiesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> updateCommentWithHttpInfo(Long id, Long cid, Comment comment) throws ApiException {
+  public ApiResponse<Void> updateContactResponsibilityCommentWithHttpInfo(Long id, Long cid, Comment comment) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling updateComment");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updateContactResponsibilityComment");
     }
     if (cid == null) {
-      throw new ApiException(400, "Missing the required parameter 'cid' when calling updateComment");
+      throw new ApiException(400, "Missing the required parameter 'cid' when calling updateContactResponsibilityComment");
     }
     if (comment == null) {
-      throw new ApiException(400, "Missing the required parameter 'comment' when calling updateComment");
+      throw new ApiException(400, "Missing the required parameter 'comment' when calling updateContactResponsibilityComment");
     }
 
     // Path parameters
@@ -1241,7 +1247,7 @@ public class ContactResponsibilitiesApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("ContactResponsibilitiesApi.updateComment", localVarPath, "PUT", new ArrayList<>(), comment,
+    return apiClient.invokeAPI("ContactResponsibilitiesApi.updateContactResponsibilityComment", localVarPath, "PUT", new ArrayList<>(), comment,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -1264,8 +1270,8 @@ public class ContactResponsibilitiesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void updateDocument(Long id, Long did, Document document) throws ApiException {
-    updateDocumentWithHttpInfo(id, did, document);
+  public void updateContactResponsibilityDocument(Long id, Long did, Document document) throws ApiException {
+    updateContactResponsibilityDocumentWithHttpInfo(id, did, document);
   }
 
   /**
@@ -1288,16 +1294,16 @@ public class ContactResponsibilitiesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> updateDocumentWithHttpInfo(Long id, Long did, Document document) throws ApiException {
+  public ApiResponse<Void> updateContactResponsibilityDocumentWithHttpInfo(Long id, Long did, Document document) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling updateDocument");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updateContactResponsibilityDocument");
     }
     if (did == null) {
-      throw new ApiException(400, "Missing the required parameter 'did' when calling updateDocument");
+      throw new ApiException(400, "Missing the required parameter 'did' when calling updateContactResponsibilityDocument");
     }
     if (document == null) {
-      throw new ApiException(400, "Missing the required parameter 'document' when calling updateDocument");
+      throw new ApiException(400, "Missing the required parameter 'document' when calling updateContactResponsibilityDocument");
     }
 
     // Path parameters
@@ -1308,7 +1314,7 @@ public class ContactResponsibilitiesApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("ContactResponsibilitiesApi.updateDocument", localVarPath, "PUT", new ArrayList<>(), document,
+    return apiClient.invokeAPI("ContactResponsibilitiesApi.updateContactResponsibilityDocument", localVarPath, "PUT", new ArrayList<>(), document,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -1330,8 +1336,8 @@ public class ContactResponsibilitiesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void updatePartial(Long id, Contactresponsibility contactresponsibility) throws ApiException {
-    updatePartialWithHttpInfo(id, contactresponsibility);
+  public void updatePartialContactResponsibility(Long id, Contactresponsibility contactresponsibility) throws ApiException {
+    updatePartialContactResponsibilityWithHttpInfo(id, contactresponsibility);
   }
 
   /**
@@ -1353,13 +1359,13 @@ public class ContactResponsibilitiesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> updatePartialWithHttpInfo(Long id, Contactresponsibility contactresponsibility) throws ApiException {
+  public ApiResponse<Void> updatePartialContactResponsibilityWithHttpInfo(Long id, Contactresponsibility contactresponsibility) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling updatePartial");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updatePartialContactResponsibility");
     }
     if (contactresponsibility == null) {
-      throw new ApiException(400, "Missing the required parameter 'contactresponsibility' when calling updatePartial");
+      throw new ApiException(400, "Missing the required parameter 'contactresponsibility' when calling updatePartialContactResponsibility");
     }
 
     // Path parameters
@@ -1369,7 +1375,7 @@ public class ContactResponsibilitiesApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("ContactResponsibilitiesApi.updatePartial", localVarPath, "POST", new ArrayList<>(), contactresponsibility,
+    return apiClient.invokeAPI("ContactResponsibilitiesApi.updatePartialContactResponsibility", localVarPath, "POST", new ArrayList<>(), contactresponsibility,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -1392,8 +1398,8 @@ public class ContactResponsibilitiesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void updatePartialComment(Long id, Long cid, Comment comment) throws ApiException {
-    updatePartialCommentWithHttpInfo(id, cid, comment);
+  public void updatePartialContactResponsibilityComment(Long id, Long cid, Comment comment) throws ApiException {
+    updatePartialContactResponsibilityCommentWithHttpInfo(id, cid, comment);
   }
 
   /**
@@ -1416,16 +1422,16 @@ public class ContactResponsibilitiesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> updatePartialCommentWithHttpInfo(Long id, Long cid, Comment comment) throws ApiException {
+  public ApiResponse<Void> updatePartialContactResponsibilityCommentWithHttpInfo(Long id, Long cid, Comment comment) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling updatePartialComment");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updatePartialContactResponsibilityComment");
     }
     if (cid == null) {
-      throw new ApiException(400, "Missing the required parameter 'cid' when calling updatePartialComment");
+      throw new ApiException(400, "Missing the required parameter 'cid' when calling updatePartialContactResponsibilityComment");
     }
     if (comment == null) {
-      throw new ApiException(400, "Missing the required parameter 'comment' when calling updatePartialComment");
+      throw new ApiException(400, "Missing the required parameter 'comment' when calling updatePartialContactResponsibilityComment");
     }
 
     // Path parameters
@@ -1436,7 +1442,7 @@ public class ContactResponsibilitiesApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("ContactResponsibilitiesApi.updatePartialComment", localVarPath, "POST", new ArrayList<>(), comment,
+    return apiClient.invokeAPI("ContactResponsibilitiesApi.updatePartialContactResponsibilityComment", localVarPath, "POST", new ArrayList<>(), comment,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -1459,8 +1465,8 @@ public class ContactResponsibilitiesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void updatePartialDocument(Long id, Long did, Document document) throws ApiException {
-    updatePartialDocumentWithHttpInfo(id, did, document);
+  public void updatePartialContactResponsibilityDocument(Long id, Long did, Document document) throws ApiException {
+    updatePartialContactResponsibilityDocumentWithHttpInfo(id, did, document);
   }
 
   /**
@@ -1483,16 +1489,16 @@ public class ContactResponsibilitiesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> updatePartialDocumentWithHttpInfo(Long id, Long did, Document document) throws ApiException {
+  public ApiResponse<Void> updatePartialContactResponsibilityDocumentWithHttpInfo(Long id, Long did, Document document) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling updatePartialDocument");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updatePartialContactResponsibilityDocument");
     }
     if (did == null) {
-      throw new ApiException(400, "Missing the required parameter 'did' when calling updatePartialDocument");
+      throw new ApiException(400, "Missing the required parameter 'did' when calling updatePartialContactResponsibilityDocument");
     }
     if (document == null) {
-      throw new ApiException(400, "Missing the required parameter 'document' when calling updatePartialDocument");
+      throw new ApiException(400, "Missing the required parameter 'document' when calling updatePartialContactResponsibilityDocument");
     }
 
     // Path parameters
@@ -1503,7 +1509,7 @@ public class ContactResponsibilitiesApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("ContactResponsibilitiesApi.updatePartialDocument", localVarPath, "POST", new ArrayList<>(), document,
+    return apiClient.invokeAPI("ContactResponsibilitiesApi.updatePartialContactResponsibilityDocument", localVarPath, "POST", new ArrayList<>(), document,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -1525,8 +1531,8 @@ public class ContactResponsibilitiesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void uploadDocument(Long id, Long did, FormDataContentDisposition _file) throws ApiException {
-    uploadDocumentWithHttpInfo(id, did, _file);
+  public void uploadResponsibilityDocument(Long id, Long did, FormDataContentDisposition _file) throws ApiException {
+    uploadResponsibilityDocumentWithHttpInfo(id, did, _file);
   }
 
   /**
@@ -1548,16 +1554,16 @@ public class ContactResponsibilitiesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> uploadDocumentWithHttpInfo(Long id, Long did, FormDataContentDisposition _file) throws ApiException {
+  public ApiResponse<Void> uploadResponsibilityDocumentWithHttpInfo(Long id, Long did, FormDataContentDisposition _file) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling uploadDocument");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling uploadResponsibilityDocument");
     }
     if (did == null) {
-      throw new ApiException(400, "Missing the required parameter 'did' when calling uploadDocument");
+      throw new ApiException(400, "Missing the required parameter 'did' when calling uploadResponsibilityDocument");
     }
     if (_file == null) {
-      throw new ApiException(400, "Missing the required parameter '_file' when calling uploadDocument");
+      throw new ApiException(400, "Missing the required parameter '_file' when calling uploadResponsibilityDocument");
     }
 
     // Path parameters
@@ -1572,7 +1578,7 @@ public class ContactResponsibilitiesApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("multipart/form-data");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("ContactResponsibilitiesApi.uploadDocument", localVarPath, "POST", new ArrayList<>(), null,
+    return apiClient.invokeAPI("ContactResponsibilitiesApi.uploadResponsibilityDocument", localVarPath, "POST", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }

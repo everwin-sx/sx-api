@@ -20,7 +20,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-05-22T08:24:46.022483900+02:00[Europe/Paris]")
+@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-10-06T08:58:20.555636300+02:00[Europe/Paris]")
 public class CustomerOrdersApi {
   private ApiClient apiClient;
 
@@ -55,6 +55,7 @@ public class CustomerOrdersApi {
    * 
    * @param id id (required)
    * @param document Document (required)
+   * @return Document
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -66,8 +67,8 @@ public class CustomerOrdersApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void createDocument(Long id, Document document) throws ApiException {
-    createDocumentWithHttpInfo(id, document);
+  public Document createCustomerOrderDocument(Long id, Document document) throws ApiException {
+    return createCustomerOrderDocumentWithHttpInfo(id, document).getData();
   }
 
   /**
@@ -75,7 +76,7 @@ public class CustomerOrdersApi {
    * 
    * @param id id (required)
    * @param document Document (required)
-   * @return ApiResponse&lt;Void&gt;
+   * @return ApiResponse&lt;Document&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -87,13 +88,13 @@ public class CustomerOrdersApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> createDocumentWithHttpInfo(Long id, Document document) throws ApiException {
+  public ApiResponse<Document> createCustomerOrderDocumentWithHttpInfo(Long id, Document document) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling createDocument");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling createCustomerOrderDocument");
     }
     if (document == null) {
-      throw new ApiException(400, "Missing the required parameter 'document' when calling createDocument");
+      throw new ApiException(400, "Missing the required parameter 'document' when calling createCustomerOrderDocument");
     }
 
     // Path parameters
@@ -103,9 +104,10 @@ public class CustomerOrdersApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("CustomerOrdersApi.createDocument", localVarPath, "POST", new ArrayList<>(), document,
+    GenericType<Document> localVarReturnType = new GenericType<Document>() {};
+    return apiClient.invokeAPI("CustomerOrdersApi.createCustomerOrderDocument", localVarPath, "POST", new ArrayList<>(), document,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
+                               localVarAuthNames, localVarReturnType, false);
   }
   /**
    * Delete a Customer Order
@@ -123,8 +125,8 @@ public class CustomerOrdersApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void delete(Long id) throws ApiException {
-    deleteWithHttpInfo(id);
+  public void deleteCustomerOrder(Long id) throws ApiException {
+    deleteCustomerOrderWithHttpInfo(id);
   }
 
   /**
@@ -144,10 +146,10 @@ public class CustomerOrdersApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> deleteWithHttpInfo(Long id) throws ApiException {
+  public ApiResponse<Void> deleteCustomerOrderWithHttpInfo(Long id) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling delete");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteCustomerOrder");
     }
 
     // Path parameters
@@ -157,7 +159,7 @@ public class CustomerOrdersApi {
     String localVarAccept = apiClient.selectHeaderAccept("*/*");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("CustomerOrdersApi.delete", localVarPath, "DELETE", new ArrayList<>(), null,
+    return apiClient.invokeAPI("CustomerOrdersApi.deleteCustomerOrder", localVarPath, "DELETE", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -178,8 +180,8 @@ public class CustomerOrdersApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void deleteDocument(Long id, Long did) throws ApiException {
-    deleteDocumentWithHttpInfo(id, did);
+  public void deleteCustomerOrderDocument(Long id, Long did) throws ApiException {
+    deleteCustomerOrderDocumentWithHttpInfo(id, did);
   }
 
   /**
@@ -200,13 +202,13 @@ public class CustomerOrdersApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> deleteDocumentWithHttpInfo(Long id, Long did) throws ApiException {
+  public ApiResponse<Void> deleteCustomerOrderDocumentWithHttpInfo(Long id, Long did) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteDocument");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteCustomerOrderDocument");
     }
     if (did == null) {
-      throw new ApiException(400, "Missing the required parameter 'did' when calling deleteDocument");
+      throw new ApiException(400, "Missing the required parameter 'did' when calling deleteCustomerOrderDocument");
     }
 
     // Path parameters
@@ -217,7 +219,7 @@ public class CustomerOrdersApi {
     String localVarAccept = apiClient.selectHeaderAccept("*/*");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("CustomerOrdersApi.deleteDocument", localVarPath, "DELETE", new ArrayList<>(), null,
+    return apiClient.invokeAPI("CustomerOrdersApi.deleteCustomerOrderDocument", localVarPath, "DELETE", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -238,8 +240,8 @@ public class CustomerOrdersApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void downloadDocument(Long id, Long did) throws ApiException {
-    downloadDocumentWithHttpInfo(id, did);
+  public void downloadCustomerOrderDocument(Long id, Long did) throws ApiException {
+    downloadCustomerOrderDocumentWithHttpInfo(id, did);
   }
 
   /**
@@ -260,13 +262,13 @@ public class CustomerOrdersApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> downloadDocumentWithHttpInfo(Long id, Long did) throws ApiException {
+  public ApiResponse<Void> downloadCustomerOrderDocumentWithHttpInfo(Long id, Long did) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling downloadDocument");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling downloadCustomerOrderDocument");
     }
     if (did == null) {
-      throw new ApiException(400, "Missing the required parameter 'did' when calling downloadDocument");
+      throw new ApiException(400, "Missing the required parameter 'did' when calling downloadCustomerOrderDocument");
     }
 
     // Path parameters
@@ -277,7 +279,7 @@ public class CustomerOrdersApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/octet-stream");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("CustomerOrdersApi.downloadDocument", localVarPath, "GET", new ArrayList<>(), null,
+    return apiClient.invokeAPI("CustomerOrdersApi.downloadCustomerOrderDocument", localVarPath, "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -299,8 +301,8 @@ public class CustomerOrdersApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public CustomerOrder getById(Long id, String fields) throws ApiException {
-    return getByIdWithHttpInfo(id, fields).getData();
+  public CustomerOrder getCustomerOrderById(Long id, String fields) throws ApiException {
+    return getCustomerOrderByIdWithHttpInfo(id, fields).getData();
   }
 
   /**
@@ -321,10 +323,10 @@ public class CustomerOrdersApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<CustomerOrder> getByIdWithHttpInfo(Long id, String fields) throws ApiException {
+  public ApiResponse<CustomerOrder> getCustomerOrderByIdWithHttpInfo(Long id, String fields) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getById");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getCustomerOrderById");
     }
 
     // Path parameters
@@ -340,7 +342,151 @@ public class CustomerOrdersApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<CustomerOrder> localVarReturnType = new GenericType<CustomerOrder>() {};
-    return apiClient.invokeAPI("CustomerOrdersApi.getById", localVarPath, "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("CustomerOrdersApi.getCustomerOrderById", localVarPath, "GET", localVarQueryParams, null,
+                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, false);
+  }
+  /**
+   * Get a customer order document by id
+   * 
+   * @param id id (required)
+   * @param did did (required)
+   * @param fields fields (optional)
+   * @return Document
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
+       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
+     </table>
+   */
+  public Document getCustomerOrderDocumentById(Long id, Long did, String fields) throws ApiException {
+    return getCustomerOrderDocumentByIdWithHttpInfo(id, did, fields).getData();
+  }
+
+  /**
+   * Get a customer order document by id
+   * 
+   * @param id id (required)
+   * @param did did (required)
+   * @param fields fields (optional)
+   * @return ApiResponse&lt;Document&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
+       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<Document> getCustomerOrderDocumentByIdWithHttpInfo(Long id, Long did, String fields) throws ApiException {
+    // Check required parameters
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getCustomerOrderDocumentById");
+    }
+    if (did == null) {
+      throw new ApiException(400, "Missing the required parameter 'did' when calling getCustomerOrderDocumentById");
+    }
+
+    // Path parameters
+    String localVarPath = "/customer-orders/{id}/documents/{did}"
+            .replaceAll("\\{id}", apiClient.escapeString(id.toString()))
+            .replaceAll("\\{did}", apiClient.escapeString(did.toString()));
+
+    // Query parameters
+    List<Pair> localVarQueryParams = new ArrayList<>(
+            apiClient.parameterToPairs("", "fields", fields)
+    );
+
+    String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
+    String localVarContentType = apiClient.selectHeaderContentType();
+    String[] localVarAuthNames = new String[] {"api_key", "oauth"};
+    GenericType<Document> localVarReturnType = new GenericType<Document>() {};
+    return apiClient.invokeAPI("CustomerOrdersApi.getCustomerOrderDocumentById", localVarPath, "GET", localVarQueryParams, null,
+                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, false);
+  }
+  /**
+   * Get a collection of documents for the given customer order
+   * 
+   * @param id id (required)
+   * @param filter filter (optional)
+   * @param sort sort (optional)
+   * @param offset offset (optional)
+   * @param limit limit (optional)
+   * @param fields fields (optional)
+   * @return DocumentList
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> OK </td><td>  * x-total-count - The total number of records <br>  * link - Link to the list <br>  * x-page-count - The total number of pages <br>  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
+       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
+     </table>
+   */
+  public DocumentList getCustomerOrderDocuments(Long id, String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+    return getCustomerOrderDocumentsWithHttpInfo(id, filter, sort, offset, limit, fields).getData();
+  }
+
+  /**
+   * Get a collection of documents for the given customer order
+   * 
+   * @param id id (required)
+   * @param filter filter (optional)
+   * @param sort sort (optional)
+   * @param offset offset (optional)
+   * @param limit limit (optional)
+   * @param fields fields (optional)
+   * @return ApiResponse&lt;DocumentList&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> OK </td><td>  * x-total-count - The total number of records <br>  * link - Link to the list <br>  * x-page-count - The total number of pages <br>  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
+       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<DocumentList> getCustomerOrderDocumentsWithHttpInfo(Long id, String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+    // Check required parameters
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getCustomerOrderDocuments");
+    }
+
+    // Path parameters
+    String localVarPath = "/customer-orders/{id}/documents"
+            .replaceAll("\\{id}", apiClient.escapeString(id.toString()));
+
+    // Query parameters
+    List<Pair> localVarQueryParams = new ArrayList<>(
+            apiClient.parameterToPairs("", "filter", filter)
+    );
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "offset", offset));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "fields", fields));
+
+    String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
+    String localVarContentType = apiClient.selectHeaderContentType();
+    String[] localVarAuthNames = new String[] {"api_key", "oauth"};
+    GenericType<DocumentList> localVarReturnType = new GenericType<DocumentList>() {};
+    return apiClient.invokeAPI("CustomerOrdersApi.getCustomerOrderDocuments", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -420,150 +566,6 @@ public class CustomerOrdersApi {
                                localVarAuthNames, localVarReturnType, false);
   }
   /**
-   * Get a customer order document by id
-   * 
-   * @param id id (required)
-   * @param did did (required)
-   * @param fields fields (optional)
-   * @return Document
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
-       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
-     </table>
-   */
-  public Document getDocumentById(Long id, Long did, String fields) throws ApiException {
-    return getDocumentByIdWithHttpInfo(id, did, fields).getData();
-  }
-
-  /**
-   * Get a customer order document by id
-   * 
-   * @param id id (required)
-   * @param did did (required)
-   * @param fields fields (optional)
-   * @return ApiResponse&lt;Document&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
-       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
-     </table>
-   */
-  public ApiResponse<Document> getDocumentByIdWithHttpInfo(Long id, Long did, String fields) throws ApiException {
-    // Check required parameters
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getDocumentById");
-    }
-    if (did == null) {
-      throw new ApiException(400, "Missing the required parameter 'did' when calling getDocumentById");
-    }
-
-    // Path parameters
-    String localVarPath = "/customer-orders/{id}/documents/{did}"
-            .replaceAll("\\{id}", apiClient.escapeString(id.toString()))
-            .replaceAll("\\{did}", apiClient.escapeString(did.toString()));
-
-    // Query parameters
-    List<Pair> localVarQueryParams = new ArrayList<>(
-            apiClient.parameterToPairs("", "fields", fields)
-    );
-
-    String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
-    String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    GenericType<Document> localVarReturnType = new GenericType<Document>() {};
-    return apiClient.invokeAPI("CustomerOrdersApi.getDocumentById", localVarPath, "GET", localVarQueryParams, null,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
-  }
-  /**
-   * Get a collection of documents for the given customer order
-   * 
-   * @param id id (required)
-   * @param filter filter (optional)
-   * @param sort sort (optional)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
-   * @param fields fields (optional)
-   * @return DocumentList
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> OK </td><td>  * x-total-count - The total number of records <br>  * link - Link to the list <br>  * x-page-count - The total number of pages <br>  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
-       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
-     </table>
-   */
-  public DocumentList getDocuments(Long id, String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
-    return getDocumentsWithHttpInfo(id, filter, sort, offset, limit, fields).getData();
-  }
-
-  /**
-   * Get a collection of documents for the given customer order
-   * 
-   * @param id id (required)
-   * @param filter filter (optional)
-   * @param sort sort (optional)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
-   * @param fields fields (optional)
-   * @return ApiResponse&lt;DocumentList&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> OK </td><td>  * x-total-count - The total number of records <br>  * link - Link to the list <br>  * x-page-count - The total number of pages <br>  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
-       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
-     </table>
-   */
-  public ApiResponse<DocumentList> getDocumentsWithHttpInfo(Long id, String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
-    // Check required parameters
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getDocuments");
-    }
-
-    // Path parameters
-    String localVarPath = "/customer-orders/{id}/documents"
-            .replaceAll("\\{id}", apiClient.escapeString(id.toString()));
-
-    // Query parameters
-    List<Pair> localVarQueryParams = new ArrayList<>(
-            apiClient.parameterToPairs("", "filter", filter)
-    );
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "offset", offset));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "fields", fields));
-
-    String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
-    String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    GenericType<DocumentList> localVarReturnType = new GenericType<DocumentList>() {};
-    return apiClient.invokeAPI("CustomerOrdersApi.getDocuments", localVarPath, "GET", localVarQueryParams, null,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
-  }
-  /**
    * Test customer orders service
    * 
    * @return String
@@ -576,8 +578,8 @@ public class CustomerOrdersApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public String ping() throws ApiException {
-    return pingWithHttpInfo().getData();
+  public String pingCustomerOrder() throws ApiException {
+    return pingCustomerOrderWithHttpInfo().getData();
   }
 
   /**
@@ -593,12 +595,12 @@ public class CustomerOrdersApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<String> pingWithHttpInfo() throws ApiException {
+  public ApiResponse<String> pingCustomerOrderWithHttpInfo() throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("text/plain");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<String> localVarReturnType = new GenericType<String>() {};
-    return apiClient.invokeAPI("CustomerOrdersApi.ping", "/customer-orders/ping", "GET", new ArrayList<>(), null,
+    return apiClient.invokeAPI("CustomerOrdersApi.pingCustomerOrder", "/customer-orders/ping", "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -621,8 +623,8 @@ public class CustomerOrdersApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public CustomerOrderList query(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
-    return queryWithHttpInfo(filter, sort, offset, limit, fields).getData();
+  public CustomerOrderList queryCustomerOrder(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+    return queryCustomerOrderWithHttpInfo(filter, sort, offset, limit, fields).getData();
   }
 
   /**
@@ -644,7 +646,7 @@ public class CustomerOrdersApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<CustomerOrderList> queryWithHttpInfo(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+  public ApiResponse<CustomerOrderList> queryCustomerOrderWithHttpInfo(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
     // Query parameters
     List<Pair> localVarQueryParams = new ArrayList<>(
             apiClient.parameterToPairs("", "filter", filter)
@@ -658,7 +660,7 @@ public class CustomerOrdersApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<CustomerOrderList> localVarReturnType = new GenericType<CustomerOrderList>() {};
-    return apiClient.invokeAPI("CustomerOrdersApi.query", "/customer-orders", "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("CustomerOrdersApi.queryCustomerOrder", "/customer-orders", "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -679,8 +681,8 @@ public class CustomerOrdersApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void unvalidate(Long id, Comment comment) throws ApiException {
-    unvalidateWithHttpInfo(id, comment);
+  public void unvalidateCustomerOrder(Long id, Comment comment) throws ApiException {
+    unvalidateCustomerOrderWithHttpInfo(id, comment);
   }
 
   /**
@@ -701,10 +703,10 @@ public class CustomerOrdersApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> unvalidateWithHttpInfo(Long id, Comment comment) throws ApiException {
+  public ApiResponse<Void> unvalidateCustomerOrderWithHttpInfo(Long id, Comment comment) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling unvalidate");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling unvalidateCustomerOrder");
     }
 
     // Path parameters
@@ -714,7 +716,7 @@ public class CustomerOrdersApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("CustomerOrdersApi.unvalidate", localVarPath, "PUT", new ArrayList<>(), comment,
+    return apiClient.invokeAPI("CustomerOrdersApi.unvalidateCustomerOrder", localVarPath, "PUT", new ArrayList<>(), comment,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -736,8 +738,8 @@ public class CustomerOrdersApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void update(Long id, CustomerOrder customerOrder) throws ApiException {
-    updateWithHttpInfo(id, customerOrder);
+  public void updateCustomerOrder(Long id, CustomerOrder customerOrder) throws ApiException {
+    updateCustomerOrderWithHttpInfo(id, customerOrder);
   }
 
   /**
@@ -759,13 +761,13 @@ public class CustomerOrdersApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> updateWithHttpInfo(Long id, CustomerOrder customerOrder) throws ApiException {
+  public ApiResponse<Void> updateCustomerOrderWithHttpInfo(Long id, CustomerOrder customerOrder) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling update");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updateCustomerOrder");
     }
     if (customerOrder == null) {
-      throw new ApiException(400, "Missing the required parameter 'customerOrder' when calling update");
+      throw new ApiException(400, "Missing the required parameter 'customerOrder' when calling updateCustomerOrder");
     }
 
     // Path parameters
@@ -775,7 +777,7 @@ public class CustomerOrdersApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("CustomerOrdersApi.update", localVarPath, "PUT", new ArrayList<>(), customerOrder,
+    return apiClient.invokeAPI("CustomerOrdersApi.updateCustomerOrder", localVarPath, "PUT", new ArrayList<>(), customerOrder,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -798,8 +800,8 @@ public class CustomerOrdersApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void updateCustomerOrderLine(Long id, Long lineid, CustomerOrderLine customerOrderLine) throws ApiException {
-    updateCustomerOrderLineWithHttpInfo(id, lineid, customerOrderLine);
+  public void updateCustomerOrderCustomerOrderLine(Long id, Long lineid, CustomerOrderLine customerOrderLine) throws ApiException {
+    updateCustomerOrderCustomerOrderLineWithHttpInfo(id, lineid, customerOrderLine);
   }
 
   /**
@@ -822,16 +824,16 @@ public class CustomerOrdersApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> updateCustomerOrderLineWithHttpInfo(Long id, Long lineid, CustomerOrderLine customerOrderLine) throws ApiException {
+  public ApiResponse<Void> updateCustomerOrderCustomerOrderLineWithHttpInfo(Long id, Long lineid, CustomerOrderLine customerOrderLine) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling updateCustomerOrderLine");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updateCustomerOrderCustomerOrderLine");
     }
     if (lineid == null) {
-      throw new ApiException(400, "Missing the required parameter 'lineid' when calling updateCustomerOrderLine");
+      throw new ApiException(400, "Missing the required parameter 'lineid' when calling updateCustomerOrderCustomerOrderLine");
     }
     if (customerOrderLine == null) {
-      throw new ApiException(400, "Missing the required parameter 'customerOrderLine' when calling updateCustomerOrderLine");
+      throw new ApiException(400, "Missing the required parameter 'customerOrderLine' when calling updateCustomerOrderCustomerOrderLine");
     }
 
     // Path parameters
@@ -842,7 +844,7 @@ public class CustomerOrdersApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("CustomerOrdersApi.updateCustomerOrderLine", localVarPath, "PUT", new ArrayList<>(), customerOrderLine,
+    return apiClient.invokeAPI("CustomerOrdersApi.updateCustomerOrderCustomerOrderLine", localVarPath, "PUT", new ArrayList<>(), customerOrderLine,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -865,8 +867,8 @@ public class CustomerOrdersApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void updateDocument(Long id, Long did, Document document) throws ApiException {
-    updateDocumentWithHttpInfo(id, did, document);
+  public void updateCustomerOrderDocument(Long id, Long did, Document document) throws ApiException {
+    updateCustomerOrderDocumentWithHttpInfo(id, did, document);
   }
 
   /**
@@ -889,16 +891,16 @@ public class CustomerOrdersApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> updateDocumentWithHttpInfo(Long id, Long did, Document document) throws ApiException {
+  public ApiResponse<Void> updateCustomerOrderDocumentWithHttpInfo(Long id, Long did, Document document) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling updateDocument");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updateCustomerOrderDocument");
     }
     if (did == null) {
-      throw new ApiException(400, "Missing the required parameter 'did' when calling updateDocument");
+      throw new ApiException(400, "Missing the required parameter 'did' when calling updateCustomerOrderDocument");
     }
     if (document == null) {
-      throw new ApiException(400, "Missing the required parameter 'document' when calling updateDocument");
+      throw new ApiException(400, "Missing the required parameter 'document' when calling updateCustomerOrderDocument");
     }
 
     // Path parameters
@@ -909,7 +911,7 @@ public class CustomerOrdersApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("CustomerOrdersApi.updateDocument", localVarPath, "PUT", new ArrayList<>(), document,
+    return apiClient.invokeAPI("CustomerOrdersApi.updateCustomerOrderDocument", localVarPath, "PUT", new ArrayList<>(), document,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -931,8 +933,8 @@ public class CustomerOrdersApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void updatePartial(Long id, CustomerOrder customerOrder) throws ApiException {
-    updatePartialWithHttpInfo(id, customerOrder);
+  public void updatePartialCustomerOrder(Long id, CustomerOrder customerOrder) throws ApiException {
+    updatePartialCustomerOrderWithHttpInfo(id, customerOrder);
   }
 
   /**
@@ -954,13 +956,13 @@ public class CustomerOrdersApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> updatePartialWithHttpInfo(Long id, CustomerOrder customerOrder) throws ApiException {
+  public ApiResponse<Void> updatePartialCustomerOrderWithHttpInfo(Long id, CustomerOrder customerOrder) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling updatePartial");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updatePartialCustomerOrder");
     }
     if (customerOrder == null) {
-      throw new ApiException(400, "Missing the required parameter 'customerOrder' when calling updatePartial");
+      throw new ApiException(400, "Missing the required parameter 'customerOrder' when calling updatePartialCustomerOrder");
     }
 
     // Path parameters
@@ -970,7 +972,7 @@ public class CustomerOrdersApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("CustomerOrdersApi.updatePartial", localVarPath, "POST", new ArrayList<>(), customerOrder,
+    return apiClient.invokeAPI("CustomerOrdersApi.updatePartialCustomerOrder", localVarPath, "POST", new ArrayList<>(), customerOrder,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -993,8 +995,8 @@ public class CustomerOrdersApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void updatePartialCustomerOrderLine(Long id, Long lineid, CustomerOrderLine customerOrderLine) throws ApiException {
-    updatePartialCustomerOrderLineWithHttpInfo(id, lineid, customerOrderLine);
+  public void updatePartialCustomerOrderCustomerOrderLine(Long id, Long lineid, CustomerOrderLine customerOrderLine) throws ApiException {
+    updatePartialCustomerOrderCustomerOrderLineWithHttpInfo(id, lineid, customerOrderLine);
   }
 
   /**
@@ -1017,16 +1019,16 @@ public class CustomerOrdersApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> updatePartialCustomerOrderLineWithHttpInfo(Long id, Long lineid, CustomerOrderLine customerOrderLine) throws ApiException {
+  public ApiResponse<Void> updatePartialCustomerOrderCustomerOrderLineWithHttpInfo(Long id, Long lineid, CustomerOrderLine customerOrderLine) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling updatePartialCustomerOrderLine");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updatePartialCustomerOrderCustomerOrderLine");
     }
     if (lineid == null) {
-      throw new ApiException(400, "Missing the required parameter 'lineid' when calling updatePartialCustomerOrderLine");
+      throw new ApiException(400, "Missing the required parameter 'lineid' when calling updatePartialCustomerOrderCustomerOrderLine");
     }
     if (customerOrderLine == null) {
-      throw new ApiException(400, "Missing the required parameter 'customerOrderLine' when calling updatePartialCustomerOrderLine");
+      throw new ApiException(400, "Missing the required parameter 'customerOrderLine' when calling updatePartialCustomerOrderCustomerOrderLine");
     }
 
     // Path parameters
@@ -1037,7 +1039,7 @@ public class CustomerOrdersApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("CustomerOrdersApi.updatePartialCustomerOrderLine", localVarPath, "POST", new ArrayList<>(), customerOrderLine,
+    return apiClient.invokeAPI("CustomerOrdersApi.updatePartialCustomerOrderCustomerOrderLine", localVarPath, "POST", new ArrayList<>(), customerOrderLine,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -1060,8 +1062,8 @@ public class CustomerOrdersApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void updatePartialDocument(Long id, Long did, Document document) throws ApiException {
-    updatePartialDocumentWithHttpInfo(id, did, document);
+  public void updatePartialCustomerOrderDocument(Long id, Long did, Document document) throws ApiException {
+    updatePartialCustomerOrderDocumentWithHttpInfo(id, did, document);
   }
 
   /**
@@ -1084,16 +1086,16 @@ public class CustomerOrdersApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> updatePartialDocumentWithHttpInfo(Long id, Long did, Document document) throws ApiException {
+  public ApiResponse<Void> updatePartialCustomerOrderDocumentWithHttpInfo(Long id, Long did, Document document) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling updatePartialDocument");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updatePartialCustomerOrderDocument");
     }
     if (did == null) {
-      throw new ApiException(400, "Missing the required parameter 'did' when calling updatePartialDocument");
+      throw new ApiException(400, "Missing the required parameter 'did' when calling updatePartialCustomerOrderDocument");
     }
     if (document == null) {
-      throw new ApiException(400, "Missing the required parameter 'document' when calling updatePartialDocument");
+      throw new ApiException(400, "Missing the required parameter 'document' when calling updatePartialCustomerOrderDocument");
     }
 
     // Path parameters
@@ -1104,7 +1106,7 @@ public class CustomerOrdersApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("CustomerOrdersApi.updatePartialDocument", localVarPath, "POST", new ArrayList<>(), document,
+    return apiClient.invokeAPI("CustomerOrdersApi.updatePartialCustomerOrderDocument", localVarPath, "POST", new ArrayList<>(), document,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -1126,8 +1128,8 @@ public class CustomerOrdersApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void uploadDocument(Long id, Long did, FormDataContentDisposition _file) throws ApiException {
-    uploadDocumentWithHttpInfo(id, did, _file);
+  public void uploadCustomerOrderDocument(Long id, Long did, FormDataContentDisposition _file) throws ApiException {
+    uploadCustomerOrderDocumentWithHttpInfo(id, did, _file);
   }
 
   /**
@@ -1149,16 +1151,16 @@ public class CustomerOrdersApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> uploadDocumentWithHttpInfo(Long id, Long did, FormDataContentDisposition _file) throws ApiException {
+  public ApiResponse<Void> uploadCustomerOrderDocumentWithHttpInfo(Long id, Long did, FormDataContentDisposition _file) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling uploadDocument");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling uploadCustomerOrderDocument");
     }
     if (did == null) {
-      throw new ApiException(400, "Missing the required parameter 'did' when calling uploadDocument");
+      throw new ApiException(400, "Missing the required parameter 'did' when calling uploadCustomerOrderDocument");
     }
     if (_file == null) {
-      throw new ApiException(400, "Missing the required parameter '_file' when calling uploadDocument");
+      throw new ApiException(400, "Missing the required parameter '_file' when calling uploadCustomerOrderDocument");
     }
 
     // Path parameters
@@ -1173,7 +1175,7 @@ public class CustomerOrdersApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("multipart/form-data");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("CustomerOrdersApi.uploadDocument", localVarPath, "POST", new ArrayList<>(), null,
+    return apiClient.invokeAPI("CustomerOrdersApi.uploadCustomerOrderDocument", localVarPath, "POST", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -1194,8 +1196,8 @@ public class CustomerOrdersApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void validate(Long id, Comment comment) throws ApiException {
-    validateWithHttpInfo(id, comment);
+  public void validateCustomerOrder(Long id, Comment comment) throws ApiException {
+    validateCustomerOrderWithHttpInfo(id, comment);
   }
 
   /**
@@ -1216,10 +1218,10 @@ public class CustomerOrdersApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> validateWithHttpInfo(Long id, Comment comment) throws ApiException {
+  public ApiResponse<Void> validateCustomerOrderWithHttpInfo(Long id, Comment comment) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling validate");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling validateCustomerOrder");
     }
 
     // Path parameters
@@ -1229,7 +1231,7 @@ public class CustomerOrdersApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("CustomerOrdersApi.validate", localVarPath, "PUT", new ArrayList<>(), comment,
+    return apiClient.invokeAPI("CustomerOrdersApi.validateCustomerOrder", localVarPath, "PUT", new ArrayList<>(), comment,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }

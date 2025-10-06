@@ -23,7 +23,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-05-22T08:24:46.022483900+02:00[Europe/Paris]")
+@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-10-06T08:58:20.555636300+02:00[Europe/Paris]")
 public class ExpenseSheetLinesApi {
   private ApiClient apiClient;
 
@@ -57,6 +57,7 @@ public class ExpenseSheetLinesApi {
    * Create an Expense Sheet Line
    * 
    * @param expenseSheetLine ExpenseSheetLine (required)
+   * @return ExpenseSheetLine
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -68,15 +69,15 @@ public class ExpenseSheetLinesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void create(ExpenseSheetLine expenseSheetLine) throws ApiException {
-    createWithHttpInfo(expenseSheetLine);
+  public ExpenseSheetLine createExpenseSheetLine(ExpenseSheetLine expenseSheetLine) throws ApiException {
+    return createExpenseSheetLineWithHttpInfo(expenseSheetLine).getData();
   }
 
   /**
    * Create an Expense Sheet Line
    * 
    * @param expenseSheetLine ExpenseSheetLine (required)
-   * @return ApiResponse&lt;Void&gt;
+   * @return ApiResponse&lt;ExpenseSheetLine&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -88,24 +89,26 @@ public class ExpenseSheetLinesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> createWithHttpInfo(ExpenseSheetLine expenseSheetLine) throws ApiException {
+  public ApiResponse<ExpenseSheetLine> createExpenseSheetLineWithHttpInfo(ExpenseSheetLine expenseSheetLine) throws ApiException {
     // Check required parameters
     if (expenseSheetLine == null) {
-      throw new ApiException(400, "Missing the required parameter 'expenseSheetLine' when calling create");
+      throw new ApiException(400, "Missing the required parameter 'expenseSheetLine' when calling createExpenseSheetLine");
     }
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("ExpenseSheetLinesApi.create", "/expense-sheet-lines", "POST", new ArrayList<>(), expenseSheetLine,
+    GenericType<ExpenseSheetLine> localVarReturnType = new GenericType<ExpenseSheetLine>() {};
+    return apiClient.invokeAPI("ExpenseSheetLinesApi.createExpenseSheetLine", "/expense-sheet-lines", "POST", new ArrayList<>(), expenseSheetLine,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
+                               localVarAuthNames, localVarReturnType, false);
   }
   /**
    * Create a new document for the expense sheet line
    * 
    * @param id id (required)
    * @param document Document (required)
+   * @return Document
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -117,8 +120,8 @@ public class ExpenseSheetLinesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void createDocument(Long id, Document document) throws ApiException {
-    createDocumentWithHttpInfo(id, document);
+  public Document createExpenseSheetLineDocument(Long id, Document document) throws ApiException {
+    return createExpenseSheetLineDocumentWithHttpInfo(id, document).getData();
   }
 
   /**
@@ -126,7 +129,7 @@ public class ExpenseSheetLinesApi {
    * 
    * @param id id (required)
    * @param document Document (required)
-   * @return ApiResponse&lt;Void&gt;
+   * @return ApiResponse&lt;Document&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -138,13 +141,13 @@ public class ExpenseSheetLinesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> createDocumentWithHttpInfo(Long id, Document document) throws ApiException {
+  public ApiResponse<Document> createExpenseSheetLineDocumentWithHttpInfo(Long id, Document document) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling createDocument");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling createExpenseSheetLineDocument");
     }
     if (document == null) {
-      throw new ApiException(400, "Missing the required parameter 'document' when calling createDocument");
+      throw new ApiException(400, "Missing the required parameter 'document' when calling createExpenseSheetLineDocument");
     }
 
     // Path parameters
@@ -154,9 +157,10 @@ public class ExpenseSheetLinesApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("ExpenseSheetLinesApi.createDocument", localVarPath, "POST", new ArrayList<>(), document,
+    GenericType<Document> localVarReturnType = new GenericType<Document>() {};
+    return apiClient.invokeAPI("ExpenseSheetLinesApi.createExpenseSheetLineDocument", localVarPath, "POST", new ArrayList<>(), document,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
+                               localVarAuthNames, localVarReturnType, false);
   }
   /**
    * Delete an Expense Sheet Line
@@ -174,8 +178,8 @@ public class ExpenseSheetLinesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void delete(Long id) throws ApiException {
-    deleteWithHttpInfo(id);
+  public void deleteExpenseSheetLine(Long id) throws ApiException {
+    deleteExpenseSheetLineWithHttpInfo(id);
   }
 
   /**
@@ -195,10 +199,10 @@ public class ExpenseSheetLinesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> deleteWithHttpInfo(Long id) throws ApiException {
+  public ApiResponse<Void> deleteExpenseSheetLineWithHttpInfo(Long id) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling delete");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteExpenseSheetLine");
     }
 
     // Path parameters
@@ -208,7 +212,7 @@ public class ExpenseSheetLinesApi {
     String localVarAccept = apiClient.selectHeaderAccept("*/*");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("ExpenseSheetLinesApi.delete", localVarPath, "DELETE", new ArrayList<>(), null,
+    return apiClient.invokeAPI("ExpenseSheetLinesApi.deleteExpenseSheetLine", localVarPath, "DELETE", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -229,8 +233,8 @@ public class ExpenseSheetLinesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void deleteDocument(Long id, Long did) throws ApiException {
-    deleteDocumentWithHttpInfo(id, did);
+  public void deleteExpenseSheetLineDocument(Long id, Long did) throws ApiException {
+    deleteExpenseSheetLineDocumentWithHttpInfo(id, did);
   }
 
   /**
@@ -251,13 +255,13 @@ public class ExpenseSheetLinesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> deleteDocumentWithHttpInfo(Long id, Long did) throws ApiException {
+  public ApiResponse<Void> deleteExpenseSheetLineDocumentWithHttpInfo(Long id, Long did) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteDocument");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteExpenseSheetLineDocument");
     }
     if (did == null) {
-      throw new ApiException(400, "Missing the required parameter 'did' when calling deleteDocument");
+      throw new ApiException(400, "Missing the required parameter 'did' when calling deleteExpenseSheetLineDocument");
     }
 
     // Path parameters
@@ -268,7 +272,7 @@ public class ExpenseSheetLinesApi {
     String localVarAccept = apiClient.selectHeaderAccept("*/*");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("ExpenseSheetLinesApi.deleteDocument", localVarPath, "DELETE", new ArrayList<>(), null,
+    return apiClient.invokeAPI("ExpenseSheetLinesApi.deleteExpenseSheetLineDocument", localVarPath, "DELETE", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -289,8 +293,8 @@ public class ExpenseSheetLinesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void downloadDocument(Long id, Long did) throws ApiException {
-    downloadDocumentWithHttpInfo(id, did);
+  public void downloadExpenseSheetLineDocument(Long id, Long did) throws ApiException {
+    downloadExpenseSheetLineDocumentWithHttpInfo(id, did);
   }
 
   /**
@@ -311,13 +315,13 @@ public class ExpenseSheetLinesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> downloadDocumentWithHttpInfo(Long id, Long did) throws ApiException {
+  public ApiResponse<Void> downloadExpenseSheetLineDocumentWithHttpInfo(Long id, Long did) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling downloadDocument");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling downloadExpenseSheetLineDocument");
     }
     if (did == null) {
-      throw new ApiException(400, "Missing the required parameter 'did' when calling downloadDocument");
+      throw new ApiException(400, "Missing the required parameter 'did' when calling downloadExpenseSheetLineDocument");
     }
 
     // Path parameters
@@ -328,7 +332,7 @@ public class ExpenseSheetLinesApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/pdf", "application/octet-stream");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("ExpenseSheetLinesApi.downloadDocument", localVarPath, "GET", new ArrayList<>(), null,
+    return apiClient.invokeAPI("ExpenseSheetLinesApi.downloadExpenseSheetLineDocument", localVarPath, "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -350,8 +354,8 @@ public class ExpenseSheetLinesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ExpenseSheetLine duplicate(Long id, CopyData copyData) throws ApiException {
-    return duplicateWithHttpInfo(id, copyData).getData();
+  public ExpenseSheetLine duplicateExpenseSheetLine(Long id, CopyData copyData) throws ApiException {
+    return duplicateExpenseSheetLineWithHttpInfo(id, copyData).getData();
   }
 
   /**
@@ -372,13 +376,13 @@ public class ExpenseSheetLinesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<ExpenseSheetLine> duplicateWithHttpInfo(Long id, CopyData copyData) throws ApiException {
+  public ApiResponse<ExpenseSheetLine> duplicateExpenseSheetLineWithHttpInfo(Long id, CopyData copyData) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling duplicate");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling duplicateExpenseSheetLine");
     }
     if (copyData == null) {
-      throw new ApiException(400, "Missing the required parameter 'copyData' when calling duplicate");
+      throw new ApiException(400, "Missing the required parameter 'copyData' when calling duplicateExpenseSheetLine");
     }
 
     // Path parameters
@@ -389,7 +393,7 @@ public class ExpenseSheetLinesApi {
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<ExpenseSheetLine> localVarReturnType = new GenericType<ExpenseSheetLine>() {};
-    return apiClient.invokeAPI("ExpenseSheetLinesApi.duplicate", localVarPath, "POST", new ArrayList<>(), copyData,
+    return apiClient.invokeAPI("ExpenseSheetLinesApi.duplicateExpenseSheetLine", localVarPath, "POST", new ArrayList<>(), copyData,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -453,8 +457,8 @@ public class ExpenseSheetLinesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ExpenseSheetLine getById(Long id, String fields) throws ApiException {
-    return getByIdWithHttpInfo(id, fields).getData();
+  public ExpenseSheetLine getExpenseSheetLineById(Long id, String fields) throws ApiException {
+    return getExpenseSheetLineByIdWithHttpInfo(id, fields).getData();
   }
 
   /**
@@ -475,10 +479,10 @@ public class ExpenseSheetLinesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<ExpenseSheetLine> getByIdWithHttpInfo(Long id, String fields) throws ApiException {
+  public ApiResponse<ExpenseSheetLine> getExpenseSheetLineByIdWithHttpInfo(Long id, String fields) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getById");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getExpenseSheetLineById");
     }
 
     // Path parameters
@@ -494,7 +498,7 @@ public class ExpenseSheetLinesApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<ExpenseSheetLine> localVarReturnType = new GenericType<ExpenseSheetLine>() {};
-    return apiClient.invokeAPI("ExpenseSheetLinesApi.getById", localVarPath, "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("ExpenseSheetLinesApi.getExpenseSheetLineById", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -517,8 +521,8 @@ public class ExpenseSheetLinesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public Document getDocumentById(Long id, Long did, String fields) throws ApiException {
-    return getDocumentByIdWithHttpInfo(id, did, fields).getData();
+  public Document getExpenseSheetLineDocumentById(Long id, Long did, String fields) throws ApiException {
+    return getExpenseSheetLineDocumentByIdWithHttpInfo(id, did, fields).getData();
   }
 
   /**
@@ -540,13 +544,13 @@ public class ExpenseSheetLinesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Document> getDocumentByIdWithHttpInfo(Long id, Long did, String fields) throws ApiException {
+  public ApiResponse<Document> getExpenseSheetLineDocumentByIdWithHttpInfo(Long id, Long did, String fields) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getDocumentById");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getExpenseSheetLineDocumentById");
     }
     if (did == null) {
-      throw new ApiException(400, "Missing the required parameter 'did' when calling getDocumentById");
+      throw new ApiException(400, "Missing the required parameter 'did' when calling getExpenseSheetLineDocumentById");
     }
 
     // Path parameters
@@ -563,7 +567,7 @@ public class ExpenseSheetLinesApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<Document> localVarReturnType = new GenericType<Document>() {};
-    return apiClient.invokeAPI("ExpenseSheetLinesApi.getDocumentById", localVarPath, "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("ExpenseSheetLinesApi.getExpenseSheetLineDocumentById", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -589,8 +593,8 @@ public class ExpenseSheetLinesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public DocumentList getDocuments(Long id, String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
-    return getDocumentsWithHttpInfo(id, filter, sort, offset, limit, fields).getData();
+  public DocumentList getExpenseSheetLineDocuments(Long id, String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+    return getExpenseSheetLineDocumentsWithHttpInfo(id, filter, sort, offset, limit, fields).getData();
   }
 
   /**
@@ -615,10 +619,10 @@ public class ExpenseSheetLinesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<DocumentList> getDocumentsWithHttpInfo(Long id, String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+  public ApiResponse<DocumentList> getExpenseSheetLineDocumentsWithHttpInfo(Long id, String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getDocuments");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getExpenseSheetLineDocuments");
     }
 
     // Path parameters
@@ -638,7 +642,7 @@ public class ExpenseSheetLinesApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<DocumentList> localVarReturnType = new GenericType<DocumentList>() {};
-    return apiClient.invokeAPI("ExpenseSheetLinesApi.getDocuments", localVarPath, "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("ExpenseSheetLinesApi.getExpenseSheetLineDocuments", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -698,8 +702,8 @@ public class ExpenseSheetLinesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public String ping() throws ApiException {
-    return pingWithHttpInfo().getData();
+  public String pingExpenseSheetLine() throws ApiException {
+    return pingExpenseSheetLineWithHttpInfo().getData();
   }
 
   /**
@@ -715,12 +719,12 @@ public class ExpenseSheetLinesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<String> pingWithHttpInfo() throws ApiException {
+  public ApiResponse<String> pingExpenseSheetLineWithHttpInfo() throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("text/plain");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<String> localVarReturnType = new GenericType<String>() {};
-    return apiClient.invokeAPI("ExpenseSheetLinesApi.ping", "/expense-sheet-lines/ping", "GET", new ArrayList<>(), null,
+    return apiClient.invokeAPI("ExpenseSheetLinesApi.pingExpenseSheetLine", "/expense-sheet-lines/ping", "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -743,8 +747,8 @@ public class ExpenseSheetLinesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ExpenseSheetLineList query(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
-    return queryWithHttpInfo(filter, sort, offset, limit, fields).getData();
+  public ExpenseSheetLineList queryExpenseSheetLine(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+    return queryExpenseSheetLineWithHttpInfo(filter, sort, offset, limit, fields).getData();
   }
 
   /**
@@ -766,7 +770,7 @@ public class ExpenseSheetLinesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<ExpenseSheetLineList> queryWithHttpInfo(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+  public ApiResponse<ExpenseSheetLineList> queryExpenseSheetLineWithHttpInfo(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
     // Query parameters
     List<Pair> localVarQueryParams = new ArrayList<>(
             apiClient.parameterToPairs("", "filter", filter)
@@ -780,7 +784,73 @@ public class ExpenseSheetLinesApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<ExpenseSheetLineList> localVarReturnType = new GenericType<ExpenseSheetLineList>() {};
-    return apiClient.invokeAPI("ExpenseSheetLinesApi.query", "/expense-sheet-lines", "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("ExpenseSheetLinesApi.queryExpenseSheetLine", "/expense-sheet-lines", "GET", localVarQueryParams, null,
+                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, false);
+  }
+  /**
+   * Get a collection of available mission orders for the given expense line
+   * 
+   * @param id id (required)
+   * @param filter filter (optional)
+   * @param fields fields (optional)
+   * @return MissionOrderList
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> OK </td><td>  * x-total-count - The total number of records <br>  * link - Link to the list <br>  * x-page-count - The total number of pages <br>  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
+       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
+     </table>
+   */
+  public MissionOrderList queryExpenseSheetLineMissionOrders(Long id, String filter, String fields) throws ApiException {
+    return queryExpenseSheetLineMissionOrdersWithHttpInfo(id, filter, fields).getData();
+  }
+
+  /**
+   * Get a collection of available mission orders for the given expense line
+   * 
+   * @param id id (required)
+   * @param filter filter (optional)
+   * @param fields fields (optional)
+   * @return ApiResponse&lt;MissionOrderList&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> OK </td><td>  * x-total-count - The total number of records <br>  * link - Link to the list <br>  * x-page-count - The total number of pages <br>  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
+       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<MissionOrderList> queryExpenseSheetLineMissionOrdersWithHttpInfo(Long id, String filter, String fields) throws ApiException {
+    // Check required parameters
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling queryExpenseSheetLineMissionOrders");
+    }
+
+    // Path parameters
+    String localVarPath = "/expense-sheet-lines/{id}/mission-orders"
+            .replaceAll("\\{id}", apiClient.escapeString(id.toString()));
+
+    // Query parameters
+    List<Pair> localVarQueryParams = new ArrayList<>(
+            apiClient.parameterToPairs("", "filter", filter)
+    );
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "fields", fields));
+
+    String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
+    String localVarContentType = apiClient.selectHeaderContentType();
+    String[] localVarAuthNames = new String[] {"api_key", "oauth"};
+    GenericType<MissionOrderList> localVarReturnType = new GenericType<MissionOrderList>() {};
+    return apiClient.invokeAPI("ExpenseSheetLinesApi.queryExpenseSheetLineMissionOrders", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -851,72 +921,6 @@ public class ExpenseSheetLinesApi {
                                localVarAuthNames, localVarReturnType, false);
   }
   /**
-   * Get a collection of available mission orders for the given expense line
-   * 
-   * @param id id (required)
-   * @param filter filter (optional)
-   * @param fields fields (optional)
-   * @return MissionOrderList
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> OK </td><td>  * x-total-count - The total number of records <br>  * link - Link to the list <br>  * x-page-count - The total number of pages <br>  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
-       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
-     </table>
-   */
-  public MissionOrderList queryMissionOrders(Long id, String filter, String fields) throws ApiException {
-    return queryMissionOrdersWithHttpInfo(id, filter, fields).getData();
-  }
-
-  /**
-   * Get a collection of available mission orders for the given expense line
-   * 
-   * @param id id (required)
-   * @param filter filter (optional)
-   * @param fields fields (optional)
-   * @return ApiResponse&lt;MissionOrderList&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> OK </td><td>  * x-total-count - The total number of records <br>  * link - Link to the list <br>  * x-page-count - The total number of pages <br>  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
-       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
-     </table>
-   */
-  public ApiResponse<MissionOrderList> queryMissionOrdersWithHttpInfo(Long id, String filter, String fields) throws ApiException {
-    // Check required parameters
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling queryMissionOrders");
-    }
-
-    // Path parameters
-    String localVarPath = "/expense-sheet-lines/{id}/mission-orders"
-            .replaceAll("\\{id}", apiClient.escapeString(id.toString()));
-
-    // Query parameters
-    List<Pair> localVarQueryParams = new ArrayList<>(
-            apiClient.parameterToPairs("", "filter", filter)
-    );
-    localVarQueryParams.addAll(apiClient.parameterToPairs("", "fields", fields));
-
-    String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
-    String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    GenericType<MissionOrderList> localVarReturnType = new GenericType<MissionOrderList>() {};
-    return apiClient.invokeAPI("ExpenseSheetLinesApi.queryMissionOrders", localVarPath, "GET", localVarQueryParams, null,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
-  }
-  /**
    * Full update of an Expense Sheet Line. If Expense Sheet Line doesn&#39;t exist, it&#39;s created.
    * 
    * @param id id (required)
@@ -934,8 +938,8 @@ public class ExpenseSheetLinesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void update(Long id, ExpenseSheetLine expenseSheetLine) throws ApiException {
-    updateWithHttpInfo(id, expenseSheetLine);
+  public void updateExpenseSheetLine(Long id, ExpenseSheetLine expenseSheetLine) throws ApiException {
+    updateExpenseSheetLineWithHttpInfo(id, expenseSheetLine);
   }
 
   /**
@@ -957,13 +961,13 @@ public class ExpenseSheetLinesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> updateWithHttpInfo(Long id, ExpenseSheetLine expenseSheetLine) throws ApiException {
+  public ApiResponse<Void> updateExpenseSheetLineWithHttpInfo(Long id, ExpenseSheetLine expenseSheetLine) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling update");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updateExpenseSheetLine");
     }
     if (expenseSheetLine == null) {
-      throw new ApiException(400, "Missing the required parameter 'expenseSheetLine' when calling update");
+      throw new ApiException(400, "Missing the required parameter 'expenseSheetLine' when calling updateExpenseSheetLine");
     }
 
     // Path parameters
@@ -973,7 +977,7 @@ public class ExpenseSheetLinesApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("ExpenseSheetLinesApi.update", localVarPath, "PUT", new ArrayList<>(), expenseSheetLine,
+    return apiClient.invokeAPI("ExpenseSheetLinesApi.updateExpenseSheetLine", localVarPath, "PUT", new ArrayList<>(), expenseSheetLine,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -996,8 +1000,8 @@ public class ExpenseSheetLinesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void updateDocument(Long id, Long did, Document document) throws ApiException {
-    updateDocumentWithHttpInfo(id, did, document);
+  public void updateExpenseSheetLineDocument(Long id, Long did, Document document) throws ApiException {
+    updateExpenseSheetLineDocumentWithHttpInfo(id, did, document);
   }
 
   /**
@@ -1020,16 +1024,16 @@ public class ExpenseSheetLinesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> updateDocumentWithHttpInfo(Long id, Long did, Document document) throws ApiException {
+  public ApiResponse<Void> updateExpenseSheetLineDocumentWithHttpInfo(Long id, Long did, Document document) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling updateDocument");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updateExpenseSheetLineDocument");
     }
     if (did == null) {
-      throw new ApiException(400, "Missing the required parameter 'did' when calling updateDocument");
+      throw new ApiException(400, "Missing the required parameter 'did' when calling updateExpenseSheetLineDocument");
     }
     if (document == null) {
-      throw new ApiException(400, "Missing the required parameter 'document' when calling updateDocument");
+      throw new ApiException(400, "Missing the required parameter 'document' when calling updateExpenseSheetLineDocument");
     }
 
     // Path parameters
@@ -1040,7 +1044,7 @@ public class ExpenseSheetLinesApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("ExpenseSheetLinesApi.updateDocument", localVarPath, "PUT", new ArrayList<>(), document,
+    return apiClient.invokeAPI("ExpenseSheetLinesApi.updateExpenseSheetLineDocument", localVarPath, "PUT", new ArrayList<>(), document,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -1062,8 +1066,8 @@ public class ExpenseSheetLinesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void updatePartial(Long id, ExpenseSheetLine expenseSheetLine) throws ApiException {
-    updatePartialWithHttpInfo(id, expenseSheetLine);
+  public void updatePartialExpenseSheetLine(Long id, ExpenseSheetLine expenseSheetLine) throws ApiException {
+    updatePartialExpenseSheetLineWithHttpInfo(id, expenseSheetLine);
   }
 
   /**
@@ -1085,13 +1089,13 @@ public class ExpenseSheetLinesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> updatePartialWithHttpInfo(Long id, ExpenseSheetLine expenseSheetLine) throws ApiException {
+  public ApiResponse<Void> updatePartialExpenseSheetLineWithHttpInfo(Long id, ExpenseSheetLine expenseSheetLine) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling updatePartial");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updatePartialExpenseSheetLine");
     }
     if (expenseSheetLine == null) {
-      throw new ApiException(400, "Missing the required parameter 'expenseSheetLine' when calling updatePartial");
+      throw new ApiException(400, "Missing the required parameter 'expenseSheetLine' when calling updatePartialExpenseSheetLine");
     }
 
     // Path parameters
@@ -1101,7 +1105,7 @@ public class ExpenseSheetLinesApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("ExpenseSheetLinesApi.updatePartial", localVarPath, "POST", new ArrayList<>(), expenseSheetLine,
+    return apiClient.invokeAPI("ExpenseSheetLinesApi.updatePartialExpenseSheetLine", localVarPath, "POST", new ArrayList<>(), expenseSheetLine,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -1124,8 +1128,8 @@ public class ExpenseSheetLinesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void updatePartialDocument(Long id, Long did, Document document) throws ApiException {
-    updatePartialDocumentWithHttpInfo(id, did, document);
+  public void updatePartialExpenseSheetLineDocument(Long id, Long did, Document document) throws ApiException {
+    updatePartialExpenseSheetLineDocumentWithHttpInfo(id, did, document);
   }
 
   /**
@@ -1148,16 +1152,16 @@ public class ExpenseSheetLinesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> updatePartialDocumentWithHttpInfo(Long id, Long did, Document document) throws ApiException {
+  public ApiResponse<Void> updatePartialExpenseSheetLineDocumentWithHttpInfo(Long id, Long did, Document document) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling updatePartialDocument");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updatePartialExpenseSheetLineDocument");
     }
     if (did == null) {
-      throw new ApiException(400, "Missing the required parameter 'did' when calling updatePartialDocument");
+      throw new ApiException(400, "Missing the required parameter 'did' when calling updatePartialExpenseSheetLineDocument");
     }
     if (document == null) {
-      throw new ApiException(400, "Missing the required parameter 'document' when calling updatePartialDocument");
+      throw new ApiException(400, "Missing the required parameter 'document' when calling updatePartialExpenseSheetLineDocument");
     }
 
     // Path parameters
@@ -1168,7 +1172,7 @@ public class ExpenseSheetLinesApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("ExpenseSheetLinesApi.updatePartialDocument", localVarPath, "POST", new ArrayList<>(), document,
+    return apiClient.invokeAPI("ExpenseSheetLinesApi.updatePartialExpenseSheetLineDocument", localVarPath, "POST", new ArrayList<>(), document,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -1190,8 +1194,8 @@ public class ExpenseSheetLinesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void uploadDocument(Long id, Long did, FormDataContentDisposition _file) throws ApiException {
-    uploadDocumentWithHttpInfo(id, did, _file);
+  public void uploadExpenseSheetLineDocument(Long id, Long did, FormDataContentDisposition _file) throws ApiException {
+    uploadExpenseSheetLineDocumentWithHttpInfo(id, did, _file);
   }
 
   /**
@@ -1213,16 +1217,16 @@ public class ExpenseSheetLinesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> uploadDocumentWithHttpInfo(Long id, Long did, FormDataContentDisposition _file) throws ApiException {
+  public ApiResponse<Void> uploadExpenseSheetLineDocumentWithHttpInfo(Long id, Long did, FormDataContentDisposition _file) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling uploadDocument");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling uploadExpenseSheetLineDocument");
     }
     if (did == null) {
-      throw new ApiException(400, "Missing the required parameter 'did' when calling uploadDocument");
+      throw new ApiException(400, "Missing the required parameter 'did' when calling uploadExpenseSheetLineDocument");
     }
     if (_file == null) {
-      throw new ApiException(400, "Missing the required parameter '_file' when calling uploadDocument");
+      throw new ApiException(400, "Missing the required parameter '_file' when calling uploadExpenseSheetLineDocument");
     }
 
     // Path parameters
@@ -1237,7 +1241,7 @@ public class ExpenseSheetLinesApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("multipart/form-data");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("ExpenseSheetLinesApi.uploadDocument", localVarPath, "POST", new ArrayList<>(), null,
+    return apiClient.invokeAPI("ExpenseSheetLinesApi.uploadExpenseSheetLineDocument", localVarPath, "POST", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }

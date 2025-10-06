@@ -13,19 +13,11 @@
 
 package fr.everwin.sx.client.model;
 
-import java.util.Objects;
-import java.util.Map;
-import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
-import fr.everwin.sx.client.model.HttpServletRequestLocale;
-import fr.everwin.sx.client.model.ServletOutputStream;
-import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import fr.everwin.sx.client.JSON;
+
+import java.util.Objects;
 
 
 /**

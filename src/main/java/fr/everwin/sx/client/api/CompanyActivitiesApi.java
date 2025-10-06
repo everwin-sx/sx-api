@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 
-@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-05-22T08:24:46.022483900+02:00[Europe/Paris]")
+@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-10-06T08:58:20.555636300+02:00[Europe/Paris]")
 public class CompanyActivitiesApi {
   private ApiClient apiClient;
 
@@ -61,8 +61,8 @@ public class CompanyActivitiesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public Nace getById(Long id, String fields) throws ApiException {
-    return getByIdWithHttpInfo(id, fields).getData();
+  public Nace getNaceById(Long id, String fields) throws ApiException {
+    return getNaceByIdWithHttpInfo(id, fields).getData();
   }
 
   /**
@@ -83,10 +83,10 @@ public class CompanyActivitiesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Nace> getByIdWithHttpInfo(Long id, String fields) throws ApiException {
+  public ApiResponse<Nace> getNaceByIdWithHttpInfo(Long id, String fields) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getById");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getNaceById");
     }
 
     // Path parameters
@@ -102,7 +102,7 @@ public class CompanyActivitiesApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<Nace> localVarReturnType = new GenericType<Nace>() {};
-    return apiClient.invokeAPI("CompanyActivitiesApi.getById", localVarPath, "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("CompanyActivitiesApi.getNaceById", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -119,8 +119,8 @@ public class CompanyActivitiesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public String ping() throws ApiException {
-    return pingWithHttpInfo().getData();
+  public String pingNace() throws ApiException {
+    return pingNaceWithHttpInfo().getData();
   }
 
   /**
@@ -136,12 +136,12 @@ public class CompanyActivitiesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<String> pingWithHttpInfo() throws ApiException {
+  public ApiResponse<String> pingNaceWithHttpInfo() throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("text/plain");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<String> localVarReturnType = new GenericType<String>() {};
-    return apiClient.invokeAPI("CompanyActivitiesApi.ping", "/company-activities/ping", "GET", new ArrayList<>(), null,
+    return apiClient.invokeAPI("CompanyActivitiesApi.pingNace", "/company-activities/ping", "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -164,8 +164,8 @@ public class CompanyActivitiesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public NaceList query(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
-    return queryWithHttpInfo(filter, sort, offset, limit, fields).getData();
+  public NaceList queryNace(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+    return queryNaceWithHttpInfo(filter, sort, offset, limit, fields).getData();
   }
 
   /**
@@ -187,7 +187,7 @@ public class CompanyActivitiesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<NaceList> queryWithHttpInfo(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+  public ApiResponse<NaceList> queryNaceWithHttpInfo(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
     // Query parameters
     List<Pair> localVarQueryParams = new ArrayList<>(
             apiClient.parameterToPairs("", "filter", filter)
@@ -201,7 +201,7 @@ public class CompanyActivitiesApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<NaceList> localVarReturnType = new GenericType<NaceList>() {};
-    return apiClient.invokeAPI("CompanyActivitiesApi.query", "/company-activities", "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("CompanyActivitiesApi.queryNace", "/company-activities", "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }

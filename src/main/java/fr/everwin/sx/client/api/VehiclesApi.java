@@ -1,19 +1,24 @@
 package fr.everwin.sx.client.api;
 
-import fr.everwin.sx.client.ApiClient;
 import fr.everwin.sx.client.ApiException;
+import fr.everwin.sx.client.ApiClient;
 import fr.everwin.sx.client.ApiResponse;
 import fr.everwin.sx.client.Configuration;
 import fr.everwin.sx.client.Pair;
-import fr.everwin.sx.client.model.Vehicle;
-import fr.everwin.sx.client.model.VehicleList;
+
 import jakarta.ws.rs.core.GenericType;
 
+import fr.everwin.sx.client.model.ErrorMessage;
+import fr.everwin.sx.client.model.Vehicle;
+import fr.everwin.sx.client.model.VehicleList;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
-@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-05-22T08:24:46.022483900+02:00[Europe/Paris]")
+@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-10-06T08:58:20.555636300+02:00[Europe/Paris]")
 public class VehiclesApi {
   private ApiClient apiClient;
 
@@ -61,8 +66,8 @@ public class VehiclesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public Vehicle getById(Long id, String fields) throws ApiException {
-    return getByIdWithHttpInfo(id, fields).getData();
+  public Vehicle getVehicleById(Long id, String fields) throws ApiException {
+    return getVehicleByIdWithHttpInfo(id, fields).getData();
   }
 
   /**
@@ -83,10 +88,10 @@ public class VehiclesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Vehicle> getByIdWithHttpInfo(Long id, String fields) throws ApiException {
+  public ApiResponse<Vehicle> getVehicleByIdWithHttpInfo(Long id, String fields) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getById");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getVehicleById");
     }
 
     // Path parameters
@@ -102,7 +107,7 @@ public class VehiclesApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<Vehicle> localVarReturnType = new GenericType<Vehicle>() {};
-    return apiClient.invokeAPI("VehiclesApi.getById", localVarPath, "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("VehiclesApi.getVehicleById", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -119,8 +124,8 @@ public class VehiclesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public String ping() throws ApiException {
-    return pingWithHttpInfo().getData();
+  public String pingVehicle() throws ApiException {
+    return pingVehicleWithHttpInfo().getData();
   }
 
   /**
@@ -136,12 +141,12 @@ public class VehiclesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<String> pingWithHttpInfo() throws ApiException {
+  public ApiResponse<String> pingVehicleWithHttpInfo() throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("text/plain");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<String> localVarReturnType = new GenericType<String>() {};
-    return apiClient.invokeAPI("VehiclesApi.ping", "/vehicles/ping", "GET", new ArrayList<>(), null,
+    return apiClient.invokeAPI("VehiclesApi.pingVehicle", "/vehicles/ping", "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -164,8 +169,8 @@ public class VehiclesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public VehicleList query(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
-    return queryWithHttpInfo(filter, sort, offset, limit, fields).getData();
+  public VehicleList queryVehicle(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+    return queryVehicleWithHttpInfo(filter, sort, offset, limit, fields).getData();
   }
 
   /**
@@ -187,7 +192,7 @@ public class VehiclesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<VehicleList> queryWithHttpInfo(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+  public ApiResponse<VehicleList> queryVehicleWithHttpInfo(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
     // Query parameters
     List<Pair> localVarQueryParams = new ArrayList<>(
             apiClient.parameterToPairs("", "filter", filter)
@@ -201,7 +206,7 @@ public class VehiclesApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<VehicleList> localVarReturnType = new GenericType<VehicleList>() {};
-    return apiClient.invokeAPI("VehiclesApi.query", "/vehicles", "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("VehiclesApi.queryVehicle", "/vehicles", "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }

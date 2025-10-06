@@ -1,19 +1,24 @@
 package fr.everwin.sx.client.api;
 
-import fr.everwin.sx.client.ApiClient;
 import fr.everwin.sx.client.ApiException;
+import fr.everwin.sx.client.ApiClient;
 import fr.everwin.sx.client.ApiResponse;
 import fr.everwin.sx.client.Configuration;
 import fr.everwin.sx.client.Pair;
-import fr.everwin.sx.client.model.ProjectSubLineList;
-import fr.everwin.sx.client.model.ProjectSubline;
+
 import jakarta.ws.rs.core.GenericType;
 
+import fr.everwin.sx.client.model.ErrorMessage;
+import fr.everwin.sx.client.model.ProjectSubLineList;
+import fr.everwin.sx.client.model.ProjectSubline;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
-@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-05-22T08:24:46.022483900+02:00[Europe/Paris]")
+@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-10-06T08:58:20.555636300+02:00[Europe/Paris]")
 public class ProjectSublinesApi {
   private ApiClient apiClient;
 
@@ -61,8 +66,8 @@ public class ProjectSublinesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ProjectSubline getById(Long id, String fields) throws ApiException {
-    return getByIdWithHttpInfo(id, fields).getData();
+  public ProjectSubline getProjectSubLineById(Long id, String fields) throws ApiException {
+    return getProjectSubLineByIdWithHttpInfo(id, fields).getData();
   }
 
   /**
@@ -83,10 +88,10 @@ public class ProjectSublinesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<ProjectSubline> getByIdWithHttpInfo(Long id, String fields) throws ApiException {
+  public ApiResponse<ProjectSubline> getProjectSubLineByIdWithHttpInfo(Long id, String fields) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getById");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getProjectSubLineById");
     }
 
     // Path parameters
@@ -102,7 +107,7 @@ public class ProjectSublinesApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<ProjectSubline> localVarReturnType = new GenericType<ProjectSubline>() {};
-    return apiClient.invokeAPI("ProjectSublinesApi.getById", localVarPath, "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("ProjectSublinesApi.getProjectSubLineById", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -119,8 +124,8 @@ public class ProjectSublinesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public String ping() throws ApiException {
-    return pingWithHttpInfo().getData();
+  public String pingProjectSubLine() throws ApiException {
+    return pingProjectSubLineWithHttpInfo().getData();
   }
 
   /**
@@ -136,12 +141,12 @@ public class ProjectSublinesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<String> pingWithHttpInfo() throws ApiException {
+  public ApiResponse<String> pingProjectSubLineWithHttpInfo() throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("text/plain");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<String> localVarReturnType = new GenericType<String>() {};
-    return apiClient.invokeAPI("ProjectSublinesApi.ping", "/project-sublines/ping", "GET", new ArrayList<>(), null,
+    return apiClient.invokeAPI("ProjectSublinesApi.pingProjectSubLine", "/project-sublines/ping", "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -164,8 +169,8 @@ public class ProjectSublinesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ProjectSubLineList query(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
-    return queryWithHttpInfo(filter, sort, offset, limit, fields).getData();
+  public ProjectSubLineList queryProjectSubLine(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+    return queryProjectSubLineWithHttpInfo(filter, sort, offset, limit, fields).getData();
   }
 
   /**
@@ -187,7 +192,7 @@ public class ProjectSublinesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<ProjectSubLineList> queryWithHttpInfo(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+  public ApiResponse<ProjectSubLineList> queryProjectSubLineWithHttpInfo(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
     // Query parameters
     List<Pair> localVarQueryParams = new ArrayList<>(
             apiClient.parameterToPairs("", "filter", filter)
@@ -201,7 +206,7 @@ public class ProjectSublinesApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<ProjectSubLineList> localVarReturnType = new GenericType<ProjectSubLineList>() {};
-    return apiClient.invokeAPI("ProjectSublinesApi.query", "/project-sublines", "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("ProjectSublinesApi.queryProjectSubLine", "/project-sublines", "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }

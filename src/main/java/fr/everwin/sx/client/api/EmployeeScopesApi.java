@@ -6,12 +6,13 @@ import fr.everwin.sx.client.ApiResponse;
 import fr.everwin.sx.client.Configuration;
 import fr.everwin.sx.client.Pair;
 import fr.everwin.sx.client.model.EmployeeScope;
+import jakarta.ws.rs.core.GenericType;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 
-@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-05-22T08:24:46.022483900+02:00[Europe/Paris]")
+@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-10-06T08:58:20.555636300+02:00[Europe/Paris]")
 public class EmployeeScopesApi {
   private ApiClient apiClient;
 
@@ -45,6 +46,7 @@ public class EmployeeScopesApi {
    * Create an employee scope
    * 
    * @param employeeScope EmployeeScope (required)
+   * @return EmployeeScope
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -56,15 +58,15 @@ public class EmployeeScopesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void create(EmployeeScope employeeScope) throws ApiException {
-    createWithHttpInfo(employeeScope);
+  public EmployeeScope createEmployeeScope(EmployeeScope employeeScope) throws ApiException {
+    return createEmployeeScopeWithHttpInfo(employeeScope).getData();
   }
 
   /**
    * Create an employee scope
    * 
    * @param employeeScope EmployeeScope (required)
-   * @return ApiResponse&lt;Void&gt;
+   * @return ApiResponse&lt;EmployeeScope&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -76,18 +78,19 @@ public class EmployeeScopesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> createWithHttpInfo(EmployeeScope employeeScope) throws ApiException {
+  public ApiResponse<EmployeeScope> createEmployeeScopeWithHttpInfo(EmployeeScope employeeScope) throws ApiException {
     // Check required parameters
     if (employeeScope == null) {
-      throw new ApiException(400, "Missing the required parameter 'employeeScope' when calling create");
+      throw new ApiException(400, "Missing the required parameter 'employeeScope' when calling createEmployeeScope");
     }
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8", "application/xml;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8", "application/xml;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("EmployeeScopesApi.create", "/employee-scopes", "POST", new ArrayList<>(), employeeScope,
+    GenericType<EmployeeScope> localVarReturnType = new GenericType<EmployeeScope>() {};
+    return apiClient.invokeAPI("EmployeeScopesApi.createEmployeeScope", "/employee-scopes", "POST", new ArrayList<>(), employeeScope,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
+                               localVarAuthNames, localVarReturnType, false);
   }
   /**
    * Delete an employee scope
@@ -105,8 +108,8 @@ public class EmployeeScopesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void delete(Long id) throws ApiException {
-    deleteWithHttpInfo(id);
+  public void deleteEmployeeScope(Long id) throws ApiException {
+    deleteEmployeeScopeWithHttpInfo(id);
   }
 
   /**
@@ -126,10 +129,10 @@ public class EmployeeScopesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> deleteWithHttpInfo(Long id) throws ApiException {
+  public ApiResponse<Void> deleteEmployeeScopeWithHttpInfo(Long id) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling delete");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteEmployeeScope");
     }
 
     // Path parameters
@@ -139,7 +142,7 @@ public class EmployeeScopesApi {
     String localVarAccept = apiClient.selectHeaderAccept("*/*");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("EmployeeScopesApi.delete", localVarPath, "DELETE", new ArrayList<>(), null,
+    return apiClient.invokeAPI("EmployeeScopesApi.deleteEmployeeScope", localVarPath, "DELETE", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -160,8 +163,8 @@ public class EmployeeScopesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void getById(Long id, String fields) throws ApiException {
-    getByIdWithHttpInfo(id, fields);
+  public void getEmployeeScopeById(Long id, String fields) throws ApiException {
+    getEmployeeScopeByIdWithHttpInfo(id, fields);
   }
 
   /**
@@ -182,10 +185,10 @@ public class EmployeeScopesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> getByIdWithHttpInfo(Long id, String fields) throws ApiException {
+  public ApiResponse<Void> getEmployeeScopeByIdWithHttpInfo(Long id, String fields) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getById");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getEmployeeScopeById");
     }
 
     // Path parameters
@@ -200,7 +203,7 @@ public class EmployeeScopesApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8", "application/xml;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("EmployeeScopesApi.getById", localVarPath, "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("EmployeeScopesApi.getEmployeeScopeById", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -216,8 +219,8 @@ public class EmployeeScopesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void ping() throws ApiException {
-    pingWithHttpInfo();
+  public void pingEmployeeScope() throws ApiException {
+    pingEmployeeScopeWithHttpInfo();
   }
 
   /**
@@ -233,11 +236,11 @@ public class EmployeeScopesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> pingWithHttpInfo() throws ApiException {
+  public ApiResponse<Void> pingEmployeeScopeWithHttpInfo() throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("text/plain");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("EmployeeScopesApi.ping", "/employee-scopes/ping", "GET", new ArrayList<>(), null,
+    return apiClient.invokeAPI("EmployeeScopesApi.pingEmployeeScope", "/employee-scopes/ping", "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -259,8 +262,8 @@ public class EmployeeScopesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void query(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
-    queryWithHttpInfo(filter, sort, offset, limit, fields);
+  public void queryEmployeeScope(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+    queryEmployeeScopeWithHttpInfo(filter, sort, offset, limit, fields);
   }
 
   /**
@@ -282,7 +285,7 @@ public class EmployeeScopesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> queryWithHttpInfo(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+  public ApiResponse<Void> queryEmployeeScopeWithHttpInfo(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
     // Query parameters
     List<Pair> localVarQueryParams = new ArrayList<>(
             apiClient.parameterToPairs("", "filter", filter)
@@ -295,7 +298,7 @@ public class EmployeeScopesApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8", "application/xml;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("EmployeeScopesApi.query", "/employee-scopes", "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("EmployeeScopesApi.queryEmployeeScope", "/employee-scopes", "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -317,8 +320,8 @@ public class EmployeeScopesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void update(Long id, EmployeeScope employeeScope) throws ApiException {
-    updateWithHttpInfo(id, employeeScope);
+  public void updateEmployeeScope(Long id, EmployeeScope employeeScope) throws ApiException {
+    updateEmployeeScopeWithHttpInfo(id, employeeScope);
   }
 
   /**
@@ -340,13 +343,13 @@ public class EmployeeScopesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> updateWithHttpInfo(Long id, EmployeeScope employeeScope) throws ApiException {
+  public ApiResponse<Void> updateEmployeeScopeWithHttpInfo(Long id, EmployeeScope employeeScope) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling update");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updateEmployeeScope");
     }
     if (employeeScope == null) {
-      throw new ApiException(400, "Missing the required parameter 'employeeScope' when calling update");
+      throw new ApiException(400, "Missing the required parameter 'employeeScope' when calling updateEmployeeScope");
     }
 
     // Path parameters
@@ -356,7 +359,7 @@ public class EmployeeScopesApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8", "application/xml;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8", "application/xml;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("EmployeeScopesApi.update", localVarPath, "PUT", new ArrayList<>(), employeeScope,
+    return apiClient.invokeAPI("EmployeeScopesApi.updateEmployeeScope", localVarPath, "PUT", new ArrayList<>(), employeeScope,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -378,8 +381,8 @@ public class EmployeeScopesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void updatePartial(Long id, EmployeeScope employeeScope) throws ApiException {
-    updatePartialWithHttpInfo(id, employeeScope);
+  public void updatePartialEmployeeScope(Long id, EmployeeScope employeeScope) throws ApiException {
+    updatePartialEmployeeScopeWithHttpInfo(id, employeeScope);
   }
 
   /**
@@ -401,13 +404,13 @@ public class EmployeeScopesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> updatePartialWithHttpInfo(Long id, EmployeeScope employeeScope) throws ApiException {
+  public ApiResponse<Void> updatePartialEmployeeScopeWithHttpInfo(Long id, EmployeeScope employeeScope) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling updatePartial");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updatePartialEmployeeScope");
     }
     if (employeeScope == null) {
-      throw new ApiException(400, "Missing the required parameter 'employeeScope' when calling updatePartial");
+      throw new ApiException(400, "Missing the required parameter 'employeeScope' when calling updatePartialEmployeeScope");
     }
 
     // Path parameters
@@ -417,7 +420,7 @@ public class EmployeeScopesApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8", "application/xml;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8", "application/xml;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("EmployeeScopesApi.updatePartial", localVarPath, "POST", new ArrayList<>(), employeeScope,
+    return apiClient.invokeAPI("EmployeeScopesApi.updatePartialEmployeeScope", localVarPath, "POST", new ArrayList<>(), employeeScope,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }

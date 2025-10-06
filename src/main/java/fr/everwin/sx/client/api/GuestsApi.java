@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 
-@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-05-22T08:24:46.022483900+02:00[Europe/Paris]")
+@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-10-06T08:58:20.555636300+02:00[Europe/Paris]")
 public class GuestsApi {
   private ApiClient apiClient;
 
@@ -47,6 +47,7 @@ public class GuestsApi {
    * Create a guest
    * 
    * @param guest Guest (required)
+   * @return Guest
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -58,15 +59,15 @@ public class GuestsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void create(Guest guest) throws ApiException {
-    createWithHttpInfo(guest);
+  public Guest createGuest(Guest guest) throws ApiException {
+    return createGuestWithHttpInfo(guest).getData();
   }
 
   /**
    * Create a guest
    * 
    * @param guest Guest (required)
-   * @return ApiResponse&lt;Void&gt;
+   * @return ApiResponse&lt;Guest&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -78,18 +79,19 @@ public class GuestsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> createWithHttpInfo(Guest guest) throws ApiException {
+  public ApiResponse<Guest> createGuestWithHttpInfo(Guest guest) throws ApiException {
     // Check required parameters
     if (guest == null) {
-      throw new ApiException(400, "Missing the required parameter 'guest' when calling create");
+      throw new ApiException(400, "Missing the required parameter 'guest' when calling createGuest");
     }
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("GuestsApi.create", "/guests", "POST", new ArrayList<>(), guest,
+    GenericType<Guest> localVarReturnType = new GenericType<Guest>() {};
+    return apiClient.invokeAPI("GuestsApi.createGuest", "/guests", "POST", new ArrayList<>(), guest,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
+                               localVarAuthNames, localVarReturnType, false);
   }
   /**
    * Delete a guest
@@ -107,8 +109,8 @@ public class GuestsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void delete(Long id) throws ApiException {
-    deleteWithHttpInfo(id);
+  public void deleteGuest(Long id) throws ApiException {
+    deleteGuestWithHttpInfo(id);
   }
 
   /**
@@ -128,10 +130,10 @@ public class GuestsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> deleteWithHttpInfo(Long id) throws ApiException {
+  public ApiResponse<Void> deleteGuestWithHttpInfo(Long id) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling delete");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteGuest");
     }
 
     // Path parameters
@@ -141,7 +143,7 @@ public class GuestsApi {
     String localVarAccept = apiClient.selectHeaderAccept("*/*");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("GuestsApi.delete", localVarPath, "DELETE", new ArrayList<>(), null,
+    return apiClient.invokeAPI("GuestsApi.deleteGuest", localVarPath, "DELETE", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -163,8 +165,8 @@ public class GuestsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public Guest getById(Long id, String fields) throws ApiException {
-    return getByIdWithHttpInfo(id, fields).getData();
+  public Guest getGuestById(Long id, String fields) throws ApiException {
+    return getGuestByIdWithHttpInfo(id, fields).getData();
   }
 
   /**
@@ -185,10 +187,10 @@ public class GuestsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Guest> getByIdWithHttpInfo(Long id, String fields) throws ApiException {
+  public ApiResponse<Guest> getGuestByIdWithHttpInfo(Long id, String fields) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getById");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getGuestById");
     }
 
     // Path parameters
@@ -204,7 +206,7 @@ public class GuestsApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<Guest> localVarReturnType = new GenericType<Guest>() {};
-    return apiClient.invokeAPI("GuestsApi.getById", localVarPath, "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("GuestsApi.getGuestById", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -221,8 +223,8 @@ public class GuestsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public String ping() throws ApiException {
-    return pingWithHttpInfo().getData();
+  public String pingGuest() throws ApiException {
+    return pingGuestWithHttpInfo().getData();
   }
 
   /**
@@ -238,12 +240,12 @@ public class GuestsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<String> pingWithHttpInfo() throws ApiException {
+  public ApiResponse<String> pingGuestWithHttpInfo() throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("text/plain");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<String> localVarReturnType = new GenericType<String>() {};
-    return apiClient.invokeAPI("GuestsApi.ping", "/guests/ping", "GET", new ArrayList<>(), null,
+    return apiClient.invokeAPI("GuestsApi.pingGuest", "/guests/ping", "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -266,8 +268,8 @@ public class GuestsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public GuestList query(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
-    return queryWithHttpInfo(filter, sort, offset, limit, fields).getData();
+  public GuestList queryGuest(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+    return queryGuestWithHttpInfo(filter, sort, offset, limit, fields).getData();
   }
 
   /**
@@ -289,7 +291,7 @@ public class GuestsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<GuestList> queryWithHttpInfo(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+  public ApiResponse<GuestList> queryGuestWithHttpInfo(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
     // Query parameters
     List<Pair> localVarQueryParams = new ArrayList<>(
             apiClient.parameterToPairs("", "filter", filter)
@@ -303,7 +305,7 @@ public class GuestsApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<GuestList> localVarReturnType = new GenericType<GuestList>() {};
-    return apiClient.invokeAPI("GuestsApi.query", "/guests", "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("GuestsApi.queryGuest", "/guests", "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -325,8 +327,8 @@ public class GuestsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void update(Long id, Guest guest) throws ApiException {
-    updateWithHttpInfo(id, guest);
+  public void updateGuest(Long id, Guest guest) throws ApiException {
+    updateGuestWithHttpInfo(id, guest);
   }
 
   /**
@@ -348,13 +350,13 @@ public class GuestsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> updateWithHttpInfo(Long id, Guest guest) throws ApiException {
+  public ApiResponse<Void> updateGuestWithHttpInfo(Long id, Guest guest) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling update");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updateGuest");
     }
     if (guest == null) {
-      throw new ApiException(400, "Missing the required parameter 'guest' when calling update");
+      throw new ApiException(400, "Missing the required parameter 'guest' when calling updateGuest");
     }
 
     // Path parameters
@@ -364,7 +366,7 @@ public class GuestsApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("GuestsApi.update", localVarPath, "PUT", new ArrayList<>(), guest,
+    return apiClient.invokeAPI("GuestsApi.updateGuest", localVarPath, "PUT", new ArrayList<>(), guest,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -386,8 +388,8 @@ public class GuestsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void updatePartial(Long id, Guest guest) throws ApiException {
-    updatePartialWithHttpInfo(id, guest);
+  public void updatePartialGuest(Long id, Guest guest) throws ApiException {
+    updatePartialGuestWithHttpInfo(id, guest);
   }
 
   /**
@@ -409,13 +411,13 @@ public class GuestsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> updatePartialWithHttpInfo(Long id, Guest guest) throws ApiException {
+  public ApiResponse<Void> updatePartialGuestWithHttpInfo(Long id, Guest guest) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling updatePartial");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updatePartialGuest");
     }
     if (guest == null) {
-      throw new ApiException(400, "Missing the required parameter 'guest' when calling updatePartial");
+      throw new ApiException(400, "Missing the required parameter 'guest' when calling updatePartialGuest");
     }
 
     // Path parameters
@@ -425,7 +427,7 @@ public class GuestsApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("GuestsApi.updatePartial", localVarPath, "POST", new ArrayList<>(), guest,
+    return apiClient.invokeAPI("GuestsApi.updatePartialGuest", localVarPath, "POST", new ArrayList<>(), guest,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }

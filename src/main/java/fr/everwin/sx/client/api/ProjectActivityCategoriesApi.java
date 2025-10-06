@@ -1,19 +1,24 @@
 package fr.everwin.sx.client.api;
 
-import fr.everwin.sx.client.ApiClient;
 import fr.everwin.sx.client.ApiException;
+import fr.everwin.sx.client.ApiClient;
 import fr.everwin.sx.client.ApiResponse;
 import fr.everwin.sx.client.Configuration;
 import fr.everwin.sx.client.Pair;
-import fr.everwin.sx.client.model.ProjectActivityCategory;
-import fr.everwin.sx.client.model.ProjectActivityCategoryList;
+
 import jakarta.ws.rs.core.GenericType;
 
+import fr.everwin.sx.client.model.ErrorMessage;
+import fr.everwin.sx.client.model.ProjectActivityCategory;
+import fr.everwin.sx.client.model.ProjectActivityCategoryList;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
-@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-05-22T08:24:46.022483900+02:00[Europe/Paris]")
+@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-10-06T08:58:20.555636300+02:00[Europe/Paris]")
 public class ProjectActivityCategoriesApi {
   private ApiClient apiClient;
 
@@ -61,8 +66,8 @@ public class ProjectActivityCategoriesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ProjectActivityCategory getById(Long id, String fields) throws ApiException {
-    return getByIdWithHttpInfo(id, fields).getData();
+  public ProjectActivityCategory getProjectActivityCategoryById(Long id, String fields) throws ApiException {
+    return getProjectActivityCategoryByIdWithHttpInfo(id, fields).getData();
   }
 
   /**
@@ -83,10 +88,10 @@ public class ProjectActivityCategoriesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<ProjectActivityCategory> getByIdWithHttpInfo(Long id, String fields) throws ApiException {
+  public ApiResponse<ProjectActivityCategory> getProjectActivityCategoryByIdWithHttpInfo(Long id, String fields) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getById");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getProjectActivityCategoryById");
     }
 
     // Path parameters
@@ -102,7 +107,7 @@ public class ProjectActivityCategoriesApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<ProjectActivityCategory> localVarReturnType = new GenericType<ProjectActivityCategory>() {};
-    return apiClient.invokeAPI("ProjectActivityCategoriesApi.getById", localVarPath, "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("ProjectActivityCategoriesApi.getProjectActivityCategoryById", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -119,8 +124,8 @@ public class ProjectActivityCategoriesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public String ping() throws ApiException {
-    return pingWithHttpInfo().getData();
+  public String pingProjectActivityCategory() throws ApiException {
+    return pingProjectActivityCategoryWithHttpInfo().getData();
   }
 
   /**
@@ -136,12 +141,12 @@ public class ProjectActivityCategoriesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<String> pingWithHttpInfo() throws ApiException {
+  public ApiResponse<String> pingProjectActivityCategoryWithHttpInfo() throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("text/plain");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<String> localVarReturnType = new GenericType<String>() {};
-    return apiClient.invokeAPI("ProjectActivityCategoriesApi.ping", "/project-activity-categories/ping", "GET", new ArrayList<>(), null,
+    return apiClient.invokeAPI("ProjectActivityCategoriesApi.pingProjectActivityCategory", "/project-activity-categories/ping", "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -164,8 +169,8 @@ public class ProjectActivityCategoriesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ProjectActivityCategoryList query(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
-    return queryWithHttpInfo(filter, sort, offset, limit, fields).getData();
+  public ProjectActivityCategoryList queryProjectActivityCategory(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+    return queryProjectActivityCategoryWithHttpInfo(filter, sort, offset, limit, fields).getData();
   }
 
   /**
@@ -187,7 +192,7 @@ public class ProjectActivityCategoriesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<ProjectActivityCategoryList> queryWithHttpInfo(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+  public ApiResponse<ProjectActivityCategoryList> queryProjectActivityCategoryWithHttpInfo(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
     // Query parameters
     List<Pair> localVarQueryParams = new ArrayList<>(
             apiClient.parameterToPairs("", "filter", filter)
@@ -201,7 +206,7 @@ public class ProjectActivityCategoriesApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<ProjectActivityCategoryList> localVarReturnType = new GenericType<ProjectActivityCategoryList>() {};
-    return apiClient.invokeAPI("ProjectActivityCategoriesApi.query", "/project-activity-categories", "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("ProjectActivityCategoriesApi.queryProjectActivityCategory", "/project-activity-categories", "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }

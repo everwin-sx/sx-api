@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 
-@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-05-22T08:24:46.022483900+02:00[Europe/Paris]")
+@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-10-06T08:58:20.555636300+02:00[Europe/Paris]")
 public class EmployeeSkillsApi {
   private ApiClient apiClient;
 
@@ -47,6 +47,7 @@ public class EmployeeSkillsApi {
    * Create an employee skill
    * 
    * @param employeeSkill EmployeeSkill (required)
+   * @return EmployeeSkill
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -58,15 +59,15 @@ public class EmployeeSkillsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void create(EmployeeSkill employeeSkill) throws ApiException {
-    createWithHttpInfo(employeeSkill);
+  public EmployeeSkill createEmployeeSkill(EmployeeSkill employeeSkill) throws ApiException {
+    return createEmployeeSkillWithHttpInfo(employeeSkill).getData();
   }
 
   /**
    * Create an employee skill
    * 
    * @param employeeSkill EmployeeSkill (required)
-   * @return ApiResponse&lt;Void&gt;
+   * @return ApiResponse&lt;EmployeeSkill&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -78,18 +79,19 @@ public class EmployeeSkillsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> createWithHttpInfo(EmployeeSkill employeeSkill) throws ApiException {
+  public ApiResponse<EmployeeSkill> createEmployeeSkillWithHttpInfo(EmployeeSkill employeeSkill) throws ApiException {
     // Check required parameters
     if (employeeSkill == null) {
-      throw new ApiException(400, "Missing the required parameter 'employeeSkill' when calling create");
+      throw new ApiException(400, "Missing the required parameter 'employeeSkill' when calling createEmployeeSkill");
     }
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("EmployeeSkillsApi.create", "/employee-skills", "POST", new ArrayList<>(), employeeSkill,
+    GenericType<EmployeeSkill> localVarReturnType = new GenericType<EmployeeSkill>() {};
+    return apiClient.invokeAPI("EmployeeSkillsApi.createEmployeeSkill", "/employee-skills", "POST", new ArrayList<>(), employeeSkill,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
+                               localVarAuthNames, localVarReturnType, false);
   }
   /**
    * Delete an employee skill
@@ -107,8 +109,8 @@ public class EmployeeSkillsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void delete(Long id) throws ApiException {
-    deleteWithHttpInfo(id);
+  public void deleteEmployeeSkill(Long id) throws ApiException {
+    deleteEmployeeSkillWithHttpInfo(id);
   }
 
   /**
@@ -128,10 +130,10 @@ public class EmployeeSkillsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> deleteWithHttpInfo(Long id) throws ApiException {
+  public ApiResponse<Void> deleteEmployeeSkillWithHttpInfo(Long id) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling delete");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteEmployeeSkill");
     }
 
     // Path parameters
@@ -141,7 +143,7 @@ public class EmployeeSkillsApi {
     String localVarAccept = apiClient.selectHeaderAccept("*/*");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("EmployeeSkillsApi.delete", localVarPath, "DELETE", new ArrayList<>(), null,
+    return apiClient.invokeAPI("EmployeeSkillsApi.deleteEmployeeSkill", localVarPath, "DELETE", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -163,8 +165,8 @@ public class EmployeeSkillsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public EmployeeSkill getById(Long id, String fields) throws ApiException {
-    return getByIdWithHttpInfo(id, fields).getData();
+  public EmployeeSkill getEmployeeSkillById(Long id, String fields) throws ApiException {
+    return getEmployeeSkillByIdWithHttpInfo(id, fields).getData();
   }
 
   /**
@@ -185,10 +187,10 @@ public class EmployeeSkillsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<EmployeeSkill> getByIdWithHttpInfo(Long id, String fields) throws ApiException {
+  public ApiResponse<EmployeeSkill> getEmployeeSkillByIdWithHttpInfo(Long id, String fields) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getById");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getEmployeeSkillById");
     }
 
     // Path parameters
@@ -204,7 +206,7 @@ public class EmployeeSkillsApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<EmployeeSkill> localVarReturnType = new GenericType<EmployeeSkill>() {};
-    return apiClient.invokeAPI("EmployeeSkillsApi.getById", localVarPath, "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("EmployeeSkillsApi.getEmployeeSkillById", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -221,8 +223,8 @@ public class EmployeeSkillsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public String ping() throws ApiException {
-    return pingWithHttpInfo().getData();
+  public String pingEmployeeSkill() throws ApiException {
+    return pingEmployeeSkillWithHttpInfo().getData();
   }
 
   /**
@@ -238,12 +240,12 @@ public class EmployeeSkillsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<String> pingWithHttpInfo() throws ApiException {
+  public ApiResponse<String> pingEmployeeSkillWithHttpInfo() throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("text/plain");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<String> localVarReturnType = new GenericType<String>() {};
-    return apiClient.invokeAPI("EmployeeSkillsApi.ping", "/employee-skills/ping", "GET", new ArrayList<>(), null,
+    return apiClient.invokeAPI("EmployeeSkillsApi.pingEmployeeSkill", "/employee-skills/ping", "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -266,8 +268,8 @@ public class EmployeeSkillsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public EmployeeSkillList query(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
-    return queryWithHttpInfo(filter, sort, offset, limit, fields).getData();
+  public EmployeeSkillList queryEmployeeSkill(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+    return queryEmployeeSkillWithHttpInfo(filter, sort, offset, limit, fields).getData();
   }
 
   /**
@@ -289,7 +291,7 @@ public class EmployeeSkillsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<EmployeeSkillList> queryWithHttpInfo(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+  public ApiResponse<EmployeeSkillList> queryEmployeeSkillWithHttpInfo(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
     // Query parameters
     List<Pair> localVarQueryParams = new ArrayList<>(
             apiClient.parameterToPairs("", "filter", filter)
@@ -303,7 +305,7 @@ public class EmployeeSkillsApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<EmployeeSkillList> localVarReturnType = new GenericType<EmployeeSkillList>() {};
-    return apiClient.invokeAPI("EmployeeSkillsApi.query", "/employee-skills", "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("EmployeeSkillsApi.queryEmployeeSkill", "/employee-skills", "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -325,8 +327,8 @@ public class EmployeeSkillsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void update(Long id, EmployeeSkill employeeSkill) throws ApiException {
-    updateWithHttpInfo(id, employeeSkill);
+  public void updateEmployeeSkill(Long id, EmployeeSkill employeeSkill) throws ApiException {
+    updateEmployeeSkillWithHttpInfo(id, employeeSkill);
   }
 
   /**
@@ -348,13 +350,13 @@ public class EmployeeSkillsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> updateWithHttpInfo(Long id, EmployeeSkill employeeSkill) throws ApiException {
+  public ApiResponse<Void> updateEmployeeSkillWithHttpInfo(Long id, EmployeeSkill employeeSkill) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling update");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updateEmployeeSkill");
     }
     if (employeeSkill == null) {
-      throw new ApiException(400, "Missing the required parameter 'employeeSkill' when calling update");
+      throw new ApiException(400, "Missing the required parameter 'employeeSkill' when calling updateEmployeeSkill");
     }
 
     // Path parameters
@@ -364,7 +366,7 @@ public class EmployeeSkillsApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("EmployeeSkillsApi.update", localVarPath, "PUT", new ArrayList<>(), employeeSkill,
+    return apiClient.invokeAPI("EmployeeSkillsApi.updateEmployeeSkill", localVarPath, "PUT", new ArrayList<>(), employeeSkill,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -386,8 +388,8 @@ public class EmployeeSkillsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void updatePartial(Long id, EmployeeSkill employeeSkill) throws ApiException {
-    updatePartialWithHttpInfo(id, employeeSkill);
+  public void updatePartialEmployeeSkill(Long id, EmployeeSkill employeeSkill) throws ApiException {
+    updatePartialEmployeeSkillWithHttpInfo(id, employeeSkill);
   }
 
   /**
@@ -409,13 +411,13 @@ public class EmployeeSkillsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> updatePartialWithHttpInfo(Long id, EmployeeSkill employeeSkill) throws ApiException {
+  public ApiResponse<Void> updatePartialEmployeeSkillWithHttpInfo(Long id, EmployeeSkill employeeSkill) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling updatePartial");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updatePartialEmployeeSkill");
     }
     if (employeeSkill == null) {
-      throw new ApiException(400, "Missing the required parameter 'employeeSkill' when calling updatePartial");
+      throw new ApiException(400, "Missing the required parameter 'employeeSkill' when calling updatePartialEmployeeSkill");
     }
 
     // Path parameters
@@ -425,7 +427,7 @@ public class EmployeeSkillsApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("EmployeeSkillsApi.updatePartial", localVarPath, "POST", new ArrayList<>(), employeeSkill,
+    return apiClient.invokeAPI("EmployeeSkillsApi.updatePartialEmployeeSkill", localVarPath, "POST", new ArrayList<>(), employeeSkill,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }

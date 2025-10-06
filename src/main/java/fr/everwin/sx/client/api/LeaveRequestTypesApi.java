@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 
-@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-05-22T08:24:46.022483900+02:00[Europe/Paris]")
+@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-10-06T08:58:20.555636300+02:00[Europe/Paris]")
 public class LeaveRequestTypesApi {
   private ApiClient apiClient;
 
@@ -60,8 +60,8 @@ public class LeaveRequestTypesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public Type getById(Long id) throws ApiException {
-    return getByIdWithHttpInfo(id).getData();
+  public Type getTypeById(Long id) throws ApiException {
+    return getTypeByIdWithHttpInfo(id).getData();
   }
 
   /**
@@ -81,10 +81,10 @@ public class LeaveRequestTypesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Type> getByIdWithHttpInfo(Long id) throws ApiException {
+  public ApiResponse<Type> getTypeByIdWithHttpInfo(Long id) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getById");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getTypeById");
     }
 
     // Path parameters
@@ -95,7 +95,7 @@ public class LeaveRequestTypesApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<Type> localVarReturnType = new GenericType<Type>() {};
-    return apiClient.invokeAPI("LeaveRequestTypesApi.getById", localVarPath, "GET", new ArrayList<>(), null,
+    return apiClient.invokeAPI("LeaveRequestTypesApi.getTypeById", localVarPath, "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -112,8 +112,8 @@ public class LeaveRequestTypesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public String ping() throws ApiException {
-    return pingWithHttpInfo().getData();
+  public String pingType() throws ApiException {
+    return pingTypeWithHttpInfo().getData();
   }
 
   /**
@@ -129,12 +129,12 @@ public class LeaveRequestTypesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<String> pingWithHttpInfo() throws ApiException {
+  public ApiResponse<String> pingTypeWithHttpInfo() throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("text/plain");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<String> localVarReturnType = new GenericType<String>() {};
-    return apiClient.invokeAPI("LeaveRequestTypesApi.ping", "/leave-request-types/ping", "GET", new ArrayList<>(), null,
+    return apiClient.invokeAPI("LeaveRequestTypesApi.pingType", "/leave-request-types/ping", "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -154,8 +154,8 @@ public class LeaveRequestTypesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public TypeList query(Integer offset, Integer limit) throws ApiException {
-    return queryWithHttpInfo(offset, limit).getData();
+  public TypeList queryType(Integer offset, Integer limit) throws ApiException {
+    return queryTypeWithHttpInfo(offset, limit).getData();
   }
 
   /**
@@ -174,7 +174,7 @@ public class LeaveRequestTypesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<TypeList> queryWithHttpInfo(Integer offset, Integer limit) throws ApiException {
+  public ApiResponse<TypeList> queryTypeWithHttpInfo(Integer offset, Integer limit) throws ApiException {
     // Query parameters
     List<Pair> localVarQueryParams = new ArrayList<>(
             apiClient.parameterToPairs("", "offset", offset)
@@ -185,7 +185,7 @@ public class LeaveRequestTypesApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<TypeList> localVarReturnType = new GenericType<TypeList>() {};
-    return apiClient.invokeAPI("LeaveRequestTypesApi.query", "/leave-request-types", "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("LeaveRequestTypesApi.queryType", "/leave-request-types", "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }

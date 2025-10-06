@@ -1,10 +1,13 @@
 package fr.everwin.sx.client.api;
 
-import fr.everwin.sx.client.ApiClient;
 import fr.everwin.sx.client.ApiException;
+import fr.everwin.sx.client.ApiClient;
 import fr.everwin.sx.client.ApiResponse;
 import fr.everwin.sx.client.Configuration;
 import fr.everwin.sx.client.Pair;
+
+import jakarta.ws.rs.core.GenericType;
+
 import fr.everwin.sx.client.model.Candidate;
 import fr.everwin.sx.client.model.CandidateList;
 import fr.everwin.sx.client.model.CandidateSkillList;
@@ -12,15 +15,16 @@ import fr.everwin.sx.client.model.Comment;
 import fr.everwin.sx.client.model.CommentList;
 import fr.everwin.sx.client.model.Document;
 import fr.everwin.sx.client.model.DocumentList;
+import fr.everwin.sx.client.model.ErrorMessage;
 import fr.everwin.sx.client.model.FormDataContentDisposition;
-import jakarta.ws.rs.core.GenericType;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-05-22T08:24:46.022483900+02:00[Europe/Paris]")
+@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-10-06T08:58:20.555636300+02:00[Europe/Paris]")
 public class CandidatesApi {
   private ApiClient apiClient;
 
@@ -54,6 +58,7 @@ public class CandidatesApi {
    * Create a candidate
    * 
    * @param candidate Candidate (required)
+   * @return Candidate
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -65,15 +70,15 @@ public class CandidatesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void create(Candidate candidate) throws ApiException {
-    createWithHttpInfo(candidate);
+  public Candidate createCandidate(Candidate candidate) throws ApiException {
+    return createCandidateWithHttpInfo(candidate).getData();
   }
 
   /**
    * Create a candidate
    * 
    * @param candidate Candidate (required)
-   * @return ApiResponse&lt;Void&gt;
+   * @return ApiResponse&lt;Candidate&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -85,24 +90,26 @@ public class CandidatesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> createWithHttpInfo(Candidate candidate) throws ApiException {
+  public ApiResponse<Candidate> createCandidateWithHttpInfo(Candidate candidate) throws ApiException {
     // Check required parameters
     if (candidate == null) {
-      throw new ApiException(400, "Missing the required parameter 'candidate' when calling create");
+      throw new ApiException(400, "Missing the required parameter 'candidate' when calling createCandidate");
     }
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("CandidatesApi.create", "/candidates", "POST", new ArrayList<>(), candidate,
+    GenericType<Candidate> localVarReturnType = new GenericType<Candidate>() {};
+    return apiClient.invokeAPI("CandidatesApi.createCandidate", "/candidates", "POST", new ArrayList<>(), candidate,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
+                               localVarAuthNames, localVarReturnType, false);
   }
   /**
    * Create a comment
    * 
    * @param id id (required)
    * @param comment Comment (required)
+   * @return Comment
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -114,8 +121,8 @@ public class CandidatesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void createComment(Long id, Comment comment) throws ApiException {
-    createCommentWithHttpInfo(id, comment);
+  public Comment createCandidateComment(Long id, Comment comment) throws ApiException {
+    return createCandidateCommentWithHttpInfo(id, comment).getData();
   }
 
   /**
@@ -123,7 +130,7 @@ public class CandidatesApi {
    * 
    * @param id id (required)
    * @param comment Comment (required)
-   * @return ApiResponse&lt;Void&gt;
+   * @return ApiResponse&lt;Comment&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -135,13 +142,13 @@ public class CandidatesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> createCommentWithHttpInfo(Long id, Comment comment) throws ApiException {
+  public ApiResponse<Comment> createCandidateCommentWithHttpInfo(Long id, Comment comment) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling createComment");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling createCandidateComment");
     }
     if (comment == null) {
-      throw new ApiException(400, "Missing the required parameter 'comment' when calling createComment");
+      throw new ApiException(400, "Missing the required parameter 'comment' when calling createCandidateComment");
     }
 
     // Path parameters
@@ -151,15 +158,17 @@ public class CandidatesApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("CandidatesApi.createComment", localVarPath, "POST", new ArrayList<>(), comment,
+    GenericType<Comment> localVarReturnType = new GenericType<Comment>() {};
+    return apiClient.invokeAPI("CandidatesApi.createCandidateComment", localVarPath, "POST", new ArrayList<>(), comment,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
+                               localVarAuthNames, localVarReturnType, false);
   }
   /**
    * Create a new document for the candidate
    * 
    * @param id id (required)
    * @param document Document (required)
+   * @return Document
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -171,8 +180,8 @@ public class CandidatesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void createDocument(Long id, Document document) throws ApiException {
-    createDocumentWithHttpInfo(id, document);
+  public Document createCandidateDocument(Long id, Document document) throws ApiException {
+    return createCandidateDocumentWithHttpInfo(id, document).getData();
   }
 
   /**
@@ -180,7 +189,7 @@ public class CandidatesApi {
    * 
    * @param id id (required)
    * @param document Document (required)
-   * @return ApiResponse&lt;Void&gt;
+   * @return ApiResponse&lt;Document&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -192,13 +201,13 @@ public class CandidatesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> createDocumentWithHttpInfo(Long id, Document document) throws ApiException {
+  public ApiResponse<Document> createCandidateDocumentWithHttpInfo(Long id, Document document) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling createDocument");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling createCandidateDocument");
     }
     if (document == null) {
-      throw new ApiException(400, "Missing the required parameter 'document' when calling createDocument");
+      throw new ApiException(400, "Missing the required parameter 'document' when calling createCandidateDocument");
     }
 
     // Path parameters
@@ -208,9 +217,10 @@ public class CandidatesApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("CandidatesApi.createDocument", localVarPath, "POST", new ArrayList<>(), document,
+    GenericType<Document> localVarReturnType = new GenericType<Document>() {};
+    return apiClient.invokeAPI("CandidatesApi.createCandidateDocument", localVarPath, "POST", new ArrayList<>(), document,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
+                               localVarAuthNames, localVarReturnType, false);
   }
   /**
    * Delete a candidate
@@ -228,8 +238,8 @@ public class CandidatesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void delete(Long id) throws ApiException {
-    deleteWithHttpInfo(id);
+  public void deleteCandidate(Long id) throws ApiException {
+    deleteCandidateWithHttpInfo(id);
   }
 
   /**
@@ -249,10 +259,10 @@ public class CandidatesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> deleteWithHttpInfo(Long id) throws ApiException {
+  public ApiResponse<Void> deleteCandidateWithHttpInfo(Long id) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling delete");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteCandidate");
     }
 
     // Path parameters
@@ -262,7 +272,7 @@ public class CandidatesApi {
     String localVarAccept = apiClient.selectHeaderAccept("*/*");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("CandidatesApi.delete", localVarPath, "DELETE", new ArrayList<>(), null,
+    return apiClient.invokeAPI("CandidatesApi.deleteCandidate", localVarPath, "DELETE", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -283,8 +293,8 @@ public class CandidatesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void deleteComment(Long id, Long cid) throws ApiException {
-    deleteCommentWithHttpInfo(id, cid);
+  public void deleteCandidateComment(Long id, Long cid) throws ApiException {
+    deleteCandidateCommentWithHttpInfo(id, cid);
   }
 
   /**
@@ -305,13 +315,13 @@ public class CandidatesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> deleteCommentWithHttpInfo(Long id, Long cid) throws ApiException {
+  public ApiResponse<Void> deleteCandidateCommentWithHttpInfo(Long id, Long cid) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteComment");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteCandidateComment");
     }
     if (cid == null) {
-      throw new ApiException(400, "Missing the required parameter 'cid' when calling deleteComment");
+      throw new ApiException(400, "Missing the required parameter 'cid' when calling deleteCandidateComment");
     }
 
     // Path parameters
@@ -322,7 +332,7 @@ public class CandidatesApi {
     String localVarAccept = apiClient.selectHeaderAccept("*/*");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("CandidatesApi.deleteComment", localVarPath, "DELETE", new ArrayList<>(), null,
+    return apiClient.invokeAPI("CandidatesApi.deleteCandidateComment", localVarPath, "DELETE", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -343,8 +353,8 @@ public class CandidatesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void deleteDocument(Long id, Long did) throws ApiException {
-    deleteDocumentWithHttpInfo(id, did);
+  public void deleteCandidateDocument(Long id, Long did) throws ApiException {
+    deleteCandidateDocumentWithHttpInfo(id, did);
   }
 
   /**
@@ -365,13 +375,13 @@ public class CandidatesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> deleteDocumentWithHttpInfo(Long id, Long did) throws ApiException {
+  public ApiResponse<Void> deleteCandidateDocumentWithHttpInfo(Long id, Long did) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteDocument");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteCandidateDocument");
     }
     if (did == null) {
-      throw new ApiException(400, "Missing the required parameter 'did' when calling deleteDocument");
+      throw new ApiException(400, "Missing the required parameter 'did' when calling deleteCandidateDocument");
     }
 
     // Path parameters
@@ -382,7 +392,7 @@ public class CandidatesApi {
     String localVarAccept = apiClient.selectHeaderAccept("*/*");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("CandidatesApi.deleteDocument", localVarPath, "DELETE", new ArrayList<>(), null,
+    return apiClient.invokeAPI("CandidatesApi.deleteCandidateDocument", localVarPath, "DELETE", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -403,8 +413,8 @@ public class CandidatesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void downloadDocument(Long id, Long did) throws ApiException {
-    downloadDocumentWithHttpInfo(id, did);
+  public void downloadCandidateDocument(Long id, Long did) throws ApiException {
+    downloadCandidateDocumentWithHttpInfo(id, did);
   }
 
   /**
@@ -425,13 +435,13 @@ public class CandidatesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> downloadDocumentWithHttpInfo(Long id, Long did) throws ApiException {
+  public ApiResponse<Void> downloadCandidateDocumentWithHttpInfo(Long id, Long did) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling downloadDocument");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling downloadCandidateDocument");
     }
     if (did == null) {
-      throw new ApiException(400, "Missing the required parameter 'did' when calling downloadDocument");
+      throw new ApiException(400, "Missing the required parameter 'did' when calling downloadCandidateDocument");
     }
 
     // Path parameters
@@ -442,7 +452,7 @@ public class CandidatesApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/octet-stream");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("CandidatesApi.downloadDocument", localVarPath, "GET", new ArrayList<>(), null,
+    return apiClient.invokeAPI("CandidatesApi.downloadCandidateDocument", localVarPath, "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -464,8 +474,8 @@ public class CandidatesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public Candidate getById(Long id, String fields) throws ApiException {
-    return getByIdWithHttpInfo(id, fields).getData();
+  public Candidate getCandidateById(Long id, String fields) throws ApiException {
+    return getCandidateByIdWithHttpInfo(id, fields).getData();
   }
 
   /**
@@ -486,10 +496,10 @@ public class CandidatesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Candidate> getByIdWithHttpInfo(Long id, String fields) throws ApiException {
+  public ApiResponse<Candidate> getCandidateByIdWithHttpInfo(Long id, String fields) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getById");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getCandidateById");
     }
 
     // Path parameters
@@ -505,7 +515,7 @@ public class CandidatesApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<Candidate> localVarReturnType = new GenericType<Candidate>() {};
-    return apiClient.invokeAPI("CandidatesApi.getById", localVarPath, "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("CandidatesApi.getCandidateById", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -528,8 +538,8 @@ public class CandidatesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public Comment getCommentById(Long id, Long cid, String fields) throws ApiException {
-    return getCommentByIdWithHttpInfo(id, cid, fields).getData();
+  public Comment getCandidateCommentById(Long id, Long cid, String fields) throws ApiException {
+    return getCandidateCommentByIdWithHttpInfo(id, cid, fields).getData();
   }
 
   /**
@@ -551,13 +561,13 @@ public class CandidatesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Comment> getCommentByIdWithHttpInfo(Long id, Long cid, String fields) throws ApiException {
+  public ApiResponse<Comment> getCandidateCommentByIdWithHttpInfo(Long id, Long cid, String fields) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getCommentById");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getCandidateCommentById");
     }
     if (cid == null) {
-      throw new ApiException(400, "Missing the required parameter 'cid' when calling getCommentById");
+      throw new ApiException(400, "Missing the required parameter 'cid' when calling getCandidateCommentById");
     }
 
     // Path parameters
@@ -574,7 +584,7 @@ public class CandidatesApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<Comment> localVarReturnType = new GenericType<Comment>() {};
-    return apiClient.invokeAPI("CandidatesApi.getCommentById", localVarPath, "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("CandidatesApi.getCandidateCommentById", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -600,8 +610,8 @@ public class CandidatesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public CommentList getComments(Long id, String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
-    return getCommentsWithHttpInfo(id, filter, sort, offset, limit, fields).getData();
+  public CommentList getCandidateComments(Long id, String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+    return getCandidateCommentsWithHttpInfo(id, filter, sort, offset, limit, fields).getData();
   }
 
   /**
@@ -626,10 +636,10 @@ public class CandidatesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<CommentList> getCommentsWithHttpInfo(Long id, String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+  public ApiResponse<CommentList> getCandidateCommentsWithHttpInfo(Long id, String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getComments");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getCandidateComments");
     }
 
     // Path parameters
@@ -649,7 +659,7 @@ public class CandidatesApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<CommentList> localVarReturnType = new GenericType<CommentList>() {};
-    return apiClient.invokeAPI("CandidatesApi.getComments", localVarPath, "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("CandidatesApi.getCandidateComments", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -672,8 +682,8 @@ public class CandidatesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public Document getDocumentById(Long id, Long did, String fields) throws ApiException {
-    return getDocumentByIdWithHttpInfo(id, did, fields).getData();
+  public Document getCandidateDocumentById(Long id, Long did, String fields) throws ApiException {
+    return getCandidateDocumentByIdWithHttpInfo(id, did, fields).getData();
   }
 
   /**
@@ -695,13 +705,13 @@ public class CandidatesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Document> getDocumentByIdWithHttpInfo(Long id, Long did, String fields) throws ApiException {
+  public ApiResponse<Document> getCandidateDocumentByIdWithHttpInfo(Long id, Long did, String fields) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getDocumentById");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getCandidateDocumentById");
     }
     if (did == null) {
-      throw new ApiException(400, "Missing the required parameter 'did' when calling getDocumentById");
+      throw new ApiException(400, "Missing the required parameter 'did' when calling getCandidateDocumentById");
     }
 
     // Path parameters
@@ -718,7 +728,7 @@ public class CandidatesApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<Document> localVarReturnType = new GenericType<Document>() {};
-    return apiClient.invokeAPI("CandidatesApi.getDocumentById", localVarPath, "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("CandidatesApi.getCandidateDocumentById", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -744,8 +754,8 @@ public class CandidatesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public DocumentList getDocuments(Long id, String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
-    return getDocumentsWithHttpInfo(id, filter, sort, offset, limit, fields).getData();
+  public DocumentList getCandidateDocuments(Long id, String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+    return getCandidateDocumentsWithHttpInfo(id, filter, sort, offset, limit, fields).getData();
   }
 
   /**
@@ -770,10 +780,10 @@ public class CandidatesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<DocumentList> getDocumentsWithHttpInfo(Long id, String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+  public ApiResponse<DocumentList> getCandidateDocumentsWithHttpInfo(Long id, String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getDocuments");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getCandidateDocuments");
     }
 
     // Path parameters
@@ -793,7 +803,7 @@ public class CandidatesApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<DocumentList> localVarReturnType = new GenericType<DocumentList>() {};
-    return apiClient.invokeAPI("CandidatesApi.getDocuments", localVarPath, "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("CandidatesApi.getCandidateDocuments", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -818,8 +828,8 @@ public class CandidatesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public CandidateSkillList getSkills(Long id, String sort, Integer offset, Integer limit, String fields) throws ApiException {
-    return getSkillsWithHttpInfo(id, sort, offset, limit, fields).getData();
+  public CandidateSkillList getCandidateSkills(Long id, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+    return getCandidateSkillsWithHttpInfo(id, sort, offset, limit, fields).getData();
   }
 
   /**
@@ -843,10 +853,10 @@ public class CandidatesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<CandidateSkillList> getSkillsWithHttpInfo(Long id, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+  public ApiResponse<CandidateSkillList> getCandidateSkillsWithHttpInfo(Long id, String sort, Integer offset, Integer limit, String fields) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getSkills");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getCandidateSkills");
     }
 
     // Path parameters
@@ -865,7 +875,7 @@ public class CandidatesApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<CandidateSkillList> localVarReturnType = new GenericType<CandidateSkillList>() {};
-    return apiClient.invokeAPI("CandidatesApi.getSkills", localVarPath, "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("CandidatesApi.getCandidateSkills", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -882,8 +892,8 @@ public class CandidatesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public String ping() throws ApiException {
-    return pingWithHttpInfo().getData();
+  public String pingCandidate() throws ApiException {
+    return pingCandidateWithHttpInfo().getData();
   }
 
   /**
@@ -899,12 +909,12 @@ public class CandidatesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<String> pingWithHttpInfo() throws ApiException {
+  public ApiResponse<String> pingCandidateWithHttpInfo() throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("text/plain");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<String> localVarReturnType = new GenericType<String>() {};
-    return apiClient.invokeAPI("CandidatesApi.ping", "/candidates/ping", "GET", new ArrayList<>(), null,
+    return apiClient.invokeAPI("CandidatesApi.pingCandidate", "/candidates/ping", "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -927,8 +937,8 @@ public class CandidatesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public CandidateList query(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
-    return queryWithHttpInfo(filter, sort, offset, limit, fields).getData();
+  public CandidateList queryCandidate(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+    return queryCandidateWithHttpInfo(filter, sort, offset, limit, fields).getData();
   }
 
   /**
@@ -950,7 +960,7 @@ public class CandidatesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<CandidateList> queryWithHttpInfo(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+  public ApiResponse<CandidateList> queryCandidateWithHttpInfo(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
     // Query parameters
     List<Pair> localVarQueryParams = new ArrayList<>(
             apiClient.parameterToPairs("", "filter", filter)
@@ -964,7 +974,7 @@ public class CandidatesApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<CandidateList> localVarReturnType = new GenericType<CandidateList>() {};
-    return apiClient.invokeAPI("CandidatesApi.query", "/candidates", "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("CandidatesApi.queryCandidate", "/candidates", "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -986,8 +996,8 @@ public class CandidatesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void update(Long id, Candidate candidate) throws ApiException {
-    updateWithHttpInfo(id, candidate);
+  public void updateCandidate(Long id, Candidate candidate) throws ApiException {
+    updateCandidateWithHttpInfo(id, candidate);
   }
 
   /**
@@ -1009,13 +1019,13 @@ public class CandidatesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> updateWithHttpInfo(Long id, Candidate candidate) throws ApiException {
+  public ApiResponse<Void> updateCandidateWithHttpInfo(Long id, Candidate candidate) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling update");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updateCandidate");
     }
     if (candidate == null) {
-      throw new ApiException(400, "Missing the required parameter 'candidate' when calling update");
+      throw new ApiException(400, "Missing the required parameter 'candidate' when calling updateCandidate");
     }
 
     // Path parameters
@@ -1025,7 +1035,7 @@ public class CandidatesApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("CandidatesApi.update", localVarPath, "PUT", new ArrayList<>(), candidate,
+    return apiClient.invokeAPI("CandidatesApi.updateCandidate", localVarPath, "PUT", new ArrayList<>(), candidate,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -1048,8 +1058,8 @@ public class CandidatesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void updateComment(Long id, Long cid, Comment comment) throws ApiException {
-    updateCommentWithHttpInfo(id, cid, comment);
+  public void updateCandidateComment(Long id, Long cid, Comment comment) throws ApiException {
+    updateCandidateCommentWithHttpInfo(id, cid, comment);
   }
 
   /**
@@ -1072,16 +1082,16 @@ public class CandidatesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> updateCommentWithHttpInfo(Long id, Long cid, Comment comment) throws ApiException {
+  public ApiResponse<Void> updateCandidateCommentWithHttpInfo(Long id, Long cid, Comment comment) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling updateComment");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updateCandidateComment");
     }
     if (cid == null) {
-      throw new ApiException(400, "Missing the required parameter 'cid' when calling updateComment");
+      throw new ApiException(400, "Missing the required parameter 'cid' when calling updateCandidateComment");
     }
     if (comment == null) {
-      throw new ApiException(400, "Missing the required parameter 'comment' when calling updateComment");
+      throw new ApiException(400, "Missing the required parameter 'comment' when calling updateCandidateComment");
     }
 
     // Path parameters
@@ -1092,7 +1102,7 @@ public class CandidatesApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("CandidatesApi.updateComment", localVarPath, "PUT", new ArrayList<>(), comment,
+    return apiClient.invokeAPI("CandidatesApi.updateCandidateComment", localVarPath, "PUT", new ArrayList<>(), comment,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -1115,8 +1125,8 @@ public class CandidatesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void updateDocument(Long id, Long did, Document document) throws ApiException {
-    updateDocumentWithHttpInfo(id, did, document);
+  public void updateCandidateDocument(Long id, Long did, Document document) throws ApiException {
+    updateCandidateDocumentWithHttpInfo(id, did, document);
   }
 
   /**
@@ -1139,16 +1149,16 @@ public class CandidatesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> updateDocumentWithHttpInfo(Long id, Long did, Document document) throws ApiException {
+  public ApiResponse<Void> updateCandidateDocumentWithHttpInfo(Long id, Long did, Document document) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling updateDocument");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updateCandidateDocument");
     }
     if (did == null) {
-      throw new ApiException(400, "Missing the required parameter 'did' when calling updateDocument");
+      throw new ApiException(400, "Missing the required parameter 'did' when calling updateCandidateDocument");
     }
     if (document == null) {
-      throw new ApiException(400, "Missing the required parameter 'document' when calling updateDocument");
+      throw new ApiException(400, "Missing the required parameter 'document' when calling updateCandidateDocument");
     }
 
     // Path parameters
@@ -1159,7 +1169,7 @@ public class CandidatesApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("CandidatesApi.updateDocument", localVarPath, "PUT", new ArrayList<>(), document,
+    return apiClient.invokeAPI("CandidatesApi.updateCandidateDocument", localVarPath, "PUT", new ArrayList<>(), document,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -1181,8 +1191,8 @@ public class CandidatesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void updatePartial(Long id, Candidate candidate) throws ApiException {
-    updatePartialWithHttpInfo(id, candidate);
+  public void updatePartialCandidate(Long id, Candidate candidate) throws ApiException {
+    updatePartialCandidateWithHttpInfo(id, candidate);
   }
 
   /**
@@ -1204,13 +1214,13 @@ public class CandidatesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> updatePartialWithHttpInfo(Long id, Candidate candidate) throws ApiException {
+  public ApiResponse<Void> updatePartialCandidateWithHttpInfo(Long id, Candidate candidate) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling updatePartial");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updatePartialCandidate");
     }
     if (candidate == null) {
-      throw new ApiException(400, "Missing the required parameter 'candidate' when calling updatePartial");
+      throw new ApiException(400, "Missing the required parameter 'candidate' when calling updatePartialCandidate");
     }
 
     // Path parameters
@@ -1220,7 +1230,7 @@ public class CandidatesApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("CandidatesApi.updatePartial", localVarPath, "POST", new ArrayList<>(), candidate,
+    return apiClient.invokeAPI("CandidatesApi.updatePartialCandidate", localVarPath, "POST", new ArrayList<>(), candidate,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -1243,8 +1253,8 @@ public class CandidatesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void updatePartialComment(Long id, Long cid, Comment comment) throws ApiException {
-    updatePartialCommentWithHttpInfo(id, cid, comment);
+  public void updatePartialCandidateComment(Long id, Long cid, Comment comment) throws ApiException {
+    updatePartialCandidateCommentWithHttpInfo(id, cid, comment);
   }
 
   /**
@@ -1267,16 +1277,16 @@ public class CandidatesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> updatePartialCommentWithHttpInfo(Long id, Long cid, Comment comment) throws ApiException {
+  public ApiResponse<Void> updatePartialCandidateCommentWithHttpInfo(Long id, Long cid, Comment comment) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling updatePartialComment");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updatePartialCandidateComment");
     }
     if (cid == null) {
-      throw new ApiException(400, "Missing the required parameter 'cid' when calling updatePartialComment");
+      throw new ApiException(400, "Missing the required parameter 'cid' when calling updatePartialCandidateComment");
     }
     if (comment == null) {
-      throw new ApiException(400, "Missing the required parameter 'comment' when calling updatePartialComment");
+      throw new ApiException(400, "Missing the required parameter 'comment' when calling updatePartialCandidateComment");
     }
 
     // Path parameters
@@ -1287,7 +1297,7 @@ public class CandidatesApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("CandidatesApi.updatePartialComment", localVarPath, "POST", new ArrayList<>(), comment,
+    return apiClient.invokeAPI("CandidatesApi.updatePartialCandidateComment", localVarPath, "POST", new ArrayList<>(), comment,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -1310,8 +1320,8 @@ public class CandidatesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void updatePartialDocument(Long id, Long did, Document document) throws ApiException {
-    updatePartialDocumentWithHttpInfo(id, did, document);
+  public void updatePartialCandidateDocument(Long id, Long did, Document document) throws ApiException {
+    updatePartialCandidateDocumentWithHttpInfo(id, did, document);
   }
 
   /**
@@ -1334,16 +1344,16 @@ public class CandidatesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> updatePartialDocumentWithHttpInfo(Long id, Long did, Document document) throws ApiException {
+  public ApiResponse<Void> updatePartialCandidateDocumentWithHttpInfo(Long id, Long did, Document document) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling updatePartialDocument");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updatePartialCandidateDocument");
     }
     if (did == null) {
-      throw new ApiException(400, "Missing the required parameter 'did' when calling updatePartialDocument");
+      throw new ApiException(400, "Missing the required parameter 'did' when calling updatePartialCandidateDocument");
     }
     if (document == null) {
-      throw new ApiException(400, "Missing the required parameter 'document' when calling updatePartialDocument");
+      throw new ApiException(400, "Missing the required parameter 'document' when calling updatePartialCandidateDocument");
     }
 
     // Path parameters
@@ -1354,7 +1364,7 @@ public class CandidatesApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("CandidatesApi.updatePartialDocument", localVarPath, "POST", new ArrayList<>(), document,
+    return apiClient.invokeAPI("CandidatesApi.updatePartialCandidateDocument", localVarPath, "POST", new ArrayList<>(), document,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -1376,8 +1386,8 @@ public class CandidatesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void uploadDocument(Long id, Long did, FormDataContentDisposition _file) throws ApiException {
-    uploadDocumentWithHttpInfo(id, did, _file);
+  public void uploadCandidateDocument(Long id, Long did, FormDataContentDisposition _file) throws ApiException {
+    uploadCandidateDocumentWithHttpInfo(id, did, _file);
   }
 
   /**
@@ -1399,16 +1409,16 @@ public class CandidatesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> uploadDocumentWithHttpInfo(Long id, Long did, FormDataContentDisposition _file) throws ApiException {
+  public ApiResponse<Void> uploadCandidateDocumentWithHttpInfo(Long id, Long did, FormDataContentDisposition _file) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling uploadDocument");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling uploadCandidateDocument");
     }
     if (did == null) {
-      throw new ApiException(400, "Missing the required parameter 'did' when calling uploadDocument");
+      throw new ApiException(400, "Missing the required parameter 'did' when calling uploadCandidateDocument");
     }
     if (_file == null) {
-      throw new ApiException(400, "Missing the required parameter '_file' when calling uploadDocument");
+      throw new ApiException(400, "Missing the required parameter '_file' when calling uploadCandidateDocument");
     }
 
     // Path parameters
@@ -1423,7 +1433,7 @@ public class CandidatesApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("multipart/form-data");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("CandidatesApi.uploadDocument", localVarPath, "POST", new ArrayList<>(), null,
+    return apiClient.invokeAPI("CandidatesApi.uploadCandidateDocument", localVarPath, "POST", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }

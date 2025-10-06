@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 
-@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-05-22T08:24:46.022483900+02:00[Europe/Paris]")
+@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-10-06T08:58:20.555636300+02:00[Europe/Paris]")
 public class CompanyAccountsApi {
   private ApiClient apiClient;
 
@@ -49,6 +49,7 @@ public class CompanyAccountsApi {
    * Create a new company account
    * 
    * @param companyaccount Company Account (required)
+   * @return Companyaccount
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -60,15 +61,15 @@ public class CompanyAccountsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void create(Companyaccount companyaccount) throws ApiException {
-    createWithHttpInfo(companyaccount);
+  public Companyaccount createCompanyAccount(Companyaccount companyaccount) throws ApiException {
+    return createCompanyAccountWithHttpInfo(companyaccount).getData();
   }
 
   /**
    * Create a new company account
    * 
    * @param companyaccount Company Account (required)
-   * @return ApiResponse&lt;Void&gt;
+   * @return ApiResponse&lt;Companyaccount&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -80,18 +81,19 @@ public class CompanyAccountsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> createWithHttpInfo(Companyaccount companyaccount) throws ApiException {
+  public ApiResponse<Companyaccount> createCompanyAccountWithHttpInfo(Companyaccount companyaccount) throws ApiException {
     // Check required parameters
     if (companyaccount == null) {
-      throw new ApiException(400, "Missing the required parameter 'companyaccount' when calling create");
+      throw new ApiException(400, "Missing the required parameter 'companyaccount' when calling createCompanyAccount");
     }
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("CompanyAccountsApi.create", "/company-accounts", "POST", new ArrayList<>(), companyaccount,
+    GenericType<Companyaccount> localVarReturnType = new GenericType<Companyaccount>() {};
+    return apiClient.invokeAPI("CompanyAccountsApi.createCompanyAccount", "/company-accounts", "POST", new ArrayList<>(), companyaccount,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
+                               localVarAuthNames, localVarReturnType, false);
   }
   /**
    * Delete a company account
@@ -109,8 +111,8 @@ public class CompanyAccountsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void delete(Long id) throws ApiException {
-    deleteWithHttpInfo(id);
+  public void deleteCompanyAccount(Long id) throws ApiException {
+    deleteCompanyAccountWithHttpInfo(id);
   }
 
   /**
@@ -130,10 +132,10 @@ public class CompanyAccountsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> deleteWithHttpInfo(Long id) throws ApiException {
+  public ApiResponse<Void> deleteCompanyAccountWithHttpInfo(Long id) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling delete");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteCompanyAccount");
     }
 
     // Path parameters
@@ -143,7 +145,7 @@ public class CompanyAccountsApi {
     String localVarAccept = apiClient.selectHeaderAccept("*/*");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("CompanyAccountsApi.delete", localVarPath, "DELETE", new ArrayList<>(), null,
+    return apiClient.invokeAPI("CompanyAccountsApi.deleteCompanyAccount", localVarPath, "DELETE", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -165,8 +167,8 @@ public class CompanyAccountsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public Companyaccount getById(Long id, String fields) throws ApiException {
-    return getByIdWithHttpInfo(id, fields).getData();
+  public Companyaccount getCompanyAccountById(Long id, String fields) throws ApiException {
+    return getCompanyAccountByIdWithHttpInfo(id, fields).getData();
   }
 
   /**
@@ -187,10 +189,10 @@ public class CompanyAccountsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Companyaccount> getByIdWithHttpInfo(Long id, String fields) throws ApiException {
+  public ApiResponse<Companyaccount> getCompanyAccountByIdWithHttpInfo(Long id, String fields) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getById");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getCompanyAccountById");
     }
 
     // Path parameters
@@ -206,7 +208,7 @@ public class CompanyAccountsApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<Companyaccount> localVarReturnType = new GenericType<Companyaccount>() {};
-    return apiClient.invokeAPI("CompanyAccountsApi.getById", localVarPath, "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("CompanyAccountsApi.getCompanyAccountById", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -223,8 +225,8 @@ public class CompanyAccountsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public String ping() throws ApiException {
-    return pingWithHttpInfo().getData();
+  public String pingCompanyAccount() throws ApiException {
+    return pingCompanyAccountWithHttpInfo().getData();
   }
 
   /**
@@ -240,12 +242,12 @@ public class CompanyAccountsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<String> pingWithHttpInfo() throws ApiException {
+  public ApiResponse<String> pingCompanyAccountWithHttpInfo() throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("text/plain");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<String> localVarReturnType = new GenericType<String>() {};
-    return apiClient.invokeAPI("CompanyAccountsApi.ping", "/company-accounts/ping", "GET", new ArrayList<>(), null,
+    return apiClient.invokeAPI("CompanyAccountsApi.pingCompanyAccount", "/company-accounts/ping", "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -268,8 +270,8 @@ public class CompanyAccountsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public CompanyAccountList query(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
-    return queryWithHttpInfo(filter, sort, offset, limit, fields).getData();
+  public CompanyAccountList queryCompanyAccount(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+    return queryCompanyAccountWithHttpInfo(filter, sort, offset, limit, fields).getData();
   }
 
   /**
@@ -291,7 +293,7 @@ public class CompanyAccountsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<CompanyAccountList> queryWithHttpInfo(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+  public ApiResponse<CompanyAccountList> queryCompanyAccountWithHttpInfo(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
     // Query parameters
     List<Pair> localVarQueryParams = new ArrayList<>(
             apiClient.parameterToPairs("", "filter", filter)
@@ -305,7 +307,7 @@ public class CompanyAccountsApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<CompanyAccountList> localVarReturnType = new GenericType<CompanyAccountList>() {};
-    return apiClient.invokeAPI("CompanyAccountsApi.query", "/company-accounts", "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("CompanyAccountsApi.queryCompanyAccount", "/company-accounts", "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -328,8 +330,8 @@ public class CompanyAccountsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public CustomerAccountList queryCustomers(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
-    return queryCustomersWithHttpInfo(filter, sort, offset, limit, fields).getData();
+  public CustomerAccountList queryCompanyAccountCustomers(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+    return queryCompanyAccountCustomersWithHttpInfo(filter, sort, offset, limit, fields).getData();
   }
 
   /**
@@ -351,7 +353,7 @@ public class CompanyAccountsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<CustomerAccountList> queryCustomersWithHttpInfo(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+  public ApiResponse<CustomerAccountList> queryCompanyAccountCustomersWithHttpInfo(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
     // Query parameters
     List<Pair> localVarQueryParams = new ArrayList<>(
             apiClient.parameterToPairs("", "filter", filter)
@@ -365,7 +367,7 @@ public class CompanyAccountsApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<CustomerAccountList> localVarReturnType = new GenericType<CustomerAccountList>() {};
-    return apiClient.invokeAPI("CompanyAccountsApi.queryCustomers", "/company-accounts/customers", "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("CompanyAccountsApi.queryCompanyAccountCustomers", "/company-accounts/customers", "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -388,8 +390,8 @@ public class CompanyAccountsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public SupplierAccountList querySuppliers(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
-    return querySuppliersWithHttpInfo(filter, sort, offset, limit, fields).getData();
+  public SupplierAccountList queryCompanyAccountSuppliers(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+    return queryCompanyAccountSuppliersWithHttpInfo(filter, sort, offset, limit, fields).getData();
   }
 
   /**
@@ -411,7 +413,7 @@ public class CompanyAccountsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<SupplierAccountList> querySuppliersWithHttpInfo(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+  public ApiResponse<SupplierAccountList> queryCompanyAccountSuppliersWithHttpInfo(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
     // Query parameters
     List<Pair> localVarQueryParams = new ArrayList<>(
             apiClient.parameterToPairs("", "filter", filter)
@@ -425,7 +427,7 @@ public class CompanyAccountsApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<SupplierAccountList> localVarReturnType = new GenericType<SupplierAccountList>() {};
-    return apiClient.invokeAPI("CompanyAccountsApi.querySuppliers", "/company-accounts/suppliers", "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("CompanyAccountsApi.queryCompanyAccountSuppliers", "/company-accounts/suppliers", "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -447,8 +449,8 @@ public class CompanyAccountsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void update(Long id, Companyaccount companyaccount) throws ApiException {
-    updateWithHttpInfo(id, companyaccount);
+  public void updateCompanyAccount(Long id, Companyaccount companyaccount) throws ApiException {
+    updateCompanyAccountWithHttpInfo(id, companyaccount);
   }
 
   /**
@@ -470,13 +472,13 @@ public class CompanyAccountsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> updateWithHttpInfo(Long id, Companyaccount companyaccount) throws ApiException {
+  public ApiResponse<Void> updateCompanyAccountWithHttpInfo(Long id, Companyaccount companyaccount) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling update");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updateCompanyAccount");
     }
     if (companyaccount == null) {
-      throw new ApiException(400, "Missing the required parameter 'companyaccount' when calling update");
+      throw new ApiException(400, "Missing the required parameter 'companyaccount' when calling updateCompanyAccount");
     }
 
     // Path parameters
@@ -486,7 +488,7 @@ public class CompanyAccountsApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("CompanyAccountsApi.update", localVarPath, "PUT", new ArrayList<>(), companyaccount,
+    return apiClient.invokeAPI("CompanyAccountsApi.updateCompanyAccount", localVarPath, "PUT", new ArrayList<>(), companyaccount,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -508,8 +510,8 @@ public class CompanyAccountsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void updatePartial(Long id, Companyaccount companyaccount) throws ApiException {
-    updatePartialWithHttpInfo(id, companyaccount);
+  public void updatePartialCompanyAccount(Long id, Companyaccount companyaccount) throws ApiException {
+    updatePartialCompanyAccountWithHttpInfo(id, companyaccount);
   }
 
   /**
@@ -531,13 +533,13 @@ public class CompanyAccountsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> updatePartialWithHttpInfo(Long id, Companyaccount companyaccount) throws ApiException {
+  public ApiResponse<Void> updatePartialCompanyAccountWithHttpInfo(Long id, Companyaccount companyaccount) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling updatePartial");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updatePartialCompanyAccount");
     }
     if (companyaccount == null) {
-      throw new ApiException(400, "Missing the required parameter 'companyaccount' when calling updatePartial");
+      throw new ApiException(400, "Missing the required parameter 'companyaccount' when calling updatePartialCompanyAccount");
     }
 
     // Path parameters
@@ -547,7 +549,7 @@ public class CompanyAccountsApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("CompanyAccountsApi.updatePartial", localVarPath, "POST", new ArrayList<>(), companyaccount,
+    return apiClient.invokeAPI("CompanyAccountsApi.updatePartialCompanyAccount", localVarPath, "POST", new ArrayList<>(), companyaccount,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }

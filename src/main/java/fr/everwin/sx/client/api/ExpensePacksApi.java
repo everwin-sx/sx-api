@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 
-@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-05-22T08:24:46.022483900+02:00[Europe/Paris]")
+@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-10-06T08:58:20.555636300+02:00[Europe/Paris]")
 public class ExpensePacksApi {
   private ApiClient apiClient;
 
@@ -51,6 +51,7 @@ public class ExpensePacksApi {
    * Create an expense pack
    * 
    * @param expensePack Expense pack (required)
+   * @return ExpensePack
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -62,15 +63,15 @@ public class ExpensePacksApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void create(ExpensePack expensePack) throws ApiException {
-    createWithHttpInfo(expensePack);
+  public ExpensePack createExpensePack(ExpensePack expensePack) throws ApiException {
+    return createExpensePackWithHttpInfo(expensePack).getData();
   }
 
   /**
    * Create an expense pack
    * 
    * @param expensePack Expense pack (required)
-   * @return ApiResponse&lt;Void&gt;
+   * @return ApiResponse&lt;ExpensePack&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -82,18 +83,19 @@ public class ExpensePacksApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> createWithHttpInfo(ExpensePack expensePack) throws ApiException {
+  public ApiResponse<ExpensePack> createExpensePackWithHttpInfo(ExpensePack expensePack) throws ApiException {
     // Check required parameters
     if (expensePack == null) {
-      throw new ApiException(400, "Missing the required parameter 'expensePack' when calling create");
+      throw new ApiException(400, "Missing the required parameter 'expensePack' when calling createExpensePack");
     }
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("ExpensePacksApi.create", "/expense-packs", "POST", new ArrayList<>(), expensePack,
+    GenericType<ExpensePack> localVarReturnType = new GenericType<ExpensePack>() {};
+    return apiClient.invokeAPI("ExpensePacksApi.createExpensePack", "/expense-packs", "POST", new ArrayList<>(), expensePack,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
+                               localVarAuthNames, localVarReturnType, false);
   }
   /**
    * Delete an expense pack
@@ -111,8 +113,8 @@ public class ExpensePacksApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void delete(Long id) throws ApiException {
-    deleteWithHttpInfo(id);
+  public void deleteExpensePack(Long id) throws ApiException {
+    deleteExpensePackWithHttpInfo(id);
   }
 
   /**
@@ -132,10 +134,10 @@ public class ExpensePacksApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> deleteWithHttpInfo(Long id) throws ApiException {
+  public ApiResponse<Void> deleteExpensePackWithHttpInfo(Long id) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling delete");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteExpensePack");
     }
 
     // Path parameters
@@ -145,7 +147,7 @@ public class ExpensePacksApi {
     String localVarAccept = apiClient.selectHeaderAccept("*/*");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("ExpensePacksApi.delete", localVarPath, "DELETE", new ArrayList<>(), null,
+    return apiClient.invokeAPI("ExpensePacksApi.deleteExpensePack", localVarPath, "DELETE", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -166,8 +168,8 @@ public class ExpensePacksApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void duplicate(Long id, CopyData copyData) throws ApiException {
-    duplicateWithHttpInfo(id, copyData);
+  public void duplicateExpensePack(Long id, CopyData copyData) throws ApiException {
+    duplicateExpensePackWithHttpInfo(id, copyData);
   }
 
   /**
@@ -188,13 +190,13 @@ public class ExpensePacksApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> duplicateWithHttpInfo(Long id, CopyData copyData) throws ApiException {
+  public ApiResponse<Void> duplicateExpensePackWithHttpInfo(Long id, CopyData copyData) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling duplicate");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling duplicateExpensePack");
     }
     if (copyData == null) {
-      throw new ApiException(400, "Missing the required parameter 'copyData' when calling duplicate");
+      throw new ApiException(400, "Missing the required parameter 'copyData' when calling duplicateExpensePack");
     }
 
     // Path parameters
@@ -204,7 +206,7 @@ public class ExpensePacksApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("ExpensePacksApi.duplicate", localVarPath, "POST", new ArrayList<>(), copyData,
+    return apiClient.invokeAPI("ExpensePacksApi.duplicateExpensePack", localVarPath, "POST", new ArrayList<>(), copyData,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -226,8 +228,8 @@ public class ExpensePacksApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ExpensePack getById(Long id, String fields) throws ApiException {
-    return getByIdWithHttpInfo(id, fields).getData();
+  public ExpensePack getExpensePackById(Long id, String fields) throws ApiException {
+    return getExpensePackByIdWithHttpInfo(id, fields).getData();
   }
 
   /**
@@ -248,10 +250,10 @@ public class ExpensePacksApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<ExpensePack> getByIdWithHttpInfo(Long id, String fields) throws ApiException {
+  public ApiResponse<ExpensePack> getExpensePackByIdWithHttpInfo(Long id, String fields) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getById");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getExpensePackById");
     }
 
     // Path parameters
@@ -267,7 +269,7 @@ public class ExpensePacksApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<ExpensePack> localVarReturnType = new GenericType<ExpensePack>() {};
-    return apiClient.invokeAPI("ExpensePacksApi.getById", localVarPath, "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("ExpensePacksApi.getExpensePackById", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -284,8 +286,8 @@ public class ExpensePacksApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public String ping() throws ApiException {
-    return pingWithHttpInfo().getData();
+  public String pingExpensePack() throws ApiException {
+    return pingExpensePackWithHttpInfo().getData();
   }
 
   /**
@@ -301,12 +303,12 @@ public class ExpensePacksApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<String> pingWithHttpInfo() throws ApiException {
+  public ApiResponse<String> pingExpensePackWithHttpInfo() throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("text/plain");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<String> localVarReturnType = new GenericType<String>() {};
-    return apiClient.invokeAPI("ExpensePacksApi.ping", "/expense-packs/ping", "GET", new ArrayList<>(), null,
+    return apiClient.invokeAPI("ExpensePacksApi.pingExpensePack", "/expense-packs/ping", "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -329,8 +331,8 @@ public class ExpensePacksApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ExpensePackList query(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
-    return queryWithHttpInfo(filter, sort, offset, limit, fields).getData();
+  public ExpensePackList queryExpensePack(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+    return queryExpensePackWithHttpInfo(filter, sort, offset, limit, fields).getData();
   }
 
   /**
@@ -352,7 +354,7 @@ public class ExpensePacksApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<ExpensePackList> queryWithHttpInfo(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+  public ApiResponse<ExpensePackList> queryExpensePackWithHttpInfo(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
     // Query parameters
     List<Pair> localVarQueryParams = new ArrayList<>(
             apiClient.parameterToPairs("", "filter", filter)
@@ -366,7 +368,7 @@ public class ExpensePacksApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<ExpensePackList> localVarReturnType = new GenericType<ExpensePackList>() {};
-    return apiClient.invokeAPI("ExpensePacksApi.query", "/expense-packs", "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("ExpensePacksApi.queryExpensePack", "/expense-packs", "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -390,8 +392,8 @@ public class ExpensePacksApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public MissionOrderList queryMissionOrders(java.time.LocalDateTime date, Long emp, Long prj, String fields) throws ApiException {
-    return queryMissionOrdersWithHttpInfo(date, emp, prj, fields).getData();
+  public MissionOrderList queryExpensePackMissionOrders(java.time.LocalDateTime date, Long emp, Long prj, String fields) throws ApiException {
+    return queryExpensePackMissionOrdersWithHttpInfo(date, emp, prj, fields).getData();
   }
 
   /**
@@ -414,16 +416,16 @@ public class ExpensePacksApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<MissionOrderList> queryMissionOrdersWithHttpInfo(java.time.LocalDateTime date, Long emp, Long prj, String fields) throws ApiException {
+  public ApiResponse<MissionOrderList> queryExpensePackMissionOrdersWithHttpInfo(java.time.LocalDateTime date, Long emp, Long prj, String fields) throws ApiException {
     // Check required parameters
     if (date == null) {
-      throw new ApiException(400, "Missing the required parameter 'date' when calling queryMissionOrders");
+      throw new ApiException(400, "Missing the required parameter 'date' when calling queryExpensePackMissionOrders");
     }
     if (emp == null) {
-      throw new ApiException(400, "Missing the required parameter 'emp' when calling queryMissionOrders");
+      throw new ApiException(400, "Missing the required parameter 'emp' when calling queryExpensePackMissionOrders");
     }
     if (prj == null) {
-      throw new ApiException(400, "Missing the required parameter 'prj' when calling queryMissionOrders");
+      throw new ApiException(400, "Missing the required parameter 'prj' when calling queryExpensePackMissionOrders");
     }
 
     // Query parameters
@@ -438,7 +440,7 @@ public class ExpensePacksApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<MissionOrderList> localVarReturnType = new GenericType<MissionOrderList>() {};
-    return apiClient.invokeAPI("ExpensePacksApi.queryMissionOrders", "/expense-packs/mission-orders", "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("ExpensePacksApi.queryExpensePackMissionOrders", "/expense-packs/mission-orders", "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -463,8 +465,8 @@ public class ExpensePacksApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ProjectLineList queryProjectLines(java.time.LocalDateTime date, Long emp, Long prj, Long rty, String fields) throws ApiException {
-    return queryProjectLinesWithHttpInfo(date, emp, prj, rty, fields).getData();
+  public ProjectLineList queryExpensePackProjectLines(java.time.LocalDateTime date, Long emp, Long prj, Long rty, String fields) throws ApiException {
+    return queryExpensePackProjectLinesWithHttpInfo(date, emp, prj, rty, fields).getData();
   }
 
   /**
@@ -488,19 +490,19 @@ public class ExpensePacksApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<ProjectLineList> queryProjectLinesWithHttpInfo(java.time.LocalDateTime date, Long emp, Long prj, Long rty, String fields) throws ApiException {
+  public ApiResponse<ProjectLineList> queryExpensePackProjectLinesWithHttpInfo(java.time.LocalDateTime date, Long emp, Long prj, Long rty, String fields) throws ApiException {
     // Check required parameters
     if (date == null) {
-      throw new ApiException(400, "Missing the required parameter 'date' when calling queryProjectLines");
+      throw new ApiException(400, "Missing the required parameter 'date' when calling queryExpensePackProjectLines");
     }
     if (emp == null) {
-      throw new ApiException(400, "Missing the required parameter 'emp' when calling queryProjectLines");
+      throw new ApiException(400, "Missing the required parameter 'emp' when calling queryExpensePackProjectLines");
     }
     if (prj == null) {
-      throw new ApiException(400, "Missing the required parameter 'prj' when calling queryProjectLines");
+      throw new ApiException(400, "Missing the required parameter 'prj' when calling queryExpensePackProjectLines");
     }
     if (rty == null) {
-      throw new ApiException(400, "Missing the required parameter 'rty' when calling queryProjectLines");
+      throw new ApiException(400, "Missing the required parameter 'rty' when calling queryExpensePackProjectLines");
     }
 
     // Query parameters
@@ -516,7 +518,7 @@ public class ExpensePacksApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<ProjectLineList> localVarReturnType = new GenericType<ProjectLineList>() {};
-    return apiClient.invokeAPI("ExpensePacksApi.queryProjectLines", "/expense-packs/project-lines", "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("ExpensePacksApi.queryExpensePackProjectLines", "/expense-packs/project-lines", "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -622,8 +624,8 @@ public class ExpensePacksApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void update(Long id, ExpensePack expensePack) throws ApiException {
-    updateWithHttpInfo(id, expensePack);
+  public void updateExpensePack(Long id, ExpensePack expensePack) throws ApiException {
+    updateExpensePackWithHttpInfo(id, expensePack);
   }
 
   /**
@@ -645,13 +647,13 @@ public class ExpensePacksApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> updateWithHttpInfo(Long id, ExpensePack expensePack) throws ApiException {
+  public ApiResponse<Void> updateExpensePackWithHttpInfo(Long id, ExpensePack expensePack) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling update");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updateExpensePack");
     }
     if (expensePack == null) {
-      throw new ApiException(400, "Missing the required parameter 'expensePack' when calling update");
+      throw new ApiException(400, "Missing the required parameter 'expensePack' when calling updateExpensePack");
     }
 
     // Path parameters
@@ -661,7 +663,7 @@ public class ExpensePacksApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("ExpensePacksApi.update", localVarPath, "PUT", new ArrayList<>(), expensePack,
+    return apiClient.invokeAPI("ExpensePacksApi.updateExpensePack", localVarPath, "PUT", new ArrayList<>(), expensePack,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -683,8 +685,8 @@ public class ExpensePacksApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void updatePartial(Long id, ExpensePack expensePack) throws ApiException {
-    updatePartialWithHttpInfo(id, expensePack);
+  public void updatePartialExpensePack(Long id, ExpensePack expensePack) throws ApiException {
+    updatePartialExpensePackWithHttpInfo(id, expensePack);
   }
 
   /**
@@ -706,13 +708,13 @@ public class ExpensePacksApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> updatePartialWithHttpInfo(Long id, ExpensePack expensePack) throws ApiException {
+  public ApiResponse<Void> updatePartialExpensePackWithHttpInfo(Long id, ExpensePack expensePack) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling updatePartial");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updatePartialExpensePack");
     }
     if (expensePack == null) {
-      throw new ApiException(400, "Missing the required parameter 'expensePack' when calling updatePartial");
+      throw new ApiException(400, "Missing the required parameter 'expensePack' when calling updatePartialExpensePack");
     }
 
     // Path parameters
@@ -722,7 +724,7 @@ public class ExpensePacksApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("ExpensePacksApi.updatePartial", localVarPath, "POST", new ArrayList<>(), expensePack,
+    return apiClient.invokeAPI("ExpensePacksApi.updatePartialExpensePack", localVarPath, "POST", new ArrayList<>(), expensePack,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }

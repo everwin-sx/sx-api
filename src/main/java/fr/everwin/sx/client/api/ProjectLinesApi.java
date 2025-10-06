@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 
-@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-05-22T08:24:46.022483900+02:00[Europe/Paris]")
+@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-10-06T08:58:20.555636300+02:00[Europe/Paris]")
 public class ProjectLinesApi {
   private ApiClient apiClient;
 
@@ -64,8 +64,8 @@ public class ProjectLinesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void cancelInvoicing(Long id) throws ApiException {
-    cancelInvoicingWithHttpInfo(id);
+  public void cancelProjectLineInvoicing(Long id) throws ApiException {
+    cancelProjectLineInvoicingWithHttpInfo(id);
   }
 
   /**
@@ -86,10 +86,10 @@ public class ProjectLinesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> cancelInvoicingWithHttpInfo(Long id) throws ApiException {
+  public ApiResponse<Void> cancelProjectLineInvoicingWithHttpInfo(Long id) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling cancelInvoicing");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling cancelProjectLineInvoicing");
     }
 
     // Path parameters
@@ -99,7 +99,7 @@ public class ProjectLinesApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("ProjectLinesApi.cancelInvoicing", localVarPath, "POST", new ArrayList<>(), null,
+    return apiClient.invokeAPI("ProjectLinesApi.cancelProjectLineInvoicing", localVarPath, "POST", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -107,6 +107,7 @@ public class ProjectLinesApi {
    * Create a project line
    * 
    * @param writableProjectLine ProjectLine (required)
+   * @return WritableProjectLine
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -118,15 +119,15 @@ public class ProjectLinesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void create(WritableProjectLine writableProjectLine) throws ApiException {
-    createWithHttpInfo(writableProjectLine);
+  public WritableProjectLine createProjectLine(WritableProjectLine writableProjectLine) throws ApiException {
+    return createProjectLineWithHttpInfo(writableProjectLine).getData();
   }
 
   /**
    * Create a project line
    * 
    * @param writableProjectLine ProjectLine (required)
-   * @return ApiResponse&lt;Void&gt;
+   * @return ApiResponse&lt;WritableProjectLine&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -138,18 +139,19 @@ public class ProjectLinesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> createWithHttpInfo(WritableProjectLine writableProjectLine) throws ApiException {
+  public ApiResponse<WritableProjectLine> createProjectLineWithHttpInfo(WritableProjectLine writableProjectLine) throws ApiException {
     // Check required parameters
     if (writableProjectLine == null) {
-      throw new ApiException(400, "Missing the required parameter 'writableProjectLine' when calling create");
+      throw new ApiException(400, "Missing the required parameter 'writableProjectLine' when calling createProjectLine");
     }
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("ProjectLinesApi.create", "/project-lines", "POST", new ArrayList<>(), writableProjectLine,
+    GenericType<WritableProjectLine> localVarReturnType = new GenericType<WritableProjectLine>() {};
+    return apiClient.invokeAPI("ProjectLinesApi.createProjectLine", "/project-lines", "POST", new ArrayList<>(), writableProjectLine,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
+                               localVarAuthNames, localVarReturnType, false);
   }
   /**
    * Delete a project line
@@ -167,8 +169,8 @@ public class ProjectLinesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void delete(Long id) throws ApiException {
-    deleteWithHttpInfo(id);
+  public void deleteProjectLine(Long id) throws ApiException {
+    deleteProjectLineWithHttpInfo(id);
   }
 
   /**
@@ -188,10 +190,10 @@ public class ProjectLinesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> deleteWithHttpInfo(Long id) throws ApiException {
+  public ApiResponse<Void> deleteProjectLineWithHttpInfo(Long id) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling delete");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteProjectLine");
     }
 
     // Path parameters
@@ -201,7 +203,7 @@ public class ProjectLinesApi {
     String localVarAccept = apiClient.selectHeaderAccept("*/*");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("ProjectLinesApi.delete", localVarPath, "DELETE", new ArrayList<>(), null,
+    return apiClient.invokeAPI("ProjectLinesApi.deleteProjectLine", localVarPath, "DELETE", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -267,69 +269,6 @@ public class ProjectLinesApi {
                                localVarAuthNames, null, false);
   }
   /**
-   * Get a project line by id
-   * 
-   * @param id id (required)
-   * @param fields fields (optional)
-   * @return ProjectLine
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
-       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
-     </table>
-   */
-  public ProjectLine getById(Long id, String fields) throws ApiException {
-    return getByIdWithHttpInfo(id, fields).getData();
-  }
-
-  /**
-   * Get a project line by id
-   * 
-   * @param id id (required)
-   * @param fields fields (optional)
-   * @return ApiResponse&lt;ProjectLine&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
-       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
-     </table>
-   */
-  public ApiResponse<ProjectLine> getByIdWithHttpInfo(Long id, String fields) throws ApiException {
-    // Check required parameters
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getById");
-    }
-
-    // Path parameters
-    String localVarPath = "/project-lines/{id}"
-            .replaceAll("\\{id}", apiClient.escapeString(id.toString()));
-
-    // Query parameters
-    List<Pair> localVarQueryParams = new ArrayList<>(
-            apiClient.parameterToPairs("", "fields", fields)
-    );
-
-    String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
-    String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    GenericType<ProjectLine> localVarReturnType = new GenericType<ProjectLine>() {};
-    return apiClient.invokeAPI("ProjectLinesApi.getById", localVarPath, "GET", localVarQueryParams, null,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
-  }
-  /**
    * Get invoicing information of a project line
    * 
    * @param id id (required)
@@ -384,6 +323,69 @@ public class ProjectLinesApi {
                                localVarAuthNames, null, false);
   }
   /**
+   * Get a project line by id
+   * 
+   * @param id id (required)
+   * @param fields fields (optional)
+   * @return ProjectLine
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
+       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
+     </table>
+   */
+  public ProjectLine getProjectLineById(Long id, String fields) throws ApiException {
+    return getProjectLineByIdWithHttpInfo(id, fields).getData();
+  }
+
+  /**
+   * Get a project line by id
+   * 
+   * @param id id (required)
+   * @param fields fields (optional)
+   * @return ApiResponse&lt;ProjectLine&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
+       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<ProjectLine> getProjectLineByIdWithHttpInfo(Long id, String fields) throws ApiException {
+    // Check required parameters
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getProjectLineById");
+    }
+
+    // Path parameters
+    String localVarPath = "/project-lines/{id}"
+            .replaceAll("\\{id}", apiClient.escapeString(id.toString()));
+
+    // Query parameters
+    List<Pair> localVarQueryParams = new ArrayList<>(
+            apiClient.parameterToPairs("", "fields", fields)
+    );
+
+    String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
+    String localVarContentType = apiClient.selectHeaderContentType();
+    String[] localVarAuthNames = new String[] {"api_key", "oauth"};
+    GenericType<ProjectLine> localVarReturnType = new GenericType<ProjectLine>() {};
+    return apiClient.invokeAPI("ProjectLinesApi.getProjectLineById", localVarPath, "GET", localVarQueryParams, null,
+                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, false);
+  }
+  /**
    * Get a project subline for the given project line
    * 
    * @param id id (required)
@@ -402,8 +404,8 @@ public class ProjectLinesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ProjectSubLineList getProjectSubLineById(Long id, Long sublineid, String fields) throws ApiException {
-    return getProjectSubLineByIdWithHttpInfo(id, sublineid, fields).getData();
+  public ProjectSubLineList getProjectLineProjectSubLineById(Long id, Long sublineid, String fields) throws ApiException {
+    return getProjectLineProjectSubLineByIdWithHttpInfo(id, sublineid, fields).getData();
   }
 
   /**
@@ -425,13 +427,13 @@ public class ProjectLinesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<ProjectSubLineList> getProjectSubLineByIdWithHttpInfo(Long id, Long sublineid, String fields) throws ApiException {
+  public ApiResponse<ProjectSubLineList> getProjectLineProjectSubLineByIdWithHttpInfo(Long id, Long sublineid, String fields) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getProjectSubLineById");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getProjectLineProjectSubLineById");
     }
     if (sublineid == null) {
-      throw new ApiException(400, "Missing the required parameter 'sublineid' when calling getProjectSubLineById");
+      throw new ApiException(400, "Missing the required parameter 'sublineid' when calling getProjectLineProjectSubLineById");
     }
 
     // Path parameters
@@ -448,7 +450,7 @@ public class ProjectLinesApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<ProjectSubLineList> localVarReturnType = new GenericType<ProjectSubLineList>() {};
-    return apiClient.invokeAPI("ProjectLinesApi.getProjectSubLineById", localVarPath, "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("ProjectLinesApi.getProjectLineProjectSubLineById", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -540,8 +542,8 @@ public class ProjectLinesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public String ping() throws ApiException {
-    return pingWithHttpInfo().getData();
+  public String pingProjectLine() throws ApiException {
+    return pingProjectLineWithHttpInfo().getData();
   }
 
   /**
@@ -557,12 +559,12 @@ public class ProjectLinesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<String> pingWithHttpInfo() throws ApiException {
+  public ApiResponse<String> pingProjectLineWithHttpInfo() throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("text/plain");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<String> localVarReturnType = new GenericType<String>() {};
-    return apiClient.invokeAPI("ProjectLinesApi.ping", "/project-lines/ping", "GET", new ArrayList<>(), null,
+    return apiClient.invokeAPI("ProjectLinesApi.pingProjectLine", "/project-lines/ping", "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }

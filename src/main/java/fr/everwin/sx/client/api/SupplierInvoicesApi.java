@@ -19,7 +19,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-05-22T08:24:46.022483900+02:00[Europe/Paris]")
+@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-10-06T08:58:20.555636300+02:00[Europe/Paris]")
 public class SupplierInvoicesApi {
   private ApiClient apiClient;
 
@@ -53,6 +53,7 @@ public class SupplierInvoicesApi {
    * Create a Supplier Invoice
    * 
    * @param supplierInvoice SupplierInvoice (required)
+   * @return SupplierInvoice
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -64,15 +65,15 @@ public class SupplierInvoicesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void create(SupplierInvoice supplierInvoice) throws ApiException {
-    createWithHttpInfo(supplierInvoice);
+  public SupplierInvoice createSupplierInvoice(SupplierInvoice supplierInvoice) throws ApiException {
+    return createSupplierInvoiceWithHttpInfo(supplierInvoice).getData();
   }
 
   /**
    * Create a Supplier Invoice
    * 
    * @param supplierInvoice SupplierInvoice (required)
-   * @return ApiResponse&lt;Void&gt;
+   * @return ApiResponse&lt;SupplierInvoice&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -84,24 +85,26 @@ public class SupplierInvoicesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> createWithHttpInfo(SupplierInvoice supplierInvoice) throws ApiException {
+  public ApiResponse<SupplierInvoice> createSupplierInvoiceWithHttpInfo(SupplierInvoice supplierInvoice) throws ApiException {
     // Check required parameters
     if (supplierInvoice == null) {
-      throw new ApiException(400, "Missing the required parameter 'supplierInvoice' when calling create");
+      throw new ApiException(400, "Missing the required parameter 'supplierInvoice' when calling createSupplierInvoice");
     }
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("SupplierInvoicesApi.create", "/supplier-invoices", "POST", new ArrayList<>(), supplierInvoice,
+    GenericType<SupplierInvoice> localVarReturnType = new GenericType<SupplierInvoice>() {};
+    return apiClient.invokeAPI("SupplierInvoicesApi.createSupplierInvoice", "/supplier-invoices", "POST", new ArrayList<>(), supplierInvoice,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
+                               localVarAuthNames, localVarReturnType, false);
   }
   /**
    * Create a new document for the supplier invoice
    * 
    * @param id id (required)
    * @param document Document (required)
+   * @return Document
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -113,8 +116,8 @@ public class SupplierInvoicesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void createDocument(Long id, Document document) throws ApiException {
-    createDocumentWithHttpInfo(id, document);
+  public Document createSupplierInvoiceDocument(Long id, Document document) throws ApiException {
+    return createSupplierInvoiceDocumentWithHttpInfo(id, document).getData();
   }
 
   /**
@@ -122,7 +125,7 @@ public class SupplierInvoicesApi {
    * 
    * @param id id (required)
    * @param document Document (required)
-   * @return ApiResponse&lt;Void&gt;
+   * @return ApiResponse&lt;Document&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -134,13 +137,13 @@ public class SupplierInvoicesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> createDocumentWithHttpInfo(Long id, Document document) throws ApiException {
+  public ApiResponse<Document> createSupplierInvoiceDocumentWithHttpInfo(Long id, Document document) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling createDocument");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling createSupplierInvoiceDocument");
     }
     if (document == null) {
-      throw new ApiException(400, "Missing the required parameter 'document' when calling createDocument");
+      throw new ApiException(400, "Missing the required parameter 'document' when calling createSupplierInvoiceDocument");
     }
 
     // Path parameters
@@ -150,15 +153,17 @@ public class SupplierInvoicesApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("SupplierInvoicesApi.createDocument", localVarPath, "POST", new ArrayList<>(), document,
+    GenericType<Document> localVarReturnType = new GenericType<Document>() {};
+    return apiClient.invokeAPI("SupplierInvoicesApi.createSupplierInvoiceDocument", localVarPath, "POST", new ArrayList<>(), document,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
+                               localVarAuthNames, localVarReturnType, false);
   }
   /**
    * Create a Supplier Invoice Line for A Supplier invoice
    * 
    * @param id id (required)
    * @param supplierInvoiceLine SupplierInvoice (required)
+   * @return SupplierInvoiceLine
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -170,8 +175,8 @@ public class SupplierInvoicesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void createSupplierInvoiceLine(Long id, SupplierInvoiceLine supplierInvoiceLine) throws ApiException {
-    createSupplierInvoiceLineWithHttpInfo(id, supplierInvoiceLine);
+  public SupplierInvoiceLine createSupplierInvoiceSupplierInvoiceLine(Long id, SupplierInvoiceLine supplierInvoiceLine) throws ApiException {
+    return createSupplierInvoiceSupplierInvoiceLineWithHttpInfo(id, supplierInvoiceLine).getData();
   }
 
   /**
@@ -179,7 +184,7 @@ public class SupplierInvoicesApi {
    * 
    * @param id id (required)
    * @param supplierInvoiceLine SupplierInvoice (required)
-   * @return ApiResponse&lt;Void&gt;
+   * @return ApiResponse&lt;SupplierInvoiceLine&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -191,13 +196,13 @@ public class SupplierInvoicesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> createSupplierInvoiceLineWithHttpInfo(Long id, SupplierInvoiceLine supplierInvoiceLine) throws ApiException {
+  public ApiResponse<SupplierInvoiceLine> createSupplierInvoiceSupplierInvoiceLineWithHttpInfo(Long id, SupplierInvoiceLine supplierInvoiceLine) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling createSupplierInvoiceLine");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling createSupplierInvoiceSupplierInvoiceLine");
     }
     if (supplierInvoiceLine == null) {
-      throw new ApiException(400, "Missing the required parameter 'supplierInvoiceLine' when calling createSupplierInvoiceLine");
+      throw new ApiException(400, "Missing the required parameter 'supplierInvoiceLine' when calling createSupplierInvoiceSupplierInvoiceLine");
     }
 
     // Path parameters
@@ -207,9 +212,10 @@ public class SupplierInvoicesApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("SupplierInvoicesApi.createSupplierInvoiceLine", localVarPath, "POST", new ArrayList<>(), supplierInvoiceLine,
+    GenericType<SupplierInvoiceLine> localVarReturnType = new GenericType<SupplierInvoiceLine>() {};
+    return apiClient.invokeAPI("SupplierInvoicesApi.createSupplierInvoiceSupplierInvoiceLine", localVarPath, "POST", new ArrayList<>(), supplierInvoiceLine,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
+                               localVarAuthNames, localVarReturnType, false);
   }
   /**
    * Delete a Supplier Invoice
@@ -227,8 +233,8 @@ public class SupplierInvoicesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void delete(Long id) throws ApiException {
-    deleteWithHttpInfo(id);
+  public void deleteSupplierInvoice(Long id) throws ApiException {
+    deleteSupplierInvoiceWithHttpInfo(id);
   }
 
   /**
@@ -248,10 +254,10 @@ public class SupplierInvoicesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> deleteWithHttpInfo(Long id) throws ApiException {
+  public ApiResponse<Void> deleteSupplierInvoiceWithHttpInfo(Long id) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling delete");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteSupplierInvoice");
     }
 
     // Path parameters
@@ -261,7 +267,7 @@ public class SupplierInvoicesApi {
     String localVarAccept = apiClient.selectHeaderAccept("*/*");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("SupplierInvoicesApi.delete", localVarPath, "DELETE", new ArrayList<>(), null,
+    return apiClient.invokeAPI("SupplierInvoicesApi.deleteSupplierInvoice", localVarPath, "DELETE", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -282,8 +288,8 @@ public class SupplierInvoicesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void deleteDocument(Long id, Long did) throws ApiException {
-    deleteDocumentWithHttpInfo(id, did);
+  public void deleteSupplierInvoiceDocument(Long id, Long did) throws ApiException {
+    deleteSupplierInvoiceDocumentWithHttpInfo(id, did);
   }
 
   /**
@@ -304,13 +310,13 @@ public class SupplierInvoicesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> deleteDocumentWithHttpInfo(Long id, Long did) throws ApiException {
+  public ApiResponse<Void> deleteSupplierInvoiceDocumentWithHttpInfo(Long id, Long did) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteDocument");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteSupplierInvoiceDocument");
     }
     if (did == null) {
-      throw new ApiException(400, "Missing the required parameter 'did' when calling deleteDocument");
+      throw new ApiException(400, "Missing the required parameter 'did' when calling deleteSupplierInvoiceDocument");
     }
 
     // Path parameters
@@ -321,7 +327,7 @@ public class SupplierInvoicesApi {
     String localVarAccept = apiClient.selectHeaderAccept("*/*");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("SupplierInvoicesApi.deleteDocument", localVarPath, "DELETE", new ArrayList<>(), null,
+    return apiClient.invokeAPI("SupplierInvoicesApi.deleteSupplierInvoiceDocument", localVarPath, "DELETE", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -342,8 +348,8 @@ public class SupplierInvoicesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void deleteSupplierInvoiceLine(Long id, Long lineid) throws ApiException {
-    deleteSupplierInvoiceLineWithHttpInfo(id, lineid);
+  public void deleteSupplierInvoiceSupplierInvoiceLine(Long id, Long lineid) throws ApiException {
+    deleteSupplierInvoiceSupplierInvoiceLineWithHttpInfo(id, lineid);
   }
 
   /**
@@ -364,13 +370,13 @@ public class SupplierInvoicesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> deleteSupplierInvoiceLineWithHttpInfo(Long id, Long lineid) throws ApiException {
+  public ApiResponse<Void> deleteSupplierInvoiceSupplierInvoiceLineWithHttpInfo(Long id, Long lineid) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteSupplierInvoiceLine");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteSupplierInvoiceSupplierInvoiceLine");
     }
     if (lineid == null) {
-      throw new ApiException(400, "Missing the required parameter 'lineid' when calling deleteSupplierInvoiceLine");
+      throw new ApiException(400, "Missing the required parameter 'lineid' when calling deleteSupplierInvoiceSupplierInvoiceLine");
     }
 
     // Path parameters
@@ -381,7 +387,7 @@ public class SupplierInvoicesApi {
     String localVarAccept = apiClient.selectHeaderAccept("*/*");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("SupplierInvoicesApi.deleteSupplierInvoiceLine", localVarPath, "DELETE", new ArrayList<>(), null,
+    return apiClient.invokeAPI("SupplierInvoicesApi.deleteSupplierInvoiceSupplierInvoiceLine", localVarPath, "DELETE", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -402,8 +408,8 @@ public class SupplierInvoicesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void downloadDocument(Long id, Long did) throws ApiException {
-    downloadDocumentWithHttpInfo(id, did);
+  public void downloadSupplierInvoiceDocument(Long id, Long did) throws ApiException {
+    downloadSupplierInvoiceDocumentWithHttpInfo(id, did);
   }
 
   /**
@@ -424,13 +430,13 @@ public class SupplierInvoicesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> downloadDocumentWithHttpInfo(Long id, Long did) throws ApiException {
+  public ApiResponse<Void> downloadSupplierInvoiceDocumentWithHttpInfo(Long id, Long did) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling downloadDocument");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling downloadSupplierInvoiceDocument");
     }
     if (did == null) {
-      throw new ApiException(400, "Missing the required parameter 'did' when calling downloadDocument");
+      throw new ApiException(400, "Missing the required parameter 'did' when calling downloadSupplierInvoiceDocument");
     }
 
     // Path parameters
@@ -441,7 +447,7 @@ public class SupplierInvoicesApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/octet-stream");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("SupplierInvoicesApi.downloadDocument", localVarPath, "GET", new ArrayList<>(), null,
+    return apiClient.invokeAPI("SupplierInvoicesApi.downloadSupplierInvoiceDocument", localVarPath, "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -463,8 +469,8 @@ public class SupplierInvoicesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public SupplierInvoice getById(Long id, String fields) throws ApiException {
-    return getByIdWithHttpInfo(id, fields).getData();
+  public SupplierInvoice getSupplierInvoiceById(Long id, String fields) throws ApiException {
+    return getSupplierInvoiceByIdWithHttpInfo(id, fields).getData();
   }
 
   /**
@@ -485,10 +491,10 @@ public class SupplierInvoicesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<SupplierInvoice> getByIdWithHttpInfo(Long id, String fields) throws ApiException {
+  public ApiResponse<SupplierInvoice> getSupplierInvoiceByIdWithHttpInfo(Long id, String fields) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getById");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getSupplierInvoiceById");
     }
 
     // Path parameters
@@ -504,7 +510,7 @@ public class SupplierInvoicesApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<SupplierInvoice> localVarReturnType = new GenericType<SupplierInvoice>() {};
-    return apiClient.invokeAPI("SupplierInvoicesApi.getById", localVarPath, "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("SupplierInvoicesApi.getSupplierInvoiceById", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -527,8 +533,8 @@ public class SupplierInvoicesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public Document getDocumentById(Long id, Long did, String fields) throws ApiException {
-    return getDocumentByIdWithHttpInfo(id, did, fields).getData();
+  public Document getSupplierInvoiceDocumentById(Long id, Long did, String fields) throws ApiException {
+    return getSupplierInvoiceDocumentByIdWithHttpInfo(id, did, fields).getData();
   }
 
   /**
@@ -550,13 +556,13 @@ public class SupplierInvoicesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Document> getDocumentByIdWithHttpInfo(Long id, Long did, String fields) throws ApiException {
+  public ApiResponse<Document> getSupplierInvoiceDocumentByIdWithHttpInfo(Long id, Long did, String fields) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getDocumentById");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getSupplierInvoiceDocumentById");
     }
     if (did == null) {
-      throw new ApiException(400, "Missing the required parameter 'did' when calling getDocumentById");
+      throw new ApiException(400, "Missing the required parameter 'did' when calling getSupplierInvoiceDocumentById");
     }
 
     // Path parameters
@@ -573,7 +579,7 @@ public class SupplierInvoicesApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<Document> localVarReturnType = new GenericType<Document>() {};
-    return apiClient.invokeAPI("SupplierInvoicesApi.getDocumentById", localVarPath, "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("SupplierInvoicesApi.getSupplierInvoiceDocumentById", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -599,8 +605,8 @@ public class SupplierInvoicesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public DocumentList getDocuments(Long id, String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
-    return getDocumentsWithHttpInfo(id, filter, sort, offset, limit, fields).getData();
+  public DocumentList getSupplierInvoiceDocuments(Long id, String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+    return getSupplierInvoiceDocumentsWithHttpInfo(id, filter, sort, offset, limit, fields).getData();
   }
 
   /**
@@ -625,10 +631,10 @@ public class SupplierInvoicesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<DocumentList> getDocumentsWithHttpInfo(Long id, String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+  public ApiResponse<DocumentList> getSupplierInvoiceDocumentsWithHttpInfo(Long id, String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getDocuments");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getSupplierInvoiceDocuments");
     }
 
     // Path parameters
@@ -648,76 +654,7 @@ public class SupplierInvoicesApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<DocumentList> localVarReturnType = new GenericType<DocumentList>() {};
-    return apiClient.invokeAPI("SupplierInvoicesApi.getDocuments", localVarPath, "GET", localVarQueryParams, null,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, localVarReturnType, false);
-  }
-  /**
-   * Get a supplier invoice line for the given supplier invoice
-   * 
-   * @param id id (required)
-   * @param lineid lineid (required)
-   * @param fields fields (optional)
-   * @return SupplierInvoiceLine
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
-       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
-     </table>
-   */
-  public SupplierInvoiceLine getSupplierInvoiceLineById(Long id, Long lineid, String fields) throws ApiException {
-    return getSupplierInvoiceLineByIdWithHttpInfo(id, lineid, fields).getData();
-  }
-
-  /**
-   * Get a supplier invoice line for the given supplier invoice
-   * 
-   * @param id id (required)
-   * @param lineid lineid (required)
-   * @param fields fields (optional)
-   * @return ApiResponse&lt;SupplierInvoiceLine&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
-       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
-     </table>
-   */
-  public ApiResponse<SupplierInvoiceLine> getSupplierInvoiceLineByIdWithHttpInfo(Long id, Long lineid, String fields) throws ApiException {
-    // Check required parameters
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getSupplierInvoiceLineById");
-    }
-    if (lineid == null) {
-      throw new ApiException(400, "Missing the required parameter 'lineid' when calling getSupplierInvoiceLineById");
-    }
-
-    // Path parameters
-    String localVarPath = "/supplier-invoices/{id}/lines/{lineid}"
-            .replaceAll("\\{id}", apiClient.escapeString(id.toString()))
-            .replaceAll("\\{lineid}", apiClient.escapeString(lineid.toString()));
-
-    // Query parameters
-    List<Pair> localVarQueryParams = new ArrayList<>(
-            apiClient.parameterToPairs("", "fields", fields)
-    );
-
-    String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
-    String localVarContentType = apiClient.selectHeaderContentType();
-    String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    GenericType<SupplierInvoiceLine> localVarReturnType = new GenericType<SupplierInvoiceLine>() {};
-    return apiClient.invokeAPI("SupplierInvoicesApi.getSupplierInvoiceLineById", localVarPath, "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("SupplierInvoicesApi.getSupplierInvoiceDocuments", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -797,6 +734,75 @@ public class SupplierInvoicesApi {
                                localVarAuthNames, localVarReturnType, false);
   }
   /**
+   * Get a supplier invoice line for the given supplier invoice
+   * 
+   * @param id id (required)
+   * @param lineid lineid (required)
+   * @param fields fields (optional)
+   * @return SupplierInvoiceLine
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
+       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
+     </table>
+   */
+  public SupplierInvoiceLine getSupplierInvoiceSupplierInvoiceLineById(Long id, Long lineid, String fields) throws ApiException {
+    return getSupplierInvoiceSupplierInvoiceLineByIdWithHttpInfo(id, lineid, fields).getData();
+  }
+
+  /**
+   * Get a supplier invoice line for the given supplier invoice
+   * 
+   * @param id id (required)
+   * @param lineid lineid (required)
+   * @param fields fields (optional)
+   * @return ApiResponse&lt;SupplierInvoiceLine&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
+       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<SupplierInvoiceLine> getSupplierInvoiceSupplierInvoiceLineByIdWithHttpInfo(Long id, Long lineid, String fields) throws ApiException {
+    // Check required parameters
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getSupplierInvoiceSupplierInvoiceLineById");
+    }
+    if (lineid == null) {
+      throw new ApiException(400, "Missing the required parameter 'lineid' when calling getSupplierInvoiceSupplierInvoiceLineById");
+    }
+
+    // Path parameters
+    String localVarPath = "/supplier-invoices/{id}/lines/{lineid}"
+            .replaceAll("\\{id}", apiClient.escapeString(id.toString()))
+            .replaceAll("\\{lineid}", apiClient.escapeString(lineid.toString()));
+
+    // Query parameters
+    List<Pair> localVarQueryParams = new ArrayList<>(
+            apiClient.parameterToPairs("", "fields", fields)
+    );
+
+    String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
+    String localVarContentType = apiClient.selectHeaderContentType();
+    String[] localVarAuthNames = new String[] {"api_key", "oauth"};
+    GenericType<SupplierInvoiceLine> localVarReturnType = new GenericType<SupplierInvoiceLine>() {};
+    return apiClient.invokeAPI("SupplierInvoicesApi.getSupplierInvoiceSupplierInvoiceLineById", localVarPath, "GET", localVarQueryParams, null,
+                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, false);
+  }
+  /**
    * Test Supplier Invoices service
    * 
    * @return String
@@ -809,8 +815,8 @@ public class SupplierInvoicesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public String ping() throws ApiException {
-    return pingWithHttpInfo().getData();
+  public String pingSupplierInvoice() throws ApiException {
+    return pingSupplierInvoiceWithHttpInfo().getData();
   }
 
   /**
@@ -826,12 +832,12 @@ public class SupplierInvoicesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<String> pingWithHttpInfo() throws ApiException {
+  public ApiResponse<String> pingSupplierInvoiceWithHttpInfo() throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("text/plain");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<String> localVarReturnType = new GenericType<String>() {};
-    return apiClient.invokeAPI("SupplierInvoicesApi.ping", "/supplier-invoices/ping", "GET", new ArrayList<>(), null,
+    return apiClient.invokeAPI("SupplierInvoicesApi.pingSupplierInvoice", "/supplier-invoices/ping", "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -854,8 +860,8 @@ public class SupplierInvoicesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public SupplierInvoiceList query(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
-    return queryWithHttpInfo(filter, sort, offset, limit, fields).getData();
+  public SupplierInvoiceList querySupplierInvoice(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+    return querySupplierInvoiceWithHttpInfo(filter, sort, offset, limit, fields).getData();
   }
 
   /**
@@ -877,7 +883,7 @@ public class SupplierInvoicesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<SupplierInvoiceList> queryWithHttpInfo(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+  public ApiResponse<SupplierInvoiceList> querySupplierInvoiceWithHttpInfo(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
     // Query parameters
     List<Pair> localVarQueryParams = new ArrayList<>(
             apiClient.parameterToPairs("", "filter", filter)
@@ -891,139 +897,11 @@ public class SupplierInvoicesApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<SupplierInvoiceList> localVarReturnType = new GenericType<SupplierInvoiceList>() {};
-    return apiClient.invokeAPI("SupplierInvoicesApi.query", "/supplier-invoices", "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("SupplierInvoicesApi.querySupplierInvoice", "/supplier-invoices", "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
   /**
-   * Full update of a Supplier Invoice. If Supplier Invoice doesn&#39;t exist, it&#39;s created.
-   * 
-   * @param id id (required)
-   * @param supplierInvoice SupplierInvoice (required)
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-       <tr><td> 201 </td><td> Created </td><td>  * Location - URL to created work unit <br>  </td></tr>
-       <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
-       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
-     </table>
-   */
-  public void update(Long id, SupplierInvoice supplierInvoice) throws ApiException {
-    updateWithHttpInfo(id, supplierInvoice);
-  }
-
-  /**
-   * Full update of a Supplier Invoice. If Supplier Invoice doesn&#39;t exist, it&#39;s created.
-   * 
-   * @param id id (required)
-   * @param supplierInvoice SupplierInvoice (required)
-   * @return ApiResponse&lt;Void&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-       <tr><td> 201 </td><td> Created </td><td>  * Location - URL to created work unit <br>  </td></tr>
-       <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
-       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
-     </table>
-   */
-  public ApiResponse<Void> updateWithHttpInfo(Long id, SupplierInvoice supplierInvoice) throws ApiException {
-    // Check required parameters
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling update");
-    }
-    if (supplierInvoice == null) {
-      throw new ApiException(400, "Missing the required parameter 'supplierInvoice' when calling update");
-    }
-
-    // Path parameters
-    String localVarPath = "/supplier-invoices/{id}"
-            .replaceAll("\\{id}", apiClient.escapeString(id.toString()));
-
-    String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
-    String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
-    String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("SupplierInvoicesApi.update", localVarPath, "PUT", new ArrayList<>(), supplierInvoice,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
-  }
-  /**
-   * Full update of a supplier invoice document. If document doesn&#39;t exist, it&#39;s created.
-   * 
-   * @param id id (required)
-   * @param did did (required)
-   * @param document Document (required)
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-       <tr><td> 201 </td><td> Created </td><td>  * Location - URL to created work unit <br>  </td></tr>
-       <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
-       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
-     </table>
-   */
-  public void updateDocument(Long id, Long did, Document document) throws ApiException {
-    updateDocumentWithHttpInfo(id, did, document);
-  }
-
-  /**
-   * Full update of a supplier invoice document. If document doesn&#39;t exist, it&#39;s created.
-   * 
-   * @param id id (required)
-   * @param did did (required)
-   * @param document Document (required)
-   * @return ApiResponse&lt;Void&gt;
-   * @throws ApiException if fails to make API call
-   * @http.response.details
-     <table summary="Response Details" border="1">
-       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-       <tr><td> 201 </td><td> Created </td><td>  * Location - URL to created work unit <br>  </td></tr>
-       <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
-       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
-     </table>
-   */
-  public ApiResponse<Void> updateDocumentWithHttpInfo(Long id, Long did, Document document) throws ApiException {
-    // Check required parameters
-    if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling updateDocument");
-    }
-    if (did == null) {
-      throw new ApiException(400, "Missing the required parameter 'did' when calling updateDocument");
-    }
-    if (document == null) {
-      throw new ApiException(400, "Missing the required parameter 'document' when calling updateDocument");
-    }
-
-    // Path parameters
-    String localVarPath = "/supplier-invoices/{id}/documents/{did}"
-            .replaceAll("\\{id}", apiClient.escapeString(id.toString()))
-            .replaceAll("\\{did}", apiClient.escapeString(did.toString()));
-
-    String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
-    String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
-    String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("SupplierInvoicesApi.updateDocument", localVarPath, "PUT", new ArrayList<>(), document,
-                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
-  }
-  /**
    * Partial update of a Supplier Invoice
    * 
    * @param id id (required)
@@ -1041,8 +919,8 @@ public class SupplierInvoicesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void updatePartial(Long id, SupplierInvoice supplierInvoice) throws ApiException {
-    updatePartialWithHttpInfo(id, supplierInvoice);
+  public void updatePartialSupplierInvoice(Long id, SupplierInvoice supplierInvoice) throws ApiException {
+    updatePartialSupplierInvoiceWithHttpInfo(id, supplierInvoice);
   }
 
   /**
@@ -1064,13 +942,13 @@ public class SupplierInvoicesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> updatePartialWithHttpInfo(Long id, SupplierInvoice supplierInvoice) throws ApiException {
+  public ApiResponse<Void> updatePartialSupplierInvoiceWithHttpInfo(Long id, SupplierInvoice supplierInvoice) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling updatePartial");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updatePartialSupplierInvoice");
     }
     if (supplierInvoice == null) {
-      throw new ApiException(400, "Missing the required parameter 'supplierInvoice' when calling updatePartial");
+      throw new ApiException(400, "Missing the required parameter 'supplierInvoice' when calling updatePartialSupplierInvoice");
     }
 
     // Path parameters
@@ -1080,7 +958,7 @@ public class SupplierInvoicesApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("SupplierInvoicesApi.updatePartial", localVarPath, "POST", new ArrayList<>(), supplierInvoice,
+    return apiClient.invokeAPI("SupplierInvoicesApi.updatePartialSupplierInvoice", localVarPath, "POST", new ArrayList<>(), supplierInvoice,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -1103,8 +981,8 @@ public class SupplierInvoicesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void updatePartialDocument(Long id, Long did, Document document) throws ApiException {
-    updatePartialDocumentWithHttpInfo(id, did, document);
+  public void updatePartialSupplierInvoiceDocument(Long id, Long did, Document document) throws ApiException {
+    updatePartialSupplierInvoiceDocumentWithHttpInfo(id, did, document);
   }
 
   /**
@@ -1127,16 +1005,16 @@ public class SupplierInvoicesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> updatePartialDocumentWithHttpInfo(Long id, Long did, Document document) throws ApiException {
+  public ApiResponse<Void> updatePartialSupplierInvoiceDocumentWithHttpInfo(Long id, Long did, Document document) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling updatePartialDocument");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updatePartialSupplierInvoiceDocument");
     }
     if (did == null) {
-      throw new ApiException(400, "Missing the required parameter 'did' when calling updatePartialDocument");
+      throw new ApiException(400, "Missing the required parameter 'did' when calling updatePartialSupplierInvoiceDocument");
     }
     if (document == null) {
-      throw new ApiException(400, "Missing the required parameter 'document' when calling updatePartialDocument");
+      throw new ApiException(400, "Missing the required parameter 'document' when calling updatePartialSupplierInvoiceDocument");
     }
 
     // Path parameters
@@ -1147,7 +1025,7 @@ public class SupplierInvoicesApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("SupplierInvoicesApi.updatePartialDocument", localVarPath, "POST", new ArrayList<>(), document,
+    return apiClient.invokeAPI("SupplierInvoicesApi.updatePartialSupplierInvoiceDocument", localVarPath, "POST", new ArrayList<>(), document,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -1170,8 +1048,8 @@ public class SupplierInvoicesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void updatePartialSupplierInvoiceLine(Long id, Long lineid, SupplierInvoiceLine supplierInvoiceLine) throws ApiException {
-    updatePartialSupplierInvoiceLineWithHttpInfo(id, lineid, supplierInvoiceLine);
+  public void updatePartialSupplierInvoiceSupplierInvoiceLine(Long id, Long lineid, SupplierInvoiceLine supplierInvoiceLine) throws ApiException {
+    updatePartialSupplierInvoiceSupplierInvoiceLineWithHttpInfo(id, lineid, supplierInvoiceLine);
   }
 
   /**
@@ -1194,16 +1072,16 @@ public class SupplierInvoicesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> updatePartialSupplierInvoiceLineWithHttpInfo(Long id, Long lineid, SupplierInvoiceLine supplierInvoiceLine) throws ApiException {
+  public ApiResponse<Void> updatePartialSupplierInvoiceSupplierInvoiceLineWithHttpInfo(Long id, Long lineid, SupplierInvoiceLine supplierInvoiceLine) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling updatePartialSupplierInvoiceLine");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updatePartialSupplierInvoiceSupplierInvoiceLine");
     }
     if (lineid == null) {
-      throw new ApiException(400, "Missing the required parameter 'lineid' when calling updatePartialSupplierInvoiceLine");
+      throw new ApiException(400, "Missing the required parameter 'lineid' when calling updatePartialSupplierInvoiceSupplierInvoiceLine");
     }
     if (supplierInvoiceLine == null) {
-      throw new ApiException(400, "Missing the required parameter 'supplierInvoiceLine' when calling updatePartialSupplierInvoiceLine");
+      throw new ApiException(400, "Missing the required parameter 'supplierInvoiceLine' when calling updatePartialSupplierInvoiceSupplierInvoiceLine");
     }
 
     // Path parameters
@@ -1214,16 +1092,15 @@ public class SupplierInvoicesApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("SupplierInvoicesApi.updatePartialSupplierInvoiceLine", localVarPath, "POST", new ArrayList<>(), supplierInvoiceLine,
+    return apiClient.invokeAPI("SupplierInvoicesApi.updatePartialSupplierInvoiceSupplierInvoiceLine", localVarPath, "POST", new ArrayList<>(), supplierInvoiceLine,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
   /**
-   * Full update of a Supplier Invoice Line for a Supplier invoice. If Supplier Invoice Line doesn&#39;t exist, it&#39;s created.
+   * Full update of a Supplier Invoice. If Supplier Invoice doesn&#39;t exist, it&#39;s created.
    * 
    * @param id id (required)
-   * @param lineid lineid (required)
-   * @param supplierInvoiceLine SupplierInvoice (required)
+   * @param supplierInvoice SupplierInvoice (required)
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -1237,16 +1114,15 @@ public class SupplierInvoicesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void updateSupplierInvoiceLine(Long id, Long lineid, SupplierInvoiceLine supplierInvoiceLine) throws ApiException {
-    updateSupplierInvoiceLineWithHttpInfo(id, lineid, supplierInvoiceLine);
+  public void updateSupplierInvoice(Long id, SupplierInvoice supplierInvoice) throws ApiException {
+    updateSupplierInvoiceWithHttpInfo(id, supplierInvoice);
   }
 
   /**
-   * Full update of a Supplier Invoice Line for a Supplier invoice. If Supplier Invoice Line doesn&#39;t exist, it&#39;s created.
+   * Full update of a Supplier Invoice. If Supplier Invoice doesn&#39;t exist, it&#39;s created.
    * 
    * @param id id (required)
-   * @param lineid lineid (required)
-   * @param supplierInvoiceLine SupplierInvoice (required)
+   * @param supplierInvoice SupplierInvoice (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -1261,81 +1137,211 @@ public class SupplierInvoicesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> updateSupplierInvoiceLineWithHttpInfo(Long id, Long lineid, SupplierInvoiceLine supplierInvoiceLine) throws ApiException {
+  public ApiResponse<Void> updateSupplierInvoiceWithHttpInfo(Long id, SupplierInvoice supplierInvoice) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling updateSupplierInvoiceLine");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updateSupplierInvoice");
     }
-    if (lineid == null) {
-      throw new ApiException(400, "Missing the required parameter 'lineid' when calling updateSupplierInvoiceLine");
-    }
-    if (supplierInvoiceLine == null) {
-      throw new ApiException(400, "Missing the required parameter 'supplierInvoiceLine' when calling updateSupplierInvoiceLine");
+    if (supplierInvoice == null) {
+      throw new ApiException(400, "Missing the required parameter 'supplierInvoice' when calling updateSupplierInvoice");
     }
 
     // Path parameters
-    String localVarPath = "/supplier-invoices/{id}/lines/{lineid}"
-            .replaceAll("\\{id}", apiClient.escapeString(id.toString()))
-            .replaceAll("\\{lineid}", apiClient.escapeString(lineid.toString()));
+    String localVarPath = "/supplier-invoices/{id}"
+            .replaceAll("\\{id}", apiClient.escapeString(id.toString()));
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("SupplierInvoicesApi.updateSupplierInvoiceLine", localVarPath, "PUT", new ArrayList<>(), supplierInvoiceLine,
+    return apiClient.invokeAPI("SupplierInvoicesApi.updateSupplierInvoice", localVarPath, "PUT", new ArrayList<>(), supplierInvoice,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
   /**
-   * Upload physical file linked to the supplier invoice document
+   * Full update of a supplier invoice document. If document doesn&#39;t exist, it&#39;s created.
    * 
    * @param id id (required)
    * @param did did (required)
-   * @param _file  (required)
+   * @param document Document (required)
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+       <tr><td> 201 </td><td> Created </td><td>  * Location - URL to created work unit <br>  </td></tr>
+       <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void uploadDocument(Long id, Long did, FormDataContentDisposition _file) throws ApiException {
-    uploadDocumentWithHttpInfo(id, did, _file);
+  public void updateSupplierInvoiceDocument(Long id, Long did, Document document) throws ApiException {
+    updateSupplierInvoiceDocumentWithHttpInfo(id, did, document);
   }
 
   /**
-   * Upload physical file linked to the supplier invoice document
+   * Full update of a supplier invoice document. If document doesn&#39;t exist, it&#39;s created.
    * 
    * @param id id (required)
    * @param did did (required)
-   * @param _file  (required)
+   * @param document Document (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+       <tr><td> 201 </td><td> Created </td><td>  * Location - URL to created work unit <br>  </td></tr>
+       <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> uploadDocumentWithHttpInfo(Long id, Long did, FormDataContentDisposition _file) throws ApiException {
+  public ApiResponse<Void> updateSupplierInvoiceDocumentWithHttpInfo(Long id, Long did, Document document) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling uploadDocument");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updateSupplierInvoiceDocument");
     }
     if (did == null) {
-      throw new ApiException(400, "Missing the required parameter 'did' when calling uploadDocument");
+      throw new ApiException(400, "Missing the required parameter 'did' when calling updateSupplierInvoiceDocument");
+    }
+    if (document == null) {
+      throw new ApiException(400, "Missing the required parameter 'document' when calling updateSupplierInvoiceDocument");
+    }
+
+    // Path parameters
+    String localVarPath = "/supplier-invoices/{id}/documents/{did}"
+            .replaceAll("\\{id}", apiClient.escapeString(id.toString()))
+            .replaceAll("\\{did}", apiClient.escapeString(did.toString()));
+
+    String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
+    String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
+    String[] localVarAuthNames = new String[] {"api_key", "oauth"};
+    return apiClient.invokeAPI("SupplierInvoicesApi.updateSupplierInvoiceDocument", localVarPath, "PUT", new ArrayList<>(), document,
+                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
+                               localVarAuthNames, null, false);
+  }
+  /**
+   * Full update of a Supplier Invoice Line for a Supplier invoice. If Supplier Invoice Line doesn&#39;t exist, it&#39;s created.
+   * 
+   * @param id id (required)
+   * @param lineid lineid (required)
+   * @param supplierInvoiceLine SupplierInvoice (required)
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+       <tr><td> 201 </td><td> Created </td><td>  * Location - URL to created work unit <br>  </td></tr>
+       <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
+       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
+     </table>
+   */
+  public void updateSupplierInvoiceSupplierInvoiceLine(Long id, Long lineid, SupplierInvoiceLine supplierInvoiceLine) throws ApiException {
+    updateSupplierInvoiceSupplierInvoiceLineWithHttpInfo(id, lineid, supplierInvoiceLine);
+  }
+
+  /**
+   * Full update of a Supplier Invoice Line for a Supplier invoice. If Supplier Invoice Line doesn&#39;t exist, it&#39;s created.
+   * 
+   * @param id id (required)
+   * @param lineid lineid (required)
+   * @param supplierInvoiceLine SupplierInvoice (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+       <tr><td> 201 </td><td> Created </td><td>  * Location - URL to created work unit <br>  </td></tr>
+       <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
+       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<Void> updateSupplierInvoiceSupplierInvoiceLineWithHttpInfo(Long id, Long lineid, SupplierInvoiceLine supplierInvoiceLine) throws ApiException {
+    // Check required parameters
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updateSupplierInvoiceSupplierInvoiceLine");
+    }
+    if (lineid == null) {
+      throw new ApiException(400, "Missing the required parameter 'lineid' when calling updateSupplierInvoiceSupplierInvoiceLine");
+    }
+    if (supplierInvoiceLine == null) {
+      throw new ApiException(400, "Missing the required parameter 'supplierInvoiceLine' when calling updateSupplierInvoiceSupplierInvoiceLine");
+    }
+
+    // Path parameters
+    String localVarPath = "/supplier-invoices/{id}/lines/{lineid}"
+            .replaceAll("\\{id}", apiClient.escapeString(id.toString()))
+            .replaceAll("\\{lineid}", apiClient.escapeString(lineid.toString()));
+
+    String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
+    String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
+    String[] localVarAuthNames = new String[] {"api_key", "oauth"};
+    return apiClient.invokeAPI("SupplierInvoicesApi.updateSupplierInvoiceSupplierInvoiceLine", localVarPath, "PUT", new ArrayList<>(), supplierInvoiceLine,
+                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
+                               localVarAuthNames, null, false);
+  }
+  /**
+   * Upload physical file linked to the supplier invoice document
+   * 
+   * @param id id (required)
+   * @param did did (required)
+   * @param _file  (required)
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
+       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
+     </table>
+   */
+  public void uploadSupplierInvoiceDocument(Long id, Long did, FormDataContentDisposition _file) throws ApiException {
+    uploadSupplierInvoiceDocumentWithHttpInfo(id, did, _file);
+  }
+
+  /**
+   * Upload physical file linked to the supplier invoice document
+   * 
+   * @param id id (required)
+   * @param did did (required)
+   * @param _file  (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
+       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<Void> uploadSupplierInvoiceDocumentWithHttpInfo(Long id, Long did, FormDataContentDisposition _file) throws ApiException {
+    // Check required parameters
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling uploadSupplierInvoiceDocument");
+    }
+    if (did == null) {
+      throw new ApiException(400, "Missing the required parameter 'did' when calling uploadSupplierInvoiceDocument");
     }
     if (_file == null) {
-      throw new ApiException(400, "Missing the required parameter '_file' when calling uploadDocument");
+      throw new ApiException(400, "Missing the required parameter '_file' when calling uploadSupplierInvoiceDocument");
     }
 
     // Path parameters
@@ -1350,7 +1356,7 @@ public class SupplierInvoicesApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("multipart/form-data");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("SupplierInvoicesApi.uploadDocument", localVarPath, "POST", new ArrayList<>(), null,
+    return apiClient.invokeAPI("SupplierInvoicesApi.uploadSupplierInvoiceDocument", localVarPath, "POST", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), localVarFormParams, localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }

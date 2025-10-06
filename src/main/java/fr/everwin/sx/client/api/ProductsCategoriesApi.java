@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 
-@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-05-22T08:24:46.022483900+02:00[Europe/Paris]")
+@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-10-06T08:58:20.555636300+02:00[Europe/Paris]")
 public class ProductsCategoriesApi {
   private ApiClient apiClient;
 
@@ -47,6 +47,7 @@ public class ProductsCategoriesApi {
    * Create a product category
    * 
    * @param category Product category (required)
+   * @return Category
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -59,15 +60,15 @@ public class ProductsCategoriesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void create(Category category) throws ApiException {
-    createWithHttpInfo(category);
+  public Category createProductCategory(Category category) throws ApiException {
+    return createProductCategoryWithHttpInfo(category).getData();
   }
 
   /**
    * Create a product category
    * 
    * @param category Product category (required)
-   * @return ApiResponse&lt;Void&gt;
+   * @return ApiResponse&lt;Category&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -80,18 +81,19 @@ public class ProductsCategoriesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> createWithHttpInfo(Category category) throws ApiException {
+  public ApiResponse<Category> createProductCategoryWithHttpInfo(Category category) throws ApiException {
     // Check required parameters
     if (category == null) {
-      throw new ApiException(400, "Missing the required parameter 'category' when calling create");
+      throw new ApiException(400, "Missing the required parameter 'category' when calling createProductCategory");
     }
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("ProductsCategoriesApi.create", "/product-categories", "POST", new ArrayList<>(), category,
+    GenericType<Category> localVarReturnType = new GenericType<Category>() {};
+    return apiClient.invokeAPI("ProductsCategoriesApi.createProductCategory", "/product-categories", "POST", new ArrayList<>(), category,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
+                               localVarAuthNames, localVarReturnType, false);
   }
   /**
    * Delete a product category
@@ -109,8 +111,8 @@ public class ProductsCategoriesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void delete(Long id) throws ApiException {
-    deleteWithHttpInfo(id);
+  public void deleteProductCategory(Long id) throws ApiException {
+    deleteProductCategoryWithHttpInfo(id);
   }
 
   /**
@@ -130,10 +132,10 @@ public class ProductsCategoriesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> deleteWithHttpInfo(Long id) throws ApiException {
+  public ApiResponse<Void> deleteProductCategoryWithHttpInfo(Long id) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling delete");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteProductCategory");
     }
 
     // Path parameters
@@ -143,7 +145,7 @@ public class ProductsCategoriesApi {
     String localVarAccept = apiClient.selectHeaderAccept("*/*");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("ProductsCategoriesApi.delete", localVarPath, "DELETE", new ArrayList<>(), null,
+    return apiClient.invokeAPI("ProductsCategoriesApi.deleteProductCategory", localVarPath, "DELETE", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -165,8 +167,8 @@ public class ProductsCategoriesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public Category getById(Long id, String fields) throws ApiException {
-    return getByIdWithHttpInfo(id, fields).getData();
+  public Category getProductCategoryById(Long id, String fields) throws ApiException {
+    return getProductCategoryByIdWithHttpInfo(id, fields).getData();
   }
 
   /**
@@ -187,10 +189,10 @@ public class ProductsCategoriesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Category> getByIdWithHttpInfo(Long id, String fields) throws ApiException {
+  public ApiResponse<Category> getProductCategoryByIdWithHttpInfo(Long id, String fields) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getById");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getProductCategoryById");
     }
 
     // Path parameters
@@ -206,7 +208,7 @@ public class ProductsCategoriesApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<Category> localVarReturnType = new GenericType<Category>() {};
-    return apiClient.invokeAPI("ProductsCategoriesApi.getById", localVarPath, "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("ProductsCategoriesApi.getProductCategoryById", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -223,8 +225,8 @@ public class ProductsCategoriesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public String ping() throws ApiException {
-    return pingWithHttpInfo().getData();
+  public String pingProductCategory() throws ApiException {
+    return pingProductCategoryWithHttpInfo().getData();
   }
 
   /**
@@ -240,12 +242,12 @@ public class ProductsCategoriesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<String> pingWithHttpInfo() throws ApiException {
+  public ApiResponse<String> pingProductCategoryWithHttpInfo() throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("text/plain");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<String> localVarReturnType = new GenericType<String>() {};
-    return apiClient.invokeAPI("ProductsCategoriesApi.ping", "/product-categories/ping", "GET", new ArrayList<>(), null,
+    return apiClient.invokeAPI("ProductsCategoriesApi.pingProductCategory", "/product-categories/ping", "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -268,8 +270,8 @@ public class ProductsCategoriesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public CategoryList query(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
-    return queryWithHttpInfo(filter, sort, offset, limit, fields).getData();
+  public CategoryList queryProductCategory(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+    return queryProductCategoryWithHttpInfo(filter, sort, offset, limit, fields).getData();
   }
 
   /**
@@ -291,7 +293,7 @@ public class ProductsCategoriesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<CategoryList> queryWithHttpInfo(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+  public ApiResponse<CategoryList> queryProductCategoryWithHttpInfo(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
     // Query parameters
     List<Pair> localVarQueryParams = new ArrayList<>(
             apiClient.parameterToPairs("", "filter", filter)
@@ -305,12 +307,12 @@ public class ProductsCategoriesApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<CategoryList> localVarReturnType = new GenericType<CategoryList>() {};
-    return apiClient.invokeAPI("ProductsCategoriesApi.query", "/product-categories", "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("ProductsCategoriesApi.queryProductCategory", "/product-categories", "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
   /**
-   * Full update of a product category. If category doesn&#39;t exist, it&#39;s created.
+   * Partial update of a product category
    * 
    * @param id id (required)
    * @param category Category (required)
@@ -319,20 +321,20 @@ public class ProductsCategoriesApi {
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-       <tr><td> 201 </td><td> Created </td><td>  * Location - URL to created work unit <br>  </td></tr>
        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void update(Long id, Category category) throws ApiException {
-    updateWithHttpInfo(id, category);
+  public void updatePartialProductCategory(Long id, Category category) throws ApiException {
+    updatePartialProductCategoryWithHttpInfo(id, category);
   }
 
   /**
-   * Full update of a product category. If category doesn&#39;t exist, it&#39;s created.
+   * Partial update of a product category
    * 
    * @param id id (required)
    * @param category Category (required)
@@ -342,21 +344,21 @@ public class ProductsCategoriesApi {
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-       <tr><td> 201 </td><td> Created </td><td>  * Location - URL to created work unit <br>  </td></tr>
        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> updateWithHttpInfo(Long id, Category category) throws ApiException {
+  public ApiResponse<Void> updatePartialProductCategoryWithHttpInfo(Long id, Category category) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling update");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updatePartialProductCategory");
     }
     if (category == null) {
-      throw new ApiException(400, "Missing the required parameter 'category' when calling update");
+      throw new ApiException(400, "Missing the required parameter 'category' when calling updatePartialProductCategory");
     }
 
     // Path parameters
@@ -366,12 +368,12 @@ public class ProductsCategoriesApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("ProductsCategoriesApi.update", localVarPath, "PUT", new ArrayList<>(), category,
+    return apiClient.invokeAPI("ProductsCategoriesApi.updatePartialProductCategory", localVarPath, "POST", new ArrayList<>(), category,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
   /**
-   * Partial update of a product category
+   * Full update of a product category. If category doesn&#39;t exist, it&#39;s created.
    * 
    * @param id id (required)
    * @param category Category (required)
@@ -380,20 +382,20 @@ public class ProductsCategoriesApi {
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+       <tr><td> 201 </td><td> Created </td><td>  * Location - URL to created work unit <br>  </td></tr>
        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void updatePartial(Long id, Category category) throws ApiException {
-    updatePartialWithHttpInfo(id, category);
+  public void updateProductCategory(Long id, Category category) throws ApiException {
+    updateProductCategoryWithHttpInfo(id, category);
   }
 
   /**
-   * Partial update of a product category
+   * Full update of a product category. If category doesn&#39;t exist, it&#39;s created.
    * 
    * @param id id (required)
    * @param category Category (required)
@@ -403,21 +405,21 @@ public class ProductsCategoriesApi {
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+       <tr><td> 201 </td><td> Created </td><td>  * Location - URL to created work unit <br>  </td></tr>
        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> updatePartialWithHttpInfo(Long id, Category category) throws ApiException {
+  public ApiResponse<Void> updateProductCategoryWithHttpInfo(Long id, Category category) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling updatePartial");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updateProductCategory");
     }
     if (category == null) {
-      throw new ApiException(400, "Missing the required parameter 'category' when calling updatePartial");
+      throw new ApiException(400, "Missing the required parameter 'category' when calling updateProductCategory");
     }
 
     // Path parameters
@@ -427,7 +429,7 @@ public class ProductsCategoriesApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("ProductsCategoriesApi.updatePartial", localVarPath, "POST", new ArrayList<>(), category,
+    return apiClient.invokeAPI("ProductsCategoriesApi.updateProductCategory", localVarPath, "PUT", new ArrayList<>(), category,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }

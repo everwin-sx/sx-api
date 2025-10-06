@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 
-@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-05-22T08:24:46.022483900+02:00[Europe/Paris]")
+@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-10-06T08:58:20.555636300+02:00[Europe/Paris]")
 public class AccountsApi {
   private ApiClient apiClient;
 
@@ -61,8 +61,8 @@ public class AccountsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public Account getById(Long id, String fields) throws ApiException {
-    return getByIdWithHttpInfo(id, fields).getData();
+  public Account getAccountById(Long id, String fields) throws ApiException {
+    return getAccountByIdWithHttpInfo(id, fields).getData();
   }
 
   /**
@@ -83,10 +83,10 @@ public class AccountsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Account> getByIdWithHttpInfo(Long id, String fields) throws ApiException {
+  public ApiResponse<Account> getAccountByIdWithHttpInfo(Long id, String fields) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getById");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getAccountById");
     }
 
     // Path parameters
@@ -102,7 +102,7 @@ public class AccountsApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<Account> localVarReturnType = new GenericType<Account>() {};
-    return apiClient.invokeAPI("AccountsApi.getById", localVarPath, "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("AccountsApi.getAccountById", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -119,8 +119,8 @@ public class AccountsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public String ping() throws ApiException {
-    return pingWithHttpInfo().getData();
+  public String pingAccount() throws ApiException {
+    return pingAccountWithHttpInfo().getData();
   }
 
   /**
@@ -136,12 +136,12 @@ public class AccountsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<String> pingWithHttpInfo() throws ApiException {
+  public ApiResponse<String> pingAccountWithHttpInfo() throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("text/plain");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<String> localVarReturnType = new GenericType<String>() {};
-    return apiClient.invokeAPI("AccountsApi.ping", "/accounts/ping", "GET", new ArrayList<>(), null,
+    return apiClient.invokeAPI("AccountsApi.pingAccount", "/accounts/ping", "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -164,8 +164,8 @@ public class AccountsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public AccountList query(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
-    return queryWithHttpInfo(filter, sort, offset, limit, fields).getData();
+  public AccountList queryAccount(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+    return queryAccountWithHttpInfo(filter, sort, offset, limit, fields).getData();
   }
 
   /**
@@ -187,7 +187,7 @@ public class AccountsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<AccountList> queryWithHttpInfo(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+  public ApiResponse<AccountList> queryAccountWithHttpInfo(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
     // Query parameters
     List<Pair> localVarQueryParams = new ArrayList<>(
             apiClient.parameterToPairs("", "filter", filter)
@@ -201,7 +201,7 @@ public class AccountsApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<AccountList> localVarReturnType = new GenericType<AccountList>() {};
-    return apiClient.invokeAPI("AccountsApi.query", "/accounts", "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("AccountsApi.queryAccount", "/accounts", "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -224,8 +224,8 @@ public class AccountsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public AccountList queryEexpenseSheet(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
-    return queryEexpenseSheetWithHttpInfo(filter, sort, offset, limit, fields).getData();
+  public AccountList queryAccountExpenseSheet(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+    return queryAccountExpenseSheetWithHttpInfo(filter, sort, offset, limit, fields).getData();
   }
 
   /**
@@ -247,7 +247,7 @@ public class AccountsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<AccountList> queryEexpenseSheetWithHttpInfo(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+  public ApiResponse<AccountList> queryAccountExpenseSheetWithHttpInfo(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
     // Query parameters
     List<Pair> localVarQueryParams = new ArrayList<>(
             apiClient.parameterToPairs("", "filter", filter)
@@ -261,7 +261,7 @@ public class AccountsApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<AccountList> localVarReturnType = new GenericType<AccountList>() {};
-    return apiClient.invokeAPI("AccountsApi.queryEexpenseSheet", "/accounts/expense-sheet", "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("AccountsApi.queryAccountExpenseSheet", "/accounts/expense-sheet", "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }

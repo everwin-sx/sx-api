@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 
-@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-05-22T08:24:46.022483900+02:00[Europe/Paris]")
+@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-10-06T08:58:20.555636300+02:00[Europe/Paris]")
 public class SpecialTimesTypeApi {
   private ApiClient apiClient;
 
@@ -61,8 +61,8 @@ public class SpecialTimesTypeApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public SpecialTimeType getById(Long id, String fields) throws ApiException {
-    return getByIdWithHttpInfo(id, fields).getData();
+  public SpecialTimeType getSpecialTimeTypeById(Long id, String fields) throws ApiException {
+    return getSpecialTimeTypeByIdWithHttpInfo(id, fields).getData();
   }
 
   /**
@@ -83,10 +83,10 @@ public class SpecialTimesTypeApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<SpecialTimeType> getByIdWithHttpInfo(Long id, String fields) throws ApiException {
+  public ApiResponse<SpecialTimeType> getSpecialTimeTypeByIdWithHttpInfo(Long id, String fields) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getById");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getSpecialTimeTypeById");
     }
 
     // Path parameters
@@ -102,7 +102,7 @@ public class SpecialTimesTypeApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<SpecialTimeType> localVarReturnType = new GenericType<SpecialTimeType>() {};
-    return apiClient.invokeAPI("SpecialTimesTypeApi.getById", localVarPath, "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("SpecialTimesTypeApi.getSpecialTimeTypeById", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -119,8 +119,8 @@ public class SpecialTimesTypeApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public String ping() throws ApiException {
-    return pingWithHttpInfo().getData();
+  public String pingSpecialTimeType() throws ApiException {
+    return pingSpecialTimeTypeWithHttpInfo().getData();
   }
 
   /**
@@ -136,12 +136,12 @@ public class SpecialTimesTypeApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<String> pingWithHttpInfo() throws ApiException {
+  public ApiResponse<String> pingSpecialTimeTypeWithHttpInfo() throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("text/plain");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<String> localVarReturnType = new GenericType<String>() {};
-    return apiClient.invokeAPI("SpecialTimesTypeApi.ping", "/special-time-types/ping", "GET", new ArrayList<>(), null,
+    return apiClient.invokeAPI("SpecialTimesTypeApi.pingSpecialTimeType", "/special-time-types/ping", "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -164,8 +164,8 @@ public class SpecialTimesTypeApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public SpecialTimeTypeList query(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
-    return queryWithHttpInfo(filter, sort, offset, limit, fields).getData();
+  public SpecialTimeTypeList querySpecialTimeType(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+    return querySpecialTimeTypeWithHttpInfo(filter, sort, offset, limit, fields).getData();
   }
 
   /**
@@ -187,7 +187,7 @@ public class SpecialTimesTypeApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<SpecialTimeTypeList> queryWithHttpInfo(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+  public ApiResponse<SpecialTimeTypeList> querySpecialTimeTypeWithHttpInfo(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
     // Query parameters
     List<Pair> localVarQueryParams = new ArrayList<>(
             apiClient.parameterToPairs("", "filter", filter)
@@ -201,7 +201,7 @@ public class SpecialTimesTypeApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<SpecialTimeTypeList> localVarReturnType = new GenericType<SpecialTimeTypeList>() {};
-    return apiClient.invokeAPI("SpecialTimesTypeApi.query", "/special-time-types", "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("SpecialTimesTypeApi.querySpecialTimeType", "/special-time-types", "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }

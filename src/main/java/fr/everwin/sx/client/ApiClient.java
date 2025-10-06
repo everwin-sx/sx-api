@@ -1,5 +1,11 @@
 package fr.everwin.sx.client;
 
+import com.github.scribejava.core.model.OAuth2AccessToken;
+import fr.everwin.sx.client.auth.ApiKeyAuth;
+import fr.everwin.sx.client.auth.Authentication;
+import fr.everwin.sx.client.auth.HttpBasicAuth;
+import fr.everwin.sx.client.auth.HttpBearerAuth;
+import fr.everwin.sx.client.auth.OAuth;
 import jakarta.ws.rs.client.Client;
 import jakarta.ws.rs.client.ClientBuilder;
 import jakarta.ws.rs.client.Entity;
@@ -10,60 +16,47 @@ import jakarta.ws.rs.core.GenericType;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import jakarta.ws.rs.core.Response.Status;
-
-import com.github.scribejava.core.model.OAuth2AccessToken;
 import org.glassfish.jersey.client.ClientConfig;
 import org.glassfish.jersey.client.ClientProperties;
 import org.glassfish.jersey.client.HttpUrlConnectorProvider;
 import org.glassfish.jersey.jackson.JacksonFeature;
+import org.glassfish.jersey.logging.LoggingFeature;
 import org.glassfish.jersey.media.multipart.FormDataBodyPart;
 import org.glassfish.jersey.media.multipart.FormDataContentDisposition;
 import org.glassfish.jersey.media.multipart.MultiPart;
 import org.glassfish.jersey.media.multipart.MultiPartFeature;
 
-import java.io.IOException;
-import java.io.InputStream;
-
-import java.net.URI;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
-import java.security.cert.X509Certificate;
-import java.security.KeyManagementException;
-import java.security.NoSuchAlgorithmException;
-import java.security.SecureRandom;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
+import java.net.URI;
+import java.net.URLEncoder;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
-import org.glassfish.jersey.logging.LoggingFeature;
-
-import java.util.logging.Logger;
+import java.security.KeyManagementException;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
+import java.security.cert.X509Certificate;
+import java.text.DateFormat;
+import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.Map;
-import java.util.Map.Entry;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Arrays;
-import java.util.ArrayList;
-import java.util.Date;
-import java.time.OffsetDateTime;
-
-import java.net.URLEncoder;
-
-import java.io.File;
-import java.io.UnsupportedEncodingException;
-
-import java.text.DateFormat;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import fr.everwin.sx.client.auth.Authentication;
-import fr.everwin.sx.client.auth.HttpBasicAuth;
-import fr.everwin.sx.client.auth.HttpBearerAuth;
-import fr.everwin.sx.client.auth.ApiKeyAuth;
-import fr.everwin.sx.client.auth.OAuth;
 
 /**
  * <p>ApiClient class.</p>

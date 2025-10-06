@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 
-@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-05-22T08:24:46.022483900+02:00[Europe/Paris]")
+@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-10-06T08:58:20.555636300+02:00[Europe/Paris]")
 public class ProjectActivitiesApi {
   private ApiClient apiClient;
 
@@ -48,6 +48,7 @@ public class ProjectActivitiesApi {
    * Create a project activity
    * 
    * @param projectActivity ProjectActivity (required)
+   * @return ProjectActivity
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -59,15 +60,15 @@ public class ProjectActivitiesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void create(ProjectActivity projectActivity) throws ApiException {
-    createWithHttpInfo(projectActivity);
+  public ProjectActivity createProjectActivity(ProjectActivity projectActivity) throws ApiException {
+    return createProjectActivityWithHttpInfo(projectActivity).getData();
   }
 
   /**
    * Create a project activity
    * 
    * @param projectActivity ProjectActivity (required)
-   * @return ApiResponse&lt;Void&gt;
+   * @return ApiResponse&lt;ProjectActivity&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -79,18 +80,19 @@ public class ProjectActivitiesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> createWithHttpInfo(ProjectActivity projectActivity) throws ApiException {
+  public ApiResponse<ProjectActivity> createProjectActivityWithHttpInfo(ProjectActivity projectActivity) throws ApiException {
     // Check required parameters
     if (projectActivity == null) {
-      throw new ApiException(400, "Missing the required parameter 'projectActivity' when calling create");
+      throw new ApiException(400, "Missing the required parameter 'projectActivity' when calling createProjectActivity");
     }
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("ProjectActivitiesApi.create", "/project-activities", "POST", new ArrayList<>(), projectActivity,
+    GenericType<ProjectActivity> localVarReturnType = new GenericType<ProjectActivity>() {};
+    return apiClient.invokeAPI("ProjectActivitiesApi.createProjectActivity", "/project-activities", "POST", new ArrayList<>(), projectActivity,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
+                               localVarAuthNames, localVarReturnType, false);
   }
   /**
    * Delete a project activity
@@ -108,8 +110,8 @@ public class ProjectActivitiesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void delete(Long id) throws ApiException {
-    deleteWithHttpInfo(id);
+  public void deleteProjectActivity(Long id) throws ApiException {
+    deleteProjectActivityWithHttpInfo(id);
   }
 
   /**
@@ -129,10 +131,10 @@ public class ProjectActivitiesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> deleteWithHttpInfo(Long id) throws ApiException {
+  public ApiResponse<Void> deleteProjectActivityWithHttpInfo(Long id) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling delete");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteProjectActivity");
     }
 
     // Path parameters
@@ -142,7 +144,7 @@ public class ProjectActivitiesApi {
     String localVarAccept = apiClient.selectHeaderAccept("*/*");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("ProjectActivitiesApi.delete", localVarPath, "DELETE", new ArrayList<>(), null,
+    return apiClient.invokeAPI("ProjectActivitiesApi.deleteProjectActivity", localVarPath, "DELETE", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -164,8 +166,8 @@ public class ProjectActivitiesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ProjectActivity getById(Long id, String fields) throws ApiException {
-    return getByIdWithHttpInfo(id, fields).getData();
+  public ProjectActivity getProjectActivityById(Long id, String fields) throws ApiException {
+    return getProjectActivityByIdWithHttpInfo(id, fields).getData();
   }
 
   /**
@@ -186,10 +188,10 @@ public class ProjectActivitiesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<ProjectActivity> getByIdWithHttpInfo(Long id, String fields) throws ApiException {
+  public ApiResponse<ProjectActivity> getProjectActivityByIdWithHttpInfo(Long id, String fields) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getById");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getProjectActivityById");
     }
 
     // Path parameters
@@ -205,7 +207,7 @@ public class ProjectActivitiesApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<ProjectActivity> localVarReturnType = new GenericType<ProjectActivity>() {};
-    return apiClient.invokeAPI("ProjectActivitiesApi.getById", localVarPath, "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("ProjectActivitiesApi.getProjectActivityById", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -222,8 +224,8 @@ public class ProjectActivitiesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public String ping() throws ApiException {
-    return pingWithHttpInfo().getData();
+  public String pingProjectActivity() throws ApiException {
+    return pingProjectActivityWithHttpInfo().getData();
   }
 
   /**
@@ -239,12 +241,12 @@ public class ProjectActivitiesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<String> pingWithHttpInfo() throws ApiException {
+  public ApiResponse<String> pingProjectActivityWithHttpInfo() throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("text/plain");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<String> localVarReturnType = new GenericType<String>() {};
-    return apiClient.invokeAPI("ProjectActivitiesApi.ping", "/project-activities/ping", "GET", new ArrayList<>(), null,
+    return apiClient.invokeAPI("ProjectActivitiesApi.pingProjectActivity", "/project-activities/ping", "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -267,8 +269,8 @@ public class ProjectActivitiesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ProjectActivityList query(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
-    return queryWithHttpInfo(filter, sort, offset, limit, fields).getData();
+  public ProjectActivityList queryProjectActivity(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+    return queryProjectActivityWithHttpInfo(filter, sort, offset, limit, fields).getData();
   }
 
   /**
@@ -290,7 +292,7 @@ public class ProjectActivitiesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<ProjectActivityList> queryWithHttpInfo(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+  public ApiResponse<ProjectActivityList> queryProjectActivityWithHttpInfo(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
     // Query parameters
     List<Pair> localVarQueryParams = new ArrayList<>(
             apiClient.parameterToPairs("", "filter", filter)
@@ -304,7 +306,7 @@ public class ProjectActivitiesApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<ProjectActivityList> localVarReturnType = new GenericType<ProjectActivityList>() {};
-    return apiClient.invokeAPI("ProjectActivitiesApi.query", "/project-activities", "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("ProjectActivitiesApi.queryProjectActivity", "/project-activities", "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -433,7 +435,7 @@ public class ProjectActivitiesApi {
                                localVarAuthNames, null, false);
   }
   /**
-   * Full update of a project activity. If project activity doesn&#39;t exist, it&#39;s created.
+   * Partial update of a project activity
    * 
    * @param id id (required)
    * @param projectActivity ProjectActivity (required)
@@ -442,20 +444,20 @@ public class ProjectActivitiesApi {
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-       <tr><td> 201 </td><td> Created </td><td>  * Location - URL to created work unit <br>  </td></tr>
        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void update(Long id, ProjectActivity projectActivity) throws ApiException {
-    updateWithHttpInfo(id, projectActivity);
+  public void updatePartialProjectActivity(Long id, ProjectActivity projectActivity) throws ApiException {
+    updatePartialProjectActivityWithHttpInfo(id, projectActivity);
   }
 
   /**
-   * Full update of a project activity. If project activity doesn&#39;t exist, it&#39;s created.
+   * Partial update of a project activity
    * 
    * @param id id (required)
    * @param projectActivity ProjectActivity (required)
@@ -465,21 +467,21 @@ public class ProjectActivitiesApi {
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-       <tr><td> 201 </td><td> Created </td><td>  * Location - URL to created work unit <br>  </td></tr>
        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> updateWithHttpInfo(Long id, ProjectActivity projectActivity) throws ApiException {
+  public ApiResponse<Void> updatePartialProjectActivityWithHttpInfo(Long id, ProjectActivity projectActivity) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling update");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updatePartialProjectActivity");
     }
     if (projectActivity == null) {
-      throw new ApiException(400, "Missing the required parameter 'projectActivity' when calling update");
+      throw new ApiException(400, "Missing the required parameter 'projectActivity' when calling updatePartialProjectActivity");
     }
 
     // Path parameters
@@ -489,12 +491,12 @@ public class ProjectActivitiesApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("ProjectActivitiesApi.update", localVarPath, "PUT", new ArrayList<>(), projectActivity,
+    return apiClient.invokeAPI("ProjectActivitiesApi.updatePartialProjectActivity", localVarPath, "POST", new ArrayList<>(), projectActivity,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
   /**
-   * Partial update of a project activity
+   * Full update of a project activity. If project activity doesn&#39;t exist, it&#39;s created.
    * 
    * @param id id (required)
    * @param projectActivity ProjectActivity (required)
@@ -503,20 +505,20 @@ public class ProjectActivitiesApi {
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+       <tr><td> 201 </td><td> Created </td><td>  * Location - URL to created work unit <br>  </td></tr>
        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void updatePartial(Long id, ProjectActivity projectActivity) throws ApiException {
-    updatePartialWithHttpInfo(id, projectActivity);
+  public void updateProjectActivity(Long id, ProjectActivity projectActivity) throws ApiException {
+    updateProjectActivityWithHttpInfo(id, projectActivity);
   }
 
   /**
-   * Partial update of a project activity
+   * Full update of a project activity. If project activity doesn&#39;t exist, it&#39;s created.
    * 
    * @param id id (required)
    * @param projectActivity ProjectActivity (required)
@@ -526,21 +528,21 @@ public class ProjectActivitiesApi {
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+       <tr><td> 201 </td><td> Created </td><td>  * Location - URL to created work unit <br>  </td></tr>
        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> updatePartialWithHttpInfo(Long id, ProjectActivity projectActivity) throws ApiException {
+  public ApiResponse<Void> updateProjectActivityWithHttpInfo(Long id, ProjectActivity projectActivity) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling updatePartial");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updateProjectActivity");
     }
     if (projectActivity == null) {
-      throw new ApiException(400, "Missing the required parameter 'projectActivity' when calling updatePartial");
+      throw new ApiException(400, "Missing the required parameter 'projectActivity' when calling updateProjectActivity");
     }
 
     // Path parameters
@@ -550,7 +552,7 @@ public class ProjectActivitiesApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("ProjectActivitiesApi.updatePartial", localVarPath, "POST", new ArrayList<>(), projectActivity,
+    return apiClient.invokeAPI("ProjectActivitiesApi.updateProjectActivity", localVarPath, "PUT", new ArrayList<>(), projectActivity,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }

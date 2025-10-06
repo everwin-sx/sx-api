@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 
-@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-05-22T08:24:46.022483900+02:00[Europe/Paris]")
+@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-10-06T08:58:20.555636300+02:00[Europe/Paris]")
 public class WorkUnitsApi {
   private ApiClient apiClient;
 
@@ -47,6 +47,7 @@ public class WorkUnitsApi {
    * Create a work unit
    * 
    * @param workunit Work unit (required)
+   * @return Workunit
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -58,15 +59,15 @@ public class WorkUnitsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void create(Workunit workunit) throws ApiException {
-    createWithHttpInfo(workunit);
+  public Workunit createWorkUnit(Workunit workunit) throws ApiException {
+    return createWorkUnitWithHttpInfo(workunit).getData();
   }
 
   /**
    * Create a work unit
    * 
    * @param workunit Work unit (required)
-   * @return ApiResponse&lt;Void&gt;
+   * @return ApiResponse&lt;Workunit&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -78,18 +79,19 @@ public class WorkUnitsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> createWithHttpInfo(Workunit workunit) throws ApiException {
+  public ApiResponse<Workunit> createWorkUnitWithHttpInfo(Workunit workunit) throws ApiException {
     // Check required parameters
     if (workunit == null) {
-      throw new ApiException(400, "Missing the required parameter 'workunit' when calling create");
+      throw new ApiException(400, "Missing the required parameter 'workunit' when calling createWorkUnit");
     }
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("WorkUnitsApi.create", "/work-units", "POST", new ArrayList<>(), workunit,
+    GenericType<Workunit> localVarReturnType = new GenericType<Workunit>() {};
+    return apiClient.invokeAPI("WorkUnitsApi.createWorkUnit", "/work-units", "POST", new ArrayList<>(), workunit,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
+                               localVarAuthNames, localVarReturnType, false);
   }
   /**
    * Delete a work unit
@@ -107,8 +109,8 @@ public class WorkUnitsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void delete(Long id) throws ApiException {
-    deleteWithHttpInfo(id);
+  public void deleteWorkUnit(Long id) throws ApiException {
+    deleteWorkUnitWithHttpInfo(id);
   }
 
   /**
@@ -128,10 +130,10 @@ public class WorkUnitsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> deleteWithHttpInfo(Long id) throws ApiException {
+  public ApiResponse<Void> deleteWorkUnitWithHttpInfo(Long id) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling delete");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteWorkUnit");
     }
 
     // Path parameters
@@ -141,7 +143,7 @@ public class WorkUnitsApi {
     String localVarAccept = apiClient.selectHeaderAccept("*/*");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("WorkUnitsApi.delete", localVarPath, "DELETE", new ArrayList<>(), null,
+    return apiClient.invokeAPI("WorkUnitsApi.deleteWorkUnit", localVarPath, "DELETE", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -163,8 +165,8 @@ public class WorkUnitsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public Workunit getById(Long id, String fields) throws ApiException {
-    return getByIdWithHttpInfo(id, fields).getData();
+  public Workunit getWorkUnitById(Long id, String fields) throws ApiException {
+    return getWorkUnitByIdWithHttpInfo(id, fields).getData();
   }
 
   /**
@@ -185,10 +187,10 @@ public class WorkUnitsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Workunit> getByIdWithHttpInfo(Long id, String fields) throws ApiException {
+  public ApiResponse<Workunit> getWorkUnitByIdWithHttpInfo(Long id, String fields) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getById");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getWorkUnitById");
     }
 
     // Path parameters
@@ -204,7 +206,7 @@ public class WorkUnitsApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<Workunit> localVarReturnType = new GenericType<Workunit>() {};
-    return apiClient.invokeAPI("WorkUnitsApi.getById", localVarPath, "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("WorkUnitsApi.getWorkUnitById", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -221,8 +223,8 @@ public class WorkUnitsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public String ping() throws ApiException {
-    return pingWithHttpInfo().getData();
+  public String pingWorkUnit() throws ApiException {
+    return pingWorkUnitWithHttpInfo().getData();
   }
 
   /**
@@ -238,12 +240,12 @@ public class WorkUnitsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<String> pingWithHttpInfo() throws ApiException {
+  public ApiResponse<String> pingWorkUnitWithHttpInfo() throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("text/plain");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<String> localVarReturnType = new GenericType<String>() {};
-    return apiClient.invokeAPI("WorkUnitsApi.ping", "/work-units/ping", "GET", new ArrayList<>(), null,
+    return apiClient.invokeAPI("WorkUnitsApi.pingWorkUnit", "/work-units/ping", "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -266,8 +268,8 @@ public class WorkUnitsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public WorkUnitList query(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
-    return queryWithHttpInfo(filter, sort, offset, limit, fields).getData();
+  public WorkUnitList queryWorkUnit(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+    return queryWorkUnitWithHttpInfo(filter, sort, offset, limit, fields).getData();
   }
 
   /**
@@ -289,7 +291,7 @@ public class WorkUnitsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<WorkUnitList> queryWithHttpInfo(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+  public ApiResponse<WorkUnitList> queryWorkUnitWithHttpInfo(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
     // Query parameters
     List<Pair> localVarQueryParams = new ArrayList<>(
             apiClient.parameterToPairs("", "filter", filter)
@@ -303,12 +305,12 @@ public class WorkUnitsApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<WorkUnitList> localVarReturnType = new GenericType<WorkUnitList>() {};
-    return apiClient.invokeAPI("WorkUnitsApi.query", "/work-units", "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("WorkUnitsApi.queryWorkUnit", "/work-units", "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
   /**
-   * Full update of a work unit. If work unit doesn&#39;t exist, it&#39;s created.
+   * Partial update of a work unit
    * 
    * @param id id (required)
    * @param workunit Work unit (required)
@@ -317,20 +319,20 @@ public class WorkUnitsApi {
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-       <tr><td> 201 </td><td> Created </td><td>  * Location - URL to created work unit <br>  </td></tr>
        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void update(Long id, Workunit workunit) throws ApiException {
-    updateWithHttpInfo(id, workunit);
+  public void updatePartialWorkUnit(Long id, Workunit workunit) throws ApiException {
+    updatePartialWorkUnitWithHttpInfo(id, workunit);
   }
 
   /**
-   * Full update of a work unit. If work unit doesn&#39;t exist, it&#39;s created.
+   * Partial update of a work unit
    * 
    * @param id id (required)
    * @param workunit Work unit (required)
@@ -340,21 +342,21 @@ public class WorkUnitsApi {
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
-       <tr><td> 201 </td><td> Created </td><td>  * Location - URL to created work unit <br>  </td></tr>
        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> updateWithHttpInfo(Long id, Workunit workunit) throws ApiException {
+  public ApiResponse<Void> updatePartialWorkUnitWithHttpInfo(Long id, Workunit workunit) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling update");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updatePartialWorkUnit");
     }
     if (workunit == null) {
-      throw new ApiException(400, "Missing the required parameter 'workunit' when calling update");
+      throw new ApiException(400, "Missing the required parameter 'workunit' when calling updatePartialWorkUnit");
     }
 
     // Path parameters
@@ -364,12 +366,12 @@ public class WorkUnitsApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("WorkUnitsApi.update", localVarPath, "PUT", new ArrayList<>(), workunit,
+    return apiClient.invokeAPI("WorkUnitsApi.updatePartialWorkUnit", localVarPath, "POST", new ArrayList<>(), workunit,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
   /**
-   * Partial update of a work unit
+   * Full update of a work unit. If work unit doesn&#39;t exist, it&#39;s created.
    * 
    * @param id id (required)
    * @param workunit Work unit (required)
@@ -378,20 +380,20 @@ public class WorkUnitsApi {
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+       <tr><td> 201 </td><td> Created </td><td>  * Location - URL to created work unit <br>  </td></tr>
        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void updatePartial(Long id, Workunit workunit) throws ApiException {
-    updatePartialWithHttpInfo(id, workunit);
+  public void updateWorkUnit(Long id, Workunit workunit) throws ApiException {
+    updateWorkUnitWithHttpInfo(id, workunit);
   }
 
   /**
-   * Partial update of a work unit
+   * Full update of a work unit. If work unit doesn&#39;t exist, it&#39;s created.
    * 
    * @param id id (required)
    * @param workunit Work unit (required)
@@ -401,21 +403,21 @@ public class WorkUnitsApi {
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+       <tr><td> 201 </td><td> Created </td><td>  * Location - URL to created work unit <br>  </td></tr>
        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
-       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
        <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> updatePartialWithHttpInfo(Long id, Workunit workunit) throws ApiException {
+  public ApiResponse<Void> updateWorkUnitWithHttpInfo(Long id, Workunit workunit) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling updatePartial");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updateWorkUnit");
     }
     if (workunit == null) {
-      throw new ApiException(400, "Missing the required parameter 'workunit' when calling updatePartial");
+      throw new ApiException(400, "Missing the required parameter 'workunit' when calling updateWorkUnit");
     }
 
     // Path parameters
@@ -425,7 +427,7 @@ public class WorkUnitsApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("WorkUnitsApi.updatePartial", localVarPath, "POST", new ArrayList<>(), workunit,
+    return apiClient.invokeAPI("WorkUnitsApi.updateWorkUnit", localVarPath, "PUT", new ArrayList<>(), workunit,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }

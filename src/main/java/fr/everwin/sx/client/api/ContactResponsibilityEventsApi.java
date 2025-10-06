@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 
-@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-05-22T08:24:46.022483900+02:00[Europe/Paris]")
+@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-10-06T08:58:20.555636300+02:00[Europe/Paris]")
 public class ContactResponsibilityEventsApi {
   private ApiClient apiClient;
 
@@ -47,6 +47,7 @@ public class ContactResponsibilityEventsApi {
    * Create a contact responsibility event
    * 
    * @param contactevent Contact event (required)
+   * @return Contactevent
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -58,15 +59,15 @@ public class ContactResponsibilityEventsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void create(Contactevent contactevent) throws ApiException {
-    createWithHttpInfo(contactevent);
+  public Contactevent createContactEvent(Contactevent contactevent) throws ApiException {
+    return createContactEventWithHttpInfo(contactevent).getData();
   }
 
   /**
    * Create a contact responsibility event
    * 
    * @param contactevent Contact event (required)
-   * @return ApiResponse&lt;Void&gt;
+   * @return ApiResponse&lt;Contactevent&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -78,18 +79,19 @@ public class ContactResponsibilityEventsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> createWithHttpInfo(Contactevent contactevent) throws ApiException {
+  public ApiResponse<Contactevent> createContactEventWithHttpInfo(Contactevent contactevent) throws ApiException {
     // Check required parameters
     if (contactevent == null) {
-      throw new ApiException(400, "Missing the required parameter 'contactevent' when calling create");
+      throw new ApiException(400, "Missing the required parameter 'contactevent' when calling createContactEvent");
     }
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("ContactResponsibilityEventsApi.create", "/contact-responsibility-events", "POST", new ArrayList<>(), contactevent,
+    GenericType<Contactevent> localVarReturnType = new GenericType<Contactevent>() {};
+    return apiClient.invokeAPI("ContactResponsibilityEventsApi.createContactEvent", "/contact-responsibility-events", "POST", new ArrayList<>(), contactevent,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
+                               localVarAuthNames, localVarReturnType, false);
   }
   /**
    * Delete a contact responsibility event
@@ -107,8 +109,8 @@ public class ContactResponsibilityEventsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void delete(Long id) throws ApiException {
-    deleteWithHttpInfo(id);
+  public void deleteContactEvent(Long id) throws ApiException {
+    deleteContactEventWithHttpInfo(id);
   }
 
   /**
@@ -128,10 +130,10 @@ public class ContactResponsibilityEventsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> deleteWithHttpInfo(Long id) throws ApiException {
+  public ApiResponse<Void> deleteContactEventWithHttpInfo(Long id) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling delete");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling deleteContactEvent");
     }
 
     // Path parameters
@@ -141,7 +143,7 @@ public class ContactResponsibilityEventsApi {
     String localVarAccept = apiClient.selectHeaderAccept("*/*");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("ContactResponsibilityEventsApi.delete", localVarPath, "DELETE", new ArrayList<>(), null,
+    return apiClient.invokeAPI("ContactResponsibilityEventsApi.deleteContactEvent", localVarPath, "DELETE", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -163,8 +165,8 @@ public class ContactResponsibilityEventsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public Contactevent getById(Long id, String fields) throws ApiException {
-    return getByIdWithHttpInfo(id, fields).getData();
+  public Contactevent getContactEventById(Long id, String fields) throws ApiException {
+    return getContactEventByIdWithHttpInfo(id, fields).getData();
   }
 
   /**
@@ -185,10 +187,10 @@ public class ContactResponsibilityEventsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Contactevent> getByIdWithHttpInfo(Long id, String fields) throws ApiException {
+  public ApiResponse<Contactevent> getContactEventByIdWithHttpInfo(Long id, String fields) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getById");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getContactEventById");
     }
 
     // Path parameters
@@ -204,7 +206,7 @@ public class ContactResponsibilityEventsApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<Contactevent> localVarReturnType = new GenericType<Contactevent>() {};
-    return apiClient.invokeAPI("ContactResponsibilityEventsApi.getById", localVarPath, "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("ContactResponsibilityEventsApi.getContactEventById", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -221,8 +223,8 @@ public class ContactResponsibilityEventsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public String ping() throws ApiException {
-    return pingWithHttpInfo().getData();
+  public String pingContactEvent() throws ApiException {
+    return pingContactEventWithHttpInfo().getData();
   }
 
   /**
@@ -238,12 +240,12 @@ public class ContactResponsibilityEventsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<String> pingWithHttpInfo() throws ApiException {
+  public ApiResponse<String> pingContactEventWithHttpInfo() throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("text/plain");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<String> localVarReturnType = new GenericType<String>() {};
-    return apiClient.invokeAPI("ContactResponsibilityEventsApi.ping", "/contact-responsibility-events/ping", "GET", new ArrayList<>(), null,
+    return apiClient.invokeAPI("ContactResponsibilityEventsApi.pingContactEvent", "/contact-responsibility-events/ping", "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -266,8 +268,8 @@ public class ContactResponsibilityEventsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ContactEventList query(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
-    return queryWithHttpInfo(filter, sort, offset, limit, fields).getData();
+  public ContactEventList queryContactEvent(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+    return queryContactEventWithHttpInfo(filter, sort, offset, limit, fields).getData();
   }
 
   /**
@@ -289,7 +291,7 @@ public class ContactResponsibilityEventsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<ContactEventList> queryWithHttpInfo(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+  public ApiResponse<ContactEventList> queryContactEventWithHttpInfo(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
     // Query parameters
     List<Pair> localVarQueryParams = new ArrayList<>(
             apiClient.parameterToPairs("", "filter", filter)
@@ -303,7 +305,7 @@ public class ContactResponsibilityEventsApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<ContactEventList> localVarReturnType = new GenericType<ContactEventList>() {};
-    return apiClient.invokeAPI("ContactResponsibilityEventsApi.query", "/contact-responsibility-events", "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("ContactResponsibilityEventsApi.queryContactEvent", "/contact-responsibility-events", "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -325,8 +327,8 @@ public class ContactResponsibilityEventsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void update(Long id, Contactevent contactevent) throws ApiException {
-    updateWithHttpInfo(id, contactevent);
+  public void updateContactEvent(Long id, Contactevent contactevent) throws ApiException {
+    updateContactEventWithHttpInfo(id, contactevent);
   }
 
   /**
@@ -348,13 +350,13 @@ public class ContactResponsibilityEventsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> updateWithHttpInfo(Long id, Contactevent contactevent) throws ApiException {
+  public ApiResponse<Void> updateContactEventWithHttpInfo(Long id, Contactevent contactevent) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling update");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updateContactEvent");
     }
     if (contactevent == null) {
-      throw new ApiException(400, "Missing the required parameter 'contactevent' when calling update");
+      throw new ApiException(400, "Missing the required parameter 'contactevent' when calling updateContactEvent");
     }
 
     // Path parameters
@@ -364,7 +366,7 @@ public class ContactResponsibilityEventsApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("ContactResponsibilityEventsApi.update", localVarPath, "PUT", new ArrayList<>(), contactevent,
+    return apiClient.invokeAPI("ContactResponsibilityEventsApi.updateContactEvent", localVarPath, "PUT", new ArrayList<>(), contactevent,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -386,8 +388,8 @@ public class ContactResponsibilityEventsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void updatePartial(Long id, Contactevent contactevent) throws ApiException {
-    updatePartialWithHttpInfo(id, contactevent);
+  public void updatePartialContactEvent(Long id, Contactevent contactevent) throws ApiException {
+    updatePartialContactEventWithHttpInfo(id, contactevent);
   }
 
   /**
@@ -409,13 +411,13 @@ public class ContactResponsibilityEventsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> updatePartialWithHttpInfo(Long id, Contactevent contactevent) throws ApiException {
+  public ApiResponse<Void> updatePartialContactEventWithHttpInfo(Long id, Contactevent contactevent) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling updatePartial");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling updatePartialContactEvent");
     }
     if (contactevent == null) {
-      throw new ApiException(400, "Missing the required parameter 'contactevent' when calling updatePartial");
+      throw new ApiException(400, "Missing the required parameter 'contactevent' when calling updatePartialContactEvent");
     }
 
     // Path parameters
@@ -425,7 +427,7 @@ public class ContactResponsibilityEventsApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("ContactResponsibilityEventsApi.updatePartial", localVarPath, "POST", new ArrayList<>(), contactevent,
+    return apiClient.invokeAPI("ContactResponsibilityEventsApi.updatePartialContactEvent", localVarPath, "POST", new ArrayList<>(), contactevent,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }

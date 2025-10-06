@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 
-@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-05-22T08:24:46.022483900+02:00[Europe/Paris]")
+@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-10-06T08:58:20.555636300+02:00[Europe/Paris]")
 public class GeographicalAreasApi {
   private ApiClient apiClient;
 
@@ -61,8 +61,8 @@ public class GeographicalAreasApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public GeographicalArea getById(Long id, String fields) throws ApiException {
-    return getByIdWithHttpInfo(id, fields).getData();
+  public GeographicalArea getGeographicalAreaById(Long id, String fields) throws ApiException {
+    return getGeographicalAreaByIdWithHttpInfo(id, fields).getData();
   }
 
   /**
@@ -83,10 +83,10 @@ public class GeographicalAreasApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<GeographicalArea> getByIdWithHttpInfo(Long id, String fields) throws ApiException {
+  public ApiResponse<GeographicalArea> getGeographicalAreaByIdWithHttpInfo(Long id, String fields) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling getById");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getGeographicalAreaById");
     }
 
     // Path parameters
@@ -102,7 +102,7 @@ public class GeographicalAreasApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<GeographicalArea> localVarReturnType = new GenericType<GeographicalArea>() {};
-    return apiClient.invokeAPI("GeographicalAreasApi.getById", localVarPath, "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("GeographicalAreasApi.getGeographicalAreaById", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -119,8 +119,8 @@ public class GeographicalAreasApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public String ping() throws ApiException {
-    return pingWithHttpInfo().getData();
+  public String pingGeographicalArea() throws ApiException {
+    return pingGeographicalAreaWithHttpInfo().getData();
   }
 
   /**
@@ -136,12 +136,12 @@ public class GeographicalAreasApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<String> pingWithHttpInfo() throws ApiException {
+  public ApiResponse<String> pingGeographicalAreaWithHttpInfo() throws ApiException {
     String localVarAccept = apiClient.selectHeaderAccept("text/plain");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<String> localVarReturnType = new GenericType<String>() {};
-    return apiClient.invokeAPI("GeographicalAreasApi.ping", "/geographical-areas/ping", "GET", new ArrayList<>(), null,
+    return apiClient.invokeAPI("GeographicalAreasApi.pingGeographicalArea", "/geographical-areas/ping", "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -164,8 +164,8 @@ public class GeographicalAreasApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public GeographicalAreaList query(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
-    return queryWithHttpInfo(filter, sort, offset, limit, fields).getData();
+  public GeographicalAreaList queryGeographicalArea(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+    return queryGeographicalAreaWithHttpInfo(filter, sort, offset, limit, fields).getData();
   }
 
   /**
@@ -187,7 +187,7 @@ public class GeographicalAreasApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<GeographicalAreaList> queryWithHttpInfo(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+  public ApiResponse<GeographicalAreaList> queryGeographicalAreaWithHttpInfo(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
     // Query parameters
     List<Pair> localVarQueryParams = new ArrayList<>(
             apiClient.parameterToPairs("", "filter", filter)
@@ -201,7 +201,7 @@ public class GeographicalAreasApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<GeographicalAreaList> localVarReturnType = new GenericType<GeographicalAreaList>() {};
-    return apiClient.invokeAPI("GeographicalAreasApi.query", "/geographical-areas", "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("GeographicalAreasApi.queryGeographicalArea", "/geographical-areas", "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }

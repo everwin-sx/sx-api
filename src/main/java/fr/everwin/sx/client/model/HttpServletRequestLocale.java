@@ -13,20 +13,15 @@
 
 package fr.everwin.sx.client.model;
 
-import java.util.Objects;
-import java.util.Map;
-import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import java.util.Arrays;
-import java.util.LinkedHashSet;
-import java.util.Set;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import fr.everwin.sx.client.JSON;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
+import java.util.LinkedHashSet;
+import java.util.Objects;
+import java.util.Set;
 
 
 /**
