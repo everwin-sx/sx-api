@@ -27,7 +27,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-10-06T08:58:20.555636300+02:00[Europe/Paris]")
+@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2026-07-16T11:45:50.162960500+02:00[Europe/Paris]")
 public class TimesheetsApi {
   private ApiClient apiClient;
 
@@ -831,8 +831,8 @@ public class TimesheetsApi {
    * @param id id (required)
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
+   * @param offset offset (optional, default to 0)
+   * @param limit limit (optional, default to 50)
    * @param fields fields (optional)
    * @return DocumentList
    * @throws ApiException if fails to make API call
@@ -857,8 +857,8 @@ public class TimesheetsApi {
    * @param id id (required)
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
+   * @param offset offset (optional, default to 0)
+   * @param limit limit (optional, default to 50)
    * @param fields fields (optional)
    * @return ApiResponse&lt;DocumentList&gt;
    * @throws ApiException if fails to make API call
@@ -906,8 +906,8 @@ public class TimesheetsApi {
    * @param id id (required)
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
+   * @param offset offset (optional, default to 0)
+   * @param limit limit (optional, default to 50)
    * @param fields fields (optional)
    * @return TimesheetLineList
    * @throws ApiException if fails to make API call
@@ -932,8 +932,8 @@ public class TimesheetsApi {
    * @param id id (required)
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
+   * @param offset offset (optional, default to 0)
+   * @param limit limit (optional, default to 50)
    * @param fields fields (optional)
    * @return ApiResponse&lt;TimesheetLineList&gt;
    * @throws ApiException if fails to make API call
@@ -1167,7 +1167,7 @@ public class TimesheetsApi {
    * Get a collection of validation errors for the given timesheet
    * 
    * @param id id (required)
-   * @param partialValidation partialValidation (optional)
+   * @param partialValidation partialValidation (optional, default to false)
    * @param filter filter (optional)
    * @param fields fields (optional)
    * @throws ApiException if fails to make API call
@@ -1190,7 +1190,7 @@ public class TimesheetsApi {
    * Get a collection of validation errors for the given timesheet
    * 
    * @param id id (required)
-   * @param partialValidation partialValidation (optional)
+   * @param partialValidation partialValidation (optional, default to false)
    * @param filter filter (optional)
    * @param fields fields (optional)
    * @return ApiResponse&lt;Void&gt;
@@ -1481,8 +1481,8 @@ public class TimesheetsApi {
    * @param projectlineid projectlineid (required)
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
+   * @param offset offset (optional, default to 0)
+   * @param limit limit (optional, default to 50)
    * @param fields fields (optional)
    * @return ProjectSubLineList
    * @throws ApiException if fails to make API call
@@ -1508,8 +1508,8 @@ public class TimesheetsApi {
    * @param projectlineid projectlineid (required)
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
+   * @param offset offset (optional, default to 0)
+   * @param limit limit (optional, default to 50)
    * @param fields fields (optional)
    * @return ApiResponse&lt;ProjectSubLineList&gt;
    * @throws ApiException if fails to make API call
@@ -1695,8 +1695,8 @@ public class TimesheetsApi {
    * 
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
+   * @param offset offset (optional, default to 0)
+   * @param limit limit (optional, default to 50)
    * @param fields fields (optional)
    * @return TimesheetList
    * @throws ApiException if fails to make API call
@@ -1718,8 +1718,8 @@ public class TimesheetsApi {
    * 
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
+   * @param offset offset (optional, default to 0)
+   * @param limit limit (optional, default to 50)
    * @param fields fields (optional)
    * @return ApiResponse&lt;TimesheetList&gt;
    * @throws ApiException if fails to make API call

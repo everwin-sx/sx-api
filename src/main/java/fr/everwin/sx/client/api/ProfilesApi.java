@@ -17,7 +17,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-10-06T08:58:20.555636300+02:00[Europe/Paris]")
+@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2026-07-16T11:45:50.162960500+02:00[Europe/Paris]")
 public class ProfilesApi {
   private ApiClient apiClient;
 
@@ -468,8 +468,8 @@ public class ProfilesApi {
    * @param id id (required)
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
+   * @param offset offset (optional, default to 0)
+   * @param limit limit (optional, default to 50)
    * @param fields fields (optional)
    * @return DocumentList
    * @throws ApiException if fails to make API call
@@ -494,8 +494,8 @@ public class ProfilesApi {
    * @param id id (required)
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
+   * @param offset offset (optional, default to 0)
+   * @param limit limit (optional, default to 50)
    * @param fields fields (optional)
    * @return ApiResponse&lt;DocumentList&gt;
    * @throws ApiException if fails to make API call
@@ -581,8 +581,8 @@ public class ProfilesApi {
    * 
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
+   * @param offset offset (optional, default to 0)
+   * @param limit limit (optional, default to 50)
    * @param fields fields (optional)
    * @return ProfileList
    * @throws ApiException if fails to make API call
@@ -604,8 +604,8 @@ public class ProfilesApi {
    * 
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
+   * @param offset offset (optional, default to 0)
+   * @param limit limit (optional, default to 50)
    * @param fields fields (optional)
    * @return ApiResponse&lt;ProfileList&gt;
    * @throws ApiException if fails to make API call

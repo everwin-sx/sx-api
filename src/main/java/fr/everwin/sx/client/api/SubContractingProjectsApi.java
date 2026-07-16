@@ -6,6 +6,7 @@ import fr.everwin.sx.client.ApiResponse;
 import fr.everwin.sx.client.Configuration;
 import fr.everwin.sx.client.Pair;
 import fr.everwin.sx.client.model.Project;
+import fr.everwin.sx.client.model.ProjectLineList;
 import fr.everwin.sx.client.model.ProjectList;
 import jakarta.ws.rs.core.GenericType;
 
@@ -13,7 +14,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 
-@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-10-06T08:58:20.555636300+02:00[Europe/Paris]")
+@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2026-07-16T11:45:50.162960500+02:00[Europe/Paris]")
 public class SubContractingProjectsApi {
   private ApiClient apiClient;
 
@@ -107,6 +108,81 @@ public class SubContractingProjectsApi {
                                localVarAuthNames, localVarReturnType, false);
   }
   /**
+   * Get a collection of project lines for the given sub contracting projet
+   * 
+   * @param id id (required)
+   * @param filter filter (optional)
+   * @param sort sort (optional)
+   * @param offset offset (optional, default to 0)
+   * @param limit limit (optional, default to 50)
+   * @param fields fields (optional)
+   * @return ProjectLineList
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
+       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
+     </table>
+   */
+  public ProjectLineList getSubContractingProjectLines(Long id, String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+    return getSubContractingProjectLinesWithHttpInfo(id, filter, sort, offset, limit, fields).getData();
+  }
+
+  /**
+   * Get a collection of project lines for the given sub contracting projet
+   * 
+   * @param id id (required)
+   * @param filter filter (optional)
+   * @param sort sort (optional)
+   * @param offset offset (optional, default to 0)
+   * @param limit limit (optional, default to 50)
+   * @param fields fields (optional)
+   * @return ApiResponse&lt;ProjectLineList&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
+       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<ProjectLineList> getSubContractingProjectLinesWithHttpInfo(Long id, String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+    // Check required parameters
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getSubContractingProjectLines");
+    }
+
+    // Path parameters
+    String localVarPath = "/subcontracting-projects/{id}/lines"
+            .replaceAll("\\{id}", apiClient.escapeString(id.toString()));
+
+    // Query parameters
+    List<Pair> localVarQueryParams = new ArrayList<>(
+            apiClient.parameterToPairs("", "filter", filter)
+    );
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "offset", offset));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "fields", fields));
+
+    String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8", "application/xml;charset=utf-8");
+    String localVarContentType = apiClient.selectHeaderContentType();
+    String[] localVarAuthNames = new String[] {"api_key", "oauth"};
+    GenericType<ProjectLineList> localVarReturnType = new GenericType<ProjectLineList>() {};
+    return apiClient.invokeAPI("SubContractingProjectsApi.getSubContractingProjectLines", localVarPath, "GET", localVarQueryParams, null,
+                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, false);
+  }
+  /**
    * Test projects service
    * 
    * @return String
@@ -150,8 +226,8 @@ public class SubContractingProjectsApi {
    * 
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
+   * @param offset offset (optional, default to 0)
+   * @param limit limit (optional, default to 50)
    * @param fields fields (optional)
    * @return ProjectList
    * @throws ApiException if fails to make API call
@@ -173,8 +249,8 @@ public class SubContractingProjectsApi {
    * 
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
+   * @param offset offset (optional, default to 0)
+   * @param limit limit (optional, default to 50)
    * @param fields fields (optional)
    * @return ApiResponse&lt;ProjectList&gt;
    * @throws ApiException if fails to make API call

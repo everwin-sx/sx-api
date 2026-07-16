@@ -1,24 +1,19 @@
 package fr.everwin.sx.client.api;
 
-import fr.everwin.sx.client.ApiException;
 import fr.everwin.sx.client.ApiClient;
+import fr.everwin.sx.client.ApiException;
 import fr.everwin.sx.client.ApiResponse;
 import fr.everwin.sx.client.Configuration;
 import fr.everwin.sx.client.Pair;
-
-import jakarta.ws.rs.core.GenericType;
-
-import fr.everwin.sx.client.model.ErrorMessage;
 import fr.everwin.sx.client.model.ProjectActivityCategory;
 import fr.everwin.sx.client.model.ProjectActivityCategoryList;
+import jakarta.ws.rs.core.GenericType;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
 
-@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-10-06T08:58:20.555636300+02:00[Europe/Paris]")
+@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2026-07-16T11:45:50.162960500+02:00[Europe/Paris]")
 public class ProjectActivityCategoriesApi {
   private ApiClient apiClient;
 
@@ -155,8 +150,8 @@ public class ProjectActivityCategoriesApi {
    * 
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
+   * @param offset offset (optional, default to 0)
+   * @param limit limit (optional, default to 50)
    * @param fields fields (optional)
    * @return ProjectActivityCategoryList
    * @throws ApiException if fails to make API call
@@ -178,8 +173,8 @@ public class ProjectActivityCategoriesApi {
    * 
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
+   * @param offset offset (optional, default to 0)
+   * @param limit limit (optional, default to 50)
    * @param fields fields (optional)
    * @return ApiResponse&lt;ProjectActivityCategoryList&gt;
    * @throws ApiException if fails to make API call

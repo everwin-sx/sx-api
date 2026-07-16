@@ -13,28 +13,8 @@
 
 package fr.everwin.sx.client.api;
 
-import fr.everwin.sx.client.*;
-import fr.everwin.sx.client.auth.*;
-import fr.everwin.sx.client.model.Comment;
-import fr.everwin.sx.client.model.CommentList;
-import fr.everwin.sx.client.model.Document;
-import fr.everwin.sx.client.model.DocumentList;
-import fr.everwin.sx.client.model.ErrorMessage;
-import fr.everwin.sx.client.model.FormDataContentDisposition;
-import fr.everwin.sx.client.model.Lead;
-import fr.everwin.sx.client.model.LeadEvent;
-import fr.everwin.sx.client.model.LeadEventList;
-import fr.everwin.sx.client.model.LeadList;
-import fr.everwin.sx.client.model.SalesActionList;
-
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Disabled;
+import fr.everwin.sx.client.ApiException;
 import org.junit.jupiter.api.Test;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 /**
  * API tests for LeadsApi

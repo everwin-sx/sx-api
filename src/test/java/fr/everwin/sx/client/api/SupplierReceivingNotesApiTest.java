@@ -13,25 +13,8 @@
 
 package fr.everwin.sx.client.api;
 
-import fr.everwin.sx.client.*;
-import fr.everwin.sx.client.auth.*;
-import fr.everwin.sx.client.model.Document;
-import fr.everwin.sx.client.model.DocumentList;
-import fr.everwin.sx.client.model.ErrorMessage;
-import fr.everwin.sx.client.model.FormDataContentDisposition;
-import fr.everwin.sx.client.model.SupplierReceivingNote;
-import fr.everwin.sx.client.model.SupplierReceivingNoteLine;
-import fr.everwin.sx.client.model.SupplierReceivingNoteLineList;
-import fr.everwin.sx.client.model.SupplierReceivingNoteList;
-
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Disabled;
+import fr.everwin.sx.client.ApiException;
 import org.junit.jupiter.api.Test;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 /**
  * API tests for SupplierReceivingNotesApi

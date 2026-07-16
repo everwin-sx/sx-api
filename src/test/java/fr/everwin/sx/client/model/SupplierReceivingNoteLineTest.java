@@ -13,25 +13,6 @@
 
 package fr.everwin.sx.client.model;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.fasterxml.jackson.annotation.JsonValue;
-import fr.everwin.sx.client.model.ProjectDataLink;
-import fr.everwin.sx.client.model.ProjectLineDataLink;
-import fr.everwin.sx.client.model.RowtypeDataLink;
-import fr.everwin.sx.client.model.SpecificData;
-import fr.everwin.sx.client.model.SupplierOrderDataLink;
-import fr.everwin.sx.client.model.SupplierOrderLineDataLink;
-import fr.everwin.sx.client.model.SupplierReceivingNoteDataLink;
-import fr.everwin.sx.client.model.SupplierReceivingNoteLineMultiCurrency;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 /**

@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 
-@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-10-06T08:58:20.555636300+02:00[Europe/Paris]")
+@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2026-07-16T11:45:50.162960500+02:00[Europe/Paris]")
 public class PoaQuotesApi {
   private ApiClient apiClient;
 
@@ -51,7 +51,6 @@ public class PoaQuotesApi {
    * 
    * @param orderId orderId (required)
    * @param estimateId estimateId (required)
-   * @param customerOrder CustomerOrder (required)
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -65,8 +64,8 @@ public class PoaQuotesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void addPOAQuoteEstimateToOrder(Long orderId, Long estimateId, CustomerOrder customerOrder) throws ApiException {
-    addPOAQuoteEstimateToOrderWithHttpInfo(orderId, estimateId, customerOrder);
+  public void addPOAQuoteEstimateToOrder(Long orderId, Long estimateId) throws ApiException {
+    addPOAQuoteEstimateToOrderWithHttpInfo(orderId, estimateId);
   }
 
   /**
@@ -74,7 +73,6 @@ public class PoaQuotesApi {
    * 
    * @param orderId orderId (required)
    * @param estimateId estimateId (required)
-   * @param customerOrder CustomerOrder (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -89,16 +87,13 @@ public class PoaQuotesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> addPOAQuoteEstimateToOrderWithHttpInfo(Long orderId, Long estimateId, CustomerOrder customerOrder) throws ApiException {
+  public ApiResponse<Void> addPOAQuoteEstimateToOrderWithHttpInfo(Long orderId, Long estimateId) throws ApiException {
     // Check required parameters
     if (orderId == null) {
       throw new ApiException(400, "Missing the required parameter 'orderId' when calling addPOAQuoteEstimateToOrder");
     }
     if (estimateId == null) {
       throw new ApiException(400, "Missing the required parameter 'estimateId' when calling addPOAQuoteEstimateToOrder");
-    }
-    if (customerOrder == null) {
-      throw new ApiException(400, "Missing the required parameter 'customerOrder' when calling addPOAQuoteEstimateToOrder");
     }
 
     // Path parameters
@@ -107,9 +102,9 @@ public class PoaQuotesApi {
             .replaceAll("\\{estimateId}", apiClient.escapeString(estimateId.toString()));
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
-    String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
+    String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("PoaQuotesApi.addPOAQuoteEstimateToOrder", localVarPath, "PUT", new ArrayList<>(), customerOrder,
+    return apiClient.invokeAPI("PoaQuotesApi.addPOAQuoteEstimateToOrder", localVarPath, "PUT", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -117,7 +112,7 @@ public class PoaQuotesApi {
    * Creation of a Customer Order from an estimate
    * 
    * @param estimateId estimateId (required)
-   * @param customerOrder CustomerOrder (required)
+   * @param customerOrder CustomerOrder (optional)
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -139,7 +134,7 @@ public class PoaQuotesApi {
    * Creation of a Customer Order from an estimate
    * 
    * @param estimateId estimateId (required)
-   * @param customerOrder CustomerOrder (required)
+   * @param customerOrder CustomerOrder (optional)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -158,9 +153,6 @@ public class PoaQuotesApi {
     // Check required parameters
     if (estimateId == null) {
       throw new ApiException(400, "Missing the required parameter 'estimateId' when calling createPOAQuoteOrderFromEstimate");
-    }
-    if (customerOrder == null) {
-      throw new ApiException(400, "Missing the required parameter 'customerOrder' when calling createPOAQuoteOrderFromEstimate");
     }
 
     // Path parameters
@@ -234,8 +226,8 @@ public class PoaQuotesApi {
    * @param id id (required)
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
+   * @param offset offset (optional, default to 0)
+   * @param limit limit (optional, default to 50)
    * @param fields fields (optional)
    * @return POAQuoteItemList
    * @throws ApiException if fails to make API call
@@ -260,8 +252,8 @@ public class PoaQuotesApi {
    * @param id id (required)
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
+   * @param offset offset (optional, default to 0)
+   * @param limit limit (optional, default to 50)
    * @param fields fields (optional)
    * @return ApiResponse&lt;POAQuoteItemList&gt;
    * @throws ApiException if fails to make API call
@@ -372,8 +364,8 @@ public class PoaQuotesApi {
    * @param id id (required)
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
+   * @param offset offset (optional, default to 0)
+   * @param limit limit (optional, default to 50)
    * @param fields fields (optional)
    * @return POAQuoteLineList
    * @throws ApiException if fails to make API call
@@ -398,8 +390,8 @@ public class PoaQuotesApi {
    * @param id id (required)
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
+   * @param offset offset (optional, default to 0)
+   * @param limit limit (optional, default to 50)
    * @param fields fields (optional)
    * @return ApiResponse&lt;POAQuoteLineList&gt;
    * @throws ApiException if fails to make API call
@@ -485,8 +477,8 @@ public class PoaQuotesApi {
    * 
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
+   * @param offset offset (optional, default to 0)
+   * @param limit limit (optional, default to 50)
    * @param fields fields (optional)
    * @return POAQuoteList
    * @throws ApiException if fails to make API call
@@ -508,8 +500,8 @@ public class PoaQuotesApi {
    * 
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
+   * @param offset offset (optional, default to 0)
+   * @param limit limit (optional, default to 50)
    * @param fields fields (optional)
    * @return ApiResponse&lt;POAQuoteList&gt;
    * @throws ApiException if fails to make API call

@@ -13,26 +13,8 @@
 
 package fr.everwin.sx.client.api;
 
-import fr.everwin.sx.client.*;
-import fr.everwin.sx.client.auth.*;
-import fr.everwin.sx.client.model.Candidate;
-import fr.everwin.sx.client.model.CandidateList;
-import fr.everwin.sx.client.model.CandidateSkillList;
-import fr.everwin.sx.client.model.Comment;
-import fr.everwin.sx.client.model.CommentList;
-import fr.everwin.sx.client.model.Document;
-import fr.everwin.sx.client.model.DocumentList;
-import fr.everwin.sx.client.model.ErrorMessage;
-import fr.everwin.sx.client.model.FormDataContentDisposition;
-
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Disabled;
+import fr.everwin.sx.client.ApiException;
 import org.junit.jupiter.api.Test;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 /**
  * API tests for CandidatesApi

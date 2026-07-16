@@ -13,21 +13,8 @@
 
 package fr.everwin.sx.client.api;
 
-import fr.everwin.sx.client.*;
-import fr.everwin.sx.client.auth.*;
-import fr.everwin.sx.client.model.Advance;
-import fr.everwin.sx.client.model.AdvanceList;
-import fr.everwin.sx.client.model.Comment;
-import fr.everwin.sx.client.model.ErrorMessage;
-
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Disabled;
+import fr.everwin.sx.client.ApiException;
 import org.junit.jupiter.api.Test;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 /**
  * API tests for ExpenseAdvancesApi

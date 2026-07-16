@@ -31,7 +31,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-10-06T08:58:20.555636300+02:00[Europe/Paris]")
+@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2026-07-16T11:45:50.162960500+02:00[Europe/Paris]")
 public class EmployeesApi {
   private ApiClient apiClient;
 
@@ -763,8 +763,8 @@ public class EmployeesApi {
    * @param id id (required)
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
+   * @param offset offset (optional, default to 0)
+   * @param limit limit (optional, default to 50)
    * @param fields fields (optional)
    * @return CommentList
    * @throws ApiException if fails to make API call
@@ -789,8 +789,8 @@ public class EmployeesApi {
    * @param id id (required)
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
+   * @param offset offset (optional, default to 0)
+   * @param limit limit (optional, default to 50)
    * @param fields fields (optional)
    * @return ApiResponse&lt;CommentList&gt;
    * @throws ApiException if fails to make API call
@@ -907,8 +907,8 @@ public class EmployeesApi {
    * @param id id (required)
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
+   * @param offset offset (optional, default to 0)
+   * @param limit limit (optional, default to 50)
    * @param fields fields (optional)
    * @return DocumentList
    * @throws ApiException if fails to make API call
@@ -933,8 +933,8 @@ public class EmployeesApi {
    * @param id id (required)
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
+   * @param offset offset (optional, default to 0)
+   * @param limit limit (optional, default to 50)
    * @param fields fields (optional)
    * @return ApiResponse&lt;DocumentList&gt;
    * @throws ApiException if fails to make API call
@@ -982,8 +982,8 @@ public class EmployeesApi {
    * @param id id (required)
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
+   * @param offset offset (optional, default to 0)
+   * @param limit limit (optional, default to 50)
    * @param fields fields (optional)
    * @return EmployeeSkillList
    * @throws ApiException if fails to make API call
@@ -1008,8 +1008,8 @@ public class EmployeesApi {
    * @param id id (required)
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
+   * @param offset offset (optional, default to 0)
+   * @param limit limit (optional, default to 50)
    * @param fields fields (optional)
    * @return ApiResponse&lt;EmployeeSkillList&gt;
    * @throws ApiException if fails to make API call
@@ -1055,8 +1055,8 @@ public class EmployeesApi {
    * Get leave-requests types for an employee
    * 
    * @param id id (required)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
+   * @param offset offset (optional, default to 0)
+   * @param limit limit (optional, default to 50)
    * @return TypeList
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -1076,8 +1076,8 @@ public class EmployeesApi {
    * Get leave-requests types for an employee
    * 
    * @param id id (required)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
+   * @param offset offset (optional, default to 0)
+   * @param limit limit (optional, default to 50)
    * @return ApiResponse&lt;TypeList&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -1114,12 +1114,12 @@ public class EmployeesApi {
                                localVarAuthNames, localVarReturnType, false);
   }
   /**
-   * Get leave-requests types for an employee
+   * Get leave-requests types for an employee counter
    * 
    * @param id id (required)
    * @param timeCounterId timeCounterId (required)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
+   * @param offset offset (optional, default to 0)
+   * @param limit limit (optional, default to 50)
    * @return TypeList
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -1136,12 +1136,12 @@ public class EmployeesApi {
   }
 
   /**
-   * Get leave-requests types for an employee
+   * Get leave-requests types for an employee counter
    * 
    * @param id id (required)
    * @param timeCounterId timeCounterId (required)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
+   * @param offset offset (optional, default to 0)
+   * @param limit limit (optional, default to 50)
    * @return ApiResponse&lt;TypeList&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -1187,8 +1187,8 @@ public class EmployeesApi {
    * @param id id (required)
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
+   * @param offset offset (optional, default to 0)
+   * @param limit limit (optional, default to 50)
    * @param fields fields (optional)
    * @return LeaveRequestList
    * @throws ApiException if fails to make API call
@@ -1213,8 +1213,8 @@ public class EmployeesApi {
    * @param id id (required)
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
+   * @param offset offset (optional, default to 0)
+   * @param limit limit (optional, default to 50)
    * @param fields fields (optional)
    * @return ApiResponse&lt;LeaveRequestList&gt;
    * @throws ApiException if fails to make API call
@@ -1313,8 +1313,8 @@ public class EmployeesApi {
    * @param idCounter idCounter (required)
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
+   * @param offset offset (optional, default to 0)
+   * @param limit limit (optional, default to 50)
    * @param fields fields (optional)
    * @return CounterList
    * @throws ApiException if fails to make API call
@@ -1340,8 +1340,8 @@ public class EmployeesApi {
    * @param idCounter idCounter (required)
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
+   * @param offset offset (optional, default to 0)
+   * @param limit limit (optional, default to 50)
    * @param fields fields (optional)
    * @return ApiResponse&lt;CounterList&gt;
    * @throws ApiException if fails to make API call
@@ -1393,8 +1393,8 @@ public class EmployeesApi {
    * @param id id (required)
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
+   * @param offset offset (optional, default to 0)
+   * @param limit limit (optional, default to 50)
    * @param fields fields (optional)
    * @return CounterList
    * @throws ApiException if fails to make API call
@@ -1419,8 +1419,8 @@ public class EmployeesApi {
    * @param id id (required)
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
+   * @param offset offset (optional, default to 0)
+   * @param limit limit (optional, default to 50)
    * @param fields fields (optional)
    * @return ApiResponse&lt;CounterList&gt;
    * @throws ApiException if fails to make API call
@@ -1468,8 +1468,8 @@ public class EmployeesApi {
    * @param id id (required)
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
+   * @param offset offset (optional, default to 0)
+   * @param limit limit (optional, default to 50)
    * @param fields fields (optional)
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -1493,8 +1493,8 @@ public class EmployeesApi {
    * @param id id (required)
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
+   * @param offset offset (optional, default to 0)
+   * @param limit limit (optional, default to 50)
    * @param fields fields (optional)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
@@ -1541,8 +1541,8 @@ public class EmployeesApi {
    * @param id id (required)
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
+   * @param offset offset (optional, default to 0)
+   * @param limit limit (optional, default to 50)
    * @param fields fields (optional)
    * @return VehicleList
    * @throws ApiException if fails to make API call
@@ -1567,8 +1567,8 @@ public class EmployeesApi {
    * @param id id (required)
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
+   * @param offset offset (optional, default to 0)
+   * @param limit limit (optional, default to 50)
    * @param fields fields (optional)
    * @return ApiResponse&lt;VehicleList&gt;
    * @throws ApiException if fails to make API call
@@ -1721,8 +1721,8 @@ public class EmployeesApi {
    * 
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
+   * @param offset offset (optional, default to 0)
+   * @param limit limit (optional, default to 50)
    * @param fields fields (optional)
    * @return EmployeeList
    * @throws ApiException if fails to make API call
@@ -1744,8 +1744,8 @@ public class EmployeesApi {
    * 
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
+   * @param offset offset (optional, default to 0)
+   * @param limit limit (optional, default to 50)
    * @param fields fields (optional)
    * @return ApiResponse&lt;EmployeeList&gt;
    * @throws ApiException if fails to make API call
@@ -1781,8 +1781,8 @@ public class EmployeesApi {
    * 
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
+   * @param offset offset (optional, default to 0)
+   * @param limit limit (optional, default to 50)
    * @param fields fields (optional)
    * @return CommercialList
    * @throws ApiException if fails to make API call
@@ -1804,8 +1804,8 @@ public class EmployeesApi {
    * 
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
+   * @param offset offset (optional, default to 0)
+   * @param limit limit (optional, default to 50)
    * @param fields fields (optional)
    * @return ApiResponse&lt;CommercialList&gt;
    * @throws ApiException if fails to make API call
@@ -1841,8 +1841,8 @@ public class EmployeesApi {
    * 
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
+   * @param offset offset (optional, default to 0)
+   * @param limit limit (optional, default to 50)
    * @param fields fields (optional)
    * @return EmployeeList
    * @throws ApiException if fails to make API call
@@ -1864,8 +1864,8 @@ public class EmployeesApi {
    * 
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
+   * @param offset offset (optional, default to 0)
+   * @param limit limit (optional, default to 50)
    * @param fields fields (optional)
    * @return ApiResponse&lt;EmployeeList&gt;
    * @throws ApiException if fails to make API call
@@ -1901,8 +1901,8 @@ public class EmployeesApi {
    * 
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
+   * @param offset offset (optional, default to 0)
+   * @param limit limit (optional, default to 50)
    * @param fields fields (optional)
    * @return ManagerList
    * @throws ApiException if fails to make API call
@@ -1924,8 +1924,8 @@ public class EmployeesApi {
    * 
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
+   * @param offset offset (optional, default to 0)
+   * @param limit limit (optional, default to 50)
    * @param fields fields (optional)
    * @return ApiResponse&lt;ManagerList&gt;
    * @throws ApiException if fails to make API call
@@ -1961,8 +1961,8 @@ public class EmployeesApi {
    * 
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
+   * @param offset offset (optional, default to 0)
+   * @param limit limit (optional, default to 50)
    * @param fields fields (optional)
    * @return ProjectDirectorList
    * @throws ApiException if fails to make API call
@@ -1984,8 +1984,8 @@ public class EmployeesApi {
    * 
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
+   * @param offset offset (optional, default to 0)
+   * @param limit limit (optional, default to 50)
    * @param fields fields (optional)
    * @return ApiResponse&lt;ProjectDirectorList&gt;
    * @throws ApiException if fails to make API call
@@ -2021,8 +2021,8 @@ public class EmployeesApi {
    * 
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
+   * @param offset offset (optional, default to 0)
+   * @param limit limit (optional, default to 50)
    * @param fields fields (optional)
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -2043,8 +2043,8 @@ public class EmployeesApi {
    * 
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
+   * @param offset offset (optional, default to 0)
+   * @param limit limit (optional, default to 50)
    * @param fields fields (optional)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
@@ -2079,8 +2079,8 @@ public class EmployeesApi {
    * 
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
+   * @param offset offset (optional, default to 0)
+   * @param limit limit (optional, default to 50)
    * @param fields fields (optional)
    * @return RecruitmentManagerList
    * @throws ApiException if fails to make API call
@@ -2102,8 +2102,8 @@ public class EmployeesApi {
    * 
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
+   * @param offset offset (optional, default to 0)
+   * @param limit limit (optional, default to 50)
    * @param fields fields (optional)
    * @return ApiResponse&lt;RecruitmentManagerList&gt;
    * @throws ApiException if fails to make API call

@@ -13,34 +13,8 @@
 
 package fr.everwin.sx.client.api;
 
-import fr.everwin.sx.client.*;
-import fr.everwin.sx.client.auth.*;
-import fr.everwin.sx.client.model.CopyData;
-import fr.everwin.sx.client.model.Document;
-import fr.everwin.sx.client.model.DocumentList;
-import fr.everwin.sx.client.model.ErrorMessage;
-import fr.everwin.sx.client.model.FormDataContentDisposition;
-import java.time.OffsetDateTime;
-import fr.everwin.sx.client.model.ProjectLineList;
-import fr.everwin.sx.client.model.ProjectList;
-import fr.everwin.sx.client.model.ProjectSubLineList;
-import fr.everwin.sx.client.model.SpecialTimeTypeList;
-import fr.everwin.sx.client.model.TimeSheetFlowHistoryList;
-import fr.everwin.sx.client.model.Timesheet;
-import fr.everwin.sx.client.model.TimesheetLine;
-import fr.everwin.sx.client.model.TimesheetLineList;
-import fr.everwin.sx.client.model.TimesheetList;
-import fr.everwin.sx.client.model.TimesheetTaskVisibility;
-import fr.everwin.sx.client.model.ValidationInfo;
-
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Disabled;
+import fr.everwin.sx.client.ApiException;
 import org.junit.jupiter.api.Test;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 /**
  * API tests for TimesheetsApi

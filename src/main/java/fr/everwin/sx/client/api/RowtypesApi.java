@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 
-@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-10-06T08:58:20.555636300+02:00[Europe/Paris]")
+@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2026-07-16T11:45:50.162960500+02:00[Europe/Paris]")
 public class RowtypesApi {
   private ApiClient apiClient;
 
@@ -49,8 +49,8 @@ public class RowtypesApi {
    * @param id id (required)
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
+   * @param offset offset (optional, default to 0)
+   * @param limit limit (optional, default to 50)
    * @param fields fields (optional)
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -74,8 +74,8 @@ public class RowtypesApi {
    * @param id id (required)
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
+   * @param offset offset (optional, default to 0)
+   * @param limit limit (optional, default to 50)
    * @param fields fields (optional)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
@@ -112,7 +112,7 @@ public class RowtypesApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("RowTypesApi.getRowTypeParameters", localVarPath, "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("RowtypesApi.getRowTypeParameters", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -175,7 +175,7 @@ public class RowtypesApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<Rowtype> localVarReturnType = new GenericType<Rowtype>() {};
-    return apiClient.invokeAPI("RowTypesApi.getRowtypeById", localVarPath, "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("RowtypesApi.getRowtypeById", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -214,7 +214,7 @@ public class RowtypesApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<String> localVarReturnType = new GenericType<String>() {};
-    return apiClient.invokeAPI("RowTypesApi.pingRowtype", "/rowtypes/ping", "GET", new ArrayList<>(), null,
+    return apiClient.invokeAPI("RowtypesApi.pingRowtype", "/rowtypes/ping", "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -223,8 +223,8 @@ public class RowtypesApi {
    * 
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
+   * @param offset offset (optional, default to 0)
+   * @param limit limit (optional, default to 50)
    * @param fields fields (optional)
    * @return RowtypeListV3
    * @throws ApiException if fails to make API call
@@ -246,8 +246,8 @@ public class RowtypesApi {
    * 
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
+   * @param offset offset (optional, default to 0)
+   * @param limit limit (optional, default to 50)
    * @param fields fields (optional)
    * @return ApiResponse&lt;RowtypeListV3&gt;
    * @throws ApiException if fails to make API call
@@ -274,7 +274,7 @@ public class RowtypesApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<RowtypeListV3> localVarReturnType = new GenericType<RowtypeListV3>() {};
-    return apiClient.invokeAPI("RowTypesApi.queryExternal", "/rowtypes/external", "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("RowtypesApi.queryExternal", "/rowtypes/external", "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -283,8 +283,8 @@ public class RowtypesApi {
    * 
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
+   * @param offset offset (optional, default to 0)
+   * @param limit limit (optional, default to 50)
    * @param fields fields (optional)
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -305,8 +305,8 @@ public class RowtypesApi {
    * 
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
+   * @param offset offset (optional, default to 0)
+   * @param limit limit (optional, default to 50)
    * @param fields fields (optional)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
@@ -332,7 +332,7 @@ public class RowtypesApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("RowTypesApi.queryInternal", "/rowtypes/internal", "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("RowtypesApi.queryInternal", "/rowtypes/internal", "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -341,8 +341,8 @@ public class RowtypesApi {
    * 
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
+   * @param offset offset (optional, default to 0)
+   * @param limit limit (optional, default to 50)
    * @param fields fields (optional)
    * @return RowtypeListV3
    * @throws ApiException if fails to make API call
@@ -364,8 +364,8 @@ public class RowtypesApi {
    * 
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
+   * @param offset offset (optional, default to 0)
+   * @param limit limit (optional, default to 50)
    * @param fields fields (optional)
    * @return ApiResponse&lt;RowtypeListV3&gt;
    * @throws ApiException if fails to make API call
@@ -392,7 +392,7 @@ public class RowtypesApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<RowtypeListV3> localVarReturnType = new GenericType<RowtypeListV3>() {};
-    return apiClient.invokeAPI("RowTypesApi.queryInternalActivities", "/rowtypes/internal-activities", "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("RowtypesApi.queryInternalActivities", "/rowtypes/internal-activities", "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -401,8 +401,8 @@ public class RowtypesApi {
    * 
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
+   * @param offset offset (optional, default to 0)
+   * @param limit limit (optional, default to 50)
    * @param fields fields (optional)
    * @return RowtypeListV3
    * @throws ApiException if fails to make API call
@@ -424,8 +424,8 @@ public class RowtypesApi {
    * 
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
+   * @param offset offset (optional, default to 0)
+   * @param limit limit (optional, default to 50)
    * @param fields fields (optional)
    * @return ApiResponse&lt;RowtypeListV3&gt;
    * @throws ApiException if fails to make API call
@@ -452,7 +452,7 @@ public class RowtypesApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<RowtypeListV3> localVarReturnType = new GenericType<RowtypeListV3>() {};
-    return apiClient.invokeAPI("RowTypesApi.queryRowtype", "/rowtypes", "GET", localVarQueryParams, null,
+    return apiClient.invokeAPI("RowtypesApi.queryRowtype", "/rowtypes", "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }

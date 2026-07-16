@@ -5,7 +5,6 @@ import fr.everwin.sx.client.ApiException;
 import fr.everwin.sx.client.ApiResponse;
 import fr.everwin.sx.client.Configuration;
 import fr.everwin.sx.client.Pair;
-import fr.everwin.sx.client.model.CustomerOrder;
 import fr.everwin.sx.client.model.POAQuoteLineList;
 import fr.everwin.sx.client.model.PoaquoteLine;
 import fr.everwin.sx.client.model.WritablePoaquoteLine;
@@ -15,7 +14,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 
-@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-10-06T08:58:20.555636300+02:00[Europe/Paris]")
+@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2026-07-16T11:45:50.162960500+02:00[Europe/Paris]")
 public class PoaQuoteLinesApi {
   private ApiClient apiClient;
 
@@ -50,7 +49,6 @@ public class PoaQuoteLinesApi {
    * 
    * @param orderId orderId (required)
    * @param estimateLineId estimateLineId (required)
-   * @param customerOrder CustomerOrder (required)
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -64,8 +62,8 @@ public class PoaQuoteLinesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void addPOAQuoteLineToOrder(Long orderId, Long estimateLineId, CustomerOrder customerOrder) throws ApiException {
-    addPOAQuoteLineToOrderWithHttpInfo(orderId, estimateLineId, customerOrder);
+  public void addPOAQuoteLineToOrder(Long orderId, Long estimateLineId) throws ApiException {
+    addPOAQuoteLineToOrderWithHttpInfo(orderId, estimateLineId);
   }
 
   /**
@@ -73,7 +71,6 @@ public class PoaQuoteLinesApi {
    * 
    * @param orderId orderId (required)
    * @param estimateLineId estimateLineId (required)
-   * @param customerOrder CustomerOrder (required)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -88,16 +85,13 @@ public class PoaQuoteLinesApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> addPOAQuoteLineToOrderWithHttpInfo(Long orderId, Long estimateLineId, CustomerOrder customerOrder) throws ApiException {
+  public ApiResponse<Void> addPOAQuoteLineToOrderWithHttpInfo(Long orderId, Long estimateLineId) throws ApiException {
     // Check required parameters
     if (orderId == null) {
       throw new ApiException(400, "Missing the required parameter 'orderId' when calling addPOAQuoteLineToOrder");
     }
     if (estimateLineId == null) {
       throw new ApiException(400, "Missing the required parameter 'estimateLineId' when calling addPOAQuoteLineToOrder");
-    }
-    if (customerOrder == null) {
-      throw new ApiException(400, "Missing the required parameter 'customerOrder' when calling addPOAQuoteLineToOrder");
     }
 
     // Path parameters
@@ -106,9 +100,9 @@ public class PoaQuoteLinesApi {
             .replaceAll("\\{estimateLineId}", apiClient.escapeString(estimateLineId.toString()));
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
-    String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
+    String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("PoaQuoteLinesApi.addPOAQuoteLineToOrder", localVarPath, "POST", new ArrayList<>(), customerOrder,
+    return apiClient.invokeAPI("PoaQuoteLinesApi.addPOAQuoteLineToOrder", localVarPath, "POST", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -219,8 +213,8 @@ public class PoaQuoteLinesApi {
    * 
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
+   * @param offset offset (optional, default to 0)
+   * @param limit limit (optional, default to 50)
    * @param fields fields (optional)
    * @return POAQuoteLineList
    * @throws ApiException if fails to make API call
@@ -242,8 +236,8 @@ public class PoaQuoteLinesApi {
    * 
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
+   * @param offset offset (optional, default to 0)
+   * @param limit limit (optional, default to 50)
    * @param fields fields (optional)
    * @return ApiResponse&lt;POAQuoteLineList&gt;
    * @throws ApiException if fails to make API call

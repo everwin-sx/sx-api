@@ -13,37 +13,8 @@
 
 package fr.everwin.sx.client.api;
 
-import fr.everwin.sx.client.*;
-import fr.everwin.sx.client.auth.*;
-import fr.everwin.sx.client.model.Comment;
-import fr.everwin.sx.client.model.CommentList;
-import fr.everwin.sx.client.model.CommercialList;
-import fr.everwin.sx.client.model.CounterList;
-import fr.everwin.sx.client.model.Document;
-import fr.everwin.sx.client.model.DocumentList;
-import fr.everwin.sx.client.model.Employee;
-import fr.everwin.sx.client.model.EmployeeList;
-import fr.everwin.sx.client.model.EmployeeScope;
-import fr.everwin.sx.client.model.EmployeeSkillList;
-import fr.everwin.sx.client.model.ErrorMessage;
-import fr.everwin.sx.client.model.FormDataContentDisposition;
-import fr.everwin.sx.client.model.LeaveRequestList;
-import fr.everwin.sx.client.model.ManagerList;
-import fr.everwin.sx.client.model.ProjectDirectorList;
-import fr.everwin.sx.client.model.Projection;
-import fr.everwin.sx.client.model.ProjectionRequest;
-import fr.everwin.sx.client.model.RecruitmentManagerList;
-import fr.everwin.sx.client.model.TypeList;
-import fr.everwin.sx.client.model.VehicleList;
-
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Disabled;
+import fr.everwin.sx.client.ApiException;
 import org.junit.jupiter.api.Test;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 /**
  * API tests for EmployeesApi

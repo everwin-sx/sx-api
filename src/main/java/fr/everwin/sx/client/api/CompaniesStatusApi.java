@@ -4,14 +4,16 @@ import fr.everwin.sx.client.ApiClient;
 import fr.everwin.sx.client.ApiException;
 import fr.everwin.sx.client.ApiResponse;
 import fr.everwin.sx.client.Configuration;
+import fr.everwin.sx.client.Pair;
 import fr.everwin.sx.client.model.StatusList;
 import fr.everwin.sx.client.model.Statut;
 import jakarta.ws.rs.core.GenericType;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
+import java.util.List;
 
-@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-10-06T08:58:20.555636300+02:00[Europe/Paris]")
+@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2026-07-16T11:45:50.162960500+02:00[Europe/Paris]")
 public class CompaniesStatusApi {
   private ApiClient apiClient;
 
@@ -184,6 +186,11 @@ public class CompaniesStatusApi {
   /**
    * Get all status for customers and suppliers
    * 
+   * @param filter filter (optional)
+   * @param sort sort (optional)
+   * @param offset offset (optional, default to 0)
+   * @param limit limit (optional, default to 50)
+   * @param fields fields (optional)
    * @return StatusList
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -195,13 +202,18 @@ public class CompaniesStatusApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public StatusList queryStatus() throws ApiException {
-    return queryStatusWithHttpInfo().getData();
+  public StatusList queryStatus(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+    return queryStatusWithHttpInfo(filter, sort, offset, limit, fields).getData();
   }
 
   /**
    * Get all status for customers and suppliers
    * 
+   * @param filter filter (optional)
+   * @param sort sort (optional)
+   * @param offset offset (optional, default to 0)
+   * @param limit limit (optional, default to 50)
+   * @param fields fields (optional)
    * @return ApiResponse&lt;StatusList&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -213,12 +225,21 @@ public class CompaniesStatusApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<StatusList> queryStatusWithHttpInfo() throws ApiException {
+  public ApiResponse<StatusList> queryStatusWithHttpInfo(String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+    // Query parameters
+    List<Pair> localVarQueryParams = new ArrayList<>(
+            apiClient.parameterToPairs("", "filter", filter)
+    );
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "offset", offset));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "fields", fields));
+
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<StatusList> localVarReturnType = new GenericType<StatusList>() {};
-    return apiClient.invokeAPI("CompaniesStatusApi.queryStatus", "/company-status", "GET", new ArrayList<>(), null,
+    return apiClient.invokeAPI("CompaniesStatusApi.queryStatus", "/company-status", "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }

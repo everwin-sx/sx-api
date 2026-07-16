@@ -13,32 +13,8 @@
 
 package fr.everwin.sx.client.api;
 
-import fr.everwin.sx.client.*;
-import fr.everwin.sx.client.auth.*;
-import fr.everwin.sx.client.model.AsyncContext;
-import fr.everwin.sx.client.model.AuthenticationScope;
-import fr.everwin.sx.client.model.ConnectionMode;
-import fr.everwin.sx.client.model.Cookie;
-import fr.everwin.sx.client.model.HttpServletMapping;
-import fr.everwin.sx.client.model.HttpServletRequest;
-import fr.everwin.sx.client.model.HttpServletRequestLocale;
-import fr.everwin.sx.client.model.HttpServletRequestRequestURL;
-import fr.everwin.sx.client.model.HttpServletRequestUserPrincipal;
-import fr.everwin.sx.client.model.HttpSession;
-import fr.everwin.sx.client.model.Language;
-import fr.everwin.sx.client.model.Part;
-import fr.everwin.sx.client.model.ServletConnection;
-import fr.everwin.sx.client.model.ServletContext;
-import fr.everwin.sx.client.model.ServletInputStream;
-
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Disabled;
+import fr.everwin.sx.client.ApiException;
 import org.junit.jupiter.api.Test;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 /**
  * API tests for DefaultApi

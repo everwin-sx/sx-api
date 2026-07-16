@@ -5,13 +5,15 @@ import fr.everwin.sx.client.ApiException;
 import fr.everwin.sx.client.ApiResponse;
 import fr.everwin.sx.client.Configuration;
 import fr.everwin.sx.client.Pair;
-import fr.everwin.sx.client.model.ChorusPaymentrequest;
 import fr.everwin.sx.client.model.Comment;
 import fr.everwin.sx.client.model.CommentList;
 import fr.everwin.sx.client.model.CustomerAssetList;
+import fr.everwin.sx.client.model.Customerinvoice;
 import fr.everwin.sx.client.model.Document;
 import fr.everwin.sx.client.model.DocumentList;
 import fr.everwin.sx.client.model.FormDataContentDisposition;
+import fr.everwin.sx.client.model.Paymentrequest;
+import fr.everwin.sx.client.model.Poaquote;
 import fr.everwin.sx.client.model.Project;
 import fr.everwin.sx.client.model.ProjectLineList;
 import fr.everwin.sx.client.model.ProjectList;
@@ -24,7 +26,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2025-10-06T08:58:20.555636300+02:00[Europe/Paris]")
+@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2026-07-16T11:45:50.162960500+02:00[Europe/Paris]")
 public class ProjectsApi {
   private ApiClient apiClient;
 
@@ -109,10 +111,10 @@ public class ProjectsApi {
                                localVarAuthNames, null, false);
   }
   /**
-   * Create a Chorus payment request
+   * Create a payment request
    * 
    * @param id id (required)
-   * @return ChorusPaymentrequest
+   * @return Paymentrequest
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -124,15 +126,15 @@ public class ProjectsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ChorusPaymentrequest createChorusPaymentRequest(Long id) throws ApiException {
-    return createChorusPaymentRequestWithHttpInfo(id).getData();
+  public Paymentrequest createPaymentRequest(Long id) throws ApiException {
+    return createPaymentRequestWithHttpInfo(id).getData();
   }
 
   /**
-   * Create a Chorus payment request
+   * Create a payment request
    * 
    * @param id id (required)
-   * @return ApiResponse&lt;ChorusPaymentrequest&gt;
+   * @return ApiResponse&lt;Paymentrequest&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -144,10 +146,10 @@ public class ProjectsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<ChorusPaymentrequest> createChorusPaymentRequestWithHttpInfo(Long id) throws ApiException {
+  public ApiResponse<Paymentrequest> createPaymentRequestWithHttpInfo(Long id) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling createChorusPaymentRequest");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling createPaymentRequest");
     }
 
     // Path parameters
@@ -157,8 +159,8 @@ public class ProjectsApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    GenericType<ChorusPaymentrequest> localVarReturnType = new GenericType<ChorusPaymentrequest>() {};
-    return apiClient.invokeAPI("ProjectsApi.createChorusPaymentRequest", localVarPath, "POST", new ArrayList<>(), null,
+    GenericType<Paymentrequest> localVarReturnType = new GenericType<Paymentrequest>() {};
+    return apiClient.invokeAPI("ProjectsApi.createPaymentRequest", localVarPath, "POST", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -335,7 +337,7 @@ public class ProjectsApi {
    * 
    * @param id id (required)
    * @param quoteLines ids (required)
-   * @return QuoteLines
+   * @return Poaquote
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -348,7 +350,7 @@ public class ProjectsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public QuoteLines createQuote(Long id, QuoteLines quoteLines) throws ApiException {
+  public Poaquote createQuote(Long id, QuoteLines quoteLines) throws ApiException {
     return createQuoteWithHttpInfo(id, quoteLines).getData();
   }
 
@@ -357,7 +359,7 @@ public class ProjectsApi {
    * 
    * @param id id (required)
    * @param quoteLines ids (required)
-   * @return ApiResponse&lt;QuoteLines&gt;
+   * @return ApiResponse&lt;Poaquote&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
@@ -370,7 +372,7 @@ public class ProjectsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<QuoteLines> createQuoteWithHttpInfo(Long id, QuoteLines quoteLines) throws ApiException {
+  public ApiResponse<Poaquote> createQuoteWithHttpInfo(Long id, QuoteLines quoteLines) throws ApiException {
     // Check required parameters
     if (id == null) {
       throw new ApiException(400, "Missing the required parameter 'id' when calling createQuote");
@@ -386,7 +388,7 @@ public class ProjectsApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    GenericType<QuoteLines> localVarReturnType = new GenericType<QuoteLines>() {};
+    GenericType<Poaquote> localVarReturnType = new GenericType<Poaquote>() {};
     return apiClient.invokeAPI("ProjectsApi.createQuote", localVarPath, "POST", new ArrayList<>(), quoteLines,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
@@ -685,8 +687,8 @@ public class ProjectsApi {
    * @param id id (required)
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
+   * @param offset offset (optional, default to 0)
+   * @param limit limit (optional, default to 50)
    * @param fields fields (optional)
    * @return ProjectPhaseList
    * @throws ApiException if fails to make API call
@@ -711,8 +713,8 @@ public class ProjectsApi {
    * @param id id (required)
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
+   * @param offset offset (optional, default to 0)
+   * @param limit limit (optional, default to 50)
    * @param fields fields (optional)
    * @return ApiResponse&lt;ProjectPhaseList&gt;
    * @throws ApiException if fails to make API call
@@ -892,8 +894,8 @@ public class ProjectsApi {
    * @param id id (required)
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
+   * @param offset offset (optional, default to 0)
+   * @param limit limit (optional, default to 50)
    * @param fields fields (optional)
    * @return CommentList
    * @throws ApiException if fails to make API call
@@ -918,8 +920,8 @@ public class ProjectsApi {
    * @param id id (required)
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
+   * @param offset offset (optional, default to 0)
+   * @param limit limit (optional, default to 50)
    * @param fields fields (optional)
    * @return ApiResponse&lt;CommentList&gt;
    * @throws ApiException if fails to make API call
@@ -967,8 +969,8 @@ public class ProjectsApi {
    * @param id id (required)
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
+   * @param offset offset (optional, default to 0)
+   * @param limit limit (optional, default to 50)
    * @param fields fields (optional)
    * @return CustomerAssetList
    * @throws ApiException if fails to make API call
@@ -993,8 +995,8 @@ public class ProjectsApi {
    * @param id id (required)
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
+   * @param offset offset (optional, default to 0)
+   * @param limit limit (optional, default to 50)
    * @param fields fields (optional)
    * @return ApiResponse&lt;CustomerAssetList&gt;
    * @throws ApiException if fails to make API call
@@ -1111,8 +1113,8 @@ public class ProjectsApi {
    * @param id id (required)
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
+   * @param offset offset (optional, default to 0)
+   * @param limit limit (optional, default to 50)
    * @param fields fields (optional)
    * @return DocumentList
    * @throws ApiException if fails to make API call
@@ -1137,8 +1139,8 @@ public class ProjectsApi {
    * @param id id (required)
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
+   * @param offset offset (optional, default to 0)
+   * @param limit limit (optional, default to 50)
    * @param fields fields (optional)
    * @return ApiResponse&lt;DocumentList&gt;
    * @throws ApiException if fails to make API call
@@ -1186,8 +1188,8 @@ public class ProjectsApi {
    * @param id id (required)
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
+   * @param offset offset (optional, default to 0)
+   * @param limit limit (optional, default to 50)
    * @param fields fields (optional)
    * @return ProjectLineList
    * @throws ApiException if fails to make API call
@@ -1212,8 +1214,8 @@ public class ProjectsApi {
    * @param id id (required)
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
+   * @param offset offset (optional, default to 0)
+   * @param limit limit (optional, default to 50)
    * @param fields fields (optional)
    * @return ApiResponse&lt;ProjectLineList&gt;
    * @throws ApiException if fails to make API call
@@ -1317,14 +1319,15 @@ public class ProjectsApi {
                                localVarAuthNames, null, false);
   }
   /**
-   * Invoicing to proforma
+   * Invoicing to draft
    * 
    * @param id id (required)
+   * @return Customerinvoice
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+       <tr><td> 201 </td><td> Created </td><td>  * Location - URL to created work unit <br>  </td></tr>
        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
@@ -1333,20 +1336,20 @@ public class ProjectsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void invoicingProforma(Long id) throws ApiException {
-    invoicingProformaWithHttpInfo(id);
+  public Customerinvoice invoicingDraft(Long id) throws ApiException {
+    return invoicingDraftWithHttpInfo(id).getData();
   }
 
   /**
-   * Invoicing to proforma
+   * Invoicing to draft
    * 
    * @param id id (required)
-   * @return ApiResponse&lt;Void&gt;
+   * @return ApiResponse&lt;Customerinvoice&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details
      <table summary="Response Details" border="1">
        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+       <tr><td> 201 </td><td> Created </td><td>  * Location - URL to created work unit <br>  </td></tr>
        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
        <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
@@ -1355,22 +1358,23 @@ public class ProjectsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> invoicingProformaWithHttpInfo(Long id) throws ApiException {
+  public ApiResponse<Customerinvoice> invoicingDraftWithHttpInfo(Long id) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling invoicingProforma");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling invoicingDraft");
     }
 
     // Path parameters
-    String localVarPath = "/projects/{id}/invoicing/proforma"
+    String localVarPath = "/projects/{id}/invoicing/draft"
             .replaceAll("\\{id}", apiClient.escapeString(id.toString()));
 
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("ProjectsApi.invoicingProforma", localVarPath, "POST", new ArrayList<>(), null,
+    GenericType<Customerinvoice> localVarReturnType = new GenericType<Customerinvoice>() {};
+    return apiClient.invokeAPI("ProjectsApi.invoicingDraft", localVarPath, "POST", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
-                               localVarAuthNames, null, false);
+                               localVarAuthNames, localVarReturnType, false);
   }
   /**
    * Unvalidate invoicing of the project
@@ -1542,8 +1546,8 @@ public class ProjectsApi {
    * 
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
+   * @param offset offset (optional, default to 0)
+   * @param limit limit (optional, default to 50)
    * @param fields fields (optional)
    * @return ProjectList
    * @throws ApiException if fails to make API call
@@ -1565,8 +1569,8 @@ public class ProjectsApi {
    * 
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional)
-   * @param limit limit (optional)
+   * @param offset offset (optional, default to 0)
+   * @param limit limit (optional, default to 50)
    * @param fields fields (optional)
    * @return ApiResponse&lt;ProjectList&gt;
    * @throws ApiException if fails to make API call

@@ -22,7 +22,7 @@ Use SX-API client versions 25+ to get compatibility with latest API version v3 a
 
 SX-API client versions follow SX versions
 
-Ex: sx-api-client 25.1.x compatible with sx version 25.1+  
+Ex: sx-api-client 26.0.x compatible with sx version 26.0+  
 
 ## Installation
 
@@ -37,7 +37,7 @@ Add this dependency to your project's POM:
 <dependency>
     <groupId>fr.everwin.sx.client</groupId>
     <artifactId>sx-api-client</artifactId>
-    <version>25.1.0</version>
+    <version>26.0.0</version>
 </dependency>
 ```
 ### Gradle users
@@ -51,7 +51,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "fr.everwin.sx.client:sx-api-client:25.1.0"
+     implementation "fr.everwin.sx.client:sx-api-client:26.0.0"
   }
 ```
 
