@@ -15,9 +15,11 @@ import fr.everwin.sx.client.model.ProjectSubLineList;
 import fr.everwin.sx.client.model.SpecialTimeTypeList;
 import fr.everwin.sx.client.model.TimeSheetFlowHistoryList;
 import fr.everwin.sx.client.model.Timesheet;
+import fr.everwin.sx.client.model.TimesheetEquipmentConfig;
 import fr.everwin.sx.client.model.TimesheetLine;
 import fr.everwin.sx.client.model.TimesheetLineList;
 import fr.everwin.sx.client.model.TimesheetList;
+import fr.everwin.sx.client.model.TimesheetResourceConfig;
 import fr.everwin.sx.client.model.TimesheetTaskVisibility;
 import fr.everwin.sx.client.model.ValidationInfo;
 import jakarta.ws.rs.core.GenericType;
@@ -27,7 +29,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2026-07-16T11:45:50.162960500+02:00[Europe/Paris]")
+@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2026-08-31T14:06:32.368569400+02:00[Europe/Paris]")
 public class TimesheetsApi {
   private ApiClient apiClient;
 
@@ -831,8 +833,8 @@ public class TimesheetsApi {
    * @param id id (required)
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional, default to 0)
-   * @param limit limit (optional, default to 50)
+   * @param offset offset (optional)
+   * @param limit limit (optional)
    * @param fields fields (optional)
    * @return DocumentList
    * @throws ApiException if fails to make API call
@@ -857,8 +859,8 @@ public class TimesheetsApi {
    * @param id id (required)
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional, default to 0)
-   * @param limit limit (optional, default to 50)
+   * @param offset offset (optional)
+   * @param limit limit (optional)
    * @param fields fields (optional)
    * @return ApiResponse&lt;DocumentList&gt;
    * @throws ApiException if fails to make API call
@@ -901,13 +903,58 @@ public class TimesheetsApi {
                                localVarAuthNames, localVarReturnType, false);
   }
   /**
+   * Get the config for equipment timesheet module
+   * 
+   * @return TimesheetEquipmentConfig
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
+       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
+     </table>
+   */
+  public TimesheetEquipmentConfig getTimesheetEquipmentConfig() throws ApiException {
+    return getTimesheetEquipmentConfigWithHttpInfo().getData();
+  }
+
+  /**
+   * Get the config for equipment timesheet module
+   * 
+   * @return ApiResponse&lt;TimesheetEquipmentConfig&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
+       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<TimesheetEquipmentConfig> getTimesheetEquipmentConfigWithHttpInfo() throws ApiException {
+    String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
+    String localVarContentType = apiClient.selectHeaderContentType();
+    String[] localVarAuthNames = new String[] {"api_key", "oauth"};
+    GenericType<TimesheetEquipmentConfig> localVarReturnType = new GenericType<TimesheetEquipmentConfig>() {};
+    return apiClient.invokeAPI("TimesheetsApi.getTimesheetEquipmentConfig", "/timesheets/config/equipment", "GET", new ArrayList<>(), null,
+                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, false);
+  }
+  /**
    * Get a collection of timesheet lines for the given timesheet
    * 
    * @param id id (required)
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional, default to 0)
-   * @param limit limit (optional, default to 50)
+   * @param offset offset (optional)
+   * @param limit limit (optional)
    * @param fields fields (optional)
    * @return TimesheetLineList
    * @throws ApiException if fails to make API call
@@ -932,8 +979,8 @@ public class TimesheetsApi {
    * @param id id (required)
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional, default to 0)
-   * @param limit limit (optional, default to 50)
+   * @param offset offset (optional)
+   * @param limit limit (optional)
    * @param fields fields (optional)
    * @return ApiResponse&lt;TimesheetLineList&gt;
    * @throws ApiException if fails to make API call
@@ -1035,6 +1082,51 @@ public class TimesheetsApi {
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<ProjectList> localVarReturnType = new GenericType<ProjectList>() {};
     return apiClient.invokeAPI("TimesheetsApi.getTimesheetRecentProjects", localVarPath, "GET", localVarQueryParams, null,
+                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, false);
+  }
+  /**
+   * Get the config for resource timesheet module
+   * 
+   * @return TimesheetResourceConfig
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
+       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
+     </table>
+   */
+  public TimesheetResourceConfig getTimesheetResourceConfig() throws ApiException {
+    return getTimesheetResourceConfigWithHttpInfo().getData();
+  }
+
+  /**
+   * Get the config for resource timesheet module
+   * 
+   * @return ApiResponse&lt;TimesheetResourceConfig&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
+       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<TimesheetResourceConfig> getTimesheetResourceConfigWithHttpInfo() throws ApiException {
+    String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
+    String localVarContentType = apiClient.selectHeaderContentType();
+    String[] localVarAuthNames = new String[] {"api_key", "oauth"};
+    GenericType<TimesheetResourceConfig> localVarReturnType = new GenericType<TimesheetResourceConfig>() {};
+    return apiClient.invokeAPI("TimesheetsApi.getTimesheetResourceConfig", "/timesheets/config/resource", "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -1167,7 +1259,7 @@ public class TimesheetsApi {
    * Get a collection of validation errors for the given timesheet
    * 
    * @param id id (required)
-   * @param partialValidation partialValidation (optional, default to false)
+   * @param partialValidation partialValidation (optional)
    * @param filter filter (optional)
    * @param fields fields (optional)
    * @throws ApiException if fails to make API call
@@ -1190,7 +1282,7 @@ public class TimesheetsApi {
    * Get a collection of validation errors for the given timesheet
    * 
    * @param id id (required)
-   * @param partialValidation partialValidation (optional, default to false)
+   * @param partialValidation partialValidation (optional)
    * @param filter filter (optional)
    * @param fields fields (optional)
    * @return ApiResponse&lt;Void&gt;
@@ -1481,8 +1573,8 @@ public class TimesheetsApi {
    * @param projectlineid projectlineid (required)
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional, default to 0)
-   * @param limit limit (optional, default to 50)
+   * @param offset offset (optional)
+   * @param limit limit (optional)
    * @param fields fields (optional)
    * @return ProjectSubLineList
    * @throws ApiException if fails to make API call
@@ -1508,8 +1600,8 @@ public class TimesheetsApi {
    * @param projectlineid projectlineid (required)
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional, default to 0)
-   * @param limit limit (optional, default to 50)
+   * @param offset offset (optional)
+   * @param limit limit (optional)
    * @param fields fields (optional)
    * @return ApiResponse&lt;ProjectSubLineList&gt;
    * @throws ApiException if fails to make API call
@@ -1695,8 +1787,8 @@ public class TimesheetsApi {
    * 
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional, default to 0)
-   * @param limit limit (optional, default to 50)
+   * @param offset offset (optional)
+   * @param limit limit (optional)
    * @param fields fields (optional)
    * @return TimesheetList
    * @throws ApiException if fails to make API call
@@ -1718,8 +1810,8 @@ public class TimesheetsApi {
    * 
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional, default to 0)
-   * @param limit limit (optional, default to 50)
+   * @param offset offset (optional)
+   * @param limit limit (optional)
    * @param fields fields (optional)
    * @return ApiResponse&lt;TimesheetList&gt;
    * @throws ApiException if fails to make API call

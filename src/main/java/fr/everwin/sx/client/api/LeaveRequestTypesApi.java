@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 
-@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2026-07-16T11:45:50.162960500+02:00[Europe/Paris]")
+@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2026-08-31T14:06:32.368569400+02:00[Europe/Paris]")
 public class LeaveRequestTypesApi {
   private ApiClient apiClient;
 
@@ -141,8 +141,8 @@ public class LeaveRequestTypesApi {
   /**
    * Get a type of leave-request collection
    * 
-   * @param offset offset (optional, default to 0)
-   * @param limit limit (optional, default to 50)
+   * @param offset offset (optional)
+   * @param limit limit (optional)
    * @return TypeList
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -161,8 +161,8 @@ public class LeaveRequestTypesApi {
   /**
    * Get a type of leave-request collection
    * 
-   * @param offset offset (optional, default to 0)
-   * @param limit limit (optional, default to 50)
+   * @param offset offset (optional)
+   * @param limit limit (optional)
    * @return ApiResponse&lt;TypeList&gt;
    * @throws ApiException if fails to make API call
    * @http.response.details

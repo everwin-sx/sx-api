@@ -14,7 +14,10 @@ import fr.everwin.sx.client.model.CustomerInvoiceValidationModel;
 import fr.everwin.sx.client.model.Customerinvoice;
 import fr.everwin.sx.client.model.Document;
 import fr.everwin.sx.client.model.DocumentList;
+import fr.everwin.sx.client.model.EInvoicingStateHistoList;
+import fr.everwin.sx.client.model.Einvoicinglifecycle;
 import fr.everwin.sx.client.model.FormDataContentDisposition;
+import fr.everwin.sx.client.model.InvoiceSendingHistoList;
 import fr.everwin.sx.client.model.InvoicingGridList;
 import fr.everwin.sx.client.model.PreviousInvoiceList;
 import fr.everwin.sx.client.model.RepartitionByRateList;
@@ -25,7 +28,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2026-07-16T11:45:50.162960500+02:00[Europe/Paris]")
+@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2026-08-31T14:06:32.368569400+02:00[Europe/Paris]")
 public class CustomerInvoicesApi {
   private ApiClient apiClient;
 
@@ -175,6 +178,60 @@ public class CustomerInvoicesApi {
                                localVarAuthNames, null, false);
   }
   /**
+   * Get all physical files linked to the customer invoice. All files are returned as a zip file
+   * 
+   * @param id id (required)
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
+       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
+     </table>
+   */
+  public void downloadAllCustomerInvoiceDocuments(Long id) throws ApiException {
+    downloadAllCustomerInvoiceDocumentsWithHttpInfo(id);
+  }
+
+  /**
+   * Get all physical files linked to the customer invoice. All files are returned as a zip file
+   * 
+   * @param id id (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
+       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<Void> downloadAllCustomerInvoiceDocumentsWithHttpInfo(Long id) throws ApiException {
+    // Check required parameters
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling downloadAllCustomerInvoiceDocuments");
+    }
+
+    // Path parameters
+    String localVarPath = "/customer-invoices/{id}/documents/all/download"
+            .replaceAll("\\{id}", apiClient.escapeString(id.toString()));
+
+    String localVarAccept = apiClient.selectHeaderAccept("application/octet-stream");
+    String localVarContentType = apiClient.selectHeaderContentType();
+    String[] localVarAuthNames = new String[] {"api_key", "oauth"};
+    return apiClient.invokeAPI("CustomerInvoicesApi.downloadAllCustomerInvoiceDocuments", localVarPath, "GET", new ArrayList<>(), null,
+                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
+                               localVarAuthNames, null, false);
+  }
+  /**
    * Get physical file linked to the customer order document
    * 
    * @param id id (required)
@@ -231,6 +288,114 @@ public class CustomerInvoicesApi {
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     return apiClient.invokeAPI("CustomerInvoicesApi.downloadCustomerInvoiceDocument", localVarPath, "GET", new ArrayList<>(), null,
+                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
+                               localVarAuthNames, null, false);
+  }
+  /**
+   * Get all physical files linked to the customer invoice. All files are returned as a zip file
+   * 
+   * @param id id (required)
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
+       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
+     </table>
+   */
+  public void downloadEInvoicingCustomerInvoiceDocuments(Long id) throws ApiException {
+    downloadEInvoicingCustomerInvoiceDocumentsWithHttpInfo(id);
+  }
+
+  /**
+   * Get all physical files linked to the customer invoice. All files are returned as a zip file
+   * 
+   * @param id id (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
+       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<Void> downloadEInvoicingCustomerInvoiceDocumentsWithHttpInfo(Long id) throws ApiException {
+    // Check required parameters
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling downloadEInvoicingCustomerInvoiceDocuments");
+    }
+
+    // Path parameters
+    String localVarPath = "/customer-invoices/{id}/documents/einvoicing/download"
+            .replaceAll("\\{id}", apiClient.escapeString(id.toString()));
+
+    String localVarAccept = apiClient.selectHeaderAccept("application/octet-stream");
+    String localVarContentType = apiClient.selectHeaderContentType();
+    String[] localVarAuthNames = new String[] {"api_key", "oauth"};
+    return apiClient.invokeAPI("CustomerInvoicesApi.downloadEInvoicingCustomerInvoiceDocuments", localVarPath, "GET", new ArrayList<>(), null,
+                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
+                               localVarAuthNames, null, false);
+  }
+  /**
+   * Get physical file linked to the main customer invoice document
+   * 
+   * @param id id (required)
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
+       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
+     </table>
+   */
+  public void downloadMainCustomerInvoiceDocument(Long id) throws ApiException {
+    downloadMainCustomerInvoiceDocumentWithHttpInfo(id);
+  }
+
+  /**
+   * Get physical file linked to the main customer invoice document
+   * 
+   * @param id id (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
+       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<Void> downloadMainCustomerInvoiceDocumentWithHttpInfo(Long id) throws ApiException {
+    // Check required parameters
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling downloadMainCustomerInvoiceDocument");
+    }
+
+    // Path parameters
+    String localVarPath = "/customer-invoices/{id}/documents/main/download"
+            .replaceAll("\\{id}", apiClient.escapeString(id.toString()));
+
+    String localVarAccept = apiClient.selectHeaderAccept("application/octet-stream");
+    String localVarContentType = apiClient.selectHeaderContentType();
+    String[] localVarAuthNames = new String[] {"api_key", "oauth"};
+    return apiClient.invokeAPI("CustomerInvoicesApi.downloadMainCustomerInvoiceDocument", localVarPath, "GET", new ArrayList<>(), null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
@@ -372,8 +537,8 @@ public class CustomerInvoicesApi {
    * @param id id (required)
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional, default to 0)
-   * @param limit limit (optional, default to 50)
+   * @param offset offset (optional)
+   * @param limit limit (optional)
    * @param fields fields (optional)
    * @return CustomerInvoiceSubLineList
    * @throws ApiException if fails to make API call
@@ -398,8 +563,8 @@ public class CustomerInvoicesApi {
    * @param id id (required)
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional, default to 0)
-   * @param limit limit (optional, default to 50)
+   * @param offset offset (optional)
+   * @param limit limit (optional)
    * @param fields fields (optional)
    * @return ApiResponse&lt;CustomerInvoiceSubLineList&gt;
    * @throws ApiException if fails to make API call
@@ -447,8 +612,8 @@ public class CustomerInvoicesApi {
    * @param id id (required)
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional, default to 0)
-   * @param limit limit (optional, default to 50)
+   * @param offset offset (optional)
+   * @param limit limit (optional)
    * @param fields fields (optional)
    * @return CustomerInvoiceLineList
    * @throws ApiException if fails to make API call
@@ -473,8 +638,8 @@ public class CustomerInvoicesApi {
    * @param id id (required)
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional, default to 0)
-   * @param limit limit (optional, default to 50)
+   * @param offset offset (optional)
+   * @param limit limit (optional)
    * @param fields fields (optional)
    * @return ApiResponse&lt;CustomerInvoiceLineList&gt;
    * @throws ApiException if fails to make API call
@@ -522,8 +687,8 @@ public class CustomerInvoicesApi {
    * @param id id (required)
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional, default to 0)
-   * @param limit limit (optional, default to 50)
+   * @param offset offset (optional)
+   * @param limit limit (optional)
    * @param fields fields (optional)
    * @return DocumentList
    * @throws ApiException if fails to make API call
@@ -548,8 +713,8 @@ public class CustomerInvoicesApi {
    * @param id id (required)
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional, default to 0)
-   * @param limit limit (optional, default to 50)
+   * @param offset offset (optional)
+   * @param limit limit (optional)
    * @param fields fields (optional)
    * @return ApiResponse&lt;DocumentList&gt;
    * @throws ApiException if fails to make API call
@@ -588,6 +753,81 @@ public class CustomerInvoicesApi {
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<DocumentList> localVarReturnType = new GenericType<DocumentList>() {};
     return apiClient.invokeAPI("CustomerInvoicesApi.getCustomerOrderDocuments", localVarPath, "GET", localVarQueryParams, null,
+                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, false);
+  }
+  /**
+   * Get a collection of invoice sending histories for the given customer invoice
+   * 
+   * @param id id (required)
+   * @param filter filter (optional)
+   * @param sort sort (optional)
+   * @param offset offset (optional)
+   * @param limit limit (optional)
+   * @param fields fields (optional)
+   * @return InvoiceSendingHistoList
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> OK </td><td>  * x-total-count - The total number of records <br>  * link - Link to the list <br>  * x-page-count - The total number of pages <br>  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
+       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
+     </table>
+   */
+  public InvoiceSendingHistoList getInvoiceSendingHistories(Long id, String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+    return getInvoiceSendingHistoriesWithHttpInfo(id, filter, sort, offset, limit, fields).getData();
+  }
+
+  /**
+   * Get a collection of invoice sending histories for the given customer invoice
+   * 
+   * @param id id (required)
+   * @param filter filter (optional)
+   * @param sort sort (optional)
+   * @param offset offset (optional)
+   * @param limit limit (optional)
+   * @param fields fields (optional)
+   * @return ApiResponse&lt;InvoiceSendingHistoList&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> OK </td><td>  * x-total-count - The total number of records <br>  * link - Link to the list <br>  * x-page-count - The total number of pages <br>  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
+       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<InvoiceSendingHistoList> getInvoiceSendingHistoriesWithHttpInfo(Long id, String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+    // Check required parameters
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling getInvoiceSendingHistories");
+    }
+
+    // Path parameters
+    String localVarPath = "/customer-invoices/{id}/sending-histories"
+            .replaceAll("\\{id}", apiClient.escapeString(id.toString()));
+
+    // Query parameters
+    List<Pair> localVarQueryParams = new ArrayList<>(
+            apiClient.parameterToPairs("", "filter", filter)
+    );
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "offset", offset));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "fields", fields));
+
+    String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
+    String localVarContentType = apiClient.selectHeaderContentType();
+    String[] localVarAuthNames = new String[] {"api_key", "oauth"};
+    GenericType<InvoiceSendingHistoList> localVarReturnType = new GenericType<InvoiceSendingHistoList>() {};
+    return apiClient.invokeAPI("CustomerInvoicesApi.getInvoiceSendingHistories", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }
@@ -689,13 +929,84 @@ public class CustomerInvoicesApi {
                                localVarAuthNames, localVarReturnType, false);
   }
   /**
+   * Get the e-invoicing state historisations of a customer invoice
+   * 
+   * @param id invoiceId (required)
+   * @param filter filter (optional)
+   * @param sort sort (optional)
+   * @param offset offset (optional)
+   * @param limit limit (optional)
+   * @param fields fields (optional)
+   * @return EInvoicingStateHistoList
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> OK </td><td>  * x-total-count - The total number of records <br>  * link - Link to the list <br>  * x-page-count - The total number of pages <br>  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
+       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
+     </table>
+   */
+  public EInvoicingStateHistoList queryCustomerInvoiceEInvoicingStateHisto(Long id, String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+    return queryCustomerInvoiceEInvoicingStateHistoWithHttpInfo(id, filter, sort, offset, limit, fields).getData();
+  }
+
+  /**
+   * Get the e-invoicing state historisations of a customer invoice
+   * 
+   * @param id invoiceId (required)
+   * @param filter filter (optional)
+   * @param sort sort (optional)
+   * @param offset offset (optional)
+   * @param limit limit (optional)
+   * @param fields fields (optional)
+   * @return ApiResponse&lt;EInvoicingStateHistoList&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> OK </td><td>  * x-total-count - The total number of records <br>  * link - Link to the list <br>  * x-page-count - The total number of pages <br>  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
+       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<EInvoicingStateHistoList> queryCustomerInvoiceEInvoicingStateHistoWithHttpInfo(Long id, String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+    // Check required parameters
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling queryCustomerInvoiceEInvoicingStateHisto");
+    }
+
+    // Path parameters
+    String localVarPath = "/customer-invoices/{id}/einvoicing-state-histos"
+            .replaceAll("\\{id}", apiClient.escapeString(id.toString()));
+
+    // Query parameters
+    List<Pair> localVarQueryParams = new ArrayList<>(
+            apiClient.parameterToPairs("", "filter", filter)
+    );
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "offset", offset));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "fields", fields));
+
+    String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
+    String localVarContentType = apiClient.selectHeaderContentType();
+    String[] localVarAuthNames = new String[] {"api_key", "oauth"};
+    GenericType<EInvoicingStateHistoList> localVarReturnType = new GenericType<EInvoicingStateHistoList>() {};
+    return apiClient.invokeAPI("CustomerInvoicesApi.queryCustomerInvoiceEInvoicingStateHisto", localVarPath, "GET", localVarQueryParams, null,
+                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, false);
+  }
+  /**
    * Get the customer invoice items of a customer invoice
    * 
    * @param id id (required)
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional, default to 0)
-   * @param limit limit (optional, default to 50)
+   * @param offset offset (optional)
+   * @param limit limit (optional)
    * @param fields fields (optional)
    * @return CustomerInvoiceItemList
    * @throws ApiException if fails to make API call
@@ -718,8 +1029,8 @@ public class CustomerInvoicesApi {
    * @param id id (required)
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional, default to 0)
-   * @param limit limit (optional, default to 50)
+   * @param offset offset (optional)
+   * @param limit limit (optional)
    * @param fields fields (optional)
    * @return ApiResponse&lt;CustomerInvoiceItemList&gt;
    * @throws ApiException if fails to make API call
@@ -764,8 +1075,8 @@ public class CustomerInvoicesApi {
    * 
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional, default to 0)
-   * @param limit limit (optional, default to 50)
+   * @param offset offset (optional)
+   * @param limit limit (optional)
    * @param fields fields (optional)
    * @return CustomerInvoiceList
    * @throws ApiException if fails to make API call
@@ -787,8 +1098,8 @@ public class CustomerInvoicesApi {
    * 
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional, default to 0)
-   * @param limit limit (optional, default to 50)
+   * @param offset offset (optional)
+   * @param limit limit (optional)
    * @param fields fields (optional)
    * @return ApiResponse&lt;CustomerInvoiceList&gt;
    * @throws ApiException if fails to make API call
@@ -820,13 +1131,84 @@ public class CustomerInvoicesApi {
                                localVarAuthNames, localVarReturnType, false);
   }
   /**
+   * Get the E-Invoicing flows of a customer invoice
+   * 
+   * @param invoiceId invoiceId (required)
+   * @param filter filter (optional)
+   * @param sort sort (optional)
+   * @param offset offset (optional)
+   * @param limit limit (optional)
+   * @param fields fields (optional)
+   * @return RepartitionByRateList
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> OK </td><td>  * x-total-count - The total number of records <br>  * link - Link to the list <br>  * x-page-count - The total number of pages <br>  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
+       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
+     </table>
+   */
+  public RepartitionByRateList queryEInvoicingFlowByCustomerInvoiceId(Long invoiceId, String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+    return queryEInvoicingFlowByCustomerInvoiceIdWithHttpInfo(invoiceId, filter, sort, offset, limit, fields).getData();
+  }
+
+  /**
+   * Get the E-Invoicing flows of a customer invoice
+   * 
+   * @param invoiceId invoiceId (required)
+   * @param filter filter (optional)
+   * @param sort sort (optional)
+   * @param offset offset (optional)
+   * @param limit limit (optional)
+   * @param fields fields (optional)
+   * @return ApiResponse&lt;RepartitionByRateList&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> OK </td><td>  * x-total-count - The total number of records <br>  * link - Link to the list <br>  * x-page-count - The total number of pages <br>  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
+       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<RepartitionByRateList> queryEInvoicingFlowByCustomerInvoiceIdWithHttpInfo(Long invoiceId, String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+    // Check required parameters
+    if (invoiceId == null) {
+      throw new ApiException(400, "Missing the required parameter 'invoiceId' when calling queryEInvoicingFlowByCustomerInvoiceId");
+    }
+
+    // Path parameters
+    String localVarPath = "/customer-invoices/{invoiceId}/einvoicing-flows"
+            .replaceAll("\\{invoiceId}", apiClient.escapeString(invoiceId.toString()));
+
+    // Query parameters
+    List<Pair> localVarQueryParams = new ArrayList<>(
+            apiClient.parameterToPairs("", "filter", filter)
+    );
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "offset", offset));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "fields", fields));
+
+    String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
+    String localVarContentType = apiClient.selectHeaderContentType();
+    String[] localVarAuthNames = new String[] {"api_key", "oauth"};
+    GenericType<RepartitionByRateList> localVarReturnType = new GenericType<RepartitionByRateList>() {};
+    return apiClient.invokeAPI("CustomerInvoicesApi.queryEInvoicingFlowByCustomerInvoiceId", localVarPath, "GET", localVarQueryParams, null,
+                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, false);
+  }
+  /**
    * Get the E-Invoicing lines of a customer invoice
    * 
    * @param invoiceId invoiceId (required)
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional, default to 0)
-   * @param limit limit (optional, default to 50)
+   * @param offset offset (optional)
+   * @param limit limit (optional)
    * @param fields fields (optional)
    * @return RepartitionByRateList
    * @throws ApiException if fails to make API call
@@ -849,8 +1231,8 @@ public class CustomerInvoicesApi {
    * @param invoiceId invoiceId (required)
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional, default to 0)
-   * @param limit limit (optional, default to 50)
+   * @param offset offset (optional)
+   * @param limit limit (optional)
    * @param fields fields (optional)
    * @return ApiResponse&lt;RepartitionByRateList&gt;
    * @throws ApiException if fails to make API call
@@ -896,8 +1278,8 @@ public class CustomerInvoicesApi {
    * @param id id (required)
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional, default to 0)
-   * @param limit limit (optional, default to 50)
+   * @param offset offset (optional)
+   * @param limit limit (optional)
    * @param fields fields (optional)
    * @return InvoicingGridList
    * @throws ApiException if fails to make API call
@@ -920,8 +1302,8 @@ public class CustomerInvoicesApi {
    * @param id id (required)
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional, default to 0)
-   * @param limit limit (optional, default to 50)
+   * @param offset offset (optional)
+   * @param limit limit (optional)
    * @param fields fields (optional)
    * @return ApiResponse&lt;InvoicingGridList&gt;
    * @throws ApiException if fails to make API call
@@ -962,13 +1344,84 @@ public class CustomerInvoicesApi {
                                localVarAuthNames, localVarReturnType, false);
   }
   /**
+   * Get the invoicing lifecycles of a customer invoice
+   * 
+   * @param id id (required)
+   * @param filter filter (optional)
+   * @param sort sort (optional)
+   * @param offset offset (optional)
+   * @param limit limit (optional)
+   * @param fields fields (optional)
+   * @return Einvoicinglifecycle
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> OK </td><td>  * x-total-count - The total number of records <br>  * link - Link to the list <br>  * x-page-count - The total number of pages <br>  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
+       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
+     </table>
+   */
+  public Einvoicinglifecycle queryInvoicingLifeCycleByInvoiceId(Long id, String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+    return queryInvoicingLifeCycleByInvoiceIdWithHttpInfo(id, filter, sort, offset, limit, fields).getData();
+  }
+
+  /**
+   * Get the invoicing lifecycles of a customer invoice
+   * 
+   * @param id id (required)
+   * @param filter filter (optional)
+   * @param sort sort (optional)
+   * @param offset offset (optional)
+   * @param limit limit (optional)
+   * @param fields fields (optional)
+   * @return ApiResponse&lt;Einvoicinglifecycle&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> OK </td><td>  * x-total-count - The total number of records <br>  * link - Link to the list <br>  * x-page-count - The total number of pages <br>  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
+       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<Einvoicinglifecycle> queryInvoicingLifeCycleByInvoiceIdWithHttpInfo(Long id, String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+    // Check required parameters
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling queryInvoicingLifeCycleByInvoiceId");
+    }
+
+    // Path parameters
+    String localVarPath = "/customer-invoices/{id}/einvoicing-lifecycles"
+            .replaceAll("\\{id}", apiClient.escapeString(id.toString()));
+
+    // Query parameters
+    List<Pair> localVarQueryParams = new ArrayList<>(
+            apiClient.parameterToPairs("", "filter", filter)
+    );
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "offset", offset));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "fields", fields));
+
+    String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
+    String localVarContentType = apiClient.selectHeaderContentType();
+    String[] localVarAuthNames = new String[] {"api_key", "oauth"};
+    GenericType<Einvoicinglifecycle> localVarReturnType = new GenericType<Einvoicinglifecycle>() {};
+    return apiClient.invokeAPI("CustomerInvoicesApi.queryInvoicingLifeCycleByInvoiceId", localVarPath, "GET", localVarQueryParams, null,
+                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, false);
+  }
+  /**
    * Get the previous invoices of a customer invoice
    * 
    * @param id id (required)
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional, default to 0)
-   * @param limit limit (optional, default to 50)
+   * @param offset offset (optional)
+   * @param limit limit (optional)
    * @param fields fields (optional)
    * @return PreviousInvoiceList
    * @throws ApiException if fails to make API call
@@ -991,8 +1444,8 @@ public class CustomerInvoicesApi {
    * @param id id (required)
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional, default to 0)
-   * @param limit limit (optional, default to 50)
+   * @param offset offset (optional)
+   * @param limit limit (optional)
    * @param fields fields (optional)
    * @return ApiResponse&lt;PreviousInvoiceList&gt;
    * @throws ApiException if fails to make API call
@@ -1038,8 +1491,8 @@ public class CustomerInvoicesApi {
    * @param id id (required)
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional, default to 0)
-   * @param limit limit (optional, default to 50)
+   * @param offset offset (optional)
+   * @param limit limit (optional)
    * @param fields fields (optional)
    * @return RepartitionByRateList
    * @throws ApiException if fails to make API call
@@ -1062,8 +1515,8 @@ public class CustomerInvoicesApi {
    * @param id id (required)
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional, default to 0)
-   * @param limit limit (optional, default to 50)
+   * @param offset offset (optional)
+   * @param limit limit (optional)
    * @param fields fields (optional)
    * @return ApiResponse&lt;RepartitionByRateList&gt;
    * @throws ApiException if fails to make API call

@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 
-@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2026-07-16T11:45:50.162960500+02:00[Europe/Paris]")
+@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2026-08-31T14:06:32.368569400+02:00[Europe/Paris]")
 public class ProductsGroupsApi {
   private ApiClient apiClient;
 
@@ -256,8 +256,8 @@ public class ProductsGroupsApi {
    * 
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional, default to 0)
-   * @param limit limit (optional, default to 50)
+   * @param offset offset (optional)
+   * @param limit limit (optional)
    * @param fields fields (optional)
    * @return GroupList
    * @throws ApiException if fails to make API call
@@ -279,8 +279,8 @@ public class ProductsGroupsApi {
    * 
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional, default to 0)
-   * @param limit limit (optional, default to 50)
+   * @param offset offset (optional)
+   * @param limit limit (optional)
    * @param fields fields (optional)
    * @return ApiResponse&lt;GroupList&gt;
    * @throws ApiException if fails to make API call

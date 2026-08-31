@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 
-@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2026-07-16T11:45:50.162960500+02:00[Europe/Paris]")
+@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2026-08-31T14:06:32.368569400+02:00[Europe/Paris]")
 public class EntitiesApi {
   private ApiClient apiClient;
 
@@ -124,8 +124,8 @@ public class EntitiesApi {
    * @param id id (required)
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional, default to 0)
-   * @param limit limit (optional, default to 50)
+   * @param offset offset (optional)
+   * @param limit limit (optional)
    * @param fields fields (optional)
    * @throws ApiException if fails to make API call
    * @http.response.details
@@ -149,8 +149,8 @@ public class EntitiesApi {
    * @param id id (required)
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional, default to 0)
-   * @param limit limit (optional, default to 50)
+   * @param offset offset (optional)
+   * @param limit limit (optional)
    * @param fields fields (optional)
    * @return ApiResponse&lt;Void&gt;
    * @throws ApiException if fails to make API call
@@ -420,8 +420,8 @@ public class EntitiesApi {
    * 
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional, default to 0)
-   * @param limit limit (optional, default to 50)
+   * @param offset offset (optional)
+   * @param limit limit (optional)
    * @param fields fields (optional)
    * @return EntityList
    * @throws ApiException if fails to make API call
@@ -443,8 +443,8 @@ public class EntitiesApi {
    * 
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional, default to 0)
-   * @param limit limit (optional, default to 50)
+   * @param offset offset (optional)
+   * @param limit limit (optional)
    * @param fields fields (optional)
    * @return ApiResponse&lt;EntityList&gt;
    * @throws ApiException if fails to make API call
@@ -816,8 +816,8 @@ public class EntitiesApi {
    * 
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional, default to 0)
-   * @param limit limit (optional, default to 50)
+   * @param offset offset (optional)
+   * @param limit limit (optional)
    * @param fields fields (optional)
    * @return EntityList
    * @throws ApiException if fails to make API call
@@ -839,8 +839,8 @@ public class EntitiesApi {
    * 
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional, default to 0)
-   * @param limit limit (optional, default to 50)
+   * @param offset offset (optional)
+   * @param limit limit (optional)
    * @param fields fields (optional)
    * @return ApiResponse&lt;EntityList&gt;
    * @throws ApiException if fails to make API call
@@ -876,8 +876,8 @@ public class EntitiesApi {
    * 
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional, default to 0)
-   * @param limit limit (optional, default to 50)
+   * @param offset offset (optional)
+   * @param limit limit (optional)
    * @param fields fields (optional)
    * @return EntityList
    * @throws ApiException if fails to make API call
@@ -899,8 +899,8 @@ public class EntitiesApi {
    * 
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional, default to 0)
-   * @param limit limit (optional, default to 50)
+   * @param offset offset (optional)
+   * @param limit limit (optional)
    * @param fields fields (optional)
    * @return ApiResponse&lt;EntityList&gt;
    * @throws ApiException if fails to make API call
@@ -984,8 +984,8 @@ public class EntitiesApi {
    * 
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional, default to 0)
-   * @param limit limit (optional, default to 50)
+   * @param offset offset (optional)
+   * @param limit limit (optional)
    * @param fields fields (optional)
    * @return EntityList
    * @throws ApiException if fails to make API call
@@ -1007,8 +1007,8 @@ public class EntitiesApi {
    * 
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional, default to 0)
-   * @param limit limit (optional, default to 50)
+   * @param offset offset (optional)
+   * @param limit limit (optional)
    * @param fields fields (optional)
    * @return ApiResponse&lt;EntityList&gt;
    * @throws ApiException if fails to make API call
@@ -1044,8 +1044,8 @@ public class EntitiesApi {
    * 
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional, default to 0)
-   * @param limit limit (optional, default to 50)
+   * @param offset offset (optional)
+   * @param limit limit (optional)
    * @param fields fields (optional)
    * @return EntityList
    * @throws ApiException if fails to make API call
@@ -1067,8 +1067,8 @@ public class EntitiesApi {
    * 
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional, default to 0)
-   * @param limit limit (optional, default to 50)
+   * @param offset offset (optional)
+   * @param limit limit (optional)
    * @param fields fields (optional)
    * @return ApiResponse&lt;EntityList&gt;
    * @throws ApiException if fails to make API call
@@ -1104,8 +1104,8 @@ public class EntitiesApi {
    * 
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional, default to 0)
-   * @param limit limit (optional, default to 50)
+   * @param offset offset (optional)
+   * @param limit limit (optional)
    * @param fields fields (optional)
    * @return EntityList
    * @throws ApiException if fails to make API call
@@ -1127,8 +1127,8 @@ public class EntitiesApi {
    * 
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional, default to 0)
-   * @param limit limit (optional, default to 50)
+   * @param offset offset (optional)
+   * @param limit limit (optional)
    * @param fields fields (optional)
    * @return ApiResponse&lt;EntityList&gt;
    * @throws ApiException if fails to make API call

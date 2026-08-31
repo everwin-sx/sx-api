@@ -20,7 +20,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2026-07-16T11:45:50.162960500+02:00[Europe/Paris]")
+@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2026-08-31T14:06:32.368569400+02:00[Europe/Paris]")
 public class CandidatesApi {
   private ApiClient apiClient;
 
@@ -590,8 +590,8 @@ public class CandidatesApi {
    * @param id id (required)
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional, default to 0)
-   * @param limit limit (optional, default to 50)
+   * @param offset offset (optional)
+   * @param limit limit (optional)
    * @param fields fields (optional)
    * @return CommentList
    * @throws ApiException if fails to make API call
@@ -616,8 +616,8 @@ public class CandidatesApi {
    * @param id id (required)
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional, default to 0)
-   * @param limit limit (optional, default to 50)
+   * @param offset offset (optional)
+   * @param limit limit (optional)
    * @param fields fields (optional)
    * @return ApiResponse&lt;CommentList&gt;
    * @throws ApiException if fails to make API call
@@ -734,8 +734,8 @@ public class CandidatesApi {
    * @param id id (required)
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional, default to 0)
-   * @param limit limit (optional, default to 50)
+   * @param offset offset (optional)
+   * @param limit limit (optional)
    * @param fields fields (optional)
    * @return DocumentList
    * @throws ApiException if fails to make API call
@@ -760,8 +760,8 @@ public class CandidatesApi {
    * @param id id (required)
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional, default to 0)
-   * @param limit limit (optional, default to 50)
+   * @param offset offset (optional)
+   * @param limit limit (optional)
    * @param fields fields (optional)
    * @return ApiResponse&lt;DocumentList&gt;
    * @throws ApiException if fails to make API call
@@ -808,8 +808,8 @@ public class CandidatesApi {
    * 
    * @param id id (required)
    * @param sort sort (optional)
-   * @param offset offset (optional, default to 0)
-   * @param limit limit (optional, default to 50)
+   * @param offset offset (optional)
+   * @param limit limit (optional)
    * @param fields fields (optional)
    * @return CandidateSkillList
    * @throws ApiException if fails to make API call
@@ -833,8 +833,8 @@ public class CandidatesApi {
    * 
    * @param id id (required)
    * @param sort sort (optional)
-   * @param offset offset (optional, default to 0)
-   * @param limit limit (optional, default to 50)
+   * @param offset offset (optional)
+   * @param limit limit (optional)
    * @param fields fields (optional)
    * @return ApiResponse&lt;CandidateSkillList&gt;
    * @throws ApiException if fails to make API call
@@ -919,8 +919,8 @@ public class CandidatesApi {
    * 
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional, default to 0)
-   * @param limit limit (optional, default to 50)
+   * @param offset offset (optional)
+   * @param limit limit (optional)
    * @param fields fields (optional)
    * @return CandidateList
    * @throws ApiException if fails to make API call
@@ -942,8 +942,8 @@ public class CandidatesApi {
    * 
    * @param filter filter (optional)
    * @param sort sort (optional)
-   * @param offset offset (optional, default to 0)
-   * @param limit limit (optional, default to 50)
+   * @param offset offset (optional)
+   * @param limit limit (optional)
    * @param fields fields (optional)
    * @return ApiResponse&lt;CandidateList&gt;
    * @throws ApiException if fails to make API call

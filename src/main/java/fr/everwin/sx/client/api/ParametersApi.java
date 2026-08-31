@@ -10,7 +10,7 @@ import jakarta.ws.rs.core.GenericType;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 
-@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2026-07-16T11:45:50.162960500+02:00[Europe/Paris]")
+@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2026-08-31T14:06:32.368569400+02:00[Europe/Paris]")
 public class ParametersApi {
   private ApiClient apiClient;
 
