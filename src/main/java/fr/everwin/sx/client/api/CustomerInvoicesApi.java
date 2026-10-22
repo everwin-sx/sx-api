@@ -15,6 +15,7 @@ import fr.everwin.sx.client.model.Customerinvoice;
 import fr.everwin.sx.client.model.Document;
 import fr.everwin.sx.client.model.DocumentList;
 import fr.everwin.sx.client.model.EInvoicingStateHistoList;
+import fr.everwin.sx.client.model.EinvoicingBilledobjectIdentifier;
 import fr.everwin.sx.client.model.Einvoicinglifecycle;
 import fr.everwin.sx.client.model.FormDataContentDisposition;
 import fr.everwin.sx.client.model.InvoiceSendingHistoList;
@@ -28,7 +29,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2026-08-31T14:06:32.368569400+02:00[Europe/Paris]")
+@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2026-10-22T06:59:37.708402200+02:00[Europe/Paris]")
 public class CustomerInvoicesApi {
   private ApiClient apiClient;
 
@@ -1127,6 +1128,77 @@ public class CustomerInvoicesApi {
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
     GenericType<CustomerInvoiceList> localVarReturnType = new GenericType<CustomerInvoiceList>() {};
     return apiClient.invokeAPI("CustomerInvoicesApi.queryCustomerInvoices", "/customer-invoices", "GET", localVarQueryParams, null,
+                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
+                               localVarAuthNames, localVarReturnType, false);
+  }
+  /**
+   * Get the EInvoicing billed object identifier of a customer invoice
+   * 
+   * @param id id (required)
+   * @param filter filter (optional)
+   * @param sort sort (optional)
+   * @param offset offset (optional)
+   * @param limit limit (optional)
+   * @param fields fields (optional)
+   * @return EinvoicingBilledobjectIdentifier
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> OK </td><td>  * x-total-count - The total number of records <br>  * link - Link to the list <br>  * x-page-count - The total number of pages <br>  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
+       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
+     </table>
+   */
+  public EinvoicingBilledobjectIdentifier queryEInvoicingBilledObjectIdentifierById(Long id, String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+    return queryEInvoicingBilledObjectIdentifierByIdWithHttpInfo(id, filter, sort, offset, limit, fields).getData();
+  }
+
+  /**
+   * Get the EInvoicing billed object identifier of a customer invoice
+   * 
+   * @param id id (required)
+   * @param filter filter (optional)
+   * @param sort sort (optional)
+   * @param offset offset (optional)
+   * @param limit limit (optional)
+   * @param fields fields (optional)
+   * @return ApiResponse&lt;EinvoicingBilledobjectIdentifier&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> OK </td><td>  * x-total-count - The total number of records <br>  * link - Link to the list <br>  * x-page-count - The total number of pages <br>  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
+       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<EinvoicingBilledobjectIdentifier> queryEInvoicingBilledObjectIdentifierByIdWithHttpInfo(Long id, String filter, String sort, Integer offset, Integer limit, String fields) throws ApiException {
+    // Check required parameters
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling queryEInvoicingBilledObjectIdentifierById");
+    }
+
+    // Path parameters
+    String localVarPath = "/customer-invoices/{id}/einvoicing-billedobjidentifiers"
+            .replaceAll("\\{id}", apiClient.escapeString(id.toString()));
+
+    // Query parameters
+    List<Pair> localVarQueryParams = new ArrayList<>(
+            apiClient.parameterToPairs("", "filter", filter)
+    );
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "sort", sort));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "offset", offset));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "limit", limit));
+    localVarQueryParams.addAll(apiClient.parameterToPairs("", "fields", fields));
+
+    String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
+    String localVarContentType = apiClient.selectHeaderContentType();
+    String[] localVarAuthNames = new String[] {"api_key", "oauth"};
+    GenericType<EinvoicingBilledobjectIdentifier> localVarReturnType = new GenericType<EinvoicingBilledobjectIdentifier>() {};
+    return apiClient.invokeAPI("CustomerInvoicesApi.queryEInvoicingBilledObjectIdentifierById", localVarPath, "GET", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, localVarReturnType, false);
   }

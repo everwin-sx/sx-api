@@ -20,7 +20,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2026-08-31T14:06:32.368569400+02:00[Europe/Paris]")
+@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2026-10-22T06:59:37.708402200+02:00[Europe/Paris]")
 public class CustomerOrdersApi {
   private ApiClient apiClient;
 
@@ -491,7 +491,7 @@ public class CustomerOrdersApi {
                                localVarAuthNames, localVarReturnType, false);
   }
   /**
-   * Get a collection of supplier Settlement lines for the given supplier Settlement
+   * Get a collection of customer order lines for the given customer order
    * 
    * @param id id (required)
    * @param filter filter (optional)
@@ -517,7 +517,7 @@ public class CustomerOrdersApi {
   }
 
   /**
-   * Get a collection of supplier Settlement lines for the given supplier Settlement
+   * Get a collection of customer order lines for the given customer order
    * 
    * @param id id (required)
    * @param filter filter (optional)

@@ -8,6 +8,7 @@ import fr.everwin.sx.client.Pair;
 import fr.everwin.sx.client.model.Comment;
 import fr.everwin.sx.client.model.CommentList;
 import fr.everwin.sx.client.model.CustomerAssetList;
+import fr.everwin.sx.client.model.CustomerOrders;
 import fr.everwin.sx.client.model.Customerinvoice;
 import fr.everwin.sx.client.model.Document;
 import fr.everwin.sx.client.model.DocumentList;
@@ -26,7 +27,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2026-08-31T14:06:32.368569400+02:00[Europe/Paris]")
+@jakarta.annotation.Generated(value = "fr.everwin.sx.openapi.codegen.CustomJavaClientCodegen", date = "2026-10-22T06:59:37.708402200+02:00[Europe/Paris]")
 public class ProjectsApi {
   private ApiClient apiClient;
 
@@ -1440,6 +1441,67 @@ public class ProjectsApi {
                                localVarAuthNames, null, false);
   }
   /**
+   * Update invoicing customer orders of the project
+   * 
+   * @param id id (required)
+   * @param customerOrders customerOrderIds (required)
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
+       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
+     </table>
+   */
+  public void invoicingValidate(Long id, CustomerOrders customerOrders) throws ApiException {
+    invoicingValidateWithHttpInfo(id, customerOrders);
+  }
+
+  /**
+   * Update invoicing customer orders of the project
+   * 
+   * @param id id (required)
+   * @param customerOrders customerOrderIds (required)
+   * @return ApiResponse&lt;Void&gt;
+   * @throws ApiException if fails to make API call
+   * @http.response.details
+     <table summary="Response Details" border="1">
+       <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+       <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+       <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+       <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+       <tr><td> 403 </td><td> Forbidden </td><td>  -  </td></tr>
+       <tr><td> 404 </td><td> Not found </td><td>  -  </td></tr>
+       <tr><td> 500 </td><td> Internal Server error </td><td>  -  </td></tr>
+       <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
+     </table>
+   */
+  public ApiResponse<Void> invoicingValidateWithHttpInfo(Long id, CustomerOrders customerOrders) throws ApiException {
+    // Check required parameters
+    if (id == null) {
+      throw new ApiException(400, "Missing the required parameter 'id' when calling invoicingValidate");
+    }
+    if (customerOrders == null) {
+      throw new ApiException(400, "Missing the required parameter 'customerOrders' when calling invoicingValidate");
+    }
+
+    // Path parameters
+    String localVarPath = "/projects/{id}/invoicing/customerorders"
+            .replaceAll("\\{id}", apiClient.escapeString(id.toString()));
+
+    String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
+    String localVarContentType = apiClient.selectHeaderContentType("application/json;charset=utf-8");
+    String[] localVarAuthNames = new String[] {"api_key", "oauth"};
+    return apiClient.invokeAPI("ProjectsApi.invoicingValidate", localVarPath, "POST", new ArrayList<>(), customerOrders,
+                               new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
+                               localVarAuthNames, null, false);
+  }
+  /**
    * Validate invoicing of the project
    * 
    * @param id id (required)
@@ -1457,8 +1519,8 @@ public class ProjectsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public void invoicingValidate(Long id, List<Long> projectLineId) throws ApiException {
-    invoicingValidateWithHttpInfo(id, projectLineId);
+  public void invoicingValidate_0(Long id, List<Long> projectLineId) throws ApiException {
+    invoicingValidate_0WithHttpInfo(id, projectLineId);
   }
 
   /**
@@ -1480,10 +1542,10 @@ public class ProjectsApi {
        <tr><td> 503 </td><td> Service unavailable, try again later </td><td>  -  </td></tr>
      </table>
    */
-  public ApiResponse<Void> invoicingValidateWithHttpInfo(Long id, List<Long> projectLineId) throws ApiException {
+  public ApiResponse<Void> invoicingValidate_0WithHttpInfo(Long id, List<Long> projectLineId) throws ApiException {
     // Check required parameters
     if (id == null) {
-      throw new ApiException(400, "Missing the required parameter 'id' when calling invoicingValidate");
+      throw new ApiException(400, "Missing the required parameter 'id' when calling invoicingValidate_0");
     }
 
     // Path parameters
@@ -1498,7 +1560,7 @@ public class ProjectsApi {
     String localVarAccept = apiClient.selectHeaderAccept("application/json;charset=utf-8");
     String localVarContentType = apiClient.selectHeaderContentType();
     String[] localVarAuthNames = new String[] {"api_key", "oauth"};
-    return apiClient.invokeAPI("ProjectsApi.invoicingValidate", localVarPath, "POST", localVarQueryParams, null,
+    return apiClient.invokeAPI("ProjectsApi.invoicingValidate_0", localVarPath, "POST", localVarQueryParams, null,
                                new LinkedHashMap<>(), new LinkedHashMap<>(), new LinkedHashMap<>(), localVarAccept, localVarContentType,
                                localVarAuthNames, null, false);
   }
